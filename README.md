@@ -1,4 +1,4 @@
-WebMan Amplifier WordPress Plugin
-=================================
+WebMan Amplifier
+================
 
-WebMan Amplifier WordPress Plugin
+WebMan Amplifier WordPress plugin built for WebMan Themes (www.webmandesign.eu)
