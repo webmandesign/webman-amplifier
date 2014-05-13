@@ -1,0 +1,10 @@
+/**
+ * WebMan Shortcode Generator button
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since       1.0
+ */
+
+!function(){tinymce.create("tinymce.plugins.wmShortcodes",{createControl:function(a,b){if("wm_shortcodes_list"==a){var c=b.createSplitButton("wm_shortcodes_list",{title:"Shortcode"});return c.onRenderMenu.add(function(a,b){wmShortcodesArray="undefined"==typeof wmShortcodesArray?[{name:"Shortcode",code:"","class":""}]:wmShortcodesArray;for(var c in wmShortcodesArray)b.add({title:wmShortcodesArray[c].name,id:"wm"+("0"+c).slice(-2)+"_"+wmShortcodesArray[c]["class"],"class":wmShortcodesArray[c]["class"],onclick:function(a){var b=jQuery(a).attr("id");if(b=parseInt(b.substring(2,4)),""!=tinyMCE.activeEditor.selection.getContent()){var c=wmShortcodesArray[b].code.replace("{{content}}",tinyMCE.activeEditor.selection.getContent());tinyMCE.activeEditor.selection.setContent(c)}else{var c=wmShortcodesArray[b].code.replace("{{content}}","TEXT");tinyMCE.activeEditor.selection.setContent(c)}}})}),c}if("wm_shortcodes_list_vc"==a&&"undefined"!=typeof wmShortcodesArrayVC){var c=b.createSplitButton("wm_shortcodes_list_vc",{title:"Shortcode"});return c.onRenderMenu.add(function(a,b){for(var c in wmShortcodesArrayVC)b.add({title:wmShortcodesArrayVC[c].name,id:"wm"+("0"+c).slice(-2)+"_"+wmShortcodesArrayVC[c]["class"],"class":wmShortcodesArrayVC[c]["class"],onclick:function(a){var b=jQuery(a).attr("id");if(b=parseInt(b.substring(2,4)),""!=tinyMCE.activeEditor.selection.getContent()){var c=wmShortcodesArrayVC[b].code.replace("{{content}}",tinyMCE.activeEditor.selection.getContent());tinyMCE.activeEditor.selection.setContent(c)}else{var c=wmShortcodesArrayVC[b].code.replace("{{content}}","TEXT");tinyMCE.activeEditor.selection.setContent(c)}}})}),c}return null},getInfo:function(){return{longname:"Shortcode Generator",author:"WebMan - www.webmandesign.eu",authorurl:"http://www.webmandesign.eu",infourl:"",version:"1.0"}}}),tinymce.PluginManager.add("wmShortcodes",tinymce.plugins.wmShortcodes)}();

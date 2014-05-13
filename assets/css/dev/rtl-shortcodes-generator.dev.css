@@ -1,0 +1,46 @@
+/**
+ * WebMan Shortcodes Generator styles
+ *
+ * RTL languages support
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since       1.0
+ */
+
+
+
+/**
+ * Button dropdown icons
+ */
+
+	div[id*="_wm_shortcodes_list_menu_co"] .mceText,
+	div[id*="_wm_shortcodes_list_vc_menu_co"] .mceText {
+		padding: 0 10px 0 20px !important;
+		text-align: right !important;
+	}
+
+
+
+/**
+ * Button dropdown size
+ */
+
+	div[id*="_wm_shortcodes_list_menu"] {margin-left: -164px}
+	div[id*="_wm_shortcodes_list_vc_menu"] {margin-left: -95px}
+
+
+
+/**
+ * TinyMCE "Styles" dropdown button
+ */
+
+	#menu_content_content_styleselect_menu td span.inline-help {
+		left: auto;
+		right: 0;
+	}
+
+
+
+/* END OF FILE */

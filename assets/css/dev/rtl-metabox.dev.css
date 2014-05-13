@@ -1,0 +1,148 @@
+/**
+ * WebMan Metabox Generator styles
+ *
+ * RTL languages support
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Metabox
+ *
+ * @since       1.0
+ */
+
+
+
+/**
+ * Metabox wrapper
+ */
+
+	.wm-meta-wrap {direction: rtl}
+
+
+
+/**
+ * Tabs
+ */
+
+	/* Meta tabs */
+		.wm-meta-wrap ul.tabs li {
+			float: right;
+			margin: 0 0 0 6px;
+		}
+			.wm-meta-wrap ul.tabs li a img {margin: 0 -5px -.25em .25em}
+
+
+
+/**
+ * Elements and fields
+ */
+
+	/* Basic elements */
+		.wm-meta-wrap label {text-align: right}
+
+	/* Info boxes */
+		.wm-meta-wrap .box .inline-ol li {
+			float: right;
+			margin-left: 1.5em;
+			margin-right: 0;
+		}
+
+	/* Default value button */
+		.wm-meta-wrap .button-default-value {
+			left: 20px;
+			right: auto;
+		}
+			.wm-meta-wrap .repeater-cell .button-default-value {
+				left: 10px;
+				right: auto;
+			}
+			.wm-meta-wrap .button-default-value span {
+				left: auto;
+				right: 20px;
+			}
+
+	/* Form table */
+		.wm-meta-wrap .form-table th {text-align: right}
+		.wm-meta-wrap .option > th {padding: 20px 20px 20px 10px}
+		.wm-meta-wrap .option > td {padding: 20px 10px 20px 50px}
+
+		/* Heading row */
+			.wm-meta-wrap .option-heading th,
+			.wm-meta-wrap .option-heading td {padding: 1em 20px 1em 10px}
+				.wm-meta-wrap .option > td {padding: 20px 10px 20px 50px}
+				.wm-meta-wrap .option-heading.toggle {
+					border-left: 0;
+					border-right: 2px solid #999;
+				}
+					.wm-meta-wrap .option-heading.toggle:hover {
+						border-left: 0;
+						border-right: 6px solid #999;
+					}
+
+	/* Fields */
+		/* Checkboxes and radios */
+			.wm-meta-wrap .checkbox-wrap label,
+			.wm-meta-wrap .radio-wrap label {
+				margin-left: 1em;
+				margin-right: 0;
+			}
+				.wm-meta-wrap .checkbox-wrap label {
+					float: right;
+					padding-left: 36px;
+					padding-right: 0;
+					margin-left: 0;
+				}
+
+			.wm-meta-wrap .checkbox-wrap .description {float: right}
+
+			/* CSS3 checkbox */
+				:root .wm-meta-wrap .checkbox-wrap label {
+					padding-left: 70px;
+					padding-right: 0;
+				}
+				:root .wm-meta-wrap .checkbox-wrap input + label:before {
+					left: auto;
+					right: 220px;
+				}
+
+			/* Custom radio label */
+				.wm-meta-wrap .radio-wrap.custom-label .inline-radio {margin: 0 0 .5em .5em}
+
+		/* Numeric slider */
+			.wm-meta-wrap .option.slider-wrap input {
+				margin-left: 10px;
+				margin-right: 0;
+			}
+
+		/* Image, ZIP file and gallery upload */
+			.wm-meta-wrap .image-wrap input.fieldtype-image,
+			.wm-meta-wrap .zip-wrap input.fieldtype-zip {
+				margin-left: 10px;
+				margin-right: 0;
+			}
+				.wm-meta-wrap .image-preview a,
+				.wm-meta-wrap .gallery-preview a,
+				.wm-meta-wrap .gallery-loading {margin: 4px 0 0 4px}
+
+		/* Repeater field */
+			.wm-meta-wrap .repeater-cell-controls {
+				left: 0;
+				right: auto;
+			}
+				.wm-meta-wrap .repeater-cell-controls .button {
+					float: left;
+					margin-left: 0;
+					margin-right: 4px;
+				}
+					.wm-meta-wrap .repeater-cell .option > td {padding: 10px 10px 10px 60px}
+
+			/* Checkbox field fixes for repeater cell */
+				:root .wm-meta-wrap .repeater-cell .checkbox-wrap input + label:before {
+					left: auto;
+					right: 160px;
+				}
+
+				.wm-meta-wrap .button-add-cell {float: left}
+
+
+
+/* END OF FILE */

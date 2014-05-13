@@ -1,0 +1,126 @@
+/**
+ * WebMan Visual Composer plugin admin styles
+ *
+ * RTL languages support
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since       1.0
+ */
+
+
+
+#wpb_visual_composer .inside,
+.wpb_bootstrap_modals {direction: rtl}
+
+
+
+/**
+ * Main bar
+ */
+
+	.rtl .vc_navbar.subnav-fixed .vc_navbar-inner {
+		padding-left: 0;
+		padding-right: 166px;
+	}
+
+	.rtl .vc_navbar .vc_nav {
+		float: right;
+		margin: 0 0 0 5px;
+	}
+		.rtl #wpb_visual_composer .vc_navbar .vc_dropdown {
+			margin-left: 0;
+			margin-right: 30px;
+		}
+		.rtl #wpb_visual_composer .wpb_templates_ul .wpb_template_li .wpb_remove_template {
+			left: 0;
+			right: auto;
+		}
+
+	.rtl .vc_navbar .vc_nav.pull-right {
+		float: left;
+		margin: 0 5px 0 0;
+	}
+
+
+
+/**
+ * Row
+ */
+
+	.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete {
+		left: 10px;
+		right: auto;
+	}
+		.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete a {
+			margin-left: 0;
+			margin-right: 3px;
+		}
+		.rtl .controls_row .column_delete,
+		.rtl .controls_row .column_clone,
+		.rtl .controls_row .column_edit {float: left}
+
+	.rtl #wpb_visual_composer .controls_row .vc_row_layouts {
+		left: auto;
+		right: 10px;
+	}
+
+	.rtl .vc_row-fluid [class*="vc_span"] {
+		float: right;
+		margin-left: 0;
+		margin-right: 2.127659574%;
+	}
+		.rtl .vc_row-fluid [class*="vc_span"]:first-child {margin-right: 0}
+
+	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-behaviour-section,
+	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wpb_vc_accordion_tab {overflow: hidden}
+
+
+
+/**
+ * Element
+ */
+
+	.rtl .wpb_content_element:hover > div.controls {
+		left: 5px;
+		right: auto;
+	}
+
+	.rtl #wpb_visual_composer .wpb_content_element h4 {margin: 0 0 0 10px !important}
+	.rtl .wpb_content_element .wpb_vc_param_value {
+		margin-left: 0;
+		margin-right: .5em;
+	}
+
+
+
+/**
+ * Modal box
+ */
+
+	.rtl .modal-header .close {
+		left: 10px;
+		right: auto;
+	}
+	.rtl .wpb_bootstrap_modals.in #vc_elements_name_filter {
+		left: 60px;
+		right: auto;
+	}
+
+	.rtl .wpb-content-layouts-container .isotope-filter li {
+		margin-left: 0;
+		margin-right: 10px;
+	}
+
+	.rtl .wpb_el_type_attach_images .gallery_widget_add_images,
+	.rtl .wpb_el_type_attach_image .gallery_widget_add_images {float: right}
+		.rtl .gallery_widget_img_select li,
+		.rtl .gallery_widget_attached_images_list li {
+			float: right;
+			margin: 0 0 5px 5px;
+		}
+
+
+
+/* END OF FILE */

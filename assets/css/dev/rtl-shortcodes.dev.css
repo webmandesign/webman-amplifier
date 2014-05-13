@@ -1,0 +1,299 @@
+/**
+ * WebMan shortcodes
+ *
+ * RTL languages support
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since       1.0
+ */
+
+
+
+/**
+ * Call to action
+ */
+
+	.wm-call-to-action-button {
+		padding-left: 0;
+		padding-right: 2em;
+		text-align: left;
+	}
+
+
+
+/**
+ * Column
+ */
+
+	/* single column (and widget in widget wrappers) basic styles */
+		.wm-column {
+			float: right;
+			margin: 0 0 0 4%;
+		}
+			.wm-column.last,
+			.wm-row > .wm-column:last-child {margin-left: 0 !important}
+
+
+
+/**
+ * Content Module
+ */
+
+	.wm-iconbox-module .wm-content-module-element {
+		padding-left: 0;
+		padding-right: 68px;
+	}
+	.wm-iconbox-module .wm-content-module-element.image {
+		left: auto;
+		right: 0;
+	}
+
+
+
+/**
+ * Dropcap
+ */
+
+	.wm-dropcap {
+		float: right;
+		margin: .25em 0 0 .5em;
+	}
+
+
+
+/**
+ * Item
+ */
+
+	/* item caption */
+		/* accordion / toggle */
+			.wm-accordion .wm-item-title:before {
+				margin-left: .6em;
+				margin-right: 0;
+			}
+
+
+
+/**
+ * List
+ */
+	.wm-icon-list li,
+	li[class*="icon-"] {
+		padding-left: 0;
+		padding-right: 1.5em;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.wm-icon-list li:before,
+	li[class*="icon-"]:before {
+		left: auto;
+		right: 0;
+	}
+
+
+
+/**
+ * Message
+ */
+
+	/* message with icon */
+		.wm-message[class*="icon-"] {
+			padding-left: 0;
+			padding-right: 5.25em;
+		}
+			.wm-message[class*="icon-"]:before {
+				left: 0;
+				right: .5em;
+			}
+
+	/* message sizes */
+		/* s */
+			.wm-message.size-small[class*="icon-"] {
+				padding-left: 0;
+				padding-right: 3.5em;
+			}
+		/* l */
+			.wm-message.size-large[class*="icon-"] {
+				padding-left: 0;
+				padding-right: 6.5em;
+			}
+			.wm-message.size-large[class*="icon-"]:before {
+				left: auto;
+				right: .5em;
+			}
+		/* xl */
+			.wm-message.size-extra-large[class*="icon-"] {
+				padding-left: 0;
+				padding-right: 7.25em;
+			}
+			.wm-message.size-extra-large[class*="icon-"]:before {
+				left: auto;
+				right: .33em;
+			}
+
+
+
+/**
+ * Posts
+ *
+ * + Content Module
+ * + Testimonials
+ */
+
+	/* pagination */
+		.wm-pagination {text-align: left}
+
+	/* posts filter */
+		.wm-filter li {
+			border-left: 0;
+			border-right: 1px solid #e6e6e6;
+		}
+			.wm-filter li:first-child {
+				padding-left: .5em;
+				padding-right: 0;
+			}
+
+
+
+/**
+ * Price
+ */
+
+	.wm-price.no-margin + .wm-price {
+		margin-left: 0;
+		margin-right: -1px;
+	}
+
+	/* price types */
+		/* legend */
+			.wm-price.type-legend:first-child,
+			.wm-price.type-legend:first-child h3.wm-price-caption {text-align: left}
+			.wm-price.type-legend.last,
+			.wm-price.type-legend.last h3.wm-price-caption {text-align: right}
+
+
+
+/**
+ * Progress
+ */
+
+	.wm-progress-bar {
+		left: auto;
+		right: 0;
+	}
+
+
+
+/**
+ * Separator heading
+ */
+
+	.wm-separator-heading .text-holder {padding: 0 0 0 .6em}
+		.wm-separator-heading.text-center .text-holder {padding-right: .6em}
+		.wm-separator-heading.text-right .text-holder {padding: 0 .6em 0 0}
+
+
+
+/**
+ * Tabs
+ */
+
+	.wm-tab-links li {
+		border-left: 1px solid #e6e6e6;
+		border-right: 0;
+	}
+		.wm-tab-links li:first-child {border-right: 1px solid #e6e6e6}
+			.wm-tab-links li [class*="icon-"],
+			.wm-tour-nav span [class*="icon-"],
+			.wm-item-title [class*="icon-"] {
+				margin-left: .5em;
+				margin-right: 0;
+			}
+
+	/* tour tabs */
+		.wm-tour-nav .next {text-align: left}
+
+
+
+/**
+ * Testimonials
+ */
+
+	/* quote source */
+		.wm-testimonials .source img {
+			margin-left: .5em;
+			margin-right: 0;
+		}
+
+
+
+
+
+/**
+ * jQuery plugins
+ */
+
+	/**
+	 * Isotope filter styles
+	 */
+
+		/* Start: Recommended Isotope styles */
+
+			.isotope .isotope-item {
+				-webkit-transition-property: right, top, -webkit-transform, opacity;
+				   -moz-transition-property: right, top, -moz-transform, opacity;
+				    -ms-transition-property: right, top, -ms-transform, opacity;
+				     -o-transition-property: right, top, -o-transform, opacity;
+				        transition-property: right, top, transform, opacity;
+			}
+
+		/* End: Recommended Isotope styles */
+
+
+
+	/**
+	 * BxSlider
+	 */
+
+		/**
+		 * BxSlider v4.0 - Fully loaded, responsive content slider
+		 * http://bxslider.com
+		 *
+		 * Written by: Steven Wanderski, 2012
+		 * http://stevenwanderski.com
+		 * (while drinking Belgian ales and listening to jazz)
+		 *
+		 * CEO and founder of bxCreative, LTD
+		 * http://bxcreative.com
+		 */
+
+			.bx-wrapper {direction: ltr}
+			.bx-wrapper .wm-items-container {direction: rtl}
+
+			.bx-wrapper .wm-column {margin-left: 0}
+
+				.bx-controls {
+					left: 0;
+					right: auto;
+				}
+
+					.bx-controls-direction {float: left}
+						.bx-controls a {
+							float: left;
+							margin-left: 0;
+							margin-right: 5px;
+						}
+							.bx-controls a:before {
+								left: auto;
+								right: 0;
+							}
+
+					.bx-pager {float: right}
+						.bx-pager-item {float: right}
+							.bx-pager-item a {margin: 0 0 0 5px}
+
+
+
+/* END OF FILE */

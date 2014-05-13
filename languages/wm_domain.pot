@@ -1,0 +1,2354 @@
+# Copyright (C) 2014 WebMan - Oliver Juhas
+# This file is distributed under the same license as the WordPress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WebMan Amplifier v1.0\n"
+"Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
+"POT-Creation-Date: 2014-04-25 12:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Oliver Juhas <webmandesigneu@gmail.com>\n"
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "- Select a page -"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "- Select area -"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "- Select item -"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "...or choose a font icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "...or link to a page"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "<strong>Error during processing of your ZIP file.</strong>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "<strong>Using this feature is reserved for administrators. You don't have the necessary permissions.</strong>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "<strong>You are currently on a WordPress multisite installation and ZIP file upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> and add the \"zip\" file extension to the list of allowed <em>\"Upload file types\"</em>."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "<ul><li>List item</li><li>Another list item</li></ul>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "<ul><li>Price feature</li><li>Another price feature</li></ul>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Accordion"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Accordion (allow only one section open)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Accordion / Toggle"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Accordion: Add new section"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Active section"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Active tab"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Add New"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Add New Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Add New Department"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Add New Member"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Add New Position"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Add New Project"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Add New Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Add New Testimonial"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Add New module"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/content_module.php:1
+#: webman-amplifier/includes/shortcodes/renderers/posts.php:1
+#: webman-amplifier/includes/shortcodes/renderers/accordion.php:1
+msgid "All"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/posts.php:1
+msgid "All <span>%s</span>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "All Categories"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "All Departments"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "All Positions"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "All Tags"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "All posts"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Apply directly in projects list"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Area will not be displayed when the number of widgets inserted in it is greater"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Attributes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Audio"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Audio source"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Author"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Autoplay the audio?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Autoplay the video?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Available taxonomy names:"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Background color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Background image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Basic"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Behaviour"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Blue"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Bordered"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Bordered zebra striping"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Box size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Bullet icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button Text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button link target"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Button text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "By name"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "CSS class"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "CSV data separator"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Call to action"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Caption"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Categories"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Center"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/class-wm-amplifier.php:1
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose a Soliloquy slider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose a social icon type"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Choose how to display / apply the link set above"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose one of available icons"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined button color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined button size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined icon size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose predefined table styling"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose preferred box size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose preferred items ordering"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose the post type"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Circle"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Click to display recent available icon classes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Column"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Columns"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/templates/content-shortcode-posts-post.php:60
+msgid "Comments: %s"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Contacts"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/class-metabox.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Content"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Content Module"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Content Modules"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Content Modules Custom Post Permalinks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Content module"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Content text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Count"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Countdown timer"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Creates an icon box"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Custom layout"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Custom link"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Custom link URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Custom link action"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Dashed"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Date"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
+msgid "Days"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Default icon font file was restored."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Default is set to <code>fitRows</code>."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Default price column"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Defaults to H3 heading. You can override it here if required."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Department"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Departments"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Description"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Description text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Description text (HTML)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Description text alignment"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Display link on project page"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Display pagination?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Display the sections filter?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Displays items only from specific category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Displays items only from specific tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Displays items only from specific taxonomy. Set the taxonomy name and taxonomy slug separated with colon."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Divider / Gap"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Divider type"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Dotted"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Double line"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Dropcap"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Edit"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Edit Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Edit Department"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Edit Member"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Edit Module"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Edit Position"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Edit Project"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Edit Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Edit Testimonial"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/fields/images.php:1
+msgid "Edit images"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enable tour behaviour?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enter button text (you can use inline HTML and inline shortcodes)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enter comma separated tags. These will be used to filter through items."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enter optional box title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enter the order number of the section which should be open by default, set \"0\" for all sections closed"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Enter the order number of the tab which should be open by default"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Featured price column"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Features list"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Filter"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Filter / Scroll"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Filter layout"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Filtering"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Font icon color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Fontello ZIP package file"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Fontello ZIP package file URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "For example: \"category\" or \"category:parent-category-slug\"."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "For example: \"category\"."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "For example: \"category:category-slug\"."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Gray"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Green"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "HTML ID"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "HTML content"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "HTML heading tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "HTML tag (heading size)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Half circle"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Heading text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
+msgid "Hours"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Icon (social icon)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Icon Font"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Icon Font File Setup"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Icon Font Setup"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Icon background color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Icon size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "If not set, it will be calculated upon price column color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "If set, the icon will be styled as social icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "If set, the items will be filtered. Set the taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image link URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image link target"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image to display"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Images"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Info"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Insert a number (of pixels)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Insert an unordered list of features"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Insert number between 0 and 100"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Item (Accordion / Tab)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Item (accordion or tab section)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Just Next/Prev button"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Last update time"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Layout"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Leaf left"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Leaf right"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Leave empty to display multiple modules"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Leave empty to display multiple testimonials"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Left"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Line"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "List (icon bullets)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "List item"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "List items (insert unordered list only)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logo"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logo Categories"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logo Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logo category base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logo settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Logos"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Logos Custom Post Permalinks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Loop the audio?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Loop the video?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Margin"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Marker"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Maximum count of widgets in area"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Media"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Message box"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
+msgid "Minutes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Module Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Module Tags"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Module settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Module tag base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/fields/repeater.php:1
+msgid "Move the item"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Multiple display"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Name"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Navigation"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "New Category Title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "New Department Title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "New Position Title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "New Tag Title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Newest first"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Next/Prev buttons are always visible, use CSS to hide them if not needed."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "No"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "No item found"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "No item found in trash"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "No link will be displayed / applied when left blank"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "No member found"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "No members found in trash"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "No module found"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "No module found in trash"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "No project found"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "No project found in trash"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "No testimonial found"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "No testimonials found in trash"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Number of columns"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Number of items to display (use \"-1\" to display all)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/class-metabox.php:1
+msgid "OK, leave without saving..."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Oldest first"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Open in new tab / window"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Open in new window / tab"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Open in popup window (videos and images only)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Open in same window"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional CSS additional classes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional HTML ID"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional ID attribute applied on the HTML container. Can be used as location anchor."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional caption"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional image size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional placeholder image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional price column text color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Optional, if not set, it will be calculated automatically"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Orange"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Order"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "Original image size (full)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Padding"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Pagination"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Parallax scroll speed"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Parent Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Parent Department"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Photo"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Please insert the contents of your CSV file here"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Position"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Positions"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Poster"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Posts"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Posts (custom posts)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Preformatted text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price (pricing table item)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price 1"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price 2"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price 2 content goes here"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price caption"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price column color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Price cost"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Pricing table"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Pricing table legend"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Pricing table: Add new price"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Progress bar"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Progress bar caption"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Progress in %"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project Categories"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project Tags"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project category base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project page"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Project tag base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Projects"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Projects Custom Post Permalinks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Pullquote"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Randomly"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/content_module.php:1
+msgid "Read more"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/templates/content-shortcode-posts-post.php:81
+#: webman-amplifier/templates/content-shortcode-posts.php:63
+msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Red"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Related"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Remove gap between items?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Remove margins between price columns?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/fields/repeater.php:1
+msgid "Remove this item"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Right"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Rounded square"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Row"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Row / Section"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Save changes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Scrolling"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Search"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Search Categories"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Search Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Search Departments"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Search Members"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Search Modules"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Search Positions"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Search Projects"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Search Tags"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Search Testimonials"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Search form"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
+msgid "Seconds"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Section"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Section 1"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Section 2"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Section 2 content goes here"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Select from predefined font icons"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Select widget area"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Separator heading"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represent the time of scroll in miliseconds. Leave empty not to use the scrolling."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Set featured image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/fields/images.php:1
+msgid "Set image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the audio URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the button link URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Set the color of the icon background"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Set the color of the icon font"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces)."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Set the file"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Set the icon as featured image of the post. If the font icon is used instead, it will be prioritized."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the inertia of parallax background moving. For example, value of <code>0.1</code> equals 10% of normal scroll speed."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Set the logo image as the featured image of the post"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the optional image link URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the section title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the separator used in the above CSV data"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Set the testimonial author name here"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the time for the timer"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Set the video URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Should only one section be active at a time or multiple ones?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "Single logo permalink"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Single module permalink"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Single module slug"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Single project permalink"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Single staff permalink"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Single testimonial permalink"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Single testimonial slug"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Slideshow"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Slideshow images size"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Slug"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Social icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Social icon URL"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Social icon relation"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Social icon title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Social link target"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Soliloquy Slider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Space after divider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Space before divider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Speed in miliseconds"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Square"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Staff"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff Custom Post Permalinks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff Member"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff contacts"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff department base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff positions base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Staff settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Structure"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Style this as a social icon?"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Styling"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tab"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tab 1"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tab 2"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tab 2 content goes here"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Table (CSV data)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Table data"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Table type (styling)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tabs"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tabs on left"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tabs on right"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tabs on top"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tabs: Add new tab"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Tags"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Target"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Taxonomy"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Testimonial"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Testimonial author"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Testimonial category base"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Testimonial settings"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Testimonials"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "Testimonials Custom Post Permalinks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Text align"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Text block"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Text color"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "The HTML \"rel\" attribute"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "The ZIP file was processed successfully and new icon font was set up."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "This shortcode can display several post types. Choose the one you want to display."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Thumbnails"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Time"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Title"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "To use the icon font please use this CSS file: %s"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Toggle (allow multiple sections open)"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Update Category"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Update Department"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "Update Position"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "Update Tag"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use \"fontello\" as font name. Otherwise the font icons will not be generated.</strong>"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/class-metabox.php:1
+msgid "Use Visual Composer to create the content."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "Use as icon box"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "Use default"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/fields/texts.php:1
+#: webman-amplifier/includes/metabox/fields/select.php:1
+#: webman-amplifier/includes/metabox/fields/slider.php:1
+#: webman-amplifier/includes/metabox/fields/radio.php:1
+msgid "Use default value"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Use one of <a%s>Isotope</a> layouts."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Use only on single post/custom post pages. Displays items related to recently displayed item through the specific taxonomy. Set the taxonomy name only."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Video"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Video source"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "View"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "View Member"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "View Module"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "View Project"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "View Testimonial"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/metabox/class-metabox.php:1
+msgid "Wait, I need to save my changes first!"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
+msgid "Weeks"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Whitespace"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Widget area"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Will be displayed when mouse hovers the icon"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Yes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/class-wm-amplifier.php:1
+msgid "You are using WebMan Amplifier plugin, which includes the <a href=\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase the Isotope licence</a>."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/modules.php:1
+msgid "You can change the Content Modules custom post type permalinks here."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/logos.php:1
+msgid "You can change the Logos custom post type permalinks here."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/projects.php:1
+msgid "You can change the Projects custom post type permalinks here."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/staff.php:1
+msgid "You can change the Staff custom post type permalinks here."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "You can change the Testimonials custom post type permalinks here."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "You can control the alignment of the optional description text"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/custom-posts/testimonials.php:1
+msgid "You can set the testimonial author photo or logo as post featured image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "You can use HTML and shortcodes here"
+msgstr ""
+
+#. Text in echo
+#: webman-amplifier/includes/metabox/fields/images.php:1
+msgid "You do not have permissions to do this!"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/class-icon-font.php:1
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+msgid "Zebra striping"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "cropped"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/functions.php:1
+msgid "scaled"
+msgstr ""
