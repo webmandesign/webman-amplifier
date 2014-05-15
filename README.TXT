@@ -38,6 +38,10 @@ Don't ever get tied to a theme! **Take all the premium functionality with you** 
 
 Have a translation? Please post it on the [support forum](http://support.webmandesign.eu/ "WebMan Support Forum").
 
+= Plugin Support =
+
+Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum")
+
 == Installation ==
 
 1. Unzip the plugin download file and upload `webman-amplifier` folder into the `/wp-content/plugins/` directory.
@@ -46,7 +50,7 @@ Have a translation? Please post it on the [support forum](http://support.webmand
 
 == Frequently Asked Questions ==
 
-*In case of more questions or issues, please [visit the support forum](http://support.webmandesign.eu/ "WebMan Support Forum")*
+= Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum") =
 
 = How to enable plugin features? =
 
