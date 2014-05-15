@@ -50,7 +50,7 @@ Please note that support is provided on [WebMan Support Forum](http://support.we
 
 == Frequently Asked Questions ==
 
-= Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum") =
+**Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum")**
 
 = How to enable plugin features? =
 
