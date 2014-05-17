@@ -258,9 +258,11 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 				//Helper variables
 					$fonticons = get_option( 'wmamp-icons' );
 					if ( isset( $fonticons['icons_select'] ) ) {
+						$fonticons = wma_ksort( $fonticons['icons_select'] );
+
 						$output  = '<tr class="option-heading toggle"><th colspan="2">' . __( 'Click to display recent available icon classes', 'wm_domain' ) . '</th></tr></tbody><tbody><tr class="option padding-20"><td colspan="2"><div class="box yellow">';
 						$output .= '<ol class="no-inline-ol">';
-						foreach ( $fonticons['icons_select'] as $icon => $name ) {
+						foreach ( $fonticons as $icon => $name ) {
 							$output .= '<li><i class="' . $icon . '" style="display: inline-block; width: 24px; height: 24px; margin: 0 5px; text-align: center; line-height: 24px; font-size: 16px; background: rgba(0,0,0, .1); color: #000; border-radius: 100px;"></i><input type="text" value="' . $icon . '" readonly="readonly" style="display: inline-block; max-width: 50%;" onfocus="this.select();" /></li>';
 						}
 						$output .= '</ol>';

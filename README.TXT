@@ -6,7 +6,7 @@ Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 1.0.5
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 
 == Description ==
 
-**[**WebMan Amplifier**](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
+**[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
 
 This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any of your custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular premium (3rd party) Visual Composer plugin. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
 
@@ -80,6 +80,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.6 =
+* Isotope filter fixed for RTL languages
+* Sorting font icons preview alphabetically
+
+Files changed: `includes/class-icon-font.php, assets/js/dev/shortcode-posts.dev.js, assets/js/shortcode-posts.js`
+
 = 1.0.5 =
 * Added plugin deactivation hook
 * Better hooking into `wma_meta_option()` function
@@ -92,6 +98,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+Isotope filter fixed for RTL languages, sorting font icons preview alphabetically.
 
 = 1.0.5 =
 Added plugin deactivation hook, improved pages and taxonomies sorting, fixed filters names.

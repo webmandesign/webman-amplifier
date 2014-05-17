@@ -27,14 +27,6 @@ jQuery( function() {
 
 		if ( jQuery().isotope ) {
 
-			//Isotope RTL languages support
-				if ( 'rtl' == jQuery( 'html' ).attr( 'dir' ) ) {
-					//Modify Isotope's absolute position method
-					jQuery.Isotope.prototype._positionAbs = function( x, y ) {
-						return { right: x, top: y };
-					}
-				}
-
 			var $filteredContent = jQuery( '.filter-this' );
 
 
@@ -48,6 +40,7 @@ jQuery( function() {
 
 						$this.isotope( {
 							layoutMode        : $this.data( 'layout-mode' ),
+							isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
 							transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
 						} );
 					} );
@@ -66,6 +59,7 @@ jQuery( function() {
 
 					$this.closest( '.wm-posts-wrap' ).find( '.filter-this' ).isotope( {
 							filter            : selector,
+							isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
 							transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
 						} );
 					$this.parent( 'li' ).addClass( 'active' ).siblings( 'li' ).removeClass( 'active' );

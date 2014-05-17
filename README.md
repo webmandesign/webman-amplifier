@@ -65,6 +65,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.6
+* Isotope filter fixed for RTL languages
+* Sorting font icons preview alphabetically
+
+Files changed: `includes/class-icon-font.php, assets/js/dev/shortcode-posts.dev.js, assets/js/shortcode-posts.js`
+
 ### 1.0.5
 * Added plugin deactivation hook
 * Better hooking into `wma_meta_option()` function
