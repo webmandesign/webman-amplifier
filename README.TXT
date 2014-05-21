@@ -4,7 +4,7 @@ Tags: webman, accordion, audio, button, call to action, column, row, section, co
 Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
-Requires at least: 3.6
+Requires at least: 3.8
 Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
@@ -80,6 +80,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.7 =
+* Metabox class improved (not to throw out PHP warning)
+* Metabox function name fixed in `webman-amplifier-setup.php`
+
+Files changed: `includes/metabox/class-metabox.php, webman-amplifier-setup.php`
+
 = 1.0.6 =
 * Isotope filter fixed for RTL languages
 * Sorting font icons preview alphabetically
@@ -98,6 +104,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.7 =
+Metabox class improved.
 
 = 1.0.6 =
 Isotope filter fixed for RTL languages, sorting font icons preview alphabetically.

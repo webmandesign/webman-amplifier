@@ -360,7 +360,7 @@
 				// Meta fields function callback (should return array of fields).
 				// The function callback is used for to use a WordPress globals
 				// available during the metabox rendering, such as $post.
-				'fields' => 'wm_additional_metafields', //In this example we use the function defined previously in this file. Feel free to create your own similar function depending on post settings.
+				'fields' => 'wma_additional_metafields', //In this example we use the function defined previously in this file. Feel free to create your own similar function depending on post settings.
 
 				// Meta box id, unique per meta box.
 				'id' => 'posts' . '-metabox',

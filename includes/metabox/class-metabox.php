@@ -118,7 +118,11 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 */
 			public function __construct( $meta_box ) {
 				//If we are not in admin, exit
-					if ( ! is_admin() || ! isset( $meta_box['fields'] ) ) {
+					if (
+							! is_admin()
+							|| ! isset( $meta_box['fields'] )
+							|| ! is_callable( $meta_box['fields'] )
+						) {
 						return;
 					}
 

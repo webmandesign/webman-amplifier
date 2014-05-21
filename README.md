@@ -65,6 +65,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.7
+* Metabox class improved (not to throw out PHP warning)
+* Metabox function name fixed in `webman-amplifier-setup.php`
+
+Files changed: `includes/metabox/class-metabox.php, webman-amplifier-setup.php`
+
 ### 1.0.6
 * Isotope filter fixed for RTL languages
 * Sorting font icons preview alphabetically
