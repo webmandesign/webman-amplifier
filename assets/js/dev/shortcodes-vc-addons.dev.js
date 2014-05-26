@@ -21,6 +21,8 @@
 
 		/**
 		 * Radio buttons
+		 *
+		 * @since  1.0
 		 */
 
 			_.extend( vc.atts, {
@@ -58,6 +60,8 @@
 
 		/**
 		 * Accordions / tabs behaviour
+		 *
+		 * @since  1.0
 		 */
 
 			window.VcCustomAccordionView = vc.shortcode_view.extend( {
@@ -122,6 +126,8 @@
 
 		/**
 		 * Accordions / tabs sections behaviour
+		 *
+		 * @since  1.0
 		 */
 
 			window.VcCustomAccordionTabView = window.VcColumnView.extend( {
@@ -156,6 +162,8 @@
 
 		/**
 		 * Pricing Table behaviour
+		 *
+		 * @since  1.0
 		 */
 
 			window.VcCustomPricingTableView = vc.shortcode_view.extend( {

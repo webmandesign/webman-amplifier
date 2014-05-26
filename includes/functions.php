@@ -1248,6 +1248,10 @@
 
 	/**
 	 * Get registered image sizes with dimensions
+	 *
+	 * @since   1.0
+	 *
+	 * @return  array Image sizes.
 	 */
 	if ( ! function_exists( 'wma_get_image_sizes' ) ) {
 		function wma_get_image_sizes() {
@@ -1293,5 +1297,23 @@
 				return apply_filters( 'wmhook_wma_get_image_sizes_output', $output );
 		}
 	} // /wma_get_image_sizes
+
+
+
+	/**
+	 * Check if Visual Composer plugin is active
+	 *
+	 * Supports both 4.2+ plugin versions and older too.
+	 *
+	 * @since   1.0.8
+	 *
+	 * @return  boolean
+	 */
+	if ( ! function_exists( 'wma_is_active_vc' ) ) {
+		function wma_is_active_vc() {
+			//Output
+				return apply_filters( 'wmhook_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+		}
+	} // /wma_is_active_vc
 
 ?>

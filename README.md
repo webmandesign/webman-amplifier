@@ -65,6 +65,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.8
+* Added support for Visual Composer v4.2
+* Updated sample setup file
+
+Files changed: `webman-amplifier-setup.php, includes/functions.php, includes/metabox/class-metabox.php, includes/shortcodes/class-shortcodes.php, includes/shortcodes/definitions/definitions.php, includes/shortcodes/vc_addons/shortcodes-admin.php`
+
 ### 1.0.7
 * Metabox class improved (not to throw out PHP warning)
 * Metabox function name fixed in `webman-amplifier-setup.php`

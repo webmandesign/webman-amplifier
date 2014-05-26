@@ -619,14 +619,15 @@ $shortcode_definitions = array(
 		/**
 		 * Collumn
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.8
 		 */
 		'column' => array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Column', 'wm_domain' ),
-						'code'       => ( class_exists( 'WPBakeryVisualComposer' ) ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" class=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" class=""]{{content}}[/PREFIX_column]' ),
+						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" class=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" class=""]{{content}}[/PREFIX_column]' ),
 						'vc_enabled' => false,
 					),
 			),
@@ -1669,14 +1670,15 @@ $shortcode_definitions = array(
 		/**
 		 * Row
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.8
 		 */
 		'row' => array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
 						'name' => __( 'Row', 'wm_domain' ),
-						'code' => ( class_exists( 'WPBakeryVisualComposer' ) ) ? ( '[vc_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
+						'code' => ( wma_is_active_vc() ) ? ( '[vc_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
 						'vc_enabled' => false,
 					),
 			),
@@ -2511,9 +2513,10 @@ $shortcode_definitions = array(
 	/**
 	 * Render certain VC shortcodes even when the plugin is disabled
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.8
 	 */
-	if ( ! class_exists( 'WPBakeryVisualComposer' ) ) {
+	if ( ! wma_is_active_vc() ) {
 
 		/**
 		 * vc_row
@@ -2557,6 +2560,6 @@ $shortcode_definitions = array(
 						),
 				);
 
-	} // /! class_exists( 'WPBakeryVisualComposer' )
+	} // /! wma_is_active_vc()
 
 ?>

@@ -249,9 +249,12 @@
  * to make it easier to create content. If you have any difficulties
  * with Visual Composer plugin, please contact its developers.
  *
- * @link  http://codecanyon.net/item/visual-composer-for-wordpress/242431
+ * @since    1.0
+ * @version  1.0.8
+ *
+ * @link     http://codecanyon.net/item/visual-composer-for-wordpress/242431
  */
-	if ( class_exists( 'WPBakeryVisualComposer' ) ) {
+	if ( function_exists( 'wma_is_active_vc' ) && wma_is_active_vc() ) {
 
 		/**
 		 * Uncomment to remove default Visual Composer elements (shortcodes)
@@ -291,7 +294,7 @@
 
 			add_action( 'admin_init', 'wma_remove_vc_metabox', 10 );
 
-	} // /class WPBakeryVisualComposer check
+	} // /wma_is_active_vc() check
 
 
 

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
  * @author      WebMan
- * @version     1.0
+ * @version     1.0.6
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -251,8 +251,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Render admin form to upload font ZIP file
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.6
+			 * @access   public
 			 */
 			public function admin_form() {
 				//Helper variables

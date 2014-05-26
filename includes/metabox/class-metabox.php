@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since    1.0
  * @package	 WebMan Amplifier
  * @author   WebMan
- * @version  1.0
+ * @version  1.0.8
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -111,8 +111,9 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Constructor
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.7
+			 * @access   public
 			 *
 			 * @param   array $meta_box Definition of the metabox
 			 */
@@ -468,10 +469,11 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Closing the meta box wrapping visual editor
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.8
+			 * @access   public
 			 *
-			 * @param   object $post WordPress post object
+			 * @param    object $post WordPress post object
 			 */
 			public function metabox_end( $post ) {
 				if ( ! $post ) {
@@ -525,7 +527,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							array(
 								'type'      => 'html',
 								'content'   => '<div class="box yellow if-visual-composer-on">' . __( 'Use Visual Composer to create the content.', 'wm_domain' ) . '</div>',
-								'condition' => class_exists( 'WPBakeryVisualComposer' )
+								'condition' => wma_is_active_vc()
 							),
 							array(
 								'type'     => 'section-close', //closing visual editor wrapper

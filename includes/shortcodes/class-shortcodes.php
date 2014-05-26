@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0
+ * @version     1.0.8
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -91,8 +91,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Constructor
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.8
+			 * @access   public
 			 */
 			public function __construct() {
 				$this->setup_globals();
@@ -101,7 +102,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				$this->add_shortcodes();
 
 				//Visual Composer plugin integration
-					if ( class_exists( 'WPBakeryVisualComposer' ) ) {
+					if ( wma_is_active_vc() ) {
 						$this->visual_composer_support();
 					}
 			} // /__construct
@@ -391,8 +392,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Enqueue backend (admin) styles and scripts
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.8
+			 * @access   public
 			 */
 			public function assets_backend() {
 				//Requirements check
@@ -434,7 +436,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
 					if (
 							in_array( $pagenow, apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'generator_vc_admin_pages', $admin_pages ) )
-							&& class_exists( 'WPBakeryVisualComposer' )
+							&& wma_is_active_vc()
 							&& in_array( $post_type, $vc_supported_post_types )
 							&& ! empty( self::$codes['vc_generator'] )
 						) {
@@ -813,10 +815,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Adds Shortcode Generator dropdown button into first row
 			 * of visual editor buttons.
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.8
+			 * @access   public
 			 *
-			 * @param   array $buttons TinyMCE array of first row of buttons.
+			 * @param    array $buttons TinyMCE array of first row of buttons.
 			 */
 			public function mce_buttons_row1( $buttons = array() ) {
 				//Inserting buttons before "content_wp_adv" button
@@ -825,7 +828,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						$add = array_slice( $buttons, 0, $pos );
 						$add[] = '|';
 						$add[] = 'wm_shortcodes_list';
-						if ( class_exists( 'WPBakeryVisualComposer' ) ) {
+						if ( wma_is_active_vc() ) {
 							$add[] = 'wm_shortcodes_list_vc';
 						}
 						$add[] = '|';
@@ -888,7 +891,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					}
 
 				//VC additional shortcodes admin interface
-					$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'shortcodes_admin.php' );
+					$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'shortcodes-admin.php' );
 					require_once( $vc_shortcodes_admin_tweaks );
 
 				//VC setup screen modifications
@@ -1156,8 +1159,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 /**
  * Alter Visual Composer shortcodes output
+ *
+ * @since    1.0
+ * @version  1.0.8
  */
-if ( class_exists( 'WPBakeryVisualComposer' ) ) {
+if ( wma_is_active_vc() ) {
 
 		/**
 		 * Customize vc_row shortcode output
@@ -1267,6 +1273,6 @@ if ( class_exists( 'WPBakeryVisualComposer' ) ) {
 			return vc_theme_vc_column( $atts, $content, 'vc_column_inner' );
 		} // /vc_theme_vc_column_inner
 
-} // /class WPBakeryVisualComposer check
+} // /wma_is_active_vc() check
 
 ?>
