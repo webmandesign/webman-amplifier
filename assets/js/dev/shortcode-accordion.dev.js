@@ -5,6 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
+ * @version     1.0.9
  */
 
 
@@ -17,7 +18,7 @@ jQuery( function() {
 	 * Accordions
 	 */
 
-		var $accordions = jQuery( 'div[data-behaviour="accordion"]' );
+		var $accordions = jQuery( 'div[data-mode="accordion"]' );
 
 		$accordions.find( '.wm-item-content' ).hide();
 
@@ -44,7 +45,7 @@ jQuery( function() {
 	 * Toggles
 	 */
 
-		var $toggles = jQuery( 'div[data-behaviour="toggle"]' );
+		var $toggles = jQuery( 'div[data-mode="toggle"]' );
 
 		$toggles.find( '.wm-item-content' ).hide();
 

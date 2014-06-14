@@ -4,9 +4,10 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.0.9
  *
- * @param  string behaviour
+ * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
  * @param  string bg_color
  * @param  string bg_image
@@ -18,6 +19,7 @@
  * @param  string html
  * @param  string id
  * @param  string margin
+ * @param  string mode
  * @param  string padding
  * @param  string parallax
  */
@@ -41,6 +43,7 @@
 				),
 			'id'            => '',
 			'margin'        => '',
+			'mode'          => '',
 			'padding'       => '',
 			'parallax'      => '',
 		), $shortcode );
@@ -53,15 +56,24 @@
 		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
 	//attributes
 		$atts['attributes'] = array( 'spacer' => '', 'style' => '' );
-	//behaviour
-		$atts['behaviour'] = trim( $atts['behaviour'] );
-		if ( ! $atts['behaviour'] || ! isset( $atts['html'][ $atts['behaviour'] ] ) ) {
-			$atts['behaviour'] = 'default';
+	//mode
+		if ( $atts['behaviour'] && ! $atts['mode'] ) {
+			$atts['mode'] = $atts['behaviour'];
+		}
+		$atts['mode'] = trim( $atts['mode'] );
+		if ( ! $atts['mode'] || ! isset( $atts['html'][ $atts['mode'] ] ) ) {
+			$atts['mode'] = $atts['behaviour'] = 'default';
 		}
 	//bg_color
 		$atts['bg_color'] = trim( $atts['bg_color'] );
 		if ( $atts['bg_color'] ) {
 			$atts['attributes']['style'] .= ' background-color: ' . esc_attr( $atts['bg_color'] ) . ';';
+
+			if ( absint( apply_filters( WMAMP_HOOK_PREFIX . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['bg_color'] ) ) {
+				$atts['class'] .= ' colorset-bg-dark';
+			} else {
+				$atts['class'] .= ' colorset-bg-light';
+			}
 		}
 	//bg_image
 		$atts['bg_image'] = trim( $atts['bg_image'] );
@@ -132,6 +144,12 @@
 		$atts['font_color'] = trim( $atts['font_color'] );
 		if ( $atts['font_color'] ) {
 			$atts['attributes']['style'] .= ' color: ' . esc_attr( $atts['font_color'] ) . ';';
+
+			if ( absint( apply_filters( WMAMP_HOOK_PREFIX . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['font_color'] ) ) {
+				$atts['class'] .= ' colorset-text-dark';
+			} else {
+				$atts['class'] .= ' colorset-text-light';
+			}
 		}
 	//id
 		$atts['id'] = trim( $atts['id'] );
@@ -173,6 +191,6 @@
 			'{class}'      => $atts['class'],
 			'{content}'    => $atts['content'],
 		), $atts );
-	$output = strtr( $atts['html'][ $atts['behaviour'] ], $replacements );
+	$output = strtr( $atts['html'][ $atts['mode'] ], $replacements );
 
 ?>

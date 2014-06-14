@@ -87,6 +87,24 @@
 
 
 
+		/**
+		 * Supported shortcodes version
+		 *
+		 * Use this to declare the plugin version that your theme supports.
+		 * It is possible that in future versions of the plugin there will be more
+		 * shortcodes added and your theme might not suppot them out of the box.
+		 * Setting this version number will make sure only the shortcodes included
+		 * with the specific plugin version will be available to your theme users.
+		 *
+		 * To use this function just uncomment the "add_filter" below
+		 */
+		function wma_supported_shortcode_until_version() {
+			return '1.0.9'; //Set the plugin version your theme supports
+		} // /wma_supported_shortcode_until_version
+		// add_filter( 'wmhook_shortcode_supported_version', 'wma_supported_shortcode_until_version' );
+
+
+
 
 
 /**

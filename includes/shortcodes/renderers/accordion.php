@@ -7,9 +7,10 @@
  * @since  1.0
  *
  * @param  integer active
- * @param  string behaviour
+ * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string class
  * @param  boolean filter
+ * @param  string mode
  */
 
 
@@ -20,6 +21,7 @@
 			'behaviour' => 'accordion',
 			'class'     => '',
 			'filter'    => false,
+			'mode'      => '',
 		), $shortcode );
 	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
@@ -31,10 +33,13 @@
 //Validation
 	//active
 		$atts['active'] = absint( $atts['active'] );
-	//behaviour
-		$atts['behaviour'] = trim( $atts['behaviour'] );
-		if ( ! in_array( $atts['behaviour'], array( 'accordion', 'toggle' ) ) ) {
-			$atts['behaviour'] = 'accordion';
+	//mode
+		if ( $atts['behaviour'] && ! $atts['mode'] ) {
+			$atts['mode'] = $atts['behaviour'];
+		}
+		$atts['mode'] = trim( $atts['mode'] );
+		if ( ! in_array( $atts['mode'], array( 'accordion', 'toggle' ) ) ) {
+			$atts['mode'] = $atts['behaviour'] = 'accordion';
 		}
 	//content
 		$content = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
@@ -82,6 +87,6 @@
 	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts' );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '" data-behaviour="' . $atts['behaviour'] . '">' . $atts['content'] . '</div>';
+	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '" data-mode="' . $atts['mode'] . '">' . $atts['content'] . '</div>';
 
 ?>

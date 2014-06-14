@@ -842,14 +842,15 @@
 	/**
 	 * Modifying input color by changing brightness in response to treshold
 	 *
-	 * @since   1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 *
-	 * @param   string  $color                 Hex color
-	 * @param   integer $dark_light [-255,255] Brightness modification when below treshold (array or number)
-	 * @param   string  $addons                Additional CSS rules (such as "!important")
-	 * @param   integer $treshold [0,255]
+	 * @param    string  $color                 Hex color
+	 * @param    integer $dark_light [-255,255] Brightness modification when below treshold (array or number)
+	 * @param    string  $addons                Additional CSS rules (such as "!important")
+	 * @param    integer $treshold [0,255]
 	 *
-	 * @return  string Hex color.
+	 * @return   string Hex color.
 	 */
 	if ( ! function_exists( 'wma_contrast_color' ) ) {
 		function wma_contrast_color( $color, $dark_light, $addons = '', $treshold = 0 ) {
@@ -862,7 +863,8 @@
 				$output = '';
 
 				if ( ! $treshold ) {
-					$treshold = apply_filters( WMAMP_HOOK_PREFIX . 'wma_contrast_color' . '_default_treshold', 127 );
+					$treshold = apply_filters( WMAMP_HOOK_PREFIX . 'wma_contrast_color' . '_default_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD );
+					$treshold = apply_filters( WMAMP_HOOK_PREFIX . 'color_brightness_treshold', $treshold );
 				}
 
 				if ( is_array( $dark_light ) ) {

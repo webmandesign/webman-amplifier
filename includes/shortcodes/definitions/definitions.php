@@ -7,6 +7,7 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @since       1.0
+ * @version     1.0.9
  */
 
 /**
@@ -14,6 +15,9 @@
 
 	SHORTCODES ARRAY STRUCTURE:
 		'shortcode-name' => array(
+			//Plugin version since when the shortcode is available.
+				'since' => '1.0',
+
 			//Simple shortcode generator settings (array( 'name'=>'', 'code'=>'' )).
 				'generator' => ARRAY,
 
@@ -83,6 +87,7 @@
 	$wm_taxonomies = get_taxonomies( '', 'names' );
 	unset( $wm_taxonomies['nav_menu'] );
 	unset( $wm_taxonomies['link_category'] );
+	asort( $wm_taxonomies );
 	$wm_modules_slugs = wma_posts_array( 'post_name', 'wm_modules' );
 	$wm_modules_tags  = wma_taxonomy_array( array(
 			'all_post_type' => '',
@@ -106,14 +111,16 @@ $shortcode_definitions = array(
 		/**
 		 * Accordion / toggles wrapper
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'accordion' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Accordion / Toggle', 'wm_domain' ),
-						'code'       => '[PREFIX_accordion active="0" behaviour="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]' . __( 'Section 2 content goes here', 'wm_domain' ) . '[/PREFIX_item]<br />[/PREFIX_accordion]',
+						'code'       => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]' . __( 'Section 2 content goes here', 'wm_domain' ) . '[/PREFIX_item]<br />[/PREFIX_accordion]',
 						'vc_enabled' => false,
 					),
 				'vc_plugin'  => array(
@@ -148,10 +155,10 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								20 => array(
-									'heading'     => __( 'Behaviour', 'wm_domain' ),
+									'heading'     => __( 'Mode', 'wm_domain' ),
 									'description' => __( 'Should only one section be active at a time or multiple ones?', 'wm_domain' ),
 									'type'        => 'dropdown',
-									'param_name'  => 'behaviour',
+									'param_name'  => 'mode',
 									'value'       => array(
 											__( 'Accordion (allow only one section open)', 'wm_domain' ) => 'accordion',
 											__( 'Toggle (allow multiple sections open)', 'wm_domain' )   => 'toggle',
@@ -187,9 +194,11 @@ $shortcode_definitions = array(
 		/**
 		 * Tabs wrapper
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'tabs' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -242,7 +251,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								30 => array(
-									'heading'     => __( 'Enable tour behaviour?', 'wm_domain' ),
+									'heading'     => __( 'Enable tour mode?', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
 									'param_name'  => 'tour',
@@ -269,9 +278,11 @@ $shortcode_definitions = array(
 		/**
 		 * Item (can be accordion / toggles or tab item)
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'item' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -336,9 +347,11 @@ $shortcode_definitions = array(
 		/**
 		 * Audio
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'audio' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -402,9 +415,11 @@ $shortcode_definitions = array(
 		/**
 		 * Button
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'button' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -508,9 +523,11 @@ $shortcode_definitions = array(
 		/**
 		 * Call to action
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'call_to_action' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -620,14 +637,15 @@ $shortcode_definitions = array(
 		 * Collumn
 		 *
 		 * @since    1.0
-		 * @version  1.0.8
+		 * @version  1.0.9
 		 */
 		'column' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Column', 'wm_domain' ),
-						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" class=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" class=""]{{content}}[/PREFIX_column]' ),
+						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" class="" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/PREFIX_column]' ),
 						'vc_enabled' => false,
 					),
 			),
@@ -636,9 +654,11 @@ $shortcode_definitions = array(
 		/**
 		 * Countdown timer
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'countdown_timer' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -687,9 +707,11 @@ $shortcode_definitions = array(
 		/**
 		 * Content Module
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'content_module' => array(
+				'since'      => '1.0',
 				'post_type_required' => 'wm_modules',
 				'preprocess'         => false,
 				'style'              => array(),
@@ -877,9 +899,11 @@ $shortcode_definitions = array(
 		/**
 		 * Divider
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'divider' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -930,6 +954,15 @@ $shortcode_definitions = array(
 									'holder'      => 'hidden',
 									'class'       => '',
 								),
+								50 => array(
+									'heading'     => __( 'CSS styles', 'wm_domain' ),
+									'description' => __( 'Any custom CSS style inserted into style HTML attribute', 'wm_domain' ),
+									'type'        => 'textfield',
+									'param_name'  => 'style',
+									'value'       => '',
+									'holder'      => 'hidden',
+									'class'       => '',
+								),
 							)
 					),
 			),
@@ -938,9 +971,11 @@ $shortcode_definitions = array(
 		/**
 		 * Dropcap
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'dropcap' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -954,9 +989,11 @@ $shortcode_definitions = array(
 		/**
 		 * Icon
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'icon' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -1063,9 +1100,11 @@ $shortcode_definitions = array(
 		/**
 		 * Icon list
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'list' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1117,9 +1156,11 @@ $shortcode_definitions = array(
 		/**
 		 * Last update time
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'last_update' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -1133,9 +1174,11 @@ $shortcode_definitions = array(
 		/**
 		 * Marker
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'marker' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -1149,9 +1192,11 @@ $shortcode_definitions = array(
 		/**
 		 * Message box
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'message' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1225,13 +1270,28 @@ $shortcode_definitions = array(
 					),
 			),
 
+	//Meta fields
+		/**
+		 * Meta
+		 *
+		 * @since  1.0.9
+		 */
+		'meta' => array(
+				'since'      => '1.0.9',
+				'preprocess' => false,
+				'style'      => array(),
+				'generator'  => array(),
+			),
+
 	//Posts / custom posts
 		/**
 		 * Posts
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'posts' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1424,9 +1484,11 @@ $shortcode_definitions = array(
 		/**
 		 * Pre
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'pre' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -1440,9 +1502,11 @@ $shortcode_definitions = array(
 		/**
 		 * Pricing table
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'pricing_table' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1500,9 +1564,11 @@ $shortcode_definitions = array(
 		/**
 		 * Price (Prising table item)
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'price' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1592,9 +1658,11 @@ $shortcode_definitions = array(
 		/**
 		 * Progress bar
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'progress' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1648,37 +1716,20 @@ $shortcode_definitions = array(
 					),
 			),
 
-	//Pullquote
-		/**
-		 * Pullquote
-		 *
-		 * @since  1.0
-		 */
-		/*
-		'pullquote' => array(
-				'preprocess' => false,
-				'style'      => array(),
-				'generator'  => array(
-						'name' => __( 'Pullquote', 'wm_domain' ),
-						'code' => '[PREFIX_pullquote align="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['align'] ) ) ) . '" class=""]{{content}}[/PREFIX_pullquote]',
-						'vc_enabled' => true,
-					),
-			),
-		*/
-
 	//Row
 		/**
 		 * Row
 		 *
 		 * @since    1.0
-		 * @version  1.0.8
+		 * @version  1.0.9
 		 */
 		'row' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
 						'name' => __( 'Row', 'wm_domain' ),
-						'code' => ( wma_is_active_vc() ) ? ( '[vc_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row behaviour="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
+						'code' => ( wma_is_active_vc() ) ? ( '[vc_row mode="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row mode="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
 						'vc_enabled' => false,
 					),
 			),
@@ -1687,9 +1738,11 @@ $shortcode_definitions = array(
 		/**
 		 * Search form
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'search_form' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1703,9 +1756,11 @@ $shortcode_definitions = array(
 		/**
 		 * Separator heading
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'separator_heading' => array(
+				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
@@ -1783,9 +1838,11 @@ $shortcode_definitions = array(
 		/**
 		 * Slideshow
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'slideshow' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1856,9 +1913,11 @@ $shortcode_definitions = array(
 		/**
 		 * Table (CSV data)
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'table' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -1916,9 +1975,11 @@ $shortcode_definitions = array(
 		/**
 		 * Testimonials
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'testimonials' => array(
+				'since'              => '1.0',
 				'post_type_required' => 'wm_testimonials',
 				'preprocess'         => false,
 				'style'              => array(),
@@ -2072,9 +2133,11 @@ $shortcode_definitions = array(
 		/**
 		 * Video
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'video' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -2147,9 +2210,11 @@ $shortcode_definitions = array(
 		/**
 		 * Widget area
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9
 		 */
 		'widget_area' => array(
+				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
@@ -2221,9 +2286,11 @@ $shortcode_definitions = array(
 	/**
 	 * Redefine (extend) the vc_row shortcode
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	$shortcode_definitions['vc_row'] = array(
+			'since'     => '1.0',
 			'vc_plugin' => array(
 				'name'                    => __( 'Row / Section', 'wm_domain' ),
 				'base'                    => 'vc_row',
@@ -2264,7 +2331,7 @@ $shortcode_definitions = array(
 						),
 						40 => array(
 							'heading'     => __( 'Text color', 'wm_domain' ),
-							'description' => __( 'Optional, if not set, it will be calculated automatically', 'wm_domain' ),
+							'description' => '',
 							'type'        => 'colorpicker',
 							'param_name'  => 'font_color',
 							'value'       => '',
@@ -2325,9 +2392,11 @@ $shortcode_definitions = array(
 	/**
 	 * Redefine the vc_row_inner shortcode
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	$shortcode_definitions['vc_row_inner'] = array(
+			'since'     => '1.0',
 			'vc_plugin' => array(
 				'name'                    => __( 'Row', 'wm_domain' ),
 				'base'                    => 'vc_row_inner',
@@ -2357,9 +2426,11 @@ $shortcode_definitions = array(
 	/**
 	 * Redefine the vc_column shortcode
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	$shortcode_definitions['vc_column'] = array(
+			'since'     => '1.0',
 			'vc_plugin' => array(
 				'name'            => __( 'Column', 'wm_domain' ),
 				'base'            => 'vc_column',
@@ -2378,6 +2449,137 @@ $shortcode_definitions = array(
 							'holder'      => 'hidden',
 							'class'       => '',
 						),
+						20 => array(
+							'heading'     => __( 'HTML ID', 'wm_domain' ),
+							'description' => __( 'Optional ID attribute applied on the HTML container. Can be used as location anchor.', 'wm_domain' ),
+							'type'        => 'textfield',
+							'param_name'  => 'id',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+						),
+
+						30 => array(
+							'heading'     => __( 'Background color', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'colorpicker',
+							'param_name'  => 'bg_color',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						40 => array(
+							'heading'     => __( 'Text color', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'colorpicker',
+							'param_name'  => 'font_color',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						50 => array(
+							'heading'     => __( 'Background image', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'attach_image',
+							'param_name'  => 'bg_image',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						60 => array(
+							'heading'     => __( 'Padding', 'wm_domain' ),
+							'description' => sprintf( __( 'Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>', 'wm_domain' ), ' href="http://www.w3schools.com/cssref/pr_padding.asp" target="_blank"'),
+							'type'        => 'textfield',
+							'param_name'  => 'padding',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+					)
+			)
+		);
+
+
+
+	/**
+	 * Redefine the vc_column_inner shortcode
+	 *
+	 * @since  1.0.9
+	 */
+	$shortcode_definitions['vc_column_inner'] = array(
+			'since'     => '1.0.9',
+			'vc_plugin' => array(
+				'name'            => __( 'Column', 'wm_domain' ),
+				'base'            => 'vc_column_inner',
+				'class'           => 'wm-shortcode-vc-inner-column',
+				'category'        => __( 'Structure', 'wm_domain' ),
+				'content_element' => false,
+				'is_container'    => true,
+				'js_view'         => 'VcColumnView',
+				'params'          => array(
+						10 => array(
+							'heading'     => __( 'CSS class', 'wm_domain' ),
+							'description' => __( 'Optional CSS additional classes', 'wm_domain' ),
+							'type'        => 'textfield',
+							'param_name'  => 'class',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+						),
+						20 => array(
+							'heading'     => __( 'HTML ID', 'wm_domain' ),
+							'description' => __( 'Optional ID attribute applied on the HTML container. Can be used as location anchor.', 'wm_domain' ),
+							'type'        => 'textfield',
+							'param_name'  => 'id',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+						),
+
+						30 => array(
+							'heading'     => __( 'Background color', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'colorpicker',
+							'param_name'  => 'bg_color',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						40 => array(
+							'heading'     => __( 'Text color', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'colorpicker',
+							'param_name'  => 'font_color',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						50 => array(
+							'heading'     => __( 'Background image', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'attach_image',
+							'param_name'  => 'bg_image',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						60 => array(
+							'heading'     => __( 'Padding', 'wm_domain' ),
+							'description' => sprintf( __( 'Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>', 'wm_domain' ), ' href="http://www.w3schools.com/cssref/pr_padding.asp" target="_blank"'),
+							'type'        => 'textfield',
+							'param_name'  => 'padding',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
 					)
 			)
 		);
@@ -2387,9 +2589,11 @@ $shortcode_definitions = array(
 	/**
 	 * Text block
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	$shortcode_definitions['text_block'] = array(
+			'since'      => '1.0',
 			'vc_plugin'  => array(
 				'name'     => $this->prefix_shortcode_name . __( 'Text block', 'wm_domain' ),
 				'base'     => $this->prefix_shortcode . 'text_block',
@@ -2423,9 +2627,11 @@ $shortcode_definitions = array(
 	/**
 	 * Image
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	$shortcode_definitions['image'] = array(
+			'since'      => '1.0',
 			'vc_plugin'  => array(
 				'name'     => $this->prefix_shortcode_name . __( 'Image', 'wm_domain' ),
 				'base'     => $this->prefix_shortcode . 'image',
@@ -2475,6 +2681,37 @@ $shortcode_definitions = array(
 							'holder'      => 'hidden',
 							'class'       => '',
 						),
+
+						50 => array(
+							'heading'     => __( 'Image width HTML attribute', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'textfield',
+							'param_name'  => 'width',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						60 => array(
+							'heading'     => __( 'Image height HTML attribute', 'wm_domain' ),
+							'description' => '',
+							'type'        => 'textfield',
+							'param_name'  => 'height',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
+						70 => array(
+							'heading'     => __( 'Margin', 'wm_domain' ),
+							'description' => sprintf( __( 'Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>', 'wm_domain' ), ' href="http://www.w3schools.com/cssref/pr_margin.asp" target="_blank"'),
+							'type'        => 'textfield',
+							'param_name'  => 'margin',
+							'value'       => '',
+							'holder'      => 'hidden',
+							'class'       => '',
+							'group'       => __( 'Styling', 'wm_domain' ),
+						),
 					)
 			)
 		);
@@ -2484,10 +2721,12 @@ $shortcode_definitions = array(
 	/**
 	 * Soliloquy
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.0.9
 	 */
 	if ( post_type_exists( 'soliloquy' ) ) {
 		$shortcode_definitions['soliloquy'] = array(
+				'since'      => '1.0',
 				'vc_plugin'  => array(
 					'name'     => __( 'Soliloquy Slider', 'wm_domain' ),
 					'base'     => 'soliloquy',
@@ -2511,10 +2750,40 @@ $shortcode_definitions = array(
 
 
 	/**
+	 * Master Slider
+	 *
+	 * @since  1.0.9
+	 */
+	if ( function_exists( 'get_masterslider_names' ) ) {
+		$shortcode_definitions['masterslider'] = array(
+				'since'      => '1.0.9',
+				'vc_plugin'  => array(
+					'name'     => __( 'Master Slider', 'wm_domain' ),
+					'base'     => 'masterslider',
+					'class'    => 'wm-shortcode-vc-masterslider',
+					'category' => __( 'Media', 'wm_domain' ),
+					'params'   => array(
+							10 => array(
+								'heading'     => __( 'Choose a slider', 'wm_domain' ),
+								'description' => '',
+								'type'        => 'dropdown',
+								'param_name'  => 'id',
+								'value'       => get_masterslider_names( false ),
+								'holder'      => 'hidden',
+								'class'       => '',
+							),
+						)
+				)
+			);
+	}
+
+
+
+	/**
 	 * Render certain VC shortcodes even when the plugin is disabled
 	 *
 	 * @since    1.0
-	 * @version  1.0.8
+	 * @version  1.0.9
 	 */
 	if ( ! wma_is_active_vc() ) {
 
@@ -2522,6 +2791,7 @@ $shortcode_definitions = array(
 		 * vc_row
 		 */
 		$shortcode_definitions['vc_row'] = array(
+				'since'         => '1.0',
 				'custom_prefix' => '',
 				'renderer'      => array(
 						'alias' => 'row',
@@ -2532,6 +2802,7 @@ $shortcode_definitions = array(
 			 * vc_row_inner
 			 */
 			$shortcode_definitions['vc_row_inner'] = array(
+				'since'         => '1.0',
 				'custom_prefix' => '',
 				'renderer'      => array(
 							'alias' => 'row',
@@ -2544,6 +2815,7 @@ $shortcode_definitions = array(
 		 * vc_column
 		 */
 		$shortcode_definitions['vc_column'] = array(
+					'since'         => '1.0',
 					'custom_prefix' => '',
 					'renderer'      => array(
 						'alias' => 'column',
@@ -2554,6 +2826,7 @@ $shortcode_definitions = array(
 			 * vc_column_inner
 			 */
 			$shortcode_definitions['vc_column_inner'] = array(
+					'since'         => '1.0',
 					'custom_prefix' => '',
 					'renderer'      => array(
 							'alias' => 'column',

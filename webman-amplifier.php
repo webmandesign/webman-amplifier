@@ -13,7 +13,7 @@
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         http://www.webmandesign.eu/
  * Description:        Pack of additional WordPress features. Contains shortcodes, additional custom post types, meta box generator, Visual Composer plugin (3rd party) integration, icon font management.
- * Version:            1.0.8
+ * Version:            1.0.9
  * Author:             WebMan - Oliver Juhas
  * Author URI:         http://www.webmandesign.eu/
  * Text Domain:        wm_domain
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 	//Define global constants
 		//Plugin version
-			define( 'WMAMP_VERSION',      '1.0.8' );
+			define( 'WMAMP_VERSION',      '1.0.9' );
 		//Special filter/action hooks prefix
 			define( 'WMAMP_HOOK_PREFIX',  'wmhook_wmamp_' );
 		//Paths
@@ -47,6 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			define( 'WMAMP_INCLUDES_DIR', trailingslashit( WMAMP_PLUGIN_DIR . 'includes' ) );
 			define( 'WMAMP_ASSETS_DIR',   trailingslashit( WMAMP_PLUGIN_DIR . 'assets' )   );
 			define( 'WMAMP_ASSETS_URL',   trailingslashit( WMAMP_PLUGIN_URL . 'assets' )   );
+		//Variable defaults
+			define( 'WMAMP_COLOR_BRIGHTNESS_TRESHOLD', 127 );
 
 	//Define Metabox class constants
 		//Special filter/action hooks prefix

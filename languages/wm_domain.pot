@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WordPress package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WebMan Amplifier v1.0\n"
+"Project-Id-Version: WebMan Amplifier v1.0.9\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2014-04-25 12:00:00+00:00\n"
-"MIME-Version: 1.0\n"
+"POT-Creation-Date: 2014-06-14 12:00:00+00:00\n"
+"MIME-Version: 1.0.9\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: Oliver Juhas <webmandesigneu@gmail.com>\n"
@@ -91,9 +91,9 @@ msgid "Active tab"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Add New"
@@ -143,9 +143,9 @@ msgid "Add New module"
 msgstr ""
 
 #. Text in function
+#: webman-amplifier/includes/shortcodes/renderers/accordion.php:1
 #: webman-amplifier/includes/shortcodes/renderers/content_module.php:1
 #: webman-amplifier/includes/shortcodes/renderers/posts.php:1
-#: webman-amplifier/includes/shortcodes/renderers/accordion.php:1
 msgid "All"
 msgstr ""
 
@@ -183,6 +183,11 @@ msgid "All posts"
 msgstr ""
 
 #. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Any custom CSS style inserted into style HTML attribute"
+msgstr ""
+
+#. Text in function
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Apply directly in projects list"
 msgstr ""
@@ -208,9 +213,9 @@ msgid "Audio source"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Author"
@@ -244,11 +249,6 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
 msgid "Basic"
-msgstr ""
-
-#. Text in function
-#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
-msgid "Behaviour"
 msgstr ""
 
 #. Text in function
@@ -328,6 +328,11 @@ msgstr ""
 
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "CSS styles"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
 msgid "CSV data separator"
 msgstr ""
 
@@ -349,8 +354,8 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
-#: webman-amplifier/includes/custom-posts/projects.php:1
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Category"
 msgstr ""
 
@@ -372,13 +377,18 @@ msgstr ""
 
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Choose a slider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
 msgid "Choose a social icon type"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Choose how to display / apply the link set above"
@@ -529,18 +539,18 @@ msgid "Custom link"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Custom link URL"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Custom link action"
@@ -552,9 +562,9 @@ msgid "Dashed"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Date"
@@ -725,7 +735,7 @@ msgstr ""
 
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
-msgid "Enable tour behaviour?"
+msgid "Enable tour mode?"
 msgstr ""
 
 #. Text in function
@@ -911,9 +921,14 @@ msgstr ""
 
 #. Text in function
 #: webman-amplifier/includes/custom-posts/modules.php:1
-#: webman-amplifier/includes/custom-posts/projects.php:1
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Image"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image height HTML attribute"
 msgstr ""
 
 #. Text in function
@@ -934,6 +949,11 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
 msgid "Image to display"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Image width HTML attribute"
 msgstr ""
 
 #. Text in function
@@ -1090,6 +1110,11 @@ msgstr ""
 
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Master Slider"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
 msgid "Maximum count of widgets in area"
 msgstr ""
 
@@ -1106,6 +1131,11 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/shortcodes/renderers/countdown_timer.php:1
 msgid "Minutes"
+msgstr ""
+
+#. Text in function
+#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+msgid "Mode"
 msgstr ""
 
 #. Text in function
@@ -1139,8 +1169,8 @@ msgid "Multiple display"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 msgid "Name"
 msgstr ""
 
@@ -1198,9 +1228,9 @@ msgid "No item found in trash"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "No link will be displayed / applied when left blank"
@@ -1267,9 +1297,9 @@ msgid "Oldest first"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Open in new tab / window"
@@ -1286,12 +1316,12 @@ msgid "Open in popup window (videos and images only)"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/logos.php:1
 #: webman-amplifier/includes/custom-posts/modules.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/custom-posts/testimonials.php:1
-#: webman-amplifier/includes/custom-posts/projects.php:1
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Open in same window"
 msgstr ""
 
@@ -1333,11 +1363,6 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
 msgid "Optional price column text color"
-msgstr ""
-
-#. Text in function
-#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
-msgid "Optional, if not set, it will be calculated automatically"
 msgstr ""
 
 #. Text in function
@@ -1547,11 +1572,6 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Projects Custom Post Permalinks"
-msgstr ""
-
-#. Text in function
-#: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
-msgid "Pullquote"
 msgstr ""
 
 #. Text in function
@@ -1937,8 +1957,8 @@ msgid "Square"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/staff.php:1
 #: webman-amplifier/includes/shortcodes/class-shortcodes.php:1
+#: webman-amplifier/includes/custom-posts/staff.php:1
 msgid "Staff"
 msgstr ""
 
@@ -2048,8 +2068,8 @@ msgid "Tabs: Add new tab"
 msgstr ""
 
 #. Text in function
-#: webman-amplifier/includes/custom-posts/projects.php:1
 #: webman-amplifier/includes/shortcodes/definitions/definitions.php:1
+#: webman-amplifier/includes/custom-posts/projects.php:1
 msgid "Tag"
 msgstr ""
 
@@ -2203,8 +2223,8 @@ msgstr ""
 #. Text in function
 #: webman-amplifier/includes/metabox/fields/texts.php:1
 #: webman-amplifier/includes/metabox/fields/select.php:1
-#: webman-amplifier/includes/metabox/fields/slider.php:1
 #: webman-amplifier/includes/metabox/fields/radio.php:1
+#: webman-amplifier/includes/metabox/fields/slider.php:1
 msgid "Use default value"
 msgstr ""
 

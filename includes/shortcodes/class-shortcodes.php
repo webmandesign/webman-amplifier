@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0.8
+ * @version     1.0.9
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -129,8 +129,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Shortcodes globals setup
 			 *
-			 * @since   1.0
-			 * @access  private
+			 * @since    1.0
+			 * @version  1.0.9
+			 * @access   private
 			 */
 			private function setup_globals() {
 				//Helper variables
@@ -245,6 +246,15 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								continue;
 							}
 
+						//Check if shortcode supported by the theme
+							if (
+									isset( $definition['since'] )
+									&& $definition['since']
+									&& version_compare( apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'supported_version', WMAMP_VERSION ), $definition['since'], '<' )
+								) {
+								continue;
+							}
+
 						//All shortcodes will be processed globally (except [pre] and [raw])
 							if ( ! in_array( $code, array( 'pre', 'raw' ) ) ) {
 								if (
@@ -342,19 +352,19 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					}
 
 				//Scripts
-					wp_register_script( 'wm-imagesloaded',            $this->assets_url . 'js/plugins/imagesloaded.min.js',        array(),           $this->version, true );
-					wp_register_script( 'wm-isotope',                 $this->assets_url . 'js/plugins/isotope.pkgd.min.js',        array(),           $this->version, true );
-					wp_register_script( 'wm-jquery-bxslider',         $this->assets_url . 'js/plugins/jquery.bxslider.min.js',     array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-jquery-lwtCountdown',     $this->assets_url . 'js/plugins/jquery.lwtCountdown.min.js', array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-jquery-owl-carousel',     $this->assets_url . 'js/plugins/owl.carousel' . $rtl . '.min.js',        array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-jquery-parallax',         $this->assets_url . 'js/plugins/jquery.parallax.min.js',     array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-accordion',    $this->assets_url . 'js/shortcode-accordion.js',             array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-ie',           $this->assets_url . 'js/shortcodes-ie.js',                   array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-parallax',     $this->assets_url . 'js/shortcode-parallax.js',              array( 'jquery', 'wm-jquery-parallax' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-posts',        $this->assets_url . 'js/shortcode-posts.js',                 array( 'jquery', 'wm-imagesloaded' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-slideshow',    $this->assets_url . 'js/shortcode-slideshow.js',             array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-tabs',         $this->assets_url . 'js/shortcode-tabs.js',                  array( 'jquery' ), $this->version, true );
-					wp_register_script( 'wm-shortcodes-vc-addon',     $this->assets_url . 'js/shortcodes-vc-addons.js',            array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views', 'isotope' ), $this->version, true );
+					wp_register_script( 'wm-imagesloaded',            $this->assets_url . 'js/plugins/imagesloaded.min.js',             array(),                                 $this->version, true );
+					wp_register_script( 'wm-isotope',                 $this->assets_url . 'js/plugins/isotope.pkgd.min.js',             array(),                                 $this->version, true );
+					wp_register_script( 'wm-jquery-bxslider',         $this->assets_url . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-jquery-lwtCountdown',     $this->assets_url . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-jquery-owl-carousel',     $this->assets_url . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-jquery-parallax',         $this->assets_url . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-shortcodes-accordion',    $this->assets_url . 'js/shortcode-accordion.js',                  array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-shortcodes-ie',           $this->assets_url . 'js/shortcodes-ie.js',                        array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-shortcodes-parallax',     $this->assets_url . 'js/shortcode-parallax.js',                   array( 'jquery', 'wm-jquery-parallax' ), $this->version, true );
+					wp_register_script( 'wm-shortcodes-posts',        $this->assets_url . 'js/shortcode-posts.js',                      array( 'jquery', 'wm-imagesloaded' ),    $this->version, true );
+					wp_register_script( 'wm-shortcodes-slideshow',    $this->assets_url . 'js/shortcode-slideshow.js',                  array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-shortcodes-tabs',         $this->assets_url . 'js/shortcode-tabs.js',                       array( 'jquery' ),                       $this->version, true );
+					wp_register_script( 'wm-shortcodes-vc-addon',     $this->assets_url . 'js/shortcodes-vc-addons.js',                 array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views', 'isotope' ), $this->version, true );
 			} // /assets_register
 
 
