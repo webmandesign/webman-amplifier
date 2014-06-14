@@ -65,6 +65,19 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.9
+* Added Master Slider shortcode support for Visual Composer
+* Added a shortcode to display a custom post meta field value `[wm_meta field="wmamp-meta-field" custom"1/0" /]`
+* Added option to define the supported version of plugin for themes
+* Column shortcode styling improvements
+* Divider shortcode styling option added for Visual Composer
+* Taxonomies list sorted by name in shortcodes descriptions in Visual Composer
+* Visual Composer inner column support improved
+* Visual Composer Image shortcode styling options added
+* Localization texts changed
+
+Files changed: `webman-amplifier.php, webman-amplifier-setup.php, assets/js/shortcode-accordion.js, assets/js/dev/shortcode-accordion.dev.js, includes/functions.php, includes/shortcodes/class-shortcodes.php, includes/shortcodes/definitions/definitions.php, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/column.php, includes/shortcodes/renderers/image.php, includes/shortcodes/renderers/meta.php, includes/shortcodes/renderers/row.php, languages/wm_domain.php`
+
 ### 1.0.8
 * Added support for Visual Composer v4.2
 * Updated sample setup file
