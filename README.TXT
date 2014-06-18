@@ -80,6 +80,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.1 =
+* Fix the issue with admin notice
+
+Files changed: `class-wm-amplifier.php`
+
 = 1.0.9 =
 * Added Master Slider shortcode support for Visual Composer
 * Added a shortcode to display a custom post meta field value `[wm_meta field="wmamp-meta-field" custom"1/0" /]`
@@ -123,6 +128,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.1 =
+Fixes the issue with admin notice error.
 
 = 1.0.9 =
 Added MasterSlider support, shortcodes improvements. Added a shortcode to display a custom post meta field value.

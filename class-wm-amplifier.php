@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * Contains the main functions for WebMan Amplifier.
  *
- * @version	 1.0
  * @since    1.0
+ * @version	 1.0.9.1
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -201,8 +201,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Setup the default hooks and actions
 			 *
-			 * @since   1.0
-			 * @access  private
+			 * @since    1.0
+			 * @version  1.0.9.1
+			 * @access   private
 			 */
 			private function setup_actions() {
 				//Array of bbPress core actions
@@ -212,13 +213,15 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						'load_textdomain',     //Load textdomain
 						'register_shortcodes', //Register shortcodes
 						'register_icons',      //Register icon font
-						'admin_notices',       //Display admin notices
 					);
 
-				//Add the actions
+				//Add actions
 					foreach( $actions as $class_action ) {
 						add_action( 'init', array( $this, $class_action ), 10 );
 					}
+					add_action( 'admin_notices', array( $this, 'admin_notices' ), 10 );
+
+				//Add filters
 					add_filter( 'request', array( $this, 'post_types_in_feed' ) );
 
 				//Loaded action
