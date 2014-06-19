@@ -5,6 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
+ * @version     1.0.9.2
  */
 
 
@@ -27,7 +28,7 @@
 						id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesHelper[i]['class'],
 						class   : wmShortcodesHelper[i]['class'],
 						onclick : function( wholeMenuButton ) {
-								var menuId = wholeMenuButton.srcElement.id;
+								var menuId = wholeMenuButton.target.id;
 
 								menuId = parseInt( menuId.substring( 2, 4 ) );
 
@@ -58,7 +59,7 @@
 							id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesArrayVC[i]['class'],
 							class   : wmShortcodesArrayVC[i]['class'],
 							onclick : function( wholeMenuButton ) {
-									var menuId = wholeMenuButton.srcElement.id;
+									var menuId = wholeMenuButton.target.id;
 
 									menuId = parseInt( menuId.substring( 2, 4 ) );
 

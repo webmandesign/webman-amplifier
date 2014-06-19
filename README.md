@@ -65,6 +65,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.9.2
+* Fix the Shortcode Generator issue in Firefox browser
+
+Files changed: `assets/js/dev/shortcodes-button.dev.js, assets/js/shortcodes-button.js`
+
 ### 1.0.9.1
 * Fix the issue with admin notice
 
