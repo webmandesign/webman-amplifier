@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
  * @author      WebMan
- * @version     1.0.6
+ * @version     1.0.9.3
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -222,18 +222,22 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Add admin menu element
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.3
+			 * @access   public
 			 */
 			public function admin_menu() {
-				//Check that the user is allowed to edit options
-					if ( ! current_user_can( $this->capability ) ) {
-						wp_die( __( 'You do not have sufficient permissions to access this page.', 'wm_domain' ) );
-					}
-
 				//Saving fields from theme options form
-					if ( isset( $_GET['page'] ) && 'icon-font' == $_GET['page'] ) {
-						$this->add_zipped_font();
+					if (
+							isset( $_GET['page'] )
+							&& 'icon-font' == $_GET['page']
+						) {
+						//Check if the user is allowed to edit options
+							if ( ! current_user_can( $this->capability ) ) {
+								wp_die( __( 'You do not have sufficient permissions to access this page.', 'wm_domain' ) );
+							} else {
+								$this->add_zipped_font();
+							}
 					}
 
 				//Adding admin menu item under "Appearance" menu

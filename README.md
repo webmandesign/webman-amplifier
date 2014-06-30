@@ -65,6 +65,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.9.3
+* Fixed the non-admin user lockout
+
+Files changed: `includes/class-icon-font.php`
+
 ### 1.0.9.2
 * Fix the Shortcode Generator issue in Firefox browser
 

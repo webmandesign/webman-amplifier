@@ -80,6 +80,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.3 =
+* Fixed the non-admin user lockout
+
+Files changed: `includes/class-icon-font.php`
+
 = 1.0.9.2 =
 * Fix the Shortcode Generator issue in Firefox browser
 
@@ -133,6 +138,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.3 =
+Fixes the non-admin user lockout.
 
 = 1.0.9.2 =
 Fixes Shortcode Generator issue in Firefox browser.
