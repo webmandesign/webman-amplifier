@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Contains the main functions for WebMan Amplifier.
  *
  * @since    1.0
- * @version	 1.0.9.1
+ * @version	 1.0.9.4
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -202,24 +202,24 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.1
+			 * @version  1.0.9.4
 			 * @access   private
 			 */
 			private function setup_actions() {
-				//Array of bbPress core actions
+				//Array of core actions
 					$actions = array(
-						'save_permalinks',     //Setup the default theme compat
-						'register_post_types', //Register post types
-						'load_textdomain',     //Load textdomain
-						'register_shortcodes', //Register shortcodes
-						'register_icons',      //Register icon font
+						'save_permalinks'     => 'init',          //Save custom permalinks
+						'register_post_types' => 'init',          //Register post types
+						'load_textdomain'     => 'init',          //Load textdomain
+						'register_shortcodes' => 'init',          //Register shortcodes
+						'register_icons'      => 'init',          //Register icon font
+						'admin_notices'       => 'admin_notices', //Display admin notices
 					);
 
 				//Add actions
-					foreach( $actions as $class_action ) {
-						add_action( 'init', array( $this, $class_action ), 10 );
+					foreach( $actions as $class_action => $hook ) {
+						add_action( $hook, array( $this, $class_action ), 10 );
 					}
-					add_action( 'admin_notices', array( $this, 'admin_notices' ), 10 );
 
 				//Add filters
 					add_filter( 'request', array( $this, 'post_types_in_feed' ) );

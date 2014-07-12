@@ -1225,25 +1225,27 @@
 	 *
 	 * @param  string $content
 	 */
-	function wma_minify_html( $content ) {
-		//Requirements check
-			if (
-					( isset( $_GET['wma_minify_html'] ) && ! $_GET['wma_minify_html'] )
-					|| ! apply_filters( 'wmhook_wma_minify_html_enabled', true )
-				) {
-				return $content;
-			}
+	if ( ! function_exists( 'wma_minify_html' ) ) {
+		function wma_minify_html( $content ) {
+			//Requirements check
+				if (
+						( isset( $_GET['wma_minify_html'] ) && ! $_GET['wma_minify_html'] )
+						|| ! apply_filters( 'wmhook_wma_minify_html_enabled', true )
+					) {
+					return $content;
+				}
 
-		//Preparing output
-			$replacements = array(
-					'/\>[^\S ]+/s' => '>',   //strip whitespaces after tags, except space
-					'/[^\S ]+\</s' => '<',   //strip whitespaces before tags, except space
-					'/(\s)+/s'     => '\\1', //shorten multiple whitespace sequences
-				);
-			$content = preg_replace( array_keys( $replacements ), $replacements, $content );
+			//Preparing output
+				$replacements = array(
+						'/\>[^\S ]+/s' => '>',   //strip whitespaces after tags, except space
+						'/[^\S ]+\</s' => '<',   //strip whitespaces before tags, except space
+						'/(\s)+/s'     => '\\1', //shorten multiple whitespace sequences
+					);
+				$content = preg_replace( array_keys( $replacements ), $replacements, $content );
 
-		//Output
-			return apply_filters( 'wmhook_wma_minify_html_output', $content );
+			//Output
+				return apply_filters( 'wmhook_wma_minify_html_output', $content );
+		}
 	} // /wma_minify_html
 
 

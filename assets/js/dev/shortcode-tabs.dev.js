@@ -5,6 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
+ * @version     1.0.9.4
  */
 
 
@@ -36,7 +37,7 @@ jQuery( function() {
 				var $this = jQuery( this );
 
 				$this.parent().addClass( 'active' ).siblings().removeClass( 'active' );
-				jQuery( $this.data( 'tab' ) ).show().siblings( '.wm-item' ).hide();
+				jQuery( $this.data( 'tab' ) ).show().addClass( 'active' ).siblings( '.wm-item' ).removeClass( 'active' ).hide();
 			} );
 
 
@@ -95,7 +96,7 @@ jQuery( function() {
 				    nextTourTab = $parentWrap.find( '.wm-tab-items-' + targetID.substring( 1 ) ).next( 'li' );
 
 				jQuery( '.wm-tab-items-' + targetID.substring( 1 ) ).addClass( 'active' ).siblings( 'li' ).removeClass( 'active' );
-				jQuery( targetID ).show().siblings( '.wm-item' ).hide();
+				jQuery( targetID ).show().addClass( 'active' ).siblings( '.wm-item' ).removeClass( 'active' ).hide();
 
 				if ( prevTourTab.length ) {
 					$parentWrap.find( '.wm-tour-nav .prev' ).html( prevTourTab.html() );

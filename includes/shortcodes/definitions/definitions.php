@@ -7,7 +7,7 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @since       1.0
- * @version     1.0.9
+ * @version     1.0.9.4
  */
 
 /**
@@ -990,7 +990,7 @@ $shortcode_definitions = array(
 		 * Icon
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.4
 		 */
 		'icon' => array(
 				'since'      => '1.0',
@@ -1088,6 +1088,15 @@ $shortcode_definitions = array(
 									'description' => __( 'Optional CSS additional classes', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'class',
+									'value'       => '',
+									'holder'      => 'hidden',
+									'class'       => '',
+								),
+								90 => array(
+									'heading'     => __( 'CSS styles', 'wm_domain' ),
+									'description' => __( 'Any custom CSS style inserted into style HTML attribute', 'wm_domain' ),
+									'type'        => 'textfield',
+									'param_name'  => 'style',
 									'value'       => '',
 									'holder'      => 'hidden',
 									'class'       => '',

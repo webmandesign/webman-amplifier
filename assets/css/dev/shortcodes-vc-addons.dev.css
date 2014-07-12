@@ -5,6 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
+ * @version     1.0.9.4
  */
 
 
@@ -419,6 +420,15 @@
 			padding: 0;
 			margin: 0;
 		}
+			.wpb_bootstrap_modals.in .wpb_edit_form_elements .vc-tabs .ui-tabs-nav {
+				padding: 0 14px;
+				background: #1E8CBE;
+				-webkit-box-sizing: border-box;
+				   -moz-box-sizing: border-box;
+				        box-sizing: border-box;
+			}
+				.wpb_bootstrap_modals.in .wpb_edit_form_elements .vc-tabs .ui-tabs-nav a {color: #fff}
+				.wpb_bootstrap_modals.in .wpb_edit_form_elements .vc-tabs .ui-tabs-nav .ui-state-active a {color: #444}
 		.wpb_bootstrap_modals.in .modal-body .wpb_edit_form_elements .vc_row-fluid {
 			padding: 10px 20px;
 			margin: 0;

@@ -65,6 +65,14 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.9.4
+* Added `style` attribute to Icon shortcode
+* Fixed applying `active` class on active tab content
+* Visual Composer element screen tabs redesigned
+* Setup actions updated
+
+Files changed: `class-wm-amplifier.php, assets/css/shortcodes-vc-addons.css, assets/css/dev/shortcodes-vc-addons.dev.css, assets/js/shortcode-tabs.js, assets/js/dev/shortcode-tabs.dev.js, includes/shortcodes/definitions/definitions.php, includes/shortcodes/renderes/icon.php`
+
 ### 1.0.9.3
 * Fixed the non-admin user lockout
 

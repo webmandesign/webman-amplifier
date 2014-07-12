@@ -74,11 +74,19 @@ First, plese note that custom translation files inside the plugin's `languages` 
 
 == Other Notes ==
 
-= Isotope =
+= Isotope Licensing =
 
 Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
 
 == Changelog ==
+
+= 1.0.9.4 =
+* Added `style` attribute to Icon shortcode
+* Fixed applying `active` class on active tab content
+* Visual Composer element screen tabs redesigned
+* Setup actions updated
+
+Files changed: `class-wm-amplifier.php, assets/css/shortcodes-vc-addons.css, assets/css/dev/shortcodes-vc-addons.dev.css, assets/js/shortcode-tabs.js, assets/js/dev/shortcode-tabs.dev.js, includes/shortcodes/definitions/definitions.php, includes/shortcodes/renderes/icon.php`
 
 = 1.0.9.3 =
 * Fixed the non-admin user lockout
@@ -138,6 +146,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.4 =
+Added `style` attribute to Icon shortcode, Tabs shortcode fixes, admin and code improvements.
 
 = 1.0.9.3 =
 Fixes the non-admin user lockout.
