@@ -1,10 +1,13 @@
 /**
  * WebMan Visual Composer plugin additional scripts
  *
+ * Compatible also with Visual Composer v4.3+
+ *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
  * @since       1.0
+ * @version     1.0.9.5
  */
 
 
@@ -31,7 +34,7 @@
 						var arr       = [],
 						    new_value = '';
 
-						$( 'input[name=' + param.param_name + ']', this.$content ).each( function(index ) {
+						$( 'input[name=' + param.param_name + ']', this.$content ).each( function( index ) {
 							var self = $( this );
 							if ( self.is( ':checked' ) ) {
 								arr.push( self.attr( 'value' ) );
@@ -61,26 +64,27 @@
 		/**
 		 * Accordions / tabs behaviour
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9.5
 		 */
 
 			window.VcCustomAccordionView = vc.shortcode_view.extend( {
 				adding_new_tab : false,
 				events : {
-					'click .add_tab'                   : 'addTab',
-					'click > .controls .column_delete' : 'deleteShortcode',
-					'click > .controls .column_edit'   : 'editElement',
-					'click > .controls .column_clone'  : 'clone'
+					'click .add_tab'                                                                                         : 'addTab',
+					'click > .controls .column_delete, > .vc_controls .column_delete, > .vc_controls .vc_control-btn-delete' : 'deleteShortcode',
+					'click > .controls .column_edit, > .vc_controls .column_edit, > .vc_controls .vc_control-btn-edit'       : 'editElement',
+					'click > .controls .column_clone, > .vc_controls .column_clone, > .vc_controls .vc_control-btn-clone'    : 'clone'
 				},
 				render : function () {
 					window.VcCustomAccordionView.__super__.render.call( this );
 					this.$content.sortable( {
-						axis   : "y",
-						handle : "h3",
+						axis   : 'y',
+						handle : 'h3',
 						stop   : function ( event, ui ) {
 							// IE doesn't register the blur when sorting
 							// so trigger focusout handlers to remove .ui-state-focus
-							ui.item.prev().triggerHandler( "focusout" );
+							ui.item.prev().triggerHandler( 'focusout' );
 							$( this ).find( '> .wpb_sortable' ).each( function () {
 									var shortcode = $( this ).data( 'model' );
 									shortcode.save( { 'order' : $( this ).index() } ); // Optimize
@@ -93,17 +97,17 @@
 					window.VcCustomAccordionView.__super__.changeShortcodeParams.call( this, model );
 					var collapsible = _.isString( this.model.get( 'params' ).collapsible ) && this.model.get( 'params' ).collapsible === 'yes' ? true : false;
 					if ( this.$content.hasClass( 'ui-accordion' ) ) {
-						this.$content.accordion( "option", "collapsible", collapsible );
+						this.$content.accordion( 'option', 'collapsible', collapsible );
 					}
 				},
 				changedContent : function ( view ) {
 					if ( this.$content.hasClass( 'ui-accordion' ) ) this.$content.accordion( 'destroy' );
 					var collapsible = true;
 					this.$content.accordion( {
-						header      : "h3",
+						header      : 'h3',
 						navigation  : false,
 						autoHeight  : true,
-						heightStyle : "content",
+						heightStyle : 'content',
 						collapsible : collapsible,
 						active      : this.adding_new_tab === false && view.model.get( 'cloned' ) !== true ? 0 : view.$el.index()
 					} );
@@ -127,16 +131,17 @@
 		/**
 		 * Accordions / tabs sections behaviour
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9.5
 		 */
 
 			window.VcCustomAccordionTabView = window.VcColumnView.extend( {
 				events : {
-					'click > [data-element_type] > .controls .column_delete'                : 'deleteShortcode',
-					'click > [data-element_type] > .controls .column_add'                   : 'addElement',
-					'click > [data-element_type] > .controls .column_edit'                  : 'editElement',
-					'click > [data-element_type] > .controls .column_clone'                 : 'clone',
-					'click > [data-element_type] > .wpb_element_wrapper > .empty_container' : 'addToEmpty'
+					'click > [data-element_type] > .controls .column_delete, .vc_control-btn-delete' : 'deleteShortcode',
+					'click > [data-element_type] > .controls .column_add, .vc_control-btn-prepend'   : 'addElement',
+					'click > [data-element_type] > .controls .column_edit, .vc_control-btn-edit'     : 'editElement',
+					'click > [data-element_type] > .controls .column_clone, .vc_control-btn-clone'   : 'clone',
+					'click > [data-element_type] > .wpb_element_wrapper > .vc_empty-container'       : 'addToEmpty'
 				},
 				setContent : function () {
 					this.$content = this.$el.find( '> [data-element_type] > .wpb_element_wrapper > .vc_container_for_children' );
@@ -150,11 +155,11 @@
 				},
 				setEmpty : function () {
 					$( '> [data-element_type]', this.$el ).addClass( 'empty_column' );
-					this.$content.addClass( 'empty_container' );
+					this.$content.addClass( 'empty_container vc_empty-container' );
 				},
 				unsetEmpty : function () {
 					$( '> [data-element_type]', this.$el ).removeClass( 'empty_column' );
-					this.$content.removeClass( 'empty_container' );
+					this.$content.removeClass( 'empty_container vc_empty-container' );
 				}
 			} ); // /VcCustomAccordionTabView
 
@@ -163,26 +168,27 @@
 		/**
 		 * Pricing Table behaviour
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.0.9.5
 		 */
 
 			window.VcCustomPricingTableView = vc.shortcode_view.extend( {
 				adding_new_tab : false,
 				events : {
-					'click .add_tab'                   : 'addTab',
-					'click > .controls .column_delete' : 'deleteShortcode',
-					'click > .controls .column_edit'   : 'editElement',
-					'click > .controls .column_clone'  : 'clone'
+					'click .add_tab'                                                                                         : 'addTab',
+					'click > .controls .column_delete, > .vc_controls .column_delete, > .vc_controls .vc_control-btn-delete' : 'deleteShortcode',
+					'click > .controls .column_edit, > .vc_controls .column_edit, > .vc_controls .vc_control-btn-edit'       : 'editElement',
+					'click > .controls .column_clone, > .vc_controls .column_clone, > .vc_controls .vc_control-btn-clone'    : 'clone'
 				},
 				render : function () {
 					window.VcCustomPricingTableView.__super__.render.call( this );
 					this.$content.sortable( {
-						axis   : "y",
-						handle : ".wpb_element_wrapper",
+						axis   : 'y',
+						handle : '.wpb_element_wrapper',
 						stop   : function ( event, ui ) {
 							// IE doesn't register the blur when sorting
 							// so trigger focusout handlers to remove .ui-state-focus
-							ui.item.prev().triggerHandler( "focusout" );
+							ui.item.prev().triggerHandler( 'focusout' );
 							$( this ).find( '> .wpb_sortable' ).each( function () {
 									var shortcode = $( this ).data( 'model' );
 									shortcode.save( { 'order' : $( this ).index() } ); // Optimize
@@ -193,7 +199,7 @@
 				},
 				addTab : function ( e ) {
 					this.adding_new_tab = true;
-					//Picks the values of these HTML attributes from the button element:
+					//Pick the values of these HTML attributes from the button element:
 					var newItemCode  = jQuery( e.currentTarget ).data( 'item' ),
 					    newItemTitle = jQuery( e.currentTarget ).data( 'item-title' );
 					e.preventDefault();

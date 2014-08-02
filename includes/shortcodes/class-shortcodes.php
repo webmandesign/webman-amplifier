@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0.9
+ * @version     1.0.9.5
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -346,6 +346,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					wp_register_style( 'wm-shortcodes-generator-rtl', $this->assets_url . 'css/rtl-shortcodes-generator.css', array(), $this->version, 'screen' );
 					wp_register_style( 'wm-shortcodes-rtl',           $this->assets_url . 'css/rtl-shortcodes.css',           array(), $this->version, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon',      $this->assets_url . 'css/shortcodes-vc-addons.css',     array(), $this->version, 'screen' );
+					wp_register_style( 'wm-shortcodes-vc-addon-old',  $this->assets_url . 'css/shortcodes-vc-addons-old.css', array(), $this->version, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon-rtl',  $this->assets_url . 'css/rtl-shortcodes-vc-addons.css', array(), $this->version, 'screen' );
 					if ( $icon_font_url ) {
 						wp_register_style( 'wm-fonticons', $icon_font_url, array(), $this->version, 'screen' );
@@ -403,7 +404,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue backend (admin) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.0.8
+			 * @version  1.0.9.5
 			 * @access   public
 			 */
 			public function assets_backend() {
@@ -449,6 +450,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							&& wma_is_active_vc()
 							&& in_array( $post_type, $vc_supported_post_types )
 							&& ! empty( self::$codes['vc_generator'] )
+							&& defined( 'WPB_VC_VERSION' )
 						) {
 						//Helper variables
 							$shortcodes_js_array = (array) self::$codes['vc_generator'];
@@ -456,7 +458,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							$shortcodes_js_array = array_values( $shortcodes_js_array );
 
 						//Styles
-							wp_enqueue_style( 'wm-shortcodes-vc-addon' );
+							if ( version_compare( WPB_VC_VERSION, '4.3', '<' ) ) {
+								wp_enqueue_style( 'wm-shortcodes-vc-addon-old' );
+							} else {
+								wp_enqueue_style( 'wm-shortcodes-vc-addon' );
+							}
 							if ( is_rtl() ) {
 								wp_enqueue_style( 'wm-shortcodes-vc-addon-rtl' );
 							}
@@ -947,7 +953,10 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					}
 
 				//Add custom VC elements
-					if ( function_exists( 'vc_map' ) && ! empty( self::$codes['vc_plugin'] ) ) {
+					if (
+							function_exists( 'vc_map' )
+							&& ! empty( self::$codes['vc_plugin'] )
+						) {
 						ksort( self::$codes['vc_plugin'] );
 						foreach ( self::$codes['vc_plugin'] as $shortcode ) {
 							//simple validation (as of http://kb.wpbakery.com/index.php?title=Vc_map, the below 2 parameters are required)

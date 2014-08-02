@@ -6,7 +6,7 @@
  * Extension class naming rules: 'WPBakeryShortCode_' . $vc_plugin['base']
  *
  * @since       1.0
- * @version     1.0.8
+ * @version     1.0.9.5
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -23,9 +23,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.0.8
+	 * @version  1.0.9.5
 	 */
 	class WPBakeryShortCode_wm_accordion extends WPBakeryShortCode {
+
+		protected $controls_css_settings = 'out-tc vc_controls-content-widget';
+
+
 
 		public function __construct( $settings ) {
 			parent::__construct( $settings );
@@ -68,13 +72,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			$tmp = '';
 
-			if ( isset($this->settings["custom_markup"]) && $this->settings["custom_markup"] != '' ) {
+			if ( isset($this->settings['custom_markup']) && $this->settings['custom_markup'] != '' ) {
 				if ( $content != '' ) {
-					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings["custom_markup"] );
-				} else if ( $content == '' && isset( $this->settings["default_content_in_template"] ) && $this->settings["default_content_in_template"] != '' ) {
-					$custom_markup = str_ireplace( "%content%", $this->settings["default_content_in_template"], $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings['custom_markup'] );
+				} else if ( $content == '' && isset( $this->settings['default_content_in_template'] ) && $this->settings['default_content_in_template'] != '' ) {
+					$custom_markup = str_ireplace( "%content%", $this->settings['default_content_in_template'], $this->settings['custom_markup'] );
 				} else {
-					$custom_markup = str_ireplace( "%content%", '', $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", '', $this->settings['custom_markup'] );
 				}
 				$inner .= do_shortcode( $custom_markup );
 			}
@@ -100,9 +104,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.0.8
+	 * @version  1.0.9.5
 	 */
 	class WPBakeryShortCode_wm_tabs extends WPBakeryShortCode {
+
+		protected $controls_css_settings = 'out-tc vc_controls-content-widget';
+
+
 
 		public function __construct( $settings ) {
 			parent::__construct( $settings );
@@ -145,13 +153,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			$tmp = '';
 
-			if ( isset($this->settings["custom_markup"]) && $this->settings["custom_markup"] != '' ) {
+			if ( isset($this->settings['custom_markup']) && $this->settings['custom_markup'] != '' ) {
 				if ( $content != '' ) {
-					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings["custom_markup"] );
-				} else if ( $content == '' && isset( $this->settings["default_content_in_template"] ) && $this->settings["default_content_in_template"] != '' ) {
-					$custom_markup = str_ireplace( "%content%", $this->settings["default_content_in_template"], $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings['custom_markup'] );
+				} else if ( $content == '' && isset( $this->settings['default_content_in_template'] ) && $this->settings['default_content_in_template'] != '' ) {
+					$custom_markup = str_ireplace( "%content%", $this->settings['default_content_in_template'], $this->settings['custom_markup'] );
 				} else {
-					$custom_markup = str_ireplace( "%content%", '', $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", '', $this->settings['custom_markup'] );
 				}
 				$inner .= do_shortcode( $custom_markup );
 			}
@@ -177,9 +185,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.0.8
+	 * @version  1.0.9.5
 	 */
 	class WPBakeryShortCode_wm_pricing_table extends WPBakeryShortCode {
+
+		protected $controls_css_settings = 'out-tc vc_controls-content-widget';
+
+
 
 		public function __construct( $settings ) {
 			parent::__construct( $settings );
@@ -222,13 +234,13 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			$tmp = '';
 
-			if ( isset($this->settings["custom_markup"]) && $this->settings["custom_markup"] != '' ) {
+			if ( isset( $this->settings['custom_markup'] ) && $this->settings['custom_markup'] != '' ) {
 				if ( $content != '' ) {
-					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings["custom_markup"] );
-				} else if ( $content == '' && isset( $this->settings["default_content_in_template"] ) && $this->settings["default_content_in_template"] != '' ) {
-					$custom_markup = str_ireplace( "%content%", $this->settings["default_content_in_template"], $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", $tmp.$content, $this->settings['custom_markup'] );
+				} else if ( $content == '' && isset( $this->settings['default_content_in_template'] ) && $this->settings['default_content_in_template'] != '' ) {
+					$custom_markup = str_ireplace( "%content%", $this->settings['default_content_in_template'], $this->settings['custom_markup'] );
 				} else {
-					$custom_markup = str_ireplace( "%content%", '', $this->settings["custom_markup"] );
+					$custom_markup = str_ireplace( "%content%", '', $this->settings['custom_markup'] );
 				}
 				$inner .= do_shortcode( $custom_markup );
 			}
@@ -269,7 +281,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.0.8
+	 * @version  1.0.9.5
 	 */
 	class WPBakeryShortCode_wm_item extends WPBakeryShortCode_VC_Tab {
 
@@ -283,38 +295,14 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 
 
 		public function contentAdmin( $atts, $content = null ) {
-			$width = $el_class = $title = '';
+			$title = $output = '';
 
 			extract( shortcode_atts( apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
-
-			$output = '';
 
 			$column_controls = $this->getColumnControls( $this->settings( 'controls' ) );
 			$column_controls_bottom = $this->getColumnControls( 'add', 'bottom-controls' );
 
-			if ( $width == 'column_14' || $width == '1/4' ) {
-				$width = array( 'vc_span3' );
-			} elseif ( $width == 'column_14-14-14-14' ) {
-				$width = array( 'vc_span3', 'vc_span3', 'vc_span3', 'vc_span3' );
-			} elseif ( $width == 'column_13' || $width == '1/3' ) {
-				$width = array( 'vc_span4' );
-			} elseif ( $width == 'column_13-23' ) {
-				$width = array( 'vc_span4', 'vc_span8' );
-			} elseif ( $width == 'column_13-13-13' ) {
-				$width = array( 'vc_span4', 'vc_span4', 'vc_span4' );
-			} elseif ( $width == 'column_12' || $width == '1/2' ) {
-				$width = array( 'vc_span6' );
-			} elseif ( $width == 'column_12-12' ) {
-				$width = array( 'vc_span6', 'vc_span6' );
-			} elseif ( $width == 'column_23' || $width == '2/3' ) {
-				$width = array( 'vc_span8' );
-			} elseif ( $width == 'column_34' || $width == '3/4' ) {
-				$width = array( 'vc_span9' );
-			} elseif ( $width == 'column_16' || $width == '1/6' ) {
-				$width = array( 'vc_span2' );
-			} else {
-				$width = array( '' );
-			}
+			$width = array( '' );
 
 			for ( $i = 0; $i < count( $width ); $i++ ) {
 				$output .= '<div class="group wpb_sortable">';
@@ -325,6 +313,8 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 				$output .= '<div ' . $this->containerHtmlBlockParams( $width, $i ) . '>';
 				$output .= do_shortcode( shortcode_unautop( $content ) );
 
+				/*
+				REMOVED IN v1.0.9.5
 				if ( function_exists( 'vc_backend_editor' ) ) {
 				//Visual Composer 4.2+
 					$output .= vc_backend_editor()->getLayout()->getContainerHelper();
@@ -332,6 +322,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 				//Visual Composer 4.2-, legacy support
 					$output .= WPBakeryVisualComposer::getInstance()->getLayout()->getContainerHelper();
 				}
+				*/
 
 				$output .= '</div>';
 				if ( isset( $this->settings['params'] ) ) {
@@ -360,7 +351,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 
 
 		public function mainHtmlBlockParams( $width, $i ) {
-			return 'data-element_type="' . $this->settings["base"] . '" class="wpb_' . $this->settings['base'] . ' ' . $this->settings['class'] . '"' . $this->customAdminBlockParams();
+			return 'data-element_type="' . $this->settings['base'] . '" class="wpb_' . $this->settings['base'] . ' ' . $this->settings['class'] . '"' . $this->customAdminBlockParams();
 		} // /mainHtmlBlockParams
 
 
@@ -371,12 +362,10 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 
 
 
-		public function contentAdmin_old($atts, $content = null) {
-			$width = $el_class = $title = '';
+		public function contentAdmin_old( $atts, $content = null ) {
+			$width = $output = $title = '';
 
 			extract( shortcode_atts( apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
-
-			$output = '';
 
 			$column_controls = $this->getColumnControls( $this->settings( 'controls' ) );
 

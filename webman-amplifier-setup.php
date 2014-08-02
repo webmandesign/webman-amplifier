@@ -318,49 +318,24 @@
 
 	/**
 	 * Add custom Visual Composer templates
+	 *
+	 * Please note that this procedure works with Visual Composer version 4.3 and above.
+	 * Uncomment the code below to set a custom Visual Composer predefined templates.
 	 */
-	function wma_add_vc_templates() {
-		//Setting your custom templates
-			$custom_vc_templates = array(
-					/**
-					 * SAMPLE:
-					 *
-					 * 'template-id' => array(
-					 * 			'name'     => 'Template name',
-					 * 			'template' => 'Template content goes here.
-					 * 			               You can use any content HTML tags and shortcodes
-					 * 			               that are allowed to used in WordPress posts/pages.'
-					 * 		)
-					 */
-					'template-id' => array(
-							'name'     => 'My custom template',
-							'template' => '[vc_row][vc_column width="2/3"][wm_column_text]My custom text[/wm_column_text][/vc_column][vc_column width="1/3"][wm_button url="#" color="blue" size="l"]My custom button[/wm_button][/vc_column][/vc_row]'
-						),
+		/*
+		if ( function_exists( 'vc_add_default_templates' ) ) {
+			$wm_custom_vc_templates = array(
+				'my_custom_template' => array(
+						'name'    => 'Custom template name',
+						'content' => '...your custom content goes here...',
+					),
 				);
 
-		//Getting saved templates from database
-			$option_name     = 'wpb_js_templates';
-			$saved_templates = get_option( $option_name );
-
-		//Adding your new custom templates to database
-			if ( $saved_templates ) {
-			//If there are already some templates predefined, add our custom ones to them.
-				foreach ( $custom_vc_templates as $id => $atts ) {
-					if ( ! isset( $saved_templates[$id] ) ) {
-						$saved_templates[$id] = $atts;
-					}
-				}
-				update_option( $option_name, $saved_templates );
-			} else {
-			//Otherwise, if no template defined yet, just save our custom ones.
-				add_option( $option_name, $custom_vc_templates, '', 'no' );
+			foreach ( $wm_custom_vc_templates as $template ) {
+				vc_add_default_templates( (array) $template );
 			}
-	} // /wma_add_vc_templates
-
-	/**
-	 * Uncomment to add your own Visual Composer templates
-	 */
-	// add_action( 'wmhook_wmamp_plugin_activation', 'wma_add_vc_templates' );
+		} // check if vc_add_default_templates() exists
+		*/
 
 
 

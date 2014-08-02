@@ -80,6 +80,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.5 =
+* Added compatibility with Visual Composer 4.3+
+
+Files changed: `webman-amplifier-setup.php, assets/css/shortcodes-vc-addons.css, assets/css/rtl-shortcodes-vc-addons.css, assets/css/dev/rtl-shortcodes-vc-addons.dev.css, assets/css/shortcodes-vc-addons-old.css, assets/css/dev/shortcodes-vc-addons.dev.css, assets/css/dev/shortcodes-vc-addons-old.dev.css, assets/js/shortcodes-vc-addons.js, assets/js/dev/shortcodes-vc-addons.dev.js, includes/shortcodes/class-shortcodes.php, includes/shortcodes/vc_addons/shortcodes-admin.php`
+
 = 1.0.9.4 =
 * Added `style` attribute to Icon shortcode
 * Fixed applying `active` class on active tab content
@@ -146,6 +151,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.5 =
+Added compatibility with Visual Composer 4.3+
 
 = 1.0.9.4 =
 Added `style` attribute to Icon shortcode, Tabs shortcode fixes, admin and code improvements.
