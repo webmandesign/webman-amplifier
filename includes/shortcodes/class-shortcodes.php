@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0.9.5
+ * @version     1.0.9.6
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -609,8 +609,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Surely, if the shortcode was applied in preprocess, it shouldn't appear
 			 * again in the content when processing shortcodes normally.
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.6
+			 * @access   public
 			 *
 			 * @param   string $content Post/page content.
 			 */
@@ -633,7 +634,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Register shortcodes in preprocessing
 					call_user_func_array( array( $this, 'add_shortcodes' ), array( $codes ) );
 
-					do_action( WM_SHORTCODES_HOOK_PREFIX . 'preprocess_shortcodes' );
+					do_action( WM_SHORTCODES_HOOK_PREFIX . 'preprocess_shortcodes', $codes, $content );
 
 				//Do the preprocess shortcodes prematurely (in WordPress standards)
 					$content = do_shortcode( $content );

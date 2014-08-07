@@ -65,6 +65,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 ## Changelog
 
+### 1.0.9.6
+* Added additional arguments for `do_action()` for better flexibility.
+
+Files changed: `includes/shortcodes/class-shortcodes.php, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/content_module.php, includes/shortcodes/renderers/countdown_timer.php, includes/shortcodes/renderers/posts.php, includes/shortcodes/renderers/row.php, includes/shortcodes/renderers/slideshow.php, includes/shortcodes/renderers/tabs.php, includes/shortcodes/renderers/testimonials.php`
+
 ### 1.0.9.5
 * Added compatibility with Visual Composer 4.3+
 

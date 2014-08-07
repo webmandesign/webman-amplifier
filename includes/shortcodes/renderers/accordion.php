@@ -4,7 +4,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.0.9.6
  *
  * @param  integer active
  * @param  string behaviour  Synonym for "mode" attribute.
@@ -84,7 +85,7 @@
 	if ( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', true ) ) {
 		wp_enqueue_script( 'wm-shortcodes-accordion' );
 	}
-	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts' );
+	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output
 	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '" data-mode="' . $atts['mode'] . '">' . $atts['content'] . '</div>';

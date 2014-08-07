@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9
+ * @version  1.0.9.6
  *
  * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
@@ -183,7 +183,7 @@
 			wp_enqueue_script( 'wm-shortcodes-parallax' );
 		}
 	}
-	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts' );
+	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output
 	$replacements = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output_replacements', array(

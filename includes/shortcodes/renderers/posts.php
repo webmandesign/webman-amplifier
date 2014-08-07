@@ -5,7 +5,8 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  * Contains Schema.org markup function.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.0.9.6
  *
  * @uses   $codes_globals['post_types']
  *
@@ -429,6 +430,8 @@
 		//Reset query
 			wp_reset_query();
 
+	$atts['content'] = $output;
+
 		//Enqueue scripts
 			if ( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', true ) ) {
 				if ( $atts['scroll'] ) {
@@ -442,9 +445,7 @@
 					wp_enqueue_script( 'wm-shortcodes-posts' );
 				}
 			}
-			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts' );
-
-	$atts['content'] = $output;
+			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output
 	$output = '<div class="' . $atts['class'] . '">' . $atts['content'] . '</div>';

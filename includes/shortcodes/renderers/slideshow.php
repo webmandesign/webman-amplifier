@@ -6,7 +6,8 @@
  *
  * You can use "Description" field of images to set the custom link on them.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.0.9.6
  *
  * @param  string class
  * @param  string ids
@@ -99,7 +100,7 @@
 		wp_enqueue_script( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts_slider', 'wm-jquery-owl-carousel' ) );
 		wp_enqueue_script( 'wm-shortcodes-slideshow' );
 	}
-	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts' );
+	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output
 	if ( $atts['content'] ) {
