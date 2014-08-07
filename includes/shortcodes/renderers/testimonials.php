@@ -108,7 +108,7 @@
 		if ( false !== strpos( $atts['class'], 'masonry' ) ) {
 			//Use masonry when "masonry" class set
 			$posts_container_class .= ' masonry-this';
-			$atts['class']          = str_replace( 'masonry', '', $atts['class'] );
+			$atts['class']          = str_replace( 'masonry', 'wm-posts-masonry-enabled', $atts['class'] );
 			$masonry_layout         = true;
 		}
 		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( trim( 'wm-testimonials wm-posts-wrap clearfix ' . trim( $atts['class'] ) ) ) );

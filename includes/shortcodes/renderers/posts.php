@@ -162,7 +162,7 @@
 			) {
 			//Use masonry when "masonry" class set
 			$posts_container_class .= ' masonry-this';
-			$atts['class']          = str_replace( 'masonry', '', $atts['class'] );
+			$atts['class']          = str_replace( 'masonry', 'wm-posts-masonry-enabled', $atts['class'] );
 			$masonry_layout         = true;
 		}
 		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( trim( 'wm-posts wm-posts-wrap clearfix wm-posts-' . $atts['post_type'] . ' ' . trim( $atts['class'] ) ) ) );
