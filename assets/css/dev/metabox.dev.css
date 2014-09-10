@@ -5,6 +5,7 @@
  * @subpackage  Metabox
  *
  * @since       1.0
+ * @version     1.0.9.7
  */
 
 
@@ -128,8 +129,13 @@
 			background: transparent;
 			border: 0;
 		}
-			.wm-meta-wrap .tab-content.no-table {padding: 20px}
+			.wm-meta-wrap .tab-content.no-table {padding: 0 20px 20px}
 			.no-js .tab-content {display: none}
+
+			.wm-meta-wrap .tab-content #wp-content-editor-tools {
+				padding-top: 20px;
+				background: #fff;
+			}
 
 
 
@@ -229,7 +235,10 @@
 			display: none;
 			font-weight: 600;
 		}
-		body.wm-visual-composer-on .if-visual-composer-on {display: block}
+		body.wm-visual-composer-on .if-visual-composer-on {
+			display: block;
+			margin-top: 20px;
+		}
 
 	/* Default value button */
 		.wm-meta-wrap .button-default-value {

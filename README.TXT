@@ -5,7 +5,7 @@ Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
 Requires at least: 3.8
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -79,6 +79,12 @@ First, plese note that custom translation files inside the plugin's `languages` 
 Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
 
 == Changelog ==
+
+= 1.0.9.7 =
+* WordPress 4.0 support
+* Improved shortcodes scripts enqueuing
+
+Files changed: `assets/metabox.css, assets/dev/metabox.dev.css, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/content_module.php, includes/shortcodes/renderers/countdown_timer.php, includes/shortcodes/renderers/posts.php, includes/shortcodes/renderers/row.php, includes/shortcodes/renderers/slideshow.php, includes/shortcodes/renderers/tabs.php, includes/shortcodes/renderers/testimonials.php`
 
 = 1.0.9.6 =
 * Added additional arguments for `do_action()` for better flexibility.
@@ -156,6 +162,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.7 =
+WordPress 4.0 support. Improved shortcodes scripts enqueuing.
 
 = 1.0.9.6 =
 Added additional arguments for `do_action()` for better flexibility.

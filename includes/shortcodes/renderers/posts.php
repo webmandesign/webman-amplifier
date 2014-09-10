@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.0.9.6
+ * @version  1.0.9.7
  *
  * @uses   $codes_globals['post_types']
  *
@@ -433,18 +433,34 @@
 	$atts['content'] = $output;
 
 		//Enqueue scripts
-			if ( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', true ) ) {
-				if ( $atts['scroll'] ) {
-					wp_enqueue_script( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts_slider', 'wm-jquery-owl-carousel' ) );
-					wp_enqueue_script( 'wm-shortcodes-posts' );
-				} elseif ( $atts['filter'] ) {
-					wp_enqueue_script( 'wm-isotope' );
-					wp_enqueue_script( 'wm-shortcodes-posts' );
-				} elseif ( $masonry_layout ) {
-					wp_enqueue_script( 'jquery-masonry' );
-					wp_enqueue_script( 'wm-shortcodes-posts' );
+			$enqueue_scripts = array();
+			if ( $atts['scroll'] ) {
+				$enqueue_scripts = array(
+						'wm-jquery-owl-carousel',
+						'wm-shortcodes-posts'
+					);
+			} elseif ( $atts['filter'] ) {
+				$enqueue_scripts = array(
+						'wm-isotope',
+						'wm-shortcodes-posts'
+					);
+			} elseif ( $masonry_layout ) {
+				$enqueue_scripts = array(
+						'jquery-masonry',
+						'wm-shortcodes-posts'
+					);
+			}
+			$enqueue_scripts = array_filter( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
+
+			if ( ! empty( $enqueue_scripts ) ) {
+				foreach ( $enqueue_scripts as $script_name ) {
+					wp_enqueue_script( $script_name );
 				}
 			}
+
+			/**
+			 * Using this action hook will remove all the previously added shortcode scripts (@todo  Find out why this happens)
+			 */
 			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output

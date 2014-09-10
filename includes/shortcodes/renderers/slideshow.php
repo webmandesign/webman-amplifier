@@ -7,7 +7,7 @@
  * You can use "Description" field of images to set the custom link on them.
  *
  * @since    1.0
- * @version  1.0.9.6
+ * @version  1.0.9.7
  *
  * @param  string class
  * @param  string ids
@@ -96,10 +96,21 @@
 		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', $atts['class'] );
 
 //Enqueue scripts
-	if ( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', true ) ) {
-		wp_enqueue_script( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts_slider', 'wm-jquery-owl-carousel' ) );
-		wp_enqueue_script( 'wm-shortcodes-slideshow' );
+	$enqueue_scripts = array(
+			'wm-jquery-owl-carousel',
+			'wm-shortcodes-slideshow'
+		);
+	$enqueue_scripts = array_filter( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
+
+	if ( ! empty( $enqueue_scripts ) ) {
+		foreach ( $enqueue_scripts as $script_name ) {
+			wp_enqueue_script( $script_name );
+		}
 	}
+
+	/**
+	 * Using this action hook will remove all the previously added shortcode scripts (@todo  Find out why this happens)
+	 */
 	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
 
 //Output
