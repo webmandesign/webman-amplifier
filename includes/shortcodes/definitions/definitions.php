@@ -7,7 +7,7 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @since       1.0
- * @version     1.0.9.4
+ * @version     1.0.9.8
  */
 
 /**
@@ -637,7 +637,7 @@ $shortcode_definitions = array(
 		 * Collumn
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.8
 		 */
 		'column' => array(
 				'since'      => '1.0',
@@ -645,7 +645,7 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Column', 'wm_domain' ),
-						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" class="" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/PREFIX_column]' ),
+						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/PREFIX_column]' ),
 						'vc_enabled' => false,
 					),
 			),
@@ -1730,7 +1730,7 @@ $shortcode_definitions = array(
 		 * Row
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.8
 		 */
 		'row' => array(
 				'since'      => '1.0',
@@ -1738,7 +1738,7 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name' => __( 'Row', 'wm_domain' ),
-						'code' => ( wma_is_active_vc() ) ? ( '[vc_row mode="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row mode="default/section" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
+						'code' => ( wma_is_active_vc() ) ? ( '[vc_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
 						'vc_enabled' => false,
 					),
 			),

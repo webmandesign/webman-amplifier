@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.7
+ * @version  1.0.9.8
  *
  * @param  integer active
  * @param  string class
@@ -49,6 +49,7 @@
 					&& ! empty( $tabs )
 					&& isset( $tabs[2] )
 				) {
+				$i    = 0;
 				$tabs = $tabs[2];
 				$tabs = str_replace( '"', '', $tabs );
 
@@ -56,8 +57,9 @@
 					foreach ( $tabs as $tab ) {
 						$tab          = explode( '&&', $tab );
 						$tabs_output .= '<li class="wm-tab-items-' . $tab[0] . '"><a href="#' . $tab[0] . '" data-tab="#' . $tab[0] . '">' . html_entity_decode( $tab[1] ) . '</a></li>';
+						$i++;
 					}
-					$tabs_output = '<ul class="wm-tab-links">' . $tabs_output . '</ul>';
+					$tabs_output = '<ul class="wm-tab-links wm-tab-count-' . $i . '">' . $tabs_output . '</ul>';
 			}
 
 		//Implement tabs output
@@ -74,18 +76,8 @@
 	$enqueue_scripts = array(
 			'wm-shortcodes-tabs'
 		);
-	$enqueue_scripts = array_filter( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
 
-	if ( ! empty( $enqueue_scripts ) ) {
-		foreach ( $enqueue_scripts as $script_name ) {
-			wp_enqueue_script( $script_name );
-		}
-	}
-
-	/**
-	 * Using this action hook will remove all the previously added shortcode scripts (@todo  Find out why this happens)
-	 */
-	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
+	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
 	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '">' . $atts['content'] . '</div>';

@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.0.9.7
+ * @version  1.0.9.8
  *
  * @uses   $codes_globals['post_types']
  *
@@ -450,18 +450,8 @@
 						'wm-shortcodes-posts'
 					);
 			}
-			$enqueue_scripts = array_filter( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
 
-			if ( ! empty( $enqueue_scripts ) ) {
-				foreach ( $enqueue_scripts as $script_name ) {
-					wp_enqueue_script( $script_name );
-				}
-			}
-
-			/**
-			 * Using this action hook will remove all the previously added shortcode scripts (@todo  Find out why this happens)
-			 */
-			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
+			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
 	$output = '<div class="' . $atts['class'] . '">' . $atts['content'] . '</div>';

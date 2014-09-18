@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0.9.6
+ * @version     1.0.9.8
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -1294,5 +1294,50 @@ if ( wma_is_active_vc() ) {
 		} // /vc_theme_vc_column_inner
 
 } // /wma_is_active_vc() check
+
+
+
+
+
+/**
+ * WM_Shortcodes helper functions
+ *
+ * @since  1.0.9.8
+ */
+
+	/**
+	 * Shortcode enqueue scripts
+	 *
+	 * @since  1.0.9.8
+	 *
+	 * @param  string $shortcode
+	 * @param  array  $enqueue_scripts
+	 * @param  array  $atts
+	 */
+	if ( ! function_exists( 'wma_shortcode_enqueue_scripts' ) ) {
+		function wma_shortcode_enqueue_scripts( $shortcode = '', $enqueue_scripts = array(), $atts = array() ) {
+			//Helper variables
+				$enqueue_scripts = array_filter( (array) apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
+
+			//Requirements check
+				if (
+						! $shortcode
+						|| empty( $enqueue_scripts )
+					) {
+					return;
+				}
+
+			//Process
+				foreach ( $enqueue_scripts as $script_name ) {
+					wp_enqueue_script( $script_name );
+				}
+
+			/**
+			 * Using this action hook will remove all the previously added shortcode scripts
+			 * @todo  Find out why this happens
+			 */
+			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_do_enqueue_scripts', $atts );
+		}
+	} // /wma_shortcode_enqueue_scripts
 
 ?>

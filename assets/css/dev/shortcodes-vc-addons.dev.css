@@ -7,6 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0.9.5
+ * @version     1.0.9.8
  */
 
 
@@ -329,7 +330,7 @@
 		.vc_modal.in .vc_modal-body,
 		.vc_panel .vc_panel-body {
 			min-height: 80px;
-			padding: 0;
+			padding: 10px 0;
 		}
 			.vc_panel .vc_row {
 				padding: 0;
@@ -342,6 +343,7 @@
 			padding: 0;
 			margin: 0;
 		}
+		.vc_panel .vc_panel-tabs {margin-top: -10px}
 			.vc_panel .vc_panel-tabs > ul {
 				padding: 0 9px;
 				background: #1e8cbe;
@@ -351,6 +353,8 @@
 			}
 				.vc_panel .vc_panel-tabs > ul a {color: #fff}
 				.vc_panel .vc_panel-tabs > ul .ui-state-active a {color: #444}
+
+			.vc_panel-tabs .vc_edit-form-tab {padding-top: 10px}
 
 		.vc_panel .wpb_edit_form_elements .vc_row-fluid {
 			padding: 15px;

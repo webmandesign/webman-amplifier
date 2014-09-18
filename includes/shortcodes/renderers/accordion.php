@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.7
+ * @version  1.0.9.8
  *
  * @param  integer active
  * @param  string behaviour  Synonym for "mode" attribute.
@@ -85,18 +85,8 @@
 	$enqueue_scripts = array(
 			'wm-shortcodes-accordion'
 		);
-	$enqueue_scripts = array_filter( apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
 
-	if ( ! empty( $enqueue_scripts ) ) {
-		foreach ( $enqueue_scripts as $script_name ) {
-			wp_enqueue_script( $script_name );
-		}
-	}
-
-	/**
-	 * Using this action hook will remove all the previously added shortcode scripts (@todo  Find out why this happens)
-	 */
-	do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $atts );
+	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
 	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '" data-mode="' . $atts['mode'] . '">' . $atts['content'] . '</div>';

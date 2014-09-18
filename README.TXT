@@ -80,11 +80,18 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.8 =
+* Improved Tabs shortcode
+* Fixed Shortcode Generator shortcode attributes
+* Fixed and improved shortcodes scripts enqueuing
+
+Files changed: `assets/css/shortcodes-vc-addons.css, assets/css/dev/shortcodes-vc-addons.dev.css, includes/shortcodes/class-shortcodes.php, includes/shortcodes/definitions/definitions.php, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/content_module.php, includes/shortcodes/renderers/countdown_timer.php, includes/shortcodes/renderers/posts.php, includes/shortcodes/renderers/row.php, includes/shortcodes/renderers/slideshow.php, includes/shortcodes/renderers/tabs.php, includes/shortcodes/renderers/testimonials.php`
+
 = 1.0.9.7 =
 * WordPress 4.0 support
 * Improved shortcodes scripts enqueuing
 
-Files changed: `assets/metabox.css, assets/dev/metabox.dev.css, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/content_module.php, includes/shortcodes/renderers/countdown_timer.php, includes/shortcodes/renderers/posts.php, includes/shortcodes/renderers/row.php, includes/shortcodes/renderers/slideshow.php, includes/shortcodes/renderers/tabs.php, includes/shortcodes/renderers/testimonials.php`
+Files changed: `assets/css/metabox.css, assets/css/dev/metabox.dev.css, includes/shortcodes/renderers/accordion.php, includes/shortcodes/renderers/content_module.php, includes/shortcodes/renderers/countdown_timer.php, includes/shortcodes/renderers/posts.php, includes/shortcodes/renderers/row.php, includes/shortcodes/renderers/slideshow.php, includes/shortcodes/renderers/tabs.php, includes/shortcodes/renderers/testimonials.php`
 
 = 1.0.9.6 =
 * Added additional arguments for `do_action()` for better flexibility.
@@ -162,6 +169,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.8 =
+Improved Tabs shortcode, fixed Shortcode Generator shortcode attributes, fixed and improved shortcodes scripts enqueuing.
 
 = 1.0.9.7 =
 WordPress 4.0 support. Improved shortcodes scripts enqueuing.
