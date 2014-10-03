@@ -149,7 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						<?php
 						if ( function_exists( 'wma_taxonomy_array' ) ) {
 
-							$taxonomy_args = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_taxonomy', array(
+							$taxonomy_args = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form' . '_taxonomy', array(
 									'post' => array(
 											'optgroup'     => __( 'Posts tags', 'wm_domain' ),
 											'all'          => false,
