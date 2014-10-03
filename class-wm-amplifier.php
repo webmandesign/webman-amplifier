@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Contains the main functions for WebMan Amplifier.
  *
  * @since    1.0
- * @version	 1.0.9.4
+ * @version	 1.0.9.9
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -202,23 +202,34 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.4
+			 * @version  1.0.9.9
 			 * @access   private
 			 */
 			private function setup_actions() {
 				//Array of core actions
 					$actions = array(
-						'save_permalinks'     => 'init',          //Save custom permalinks
-						'register_post_types' => 'init',          //Register post types
-						'load_textdomain'     => 'init',          //Load textdomain
-						'register_shortcodes' => 'init',          //Register shortcodes
-						'register_icons'      => 'init',          //Register icon font
-						'admin_notices'       => 'admin_notices', //Display admin notices
+						'register_widgets'    => 'init|1',            //Register widgets
+						'save_permalinks'     => 'init',              //Save custom permalinks
+						'register_post_types' => 'init',              //Register post types
+						'load_textdomain'     => 'init',              //Load textdomain
+						'register_shortcodes' => 'init',              //Register shortcodes
+						'register_icons'      => 'init',              //Register icon font
+						'admin_notices'       => 'admin_notices',     //Display admin notices
+						'deactivate'          => 'switch_theme|10|2', //Deactivate plugin when theme changed
 					);
 
 				//Add actions
 					foreach( $actions as $class_action => $hook ) {
-						add_action( $hook, array( $this, $class_action ), 10 );
+						$hook = explode( '|', $hook );
+
+						if ( ! isset( $hook[1] ) ) {
+							$hook[1] = 10;
+						}
+						if ( ! isset( $hook[2] ) ) {
+							$hook[2] = 1;
+						}
+
+						add_action( $hook[0], array( $this, $class_action ), $hook[1], $hook[2] );
 					}
 
 				//Add filters
@@ -455,10 +466,62 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 
 			/**
+			 * Register widgets
+			 *
+			 * @since   1.0.9.9
+			 * @access  public
+			 */
+			public function register_widgets() {
+				//Contact widget
+					if ( in_array( 'widget-contact', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-contact.php' );
+					}
+
+				//Content Module widget
+					if ( in_array( 'widget-module', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-module.php' );
+					}
+
+				//Posts widget
+					if ( in_array( 'widget-posts', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-posts.php' );
+					}
+
+				//Sub navigation widget
+					if ( in_array( 'widget-subnav', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-subnav.php' );
+					}
+
+				//Tabbed widgets widget
+					if ( in_array( 'widget-tabbed-widgets', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-tabbed-widgets.php' );
+					}
+
+				//Twitter widget
+					if ( in_array( 'widget-twitter', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-twitter.php' );
+					}
+
+				//Plugin register custom posts action
+					do_action( WMAMP_HOOK_PREFIX . 'register_widgets' );
+			} // /register_widgets
+
+
+
+			/**
 			 * Admin notices
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * Displays the message stored in "wmamp-admin-notice" transient cache
+			 * once or multiple times, than deletes the message cache.
+			 * Transient structure:
+			 * set_transient(
+			 *   'wmamp-admin-notice',
+			 *   array( $text, $class, $capability, $number_of_displays )
+			 * );
+			 *
+			 * @since    1.0
+			 * @version  1.0.9.9
+			 * @access   public
 			 */
 			public function admin_notices() {
 				//Requirements check
@@ -468,16 +531,52 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 				//Helper variables
 					$output = '';
+					$class  = 'updated';
+					$repeat = 0;
+
+					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true );
+
+					$capability = apply_filters( WMAMP_HOOK_PREFIX . 'notice_capability', 'switch_themes' );
+					$message    = get_transient( 'wmamp-admin-notice' );
+
+				//Requirements check
+					if ( empty( $message ) && ! $display_isotope ) {
+						return;
+					}
 
 				//Preparing output
+					if ( ! is_array( $message ) ) {
+						$message = array( $message, $class, $capability, $repeat );
+					}
+					if ( ! isset( $message[1] ) || empty( $message[1] ) ) {
+						$message[1] = $class;
+					}
+					if ( ! isset( $message[2] ) || empty( $message[2] ) ) {
+						$message[2] = $capability;
+					}
+					if ( ! isset( $message[3] ) ) {
+						$message[3] = $repeat;
+					}
+
+					if ( $message[0] && current_user_can( $message[2] ) ) {
+						$output .= '<div class="' . trim( 'wm-notice ' . $message[1] ) . '"><p>' . $message[0] . '</p></div>';
+						delete_transient( 'wmamp-admin-notice' );
+					}
+
+					//Delete the transient cache after specific number of displays
+						if ( 1 < intval( $message[3] ) ) {
+							$message[3] = intval( $message[3] ) - 1;
+							set_transient( 'wmamp-admin-notice', $message, ( 60 * 60 * 48 ) );
+						}
+
 					//Isotope licence notice
-						if ( apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) ) {
-							$output .= '<strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'wm_domain' ) . '</strong>';
+						if ( $display_isotope ) {
+							$output .= '<div class="wm-notice error isotope-licence"><p><strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'wm_domain' ) . '</strong></p></div>';
 						}
 
 				//Output
 					if ( $output ) {
-						echo '<div class="error wm-notice isotope-licence"><p>' . $output . '</p></div>';
+						echo apply_filters( WMAMP_HOOK_PREFIX . 'admin_notices_output', $output, $message );
 					}
 			} // /admin_notices
 
@@ -519,6 +618,26 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				//Nothing found
 					return false;
 			} // /load_textdomain
+
+
+
+			/**
+			 * Plugin deactivation
+			 *
+			 * @since   1.0.9.9
+			 * @access  public
+			 */
+			public function deactivate( $newname, $newtheme ) {
+				if (
+					current_user_can( 'activate_plugins' )
+					&& defined( 'WM_THEME_NAME' )
+					&& WM_THEME_NAME !== $newname
+					&& get_transient( 'wmamp-deactivate' )
+				) {
+					delete_transient( 'wmamp-deactivate' );
+					deactivate_plugins( plugin_basename( WMAMP_PLUGIN_FILE ) );
+				}
+			} // /deactivate
 
 	} // /WM_Amplifier
 

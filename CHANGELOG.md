@@ -1,5 +1,17 @@
 ## Changelog
 
+### 1.0.9.9
+* Added: Widgets
+* Added: Option to deactivate the plugin after theme change
+* Updated: Code effectivity
+* Updated: Scripts: imagesLoaded 3.1.8, Isotope 2.0.1, jQuery OwlCarousel 1.3.3
+* Updated: Admin notice function
+* Updated: Localization file
+
+Files added: `includes/widgets/w-contact.php, includes/widgets/w-module.php, includes/widgets/w-posts.php, includes/widgets/w-subnav.php, includes/widgets/w-tabbed-widgets.php, includes/widgets/w-twitter.php`
+
+Files changed: `class-wm-amplifier.php, webman-amplifier.php, assets/js/plugins/imagesloaded.min.js, assets/js/plugins/isotope.pkgd.min.js, assets/js/plugins/owl.carousel.min.js, includes/functions.php, includes/functions.php, languages/wm_domain.pot`
+
 ### 1.0.9.8
 * Improved Tabs shortcode
 * Fixed Shortcode Generator shortcode attributes

@@ -1,6 +1,6 @@
 === WebMan Amplifier ===
 Contributors: webmandesign
-Tags: webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, metabox, meta, generator, fonticons, fontello
+Tags: webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
 Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
@@ -16,7 +16,7 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 
 **[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
 
-This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any of your custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular premium (3rd party) Visual Composer plugin. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
+This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular premium (3rd party) Visual Composer plugin. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready and contains bunch of useful widgets! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
 
 Don't ever get tied to a theme! **Take all the premium functionality with you** no matter what theme you use!
 
@@ -32,6 +32,7 @@ Don't ever get tied to a theme! **Take all the premium functionality with you** 
 * Use Content Modules custom post type to inject a special content or icon box anywhere on your website
 * Advanced metabox generator (with Advanced WebMan Metaboxes wrapped around the post visual editor)
 * Fontello.com icon font uploader and simple integration
+* Widgets
 * RTL language support
 
 = Plugin Localization =
@@ -79,6 +80,18 @@ First, plese note that custom translation files inside the plugin's `languages` 
 Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
 
 == Changelog ==
+
+= 1.0.9.9 =
+* Added: Widgets
+* Added: Option to deactivate the plugin after theme change
+* Updated: Code effectivity
+* Updated: Scripts: imagesLoaded 3.1.8, Isotope 2.0.1, jQuery OwlCarousel 1.3.3
+* Updated: Admin notice function
+* Updated: Localization file
+
+Files added: `includes/widgets/w-contact.php, includes/widgets/w-module.php, includes/widgets/w-posts.php, includes/widgets/w-subnav.php, includes/widgets/w-tabbed-widgets.php, includes/widgets/w-twitter.php`
+
+Files changed: `class-wm-amplifier.php, webman-amplifier.php, assets/js/plugins/imagesloaded.min.js, assets/js/plugins/isotope.pkgd.min.js, assets/js/plugins/owl.carousel.min.js, includes/functions.php, languages/wm_domain.pot`
 
 = 1.0.9.8 =
 * Improved Tabs shortcode
@@ -169,6 +182,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.9 =
+Added widgets, option to deactivate the plugin after theme change, scripts updated, code improved.
 
 = 1.0.9.8 =
 Improved Tabs shortcode, fixed Shortcode Generator shortcode attributes, fixed and improved shortcodes scripts enqueuing.

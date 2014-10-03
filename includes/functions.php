@@ -743,7 +743,8 @@
 	/**
 	 * Hex color to RGB
 	 *
-	 * @since   1.0
+	 * @since    1.0
+	 * @version  1.0.9.9
 	 *
 	 * @param   string $hex
 	 *
@@ -755,21 +756,21 @@
 				$rgb = array();
 
 			//Checking input
-				$hex = trim( $hex );
+				$hex = trim( $hex, '#' );
 				$hex = preg_replace( '/[^0-9A-Fa-f]/', '', $hex );
 				$hex = substr( $hex, 0, 6 );
 
 			//Converting hex color into rgb
 				if ( $hex ) {
 					if ( 6 == strlen( $hex ) ) {
-						$rgb['r'] = hexdec( substr( $hex, 0, 2 ) );
-						$rgb['g'] = hexdec( substr( $hex, 2, 2 ) );
-						$rgb['b'] = hexdec( substr( $hex, 4, 2 ) );
+						$rgb['r'] = hexdec( $hex[0] . $hex[1] );
+						$rgb['g'] = hexdec( $hex[2] . $hex[3] );
+						$rgb['b'] = hexdec( $hex[4] . $hex[5] );
 					} else {
 					//If shorthand notation, we need some string manipulations
-						$rgb['r'] = hexdec( str_repeat( substr( $hex, 0, 1 ), 2 ) );
-						$rgb['g'] = hexdec( str_repeat( substr( $hex, 1, 1 ), 2 ) );
-						$rgb['b'] = hexdec( str_repeat( substr( $hex, 2, 1 ), 2 ) );
+						$rgb['r'] = hexdec( $hex[0] . $hex[0] );
+						$rgb['g'] = hexdec( $hex[1] . $hex[1] );
+						$rgb['b'] = hexdec( $hex[2] . $hex[2] );
 					}
 				}
 
