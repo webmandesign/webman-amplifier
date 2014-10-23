@@ -6,6 +6,7 @@
  * @subpackage  Widgets
  *
  * @since       1.0.9.9
+ * @version     1.0.9.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -44,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Widget registration
 	 */
 	function wm_contact_info_registration() {
-		register_widget( 'wm_contact_info' );
+		register_widget( 'WM_Contact_Info' );
 	} // /wm_contact_info_registration
 
 
@@ -55,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * 30) Widget class
  */
 
-	class wm_contact_info extends WP_Widget {
+	class WM_Contact_Info extends WP_Widget {
 
 		/**
 		 * Constructor
@@ -244,6 +245,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		} // /widget
 
-	} // /wm_contact_info
+	} // /WM_Contact_Info
 
 ?>

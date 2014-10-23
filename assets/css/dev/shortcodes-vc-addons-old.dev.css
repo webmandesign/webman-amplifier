@@ -9,7 +9,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
- * @version     1.0.9.5
+ * @version     1.0.9.10
  */
 
 
@@ -476,14 +476,14 @@
 		#wpb_visual_composer .wpb_content_element.wm-shortcode-vc-price {margin: 0 0 10px}
 
 	/* Accordion and tabs element */
-		#wpb_visual_composer .wpb_content_element .wm-sections-behaviour-title {
+		#wpb_visual_composer .wpb_content_element .wm-sections-mode-title {
 			display: block;
 			padding-bottom: 10px;
 		}
 
 		/* Accordion "add new section" button */
-			.wm-sections-behaviour > .wpb_element_wrapper .tab_controls .add_tab,
-			.wm-sections-behaviour > .wpb_element_wrapper .tab_controls .add_tab:focus,
+			.wm-sections-mode > .wpb_element_wrapper .tab_controls .add_tab,
+			.wm-sections-mode > .wpb_element_wrapper .tab_controls .add_tab:focus,
 			.wpb_vc_accordion > .wpb_element_wrapper .tab_controls .add_tab,
 			.wpb_vc_accordion > .wpb_element_wrapper .tab_controls .add_tab:focus {
 				width: 100%;
@@ -506,7 +506,7 @@
 				outline: 0;
 				cursor: pointer;
 			}
-				.wm-sections-behaviour > .wpb_element_wrapper .tab_controls .add_tab:hover,
+				.wm-sections-mode > .wpb_element_wrapper .tab_controls .add_tab:hover,
 				.wpb_vc_accordion > .wpb_element_wrapper .tab_controls .add_tab:hover {
 					background: #111;
 					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,.3)), color-stop(100%,rgba(0,0,0,0)));
@@ -520,7 +520,7 @@
 				}
 
 		/* Accordion new section styling */
-			.wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-behaviour-section,
+			.wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-mode-section,
 			.wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wpb_vc_accordion_tab {
 				background: transparent;
 				border: 0;
@@ -570,16 +570,16 @@
 				   -moz-border-radius: 3px;
 				        border-radius: 3px;
 			}
-			.wm-sections-behaviour > .wpb_element_wrapper h3.ui-accordion-header span.ui-icon,
+			.wm-sections-mode > .wpb_element_wrapper h3.ui-accordion-header span.ui-icon,
 			.wpb_vc_accordion > .wpb_element_wrapper h3.ui-accordion-header span.ui-icon {display: none}
 
 			/* Element in accordion section */
-				#wpb_visual_composer .wm-sections-behaviour-section .wpb_content_element > .wpb_element_wrapper,
+				#wpb_visual_composer .wm-sections-mode-section .wpb_content_element > .wpb_element_wrapper,
 				#wpb_visual_composer .wpb_vc_accordion_tab .wpb_content_element > .wpb_element_wrapper {
 					background: #888;
 					border-color: #777;
 				}
-				#wpb_visual_composer .wm-sections-behaviour-section .wpb_content_element > .wpb_element_wrapper h4,
+				#wpb_visual_composer .wm-sections-mode-section .wpb_content_element > .wpb_element_wrapper h4,
 				#wpb_visual_composer .wpb_vc_accordion_tab .wpb_content_element > .wpb_element_wrapper h4 {color: #fff}
 
 

@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
- * @version     1.0.9.5
+ * @version     1.0.9.10
  */
 
 
@@ -132,16 +132,16 @@
 		 * Accordions / tabs sections behaviour
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.5
+		 * @version  1.0.9.10
 		 */
 
 			window.VcCustomAccordionTabView = window.VcColumnView.extend( {
 				events : {
-					'click > [data-element_type] > .controls .column_delete, .vc_control-btn-delete' : 'deleteShortcode',
-					'click > [data-element_type] > .controls .column_add, .vc_control-btn-prepend'   : 'addElement',
-					'click > [data-element_type] > .controls .column_edit, .vc_control-btn-edit'     : 'editElement',
-					'click > [data-element_type] > .controls .column_clone, .vc_control-btn-clone'   : 'clone',
-					'click > [data-element_type] > .wpb_element_wrapper > .vc_empty-container'       : 'addToEmpty'
+					'click > .vc_controls .column_delete, .wpb_vc_accordion_tab > .vc_controls .vc_control-btn-delete' : 'deleteShortcode',
+					'click > .vc_controls .column_add, .wpb_vc_accordion_tab >  .vc_controls .vc_control-btn-prepend'  : 'addElement',
+					'click > .vc_controls .column_edit, .wpb_vc_accordion_tab >  .vc_controls .vc_control-btn-edit'    : 'editElement',
+					'click > .vc_controls .column_clone, .wpb_vc_accordion_tab > .vc_controls .vc_control-btn-clone'   : 'clone',
+					'click > [data-element_type] > .wpb_element_wrapper > .vc_empty-container'                         : 'addToEmpty'
 				},
 				setContent : function () {
 					this.$content = this.$el.find( '> [data-element_type] > .wpb_element_wrapper > .vc_container_for_children' );
@@ -154,11 +154,11 @@
 					}
 				},
 				setEmpty : function () {
-					$( '> [data-element_type]', this.$el ).addClass( 'empty_column' );
+					$( '> [data-element_type]', this.$el ).addClass( 'empty_column vc_empty-column' );
 					this.$content.addClass( 'empty_container vc_empty-container' );
 				},
 				unsetEmpty : function () {
-					$( '> [data-element_type]', this.$el ).removeClass( 'empty_column' );
+					$( '> [data-element_type]', this.$el ).removeClass( 'empty_column vc_empty-column' );
 					this.$content.removeClass( 'empty_container vc_empty-container' );
 				}
 			} ); // /VcCustomAccordionTabView

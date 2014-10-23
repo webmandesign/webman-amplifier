@@ -6,6 +6,7 @@
  * @subpackage  Widgets
  *
  * @since       1.0.9.9
+ * @version     1.0.9.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -44,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Widget registration
 	 */
 	function wm_module_widget_registration() {
-		register_widget( 'wm_module_widget' );
+		register_widget( 'WM_Module_Widget' );
 	} // /wm_module_widget_registration
 
 
@@ -55,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * 30) Widget class
  */
 
-	class wm_module_widget extends WP_Widget {
+	class WM_Module_Widget extends WP_Widget {
 
 		/**
 		 * Constructor
@@ -208,6 +209,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		} // /widget
 
-	} // /wm_module_widget
+	} // /WM_Module_Widget
 
 ?>

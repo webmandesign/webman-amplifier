@@ -8,6 +8,7 @@
  * @subpackage  Widgets
  *
  * @since       1.0.9.9
+ * @version     1.0.9.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -46,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Widget registration
 	 */
 	function wm_twitter_registration() {
-		register_widget( 'wm_twitter' );
+		register_widget( 'WM_Twitter' );
 	} // /wm_twitter_registration
 
 
@@ -57,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * 30) Widget class
  */
 
-	class wm_twitter extends WP_Widget {
+	class WM_Twitter extends WP_Widget {
 
 		/**
 		 * @var  string Transient cache variable name (saving user data)
@@ -469,6 +470,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		} // /filter_tweet
 
-	} // /wm_twitter
+	} // /WM_Twitter
 
 ?>

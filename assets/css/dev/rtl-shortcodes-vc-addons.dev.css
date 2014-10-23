@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since       1.0
- * @version     1.0.9.5
+ * @version     1.0.9.10
  */
 
 
@@ -80,7 +80,7 @@
 		.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column:first-child,
 		.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column_inner:first-child {margin-right: 0}
 
-	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-behaviour-section,
+	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-mode-section,
 	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wpb_vc_accordion_tab {overflow: hidden}
 
 	/* Row layouts selector button */

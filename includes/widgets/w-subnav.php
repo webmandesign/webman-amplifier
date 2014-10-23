@@ -6,6 +6,7 @@
  * @subpackage  Widgets
  *
  * @since       1.0.9.9
+ * @version     1.0.9.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -44,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Widget registration
 	 */
 	function wm_subnav_registration() {
-		register_widget( 'wm_subnav' );
+		register_widget( 'WM_Subnav' );
 	} // /wm_subnav_registration
 
 
@@ -55,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * 30) Widget class
  */
 
-	class wm_subnav extends WP_Widget {
+	class WM_Subnav extends WP_Widget {
 
 		/**
 		 * Constructor
@@ -222,6 +223,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		} // /widget
 
-	} // /wm_subnav
+	} // /WM_Subnav
 
 ?>

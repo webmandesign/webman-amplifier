@@ -81,6 +81,14 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.10 =
+* Updated: Widgets class names
+* Updated: Admin styles
+* Fixed: Post thumbnails size in WordPress admin
+* Fixed: Visual Composer Accordions and Tabs shortcode issue
+
+Files changed: `assets/css/admin-addons.css, assets/css/rtl-shortcodes-vc-addons.css, assets/css/shortcodes-vc-addons.css, assets/css/shortcodes-vc-addons-old.css, assets/css/dev/admin-addons.css, assets/css/dev/rtl-shortcodes-vc-addons.css, assets/css/dev/shortcodes-vc-addons.css, assets/css/dev/shortcodes-vc-addons-old.css, assets/js/shortcodes-vc-addons.js, assets/js/dev/shortcodes-vc-addons.js, includes/shortcodes/definitions/definitions.php, includes/widgets/w-contact.php, includes/widgets/w-module.php, includes/widgets/w-posts.php, includes/widgets/w-subnav.php, includes/widgets/w-tabbed-widgets.php, includes/widgets/w-twitter.php`
+
 = 1.0.9.9 =
 * Added: Widgets
 * Added: Option to deactivate the plugin after theme change
@@ -182,6 +190,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.10 =
+Fixed post thumbnails size in WordPress admin and Visual Composer Accordions and Tabs shortcode issue.
 
 = 1.0.9.9 =
 Added widgets, option to deactivate the plugin after theme change, scripts updated, code improved.

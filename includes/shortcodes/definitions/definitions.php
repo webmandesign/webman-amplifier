@@ -7,7 +7,7 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @since       1.0
- * @version     1.0.9.8
+ * @version     1.0.9.10
  */
 
 /**
@@ -112,7 +112,7 @@ $shortcode_definitions = array(
 		 * Accordion / toggles wrapper
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.10
 		 */
 		'accordion' => array(
 				'since'      => '1.0',
@@ -126,12 +126,12 @@ $shortcode_definitions = array(
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Accordion', 'wm_domain' ),
 						'base'                    => $this->prefix_shortcode . 'accordion',
-						'class'                   => 'wm-shortcode-vc-accordion wm-sections-behaviour',
+						'class'                   => 'wm-shortcode-vc-accordion wm-sections-mode',
 						'show_settings_on_create' => false,
 						'is_container'            => true,
 						'category'                => __( 'Content', 'wm_domain' ),
 						'custom_markup'           => '
-								<h4 class="wm-sections-behaviour-title">' . __( 'Accordion', 'wm_domain' ) . '</h4>
+								<h4 class="wm-sections-mode-title">' . __( 'Accordion', 'wm_domain' ) . '</h4>
 								<div class="wpb_accordion_holder wpb_holder clearfix vc_container_for_children">
 									%content%
 								</div>
@@ -195,7 +195,7 @@ $shortcode_definitions = array(
 		 * Tabs wrapper
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.10
 		 */
 		'tabs' => array(
 				'since'      => '1.0',
@@ -209,12 +209,12 @@ $shortcode_definitions = array(
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Tabs', 'wm_domain' ),
 						'base'                    => $this->prefix_shortcode . 'tabs',
-						'class'                   => 'wm-shortcode-vc-tabs wm-sections-behaviour',
+						'class'                   => 'wm-shortcode-vc-tabs wm-sections-mode',
 						'show_settings_on_create' => false,
 						'is_container'            => true,
 						'category'                => __( 'Content', 'wm_domain' ),
 						'custom_markup'           => '
-								<h4 class="wm-sections-behaviour-title">' . __( 'Tabs', 'wm_domain' ) . '</h4>
+								<h4 class="wm-sections-mode-title">' . __( 'Tabs', 'wm_domain' ) . '</h4>
 								<div class="wpb_accordion_holder wpb_holder clearfix vc_container_for_children">
 									%content%
 								</div>
@@ -279,7 +279,7 @@ $shortcode_definitions = array(
 		 * Item (can be accordion / toggles or tab item)
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.10
 		 */
 		'item' => array(
 				'since'      => '1.0',
@@ -293,7 +293,7 @@ $shortcode_definitions = array(
 				'vc_plugin'  => array(
 						'name'                      => $this->prefix_shortcode_name . __( 'Item (Accordion / Tab)', 'wm_domain' ),
 						'base'                      => $this->prefix_shortcode . 'item',
-						'class'                     => 'wm-shortcode-vc-item wm-sections-behaviour-section wpb_vc_accordion_tab',
+						'class'                     => 'wm-shortcode-vc-item wm-sections-mode-section wpb_vc_accordion_tab',
 						'allowed_container_element' => 'vc_row',
 						'is_container'              => true,
 						'content_element'           => false,
@@ -1512,7 +1512,7 @@ $shortcode_definitions = array(
 		 * Pricing table
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.0.9.10
 		 */
 		'pricing_table' => array(
 				'since'      => '1.0',
@@ -1526,12 +1526,12 @@ $shortcode_definitions = array(
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Pricing table', 'wm_domain' ),
 						'base'                    => $this->prefix_shortcode . 'pricing_table',
-						'class'                   => 'wm-shortcode-vc-pricing_table wm-sections-behaviour',
+						'class'                   => 'wm-shortcode-vc-pricing_table wm-sections-mode',
 						'show_settings_on_create' => false,
 						'is_container'            => true,
 						'category'                => __( 'Content', 'wm_domain' ),
 						'custom_markup'           => '
-								<h4 class="wm-sections-behaviour-title">' . __( 'Pricing table', 'wm_domain' ) . '</h4>
+								<h4 class="wm-sections-mode-title">' . __( 'Pricing table', 'wm_domain' ) . '</h4>
 								<div class="wpb_accordion_holder wpb_holder clearfix vc_container_for_children">
 									%content%
 								</div>
