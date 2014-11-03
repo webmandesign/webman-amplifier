@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @author      WebMan
- * @version     1.0.9.8
+ * @version     1.0.9.11
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -331,13 +331,13 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Register styles and scripts
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.11
+			 * @access   public
 			 */
 			public function assets_register() {
 				//Helper variables
 					$icon_font_url = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
-					$protocol      = ( is_ssl() ) ? ( 'https' ) : ( 'http' );
 					$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
 
 				//Styles

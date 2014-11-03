@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since       1.0.9.9
- * @version     1.0.9.10
+ * @version     1.0.9.11
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -300,7 +300,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						//Get new tweets and set new cache
 
 							//Load the helper class
-								require_once( WMAMP_INCLUDES_DIR . '/twitter-api/twitteroauth.php' );
+								if ( ! class_exists( 'TwitterOAuth' ) ) {
+									require_once( WMAMP_INCLUDES_DIR . '/twitter-api/twitteroauth.php' );
+								}
 
 							//Set the connection
 							$tweetter_connection = new TwitterOAuth(

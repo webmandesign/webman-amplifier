@@ -178,7 +178,7 @@
 	 * Get post meta option
 	 *
 	 * @since    1.0
-	 * @version  1.0.5
+	 * @version  1.0.9.11
 	 *
 	 * @param    string  $name    Meta option name.
 	 * @param    integer $post_id Specific post ID.
@@ -187,43 +187,39 @@
 	 */
 	if ( ! function_exists( 'wma_meta_option' ) ) {
 		function wma_meta_option( $name, $post_id = null ) {
-			//Helper variables
-				$output = '';
-
-				$meta_array_name = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_meta_array_name', WM_METABOX_SERIALIZED_NAME, $name, $post_id );
-				$meta_prefix     = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_meta_prefix', WM_METABOX_FIELD_PREFIX, $name, $post_id );
-
 			//Requirements check
 				$post_id = absint( $post_id );
-
 				if ( ! $post_id ) {
-					global $post;
-					if ( isset( $post->ID ) ) {
-						$post_id = $post->ID;
-					}
+					$post_id = get_the_ID();
 				}
 
 				if ( ! trim( $name ) || ! $post_id ) {
 					return;
 				}
 
-			//Premature output
-				$output = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output_premature', $output, $name, $post_id );
+			//Helper variables
+				$output = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output_premature', '', $name, $post_id );
 
-				if ( $output ) {
-					return apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output', $output, $name, $post_id );
-				}
+				//Premature output
+					if ( $output ) {
+						return apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output', $output, $name, $post_id );
+					}
+
+				$meta_array_name = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_meta_array_name', WM_METABOX_SERIALIZED_NAME, $name, $post_id );
+				$meta_prefix     = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_meta_prefix', WM_METABOX_FIELD_PREFIX, $name, $post_id );
 
 			//Preparing output
 				$meta = get_post_meta( $post_id, $meta_array_name, true );
 				$name = $meta_prefix . $name;
 
 				if ( isset( $meta[ $name ] ) && $meta[ $name ] ) {
+
 					if ( is_array( $meta[ $name ] ) ) {
 						$output = $meta[ $name ];
 					} else {
 						$output = stripslashes( $meta[ $name ] );
 					}
+
 				}
 
 			//Output

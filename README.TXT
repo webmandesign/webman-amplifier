@@ -81,6 +81,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.11 =
+* Updated: Optimized code
+* Updated: Including Twitter OAuth library conditionally to prevent issues with other plugins
+
+Files changed: `class-wm-amplifier.php, includes/functions.php, includes/shortcodes/class-shortcodes.php, includes/widgets/w-twitter.php`
+
 = 1.0.9.10 =
 * Updated: Widgets class names
 * Updated: Admin styles
@@ -190,6 +196,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.11 =
+Optimized code, conditional loading of Twitter OAuth library.
 
 = 1.0.9.10 =
 Fixed post thumbnails size in WordPress admin and Visual Composer Accordions and Tabs shortcode issue.

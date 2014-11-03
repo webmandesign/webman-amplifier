@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.0.9.11
+* Updated: Optimized code
+* Updated: Including Twitter OAuth library conditionally to prevent issues with other plugins
+
+Files changed: `class-wm-amplifier.php, includes/functions.php, includes/shortcodes/class-shortcodes.php, includes/widgets/w-twitter.php`
+
 ### 1.0.9.10
 * Updated: Widgets class names
 * Updated: Admin styles

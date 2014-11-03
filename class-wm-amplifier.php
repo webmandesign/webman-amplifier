@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Contains the main functions for WebMan Amplifier.
  *
  * @since    1.0
- * @version	 1.0.9.9
+ * @version	 1.0.9.11
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -267,13 +267,13 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Register (and include) styles and scripts
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.11
+			 * @access   public
 			 */
 			public function assets() {
 				//Helper variables
 					global $current_screen, $wp_version;
-					$protocol = ( is_ssl() ) ? ( 'https' ) : ( 'http' );
 
 				//Register
 					//Styles
