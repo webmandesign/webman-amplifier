@@ -1,5 +1,10 @@
 ## Changelog
 
+### 1.0.9.12
+* Updated: Updated Twitter OAuth library
+
+Files changed: `includes/twitter-api/OAuth.php, includes/twitter-api/twitteroauth.php`
+
 ### 1.0.9.11
 * Updated: Optimized code
 * Updated: Including Twitter OAuth library conditionally to prevent issues with other plugins

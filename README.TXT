@@ -81,6 +81,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.12 =
+* Updated: Updated Twitter OAuth library
+
+Files changed: `includes/twitter-api/OAuth.php, includes/twitter-api/twitteroauth.php`
+
 = 1.0.9.11 =
 * Updated: Optimized code
 * Updated: Including Twitter OAuth library conditionally to prevent issues with other plugins
@@ -196,6 +201,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.12 =
+Updated Twitter OAuth library.
 
 = 1.0.9.11 =
 Optimized code, conditional loading of Twitter OAuth library.
