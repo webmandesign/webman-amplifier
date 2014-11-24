@@ -81,6 +81,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.13 =
+* Updated: Posts shortcode filter name
+
+Files changed: `includes/shortcodes/renderers/posts.php`
+
 = 1.0.9.12 =
 * Updated: Updated Twitter OAuth library
 
@@ -201,6 +206,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.13 =
+Updated posts shortcode filter name on $helper variable.
 
 = 1.0.9.12 =
 Updated Twitter OAuth library.

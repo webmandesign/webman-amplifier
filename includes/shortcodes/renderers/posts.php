@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.0.9.13
  *
  * @uses   $codes_globals['post_types']
  *
@@ -327,7 +327,7 @@
 
 						$helper = array();
 
-						//excerpt_length
+						//shortcode atts
 							$helper['atts'] = $atts;
 						//excerpt_length
 							$helper['excerpt_length'] = $excerpt_length;
@@ -384,7 +384,7 @@
 						//post_id
 							$helper['post_id'] = $post_id;
 
-						$helper = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_item_class', $helper, $post_id );
+						$helper = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_helper', $helper, $post_id );
 
 					//single post output template
 						if (
