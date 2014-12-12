@@ -1,5 +1,15 @@
 ## Changelog
 
+### 1.0.9.14
+* Updated: Allow disabling shortcodes, icon font and metaboxes classes
+
+Files changed: `class-wm-amplifier.php`
+
+### 1.0.9.13
+* Updated: Posts shortcode filter name
+
+Files changed: `includes/shortcodes/renderers/posts.php`
+
 ### 1.0.9.12
 * Updated: Updated Twitter OAuth library
 

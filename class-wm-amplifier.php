@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Contains the main functions for WebMan Amplifier.
  *
  * @since    1.0
- * @version	 1.0.9.11
+ * @version	 1.0.9.14
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -179,18 +179,23 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Include required files
 			 *
-			 * @since   1.0
-			 * @access  private
+			 * @since    1.0
+			 * @version  1.0.9.14
+			 * @access   private
 			 */
 			private function includes() {
 				//Shortcodes
-					require( $this->includes_dir . 'shortcodes/class-shortcodes.php' );
+					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_shortcodes', true ) ) {
+						require( $this->includes_dir . 'shortcodes/class-shortcodes.php' );
+					}
 
 				//Icon font
-					require( $this->includes_dir . 'class-icon-font.php' );
+					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true ) ) {
+						require( $this->includes_dir . 'class-icon-font.php' );
+					}
 
 				//Admin
-					if ( is_admin() ) {
+					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_metaboxes', true ) && is_admin() ) {
 						//Meta boxes
 							require( $this->includes_dir . 'metabox/class-metabox.php' );
 					}

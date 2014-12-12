@@ -81,6 +81,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.14 =
+* Updated: Allow disabling shortcodes, icon font and metaboxes classes
+
+Files changed: `class-wm-amplifier.php`
+
 = 1.0.9.13 =
 * Updated: Posts shortcode filter name
 
@@ -206,6 +211,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.14 =
+Allowing disabling shortcodes, icon font and metaboxes classes.
 
 = 1.0.9.13 =
 Updated posts shortcode filter name on $helper variable.
