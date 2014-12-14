@@ -66,6 +66,43 @@
 			 * This will also create a new taxonomy: "testimonial_category"
 			 */
 			// 'cp-testimonials',
+
+
+			/**
+			 * Uncomment to enable Contact widget
+			 */
+			// 'widget-contact',
+
+			/**
+			 * Uncomment to enable Content Module widget
+			 */
+			// 'widget-module',
+
+			/**
+			 * Uncomment to enable Posts widget
+			 */
+			// 'widget-posts',
+
+			/**
+			 * Uncomment to enable Sub-navigation widget
+			 */
+			// 'widget-subnav',
+
+			/**
+			 * Uncomment to enable Tabbed Widgets widget
+			 */
+			// 'widget-tabbed-widgets',
+
+			/**
+			 * Uncomment to enable Twitter widget
+			 */
+			// 'widget-twitter',
+
+
+			/**
+			 * Uncomment to remove default Visual Composer elements (shortcodes)
+			 */
+			// 'remove-vc-shortcodes';
 		) );
 
 
@@ -273,13 +310,6 @@
  * @link     http://codecanyon.net/item/visual-composer-for-wordpress/242431
  */
 	if ( function_exists( 'wma_is_active_vc' ) && wma_is_active_vc() ) {
-
-		/**
-		 * Uncomment to remove default Visual Composer elements (shortcodes)
-		 */
-		// add_theme_support( 'webman-shortcodes', array( 'remove_vc_shortcodes' ) );
-
-
 
 		/**
 		 * Enable Visual Composer for custom post types

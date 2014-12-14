@@ -68,14 +68,19 @@
 	 */
 	if ( ! function_exists( 'wma_supports_subfeature' ) ) {
 		function wma_supports_subfeature( $subfeature = '' ) {
+			//Helper variables
+				$supported            = (array) get_theme_support( 'webman-amplifier' );
+				$supported_shortcodes = (array) get_theme_support( 'webman-shortcodes' );
+
+				$supported = array_filter( array_merge( (array) $supported[0], (array) $supported_shortcodes[0] ) );
+
 			//Processing
 				if (
 						trim( $subfeature )
-						&& ( $supported = get_theme_support( 'webman-amplifier' ) )
 						&& is_array( $supported )
-						&& isset( $supported[0] )
+						&& ! empty( $supported )
 					) {
-					return in_array( $subfeature, $supported[0] );
+					return in_array( $subfeature, $supported );
 				}
 
 			//Output

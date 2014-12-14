@@ -165,7 +165,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/vc_addons' ) );
 
 				//Visual Composer integration
-					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcode' ) || wma_supports_subfeature( 'remove-vc-shortcode' ) ) ) {
+					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
 						$this->prefix_shortcode_name = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'prefix_name', 'WM ' );
 					}
 
@@ -924,7 +924,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Remove default VC elements (only if current theme supports this)
 					if (
 							function_exists( 'vc_remove_element' )
-							&& ( wma_supports_subfeature( 'remove_vc_shortcode' ) || wma_supports_subfeature( 'remove-vc-shortcode' ) )
+							&& ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) )
 							&& class_exists( 'WPBMap' )
 						) {
 						$vc_shortcodes_all    = array_keys( WPBMap::getShortCodes() );
