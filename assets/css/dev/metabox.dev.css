@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since       1.0
- * @version     1.0.9.7
+ * @version     1.0.9.15
  */
 
 
@@ -34,6 +34,7 @@
 
 	/* Special metabox (wrapped around visual editor) */
 		.wm-meta-wrap.meta-special {
+			margin-top: 20px;
 			margin-bottom: 20px;
 			background: #fff;
 			border: 1px solid #dfdfdf;
@@ -547,9 +548,11 @@
 				.wm-meta-wrap .repeater-cell {
 					position: relative;
 					width: 100%;
+					padding: 3px;
 					margin: 1em 0 0;
 					background: #fff;
 					border: 1px solid #e6e6e6;
+					border-spacing: 0;
 					border-radius: 3px;
 				}
 					.wm-meta-wrap .repeater-cell-controls {

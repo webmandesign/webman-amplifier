@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Contains the main functions for WebMan Amplifier.
  *
  * @since    1.0
- * @version	 1.0.9.14
+ * @version	 1.0.9.15
  * @package	 WebMan Amplifier
  * @author   WebMan
  */
@@ -61,8 +61,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * at any one time.
 			 * Also prevents needing to define globals all over the place.
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.15
+			 * @access   public
 			 *
 			 * @return  The one true WebMan Amplifier
 			 */
@@ -76,7 +77,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						$instance = new WM_Amplifier;
 
 						$instance->setup_globals();
-						$instance->includes();
 						$instance->setup_actions();
 						$instance->setup_features();
 					}
@@ -177,45 +177,20 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 
 			/**
-			 * Include required files
-			 *
-			 * @since    1.0
-			 * @version  1.0.9.14
-			 * @access   private
-			 */
-			private function includes() {
-				//Shortcodes
-					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_shortcodes', true ) ) {
-						require( $this->includes_dir . 'shortcodes/class-shortcodes.php' );
-					}
-
-				//Icon font
-					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true ) ) {
-						require( $this->includes_dir . 'class-icon-font.php' );
-					}
-
-				//Admin
-					if ( apply_filters( WMAMP_HOOK_PREFIX . 'enable_metaboxes', true ) && is_admin() ) {
-						//Meta boxes
-							require( $this->includes_dir . 'metabox/class-metabox.php' );
-					}
-			} // /includes
-
-
-
-			/**
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.9
+			 * @version  1.0.9.15
 			 * @access   private
 			 */
 			private function setup_actions() {
 				//Array of core actions
 					$actions = array(
+						'register_metaboxes'  => 'plugins_loaded',    //Register metaboxes
 						'register_widgets'    => 'init|1',            //Register widgets
 						'save_permalinks'     => 'init',              //Save custom permalinks
 						'register_post_types' => 'init',              //Register post types
+						'custom_taxonomies'   => 'init|98',           //Register additional custom taxonomies
 						'load_textdomain'     => 'init',              //Load textdomain
 						'register_shortcodes' => 'init',              //Register shortcodes
 						'register_icons'      => 'init',              //Register icon font
@@ -342,33 +317,69 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function register_post_types() {
 				//Content Modules
-					if ( in_array( 'cp-modules', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'cp-modules' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/modules.php' );
 					}
 
 				//Logos
-					if ( in_array( 'cp-logos', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'cp-logos' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/logos.php' );
 					}
 
 				//Projects
-					if ( in_array( 'cp-projects', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'cp-projects' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/projects.php' );
 					}
 
 				//Staff
-					if ( in_array( 'cp-staff', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'cp-staff' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/staff.php' );
 					}
 
 				//Testimonials
-					if ( in_array( 'cp-testimonials', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'cp-testimonials' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/testimonials.php' );
 					}
 
 				//Plugin register custom posts action
 					do_action( WMAMP_HOOK_PREFIX . 'register_post_types' );
 			} // /register_post_types
+
+
+
+			/**
+			 * Register additional custom taxonomies
+			 *
+			 * This function provides a taxonomy help for WordPress themes.
+			 * In case your theme needs to register taxonomy, hook into the
+			 * 'wmhook_wmamp_custom_taxonomies' and add your own taxonomy
+			 * args. The array is set up like this:
+			 *   array(
+			 *     'taxonomy_id' => array(
+			 *       'object_type' => array(),
+			 *       'args'        => array()
+			 *   )
+			 * @link  http://codex.wordpress.org/Function_Reference/register_taxonomy
+			 *
+			 * @since   1.0.9.15
+			 * @access  public
+			 */
+			public function custom_taxonomies() {
+				//Helper variables
+					$taxonomies = (array) apply_filters( WMAMP_HOOK_PREFIX . 'custom_taxonomies', array() );
+
+				//Requirements check
+					if ( empty( $taxonomies ) ) {
+						return;
+					}
+
+				//Processing
+					foreach ( $taxonomies as $taxonomy_id => $taxonomy ) {
+						if ( isset( $taxonomy['object_type'] ) && isset( $taxonomy['args'] ) ) {
+							register_taxonomy( $taxonomy_id, $taxonomy['object_type'], $taxonomy['args'] );
+						}
+					} // /foreach
+			} // /custom_taxonomies
 
 
 
@@ -393,7 +404,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 					//Content Modules
 						if (
-								in_array( 'cp-modules', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) )
+								wma_supports_subfeature( 'cp-modules' )
 								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_modules', false )
 							) {
 							$query['post_type'][] = 'wm_modules';
@@ -401,7 +412,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 					//Logos
 						if (
-								in_array( 'cp-logos', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) )
+								wma_supports_subfeature( 'cp-logos' )
 								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_logos', false )
 							) {
 							$query['post_type'][] = 'wm_logos';
@@ -409,7 +420,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 					//Projects
 						if (
-								in_array( 'cp-projects', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) )
+								wma_supports_subfeature( 'cp-projects' )
 								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_projects', true )
 							) {
 							$query['post_type'][] = 'wm_projects';
@@ -417,7 +428,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 					//Staff
 						if (
-								in_array( 'cp-staff', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) )
+								wma_supports_subfeature( 'cp-staff' )
 								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_staff', false )
 							) {
 							$query['post_type'][] = 'wm_staff';
@@ -425,7 +436,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 					//Testimonials
 						if (
-								in_array( 'cp-testimonials', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) )
+								wma_supports_subfeature( 'cp-testimonials' )
 								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_testimonials', false )
 							) {
 							$query['post_type'][] = 'wm_testimonials';
@@ -443,15 +454,38 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 
 			/**
-			 * Register the shortcodes
+			 * Register metaboxes
 			 *
-			 * @since   1.0
+			 * @since   1.0.9.15
 			 * @access  public
 			 *
-			 * @uses    WM_Shortcodes
+			 * @uses    WM_Metabox
+			 */
+			public function register_metaboxes() {
+				if ( is_admin() ) {
+					require( $this->includes_dir . 'metabox/class-metabox.php' );
+				}
+			} // /register_metaboxes
+
+
+
+			/**
+			 * Register shortcodes
+			 *
+			 * @since    1.0
+			 * @version  1.0.9.15
+			 * @access   public
+			 *
+			 * @uses     WM_Shortcodes
 			 */
 			public function register_shortcodes() {
-				return WM_Shortcodes::instance();
+				if (
+						apply_filters( WMAMP_HOOK_PREFIX . 'enable_shortcodes', true )
+						&& ! wma_supports_subfeature( 'disable-shortcodes' )
+					) {
+					require( $this->includes_dir . 'shortcodes/class-shortcodes.php' );
+					return WM_Shortcodes::instance();
+				}
 			} // /register_shortcodes
 
 
@@ -459,13 +493,20 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Register icon font file
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.15
+			 * @access   public
 			 *
-			 * @uses    WM_Icons
+			 * @uses     WM_Icons
 			 */
 			public function register_icons() {
-				return WM_Icons::instance();
+				if (
+						apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true )
+						&& ! wma_supports_subfeature( 'disable-fonticons' )
+					) {
+					require( $this->includes_dir . 'class-icon-font.php' );
+					return WM_Icons::instance();
+				}
 			} // /register_icons
 
 
@@ -478,32 +519,32 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function register_widgets() {
 				//Contact widget
-					if ( in_array( 'widget-contact', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-contact' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-contact.php' );
 					}
 
 				//Content Module widget
-					if ( in_array( 'widget-module', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-module' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-module.php' );
 					}
 
 				//Posts widget
-					if ( in_array( 'widget-posts', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-posts' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-posts.php' );
 					}
 
 				//Sub navigation widget
-					if ( in_array( 'widget-subnav', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-subnav' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-subnav.php' );
 					}
 
 				//Tabbed widgets widget
-					if ( in_array( 'widget-tabbed-widgets', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-tabbed-widgets' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-tabbed-widgets.php' );
 					}
 
 				//Twitter widget
-					if ( in_array( 'widget-twitter', wma_current_theme_supports_subfeatures( 'webman-amplifier' ) ) ) {
+					if ( wma_supports_subfeature( 'widget-twitter' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-twitter.php' );
 					}
 
@@ -525,7 +566,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * );
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.9
+			 * @version  1.0.9.15
 			 * @access   public
 			 */
 			public function admin_notices() {
@@ -539,7 +580,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					$class  = 'updated';
 					$repeat = 0;
 
-					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true );
+					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
 
 					$capability = apply_filters( WMAMP_HOOK_PREFIX . 'notice_capability', 'switch_themes' );
 					$message    = get_transient( 'wmamp-admin-notice' );

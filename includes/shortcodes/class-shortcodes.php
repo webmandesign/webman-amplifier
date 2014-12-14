@@ -130,7 +130,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Shortcodes globals setup
 			 *
 			 * @since    1.0
-			 * @version  1.0.9
+			 * @version  1.0.9.15
 			 * @access   private
 			 */
 			private function setup_globals() {
@@ -165,7 +165,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/vc_addons' ) );
 
 				//Visual Composer integration
-					if ( ! in_array( 'remove_vc_shortcodes', wma_current_theme_supports_subfeatures( 'webman-shortcodes' ) ) ) {
+					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcode' ) || wma_supports_subfeature( 'remove-vc-shortcode' ) ) ) {
 						$this->prefix_shortcode_name = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'prefix_name', 'WM ' );
 					}
 
@@ -896,10 +896,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 *
 			 * http://vc.wpbakery.com/
 			 *
-			 * @todo    Support for Frontend Editor (VC4+)
+			 * @todo     Support for Frontend Editor (VC4+)
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0
+			 * @version  1.0.9.15
+			 * @access   public
 			 */
 			public function visual_composer_support() {
 				//VC 4+ disabling Frontend Editor
@@ -923,7 +924,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Remove default VC elements (only if current theme supports this)
 					if (
 							function_exists( 'vc_remove_element' )
-							&& in_array( 'remove_vc_shortcodes', wma_current_theme_supports_subfeatures( 'webman-shortcodes' ) )
+							&& ( wma_supports_subfeature( 'remove_vc_shortcode' ) || wma_supports_subfeature( 'remove-vc-shortcode' ) )
 							&& class_exists( 'WPBMap' )
 						) {
 						$vc_shortcodes_all    = array_keys( WPBMap::getShortCodes() );

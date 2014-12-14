@@ -81,6 +81,18 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
+= 1.0.9.15 =
+* Added: Function to register additional custom taxonomies
+* Added: 'wma_supports_subfeature( $subfeature )' function
+* Updated: Function to check if the theme supports plugin's features
+* Updated: Improved disabling shortcodes and icon font classes
+* Updated: Improved performance of the code
+* Updated: Metabox styles
+* Updated: Renamed 'remove_vc_shortcode' to 'remove-vc-shortcode' (while keeping backwards compatibility)
+* Fixed: Function name for 'WMAMP_LATE_LOAD' feature
+
+Files changed: `class-wm-amplifier.php, webman-amplifier.php, assets/css/metabox.css, assets/css/dev/metabox.dev.css, includes/functions.php, includes/shortcodes/class-shortcodes.php`
+
 = 1.0.9.14 =
 * Updated: Allow disabling shortcodes, icon font and metaboxes classes
 
@@ -211,6 +223,9 @@ Files changed: `webman-amplifier.php, includes/functions.php`
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.9.15 =
+Added registering custom taxonomies, updated and improved code performance and logic, fixed naming convention.
 
 = 1.0.9.14 =
 Allowing disabling shortcodes, icon font and metaboxes classes.
