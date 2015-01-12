@@ -16,11 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * WebMan Font Icons Class
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
  * @author      WebMan
- * @version     1.0.9.3
+ *
+ * @since    1.0
+ * @version  1.1
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -29,11 +30,6 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 		/**
 		 * VARIABLES DEFINITION
 		 */
-
-			/**
-			 * @var  string
-			 */
-			private $version = '1.0';
 
 			/**
 			 * @var  array Array of paths and URLs
@@ -181,7 +177,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Scripts and styles
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  public
 			 */
 			public function assets() {
@@ -192,14 +190,14 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wm-metabox-styles',     $this->paths['assets_url'] . 'css/metabox.css',     false, $this->version, 'screen' );
-						wp_register_style( 'wm-metabox-styles-rtl', $this->paths['assets_url'] . 'css/rtl-metabox.css', false, $this->version, 'screen' );
+						wp_register_style( 'wm-metabox-styles',     $this->paths['assets_url'] . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles-rtl', $this->paths['assets_url'] . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
 						if ( $icon_font_url ) {
-							wp_register_style( 'wm-fonticons', $icon_font_url, false, $this->version, 'screen' );
+							wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 						}
 
 					//Scripts
-						wp_register_script( 'wm-metabox-scripts', $this->paths['assets_url'] . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), $this->version, true );
+						wp_register_script( 'wm-metabox-scripts', $this->paths['assets_url'] . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
 
 				//Enqueue (only on admin page)
 				if ( 'appearance_page_icon-font' == $current_screen->id ) {

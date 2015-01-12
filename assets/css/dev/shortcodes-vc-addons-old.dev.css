@@ -8,8 +8,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since       1.0
- * @version     1.0.9.10
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -591,87 +591,6 @@
 	.mce-container div[id*="wm_shortcodes_list_vc_id"],
 	.wpb-edit-form .mce-container div[id*="wm_shortcodes_list_id"] {display: none}
 	.wpb-edit-form .mce-container div[id*="wm_shortcodes_list_vc_id"] {display: block}
-
-
-
-/**
- * Custom Visual Composer shortcode parameters
- */
-
-	/**
- 	 * "wm_hidden" paramter
- 	 */
-
- 		.wpb_el_type_wm_hidden {display: none}
-
-
-
-	/**
-	 * "wm_radio" parameter
-	 */
-
-		.wpb_edit_form_elements .wm-radio-block {
-			max-height: 16em;
-			border: 1px solid #dfdfdf;
-			-webkit-border-radius: 3px;
-			   -moz-border-radius: 3px;
-			        border-radius: 3px;
-			overflow-y: auto;
-		}
-		.wpb_edit_form_elements .wm-radio-block.custom-label {padding: 1em}
-			.wpb_edit_form_elements .wm-radio-block input[type="radio"] {
-				position: relative;
-				width: 16px;
-				height: 16px;
-				padding: 0;
-				margin: 0;
-				vertical-align: middle;
-				background: #fff;
-				color: #666;
-				border: 1px solid #ccc;
-				cursor: pointer;
-			}
-			.wpb_edit_form_elements .wm-radio-block label {
-				display: inline-block;
-				position: relative;
-				margin-right: 1em;
-			}
-
-			/* Custom radio label */
-				.wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio {
-					position: relative;
-					display: inline-block;
-					padding: .5em;
-					margin: 0 .5em .5em 0;
-					text-align: center;
-					background: #fff;
-					border: 1px solid #e6e6e6;
-					-webkit-border-radius: 3px;
-					   -moz-border-radius: 3px;
-					        border-radius: 3px;
-				}
-					.wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio.active {
-						background: #d9edf7;
-						border-color: #b7cbd0;
-					}
-						.wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio:hover,
-						.wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio.active {
-							z-index: 1;
-							-webkit-box-shadow: 0 2px 10px rgba(0,0,0, .25);
-							   -moz-box-shadow: 0 2px 10px rgba(0,0,0, .25);
-							        box-shadow: 0 2px 10px rgba(0,0,0, .25);
-							-webkit-transform: scale( 1.5 );
-							   -moz-transform: scale( 1.5 );
-							    -ms-transform: scale( 1.5 );
-							     -o-transform: scale( 1.5 );
-							        transform: scale( 1.5 );
-						}
-							.wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio:hover {z-index: 2}
-					.wpb_edit_form_elements .wm-radio-block.custom-label label {
-						display: block;
-						padding: 0;
-						margin: 0;
-					}
 
 
 

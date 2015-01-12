@@ -3,10 +3,10 @@
  * WebMan Amplifier
  *
  * @package    WebMan Amplifier
- * @author     WebMan
- * @license    GPL-2.0+
- * @link       http://www.webmandesign.eu
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
+ * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @link  http://www.webmandesign.eu
  */
 
 
@@ -21,10 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * Contains the main functions for WebMan Amplifier.
  *
- * @since    1.0
- * @version	 1.0.9.15
  * @package	 WebMan Amplifier
  * @author   WebMan
+ *
+ * @since    1.0
+ * @version	 1.1
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -33,11 +34,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 		/**
 		 * VARIABLES DEFINITION
 		 */
-
-			/**
-			 * @var  string
-			 */
-			public $version;
 
 			/**
 			 * @var  array
@@ -157,13 +153,12 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Set some smart defaults to class variables.
 			 * Allow some of them to be filtered to allow for early overriding.
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  private
 			 */
 			private function setup_globals() {
-				//Versions
-					$this->version = WMAMP_VERSION;
-
 				//Paths, URLs
 					$this->includes_dir = apply_filters( WMAMP_HOOK_PREFIX . 'includes_dir', WMAMP_INCLUDES_DIR );
 					$this->assets_url   = apply_filters( WMAMP_HOOK_PREFIX . 'assets_url', WMAMP_ASSETS_URL );
@@ -214,6 +209,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 				//Add filters
 					add_filter( 'request', array( $this, 'post_types_in_feed' ) );
+					add_filter( 'plugin_action_links_' . plugin_basename( WMAMP_PLUGIN_FILE ), array( $this, 'setup_action_links' ) );
 
 				//Loaded action
 					do_action( WMAMP_HOOK_PREFIX . 'loaded' );
@@ -238,6 +234,33 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 
 
+			/**
+			 * Setup WordPress plugin action links
+			 *
+			 * @since    1.1
+			 * @version  1.1
+			 *
+			 * @access  public
+			 */
+			public function setup_action_links( $links ) {
+				//Preparing output
+					//Icon font setup link
+						if (
+								apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true )
+								&& ! wma_supports_subfeature( 'disable-fonticons' )
+							) {
+							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . __( 'Icon Font', 'wm_domain' ) . '</a>';
+						}
+
+					//Themes link
+						$links[] = '<a href="http://www.webmandesign.eu/" target="_blank" style="color: #83A552;">WebMan Themes</a>';
+
+				//Output
+					return $links;
+			} // /setup_action_links
+
+
+
 
 
 		/**
@@ -248,8 +271,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.11
-			 * @access   public
+			 * @version  1.1
+			 *
+			 * @access  public
 			 */
 			public function assets() {
 				//Helper variables
@@ -257,8 +281,8 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wmamp-admin-styles',    $this->assets_url . 'css/admin-addons.css',    false, $this->version, 'screen' );
-						wp_register_style( 'wmamp-admin-styles-38', $this->assets_url . 'css/admin-addons-38.css', false, $this->version, 'screen' );
+						wp_register_style( 'wmamp-admin-styles',    $this->assets_url . 'css/admin-addons.css',    false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wmamp-admin-styles-38', $this->assets_url . 'css/admin-addons-38.css', false, WMAMP_VERSION, 'screen' );
 
 				//Enqueue (only on specific admin pages)
 				if ( in_array( $current_screen->base, array( 'edit', 'post' ) ) ) {
@@ -473,10 +497,11 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Register shortcodes
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.15
-			 * @access   public
+			 * @version  1.1
 			 *
-			 * @uses     WM_Shortcodes
+			 * @access  public
+			 *
+			 * @uses  WM_Shortcodes
 			 */
 			public function register_shortcodes() {
 				if (
@@ -484,7 +509,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						&& ! wma_supports_subfeature( 'disable-shortcodes' )
 					) {
 					require( $this->includes_dir . 'shortcodes/class-shortcodes.php' );
-					return WM_Shortcodes::instance();
+					return wma_shortcodes();
 				}
 			} // /register_shortcodes
 
@@ -566,7 +591,8 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * );
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.15
+			 * @version  1.1
+			 *
 			 * @access   public
 			 */
 			public function admin_notices() {
@@ -639,7 +665,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * will be removed on plugin updates. If you're creating custom
 			 * translation files, please use the global language folder.
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  public
 			 *
 			 * @return  boolean
@@ -647,7 +675,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			public function load_textdomain() {
 				//Traditional WordPress plugin locale filter
 					$locale = apply_filters( 'plugin_locale', get_locale(), $this->domain );
-					$mofile = sprintf( '%1$s-%2$s.mo', $this->domain, $locale );
+					$mofile = $locale . '.mo';
 
 				//Setup paths to current locale file
 					$mofile_local  = $this->lang_dir . $mofile;

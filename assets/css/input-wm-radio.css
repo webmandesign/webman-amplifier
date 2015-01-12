@@ -1,0 +1,11 @@
+/**
+ * WebMan custom radio input field styles
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since    1.1 (included in Visual Composer before)
+ * @version  1.1
+ */
+
+.wm-radio-block{max-height:16em;border:1px solid #dfdfdf;border-radius:3px;overflow-y:auto}.wm-radio-block.custom-label{padding:1em}.wm-radio-block .hide{display:none}.wm-radio-block input[type="radio"]{position:relative;width:16px;height:16px;padding:0;margin:0;vertical-align:middle;background:#fff;color:#666;border:1px solid #ccc;cursor:pointer}.wm-radio-block label{display:inline-block;position:relative;margin-right:1em}.wm-radio-block.custom-label .inline-radio{position:relative;display:inline-block;padding:.5em;margin:0 .5em .5em 0;text-align:center;background:#fff;border:1px solid #e6e6e6;border-radius:3px}.wm-radio-block.custom-label .inline-radio.active{background:#d9edf7;border-color:#b7cbd0}.wm-radio-block.custom-label .inline-radio:hover,.wm-radio-block.custom-label .inline-radio.active{z-index:1;-webkit-box-shadow:0 2px 10px rgba(0,0,0,.25); box-shadow:0 2px 10px rgba(0,0,0,.25);-webkit-transform:scale( 1.5 ); -ms-transform:scale( 1.5 ); transform:scale( 1.5 )}.wm-radio-block.custom-label .inline-radio:hover{z-index:2}.wm-radio-block.custom-label label{display:block;padding:0;margin:0}.rtl .wm-radio-block.custom-label .inline-radio {margin:0 0 .5em .5em}

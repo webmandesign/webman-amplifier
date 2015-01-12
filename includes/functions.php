@@ -3,6 +3,9 @@
  * WebMan Amplifier global helper functions
  *
  * @package  WebMan Amplifier
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -1298,6 +1301,23 @@
 				return apply_filters( 'wmhook_wma_get_image_sizes_output', $output );
 		}
 	} // /wma_get_image_sizes
+
+
+
+	/**
+	 * Check if Beaver Builder plugin is active
+	 *
+	 * @since    1.1
+	 * @version  1.1
+	 *
+	 * @return  boolean
+	 */
+	if ( ! function_exists( 'wma_is_active_bb' ) ) {
+		function wma_is_active_bb() {
+			//Output
+				return apply_filters( 'wmhook_wma_is_active_bb_output', class_exists( 'FLBuilder' ) );
+		}
+	} // /wma_is_active_bb
 
 
 

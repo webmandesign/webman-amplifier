@@ -1,5 +1,18 @@
 ## Changelog
 
+### 1.1
+* Added: Function to register additional custom taxonomies
+* Added: 'wma_supports_subfeature( $subfeature )' function
+* Updated: Function to check if the theme supports plugin's features
+* Updated: Improved disabling shortcodes and icon font classes
+* Updated: Improved performance of the code
+* Updated: Metabox styles
+* Updated: Renamed 'remove_vc_shortcodes' to 'remove-vc-shortcodes' (while keeping backwards compatibility)
+* Updated: WebMan Amplifier setup file
+* Fixed: Function name for 'WMAMP_LATE_LOAD' feature
+
+Files changed: `class-wm-amplifier.php, webman-amplifier.php, webman-amplifier-setup.php, assets/css/metabox.css, assets/css/dev/metabox.dev.css, includes/functions.php, includes/shortcodes/class-shortcodes.php`
+
 ### 1.0.9.15
 * Added: Function to register additional custom taxonomies
 * Added: 'wma_supports_subfeature( $subfeature )' function

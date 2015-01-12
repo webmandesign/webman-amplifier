@@ -4,8 +4,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Metabox
  *
- * @since       1.0
- * @version     1.0.9.15
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -232,11 +232,12 @@
 
 	/* Visual Composer plugin conditional texts */
 		p.composer-switch {height: auto}
-		.if-visual-composer-on {
+		.if-page-builder-on {
 			display: none;
 			font-weight: 600;
 		}
-		body.wm-visual-composer-on .if-visual-composer-on {
+		body.fl-builder-enabled .if-page-builder-on,
+		body.wm-visual-composer-on .if-page-builder-on {
 			display: block;
 			margin-top: 20px;
 		}

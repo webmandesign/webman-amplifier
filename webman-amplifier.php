@@ -5,15 +5,15 @@
  * A set of additional features for WebMan themes (http://www.webmandesign.eu).
  *
  * @package    WebMan Amplifier
- * @author     WebMan
- * @license    GPL-2.0+
- * @link       http://www.webmandesign.eu
- * @copyright  2014 WebMan - Oliver Juhas
+ * @copyright  2015 WebMan - Oliver Juhas
+ * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @link  http://www.webmandesign.eu
  *
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         http://www.webmandesign.eu/
  * Description:        Pack of additional WordPress features. Contains shortcodes, additional custom post types, meta box generator, Visual Composer plugin (3rd party) integration, icon font management.
- * Version:            1.0.9.15
+ * Version:            1.1
  * Author:             WebMan - Oliver Juhas
  * Author URI:         http://www.webmandesign.eu/
  * Text Domain:        wm_domain
@@ -21,7 +21,7 @@
  * License URI:        http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:        /languages
  * Requires at least:  3.8
- * Tested up to:       4.0.1
+ * Tested up to:       4.1
  */
 
 
@@ -37,16 +37,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 	//Define global constants
 		//Plugin version
-			define( 'WMAMP_VERSION',      '1.0.9.15' );
+			define( 'WMAMP_VERSION',      '1.1' );
 		//Special filter/action hooks prefix
 			define( 'WMAMP_HOOK_PREFIX',  'wmhook_wmamp_' );
 		//Paths
-			define( 'WMAMP_PLUGIN_FILE',  __FILE__                                         );
-			define( 'WMAMP_PLUGIN_DIR',   plugin_dir_path( __FILE__ )                      );
-			define( 'WMAMP_PLUGIN_URL',   plugin_dir_url( __FILE__ )                       );
-			define( 'WMAMP_INCLUDES_DIR', trailingslashit( WMAMP_PLUGIN_DIR . 'includes' ) );
-			define( 'WMAMP_ASSETS_DIR',   trailingslashit( WMAMP_PLUGIN_DIR . 'assets' )   );
-			define( 'WMAMP_ASSETS_URL',   trailingslashit( WMAMP_PLUGIN_URL . 'assets' )   );
+			define( 'WMAMP_PLUGIN_FILE',  __FILE__                                          );
+			define( 'WMAMP_PLUGIN_DIR',   plugin_dir_path( __FILE__ )                       );
+			define( 'WMAMP_PLUGIN_URL',   plugin_dir_url( __FILE__ )                        );
+			define( 'WMAMP_INCLUDES_DIR', trailingslashit( WMAMP_PLUGIN_DIR ) . 'includes/' );
+			define( 'WMAMP_INCLUDES_URL', trailingslashit( WMAMP_PLUGIN_URL ) . 'includes/' );
+			define( 'WMAMP_ASSETS_DIR',   trailingslashit( WMAMP_PLUGIN_DIR ) . 'assets/'   );
+			define( 'WMAMP_ASSETS_URL',   trailingslashit( WMAMP_PLUGIN_URL ) . 'assets/'   );
 		//Variable defaults
 			define( 'WMAMP_COLOR_BRIGHTNESS_TRESHOLD', 127 );
 

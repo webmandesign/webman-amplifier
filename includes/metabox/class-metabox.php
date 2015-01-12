@@ -52,10 +52,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * WebMan Metabox Generator Class
  *
- * @since    1.0
  * @package	 WebMan Amplifier
  * @author   WebMan
- * @version  1.0.8
+ *
+ * @since    1.0
+ * @version  1.1
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -86,11 +87,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			private $assets_url;
 
 			/**
-			 * @var  string Metabox subpackage version.
-			 */
-			private $version = '1.0';
-
-			/**
 			 * @var  string Meta fields ID prefix.
 			 */
 			private $prefix;
@@ -112,10 +108,11 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.0.7
-			 * @access   public
+			 * @version  1.1
 			 *
-			 * @param   array $meta_box Definition of the metabox
+			 * @access  public
+			 *
+			 * @param  array $meta_box Definition of the metabox
 			 */
 			public function __construct( $meta_box ) {
 				//If we are not in admin, exit
@@ -127,19 +124,19 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						return;
 					}
 
-				//Form field definition files
+				//Form field definition files ( 'field_file_name' => 'optional_file_path' )
 					$field_files = array(
-							'checkbox',
-							'conditional',
-							'hidden',
-							'html',
-							'images',
-							'radio',
-							'repeater',
-							'sections',
-							'select',
-							'slider',
-							'texts',
+							'checkbox'    => '',
+							'conditional' => '',
+							'hidden'      => '',
+							'html'        => '',
+							'images'      => '',
+							'radio'       => '',
+							'repeater'    => '',
+							'sections'    => '',
+							'select'      => '',
+							'slider'      => '',
+							'texts'       => '',
 						);
 
 				//Set up class globals
@@ -178,8 +175,14 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Required files
 				//Field definitions (renderers)
-					foreach ( $this->field_files as $file_name ) {
-						require_once( WM_METABOX_FIELDS_DIR . $file_name . '.php' );
+					foreach ( $this->field_files as $file_name => $file_path ) {
+						$file_path = (string) $file_path;
+
+						if ( empty( $file_path ) || $file_name === $file_path ) {
+							require_once( WM_METABOX_FIELDS_DIR . $file_name . '.php' );
+						} elseif ( file_exists( $file_path ) ) {
+							require_once( $file_path );
+						}
 					}
 
 				//Add metaboxes
@@ -203,7 +206,9 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Register (and include) styles and scripts
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  public
 			 */
 			public function assets() {
@@ -213,14 +218,14 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wm-metabox-styles',     $this->assets_url . 'css/metabox.css',     false, $this->version, 'screen' );
-						wp_register_style( 'wm-metabox-styles-rtl', $this->assets_url . 'css/rtl-metabox.css', false, $this->version, 'screen' );
+						wp_register_style( 'wm-metabox-styles',     $this->assets_url . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles-rtl', $this->assets_url . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
 						if ( $icon_font_url ) {
-							wp_register_style( 'wm-fonticons', $icon_font_url, false, $this->version, 'screen' );
+							wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 						}
 
 					//Scripts
-						wp_register_script( 'wm-metabox-scripts', $this->assets_url . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), $this->version, true );
+						wp_register_script( 'wm-metabox-scripts', $this->assets_url . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
 
 				//Enqueue (only on admin edit pages)
 				if ( $this->is_edit_page() ) {
@@ -470,7 +475,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Closing the meta box wrapping visual editor
 			 *
 			 * @since    1.0
-			 * @version  1.0.8
+			 * @version  1.1
+			 *
 			 * @access   public
 			 *
 			 * @param    object $post WordPress post object
@@ -526,7 +532,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						array(
 							array(
 								'type'      => 'html',
-								'content'   => '<div class="box yellow if-visual-composer-on">' . __( 'Use Visual Composer to create the content.', 'wm_domain' ) . '</div>',
+								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'wm_domain' ) . '</div>',
 								'condition' => wma_is_active_vc()
 							),
 							array(

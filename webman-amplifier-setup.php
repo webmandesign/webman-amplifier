@@ -3,19 +3,24 @@
  * WebMan Amplifier plugin setup
  *
  * THEME IMPLEMENTATION
- * Copy this file into your theme's folder and inlude it in the theme's
- * "functions.php" file with "require_once( 'webman-amplifier-setup.php' );"
- * command. Edit the file to your needs.
+ * Copy this file into your theme's folder and inlude it in the theme's `functions.php` file
+ * with `locate_template( 'webman-amplifier-setup.php', true );` WordPress function.
+ * Edit the file to your needs.
  *
  * PLUGIN LOCALIZATION
- * Note that custom translation files inside the plugin folder
- * will be removed on plugin updates. If you're creating custom
- * translation files, please use the global WordPress language folder.
- * Just create a "wp-content/languages/wm-amplifier" folder and place
- * your plugin localization files in there.
+ * Note that custom translation files inside the plugin folder will be removed on plugin updates.
+ * If you're creating custom translation files, please use the global WordPress language folder.
+ * Just create a `wp-content/languages/wm-amplifier` folder and place your plugin localization
+ * files (such as `pt_BR.mo` for Brazilian Portuguese localization file) in there.
  *
- * @author     WebMan
- * @copyright  2014 WebMan - Oliver Juhas
+ * @package    WebMan Amplifier
+ * @copyright  2015 WebMan - Oliver Juhas
+ * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @link  http://www.webmandesign.eu
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -102,7 +107,15 @@
 			/**
 			 * Uncomment to remove default Visual Composer elements (shortcodes)
 			 */
-			// 'remove-vc-shortcodes';
+			// 'remove-vc-shortcodes',
+
+
+			/**
+			 * Uncomment to disable the plugin's feature
+			 */
+			// 'disable-fonticons',
+			// 'disable-isotope-notice',
+			// 'disable-shortcodes',
 		) );
 
 

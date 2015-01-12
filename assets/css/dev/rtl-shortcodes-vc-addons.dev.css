@@ -7,8 +7,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since       1.0
- * @version     1.0.9.10
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -156,15 +156,6 @@
 		margin-right: 0;
 		margin-left: 10px;
 	}
-
-
-
-/**
- * Custom Visual Composer shortcode parameters
- */
-
-	/* Custom radio label */
-		.rtl .wpb_edit_form_elements .wm-radio-block.custom-label .inline-radio {margin: 0 0 .5em .5em}
 
 
 

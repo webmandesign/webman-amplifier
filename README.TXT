@@ -5,7 +5,7 @@ Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
 Requires at least: 3.8
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -80,6 +80,19 @@ First, plese note that custom translation files inside the plugin's `languages` 
 Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
 
 == Changelog ==
+
+= 1.1 =
+* Added: Function to register additional custom taxonomies
+* Added: 'wma_supports_subfeature( $subfeature )' function
+* Updated: Function to check if the theme supports plugin's features
+* Updated: Improved disabling shortcodes and icon font classes
+* Updated: Improved performance of the code
+* Updated: Metabox styles
+* Updated: Renamed 'remove_vc_shortcodes' to 'remove-vc-shortcodes' (while keeping backwards compatibility)
+* Updated: WebMan Amplifier setup file
+* Fixed: Function name for 'WMAMP_LATE_LOAD' feature
+
+Files changed: `class-wm-amplifier.php, webman-amplifier.php, webman-amplifier-setup.php, assets/css/metabox.css, assets/css/dev/metabox.dev.css, includes/functions.php, includes/shortcodes/class-shortcodes.php`
 
 = 1.0.9.15 =
 * Added: Function to register additional custom taxonomies

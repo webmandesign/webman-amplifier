@@ -112,7 +112,7 @@ $shortcode_definitions = array(
 		 * Accordion / toggles wrapper
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.10
+		 * @version  1.1
 		 */
 		'accordion' => array(
 				'since'      => '1.0',
@@ -122,6 +122,161 @@ $shortcode_definitions = array(
 						'name'       => __( 'Accordion / Toggle', 'wm_domain' ),
 						'code'       => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]' . __( 'Section 2 content goes here', 'wm_domain' ) . '[/PREFIX_item]<br />[/PREFIX_accordion]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'            => __( 'Accordion', 'wm_domain' ),
+						'output'          => '[PREFIX_accordion{{icon}}]{{children}}[/PREFIX_accordion]',
+						'output_children' => '[PREFIX_item{{title}}{{icon}}{{tags}}{{heading_tag}}]{{content}}[/PREFIX_item]',
+						'params'          => array( 'icon' ),
+						'params_children' => array( 'title', 'icon', 'tags', 'content', 'heading_tag' ),
+						'form'            => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'children' => array(
+													'type' => 'form',
+													//description
+													'label'       => __( 'Items', 'wm_domain' ),
+													'description' => '',
+													'help'        => '',
+													//default
+													'default' => '',
+													//type specific
+													'form'         => 'wm_children_form_' . 'accordion',
+													'preview_text' => 'title', //DO NOT FORGET TO SET!
+													//multiple
+													'multiple' => true,
+													//preview
+													'preview' => array(
+														'type' => 'refresh',
+													),
+												), // /children
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+						'form_children'   => array(
+
+								//Title
+								'title' => __( 'Add Image', 'wm_domain' ),
+								//Tabs
+								'tabs' => array(
+
+									//Tab
+									'general' => array(
+										//Title
+										'title'       => __( 'General', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
+											//Section
+											'label' => array(
+												'title'  => '',
+												'fields' => array(
+
+													'title' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Section title', 'wm_domain' ),
+														//default
+														'default' => __( 'Section', 'wm_domain' ),
+														//preview
+														'preview' => array(
+															'type' => 'none',
+														),
+													), // /title
+
+													'icon' => array(
+														'type' => 'wm_radio',
+														//description
+														'label' => __( 'Icon', 'wm_domain' ),
+														//type specific
+														'options'    => self::$codes_globals['font_icons'],
+														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'hide_radio' => true,
+														'inline'     => true,
+														//preview
+														'preview' => array(
+															'type' => 'none',
+														),
+													), // /icon
+
+													'tags' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Tags', 'wm_domain' ),
+														'help'  => __( 'Enter comma separated tags. These will be used to filter through items.', 'wm_domain' ),
+														//preview
+														'preview' => array(
+															'type' => 'none',
+														),
+													), // /tags
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'  => __( 'Content', 'wm_domain' ),
+												'fields' => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//preview
+														'preview' => array(
+															'type'     => 'text',
+															'selector' => '.fl-wm-test',
+														),
+													), // /content
+
+												), // /fields
+											), // /section
+
+											//Section
+											'advanced' => array(
+												'title'  => __( 'Advanced', 'wm_domain' ),
+												'fields' => array(
+
+													'heading_tag' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'HTML heading tag', 'wm_domain' ),
+														'help'  => __( 'Defaults to H3 heading. You can override it here if required.', 'wm_domain' ),
+														//type specific
+														'placeholder' => 'h3',
+														//preview
+														'preview' => array(
+															'type' => 'none',
+														),
+													), // /heading_tag
+
+												), // /fields
+											), // /section
+
+										), // /sections
+									), // /tab
+
+								), // /tabs
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Accordion', 'wm_domain' ),
@@ -279,7 +434,7 @@ $shortcode_definitions = array(
 		 * Item (can be accordion / toggles or tab item)
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.10
+		 * @version  1.1
 		 */
 		'item' => array(
 				'since'      => '1.0',
@@ -316,7 +471,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide-radio'  => true,
+									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'hidden',
 									'class'       => '',
@@ -416,7 +571,7 @@ $shortcode_definitions = array(
 		 * Button
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'button' => array(
 				'since'      => '1.0',
@@ -426,6 +581,72 @@ $shortcode_definitions = array(
 						'name'       => __( 'Button', 'wm_domain' ),
 						'code'       => '[PREFIX_button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_button]',
 						'vc_enabled' => true,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Button', 'wm_domain' ),
+						'output' => '[PREFIX_button{{url}}{{icon}}]{{content}}[/PREFIX_button]',
+						'params' => array( 'icon', 'url', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Button text', 'wm_domain' ),
+													//default
+													'default' => __( 'Button Text', 'wm_domain' ),
+													//preview
+													'preview' => array(
+														'type' => 'none',
+													),
+												), // /content
+
+												'url' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Button link', 'wm_domain' ),
+													//default
+													'default' => '#',
+													//preview
+													'preview' => array(
+														'type' => 'none',
+													),
+												), // /url
+
+												'icon' => array(
+													'type' => 'wm_radio',
+													//description
+													'label' => __( 'Icon', 'wm_domain' ),
+													//type specific
+													'options'    => self::$codes_globals['font_icons'],
+													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+													'hide_radio' => true,
+													'inline'     => true,
+													//preview
+													'preview' => array(
+														'type' => 'none',
+													),
+												), // /icon
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Button', 'wm_domain' ),
@@ -492,7 +713,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide-radio'  => true,
+									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'hidden',
 									'class'       => '',
@@ -524,7 +745,7 @@ $shortcode_definitions = array(
 		 * Call to action
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'call_to_action' => array(
 				'since'      => '1.0',
@@ -614,7 +835,7 @@ $shortcode_definitions = array(
 										'param_name'  => 'button_icon',
 										'value'       => self::$codes_globals['font_icons'],
 										'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-										'hide-radio'  => true,
+										'hide_radio'  => true,
 										'inline'      => true,
 										'holder'      => 'hidden',
 										'class'       => '',
@@ -990,7 +1211,7 @@ $shortcode_definitions = array(
 		 * Icon
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.4
+		 * @version  1.1
 		 */
 		'icon' => array(
 				'since'      => '1.0',
@@ -1014,7 +1235,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide-radio'  => true,
+									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'div',
 									'class'       => '',
@@ -1110,7 +1331,7 @@ $shortcode_definitions = array(
 		 * Icon list
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'list' => array(
 				'since'      => '1.0',
@@ -1143,7 +1364,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'bullet',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide-radio'  => true,
+									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'div',
 									'class'       => '',
@@ -1202,7 +1423,7 @@ $shortcode_definitions = array(
 		 * Message box
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'message' => array(
 				'since'      => '1.0',
@@ -1261,7 +1482,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide-radio'  => true,
+									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'hidden',
 									'class'       => '',

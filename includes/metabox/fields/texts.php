@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -18,11 +21,12 @@
 	/**
 	 * Text input (used also as color and password input)
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_field_text' ) ) {
 		function wma_field_text( $field, $page_template = null ) {
@@ -84,7 +88,7 @@
 					}
 				}
 
-				$value = sanitize_text_field( $value );
+				$value = apply_filters( WM_METABOX_HOOK_PREFIX . 'wma_field_text' . '_sanitize', sanitize_text_field( $value ), $field, $page_template );
 
 				if ( $value || $field['empty'] ) {
 					$value = esc_html( $value );
