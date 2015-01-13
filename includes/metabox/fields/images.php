@@ -72,7 +72,7 @@
 
 			//Setting preview image URL
 				$previewURL   = '';
-				$noPreviewURL = esc_url( WMAMP_ASSETS_URL . 'img/meta/no-thumb.png' );
+				$noPreviewURL = esc_url( WMAMP_ASSETS_URL . 'images/meta/no-thumb.png' );
 				if ( $field['upload-only'] && $value['id'] ) {
 				//If image ID is set, retrieve the image of specific size
 					$previewURL = wp_get_attachment_image_src( $value['id'], $field['size'] );
@@ -231,7 +231,7 @@
 							}
 						}
 						$output .= '</div>';
-						$output .= "\r\n\t\t" . '<img class="gallery-loading gallery-loading-' . $field['id'] . '" src="' . WMAMP_ASSETS_URL . 'img/meta/loading.gif" width="16" height="16" alt="' . __( 'Loading images', 'wm_domain' ) . '" title="' . __( 'Loading images', 'wm_domain' ) . '" />';
+						$output .= "\r\n\t\t" . '<img class="gallery-loading gallery-loading-' . $field['id'] . '" src="' . WMAMP_ASSETS_URL . 'images/meta/loading.gif" width="16" height="16" alt="' . __( 'Loading images', 'wm_domain' ) . '" title="' . __( 'Loading images', 'wm_domain' ) . '" />';
 					//Reset default value button
 						$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value default-gallery" title="' . __( 'Remove images', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
 

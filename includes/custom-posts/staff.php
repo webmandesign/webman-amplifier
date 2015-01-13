@@ -4,11 +4,11 @@
  *
  * Registering "wm_staff" custom post.
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Custom Posts
- * @author      WebMan
- * @version     1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['staff'] ) && $permalinks['staff'] ) ? ( $permalinks['staff'] ) : ( 'staff' )
 						),
 					'menu_position'       => 42,
-					'menu_icon'           => WMAMP_ASSETS_URL . 'img/custom-posts/staff.png',
+					'menu_icon'           => 'dashicons-businessman',
 					'supports'            => array(
 							'title',
 							'editor',
@@ -90,16 +90,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'author',
 						),
 					'labels'              => array(
-						'name'               => __( 'Staff', 'wm_domain' ),
-						'singular_name'      => __( 'Staff Member', 'wm_domain' ),
-						'add_new'            => __( 'Add New', 'wm_domain' ),
-						'add_new_item'       => __( 'Add New Member', 'wm_domain' ),
-						'new_item'           => __( 'Add New', 'wm_domain' ),
-						'edit_item'          => __( 'Edit Member', 'wm_domain' ),
-						'view_item'          => __( 'View Member', 'wm_domain' ),
-						'search_items'       => __( 'Search Members', 'wm_domain' ),
-						'not_found'          => __( 'No member found', 'wm_domain' ),
-						'not_found_in_trash' => __( 'No members found in trash', 'wm_domain' ),
+						'name'               => _x( 'Staff', 'Custom post labels: Staff.', 'wm_domain' ),
+						'singular_name'      => _x( 'Staff Member', 'Custom post labels: Staff.', 'wm_domain' ),
+						'add_new'            => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
+						'add_new_item'       => _x( 'Add New Member', 'Custom post labels: Staff.', 'wm_domain' ),
+						'new_item'           => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
+						'edit_item'          => _x( 'Edit Member', 'Custom post labels: Staff.', 'wm_domain' ),
+						'view_item'          => _x( 'View Member', 'Custom post labels: Staff.', 'wm_domain' ),
+						'search_items'       => _x( 'Search Members', 'Custom post labels: Staff.', 'wm_domain' ),
+						'not_found'          => _x( 'No member found', 'Custom post labels: Staff.', 'wm_domain' ),
+						'not_found_in_trash' => _x( 'No members found in trash', 'Custom post labels: Staff.', 'wm_domain' ),
 						'parent_item_colon'  => ''
 					)
 				) );
@@ -234,15 +234,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['staff_department'] ) && $permalinks['staff_department'] ) ? ( $permalinks['staff_department'] ) : ( 'staff-department' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Departments', 'wm_domain' ),
-						'singular_name' => __( 'Department', 'wm_domain' ),
-						'search_items'  => __( 'Search Departments', 'wm_domain' ),
-						'all_items'     => __( 'All Departments', 'wm_domain' ),
-						'parent_item'   => __( 'Parent Department', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Department', 'wm_domain' ),
-						'update_item'   => __( 'Update Department', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Department', 'wm_domain' ),
-						'new_item_name' => __( 'New Department Title', 'wm_domain' )
+						'name'          => _x( 'Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'singular_name' => _x( 'Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'all_items'     => _x( 'All Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'parent_item'   => _x( 'Parent Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Department Title', 'Custom taxonomy labels: Staff departments.', 'wm_domain' )
 					)
 				) );
 
@@ -258,14 +258,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['staff_position'] ) && $permalinks['staff_position'] ) ? ( $permalinks['staff_position'] ) : ( 'staff-position' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Positions', 'wm_domain' ),
-						'singular_name' => __( 'Position', 'wm_domain' ),
-						'search_items'  => __( 'Search Positions', 'wm_domain' ),
-						'all_items'     => __( 'All Positions', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Position', 'wm_domain' ),
-						'update_item'   => __( 'Update Position', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Position', 'wm_domain' ),
-						'new_item_name' => __( 'New Position Title', 'wm_domain' ),
+						'name'          => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'singular_name' => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'all_items'     => _x( 'All Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Position Title', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
 					)
 				) );
 
@@ -378,7 +378,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'staff-info-section',
-							'title' => __( 'Info', 'wm_domain' ),
+							'title' => _x( 'Info', 'Metabox section title.', 'wm_domain' ),
 						);
 
 						//Staff custom link input field
@@ -421,7 +421,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[3000] = array(
 							'type'  => 'section-open',
 							'id'    => 'staff-contacts-section',
-							'title' => __( 'Contacts', 'wm_domain' ),
+							'title' => _x( 'Contacts', 'Metabox section title.', 'wm_domain' ),
 						);
 
 						//Staff custom contacts

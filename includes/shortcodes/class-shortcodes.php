@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
- * @author      WebMan
  *
  * @since    1.0
  * @version  1.1
@@ -98,9 +97,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				$this->add_shortcodes();
 
 				//Beaver Builder plugin integration
-					if ( wma_is_active_bb() ) {
-						$this->beaver_builder_support();
-					}
+					$this->beaver_builder_support();
 
 				//Visual Composer plugin integration
 					if ( wma_is_active_vc() ) {
@@ -164,8 +161,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$this->assets_url      = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'assets_url',      WMAMP_ASSETS_URL );
 					$this->definitions_dir = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
 					$this->renderers_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/vc_addons' ) );
-					$this->bb_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'bb_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/bb_addons' ) );
+					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/vc' ) );
+					$this->bb_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'bb_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/bb' ) );
 
 				//Visual Composer integration
 					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
@@ -367,7 +364,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					wp_register_style( 'wm-shortcodes-generator-rtl', $this->assets_url . 'css/rtl-shortcodes-generator.css', array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-rtl',           $this->assets_url . 'css/rtl-shortcodes.css',           array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon',      $this->assets_url . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-vc-addon-old',  $this->assets_url . 'css/shortcodes-vc-addons-old.css', array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon-rtl',  $this->assets_url . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
 					if ( $icon_font_url ) {
 						wp_register_style( 'wm-fonticons', $icon_font_url, array(), WMAMP_VERSION, 'screen' );
@@ -480,15 +476,12 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							$shortcodes_js_array = array_values( $shortcodes_js_array );
 
 						//Styles
-							if ( version_compare( WPB_VC_VERSION, '4.3', '<' ) ) {
-								wp_enqueue_style( 'wm-shortcodes-vc-addon-old' );
-							} else {
-								wp_enqueue_style( 'wm-shortcodes-vc-addon' );
-							}
+							wp_enqueue_style( 'wm-shortcodes-vc-addon' );
+							wp_enqueue_style( 'wm-radio' );
+
 							if ( is_rtl() ) {
 								wp_enqueue_style( 'wm-shortcodes-vc-addon-rtl' );
 							}
-							wp_enqueue_style( 'wm-radio' );
 
 						//Scripts
 							wp_enqueue_script( 'wm-shortcodes-vc-addon' );
@@ -866,17 +859,15 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 *
 			 * Creates Shortcode Generator dropdown button.
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  public
 			 *
 			 * @param   array $plugin_array TiniMCE plugins array.
 			 */
 			public function add_mce_plugin( $plugin_array = array() ) {
-				global $wp_version;
-
-				$wp_ver_suffix = ( version_compare( (float) $wp_version, '3.8', '<=' ) ) ? ( '.old' ) : ( '' );
-
-				$plugin_array['wmShortcodes'] =	$this->assets_url . 'js/shortcodes-button' . $wp_ver_suffix . '.js';
+				$plugin_array['wmShortcodes'] =	$this->assets_url . 'js/shortcodes-button.js';
 
 				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'add_mce_plugin' . '_output', $plugin_array );
 			} // /add_mce_plugin
@@ -958,14 +949,23 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 *
 				 * @link  https://www.wpbeaverbuilder.com/
 				 *
+				 * Using 7, 8 and 9 position to hook the Beaver Builder support.
+				 * If you intend to change these positions, change the numbers
+				 * but keep the order.
+				 *
+				 * @see  `$this->bb_addons_dir . bb.php` action hooks
+				 *
 				 * @since    1.1
 				 * @version  1.1
 				 *
 				 * @access  public
 				 */
 				public function beaver_builder_support() {
-					add_action( 'init', array( $this, 'init_beaver_builder_support' ), 15 );
+					if ( class_exists( 'FLBuilder' ) && ! is_admin() ) {
+						add_action( 'init', array( $this, 'init_beaver_builder_support' ), 7 );
+					}
 				} // /beaver_builder_support
+
 
 
 					/**
@@ -977,7 +977,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					 * @access  public
 					 */
 					public function init_beaver_builder_support() {
-						require_once( $this->bb_addons_dir . 'bb-addons.php' );
+						require_once( $this->bb_addons_dir . 'bb.php' );
 					} // /init_beaver_builder_support
 
 
@@ -1005,7 +1005,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 					//VC additional shortcodes admin interface
-						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'shortcodes-admin.php' );
+						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'vc.php' );
 						require_once( $vc_shortcodes_admin_tweaks );
 
 					//VC setup screen modifications

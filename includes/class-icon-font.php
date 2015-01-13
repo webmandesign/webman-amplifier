@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
- * @author      WebMan
  *
  * @since    1.0
  * @version  1.1
@@ -221,8 +220,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Add admin menu element
 			 *
 			 * @since    1.0
-			 * @version  1.0.9.3
-			 * @access   public
+			 * @version  1.1
+			 *
+			 * @access  public
 			 */
 			public function admin_menu() {
 				//Saving fields from theme options form
@@ -240,8 +240,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 				//Adding admin menu item under "Appearance" menu
 					add_theme_page(
-							__( 'Icon Font', 'wm_domain' ), //page_title
-							__( 'Icon Font', 'wm_domain' ), //menu_title
+							_x( 'Icon Font', 'Admin page title.', 'wm_domain' ), //page_title
+							_x( 'Icon Font', 'Admin menu title.', 'wm_domain' ), //menu_title
 							$this->capability,              //capability
 							'icon-font',                    //menu_slug
 							array( $this, 'admin_form' )    //form render function callback
@@ -263,7 +263,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					if ( isset( $fonticons['icons_select'] ) ) {
 						$fonticons = wma_ksort( $fonticons['icons_select'] );
 
-						$output  = '<tr class="option-heading toggle"><th colspan="2">' . __( 'Click to display recent available icon classes', 'wm_domain' ) . '</th></tr></tbody><tbody><tr class="option padding-20"><td colspan="2"><div class="box yellow">';
+						$output  = '<tr class="option-heading toggle"><th colspan="2">' . __( 'Click to display the recent available icons', 'wm_domain' ) . '</th></tr></tbody><tbody><tr class="option padding-20"><td colspan="2"><div class="box yellow">';
 						$output .= '<ol class="no-inline-ol">';
 						foreach ( $fonticons as $icon => $name ) {
 							$output .= '<li><i class="' . $icon . '" style="display: inline-block; width: 24px; height: 24px; margin: 0 5px; text-align: center; line-height: 24px; font-size: 16px; background: rgba(0,0,0, .1); color: #000; border-radius: 100px;"></i><input type="text" value="' . $icon . '" readonly="readonly" style="display: inline-block; max-width: 50%;" onfocus="this.select();" /></li>';
@@ -360,7 +360,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 								//Font CSS file link
 									if ( $options['wmamp-icon-font'] ) {
 										$output .= '<tr class="option padding-20"><td colspan="2">';
-											$output .= '<div class="box blue">' . sprintf( __( 'To use the icon font please use this CSS file: %s', 'wm_domain' ), '<br /><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
+											$output .= '<div class="box blue">' . sprintf( __( 'To display the icon font, please, use this CSS file: %s', 'wm_domain' ), '<br /><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
 										$output .= '</td></tr>';
 									}
 

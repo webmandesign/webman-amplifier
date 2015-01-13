@@ -120,15 +120,15 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Accordion / Toggle', 'wm_domain' ),
-						'code'       => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]' . __( 'Section 2 content goes here', 'wm_domain' ) . '[/PREFIX_item]<br />[/PREFIX_accordion]',
+						'code'       => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_accordion]',
 						'vc_enabled' => false,
 					),
 				'bb_plugin'  => array(
 						'name'            => __( 'Accordion', 'wm_domain' ),
-						'output'          => '[PREFIX_accordion{{icon}}]{{children}}[/PREFIX_accordion]',
+						'output'          => '[PREFIX_accordion{{active}}{{mode}}{{filter}}{{class}}]{{children}}[/PREFIX_accordion]',
 						'output_children' => '[PREFIX_item{{title}}{{icon}}{{tags}}{{heading_tag}}]{{content}}[/PREFIX_item]',
-						'params'          => array( 'icon' ),
-						'params_children' => array( 'title', 'icon', 'tags', 'content', 'heading_tag' ),
+						'params'          => array( 'active', 'mode', 'filter', 'class' ),
+						'params_children' => array( 'title', 'content', 'icon', 'tags', 'heading_tag' ),
 						'form'            => array(
 
 								//Tab
@@ -144,23 +144,67 @@ $shortcode_definitions = array(
 											'title'  => '',
 											'fields' => array(
 
+												'mode' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Mode', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														'accordion' => __( 'Accordion (only one section open)', 'wm_domain' ),
+														'toggle'    => __( 'Toggle (multiple sections open)', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /mode
+
+												'filter' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Filtering', 'wm_domain' ),
+													'help'  => __( 'Display the sections filter from sections tags?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /filter
+
+												'active' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Active section', 'wm_domain' ),
+													'help'  => __( 'Set section order number, "0" for all sections closed', 'wm_domain' ),
+													//default
+													'default' => 1,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /active
+
+											), // /fields
+										), // /section
+
+										//Section
+										'sections' => array(
+											'title'  => __( 'Sections', 'wm_domain' ),
+											'fields' => array(
+
 												'children' => array(
 													'type' => 'form',
 													//description
-													'label'       => __( 'Items', 'wm_domain' ),
+													'label'       => '',
 													'description' => '',
 													'help'        => '',
 													//default
-													'default' => '',
+													'default' => array( 'title' => __( 'Section', 'wm_domain' ) ), //This will be converted automatically
 													//type specific
 													'form'         => 'wm_children_form_' . 'accordion',
 													'preview_text' => 'title', //DO NOT FORGET TO SET!
 													//multiple
 													'multiple' => true,
 													//preview
-													'preview' => array(
-														'type' => 'refresh',
-													),
+													'preview' => array( 'type' => 'refresh' ),
 												), // /children
 
 											), // /fields
@@ -173,7 +217,7 @@ $shortcode_definitions = array(
 						'form_children'   => array(
 
 								//Title
-								'title' => __( 'Add Image', 'wm_domain' ),
+								'title' => __( 'Section', 'wm_domain' ),
 								//Tabs
 								'tabs' => array(
 
@@ -186,47 +230,19 @@ $shortcode_definitions = array(
 										'sections' => array(
 
 											//Section
-											'label' => array(
+											'title' => array(
 												'title'  => '',
 												'fields' => array(
 
 													'title' => array(
 														'type' => 'text',
 														//description
-														'label' => __( 'Section title', 'wm_domain' ),
+														'label' => __( 'Title', 'wm_domain' ),
 														//default
 														'default' => __( 'Section', 'wm_domain' ),
 														//preview
-														'preview' => array(
-															'type' => 'none',
-														),
+														'preview' => array( 'type' => 'none' ),
 													), // /title
-
-													'icon' => array(
-														'type' => 'wm_radio',
-														//description
-														'label' => __( 'Icon', 'wm_domain' ),
-														//type specific
-														'options'    => self::$codes_globals['font_icons'],
-														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-														'hide_radio' => true,
-														'inline'     => true,
-														//preview
-														'preview' => array(
-															'type' => 'none',
-														),
-													), // /icon
-
-													'tags' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'Tags', 'wm_domain' ),
-														'help'  => __( 'Enter comma separated tags. These will be used to filter through items.', 'wm_domain' ),
-														//preview
-														'preview' => array(
-															'type' => 'none',
-														),
-													), // /tags
 
 												), // /fields
 											), // /section
@@ -241,31 +257,66 @@ $shortcode_definitions = array(
 														//description
 														'label' => '',
 														//preview
-														'preview' => array(
-															'type'     => 'text',
-															'selector' => '.fl-wm-test',
-														),
+														'preview' => array( 'type' => 'none' ),
 													), // /content
 
 												), // /fields
 											), // /section
 
+										), // /sections
+									), // /tab
+
+									//Tab
+									'advanced' => array(
+										//Title
+										'title'       => __( 'Advanced', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
 											//Section
-											'advanced' => array(
-												'title'  => __( 'Advanced', 'wm_domain' ),
+											'icon' => array(
+												'title'  => __( 'Icon', 'wm_domain' ),
 												'fields' => array(
+
+													'icon' => array(
+														'type' => 'wm_radio',
+														//description
+														'label' => '',
+														//type specific
+														'options'    => self::$codes_globals['font_icons'],
+														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'hide_radio' => true,
+														'inline'     => true,
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /icon
+
+												), // /fields
+											), // /section
+
+											//Section
+											'other' => array(
+												'title'  => __( 'Other parameters', 'wm_domain' ),
+												'fields' => array(
+
+													'tags' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Tags', 'wm_domain' ),
+														'help'  => __( 'Enter comma separated tags. These will be used to filter through items.', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /tags
 
 													'heading_tag' => array(
 														'type' => 'text',
 														//description
 														'label' => __( 'HTML heading tag', 'wm_domain' ),
-														'help'  => __( 'Defaults to H3 heading. You can override it here if required.', 'wm_domain' ),
 														//type specific
 														'placeholder' => 'h3',
 														//preview
-														'preview' => array(
-															'type' => 'none',
-														),
+														'preview' => array( 'type' => 'none' ),
 													), // /heading_tag
 
 												), // /fields
@@ -302,7 +353,7 @@ $shortcode_definitions = array(
 						'params'                  => array(
 								10 => array(
 									'heading'     => __( 'Active section', 'wm_domain' ),
-									'description' => __( 'Enter the order number of the section which should be open by default, set "0" for all sections closed', 'wm_domain' ),
+									'description' => __( 'Set section order number, "0" for all sections closed', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'active',
 									'value'       => 0,
@@ -311,19 +362,18 @@ $shortcode_definitions = array(
 								),
 								20 => array(
 									'heading'     => __( 'Mode', 'wm_domain' ),
-									'description' => __( 'Should only one section be active at a time or multiple ones?', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'mode',
 									'value'       => array(
-											__( 'Accordion (allow only one section open)', 'wm_domain' ) => 'accordion',
-											__( 'Toggle (allow multiple sections open)', 'wm_domain' )   => 'toggle',
+											__( 'Accordion (only one section open)', 'wm_domain' ) => 'accordion',
+											__( 'Toggle (multiple sections open)', 'wm_domain' )   => 'toggle',
 										),
 									'holder'      => 'hidden',
 									'class'       => '',
 								),
 								30 => array(
 									'heading'     => __( 'Filtering', 'wm_domain' ),
-									'description' => __( 'Display the sections filter?', 'wm_domain' ),
+									'description' => __( 'Display the sections filter from sections tags?', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'filter',
 									'value'       => array(
@@ -358,8 +408,214 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Tabs', 'wm_domain' ),
-						'code'       => '[PREFIX_tabs active="0" layout="top/left/right" tour="0/1" class=""]<br />[PREFIX_item title="' . __( 'Tab 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Tab 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]' . __( 'Tab 2 content goes here', 'wm_domain' ) . '[/PREFIX_item]<br />[/PREFIX_tabs]',
+						'code'       => '[PREFIX_tabs active="0" layout="top/left/right" tour="0/1" class=""]<br />[PREFIX_item title="' . __( 'Tab 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Tab 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_tabs]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'            => __( 'Tabs', 'wm_domain' ),
+						'output'          => '[PREFIX_tabs{{layout}}{{tour}}{{active}}{{class}}]{{children}}[/PREFIX_tabs]',
+						'output_children' => '[PREFIX_item{{title}}{{icon}}{{tags}}{{heading_tag}}]{{content}}[/PREFIX_item]',
+						'params'          => array( 'layout', 'tour', 'active', 'class' ),
+						'params_children' => array( 'title', 'content', 'icon', 'tags', 'heading_tag' ),
+						'form'            => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'layout' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Layout', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														'top'   => __( 'Tabs on top', 'wm_domain' ),
+														'left'  => __( 'Tabs on left', 'wm_domain' ),
+														'right' => __( 'Tabs on right', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /layout
+
+												'tour' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Enable tour mode?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /tour
+
+												'active' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Active section', 'wm_domain' ),
+													'help'  => __( 'Enter the order number of the tab which should be open by default', 'wm_domain' ),
+													//default
+													'default' => 1,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /active
+
+											), // /fields
+										), // /section
+
+										//Section
+										'sections' => array(
+											'title'  => __( 'Sections', 'wm_domain' ),
+											'fields' => array(
+
+												'children' => array(
+													'type' => 'form',
+													//description
+													'label'       => '',
+													'description' => '',
+													'help'        => '',
+													//default
+													'default' => array( 'title' => __( 'Section', 'wm_domain' ) ), //This will be converted automatically
+													//type specific
+													'form'         => 'wm_children_form_' . 'accordion',
+													'preview_text' => 'title', //DO NOT FORGET TO SET!
+													//multiple
+													'multiple' => true,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /children
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+						'form_children'   => array(
+
+								//Title
+								'title' => __( 'Section', 'wm_domain' ),
+								//Tabs
+								'tabs' => array(
+
+									//Tab
+									'general' => array(
+										//Title
+										'title'       => __( 'General', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
+											//Section
+											'title' => array(
+												'title'  => '',
+												'fields' => array(
+
+													'title' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Title', 'wm_domain' ),
+														//default
+														'default' => __( 'Section', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /title
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'  => __( 'Content', 'wm_domain' ),
+												'fields' => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /content
+
+												), // /fields
+											), // /section
+
+										), // /sections
+									), // /tab
+
+									//Tab
+									'advanced' => array(
+										//Title
+										'title'       => __( 'Advanced', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
+											//Section
+											'icon' => array(
+												'title'  => __( 'Icon', 'wm_domain' ),
+												'fields' => array(
+
+													'icon' => array(
+														'type' => 'wm_radio',
+														//description
+														'label' => '',
+														//type specific
+														'options'    => self::$codes_globals['font_icons'],
+														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'hide_radio' => true,
+														'inline'     => true,
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /icon
+
+												), // /fields
+											), // /section
+
+											//Section
+											'other' => array(
+												'title'  => __( 'Other parameters', 'wm_domain' ),
+												'fields' => array(
+
+													'tags' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Tags', 'wm_domain' ),
+														'help'  => __( 'Enter comma separated tags. These will be used to filter through items.', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /tags
+
+													'heading_tag' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'HTML heading tag', 'wm_domain' ),
+														//type specific
+														'placeholder' => 'h3',
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /heading_tag
+
+												), // /fields
+											), // /section
+
+										), // /sections
+									), // /tab
+
+								), // /tabs
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Tabs', 'wm_domain' ),
@@ -456,17 +712,15 @@ $shortcode_definitions = array(
 						'js_view'                   => 'VcCustomAccordionTabView',
 						'params'                    => array(
 								10 => array(
-									'heading'     => __( 'Title', 'wm_domain' ),
-									'description' => __( 'Set the section title', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'title',
-									'value'       => '',
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Title', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'title',
+									'value'      => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								20 => array(
-									'heading'     => __( 'Optional icon', 'wm_domain' ),
-									'description' => __( 'Choose one of available icons', 'wm_domain' ),
+									'heading'     => __( 'Icon', 'wm_domain' ),
 									'type'        => 'wm_radio',
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
@@ -487,7 +741,6 @@ $shortcode_definitions = array(
 								),
 								40 => array(
 									'heading'     => __( 'HTML heading tag', 'wm_domain' ),
-									'description' => __( 'Defaults to H3 heading. You can override it here if required.', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'heading_tag',
 									'value'       => '',
@@ -584,8 +837,8 @@ $shortcode_definitions = array(
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Button', 'wm_domain' ),
-						'output' => '[PREFIX_button{{url}}{{icon}}]{{content}}[/PREFIX_button]',
-						'params' => array( 'icon', 'url', 'content' ),
+						'output' => '[PREFIX_button{{url}}{{target}}{{color}}{{size}}{{icon}}{{id}}{{class}}]{{content}}[/PREFIX_button]',
+						'params' => array( 'url', 'target', 'color', 'size', 'icon', 'id', 'class', 'content' ),
 						'form'   => array(
 
 								//Tab
@@ -608,37 +861,89 @@ $shortcode_definitions = array(
 													//default
 													'default' => __( 'Button Text', 'wm_domain' ),
 													//preview
-													'preview' => array(
-														'type' => 'none',
-													),
+													'preview' => array( 'type' => 'none' ),
 												), // /content
 
 												'url' => array(
 													'type' => 'text',
 													//description
-													'label' => __( 'Button link', 'wm_domain' ),
+													'label' => __( 'Button link URL', 'wm_domain' ),
 													//default
 													'default' => '#',
 													//preview
-													'preview' => array(
-														'type' => 'none',
-													),
+													'preview' => array( 'type' => 'none' ),
 												), // /url
+
+												'target' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Target', 'wm_domain' ),
+													'help'  => __( 'Button link target', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''       => __( 'Open in same window', 'wm_domain' ),
+														'_blank' => __( 'Open in new window / tab', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /target
+
+												'color' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Color', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['colors'],
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /color
+
+												'size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Size', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['sizes'],
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /size
+
+											), // /fields
+										), // /section
+
+										//Section
+										'icon' => array(
+											'title'  => __( 'Icon', 'wm_domain' ),
+											'fields' => array(
 
 												'icon' => array(
 													'type' => 'wm_radio',
 													//description
-													'label' => __( 'Icon', 'wm_domain' ),
+													'label' => '',
 													//type specific
 													'options'    => self::$codes_globals['font_icons'],
 													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
 													'hide_radio' => true,
 													'inline'     => true,
 													//preview
-													'preview' => array(
-														'type' => 'none',
-													),
+													'preview' => array( 'type' => 'none' ),
 												), // /icon
+
+											), // /fields
+										), // /section
+
+										//Section
+										'other' => array(
+											'title'  => __( 'Other parameters', 'wm_domain' ),
+											'fields' => array(
+
+												'id' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Optional HTML ID', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /content
 
 											), // /fields
 										), // /section
@@ -655,13 +960,12 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Button text', 'wm_domain' ),
-									'description' => __( 'Enter button text (you can use inline HTML and inline shortcodes)', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'content',
-									'value'       => __( 'Button Text', 'wm_domain' ),
-									'holder'      => 'div',
-									'class'       => '',
+									'heading'    => __( 'Button text', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'content',
+									'value'      => __( 'Button Text', 'wm_domain' ),
+									'holder'     => 'div',
+									'class'      => '',
 								),
 								20 => array(
 									'heading'     => __( 'Button URL', 'wm_domain' ),
@@ -689,26 +993,23 @@ $shortcode_definitions = array(
 										),
 								),
 								40 => array(
-									'heading'     => __( 'Color', 'wm_domain' ),
-									'description' => __( 'Choose predefined button color', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'color',
-									'value'       => array_flip( self::$codes_globals['colors'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Color', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'color',
+									'value'      => array_flip( self::$codes_globals['colors'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								50 => array(
-									'heading'     => __( 'Size', 'wm_domain' ),
-									'description' => __( 'Choose predefined button size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'size',
-									'value'       => array_flip( self::$codes_globals['sizes'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'size',
+									'value'      => array_flip( self::$codes_globals['sizes'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								60 => array(
-									'heading'     => __( 'Button icon', 'wm_domain' ),
-									'description' => __( 'Choose one of available icons', 'wm_domain' ),
+									'heading'     => __( 'Icon', 'wm_domain' ),
 									'type'        => 'wm_radio',
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
@@ -756,6 +1057,153 @@ $shortcode_definitions = array(
 						'code'       => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
 						'vc_enabled' => false,
 					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Call to action', 'wm_domain' ),
+						'output' => '[PREFIX_call_to_action{{caption}}{{button_text}}{{button_url}}{{target}}{{button_color}}{{button_size}}{{button_icon}}{{class}}]{{content}}[/PREFIX_call_to_action]',
+						'params' => array( 'caption', 'button_text', 'button_url', 'target', 'button_color', 'button_size', 'button_icon', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'caption' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Caption', 'wm_domain' ),
+													//default
+													'default' => '',
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /caption
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'  => __( 'Content', 'wm_domain' ),
+												'fields' => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /content
+
+												), // /fields
+											), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'button' => array(
+									//Title
+									'title'       => __( 'Button', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'button_text' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Button text', 'wm_domain' ),
+													//default
+													'default' => '',
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /button_text
+
+												'button_url' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Button link URL', 'wm_domain' ),
+													//default
+													'default' => '',
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /button_url
+
+												'target' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Target', 'wm_domain' ),
+													'help'  => __( 'Button link target', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''       => __( 'Open in same window', 'wm_domain' ),
+														'_blank' => __( 'Open in new window / tab', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /target
+
+												'button_color' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Button color', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['colors'],
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /button_color
+
+												'button_size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Button size', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['sizes'],
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /button_size
+
+											), // /fields
+										), // /section
+
+										//Section
+										'icon' => array(
+											'title'  => __( 'Button icon', 'wm_domain' ),
+											'fields' => array(
+
+												'button_icon' => array(
+													'type' => 'wm_radio',
+													//description
+													'label' => '',
+													//type specific
+													'options'    => self::$codes_globals['font_icons'],
+													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+													'hide_radio' => true,
+													'inline'     => true,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /button_icon
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Call to action', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'call_to_action',
@@ -763,7 +1211,7 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Optional caption', 'wm_domain' ),
+									'heading'     => __( 'Caption', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'textfield',
 									'param_name'  => 'caption',
@@ -790,13 +1238,12 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 									40 => array(
-										'heading'     => __( 'Button URL', 'wm_domain' ),
-										'description' => __( 'Set the button link URL', 'wm_domain' ),
-										'type'        => 'textfield',
-										'param_name'  => 'button_url',
-										'value'       => '',
-										'holder'      => 'hidden',
-										'class'       => '',
+										'heading'    => __( 'Button link URL', 'wm_domain' ),
+										'type'       => 'textfield',
+										'param_name' => 'button_url',
+										'value'      => '',
+										'holder'     => 'hidden',
+										'class'      => '',
 									),
 									50 => array(
 										'heading'     => __( 'Button link target', 'wm_domain' ),

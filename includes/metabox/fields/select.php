@@ -18,11 +18,11 @@
 	/**
 	 * Select
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_field_select' ) ) {
 		function wma_field_select( $field, $page_template = null ) {
@@ -109,7 +109,7 @@
 						}
 					//Reset default value button
 						if ( trim( $field['default'] ) ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
 						}
 
 					echo $output;

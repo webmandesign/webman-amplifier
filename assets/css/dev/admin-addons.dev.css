@@ -4,7 +4,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.0.9.10
+ * @version  1.1
  */
 
 
@@ -13,7 +13,7 @@
  * General
  */
 
-	.hide {display: none !important}
+	.hide { display: none !important; }
 
 
 
@@ -35,14 +35,11 @@
 			line-height: 48px;
 			background: #fff;
 			border: 1px solid #d3d3d3;
-			-webkit-border-radius: 3px;
-			   -moz-border-radius: 3px;
-			        border-radius: 3px;
+			border-radius: 3px;
 		}
 			.fixed .wm-image-container.no-thumb {
 				background: #f3f3f3;
 				-webkit-box-shadow: inset 0 1px 5px 0 rgba(0,0,0, .1);
-				   -moz-box-shadow: inset 0 1px 5px 0 rgba(0,0,0, .1);
 				        box-shadow: inset 0 1px 5px 0 rgba(0,0,0, .1);
 			}
 				.fixed .wm-image-container a {
@@ -63,14 +60,10 @@
 
 
 /**
- * Custom posts
+ * WordPress menu tweaks
  */
 
-	.icon32-posts-wm_logos {background: transparent url(../img/custom-posts/logos-32x32.png) no-repeat 50% !important}
-	.icon32-posts-wm_modules {background: transparent url(../img/custom-posts/modules-32x32.png) no-repeat 50% !important}
-	.icon32-posts-wm_projects {background: transparent url(../img/custom-posts/projects-32x32.png) no-repeat 50% !important}
-	.icon32-posts-wm_staff {background: transparent url(../img/custom-posts/staff-32x32.png) no-repeat 50% !important}
-	.icon32-posts-wm_testimonials {background: transparent url(../img/custom-posts/testimonials-32x32.png) no-repeat 50% !important}
+	.sticky-menu #adminmenuwrap { z-index: 999; } /* Hide it beneath the Visual Composer overlay */
 
 
 

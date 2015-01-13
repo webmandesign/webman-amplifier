@@ -4,11 +4,11 @@
  *
  * Registering "wm_projects" custom post.
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Custom Posts
- * @author      WebMan
- * @version     1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['project'] ) && $permalinks['project'] ) ? ( $permalinks['project'] ) : ( 'project' )
 						),
 					'menu_position'       => 30,
-					'menu_icon'           => WMAMP_ASSETS_URL . 'img/custom-posts/projects.png',
+					'menu_icon'           => 'dashicons-portfolio',
 					'supports'            => array(
 							'title',
 							'editor',
@@ -91,16 +91,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'author',
 						),
 					'labels'              => array(
-						'name'               => __( 'Projects', 'wm_domain' ),
-						'singular_name'      => __( 'Project', 'wm_domain' ),
-						'add_new'            => __( 'Add New', 'wm_domain' ),
-						'add_new_item'       => __( 'Add New Project', 'wm_domain' ),
-						'new_item'           => __( 'Add New', 'wm_domain' ),
-						'edit_item'          => __( 'Edit Project', 'wm_domain' ),
-						'view_item'          => __( 'View Project', 'wm_domain' ),
-						'search_items'       => __( 'Search Projects', 'wm_domain' ),
-						'not_found'          => __( 'No project found', 'wm_domain' ),
-						'not_found_in_trash' => __( 'No project found in trash', 'wm_domain' ),
+						'name'               => _x( 'Projects', 'Custom post labels: Projects.', 'wm_domain' ),
+						'singular_name'      => _x( 'Project', 'Custom post labels: Projects.', 'wm_domain' ),
+						'add_new'            => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
+						'add_new_item'       => _x( 'Add New Project', 'Custom post labels: Projects.', 'wm_domain' ),
+						'new_item'           => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
+						'edit_item'          => _x( 'Edit Project', 'Custom post labels: Projects.', 'wm_domain' ),
+						'view_item'          => _x( 'View Project', 'Custom post labels: Projects.', 'wm_domain' ),
+						'search_items'       => _x( 'Search Projects', 'Custom post labels: Projects.', 'wm_domain' ),
+						'not_found'          => _x( 'No project found', 'Custom post labels: Projects.', 'wm_domain' ),
+						'not_found_in_trash' => _x( 'No project found in trash', 'Custom post labels: Projects.', 'wm_domain' ),
 						'parent_item_colon'  => '',
 					)
 				) );
@@ -242,15 +242,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['project_category'] ) && $permalinks['project_category'] ) ? ( $permalinks['project_category'] ) : ( 'project-category' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Project Categories', 'wm_domain' ),
-						'singular_name' => __( 'Project Category', 'wm_domain' ),
-						'search_items'  => __( 'Search Categories', 'wm_domain' ),
-						'all_items'     => __( 'All Categories', 'wm_domain' ),
-						'parent_item'   => __( 'Parent Category', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Category', 'wm_domain' ),
-						'update_item'   => __( 'Update Category', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Category', 'wm_domain' ),
-						'new_item_name' => __( 'New Category Title', 'wm_domain' ),
+						'name'          => _x( 'Project Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'singular_name' => _x( 'Project Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
 					)
 				) );
 
@@ -266,14 +266,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['project_tag'] ) && $permalinks['project_tag'] ) ? ( $permalinks['project_tag'] ) : ( 'project-tag' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Project Tags', 'wm_domain' ),
-						'singular_name' => __( 'Project Tag', 'wm_domain' ),
-						'search_items'  => __( 'Search Tags', 'wm_domain' ),
-						'all_items'     => __( 'All Tags', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Tag', 'wm_domain' ),
-						'update_item'   => __( 'Update Tag', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Tag', 'wm_domain' ),
-						'new_item_name' => __( 'New Tag Title', 'wm_domain' ),
+						'name'          => _x( 'Project Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'singular_name' => _x( 'Project Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'all_items'     => _x( 'All Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Tag Title', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
 					)
 				) );
 
@@ -377,7 +377,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'project-attributes-section',
-							'title' => __( 'Attributes', 'wm_domain' ),
+							'title' => _x( 'Attributes', 'Metabox section title.', 'wm_domain' ),
 						);
 
 						//Project custom link input field

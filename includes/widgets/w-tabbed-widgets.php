@@ -5,8 +5,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.10
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -57,9 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wm_tabbed_widgets_init' ) ) {
 		function wm_tabbed_widgets_init() {
 			register_sidebar( array(
-				'name'        => __( 'Tabbed Widgets', 'wm_domain' ),
+				'name'        => _x( 'Tabbed Widgets', 'Widgets area name.', 'wm_domain' ),
 				'id'          => 'tabbed-widgets',
-				'description' => __( 'Default widget area for Tabbed Widgets widget.', 'wm_domain' ),
+				'description' => _x( 'Default widget area for Tabbed Widgets widget.', 'Widgets area description.', 'wm_domain' ),
 			) );
 		}
 	} // /wm_tabbed_widgets_init
@@ -85,10 +85,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-tabbed-widgets';
-				$atts['name']       .= __( 'Tabbed Widgets', 'wm_domain' );
+				$atts['name']       .= _x( 'Tabbed Widgets', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-tabbed-widgets',
-						'description' => __( 'Multiple widgets in tabs', 'wm_domain' )
+						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -113,10 +113,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays widgets from selected widget area in tabbed interface.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays widgets from selected widget area in tabbed interface.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widget area to display', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widgets area displayed', 'wm_domain' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'sidebar' ); ?>" id="<?php echo $this->get_field_id( 'sidebar' ); ?>">
 						<?php
 						if ( function_exists( 'wma_widget_areas_array' ) ) {
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					} else {
 
-						_e( 'Widget area conflict in Tabbed Widgets.', 'wm_domain' );
+						_e( 'Widget area conflict in Tabbed Widgets widget.', 'wm_domain' );
 
 					}
 

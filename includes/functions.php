@@ -1253,7 +1253,8 @@
 	/**
 	 * Get registered image sizes with dimensions
 	 *
-	 * @since   1.0
+	 * @since    1.0
+	 * @version  1.1
 	 *
 	 * @return  array Image sizes.
 	 */
@@ -1263,7 +1264,7 @@
 				global $_wp_additional_image_sizes;
 
 				$output   = array( 'full' => __( 'Original image size (full)', 'wm_domain' ) );
-				$cropping = array( __( 'scaled', 'wm_domain' ), __( 'cropped', 'wm_domain' ) );
+				$cropping = array( _x( 'scaled', 'WordPress image size actions.', 'wm_domain' ), _x( 'cropped', 'WordPress image size actions.', 'wm_domain' ) );
 
 			//Preparing output
 				foreach( get_intermediate_image_sizes() as $size ) {
@@ -1305,36 +1306,68 @@
 
 
 	/**
-	 * Check if Beaver Builder plugin is active
+	 * Check if page builder plugin is active
 	 *
 	 * @since    1.1
 	 * @version  1.1
 	 *
 	 * @return  boolean
 	 */
-	if ( ! function_exists( 'wma_is_active_bb' ) ) {
-		function wma_is_active_bb() {
+	if ( ! function_exists( 'wma_is_active_page_builder' ) ) {
+		function wma_is_active_page_builder() {
 			//Output
-				return apply_filters( 'wmhook_wma_is_active_bb_output', class_exists( 'FLBuilder' ) );
+				return apply_filters( 'wmhook_wma_is_active_page_builder_output', ( wma_is_active_vc() || ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_enabled() ) ) );
 		}
-	} // /wma_is_active_bb
+	} // /wma_is_active_page_builder
 
 
 
-	/**
-	 * Check if Visual Composer plugin is active
-	 *
-	 * Supports both 4.2+ plugin versions and older too.
-	 *
-	 * @since   1.0.8
-	 *
-	 * @return  boolean
-	 */
-	if ( ! function_exists( 'wma_is_active_vc' ) ) {
-		function wma_is_active_vc() {
-			//Output
-				return apply_filters( 'wmhook_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
-		}
-	} // /wma_is_active_vc
+		/**
+		 * Check if Beaver Builder plugin is active
+		 *
+		 * Using loop functions, so needs to be hooked in `wp` rather then `init`.
+		 *
+		 * @since    1.1
+		 * @version  1.1
+		 *
+		 * @return  boolean
+		 */
+		if ( ! function_exists( 'wma_is_active_bb' ) ) {
+			function wma_is_active_bb() {
+				//Output
+					if (
+							class_exists( 'FLBuilder' )
+							&& ! is_admin()
+							&& ! empty( $supported_post_types = get_option( '_fl_builder_post_types' ) )
+							&& is_singular( (array) $supported_post_types )
+							&& (
+									get_post_meta( get_the_ID(), '_fl_builder_enabled', true )
+									|| isset( $_GET['fl_builder'] )
+								)
+						) {
+						return true;
+					}
+
+					return false;
+			}
+		} // /wma_is_active_bb
+
+
+
+		/**
+		 * Check if Visual Composer plugin is active
+		 *
+		 * Supports both 4.2+ plugin versions and older too.
+		 *
+		 * @since   1.0.8
+		 *
+		 * @return  boolean
+		 */
+		if ( ! function_exists( 'wma_is_active_vc' ) ) {
+			function wma_is_active_vc() {
+				//Output
+					return apply_filters( 'wmhook_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+			}
+		} // /wma_is_active_vc
 
 ?>

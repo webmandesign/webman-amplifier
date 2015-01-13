@@ -3,7 +3,7 @@
  * WebMan Metabox Generator
  * Form Fields Renderers and Validators
  *
- * Numeric slider element
+ * Numeric slider / Range element
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
@@ -12,17 +12,17 @@
 
 
 /**
- * NUMERIC SLIDER
+ * NUMERIC SLIDER / RANGE
  */
 
 	/**
-	 * Numeric slider
+	 * Numeric slider / Range
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_field_slider' ) ) {
 		function wma_field_slider( $field, $page_template = null ) {
@@ -72,7 +72,7 @@
 						}
 					//Reset default value button
 						if ( trim( $field['default'] ) ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value default-slider" title="' . __( 'Use default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value default-slider" title="' . __( 'Use a default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
 						}
 
 					echo $output;
@@ -91,13 +91,13 @@
 
 
 	/**
-	 * Numeric slider validation
+	 * Numeric slider / Range validation
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_field_slider_validation' ) ) {
 		function wma_field_slider_validation( $new, $field, $post_id ) {

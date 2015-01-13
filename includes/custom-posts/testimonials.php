@@ -4,11 +4,11 @@
  *
  * Registering "wm_testimonials" custom post.
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Custom Posts
- * @author      WebMan
- * @version     1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' )
 						),
 					'menu_position'       => 39,
-					'menu_icon'           => WMAMP_ASSETS_URL . 'img/custom-posts/testimonials.png',
+					'menu_icon'           => 'dashicons-testimonial',
 					'supports'            => array(
 							'title',
 							'editor',
@@ -90,16 +90,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'author',
 						),
 					'labels'              => array(
-						'name'               => __( 'Testimonials', 'wm_domain' ),
-						'singular_name'      => __( 'Testimonial', 'wm_domain' ),
-						'add_new'            => __( 'Add New', 'wm_domain' ),
-						'add_new_item'       => __( 'Add New Testimonial', 'wm_domain' ),
-						'new_item'           => __( 'Add New', 'wm_domain' ),
-						'edit_item'          => __( 'Edit Testimonial', 'wm_domain' ),
-						'view_item'          => __( 'View Testimonial', 'wm_domain' ),
-						'search_items'       => __( 'Search Testimonials', 'wm_domain' ),
-						'not_found'          => __( 'No testimonial found', 'wm_domain' ),
-						'not_found_in_trash' => __( 'No testimonials found in trash', 'wm_domain' ),
+						'name'               => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'singular_name'      => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'add_new'            => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'add_new_item'       => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'new_item'           => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'edit_item'          => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'view_item'          => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'search_items'       => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'not_found'          => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'wm_domain' ),
+						'not_found_in_trash' => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'wm_domain' ),
 						'parent_item_colon'  => ''
 					)
 				) );
@@ -226,15 +226,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['testimonial_category'] ) && $permalinks['testimonial_category'] ) ? ( $permalinks['testimonial_category'] ) : ( 'testimonial-category' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Categories', 'wm_domain' ),
-						'singular_name' => __( 'Category', 'wm_domain' ),
-						'search_items'  => __( 'Search Categories', 'wm_domain' ),
-						'all_items'     => __( 'All Categories', 'wm_domain' ),
-						'parent_item'   => __( 'Parent Category', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Category', 'wm_domain' ),
-						'update_item'   => __( 'Update Category', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Category', 'wm_domain' ),
-						'new_item_name' => __( 'New Category Title', 'wm_domain' )
+						'name'          => _x( 'Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'singular_name' => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' )
 					)
 				) );
 
@@ -327,7 +327,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'testimonial-author-section',
-							'title' => __( 'Author', 'wm_domain' ),
+							'title' => _x( 'Author', 'Metabox section title.', 'wm_domain' ),
 						);
 
 						//Testimonial image

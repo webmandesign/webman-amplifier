@@ -5,8 +5,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.10
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -69,10 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-posts-widget';
-				$atts['name']       .= __( 'Posts', 'wm_domain' );
+				$atts['name']       .= _x( 'Posts', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-posts-widget',
-						'description' => __( 'Lists posts or projects', 'wm_domain' )
+						'description' => _x( 'Lists posts or projects', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays list of Posts or Projects.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays list of Posts or Projects.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label><br />
@@ -132,10 +132,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
 						$options = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form' . '_order', array(
-								'new'    => __( 'Newest first', 'wm_domain' ),
-								'old'    => __( 'Oldest first', 'wm_domain' ),
-								'name'   => __( 'Alphabetically', 'wm_domain' ),
-								'random' => __( 'Randomly', 'wm_domain' ),
+								'new'    => _x( 'Newest first', 'List order method.', 'wm_domain' ),
+								'old'    => _x( 'Oldest first', 'List order method.', 'wm_domain' ),
+								'name'   => _x( 'Alphabetically', 'List order method.', 'wm_domain' ),
+								'random' => _x( 'Randomly', 'List order method.', 'wm_domain' ),
 							) );
 						foreach ( $options as $value => $name ) {
 							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . $name . '</option>';

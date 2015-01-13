@@ -4,7 +4,7 @@ Tags: webman, accordion, audio, button, call to action, column, row, section, co
 Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
-Requires at least: 3.8
+Requires at least: 4.0
 Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later

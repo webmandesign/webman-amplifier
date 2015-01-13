@@ -4,11 +4,11 @@
  *
  * Registering "wm_logos" custom post.
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Custom Posts
- * @author      WebMan
- * @version     1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -82,23 +82,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['logo'] ) && $permalinks['logo'] ) ? ( $permalinks['logo'] ) : ( 'logo' )
 						),
 					'menu_position'       => 33,
-					'menu_icon'           => WMAMP_ASSETS_URL . 'img/custom-posts/logos.png',
+					'menu_icon'           => 'dashicons-id-alt',
 					'supports'            => array(
 							'title',
 							'thumbnail',
 							'author',
 						),
 					'labels'              => array(
-						'name'               => __( 'Logos', 'wm_domain' ),
-						'singular_name'      => __( 'Logos', 'wm_domain' ),
-						'add_new'            => __( 'Add New', 'wm_domain' ),
-						'add_new_item'       => __( 'Add New', 'wm_domain' ),
-						'new_item'           => __( 'Add New', 'wm_domain' ),
-						'edit_item'          => __( 'Edit', 'wm_domain' ),
-						'view_item'          => __( 'View', 'wm_domain' ),
-						'search_items'       => __( 'Search', 'wm_domain' ),
-						'not_found'          => __( 'No item found', 'wm_domain' ),
-						'not_found_in_trash' => __( 'No item found in trash', 'wm_domain' ),
+						'name'               => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
+						'singular_name'      => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
+						'add_new'            => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+						'add_new_item'       => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+						'new_item'           => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+						'edit_item'          => _x( 'Edit', 'Custom post labels: Logos.', 'wm_domain' ),
+						'view_item'          => _x( 'View', 'Custom post labels: Logos.', 'wm_domain' ),
+						'search_items'       => _x( 'Search', 'Custom post labels: Logos.', 'wm_domain' ),
+						'not_found'          => _x( 'No item found', 'Custom post labels: Logos.', 'wm_domain' ),
+						'not_found_in_trash' => _x( 'No item found in trash', 'Custom post labels: Logos.', 'wm_domain' ),
 						'parent_item_colon'  => ''
 					)
 				) );
@@ -226,15 +226,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['logo_category'] ) && $permalinks['logo_category'] ) ? ( $permalinks['logo_category'] ) : ( 'logo-category' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Logo Categories', 'wm_domain' ),
-						'singular_name' => __( 'Logo Category', 'wm_domain' ),
-						'search_items'  => __( 'Search Category', 'wm_domain' ),
-						'all_items'     => __( 'All Categories', 'wm_domain' ),
-						'parent_item'   => __( 'Parent Category', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Category', 'wm_domain' ),
-						'update_item'   => __( 'Update Category', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Category', 'wm_domain' ),
-						'new_item_name' => __( 'New Category Title', 'wm_domain' )
+						'name'          => _x( 'Logo Categories', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'singular_name' => _x( 'Logo Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Logos categories.', 'wm_domain' )
 					)
 				) );
 

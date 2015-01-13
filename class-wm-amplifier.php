@@ -249,7 +249,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 								apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true )
 								&& ! wma_supports_subfeature( 'disable-fonticons' )
 							) {
-							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . __( 'Icon Font', 'wm_domain' ) . '</a>';
+							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . _x( 'Icon Font', 'Plugin action link.', 'wm_domain' ) . '</a>';
 						}
 
 					//Themes link
@@ -281,19 +281,13 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wmamp-admin-styles',    $this->assets_url . 'css/admin-addons.css',    false, WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wmamp-admin-styles-38', $this->assets_url . 'css/admin-addons-38.css', false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wmamp-admin-styles', $this->assets_url . 'css/admin-addons.css', false, WMAMP_VERSION, 'screen' );
 
 				//Enqueue (only on specific admin pages)
-				if ( in_array( $current_screen->base, array( 'edit', 'post' ) ) ) {
-					//Styles
-						wp_enqueue_style( 'wmamp-admin-styles' );
-				}
-
-				//WordPress 3.8+ styles
-				if ( version_compare( (float) $wp_version, '3.8', '>=' ) ) {
-					wp_enqueue_style( 'wmamp-admin-styles-38' );
-				}
+					if ( in_array( $current_screen->base, array( 'edit', 'post' ) ) ) {
+						//Styles
+							wp_enqueue_style( 'wmamp-admin-styles' );
+					}
 			} // /assets
 
 

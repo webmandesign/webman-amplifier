@@ -7,8 +7,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.11
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -88,10 +88,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-twitter';
-				$atts['name']       .= __( 'Twitter', 'wm_domain' );
+				$atts['name']       .= _x( 'Twitter', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-twitter',
-						'description' => __( 'Your recent tweets', 'wm_domain' )
+						'description' => _x( 'Your recent tweets', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label><br />

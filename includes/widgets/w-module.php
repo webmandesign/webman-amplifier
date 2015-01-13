@@ -5,8 +5,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.10
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -69,10 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-module-widget';
-				$atts['name']       .= __( 'Content Module', 'wm_domain' );
+				$atts['name']       .= _x( 'Content Module', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-module-widget',
-						'description' => __( 'Displays specific Content Module post', 'wm_domain' )
+						'description' => _x( 'Displays specific Content Module post', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays content of the specific Content Module custom post. Please choose the Content Module below.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays content of the specific Content Module custom post. Please choose the Content Module below.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label><br />

@@ -5,8 +5,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.10
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -69,10 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-subnav';
-				$atts['name']       .= __( 'Submenu', 'wm_domain' );
+				$atts['name']       .= _x( 'Submenu', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-subnav',
-						'description' => __( 'List of subpages', 'wm_domain' )
+						'description' => _x( 'List of subpages', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label>
@@ -117,9 +117,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
 						$options = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_form' . '_order', array(
-								'post_title' => __( 'By name', 'wm_domain' ),
-								'post_date'  => __( 'By date', 'wm_domain' ),
-								'menu_order' => __( 'Menu order', 'wm_domain' ),
+								'post_title' => _x( 'By name', 'List order method.', 'wm_domain' ),
+								'post_date'  => _x( 'By date', 'List order method.', 'wm_domain' ),
+								'menu_order' => _x( 'Menu order', 'List order method.', 'wm_domain' ),
 							) );
 						foreach ( $options as $value => $name ) {
 							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . $name . '</option>';

@@ -394,10 +394,12 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Opening the meta box wrapping visual editor
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  public
 			 *
-			 * @param   object $post WordPress post object
+			 * @param  object $post WordPress post object
 			 */
 			public function metabox_start( $post ) {
 				if ( ! $post ) {
@@ -435,7 +437,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 					//Tabs
 						$output .= "\t" . '<ul class="tabs no-js">' . "\r\n";
-						$output .= "\t\t" . '<li class="item-0 ' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor"><a href="#' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor">' . __( 'Content', 'wm_domain' ) . '</a></li>' . "\r\n";
+						$output .= "\t\t" . '<li class="item-0 ' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor"><a href="#' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor">' . _x( 'Content', 'Metabox tab title for native WordPress visual editor tab.', 'wm_domain' ) . '</a></li>' . "\r\n";
 						$i = 0;
 						foreach ( $meta_fields as $tab ) {
 							if ( isset( $tab['type'] ) && 'section-open' == $tab['type'] ) {
@@ -533,7 +535,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							array(
 								'type'      => 'html',
 								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'wm_domain' ) . '</div>',
-								'condition' => wma_is_active_vc()
+								'condition' => wma_is_active_page_builder()
 							),
 							array(
 								'type'     => 'section-close', //closing visual editor wrapper

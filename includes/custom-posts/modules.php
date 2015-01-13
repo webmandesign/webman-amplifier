@@ -4,11 +4,11 @@
  *
  * Registering "wm_modules" custom post.
  *
- * @since       1.0
  * @package     WebMan Amplifier
  * @subpackage  Custom Posts
- * @author      WebMan
- * @version     1.0
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['module'] ) && $permalinks['module'] ) ? ( $permalinks['module'] ) : ( 'module' )
 						),
 					'menu_position'       => 45,
-					'menu_icon'           => WMAMP_ASSETS_URL . 'img/custom-posts/modules.png',
+					'menu_icon'           => 'dashicons-format-aside',
 					'supports'            => array(
 							'title',
 							'editor',
@@ -90,16 +90,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'author',
 						),
 					'labels'              => array(
-						'name'               => __( 'Content Modules', 'wm_domain' ),
-						'singular_name'      => __( 'Content Module', 'wm_domain' ),
-						'add_new'            => __( 'Add New', 'wm_domain' ),
-						'add_new_item'       => __( 'Add New module', 'wm_domain' ),
-						'new_item'           => __( 'Add New', 'wm_domain' ),
-						'edit_item'          => __( 'Edit Module', 'wm_domain' ),
-						'view_item'          => __( 'View Module', 'wm_domain' ),
-						'search_items'       => __( 'Search Modules', 'wm_domain' ),
-						'not_found'          => __( 'No module found', 'wm_domain' ),
-						'not_found_in_trash' => __( 'No module found in trash', 'wm_domain' ),
+						'name'               => _x( 'Content Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'singular_name'      => _x( 'Content Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'add_new'            => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'add_new_item'       => _x( 'Add New module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'new_item'           => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'edit_item'          => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'view_item'          => _x( 'View Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'search_items'       => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'not_found'          => _x( 'No module found', 'Custom post labels: Content Modules.', 'wm_domain' ),
+						'not_found_in_trash' => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'wm_domain' ),
 						'parent_item_colon'  => ''
 					)
 				) );
@@ -246,14 +246,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'slug' => ( isset( $permalinks['module_tag'] ) && $permalinks['module_tag'] ) ? ( $permalinks['module_tag'] ) : ( 'module-tag' )
 						),
 					'labels'            => array(
-						'name'          => __( 'Module Tags', 'wm_domain' ),
-						'singular_name' => __( 'Module Tag', 'wm_domain' ),
-						'search_items'  => __( 'Search Tags', 'wm_domain' ),
-						'all_items'     => __( 'All Tags', 'wm_domain' ),
-						'edit_item'     => __( 'Edit Tag', 'wm_domain' ),
-						'update_item'   => __( 'Update Tag', 'wm_domain' ),
-						'add_new_item'  => __( 'Add New Tag', 'wm_domain' ),
-						'new_item_name' => __( 'New Tag Title', 'wm_domain' )
+						'name'          => _x( 'Module Tags', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'singular_name' => _x( 'Module Tag', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'search_items'  => _x( 'Search Tags', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'all_items'     => _x( 'All Tags', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'edit_item'     => _x( 'Edit Tag', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'update_item'   => _x( 'Update Tag', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'add_new_item'  => _x( 'Add New Tag', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' ),
+						'new_item_name' => _x( 'New Tag Title', 'Custom taxonomy labels: Content Modules tags.', 'wm_domain' )
 					)
 				) );
 
@@ -354,7 +354,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'module-settings-section',
-							'title' => __( 'Settings', 'wm_domain' ),
+							'title' => _x( 'Settings', 'Metabox section title.', 'wm_domain' ),
 						);
 
 						//Module custom link input field

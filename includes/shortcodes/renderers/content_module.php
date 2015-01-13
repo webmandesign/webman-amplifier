@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.1
  *
  * @param  string align
  * @param  string class
@@ -304,7 +304,7 @@
 					$layout_elements = array(
 							'content'  => do_shortcode( '<div class="wm-content-module-element wm-html-element content">' . wpautop( get_the_content() ) . '</div>' ),
 							'image'    => '',
-							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . __( 'Read more', 'wm_domain' ) . '</a></div>' ) : ( '' ),
+							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'read_more_text', __( 'Read more', 'wm_domain' ), $shortcode, $post_id, $atts ) . '</a></div>' ) : ( '' ),
 							'tag'      => '',
 							'title'    => ( $helpers['link'] ) ? ( '<header class="wm-content-module-element wm-html-element title"><' . $atts['heading_tag'] . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . $atts['heading_tag'] . '></header>' ) : ( '<header class="wm-content-module-element wm-html-element title"><' . $atts['heading_tag'] . '>' . get_the_title() . '</' . $atts['heading_tag'] . '></header>' ),
 						);

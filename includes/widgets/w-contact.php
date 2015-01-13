@@ -5,8 +5,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Widgets
  *
- * @since       1.0.9.9
- * @version     1.0.9.10
+ * @since    1.0.9.9
+ * @version  1.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -69,10 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
 
 				$atts['id']          = 'wm-contact-info';
-				$atts['name']       .= __( 'Contact', 'wm_domain' );
+				$atts['name']       .= _x( 'Contact', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-contact-info',
-						'description' => __( 'Contact information', 'wm_domain' )
+						'description' => _x( 'Contact information', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _e( 'Displays specially styled contact information. JavaScript anti-spam protection will be applied on the email address (also, email will not be displayed when JavaScript is turned off).', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays specially styled contact information. JavaScript anti-spam protection will be applied on the email address (also, email will not be displayed when JavaScript is turned off).', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label>
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Name:', 'wm_domain' ) ?></label>
+					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _ex( 'Name:', 'In address.', 'wm_domain' ) ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $instance['name'] ); ?>" />
 				</p>
 
