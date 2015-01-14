@@ -4,8 +4,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since       1.0
- * @version     1.0.9.4
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -38,6 +38,20 @@ jQuery( function() {
 
 				$this.parent().addClass( 'active' ).siblings().removeClass( 'active' );
 				jQuery( $this.data( 'tab' ) ).show().addClass( 'active' ).siblings( '.wm-item' ).removeClass( 'active' ).hide();
+			} );
+
+
+
+	/**
+	 * Vertical tabs
+	 */
+
+		//Fixing min height for vertical tab items
+			jQuery( '.wm-tabs.layout-left, .wm-tabs.layout-right' ).each( function( index, val ) {
+				var $this        = jQuery( this ),
+				    minTabHeight = $this.find( '.wm-tab-links' ).outerHeight();
+
+				$this.find( '.wm-tabs-items .wm-item' ).css( 'min-height', minTabHeight + 'px' );
 			} );
 
 
@@ -110,7 +124,5 @@ jQuery( function() {
 					$parentWrap.find( '.wm-tour-nav .next' ).html( '' );
 				}
 			} );
-
-
 
 } );

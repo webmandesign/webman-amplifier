@@ -4,9 +4,10 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1
  *
- * @uses   $codes_globals['colors'], $codes_globals['sizes']
+ * @uses   $codes_globals['colors'], $codes_globals['sizes']['values']
  *
  * @param  string class
  * @param  string color
@@ -44,8 +45,8 @@
 		}
 	//size
 		$atts['size'] = trim( $atts['size'] );
-		if ( in_array( $atts['size'], array_keys( $codes_globals['sizes'] ) ) ) {
-			$atts['class'] .= ' size-' . $codes_globals['sizes'][$atts['size']];
+		if ( in_array( $atts['size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
+			$atts['class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['size'] ];
 		}
 	//url
 		$atts['url'] = esc_url( $atts['url'] );

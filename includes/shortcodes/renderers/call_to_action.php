@@ -4,9 +4,10 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1
  *
- * @uses   $codes_globals['colors'], $codes_globals['sizes']
+ * @uses   $codes_globals['colors'], $codes_globals['sizes']['values']
  *
  * @param  string button_class
  * @param  string button_color
@@ -58,8 +59,8 @@
 		}
 	//button_size
 		$atts['button_size'] = trim( $atts['button_size'] );
-		if ( in_array( $atts['button_size'], array_keys( $codes_globals['sizes'] ) ) ) {
-			$atts['button_class'] .= ' size-' . $codes_globals['sizes'][$atts['button_size']];
+		if ( in_array( $atts['button_size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
+			$atts['button_class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['button_size'] ];
 		}
 	//button_text
 		$atts['button_text'] = trim( $atts['button_text'] );

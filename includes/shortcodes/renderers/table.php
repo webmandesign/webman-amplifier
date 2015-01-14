@@ -4,13 +4,15 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1
  *
  * @uses   $codes_globals['table_types']
  *
  * @param  string class
  * @param  string separator
  * @param  string type
+ * @param  string type_bb Fix for Beaver Builder
  */
 
 
@@ -20,6 +22,7 @@
 			'class'     => '',
 			'separator' => ',',
 			'type'      => '',
+			'type_bb'   => '',
 		), $shortcode );
 	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
@@ -30,12 +33,17 @@
 	//separator
 		$atts['separator'] = ( $atts['separator'] ) ? ( trim( $atts['separator'] ) ) : ( ',' );
 	//type
+		//Fix for Beaver Builder
+			if ( $atts['type_bb'] ) {
+				$atts['type'] = $atts['type_bb'];
+			}
 		$atts['type'] = trim( $atts['type'] );
 		if ( in_array( $atts['type'], array_keys( $codes_globals['table_types'] ) ) ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
 	//content (table CSV data)
 		$content = str_replace( array( '<p>', '</p>' ), '', $content ); //remove HTML paragraphs
+		$content = str_replace( array( '<br>', '<br />' ), "\r\n", $content ); //replace HTML line breaks
 		$content = preg_split('/\r\n|\r|\n/', $content ); //split string into array by line breaks
 		$content = array_values( array_filter( $content ) ); //remove empty values and reindex keys
 		if ( is_array( $content ) && ! empty( $content ) ) {

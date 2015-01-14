@@ -161,8 +161,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$this->assets_url      = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'assets_url',      WMAMP_ASSETS_URL );
 					$this->definitions_dir = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
 					$this->renderers_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/vc' ) );
-					$this->bb_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'bb_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/bb' ) );
+					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/visual-composer' ) );
+					$this->bb_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'bb_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/beaver-builder' ) );
 
 				//Visual Composer integration
 					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
@@ -203,10 +203,20 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							'font_icons'     => $fonticons,
 							'post_types'     => $post_types,
 							'sizes'          => array(
-									's'  => 'small',
-									'm'  => 'medium',
-									'l'  => 'large',
-									'xl' => 'extra-large',
+								//Actual sizes options used in select form field
+									'options' => array(
+										's'  => __( 'Small', 'wm_domain' ),
+										'm'  => __( 'Medium', 'wm_domain' ),
+										'l'  => __( 'Large', 'wm_domain' ),
+										'xl' => __( 'Extra-large', 'wm_domain' ),
+									),
+								//Parameter value to CSS class translation
+									'values' =>	array(
+										's'  => 'small',
+										'm'  => 'medium',
+										'l'  => 'large',
+										'xl' => 'extra-large',
+									),
 								),
 							'social_icons'  => array( 'Behance', 'Blogger', 'Delicious', 'DeviantART', 'Digg', 'Dribbble', 'Facebook', 'Flickr', 'Forrst', 'Github', 'Google+', 'Instagram', 'LinkedIn', 'MySpace', 'Pinterest', 'Reddit', 'RSS', 'Skype', 'SoundCloud', 'StumbleUpon', 'Tumblr', 'Twitter', 'Vimeo', 'WordPress', 'YouTube' ),
 							'table_types'   => array(
@@ -363,6 +373,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					wp_register_style( 'wm-shortcodes-generator',     $this->assets_url . 'css/shortcodes-generator.css',     array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-generator-rtl', $this->assets_url . 'css/rtl-shortcodes-generator.css', array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-rtl',           $this->assets_url . 'css/rtl-shortcodes.css',           array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-bb-addon',      $this->assets_url . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon',      $this->assets_url . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon-rtl',  $this->assets_url . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
 					if ( $icon_font_url ) {
@@ -494,7 +505,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Setup filter hooks
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  private
 			 */
 			private function setup_filters() {
@@ -953,7 +966,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * If you intend to change these positions, change the numbers
 				 * but keep the order.
 				 *
-				 * @see  `$this->bb_addons_dir . bb.php` action hooks
+				 * @see  `$this->bb_addons_dir . beaver-builder.php` action hooks
 				 *
 				 * @since    1.1
 				 * @version  1.1
@@ -977,7 +990,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					 * @access  public
 					 */
 					public function init_beaver_builder_support() {
-						require_once( $this->bb_addons_dir . 'bb.php' );
+						require_once( $this->bb_addons_dir . 'beaver-builder.php' );
 					} // /init_beaver_builder_support
 
 
@@ -1005,7 +1018,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 					//VC additional shortcodes admin interface
-						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'vc.php' );
+						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'visual-composer.php' );
 						require_once( $vc_shortcodes_admin_tweaks );
 
 					//VC setup screen modifications

@@ -4,7 +4,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1
  *
  * @param  string caption
  * @param  string class
@@ -12,6 +13,7 @@
  * @param  string cost
  * @param  string heading_tag (heading tag setup option for better SEO)
  * @param  string type
+ * @param  string type_bb Fix for Beaver Builder
  */
 
 
@@ -25,6 +27,7 @@
 			'cost'        => '',
 			'heading_tag' => 'h3',
 			'type'        => '',
+			'type_bb'     => '',
 		), $shortcode );
 	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
@@ -34,6 +37,10 @@
 
 //Validation
 	//type
+		//Fix for Beaver Builder
+			if ( $atts['type_bb'] ) {
+				$atts['type'] = $atts['type_bb'];
+			}
 		$atts['type'] = trim( $atts['type'] );
 		if ( ! in_array( $atts['type'], array( 'featured', 'legend' ) ) ) {
 			$atts['type'] = 'default';

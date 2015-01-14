@@ -6,8 +6,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
- * @since       1.0
- * @version     1.0.9.10
+ *
+ * @since    1.0
+ * @version  1.1
  */
 
 /**
@@ -157,31 +158,6 @@ $shortcode_definitions = array(
 													'preview' => array( 'type' => 'none' ),
 												), // /mode
 
-												'filter' => array(
-													'type' => 'select',
-													//description
-													'label' => __( 'Filtering', 'wm_domain' ),
-													'help'  => __( 'Display the sections filter from sections tags?', 'wm_domain' ),
-													//type specific
-													'options' => array(
-														''  => __( 'No', 'wm_domain' ),
-														'1' => __( 'Yes', 'wm_domain' ),
-													),
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /filter
-
-												'active' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Active section', 'wm_domain' ),
-													'help'  => __( 'Set section order number, "0" for all sections closed', 'wm_domain' ),
-													//default
-													'default' => 1,
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /active
-
 											), // /fields
 										), // /section
 
@@ -206,6 +182,50 @@ $shortcode_definitions = array(
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
 												), // /children
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'filter' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Filtering', 'wm_domain' ),
+													'help'  => __( 'Display the sections filter from sections tags?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /filter
+
+												'active' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Active section', 'wm_domain' ),
+													'help'  => __( 'Set section order number, "0" for all sections closed', 'wm_domain' ),
+													//default
+													'default' => 1,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /active
 
 											), // /fields
 										), // /section
@@ -267,9 +287,9 @@ $shortcode_definitions = array(
 									), // /tab
 
 									//Tab
-									'advanced' => array(
+									'others' => array(
 										//Title
-										'title'       => __( 'Advanced', 'wm_domain' ),
+										'title'       => __( 'Others', 'wm_domain' ),
 										'description' => '',
 										//Sections
 										'sections' => array(
@@ -400,7 +420,7 @@ $shortcode_definitions = array(
 		 * Tabs wrapper
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.10
+		 * @version  1.1
 		 */
 		'tabs' => array(
 				'since'      => '1.0',
@@ -446,30 +466,6 @@ $shortcode_definitions = array(
 													'preview' => array( 'type' => 'none' ),
 												), // /layout
 
-												'tour' => array(
-													'type' => 'select',
-													//description
-													'label' => __( 'Enable tour mode?', 'wm_domain' ),
-													//type specific
-													'options' => array(
-														''  => __( 'No', 'wm_domain' ),
-														'1' => __( 'Yes', 'wm_domain' ),
-													),
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /tour
-
-												'active' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Active section', 'wm_domain' ),
-													'help'  => __( 'Enter the order number of the tab which should be open by default', 'wm_domain' ),
-													//default
-													'default' => 1,
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /active
-
 											), // /fields
 										), // /section
 
@@ -494,6 +490,49 @@ $shortcode_definitions = array(
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
 												), // /children
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'tour' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Enable tour mode?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /tour
+
+												'active' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Active section', 'wm_domain' ),
+													'help'  => __( 'Enter the order number of the tab which should be open by default', 'wm_domain' ),
+													//default
+													'default' => 1,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /active
 
 											), // /fields
 										), // /section
@@ -555,9 +594,9 @@ $shortcode_definitions = array(
 									), // /tab
 
 									//Tab
-									'advanced' => array(
+									'others' => array(
 										//Title
-										'title'       => __( 'Advanced', 'wm_domain' ),
+										'title'       => __( 'Others', 'wm_domain' ),
 										'description' => '',
 										//Sections
 										'sections' => array(
@@ -832,7 +871,7 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Button', 'wm_domain' ),
-						'code'       => '[PREFIX_button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_button]',
+						'code'       => '[PREFIX_button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_button]',
 						'vc_enabled' => true,
 					),
 				'bb_plugin'  => array(
@@ -903,13 +942,32 @@ $shortcode_definitions = array(
 													//description
 													'label' => __( 'Size', 'wm_domain' ),
 													//type specific
-													'options' => self::$codes_globals['sizes'],
+													'options' => self::$codes_globals['sizes']['options'],
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /size
 
+												'id' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Optional HTML ID', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /id
+
 											), // /fields
 										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'icon' => array(
+									//Title
+									'title'       => __( 'Icon', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
 
 										//Section
 										'icon' => array(
@@ -928,22 +986,6 @@ $shortcode_definitions = array(
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /icon
-
-											), // /fields
-										), // /section
-
-										//Section
-										'other' => array(
-											'title'  => __( 'Other parameters', 'wm_domain' ),
-											'fields' => array(
-
-												'id' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Optional HTML ID', 'wm_domain' ),
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /content
 
 											), // /fields
 										), // /section
@@ -1004,7 +1046,7 @@ $shortcode_definitions = array(
 									'heading'    => __( 'Size', 'wm_domain' ),
 									'type'       => 'dropdown',
 									'param_name' => 'size',
-									'value'      => array_flip( self::$codes_globals['sizes'] ),
+									'value'      => array_flip( self::$codes_globals['sizes']['options'] ),
 									'holder'     => 'hidden',
 									'class'      => '',
 								),
@@ -1029,8 +1071,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								80 => array(
-									'heading'     => __( 'HTML ID', 'wm_domain' ),
-									'description' => __( 'Optional HTML ID', 'wm_domain' ),
+									'heading'     => __( 'Optional HTML ID', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'id',
 									'value'       => '',
@@ -1054,7 +1095,7 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Call to action', 'wm_domain' ),
-						'code'       => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
+						'code'       => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
 						'vc_enabled' => false,
 					),
 				'bb_plugin'  => array(
@@ -1170,7 +1211,7 @@ $shortcode_definitions = array(
 													//description
 													'label' => __( 'Button size', 'wm_domain' ),
 													//type specific
-													'options' => self::$codes_globals['sizes'],
+													'options' => self::$codes_globals['sizes']['options'],
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /button_size
@@ -1271,7 +1312,7 @@ $shortcode_definitions = array(
 										'description' => '',
 										'type'        => 'dropdown',
 										'param_name'  => 'button_size',
-										'value'       => array_flip( self::$codes_globals['sizes'] ),
+										'value'       => array_flip( self::$codes_globals['sizes']['options'] ),
 										'holder'      => 'hidden',
 										'class'       => '',
 									),
@@ -1323,7 +1364,7 @@ $shortcode_definitions = array(
 		 * Countdown timer
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'countdown_timer' => array(
 				'since'      => '1.0',
@@ -1331,8 +1372,55 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Countdown timer', 'wm_domain' ),
-						'code'       => '[PREFIX_countdown_timer time="' . date( get_option( 'date_format' ), strtotime( 'now' ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" class="" /]',
+						'code'       => '[PREFIX_countdown_timer time="' . date( get_option( 'date_format' ), strtotime( 'now' ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" class="" /]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Countdown timer', 'wm_domain' ),
+						'output' => '[PREFIX_countdown_timer{{time}}{{size}}{{class}} /]',
+						'params' => array( 'time', 'size', 'class' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'time' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Time', 'wm_domain' ),
+													//default
+													'default' => date( get_option( 'date_format' ), strtotime( 'now' ) ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /content
+
+												'size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Size', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['sizes']['options'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /size
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Countdown timer', 'wm_domain' ),
@@ -1341,22 +1429,20 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Time', 'wm_domain' ),
-									'description' => __( 'Set the time for the timer', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'time',
-									'value'       => date( get_option( 'date_format' ), strtotime( 'now' ) ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Time', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'time',
+									'value'      => date( get_option( 'date_format' ), strtotime( 'now' ) ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								20 => array(
-									'heading'     => __( 'Size', 'wm_domain' ),
-									'description' => __( 'Choose predefined size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'size',
-									'value'       => array_flip( self::$codes_globals['sizes'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'size',
+									'value'      => array_flip( self::$codes_globals['sizes']['options'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								30 => array(
 									'heading'     => __( 'CSS class', 'wm_domain' ),
@@ -1376,7 +1462,7 @@ $shortcode_definitions = array(
 		 * Content Module
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'content_module' => array(
 				'since'      => '1.0',
@@ -1388,6 +1474,242 @@ $shortcode_definitions = array(
 						'code'       => '[PREFIX_content_module module="module-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" tag="" image_size="" filter="0/1" scroll="0" pagination="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_content_module]',
 						'vc_enabled' => false,
 					),
+				'bb_plugin'          => array(
+						'name'   => __( 'Content Module', 'wm_domain' ),
+						'output' => '[PREFIX_content_module{{module}}{{align}}{{columns}}{{count}}{{order}}{{tag}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{no_margin}}{{layout}}{{class}}]{{content}}[/PREFIX_content_module]',
+						'params' => array( 'module', 'align', 'columns', 'count', 'order', 'tag', 'image_size', 'filter', 'scroll', 'pagination', 'no_margin', 'layout', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'single' => array(
+											'title'  => __( 'Single module display', 'wm_domain' ),
+											'fields' => array(
+
+												'module' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Single module', 'wm_domain' ),
+													'help'  => __( 'Leave empty to display multiple modules', 'wm_domain' ),
+													//type specific
+													'options' => $wm_modules_slugs,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /module
+
+											), // /fields
+										), // /section
+
+										//Section
+										'multiple' => array(
+											'title'  => __( 'Multiple modules display', 'wm_domain' ),
+											'fields' => array(
+
+												'count' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Count', 'wm_domain' ),
+													'help'  => __( 'Number of items to display (use "-1" to display all)', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /count
+
+												'columns' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Columns', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//type specific
+													'options' => array(
+															1 => 1,
+															2 => 2,
+															3 => 3,
+															4 => 4,
+															5 => 5,
+															6 => 6,
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /columns
+
+												'order' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Order', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															'new'    => __( 'Newest first', 'wm_domain' ),
+															'old'    => __( 'Oldest first', 'wm_domain' ),
+															'name'   => __( 'By name', 'wm_domain' ),
+															'random' => __( 'Randomly', 'wm_domain' ),
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /order
+
+												'filter' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Filtering', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /filter
+
+												'scroll' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Scrolling', 'wm_domain' ),
+													'help'  => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /scroll
+
+												'tag' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Tag', 'wm_domain' ),
+													'help'  => __( 'Display specifically tagged items only', 'wm_domain' ),
+													//type specific
+													'options' => $wm_modules_tags,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /tag
+
+												'pagination' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Display pagination?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /pagination
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'description' => array(
+									//Title
+									'title'       => __( 'Description', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'description' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'align' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Description alignment', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														'left'  => __( 'Left', 'wm_domain' ),
+														'right' => __( 'Right', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /align
+
+											), // /fields
+										), // /section
+
+										//Section
+										'content' => array(
+											'title'  => __( 'Content', 'wm_domain' ),
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'editor',
+													//description
+													'label' => '',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /content
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'no_margin' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Remove gap between items?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /no_margin
+
+												'image_size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Image size', 'wm_domain' ),
+													//type specific
+													'options' => wma_asort( array_merge( array( '' => '' ), wma_get_image_sizes() ) ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /image_size
+
+												'layout' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Custom layout', 'wm_domain' ),
+													'help'  => sprintf( __( 'Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces).', 'wm_domain' ), '<code>content,image,morelink,tag,title</code>' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /layout
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'          => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Content Module', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'content_module',
@@ -1395,7 +1717,7 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Single module slug', 'wm_domain' ),
+									'heading'     => __( 'Single module', 'wm_domain' ),
 									'description' => __( 'Leave empty to display multiple modules', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'module',
@@ -1415,11 +1737,10 @@ $shortcode_definitions = array(
 									'group'       => __( 'Multiple display', 'wm_domain' ),
 								),
 								30 => array(
-									'heading'     => __( 'Columns', 'wm_domain' ),
-									'description' => __( 'Number of columns', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'columns',
-									'value'       => array(
+									'heading'    => __( 'Columns', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'columns',
+									'value'      => array(
 											1 => 1,
 											2 => 2,
 											3 => 3,
@@ -1427,24 +1748,23 @@ $shortcode_definitions = array(
 											5 => 5,
 											6 => 6,
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Multiple display', 'wm_domain' ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Multiple display', 'wm_domain' ),
 								),
 								40 => array(
-									'heading'     => __( 'Order', 'wm_domain' ),
-									'description' => __( 'Choose preferred items ordering', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'order',
-									'value'       => array(
+									'heading'    => __( 'Order', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'order',
+									'value'      => array(
 											__( 'Newest first', 'wm_domain' ) => 'new',
 											__( 'Oldest first', 'wm_domain' ) => 'old',
 											__( 'By name', 'wm_domain' )      => 'name',
 											__( 'Randomly', 'wm_domain' )     => 'random',
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Multiple display', 'wm_domain' ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Multiple display', 'wm_domain' ),
 								),
 								50 => array(
 									'heading'     => __( 'Filter', 'wm_domain' ),
@@ -1461,7 +1781,7 @@ $shortcode_definitions = array(
 								),
 								60 => array(
 									'heading'     => __( 'Scrolling', 'wm_domain' ),
-									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represent the time of scroll in miliseconds. Leave empty not to use the scrolling.', 'wm_domain' ),
+									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'scroll',
 									'value'       => '',
@@ -1471,7 +1791,7 @@ $shortcode_definitions = array(
 								),
 								70 => array(
 									'heading'     => __( 'Tag', 'wm_domain' ),
-									'description' => __( 'Displays items only from specific tag', 'wm_domain' ),
+									'description' => __( 'Display specifically tagged items only', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'tag',
 									'value'       => array_flip( $wm_modules_tags ),
@@ -1503,8 +1823,7 @@ $shortcode_definitions = array(
 									'group'       => __( 'Multiple display', 'wm_domain' ),
 								),
 								100 => array(
-									'heading'     => __( 'Description text alignment', 'wm_domain' ),
-									'description' => __( 'You can control the alignment of the optional description text', 'wm_domain' ),
+									'heading'     => __( 'Description alignment', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'align',
 									'value'       => array(
@@ -1530,14 +1849,13 @@ $shortcode_definitions = array(
 								),
 
 								120 => array(
-									'heading'     => __( 'Image size', 'wm_domain' ),
-									'description' => __( 'Optional image size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'image_size',
-									'value'       => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Layout', 'wm_domain' ),
+									'heading'    => __( 'Image size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'image_size',
+									'value'      => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Layout', 'wm_domain' ),
 								),
 								130 => array(
 									'heading'     => __( 'Custom layout', 'wm_domain' ),
@@ -1568,7 +1886,7 @@ $shortcode_definitions = array(
 		 * Divider
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'divider' => array(
 				'since'      => '1.0',
@@ -1578,6 +1896,43 @@ $shortcode_definitions = array(
 						'name' => __( 'Divider / Gap', 'wm_domain' ),
 						'code' => '[PREFIX_divider type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['divider_types'] ) ) ) . '" space_before="" space_after="" class="" /]',
 						'vc_enabled' => true,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Divider / Gap', 'wm_domain' ),
+						'output' => '[PREFIX_divider{{type_bb}}{{class}} /]',
+						'params' => array( 'type_bb', 'class' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'type_bb' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Divider type', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['divider_types'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /type_bb
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Divider / Gap', 'wm_domain' ),
@@ -1666,8 +2021,151 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name'       => __( 'Icon (social icon)', 'wm_domain' ),
-						'code'       => '[PREFIX_icon class="icon-class" social="' . implode( '/', $wm_social_icons_array ) . '" url="" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" /]',
+						'code'       => '[PREFIX_icon class="icon-class" social="' . implode( '/', $wm_social_icons_array ) . '" url="" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" /]',
 						'vc_enabled' => true,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Icon (social icon)', 'wm_domain' ),
+						'output' => '[PREFIX_icon{{url}}{{target}}{{social}}{{size}}{{icon}}{{title}}{{rel}}{{id}}{{class}} /]',
+						'params' => array( 'url', 'target', 'social', 'size', 'icon', 'title', 'rel', 'id', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Size', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['sizes']['options'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /size
+
+											), // /fields
+										), // /section
+
+										//Section
+										'icon' => array(
+											'title'  => __( 'Icon', 'wm_domain' ),
+											'fields' => array(
+
+												'icon' => array(
+													'type' => 'wm_radio',
+													//description
+													'label' => '',
+													//type specific
+													'options'    => self::$codes_globals['font_icons'],
+													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+													'hide_radio' => true,
+													'inline'     => true,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /icon
+
+											), // /fields
+										), // /section
+
+										//Section
+										'advanced' => array(
+											'title'  => __( 'Advanced', 'wm_domain' ),
+											'fields' => array(
+
+												'id' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Optional HTML ID', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /id
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'social' => array(
+									//Title
+									'title'       => __( 'Social icon', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'social' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Social icon?', 'wm_domain' ),
+													//type specific
+													'options' => $wm_social_icons_array,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /social
+
+												'url' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Social icon link URL', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /url
+
+												'target' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Target', 'wm_domain' ),
+													'help'  => __( 'Button link target', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''       => __( 'Open in same window', 'wm_domain' ),
+														'_blank' => __( 'Open in new window / tab', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /target
+
+												'title' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Social icon title', 'wm_domain' ),
+													'help'  => __( 'Will be displayed when mouse hovers over the icon', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /title
+
+												'rel' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Social icon relation', 'wm_domain' ),
+													'help'  => __( 'The HTML "rel" attribute', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /rel
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Icon (social icon)', 'wm_domain' ),
@@ -1676,49 +2174,45 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Icon', 'wm_domain' ),
-									'description' => __( 'Choose one of available icons', 'wm_domain' ),
-									'type'        => 'wm_radio',
-									'param_name'  => 'icon',
-									'value'       => self::$codes_globals['font_icons'],
-									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide_radio'  => true,
-									'inline'      => true,
-									'holder'      => 'div',
-									'class'       => '',
+									'heading'    => __( 'Icon', 'wm_domain' ),
+									'type'       => 'wm_radio',
+									'param_name' => 'icon',
+									'value'      => self::$codes_globals['font_icons'],
+									'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'hide_radio' => true,
+									'inline'     => true,
+									'holder'     => 'div',
+									'class'      => '',
 								),
 								20 => array(
-									'heading'     => __( 'Icon size', 'wm_domain' ),
-									'description' => __( 'Choose predefined icon size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'size',
-									'value'       => array_flip( self::$codes_globals['sizes'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'size',
+									'value'      => array_flip( self::$codes_globals['sizes']['options'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 
 								30 => array(
-									'heading'     => __( 'Style this as a social icon?', 'wm_domain' ),
-									'description' => __( 'Choose a social icon type', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'social',
-									'value'       => $wm_social_icons_array,
-									'holder'      => 'div',
-									'class'       => '',
-									'group'       => __( 'Social icon', 'wm_domain' ),
+									'heading'    => __( 'Social icon?', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'social',
+									'value'      => $wm_social_icons_array,
+									'holder'     => 'div',
+									'class'      => '',
+									'group'      => __( 'Social icon', 'wm_domain' ),
 								),
 								40 => array(
-									'heading'     => __( 'Social icon URL', 'wm_domain' ),
-									'description' => __( 'If set, the icon will be styled as social icon', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'url',
-									'value'       => '',
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Social icon', 'wm_domain' ),
+									'heading'    => __( 'Social icon link URL', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'url',
+									'value'      => '',
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Social icon', 'wm_domain' ),
 								),
 								50 => array(
-									'heading'     => __( 'Social link target', 'wm_domain' ),
+									'heading'     => __( 'Target', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
 									'param_name'  => 'target',
@@ -1732,7 +2226,7 @@ $shortcode_definitions = array(
 								),
 								60 => array(
 									'heading'     => __( 'Social icon title', 'wm_domain' ),
-									'description' => __( 'Will be displayed when mouse hovers the icon', 'wm_domain' ),
+									'description' => __( 'Will be displayed when mouse hovers over the icon', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'title',
 									'value'       => '',
@@ -1785,12 +2279,82 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'List (icon bullets)', 'wm_domain' ),
+						'name'       => __( 'Icons list', 'wm_domain' ),
 						'code'       => '[PREFIX_list bullet="icon-class" class=""]<ul><li>{{content}}</li><li>' . __( 'List item', 'wm_domain' ) . '</li></ul>[/PREFIX_list]',
 						'vc_enabled' => true,
 					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Icons list', 'wm_domain' ),
+						'output' => '[PREFIX_list{{bullet}}{{class}}]{{content}}[/PREFIX_list]',
+						'params' => array( 'bullet', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'content' => array(
+											'title'       => __( 'List items', 'wm_domain' ),
+											'description' => __( 'Insert unordered list only', 'wm_domain' ),
+											'fields'      => array(
+
+												'content' => array(
+													'type' => 'editor',
+													//description
+													'label' => '',
+													//description
+													'default' => '<ul><li>TEXT</li><li>TEXT</li></ul>',
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /content
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'icon' => array(
+									//Title
+									'title'       => __( 'Icon', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'icon' => array(
+											'title'  => __( 'Bullet icon', 'wm_domain' ),
+											'fields' => array(
+
+												'bullet' => array(
+													'type' => 'wm_radio',
+													//description
+													'label' => '',
+													//type specific
+													'options'    => self::$codes_globals['font_icons'],
+													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+													'hide_radio' => true,
+													'inline'     => true,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /bullet
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'  => array(
-						'name'     => $this->prefix_shortcode_name . __( 'List (icon bullets)', 'wm_domain' ),
+						'name'     => $this->prefix_shortcode_name . __( 'Icons list', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'list',
 						'class'    => 'wm-shortcode-vc-list',
 						'category' => __( 'Content', 'wm_domain' ),
@@ -1800,21 +2364,20 @@ $shortcode_definitions = array(
 									'description' => '',
 									'type'        => 'textarea_html',
 									'param_name'  => 'content',
-									'value'       => __( '<ul><li>List item</li><li>Another list item</li></ul>', 'wm_domain' ),
+									'value'       => '<ul><li>TEXT</li><li>TEXT</li></ul>',
 									'holder'      => 'hidden',
 									'class'       => '',
 								),
 								20 => array(
-									'heading'     => __( 'Bullet icon', 'wm_domain' ),
-									'description' => __( 'Choose one of available icons', 'wm_domain' ),
-									'type'        => 'wm_radio',
-									'param_name'  => 'bullet',
-									'value'       => self::$codes_globals['font_icons'],
-									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide_radio'  => true,
-									'inline'      => true,
-									'holder'      => 'div',
-									'class'       => '',
+									'heading'    => __( 'Bullet icon', 'wm_domain' ),
+									'type'       => 'wm_radio',
+									'param_name' => 'bullet',
+									'value'      => self::$codes_globals['font_icons'],
+									'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'hide_radio' => true,
+									'inline'     => true,
+									'holder'     => 'div',
+									'class'      => '',
 								),
 								30 => array(
 									'heading'     => __( 'CSS class', 'wm_domain' ),
@@ -1867,7 +2430,7 @@ $shortcode_definitions = array(
 
 	//Messages
 		/**
-		 * Message box
+		 * Message
 		 *
 		 * @since    1.0
 		 * @version  1.1
@@ -1877,23 +2440,146 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Message box', 'wm_domain' ),
-						'code' => '[PREFIX_message title="" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_message]',
+						'name' => __( 'Message', 'wm_domain' ),
+						'code' => '[PREFIX_message title="" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_message]',
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Message', 'wm_domain' ),
+						'output' => '[PREFIX_message{{title}}{{color}}{{size}}{{icon}}{{class}}]{{content}}[/PREFIX_message]',
+						'params' => array( 'title', 'color', 'size', 'icon', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'title' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Caption', 'wm_domain' ),
+													//default
+													'default' => '',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /title
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'  => __( 'Content', 'wm_domain' ),
+												'fields' => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /content
+
+												), // /fields
+											), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'icon' => array(
+									//Title
+									'title'       => __( 'Icon', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'icon' => array(
+											'title'  => __( 'Icon', 'wm_domain' ),
+											'fields' => array(
+
+												'icon' => array(
+													'type' => 'wm_radio',
+													//description
+													'label' => '',
+													//type specific
+													'options'    => self::$codes_globals['font_icons'],
+													'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+													'hide_radio' => true,
+													'inline'     => true,
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /icon
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'color' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Color', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['colors'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /color
+
+												'size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Size', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['sizes']['options'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /size
+
+												), // /fields
+											), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
-						'name'     => $this->prefix_shortcode_name . __( 'Message box', 'wm_domain' ),
+						'name'     => $this->prefix_shortcode_name . __( 'Message', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'message',
 						'class'    => 'wm-shortcode-vc-message',
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Title', 'wm_domain' ),
-									'description' => __( 'Enter optional box title', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'title',
-									'value'       => '',
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Caption', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'title',
+									'value'      => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								20 => array(
 									'heading'     => __( 'Content', 'wm_domain' ),
@@ -1905,34 +2591,31 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								30 => array(
-									'heading'     => __( 'Color', 'wm_domain' ),
-									'description' => __( 'Choose predefined button color', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'color',
-									'value'       => array_flip( self::$codes_globals['colors'] ),
-									'holder'      => 'div',
-									'class'       => '',
+									'heading'    => __( 'Color', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'color',
+									'value'      => array_flip( self::$codes_globals['colors'] ),
+									'holder'     => 'div',
+									'class'      => '',
 								),
 								40 => array(
-									'heading'     => __( 'Box size', 'wm_domain' ),
-									'description' => __( 'Choose preferred box size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'size',
-									'value'       => array_flip( self::$codes_globals['sizes'] ),
-									'holder'      => 'div',
-									'class'       => '',
+									'heading'    => __( 'Size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'size',
+									'value'      => array_flip( self::$codes_globals['sizes']['options'] ),
+									'holder'     => 'div',
+									'class'      => '',
 								),
 								50 => array(
-									'heading'     => __( 'Optional icon', 'wm_domain' ),
-									'description' => __( 'Choose one of available icons', 'wm_domain' ),
-									'type'        => 'wm_radio',
-									'param_name'  => 'icon',
-									'value'       => self::$codes_globals['font_icons'],
-									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-									'hide_radio'  => true,
-									'inline'      => true,
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Icon', 'wm_domain' ),
+									'type'       => 'wm_radio',
+									'param_name' => 'icon',
+									'value'      => self::$codes_globals['font_icons'],
+									'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'hide_radio' => true,
+									'inline'     => true,
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								60 => array(
 									'heading'     => __( 'CSS class', 'wm_domain' ),
@@ -1965,7 +2648,7 @@ $shortcode_definitions = array(
 		 * Posts
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'posts' => array(
 				'since'      => '1.0',
@@ -1976,6 +2659,239 @@ $shortcode_definitions = array(
 						'code'       => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="-1" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
 						'vc_enabled' => false,
 					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Posts (custom posts)', 'wm_domain' ),
+						'output' => '[PREFIX_posts{{post_type}}{{align}}{{columns}}{{count}}{{order}}{{taxonomy}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{related}}{{no_margin}}{{class}}]{{content}}[/PREFIX_posts]',
+						'params' => array( 'post_type', 'align', 'columns', 'count', 'order', 'taxonomy', 'image_size', 'filter', 'scroll', 'pagination', 'related', 'no_margin', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'post_type' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Post type', 'wm_domain' ),
+													'help'  => __( 'This shortcode can display several post types. Choose the one you want to display.', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['post_types'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /post_type
+
+												'count' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Count', 'wm_domain' ),
+													'help'  => __( 'Number of items to display (use "-1" to display all)', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /count
+
+												'columns' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Columns', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//type specific
+													'options' => array(
+															1 => 1,
+															2 => 2,
+															3 => 3,
+															4 => 4,
+															5 => 5,
+															6 => 6,
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /columns
+
+												'order' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Order', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															'new'    => __( 'Newest first', 'wm_domain' ),
+															'old'    => __( 'Oldest first', 'wm_domain' ),
+															'name'   => __( 'By name', 'wm_domain' ),
+															'random' => __( 'Randomly', 'wm_domain' ),
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /order
+
+												'taxonomy' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Taxonomy', 'wm_domain' ),
+													'help'  => __( 'Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon.', 'wm_domain' ) . '<br />' . __( 'For example: "category:category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /taxonomy
+
+												'related' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Relation', 'wm_domain' ),
+													'help'  => __( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'wm_domain' ) . ' ' . __( 'For example: "category".', 'wm_domain' ),
+													//type specific
+													'options' => wma_asort( array_merge( array( '' => '' ), $wm_taxonomies ) ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /related
+
+												'filter' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Filtering', 'wm_domain' ),
+													'help'  => __( 'If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'wm_domain' ) . '<br />' . __( 'For example: "category" or "category:parent-category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /filter
+
+												'filter_layout' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Filter layout', 'wm_domain' ),
+													'help'  => sprintf( __( 'Use one of <a%s>Isotope</a> layouts.', 'wm_domain' ), ' href="http://isotope.metafizzy.co/layout-modes.html" target="_blank"' ) . ' ' . __( 'Default is set to <code>fitRows</code>.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /filter_layout
+
+												'scroll' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Scrolling', 'wm_domain' ),
+													'help'  => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /scroll
+
+												'pagination' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Display pagination?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /pagination
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'description' => array(
+									//Title
+									'title'       => __( 'Description', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'description' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'align' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Description alignment', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														'left'  => __( 'Left', 'wm_domain' ),
+														'right' => __( 'Right', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /align
+
+											), // /fields
+										), // /section
+
+										//Section
+										'content' => array(
+											'title'  => __( 'Content', 'wm_domain' ),
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'editor',
+													//description
+													'label' => '',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /content
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'no_margin' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Remove gap between items?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /no_margin
+
+												'image_size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Image size', 'wm_domain' ),
+													//type specific
+													'options' => wma_asort( array_merge( array( '' => '' ), wma_get_image_sizes() ) ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /image_size
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Posts (custom posts)', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'posts',
@@ -1983,7 +2899,7 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Choose the post type', 'wm_domain' ),
+									'heading'     => __( 'Post type', 'wm_domain' ),
 									'description' => __( 'This shortcode can display several post types. Choose the one you want to display.', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'post_type',
@@ -2001,11 +2917,10 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								30 => array(
-									'heading'     => __( 'Columns', 'wm_domain' ),
-									'description' => __( 'Number of columns', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'columns',
-									'value'       => array(
+									'heading'    => __( 'Columns', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'columns',
+									'value'      => array(
 											1 => 1,
 											2 => 2,
 											3 => 3,
@@ -2013,27 +2928,26 @@ $shortcode_definitions = array(
 											5 => 5,
 											6 => 6,
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								40 => array(
-									'heading'     => __( 'Order', 'wm_domain' ),
-									'description' => __( 'Choose preferred items ordering', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'order',
-									'value'       => array(
+									'heading'    => __( 'Order', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'order',
+									'value'      => array(
 											__( 'Newest first', 'wm_domain' ) => 'new',
 											__( 'Oldest first', 'wm_domain' ) => 'old',
 											__( 'By name', 'wm_domain' )      => 'name',
 											__( 'Randomly', 'wm_domain' )     => 'random',
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 
 								50 => array(
 									'heading'     => __( 'Taxonomy', 'wm_domain' ),
-									'description' => __( 'Displays items only from specific taxonomy. Set the taxonomy name and taxonomy slug separated with colon.', 'wm_domain' ) . '<br />' . __( 'For example: "category:category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
+									'description' => __( 'Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon.', 'wm_domain' ) . '<br />' . __( 'For example: "category:category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
 									'type'        => 'textfield',
 									'param_name'  => 'taxonomy',
 									'value'       => '',
@@ -2042,8 +2956,8 @@ $shortcode_definitions = array(
 									'group'       => __( 'Taxonomy', 'wm_domain' ),
 								),
 								60 => array(
-									'heading'     => __( 'Related', 'wm_domain' ),
-									'description' => __( 'Use only on single post/custom post pages. Displays items related to recently displayed item through the specific taxonomy. Set the taxonomy name only.', 'wm_domain' ) . ' ' . __( 'For example: "category".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
+									'heading'     => __( 'Relation', 'wm_domain' ),
+									'description' => __( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'wm_domain' ) . ' ' . __( 'For example: "category".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
 									'type'        => 'textfield',
 									'param_name'  => 'related',
 									'value'       => '',
@@ -2054,7 +2968,7 @@ $shortcode_definitions = array(
 
 								70 => array(
 									'heading'     => __( 'Filter', 'wm_domain' ),
-									'description' => __( 'If set, the items will be filtered. Set the taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'wm_domain' ) . '<br />' . __( 'For example: "category" or "category:parent-category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
+									'description' => __( 'If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'wm_domain' ) . '<br />' . __( 'For example: "category" or "category:parent-category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
 									'type'        => 'textfield',
 									'param_name'  => 'filter',
 									'value'       => '',
@@ -2074,7 +2988,7 @@ $shortcode_definitions = array(
 								),
 								90 => array(
 									'heading'     => __( 'Scrolling', 'wm_domain' ),
-									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represent the time of scroll in miliseconds. Leave empty not to use the scrolling.', 'wm_domain' ),
+									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'scroll',
 									'value'       => '',
@@ -2107,8 +3021,7 @@ $shortcode_definitions = array(
 									'group'       => __( 'Description', 'wm_domain' ),
 								),
 								120 => array(
-									'heading'     => __( 'Description text alignment', 'wm_domain' ),
-									'description' => __( 'You can control the alignment of the optional description text', 'wm_domain' ),
+									'heading'     => __( 'Description alignment', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'align',
 									'value'       => array(
@@ -2134,14 +3047,13 @@ $shortcode_definitions = array(
 									'group'       => __( 'Layout', 'wm_domain' ),
 								),
 								140 => array(
-									'heading'     => __( 'Image size', 'wm_domain' ),
-									'description' => __( 'Optional image size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'image_size',
-									'value'       => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Layout', 'wm_domain' ),
+									'heading'    => __( 'Image size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'image_size',
+									'value'      => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Layout', 'wm_domain' ),
 								),
 
 								150 => array(
@@ -2180,7 +3092,7 @@ $shortcode_definitions = array(
 		 * Pricing table
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.10
+		 * @version  1.1
 		 */
 		'pricing_table' => array(
 				'since'      => '1.0',
@@ -2190,6 +3102,206 @@ $shortcode_definitions = array(
 						'name'       => __( 'Pricing table', 'wm_domain' ),
 						'code'       => '[PREFIX_pricing_table no_margin="0/1" class=""]<br />[PREFIX_price caption="' . __( 'Price 1', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" type="NONE/featured/legend" class=""]{{content}}[/PREFIX_price]<br />[PREFIX_price caption="' . __( 'Price 2', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" type="NONE/featured/legend" class=""]' . __( 'Price 2 content goes here', 'wm_domain' ) . '[/PREFIX_price]<br />[/PREFIX_pricing_table]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'            => __( 'Pricing table', 'wm_domain' ),
+						'output'          => '[PREFIX_pricing_table{{no_margin}}{{class}}]{{children}}[/PREFIX_pricing_table]',
+						'output_children' => '[PREFIX_price{{caption}}{{cost}}{{color}}{{color_text}}{{type_bb}}{{class}}]{{content}}[/PREFIX_price]',
+						'params'          => array( 'no_margin', 'class' ),
+						'params_children' => array( 'caption', 'cost', 'color', 'color_text', 'type_bb', 'class', 'content' ),
+						'form'            => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'no_margin' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Remove margins between price columns?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /no_margin
+
+											), // /fields
+										), // /section
+
+										//Section
+										'sections' => array(
+											'title'  => __( 'Price columns', 'wm_domain' ),
+											'fields' => array(
+
+												'children' => array(
+													'type' => 'form',
+													//description
+													'label'       => '',
+													'description' => '',
+													'help'        => '',
+													//default
+													'default' => array( 'caption' => __( 'Caption', 'wm_domain' ) ), //This will be converted automatically
+													//type specific
+													'form'         => 'wm_children_form_' . 'pricing_table',
+													'preview_text' => 'caption', //DO NOT FORGET TO SET!
+													//multiple
+													'multiple' => true,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /children
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+						'form_children'   => array(
+
+								//Title
+								'title' => __( 'Price', 'wm_domain' ),
+								//Tabs
+								'tabs' => array(
+
+									//Tab
+									'general' => array(
+										//Title
+										'title'       => __( 'General', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
+											//Section
+											'title' => array(
+												'title'  => '',
+												'fields' => array(
+
+													'caption' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Caption', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /caption
+
+													'cost' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Cost', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /cost
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'       => __( 'Features list', 'wm_domain' ),
+												'description' => __( 'Insert an unordered list of features', 'wm_domain' ),
+												'fields'      => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//default
+														'default' => '<ul><li>TEXT</li><li>TEXT</li></ul>',
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /content
+
+												), // /fields
+											), // /section
+
+										), // /sections
+									), // /tab
+
+									//Tab
+									'others' => array(
+										//Title
+										'title'       => __( 'Others', 'wm_domain' ),
+										'description' => '',
+										//Sections
+										'sections' => array(
+
+											//Section
+											'general' => array(
+												'title'  => __( 'Colors', 'wm_domain' ),
+												'fields' => array(
+
+													'color' => array(
+														'type' => 'color',
+														//description
+														'label' => __( 'Column color', 'wm_domain' ),
+														//type specific
+														'show_reset' => true,
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /color
+
+													'color_text' => array(
+														'type' => 'color',
+														//description
+														'label' => __( 'Column text color', 'wm_domain' ),
+														//type specific
+														'show_reset' => true,
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /color_text
+
+												), // /fields
+											), // /section
+
+											//Section
+											'styling' => array(
+												'title'  => __( 'Column style', 'wm_domain' ),
+												'fields' => array(
+
+													'type_bb' => array(
+														'type' => 'select',
+														//description
+														'label' => __( 'Styling', 'wm_domain' ),
+														//type specific
+														'options' => array(
+																''         => __( 'Default price column', 'wm_domain' ),
+																'featured' => __( 'Featured price column', 'wm_domain' ),
+																'legend'   => __( 'Pricing table legend', 'wm_domain' ),
+															),
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /type_bb
+
+													'class' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'CSS class', 'wm_domain' ),
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /class
+
+												), // /fields
+											), // /section
+
+										), // /sections
+									), // /tab
+
+								), // /tabs
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'                    => $this->prefix_shortcode_name . __( 'Pricing table', 'wm_domain' ),
@@ -2208,8 +3320,8 @@ $shortcode_definitions = array(
 								</div>
 							',
 						'default_content'         => '
-								[' . $this->prefix_shortcode . 'price caption="' . __( 'Price 1', 'wm_domain' ).'"]' . __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button][/' . $this->prefix_shortcode . 'price]
-								[' . $this->prefix_shortcode . 'price caption="' . __( 'Price 2', 'wm_domain' ).'"]' . __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button][/' . $this->prefix_shortcode . 'price]
+								[' . $this->prefix_shortcode . 'price caption="' . __( 'Price 1', 'wm_domain' ).'"]' . __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button][/' . $this->prefix_shortcode . 'price]
+								[' . $this->prefix_shortcode . 'price caption="' . __( 'Price 2', 'wm_domain' ).'"]' . __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button][/' . $this->prefix_shortcode . 'price]
 							',
 						'js_view'                 => 'VcCustomPricingTableView',
 						'params'                  => array(
@@ -2242,7 +3354,7 @@ $shortcode_definitions = array(
 		 * Price (Prising table item)
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'price' => array(
 				'since'      => '1.0',
@@ -2261,7 +3373,7 @@ $shortcode_definitions = array(
 						'category'        => __( 'Content', 'wm_domain' ),
 						'params'          => array(
 								array(
-									'heading'     => __( 'Price caption', 'wm_domain' ),
+									'heading'     => __( 'Caption', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'textfield',
 									'param_name'  => 'caption',
@@ -2270,25 +3382,24 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								array(
-									'heading'     => __( 'Price cost', 'wm_domain' ),
-									'description' => __( 'You can use HTML and shortcodes here', 'wm_domain' ),
-									'type'        => 'textarea',
-									'param_name'  => 'cost',
-									'value'       => '',
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Cost', 'wm_domain' ),
+									'type'       => 'textarea',
+									'param_name' => 'cost',
+									'value'      => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								array(
 									'heading'     => __( 'Features list', 'wm_domain' ),
 									'description' => __( 'Insert an unordered list of features', 'wm_domain' ),
 									'type'        => 'textarea_html',
 									'param_name'  => 'content',
-									'value'       => __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button]',
+									'value'       => __( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'wm_domain' ) . '[' . $this->prefix_shortcode . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]' . __( 'Button text', 'wm_domain' ) .'[/' . $this->prefix_shortcode . 'button]',
 									'holder'      => 'hidden',
 									'class'       => '',
 								),
 								array(
-									'heading'     => __( 'Price column color', 'wm_domain' ),
+									'heading'     => __( 'Column color', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'colorpicker',
 									'param_name'  => 'color',
@@ -2297,8 +3408,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								array(
-									'heading'     => __( 'Optional price column text color', 'wm_domain' ),
-									'description' => __( 'If not set, it will be calculated upon price column color', 'wm_domain' ),
+									'heading'     => __( 'Column text color', 'wm_domain' ),
 									'type'        => 'colorpicker',
 									'param_name'  => 'color_text',
 									'value'       => '',
@@ -2336,7 +3446,7 @@ $shortcode_definitions = array(
 		 * Progress bar
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'progress' => array(
 				'since'      => '1.0',
@@ -2346,6 +3456,70 @@ $shortcode_definitions = array(
 						'name'       => __( 'Progress bar', 'wm_domain' ),
 						'code'       => '[PREFIX_progress color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" progress="75" class=""]{{content}}[/PREFIX_progress]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Progress bar', 'wm_domain' ),
+						'output' => '[PREFIX_progress{{color}}{{progress}}{{class}}]{{content}}[/PREFIX_progress]',
+						'params' => array( 'color', 'progress', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'progress' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Progress in %', 'wm_domain' ),
+													'help'  => __( 'Insert a number between 0 and 100', 'wm_domain' ),
+													//default
+													'default' => 75,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /progress
+
+												'color' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Color', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['colors'],
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /color
+
+												), // /fields
+											), // /section
+
+											//Section
+											'content' => array(
+												'title'  => __( 'Caption', 'wm_domain' ),
+												'fields' => array(
+
+													'content' => array(
+														'type' => 'editor',
+														//description
+														'label' => '',
+														//preview
+														'preview' => array( 'type' => 'refresh' ),
+													), // /content
+
+												), // /fields
+											), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Progress bar', 'wm_domain' ),
@@ -2364,7 +3538,7 @@ $shortcode_definitions = array(
 								),
 								20 => array(
 									'heading'     => __( 'Progress in %', 'wm_domain' ),
-									'description' => __( 'Insert number between 0 and 100', 'wm_domain' ),
+									'description' => __( 'Insert a number between 0 and 100', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'progress',
 									'value'       => '75',
@@ -2372,13 +3546,12 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								30 => array(
-									'heading'     => __( 'Color', 'wm_domain' ),
-									'description' => __( 'Choose predefined color', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'color',
-									'value'       => array_flip( self::$codes_globals['colors'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Color', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'color',
+									'value'      => array_flip( self::$codes_globals['colors'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								40 => array(
 									'heading'     => __( 'CSS class', 'wm_domain' ),
@@ -2434,7 +3607,7 @@ $shortcode_definitions = array(
 		 * Separator heading
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'separator_heading' => array(
 				'since'      => '1.0',
@@ -2444,6 +3617,82 @@ $shortcode_definitions = array(
 						'name' => __( 'Separator heading', 'wm_domain' ),
 						'code' => '[PREFIX_separator_heading align="' . implode( '/', array( 'left', 'center', 'right' ) ) . '" tag="' . implode( '/', array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) . '" class="" id=""]{{content}}[/PREFIX_separator_heading]',
 						'vc_enabled' => true,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Separator heading', 'wm_domain' ),
+						'output' => '[PREFIX_separator_heading{{align}}{{tag}}{{id}}{{class}}]{{content}}[/PREFIX_separator_heading]',
+						'params' => array( 'align', 'tag', 'id', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Heading text', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /content
+
+												'tag' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Heading size', 'wm_domain' ),
+													//default
+													'default' => 'h2',
+													//type specific
+													'options' => array(
+															'h1' => 'H1',
+															'h2' => 'H2',
+															'h3' => 'H3',
+															'h4' => 'H4',
+															'h5' => 'H5',
+															'h6' => 'H6',
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /tag
+
+												'align' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Text align', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															'left'   => __( 'Left', 'wm_domain' ),
+															'center' => __( 'Center', 'wm_domain' ),
+															'right'  => __( 'Right', 'wm_domain' ),
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /align
+
+												'id' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Optional HTML ID', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /id
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Separator heading', 'wm_domain' ),
@@ -2461,7 +3710,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								20 => array(
-									'heading'     => __( 'HTML tag (heading size)', 'wm_domain' ),
+									'heading'     => __( 'Heading size', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
 									'param_name'  => 'tag',
@@ -2499,8 +3748,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								50 => array(
-									'heading'     => __( 'HTML ID', 'wm_domain' ),
-									'description' => __( 'Optional HTML ID', 'wm_domain' ),
+									'heading'     => __( 'Optional HTML ID', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'id',
 									'value'       => '',
@@ -2516,7 +3764,7 @@ $shortcode_definitions = array(
 		 * Slideshow
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'slideshow' => array(
 				'since'      => '1.0',
@@ -2526,6 +3774,75 @@ $shortcode_definitions = array(
 						'name'       => __( 'Slideshow', 'wm_domain' ),
 						'code'       => '[PREFIX_slideshow ids="" nav="none/thumbs/pagination" size="full/' . implode( '/', get_intermediate_image_sizes() ) . '" speed="3000" class="" /]',
 						'vc_enabled' => false,
+					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Slideshow', 'wm_domain' ),
+						'output' => '[PREFIX_slideshow{{ids}}{{nav}}{{size}}{{speed}}{{class}} /]',
+						'params' => array( 'ids', 'nav', 'size', 'speed', 'class' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'ids' => array(
+													'type' => 'multiple-photos',
+													//description
+													'label' => __( 'Images', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /ids
+
+												'nav' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Navigation', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															''           => __( 'Just Next/Prev button', 'wm_domain' ),
+															'thumbs'     => __( 'Thumbnails', 'wm_domain' ),
+															'pagination' => __( 'Pagination', 'wm_domain' ),
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /nav
+
+												'image_size' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Image size', 'wm_domain' ),
+													//type specific
+													'options' => wma_asort( array_merge( array( '' => '' ), wma_get_image_sizes() ) ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /image_size
+
+												'speed' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Speed in miliseconds', 'wm_domain' ),
+													//default
+													'default' => apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'slideshow_speed', 3000 ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /speed
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Slideshow', 'wm_domain' ),
@@ -2543,26 +3860,24 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								20 => array(
-									'heading'     => __( 'Navigation', 'wm_domain' ),
-									'description' => __( 'Next/Prev buttons are always visible, use CSS to hide them if not needed.', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'nav',
-									'value'       => array(
+									'heading'    => __( 'Navigation', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'nav',
+									'value'      => array(
 											__( 'Just Next/Prev button', 'wm_domain' ) => '',
 											__( 'Thumbnails', 'wm_domain' )            => 'thumbs',
 											__( 'Pagination', 'wm_domain' )            => 'pagination',
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								30 => array(
-									'heading'     => __( 'Image size', 'wm_domain' ),
-									'description' => __( 'Slideshow images size', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'image_size',
-									'value'       => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Image size', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'image_size',
+									'value'      => wma_asort( array_merge( array( '' => '' ), array_flip( wma_get_image_sizes() ) ) ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								40 => array(
 									'heading'     => __( 'Speed in miliseconds', 'wm_domain' ),
@@ -2591,7 +3906,7 @@ $shortcode_definitions = array(
 		 * Table (CSV data)
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'table' => array(
 				'since'      => '1.0',
@@ -2602,6 +3917,71 @@ $shortcode_definitions = array(
 						'code'       => '[PREFIX_table type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['table_types'] ) ) ) . '" separator="," class=""]{{content}}[/PREFIX_table]',
 						'vc_enabled' => false,
 					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Table', 'wm_domain' ),
+						'output' => '[PREFIX_table{{type_bb}}{{separator}}{{class}}]{{content}}[/PREFIX_table]',
+						'params' => array( 'type_bb', 'separator', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'type_bb' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Table style', 'wm_domain' ),
+													//type specific
+													'options' => self::$codes_globals['table_types'],
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /type_bb
+
+												'separator' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'CSV data separator', 'wm_domain' ),
+													//default
+													'default' => ',',
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /separator
+
+											), // /fields
+										), // /section
+
+										//Section
+										'content' => array(
+											'title'  => __( 'CSV data', 'wm_domain' ),
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'editor',
+													//description
+													'label' => '',
+													//default
+													'default' => "Column 1, Colum 2, Column 3\r\nValue 1, Value 2, Value 3",
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /content
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Table (CSV data)', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'table',
@@ -2609,31 +3989,28 @@ $shortcode_definitions = array(
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Table data', 'wm_domain' ),
-									'description' => __( 'Please insert the contents of your CSV file here', 'wm_domain' ),
-									'type'        => 'textarea_html',
-									'param_name'  => 'content',
-									'value'       => "Column 1, Colum 2, Column 3\r\nValue 1, Value 2, Value 3",
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'CSV data', 'wm_domain' ),
+									'type'       => 'textarea_html',
+									'param_name' => 'content',
+									'value'      => "Column 1, Colum 2, Column 3\r\nValue 1, Value 2, Value 3",
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								20 => array(
-									'heading'     => __( 'CSV data separator', 'wm_domain' ),
-									'description' => __( 'Set the separator used in the above CSV data', 'wm_domain' ),
-									'type'        => 'textfield',
-									'param_name'  => 'separator',
-									'value'       => ',',
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'CSV data separator', 'wm_domain' ),
+									'type'       => 'textfield',
+									'param_name' => 'separator',
+									'value'      => ',',
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								30 => array(
-									'heading'     => __( 'Table type (styling)', 'wm_domain' ),
-									'description' => __( 'Choose predefined table styling', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'type',
-									'value'       => array_flip( self::$codes_globals['table_types'] ),
-									'holder'      => 'hidden',
-									'class'       => '',
+									'heading'    => __( 'Table style', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'type',
+									'value'      => array_flip( self::$codes_globals['table_types'] ),
+									'holder'     => 'hidden',
+									'class'      => '',
 								),
 								40 => array(
 									'heading'     => __( 'CSS class', 'wm_domain' ),
@@ -2653,7 +4030,7 @@ $shortcode_definitions = array(
 		 * Testimonials
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'testimonials' => array(
 				'since'              => '1.0',
@@ -2661,18 +4038,222 @@ $shortcode_definitions = array(
 				'preprocess'         => false,
 				'style'              => array(),
 				'generator'          => array(
-						'name'       => __( 'Testimonial', 'wm_domain' ),
+						'name'       => __( 'Testimonials', 'wm_domain' ),
 						'code'       => '[PREFIX_testimonials testimonial="testimonial-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" category="optional-category-slug" scroll="0" pagination="0/1" no_margin="0/1" class=""]{{content}}[/PREFIX_testimonials]',
 						'vc_enabled' => false,
 					),
+				'bb_plugin'          => array(
+						'name'   => __( 'Testimonials', 'wm_domain' ),
+						'output' => '[PREFIX_testimonials{{testimonial}}{{align}}{{columns}}{{count}}{{order}}{{category}}{{scroll}}{{pagination}}{{no_margin}}{{class}}]{{content}}[/PREFIX_testimonials]',
+						'params' => array( 'testimonial', 'align', 'columns', 'count', 'order', 'category', 'scroll', 'pagination', 'no_margin', 'class', 'content' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'single' => array(
+											'title'  => __( 'Single testimonial display', 'wm_domain' ),
+											'fields' => array(
+
+												'testimonial' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Single testimonial', 'wm_domain' ),
+													'help'  => __( 'Leave empty to display multiple testimonials', 'wm_domain' ),
+													//type specific
+													'options' => $wm_testimonials_slugs,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /testimonial
+
+											), // /fields
+										), // /section
+
+										//Section
+										'multiple' => array(
+											'title'  => __( 'Multiple modules display', 'wm_domain' ),
+											'fields' => array(
+
+												'count' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Count', 'wm_domain' ),
+													'help'  => __( 'Number of items to display (use "-1" to display all)', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /count
+
+												'columns' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Columns', 'wm_domain' ),
+													//default
+													'default' => 4,
+													//type specific
+													'options' => array(
+															1 => 1,
+															2 => 2,
+															3 => 3,
+															4 => 4,
+															5 => 5,
+															6 => 6,
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /columns
+
+												'order' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Order', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															'new'    => __( 'Newest first', 'wm_domain' ),
+															'old'    => __( 'Oldest first', 'wm_domain' ),
+															'name'   => __( 'By name', 'wm_domain' ),
+															'random' => __( 'Randomly', 'wm_domain' ),
+														),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /order
+
+												'scroll' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Scrolling', 'wm_domain' ),
+													'help'  => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /scroll
+
+												'category' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Category', 'wm_domain' ),
+													'help'  => __( 'Displays items only from a specific category', 'wm_domain' ),
+													//type specific
+													'options' => $wm_testimonials_categories,
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /category
+
+												'pagination' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Display pagination?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /pagination
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'description' => array(
+									//Title
+									'title'       => __( 'Description', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'description' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'align' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Description alignment', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														'left'  => __( 'Left', 'wm_domain' ),
+														'right' => __( 'Right', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /align
+
+											), // /fields
+										), // /section
+
+										//Section
+										'content' => array(
+											'title'  => __( 'Content', 'wm_domain' ),
+											'fields' => array(
+
+												'content' => array(
+													'type' => 'editor',
+													//description
+													'label' => '',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /content
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+								//Tab
+								'others' => array(
+									//Title
+									'title'       => __( 'Others', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'no_margin' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Remove gap between items?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /no_margin
+
+											), // /fields
+										), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'          => array(
-						'name'     => $this->prefix_shortcode_name . __( 'Testimonial', 'wm_domain' ),
+						'name'     => $this->prefix_shortcode_name . __( 'Testimonials', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'testimonials',
 						'class'    => 'wm-shortcode-vc-testimonials',
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Single testimonial slug', 'wm_domain' ),
+									'heading'     => __( 'Single testimonial', 'wm_domain' ),
 									'description' => __( 'Leave empty to display multiple testimonials', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'testimonial',
@@ -2692,11 +4273,10 @@ $shortcode_definitions = array(
 									'group'       => __( 'Multiple display', 'wm_domain' ),
 								),
 								30 => array(
-									'heading'     => __( 'Columns', 'wm_domain' ),
-									'description' => __( 'Number of columns', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'columns',
-									'value'       => array(
+									'heading'    => __( 'Columns', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'columns',
+									'value'      => array(
 											1 => 1,
 											2 => 2,
 											3 => 3,
@@ -2704,28 +4284,27 @@ $shortcode_definitions = array(
 											5 => 5,
 											6 => 6,
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Multiple display', 'wm_domain' ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Multiple display', 'wm_domain' ),
 								),
 								40 => array(
-									'heading'     => __( 'Order', 'wm_domain' ),
-									'description' => __( 'Choose preferred items ordering', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'order',
-									'value'       => array(
+									'heading'    => __( 'Order', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'order',
+									'value'      => array(
 											__( 'Newest first', 'wm_domain' ) => 'new',
 											__( 'Oldest first', 'wm_domain' ) => 'old',
 											__( 'By name', 'wm_domain' )      => 'name',
 											__( 'Randomly', 'wm_domain' )     => 'random',
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Multiple display', 'wm_domain' ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Multiple display', 'wm_domain' ),
 								),
 								50 => array(
 									'heading'     => __( 'Scrolling', 'wm_domain' ),
-									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represent the time of scroll in miliseconds. Leave empty not to use the scrolling.', 'wm_domain' ),
+									'description' => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
 									'type'        => 'textfield',
 									'param_name'  => 'scroll',
 									'value'       => '',
@@ -2735,7 +4314,7 @@ $shortcode_definitions = array(
 								),
 								60 => array(
 									'heading'     => __( 'Category', 'wm_domain' ),
-									'description' => __( 'Displays items only from specific category', 'wm_domain' ),
+									'description' => __( 'Displays items only from a specific category', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'category',
 									'value'       => array_flip( $wm_testimonials_categories ),
@@ -2767,17 +4346,16 @@ $shortcode_definitions = array(
 									'group'       => __( 'Multiple display', 'wm_domain' ),
 								),
 								90 => array(
-									'heading'     => __( 'Description text alignment', 'wm_domain' ),
-									'description' => __( 'You can control the alignment of the optional description text', 'wm_domain' ),
-									'type'        => 'dropdown',
-									'param_name'  => 'align',
-									'value'       => array(
+									'heading'    => __( 'Description alignment', 'wm_domain' ),
+									'type'       => 'dropdown',
+									'param_name' => 'align',
+									'value'      => array(
 											__( 'Left', 'wm_domain' )  => 'left',
 											__( 'Right', 'wm_domain' ) => 'right',
 										),
-									'holder'      => 'hidden',
-									'class'       => '',
-									'group'       => __( 'Multiple display', 'wm_domain' ),
+									'holder'     => 'hidden',
+									'class'      => '',
+									'group'      => __( 'Multiple display', 'wm_domain' ),
 								),
 								100 => array(
 									'heading'     => __( 'Remove gap between items?', 'wm_domain' ),
@@ -2883,30 +4461,92 @@ $shortcode_definitions = array(
 					),
 			),
 
-	//Widget area
+	//Widgets area
 		/**
-		 * Widget area
+		 * Widgets area
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'widget_area' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Widget area', 'wm_domain' ),
+						'name'       => __( 'Widgets area', 'wm_domain' ),
 						'code'       => '[PREFIX_widget_area area="' . implode( '/', array_keys( wma_ksort( wma_widget_areas_array() ) ) ) . '" class="" max_widgets_count="0" /]',
 						'vc_enabled' => true,
 					),
+				'bb_plugin'  => array(
+						'name'   => __( 'Widgets area', 'wm_domain' ),
+						'output' => '[PREFIX_widget_area{{area}}{{max_widgets_count}}{{class}} /]',
+						'params' => array( 'area', 'max_widgets_count', 'class' ),
+						'form'   => array(
+
+								//Tab
+								'general' => array(
+									//Title
+									'title'       => __( 'General', 'wm_domain' ),
+									'description' => '',
+									//Sections
+									'sections' => array(
+
+										//Section
+										'general' => array(
+											'title'  => '',
+											'fields' => array(
+
+												'area' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Widgets area', 'wm_domain' ),
+													//type specific
+													'options' => wma_widget_areas_array(),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /area
+
+												'max_widgets_count' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Maximum widgets count', 'wm_domain' ),
+													'help'  => __( 'Area will not be displayed when the number of widgets inserted in it is greater', 'wm_domain' ),
+													//type specific
+													'options' => array(
+															'-' => '',
+															1   => 1,
+															2   => 2,
+															3   => 3,
+															4   => 4,
+															5   => 5,
+															6   => 6,
+															7   => 7,
+															8   => 8,
+															9   => 9,
+															10  => 10,
+															11  => 11,
+															12  => 12,
+														),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /max_widgets_count
+
+												), // /fields
+											), // /section
+
+									), // /sections
+								), // /tab
+
+							),
+					),
 				'vc_plugin'  => array(
-						'name'     => $this->prefix_shortcode_name . __( 'Widget area', 'wm_domain' ),
+						'name'     => $this->prefix_shortcode_name . __( 'Widgets area', 'wm_domain' ),
 						'base'     => $this->prefix_shortcode . 'widget_area',
 						'class'    => 'wm-shortcode-vc-widget_area',
 						'category' => __( 'Content', 'wm_domain' ),
 						'params'   => array(
 								10 => array(
-									'heading'     => __( 'Select widget area', 'wm_domain' ),
+									'heading'     => __( 'Widgets area', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
 									'param_name'  => 'area',
@@ -2915,7 +4555,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								20 => array(
-									'heading'     => __( 'Maximum count of widgets in area', 'wm_domain' ),
+									'heading'     => __( 'Maximum widgets count', 'wm_domain' ),
 									'description' => __( 'Area will not be displayed when the number of widgets inserted in it is greater', 'wm_domain' ),
 									'type'        => 'dropdown',
 									'param_name'  => 'max_widgets_count',
@@ -2987,13 +4627,12 @@ $shortcode_definitions = array(
 							'class'       => '',
 						),
 						20 => array(
-							'heading'     => __( 'HTML ID', 'wm_domain' ),
-							'description' => __( 'Optional ID attribute applied on the HTML container. Can be used as location anchor.', 'wm_domain' ),
-							'type'        => 'textfield',
-							'param_name'  => 'id',
-							'value'       => '',
-							'holder'      => 'hidden',
-							'class'       => '',
+							'heading'    => __( 'Optional HTML ID', 'wm_domain' ),
+							'type'       => 'textfield',
+							'param_name' => 'id',
+							'value'      => '',
+							'holder'     => 'hidden',
+							'class'      => '',
 						),
 
 						30 => array(
@@ -3127,13 +4766,12 @@ $shortcode_definitions = array(
 							'class'       => '',
 						),
 						20 => array(
-							'heading'     => __( 'HTML ID', 'wm_domain' ),
-							'description' => __( 'Optional ID attribute applied on the HTML container. Can be used as location anchor.', 'wm_domain' ),
-							'type'        => 'textfield',
-							'param_name'  => 'id',
-							'value'       => '',
-							'holder'      => 'hidden',
-							'class'       => '',
+							'heading'    => __( 'Optional HTML ID', 'wm_domain' ),
+							'type'       => 'textfield',
+							'param_name' => 'id',
+							'value'      => '',
+							'holder'     => 'hidden',
+							'class'      => '',
 						),
 
 						30 => array(
@@ -3208,13 +4846,12 @@ $shortcode_definitions = array(
 							'class'       => '',
 						),
 						20 => array(
-							'heading'     => __( 'HTML ID', 'wm_domain' ),
-							'description' => __( 'Optional ID attribute applied on the HTML container. Can be used as location anchor.', 'wm_domain' ),
-							'type'        => 'textfield',
-							'param_name'  => 'id',
-							'value'       => '',
-							'holder'      => 'hidden',
-							'class'       => '',
+							'heading'    => __( 'Optional HTML ID', 'wm_domain' ),
+							'type'       => 'textfield',
+							'param_name' => 'id',
+							'value'      => '',
+							'holder'     => 'hidden',
+							'class'      => '',
 						),
 
 						30 => array(
@@ -3325,16 +4962,15 @@ $shortcode_definitions = array(
 							'class'       => '',
 						),
 						20 => array(
-							'heading'     => __( 'Image link URL', 'wm_domain' ),
-							'description' => __( 'Set the optional image link URL', 'wm_domain' ),
-							'type'        => 'textfield',
-							'param_name'  => 'link',
-							'value'       => '',
-							'holder'      => 'hidden',
-							'class'       => '',
+							'heading'    => __( 'Image link URL', 'wm_domain' ),
+							'type'       => 'textfield',
+							'param_name' => 'link',
+							'value'      => '',
+							'holder'     => 'hidden',
+							'class'      => '',
 						),
 						30 => array(
-							'heading'     => __( 'Image link target', 'wm_domain' ),
+							'heading'     => __( 'Target', 'wm_domain' ),
 							'description' => '',
 							'type'        => 'dropdown',
 							'param_name'  => 'target',
