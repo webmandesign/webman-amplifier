@@ -1,7 +1,12 @@
 ## WebMan Amplifier
 
-### Beaver Builder form fields definitions reference
+### Page builder implementation: *Beaver Builder*
 
+**Beaver Builder form fields** definitions reference:
+
+	/**
+	 * For module popup window
+	 */
 	$module_form = array(
 
 		//Tab
@@ -315,6 +320,11 @@
 
 	); // /$module_form
 
+
+
+	/**
+	 * For items/children popup window
+	 */
 	$module_form_popup = array(
 
 		//Title
