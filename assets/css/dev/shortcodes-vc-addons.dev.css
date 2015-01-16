@@ -526,12 +526,12 @@
 
 
 /**
- * Remove shortcodes from Shortcode Generator when displayed in Visual Composer plugin
+ * Display Short Shortcode Generator only
  */
 
-	.mce-container div[id*="wm_shortcodes_list_vc_id"],
-	.wpb-edit-form .mce-container div[id*="wm_shortcodes_list_id"] {display: none}
-	.wpb-edit-form .mce-container div[id*="wm_shortcodes_list_vc_id"] {display: block}
+	.mce-container div[id^="wm_shortcodes_list_short_id"],
+	.wpb-edit-form .mce-container div[id^="wm_shortcodes_list_id"] {display: none}
+	.wpb-edit-form .mce-container div[id^="wm_shortcodes_list_short_id"] {display: block}
 
 
 

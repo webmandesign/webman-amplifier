@@ -1220,7 +1220,9 @@
 	/**
 	 * Minify HTML output (to prevent wpautop)
 	 *
-	 * @since  1.0
+	 * @since    1.1
+	 * @version  1.1
+	 *
 	 * @link   http://stackoverflow.com/questions/6225351/how-to-minify-php-page-html-output
 	 *
 	 * @param  string $content
@@ -1230,7 +1232,7 @@
 			//Requirements check
 				if (
 						( isset( $_GET['wma_minify_html'] ) && ! $_GET['wma_minify_html'] )
-						|| ! apply_filters( 'wmhook_wma_minify_html_enabled', true )
+						|| ! apply_filters( WMAMP_HOOK_PREFIX . 'wma_minify_html_enabled', true )
 					) {
 					return $content;
 				}
@@ -1244,7 +1246,7 @@
 				$content = preg_replace( array_keys( $replacements ), $replacements, $content );
 
 			//Output
-				return apply_filters( 'wmhook_wma_minify_html_output', $content );
+				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_minify_html_output', $content );
 		}
 	} // /wma_minify_html
 
@@ -1299,7 +1301,7 @@
 				}
 
 			//Output
-				return apply_filters( 'wmhook_wma_get_image_sizes_output', $output );
+				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_get_image_sizes_output', $output );
 		}
 	} // /wma_get_image_sizes
 
@@ -1316,7 +1318,7 @@
 	if ( ! function_exists( 'wma_is_active_page_builder' ) ) {
 		function wma_is_active_page_builder() {
 			//Output
-				return apply_filters( 'wmhook_wma_is_active_page_builder_output', ( wma_is_active_vc() || ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_enabled() ) ) );
+				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_is_active_page_builder_output', ( wma_is_active_vc() || ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_enabled() ) ) );
 		}
 	} // /wma_is_active_page_builder
 
@@ -1359,14 +1361,15 @@
 		 *
 		 * Supports both 4.2+ plugin versions and older too.
 		 *
-		 * @since   1.0.8
+		 * @since    1.1
+		 * @version  1.1
 		 *
 		 * @return  boolean
 		 */
 		if ( ! function_exists( 'wma_is_active_vc' ) ) {
 			function wma_is_active_vc() {
 				//Output
-					return apply_filters( 'wmhook_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+					return apply_filters( WMAMP_HOOK_PREFIX . 'wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
 			}
 		} // /wma_is_active_vc
 

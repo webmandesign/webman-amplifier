@@ -82,11 +82,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			private $field_files;
 
 			/**
-			 * @var  string URL to styles and scripts location.
-			 */
-			private $assets_url;
-
-			/**
 			 * @var  string Meta fields ID prefix.
 			 */
 			private $prefix;
@@ -144,7 +139,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
 					$this->meta_box        = (array) $meta_box;
 					$this->fields          = (string) $meta_box['fields'];
-					$this->assets_url      = apply_filters( WM_METABOX_HOOK_PREFIX . 'assets_url',      WMAMP_ASSETS_URL );
 					$this->field_files     = apply_filters( WM_METABOX_HOOK_PREFIX . 'field_files', $field_files );
 
 				//Adding missing metabox options
@@ -179,7 +173,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						$file_path = (string) $file_path;
 
 						if ( empty( $file_path ) || $file_name === $file_path ) {
-							require_once( WM_METABOX_FIELDS_DIR . $file_name . '.php' );
+							require_once( WMAMP_INCLUDES_DIR . 'metabox/fields/' . $file_name . '.php' );
 						} elseif ( file_exists( $file_path ) ) {
 							require_once( $file_path );
 						}
@@ -218,14 +212,14 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wm-metabox-styles',     $this->assets_url . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wm-metabox-styles-rtl', $this->assets_url . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
 						if ( $icon_font_url ) {
 							wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 						}
 
 					//Scripts
-						wp_register_script( 'wm-metabox-scripts', $this->assets_url . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-metabox-scripts', WMAMP_ASSETS_URL . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
 
 				//Enqueue (only on admin edit pages)
 				if ( $this->is_edit_page() ) {

@@ -102,7 +102,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Global variables setup
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1
+			 *
 			 * @access  private
 			 */
 			private function setup_globals() {
@@ -110,15 +112,14 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					$this->font_name = 'fontello';
 
 				//Paths and URLs
-					$this->paths               = wp_upload_dir();
-					$this->paths['fonts']      = 'wmamp_fonts';
-					$this->paths['temp']       = trailingslashit( $this->paths['fonts'] ) . 'temp';
-					$this->paths['fontdir']    = trailingslashit( $this->paths['basedir'] ) . $this->paths['fonts'] . '/' . $this->font_name;
-					$this->paths['tempdir']    = trailingslashit( $this->paths['basedir'] ) . $this->paths['temp'];
-					$this->paths['fonturl']    = trailingslashit( $this->paths['baseurl'] ) . $this->paths['fonts'] . '/' . $this->font_name;
-					$this->paths['tempurl']    = trailingslashit( $this->paths['baseurl'] ) . trailingslashit( $this->paths['temp'] );
-					$this->paths['assets_url'] = apply_filters( WM_ICONS_HOOK_PREFIX . 'assets_url', WMAMP_ASSETS_URL );;
-					$this->paths               = apply_filters( WM_ICONS_HOOK_PREFIX . 'paths', $this->paths );
+					$this->paths            = wp_upload_dir();
+					$this->paths['fonts']   = 'wmamp_fonts';
+					$this->paths['temp']    = trailingslashit( $this->paths['fonts'] ) . 'temp';
+					$this->paths['fontdir'] = trailingslashit( $this->paths['basedir'] ) . $this->paths['fonts'] . '/' . $this->font_name;
+					$this->paths['tempdir'] = trailingslashit( $this->paths['basedir'] ) . $this->paths['temp'];
+					$this->paths['fonturl'] = trailingslashit( $this->paths['baseurl'] ) . $this->paths['fonts'] . '/' . $this->font_name;
+					$this->paths['tempurl'] = trailingslashit( $this->paths['baseurl'] ) . trailingslashit( $this->paths['temp'] );
+					$this->paths            = apply_filters( WM_ICONS_HOOK_PREFIX . 'paths', $this->paths );
 
 				//Capability to upload font file
 					$this->capability = apply_filters( WM_ICONS_HOOK_PREFIX . 'capability', 'switch_themes' );
@@ -189,14 +190,14 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 				//Register
 					//Styles
-						wp_register_style( 'wm-metabox-styles',     $this->paths['assets_url'] . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wm-metabox-styles-rtl', $this->paths['assets_url'] . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+						wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
 						if ( $icon_font_url ) {
 							wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 						}
 
 					//Scripts
-						wp_register_script( 'wm-metabox-scripts', $this->paths['assets_url'] . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-metabox-scripts', WMAMP_ASSETS_URL . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
 
 				//Enqueue (only on admin page)
 				if ( 'appearance_page_icon-font' == $current_screen->id ) {

@@ -4,8 +4,8 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since       1.0
- * @version     1.0.9.2
+ * @since    1.0
+ * @version  1.1
  */
 
 
@@ -16,10 +16,10 @@
 
 	tinymce.PluginManager.add( 'wmShortcodes', function( editor, url ) {
 
-		var wmShortcodesMenuArray   = new Array(),
-		    wmShortcodesMenuArrayVC = new Array(),
-		    wmShortcodesHelper      = ( 'undefined' === typeof wmShortcodesArray ) ? ( [{name:'Shortcode',code:'',class:'shortcode'}] ) : ( wmShortcodesArray ),
-		    wmButtonIdSuffix        = '_id' + Math.floor( ( Math.random() * 1000 ) + 1 ); //This is important to allow multiple instances of TinyMCE on the screen with their specific shortcode generator buttons
+		var wmShortcodesMenuArray      = new Array(),
+		    wmShortcodesMenuArrayShort = new Array(),
+		    wmShortcodesHelper         = ( 'undefined' === typeof wmShortcodesArray ) ? ( [{name:'Shortcode',code:'',class:'shortcode'}] ) : ( wmShortcodesArray ),
+		    wmButtonIdSuffix           = '_id' + Math.floor( ( Math.random() * 1000 ) + 1 ); //This is important to allow multiple instances of TinyMCE on the screen with their specific shortcode generator buttons
 
 		//Set the menu button items (default)
 			for ( var i in wmShortcodesHelper ) {
@@ -50,14 +50,14 @@
 					};
 			}
 
-		//Set the menu button items (VC)
-			if ( 'undefined' != typeof wmShortcodesArrayVC ) {
+		//Set the menu button items (short)
+			if ( 'undefined' != typeof wmShortcodesArrayShort ) {
 
-				for ( var i in wmShortcodesArrayVC ) {
-					wmShortcodesMenuArrayVC[i] = {
-							text    : wmShortcodesArrayVC[i]['name'],
-							id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesArrayVC[i]['class'],
-							class   : wmShortcodesArrayVC[i]['class'],
+				for ( var i in wmShortcodesArrayShort ) {
+					wmShortcodesMenuArrayShort[i] = {
+							text    : wmShortcodesArrayShort[i]['name'],
+							id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesArrayShort[i]['class'],
+							class   : wmShortcodesArrayShort[i]['class'],
 							onclick : function( wholeMenuButton ) {
 									var menuId = wholeMenuButton.target.id;
 
@@ -66,13 +66,13 @@
 									//Retrieve the shortcode content based on menu button item ID pressed
 									if ( '' != editor.selection.getContent() ) {
 
-										var shortcodeOutput = wmShortcodesArrayVC[menuId]['code'].replace( '{{content}}', editor.selection.getContent() );
+										var shortcodeOutput = wmShortcodesArrayShort[menuId]['code'].replace( '{{content}}', editor.selection.getContent() );
 
 										editor.selection.setContent( shortcodeOutput );
 
 									} else {
 
-										var shortcodeOutput = wmShortcodesArrayVC[menuId]['code'].replace( '{{content}}', 'TEXT' );
+										var shortcodeOutput = wmShortcodesArrayShort[menuId]['code'].replace( '{{content}}', 'TEXT' );
 
 										editor.selection.setContent( shortcodeOutput );
 
@@ -97,17 +97,17 @@
 
 			} );
 
-		//Shortcode Generator VC Button
-			if ( 'undefined' != typeof wmShortcodesArrayVC ) {
+		//Shortcode Generator Short Button
+			if ( 'undefined' != typeof wmShortcodesArrayShort ) {
 
-				editor.addButton( 'wm_shortcodes_list_vc', {
+				editor.addButton( 'wm_shortcodes_list_short', {
 
 					type  : 'menubutton',
 					text  : '[s]',
 					title : 'Shortcode',
-					id    : 'wm_shortcodes_list_vc' + wmButtonIdSuffix,
+					id    : 'wm_shortcodes_list_short' + wmButtonIdSuffix,
 					icon  : false,
-					menu  : wmShortcodesMenuArrayVC
+					menu  : wmShortcodesMenuArrayShort
 
 				} );
 

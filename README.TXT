@@ -63,7 +63,7 @@ The plugin supports icon font files from Fontello.com. Visit the website, select
 
 = How to translate (localize) the plugin? =
 
-First, plese note that custom translation files inside the plugin's `languages` folder will be removed / overwritten on plugin updates. If you're creating a custom translation files, please use the global WordPress language folder (usually `wp-content/languages/`). First create a `webman-amplifier` subfolder in the global WordPress language folder (you will end up with `wp-content/languages/webman-amplifier/` structure). Than FTP your translated plugin's file into this folder. Name the file as `wm_domain-LOCALE.mo` (for example: `wm_domain-en_US.mo`, so you'll end up with `wp-content/languages/webman-amplifier/wm_domain-en_US.mo`). Once you place the properly named localization file into the folder, the plugin should pick up your translation without any issues. Note: the source file for translation can be found in `webman-amplifier/languages/wm_domain.pot`, please use a tool such as [Poedit](http://poedit.net/ "Poedit translator") to translate the file and create an `.MO` file.
+*Find the instructions in `webman-amplifier/languages/readme.md` file.*
 
 == Screenshots ==
 

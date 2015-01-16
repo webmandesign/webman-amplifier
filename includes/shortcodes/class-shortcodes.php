@@ -46,11 +46,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			private $inline_tags = '';
 
 			/**
-			 * @var  string URL to styles and scripts location
-			 */
-			private $assets_url = '';
-
-			/**
 			 * @var  string Path to shortcode renderers
 			 */
 			private $renderers_dir = '';
@@ -66,9 +61,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			private $prefix_shortcode = 'wm_';
 
 			/**
-			 * @var  string Shortcodes generator user capability
+			 * @var  string Editor user capability
 			 */
-			private $generator_capability = '';
+			private $editor_capability = '';
 
 			/**
 			 * @var  object
@@ -154,15 +149,13 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$post_types = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'post_types', $post_types );
 					asort( $post_types );
 
-				//Shortcode generator user capability
-					$this->generator_capability = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'generator_capability', 'edit_posts' );
+				//Editor user capability
+					$this->editor_capability = apply_filters( WMAMP_HOOK_PREFIX . 'editor_capability', 'edit_posts' );
 
 				//Paths and URLs
-					$this->assets_url      = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'assets_url',      WMAMP_ASSETS_URL );
-					$this->definitions_dir = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
-					$this->renderers_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-					$this->vc_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/visual-composer' ) );
-					$this->bb_addons_dir   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'bb_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/beaver-builder' ) );
+					$this->definitions_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
+					$this->renderers_dir    = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+					$this->page_builder_dir = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder' ) );
 
 				//Visual Composer integration
 					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
@@ -172,20 +165,20 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Shortcodes globals (variables used across multiple shortcodes)
 					$this->inline_tags   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'inline_tags',   '<a><abbr><b><br><code><em><i><img><mark><small><span><strong><u>' );
 					self::$codes_globals = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'codes_globals', array(
-							'align'          => array(
+							'align' => array(
 									'left'   => __( 'Left', 'wm_domain' ),
 									'center' => __( 'Center', 'wm_domain' ),
 									'right'  => __( 'Right', 'wm_domain' ),
 								),
-							'colors'         => array(
+							'colors' => array(
 									'blue'   => __( 'Blue', 'wm_domain' ),
 									'gray'   => __( 'Gray', 'wm_domain' ),
 									'green'  => __( 'Green', 'wm_domain' ),
 									'orange' => __( 'Orange', 'wm_domain' ),
 									'red'    => __( 'Red', 'wm_domain' ),
 								),
-							'column_widths'  => array( '1/2', '1/3', '2/3', '1/4', '3/4', '1/5', '2/5', '3/5', '4/5' ),
-							'divider_types'  => array(
+							'column_widths' => array( '1/2', '1/3', '2/3', '1/4', '3/4', '1/5', '2/5', '3/5', '4/5' ),
+							'divider_appearance'  => array(
 									'line'        => __( 'Line', 'wm_domain' ),
 									'dotted'      => __( 'Dotted', 'wm_domain' ),
 									'dashed'      => __( 'Dashed', 'wm_domain' ),
@@ -200,9 +193,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 									'leaf-right'     => __( 'Leaf right', 'wm_domain' ),
 									'half-circle'    => __( 'Half circle', 'wm_domain' ),
 								),
-							'font_icons'     => $fonticons,
-							'post_types'     => $post_types,
-							'sizes'          => array(
+							'font_icons' => $fonticons,
+							'post_types' => $post_types,
+							'sizes' => array(
 								//Actual sizes options used in select form field
 									'options' => array(
 										's'  => __( 'Small', 'wm_domain' ),
@@ -218,8 +211,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 										'xl' => 'extra-large',
 									),
 								),
-							'social_icons'  => array( 'Behance', 'Blogger', 'Delicious', 'DeviantART', 'Digg', 'Dribbble', 'Facebook', 'Flickr', 'Forrst', 'Github', 'Google+', 'Instagram', 'LinkedIn', 'MySpace', 'Pinterest', 'Reddit', 'RSS', 'Skype', 'SoundCloud', 'StumbleUpon', 'Tumblr', 'Twitter', 'Vimeo', 'WordPress', 'YouTube' ),
-							'table_types'   => array(
+							'social_icons' => array( 'Behance', 'Blogger', 'Delicious', 'DeviantART', 'Digg', 'Dribbble', 'Facebook', 'Flickr', 'Forrst', 'Github', 'Google+', 'Instagram', 'LinkedIn', 'MySpace', 'Pinterest', 'Reddit', 'RSS', 'Skype', 'SoundCloud', 'StumbleUpon', 'Tumblr', 'Twitter', 'Vimeo', 'WordPress', 'YouTube' ),
+							'table_appearance' => array(
 									'basic'            => __( 'Basic', 'wm_domain' ),
 									'bordered'         => __( 'Bordered', 'wm_domain' ),
 									'striped'          => __( 'Zebra striping', 'wm_domain' ),
@@ -238,14 +231,14 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 				//Empty self::$codes variable before processing
 					self::$codes = array(
-							'generator'    => array(),
-							'global'       => array(),
-							'preprocess'   => array(),
-							'renderer'     => array(),
-							'styles'       => array(),
-							'vc_generator' => array(),
-							'bb_plugin'    => array(),
-							'vc_plugin'    => array(),
+							'generator'       => array(),
+							'global'          => array(),
+							'preprocess'      => array(),
+							'renderer'        => array(),
+							'styles'          => array(),
+							'generator_short' => array(),
+							'bb_plugin'       => array(),
+							'vc_plugin'       => array(),
 						);
 
 				//Separate shortcodes into groups
@@ -310,8 +303,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								$definition['generator']['code']  = str_replace( 'PREFIX_', $prefix_shortcode, $definition['generator']['code'] );
 								self::$codes['generator'][$code]  = $definition['generator'];
 								//Shortcodes in Shortcode Generator displayed in Visual Composer plugin
-								if ( isset( $definition['generator']['vc_enabled'] ) && $definition['generator']['vc_enabled'] ) {
-									self::$codes['vc_generator'][$code] = $definition['generator'];
+								if ( isset( $definition['generator']['short'] ) && $definition['generator']['short'] ) {
+									self::$codes['generator_short'][$code] = $definition['generator'];
 								}
 							}
 
@@ -368,32 +361,30 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
 
 				//Styles
-					wp_register_style( 'wm-radio',                    $this->assets_url . 'css/input-wm-radio.css',           array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes',               $this->assets_url . 'css/shortcodes.css',               array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-generator',     $this->assets_url . 'css/shortcodes-generator.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-generator-rtl', $this->assets_url . 'css/rtl-shortcodes-generator.css', array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-rtl',           $this->assets_url . 'css/rtl-shortcodes.css',           array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-bb-addon',      $this->assets_url . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-vc-addon',      $this->assets_url . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-vc-addon-rtl',  $this->assets_url . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-radio',                   WMAMP_ASSETS_URL . 'css/input-wm-radio.css',           array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes',              WMAMP_ASSETS_URL . 'css/shortcodes.css',               array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-rtl',          WMAMP_ASSETS_URL . 'css/rtl-shortcodes.css',           array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-bb-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-vc-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-vc-addon-rtl', WMAMP_ASSETS_URL . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
 					if ( $icon_font_url ) {
 						wp_register_style( 'wm-fonticons', $icon_font_url, array(), WMAMP_VERSION, 'screen' );
 					}
 
 				//Scripts
-					wp_register_script( 'wm-imagesloaded',            $this->assets_url . 'js/plugins/imagesloaded.min.js',             array(),                                 WMAMP_VERSION, true );
-					wp_register_script( 'wm-isotope',                 $this->assets_url . 'js/plugins/isotope.pkgd.min.js',             array(),                                 WMAMP_VERSION, true );
-					wp_register_script( 'wm-jquery-bxslider',         $this->assets_url . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-jquery-lwtCountdown',     $this->assets_url . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-jquery-owl-carousel',     $this->assets_url . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-jquery-parallax',         $this->assets_url . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-accordion',    $this->assets_url . 'js/shortcode-accordion.js',                  array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-ie',           $this->assets_url . 'js/shortcodes-ie.js',                        array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-parallax',     $this->assets_url . 'js/shortcode-parallax.js',                   array( 'jquery', 'wm-jquery-parallax' ), WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-posts',        $this->assets_url . 'js/shortcode-posts.js',                      array( 'jquery', 'wm-imagesloaded' ),    WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-slideshow',    $this->assets_url . 'js/shortcode-slideshow.js',                  array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-tabs',         $this->assets_url . 'js/shortcode-tabs.js',                       array( 'jquery' ),                       WMAMP_VERSION, true );
-					wp_register_script( 'wm-shortcodes-vc-addon',     $this->assets_url . 'js/shortcodes-vc-addons.js',                 array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views', 'isotope' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-imagesloaded',         WMAMP_ASSETS_URL . 'js/plugins/imagesloaded.min.js',             array(),                                 WMAMP_VERSION, true );
+					wp_register_script( 'wm-isotope',              WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),                                 WMAMP_VERSION, true );
+					wp_register_script( 'wm-jquery-bxslider',      WMAMP_ASSETS_URL . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-jquery-lwtCountdown',  WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-jquery-owl-carousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-jquery-parallax',      WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js',                  array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-ie',        WMAMP_ASSETS_URL . 'js/shortcodes-ie.js',                        array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-parallax',  WMAMP_ASSETS_URL . 'js/shortcode-parallax.js',                   array( 'jquery', 'wm-jquery-parallax' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-posts',     WMAMP_ASSETS_URL . 'js/shortcode-posts.js',                      array( 'jquery', 'wm-imagesloaded' ),    WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-slideshow', WMAMP_ASSETS_URL . 'js/shortcode-slideshow.js',                  array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-tabs',      WMAMP_ASSETS_URL . 'js/shortcode-tabs.js',                       array( 'jquery' ),                       WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-vc-addon',  WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js',                 array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views', 'isotope' ), WMAMP_VERSION, true );
 			} // /assets_register
 
 
@@ -434,16 +425,18 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * @since    1.0
 			 * @version  1.1
 			 *
-			 * @access   public
+			 * @access  public
 			 */
 			public function assets_backend() {
 				//Requirements check
-					if ( ! current_user_can( $this->generator_capability ) ) {
+					if ( ! current_user_can( $this->editor_capability ) ) {
 						return;
 					}
 
 				//Helper variables
 					global $pagenow, $post_type;
+
+					$admin_pages   = array( 'post.php', 'post-new.php' );
 					$icon_font_url = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
 				//Styles
@@ -451,41 +444,14 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						wp_enqueue_style( 'wm-fonticons' );
 					}
 
-				//Shortcode generator
-					$admin_pages = array( 'post.php', 'post-new.php' );
-					if (
-							in_array( $pagenow, apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'generator_admin_pages', $admin_pages ) )
-							&& ! empty( self::$codes['generator'] )
-						) {
-						//Helper variables
-							$shortcodes_js_array = (array) self::$codes['generator'];
-							ksort( $shortcodes_js_array );
-							$shortcodes_js_array = array_values( $shortcodes_js_array );
-
-						//Styles
-							wp_enqueue_style( 'wm-shortcodes-generator' );
-							if ( is_rtl() ) {
-								wp_enqueue_style( 'wm-shortcodes-generator-rtl' );
-							}
-
-						//Scripts
-							wp_localize_script( 'jquery', 'wmShortcodesArray', $shortcodes_js_array );
-					}
-
 				//Visual Composer plugin integration
 					$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
 					if (
-							in_array( $pagenow, apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'generator_vc_admin_pages', $admin_pages ) )
+							in_array( $pagenow, apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_admin_pages', $admin_pages ) )
 							&& wma_is_active_vc()
 							&& in_array( $post_type, $vc_supported_post_types )
-							&& ! empty( self::$codes['vc_generator'] )
 							&& defined( 'WPB_VC_VERSION' )
 						) {
-						//Helper variables
-							$shortcodes_js_array = (array) self::$codes['vc_generator'];
-							ksort( $shortcodes_js_array );
-							$shortcodes_js_array = array_values( $shortcodes_js_array );
-
 						//Styles
 							wp_enqueue_style( 'wm-shortcodes-vc-addon' );
 							wp_enqueue_style( 'wm-radio' );
@@ -496,7 +462,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 						//Scripts
 							wp_enqueue_script( 'wm-shortcodes-vc-addon' );
-							wp_localize_script( 'jquery', 'wmShortcodesArrayVC', $shortcodes_js_array );
 					}
 			} // /assets_backend
 
@@ -510,10 +475,10 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 *
 			 * @access  private
 			 */
-			private function setup_filters() {
+			public function setup_filters() {
 				//Assets
-					add_action( 'wp_enqueue_scripts', array( $this, 'assets_frontend' ) );
-					add_action( 'admin_enqueue_scripts', array( $this, 'assets_backend' ) );
+					add_action( 'wp_enqueue_scripts',    array( $this, 'assets_frontend' ) );
+					add_action( 'admin_enqueue_scripts', array( $this, 'assets_backend' )  );
 
 				//Shortcodes in text widget
 					add_filter( 'widget_text', 'do_shortcode' );
@@ -527,30 +492,12 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					add_filter( 'the_content', array( $this, 'fix_shortcodes' ) );
 
 				//Shortcodes' $content variable filtering
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . '_content', array( $this, 'shortcodes_content' ), 20, 2 );
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'pre' . '_content', array( $this, 'shortcodes_content_pre' ), 10 );
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'list' . '_content', 'shortcode_unautop', 10 );
+					add_filter( WM_SHORTCODES_HOOK_PREFIX . '_content',          array( $this, 'shortcodes_content' ),     20, 2 );
+					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'pre' . '_content',  array( $this, 'shortcodes_content_pre' ), 10    );
+					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'list' . '_content', 'shortcode_unautop',                      10    );
 
 				//Shortcodes' output filtering
 					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'widget_area' . '_output', 'wma_minify_html', 10 );
-
-				//TinyMCE customization
-					if (
-							is_admin()
-							&& 'true' == get_user_option( 'rich_editing' )
-							&& current_user_can( $this->generator_capability )
-						) {
-						//Shortcode Generator
-							if ( ! empty( self::$codes['generator'] ) ) {
-								add_filter( 'mce_external_plugins', array( $this, 'add_mce_plugin' ) );
-								add_filter( 'mce_buttons', array( $this, 'mce_buttons_row1' ) );
-							}
-						//Styles dropdown button
-							if ( ! empty( self::$codes['styles'] ) ) {
-								add_filter( 'tiny_mce_before_init', array( $this, 'custom_mce_styles' ) );
-								add_filter( 'mce_buttons_2', array( $this, 'mce_buttons_row2' ) );
-							}
-					}
 			} // /setup_filters
 
 
@@ -848,107 +795,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 
 		/**
-		 * WORDPRESS VISUAL EDITOR INTEGRATION
-		 */
-
-			/**
-			 * Register custom visual editor styles (for "Style" dropdown button)
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   array $init TiniMCE initialization settings.
-			 */
-			public function custom_mce_styles( $init = array() ) {
-				$init['style_formats'] = json_encode( (array) self::$codes['styles'] );
-
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'custom_mce_styles' . '_output', $init );
-			} // /custom_mce_styles
-
-
-
-			/**
-			 * Register custom visual editor plugin
-			 *
-			 * Creates Shortcode Generator dropdown button.
-			 *
-			 * @since    1.0
-			 * @version  1.1
-			 *
-			 * @access  public
-			 *
-			 * @param   array $plugin_array TiniMCE plugins array.
-			 */
-			public function add_mce_plugin( $plugin_array = array() ) {
-				$plugin_array['wmShortcodes'] =	$this->assets_url . 'js/shortcodes-button.js';
-
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'add_mce_plugin' . '_output', $plugin_array );
-			} // /add_mce_plugin
-
-
-
-			/**
-			 * Add visual editor buttons to 1st row
-			 *
-			 * Adds Shortcode Generator dropdown button into first row
-			 * of visual editor buttons.
-			 *
-			 * @since    1.0
-			 * @version  1.0.8
-			 * @access   public
-			 *
-			 * @param    array $buttons TinyMCE array of first row of buttons.
-			 */
-			public function mce_buttons_row1( $buttons = array() ) {
-				//Inserting buttons before "content_wp_adv" button
-					$pos = array_search( 'wp_adv', $buttons, true );
-					if ( false !== $pos ) {
-						$add = array_slice( $buttons, 0, $pos );
-						$add[] = '|';
-						$add[] = 'wm_shortcodes_list';
-						if ( wma_is_active_vc() ) {
-							$add[] = 'wm_shortcodes_list_vc';
-						}
-						$add[] = '|';
-						$add[] = 'wp_adv';
-						$buttons = array_merge( $add, array_slice( $buttons, $pos + 1 ) );
-					}
-
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'mce_buttons_row1' . '_output', $buttons );
-			} // /mce_buttons_row1
-
-
-
-			/**
-			 * Add visual editor buttons to 2nd row
-			 *
-			 * Adds Styles dropdown button into second row of visual editor buttons.
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   array $buttons TinyMCE array of second row of buttons.
-			 */
-			public function mce_buttons_row2( $buttons = array() ) {
-				//Inserting buttons before "underline" button
-					$pos = array_search( 'underline', $buttons, true );
-					if ( $pos != false ) {
-						$add = array_slice( $buttons, 0, $pos );
-						$add[] = 'styleselect';
-						$add[] = '|';
-						$add[] = 'removeformat';
-						$add[] = '|';
-						$buttons = array_merge( $add, array_slice( $buttons, $pos + 1 ) );
-					}
-
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'mce_buttons_row2' . '_output', $buttons );
-			} // /mce_buttons_row2
-
-
-
-
-
-		/**
 		 * PLUGINS INTEGRATION
 		 */
 
@@ -966,7 +812,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * If you intend to change these positions, change the numbers
 				 * but keep the order.
 				 *
-				 * @see  `$this->bb_addons_dir . beaver-builder.php` action hooks
+				 * @see  `$this->page_builder_dir . beaver-builder/beaver-builder.php` action hooks
 				 *
 				 * @since    1.1
 				 * @version  1.1
@@ -981,17 +827,17 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 
 
-					/**
-					 * Add Beaver Builder plugin support init
-					 *
-					 * @since    1.1
-					 * @version  1.1
-					 *
-					 * @access  public
-					 */
-					public function init_beaver_builder_support() {
-						require_once( $this->bb_addons_dir . 'beaver-builder.php' );
-					} // /init_beaver_builder_support
+				/**
+				 * Add Beaver Builder plugin support init
+				 *
+				 * @since    1.1
+				 * @version  1.1
+				 *
+				 * @access  public
+				 */
+				public function init_beaver_builder_support() {
+					require_once( $this->page_builder_dir . 'beaver-builder/beaver-builder.php' );
+				} // /init_beaver_builder_support
 
 
 
@@ -1018,7 +864,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 					//VC additional shortcodes admin interface
-						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->vc_addons_dir . 'visual-composer.php' );
+						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->page_builder_dir . 'visual-composer/visual-composer.php' );
 						require_once( $vc_shortcodes_admin_tweaks );
 
 					//VC setup screen modifications
@@ -1110,13 +956,15 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 *
 				 * @link    http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
 				 *
-				 * @since   1.0
+				 * @since    1.0
+				 * @version  1.1
+				 *
 				 * @access  public
 				 *
-				 * @param   array  $settings Array of settings parameters
-				 * @param   string $value
+				 * @param  array  $settings Array of settings parameters
+				 * @param  string $value
 				 */
-				function visual_composer_custom_field_wm_radio( $settings, $value ) {
+				public function visual_composer_custom_field_wm_radio( $settings, $value ) {
 					//Helper variables
 						$name = $settings['param_name'];
 

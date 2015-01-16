@@ -120,9 +120,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Accordion / Toggle', 'wm_domain' ),
-						'code'       => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_accordion]',
-						'vc_enabled' => false,
+						'name'  => __( 'Accordion / Toggle', 'wm_domain' ),
+						'code'  => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_accordion]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'            => __( 'Accordion', 'wm_domain' ),
@@ -427,9 +427,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Tabs', 'wm_domain' ),
-						'code'       => '[PREFIX_tabs active="0" layout="top/left/right" tour="0/1" class=""]<br />[PREFIX_item title="' . __( 'Tab 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Tab 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_tabs]',
-						'vc_enabled' => false,
+						'name'  => __( 'Tabs', 'wm_domain' ),
+						'code'  => '[PREFIX_tabs active="0" layout="top/left/right" tour="0/1" class=""]<br />[PREFIX_item title="' . __( 'Tab 1', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Tab 2', 'wm_domain' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_tabs]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'            => __( 'Tabs', 'wm_domain' ),
@@ -736,9 +736,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Item (accordion or tab section)', 'wm_domain' ),
-						'code'       => '[PREFIX_item title="' . __( 'Title', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]',
-						'vc_enabled' => false,
+						'name'  => __( 'Item (accordion or tab section)', 'wm_domain' ),
+						'code'  => '[PREFIX_item title="' . __( 'Title', 'wm_domain' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]',
+						'short' => false,
 					),
 				'vc_plugin'  => array(
 						'name'                      => $this->prefix_shortcode_name . __( 'Item (Accordion / Tab)', 'wm_domain' ),
@@ -795,16 +795,16 @@ $shortcode_definitions = array(
 		 * Audio
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'audio' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Audio', 'wm_domain' ),
-						'code'       => '[PREFIX_audio src="" autoplay="0/1" loop="0/1" class="" /]',
-						'vc_enabled' => false,
+						'name'  => __( 'Audio', 'wm_domain' ),
+						'code'  => '[PREFIX_audio src="" autoplay="0/1" loop="0/1" class="" /]',
+						'short' => false,
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Audio', 'wm_domain' ),
@@ -870,9 +870,9 @@ $shortcode_definitions = array(
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Button', 'wm_domain' ),
-						'code'       => '[PREFIX_button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_button]',
-						'vc_enabled' => true,
+						'name'  => __( 'Button', 'wm_domain' ),
+						'code'  => '[PREFIX_button url="#" color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" icon="" class=""]{{content}}[/PREFIX_button]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Button', 'wm_domain' ),
@@ -1094,9 +1094,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Call to action', 'wm_domain' ),
-						'code'       => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
-						'vc_enabled' => false,
+						'name'  => __( 'Call to action', 'wm_domain' ),
+						'code'  => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Call to action', 'wm_domain' ),
@@ -1346,16 +1346,16 @@ $shortcode_definitions = array(
 		 * Collumn
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.8
+		 * @version  1.1
 		 */
 		'column' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Column', 'wm_domain' ),
-						'code'       => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/PREFIX_column]' ),
-						'vc_enabled' => false,
+						'name'  => __( 'Column', 'wm_domain' ),
+						'code'  => ( wma_is_active_vc() ) ? ( '[vc_column width="1/1,1/2,1/3,2/3,1/4,3/4,1/6,5/6" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/vc_column]' ) : ( '[PREFIX_column width="' . implode( ',', self::$codes_globals['column_widths'] ) . '" last="0/1" bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" padding=""]{{content}}[/PREFIX_column]' ),
+						'short' => false,
 					),
 			),
 
@@ -1371,9 +1371,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Countdown timer', 'wm_domain' ),
-						'code'       => '[PREFIX_countdown_timer time="' . date( get_option( 'date_format' ), strtotime( 'now' ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" class="" /]',
-						'vc_enabled' => false,
+						'name'  => __( 'Countdown timer', 'wm_domain' ),
+						'code'  => '[PREFIX_countdown_timer time="' . date( get_option( 'date_format' ), strtotime( 'now' ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" class="" /]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Countdown timer', 'wm_domain' ),
@@ -1470,9 +1470,9 @@ $shortcode_definitions = array(
 				'preprocess'         => false,
 				'style'              => array(),
 				'generator'          => array(
-						'name'       => __( 'Content Module', 'wm_domain' ),
-						'code'       => '[PREFIX_content_module module="module-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" tag="" image_size="" filter="0/1" scroll="0" pagination="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_content_module]',
-						'vc_enabled' => false,
+						'name'  => __( 'Content Module', 'wm_domain' ),
+						'code'  => '[PREFIX_content_module module="module-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" tag="" image_size="" filter="0/1" scroll="0" pagination="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_content_module]',
+						'short' => false,
 					),
 				'bb_plugin'          => array(
 						'name'   => __( 'Content Module', 'wm_domain' ),
@@ -1894,13 +1894,13 @@ $shortcode_definitions = array(
 				'style'      => array(),
 				'generator'  => array(
 						'name' => __( 'Divider / Gap', 'wm_domain' ),
-						'code' => '[PREFIX_divider type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['divider_types'] ) ) ) . '" space_before="" space_after="" class="" /]',
-						'vc_enabled' => true,
+						'code' => '[PREFIX_divider appearance="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['divider_appearance'] ) ) ) . '" space_before="" space_after="" class="" /]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Divider / Gap', 'wm_domain' ),
-						'output' => '[PREFIX_divider{{type_bb}}{{class}} /]',
-						'params' => array( 'type_bb', 'class' ),
+						'output' => '[PREFIX_divider{{appearance}}{{class}} /]',
+						'params' => array( 'appearance', 'class' ),
 						'form'   => array(
 
 								//Tab
@@ -1916,15 +1916,15 @@ $shortcode_definitions = array(
 											'title'  => '',
 											'fields' => array(
 
-												'type_bb' => array(
+												'appearance' => array(
 													'type' => 'select',
 													//description
-													'label' => __( 'Divider type', 'wm_domain' ),
+													'label' => __( 'Appearance', 'wm_domain' ),
 													//type specific
-													'options' => self::$codes_globals['divider_types'],
+													'options' => self::$codes_globals['divider_appearance'],
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
-												), // /type_bb
+												), // /appearance
 
 											), // /fields
 										), // /section
@@ -1942,11 +1942,11 @@ $shortcode_definitions = array(
 						'category'                => __( 'Content', 'wm_domain' ),
 						'params'                  => array(
 								10 => array(
-									'heading'     => __( 'Divider type', 'wm_domain' ),
+									'heading'     => __( 'Appearance', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
-									'param_name'  => 'type',
-									'value'       => array_flip( self::$codes_globals['divider_types'] ),
+									'param_name'  => 'appearance',
+									'value'       => array_flip( self::$codes_globals['divider_appearance'] ),
 									'holder'      => 'div',
 									'class'       => '',
 								),
@@ -2004,7 +2004,7 @@ $shortcode_definitions = array(
 				'generator'  => array(
 						'name' => __( 'Dropcap', 'wm_domain' ),
 						'code' => '[PREFIX_dropcap color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" shape="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['dropcap_shapes'] ) ) ) . '" class=""]{{content}}[/PREFIX_dropcap]',
-						'vc_enabled' => true,
+						'short' => true,
 					),
 			),
 
@@ -2020,9 +2020,9 @@ $shortcode_definitions = array(
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Icon (social icon)', 'wm_domain' ),
-						'code'       => '[PREFIX_icon class="icon-class" social="' . implode( '/', $wm_social_icons_array ) . '" url="" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" /]',
-						'vc_enabled' => true,
+						'name'  => __( 'Icon (social icon)', 'wm_domain' ),
+						'code'  => '[PREFIX_icon class="icon-class" social="' . implode( '/', $wm_social_icons_array ) . '" url="" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" /]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Icon (social icon)', 'wm_domain' ),
@@ -2279,9 +2279,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Icons list', 'wm_domain' ),
-						'code'       => '[PREFIX_list bullet="icon-class" class=""]<ul><li>{{content}}</li><li>' . __( 'List item', 'wm_domain' ) . '</li></ul>[/PREFIX_list]',
-						'vc_enabled' => true,
+						'name'  => __( 'Icons list', 'wm_domain' ),
+						'code'  => '[PREFIX_list bullet="icon-class" class=""]<ul><li>{{content}}</li><li>' . __( 'List item', 'wm_domain' ) . '</li></ul>[/PREFIX_list]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Icons list', 'wm_domain' ),
@@ -2397,16 +2397,16 @@ $shortcode_definitions = array(
 		 * Last update time
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'last_update' => array(
 				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Last update time', 'wm_domain' ),
-						'code' => '[PREFIX_last_update post_type="' . implode( '/', array_merge( array( 'post', 'page' ), get_post_types( array( '_builtin' => false ) ) ) ) . '" format="" class="" /]',
-						'vc_enabled' => true,
+						'name'  => __( 'Last update time', 'wm_domain' ),
+						'code'  => '[PREFIX_last_update post_type="' . implode( '/', array_merge( array( 'post', 'page' ), get_post_types( array( '_builtin' => false ) ) ) ) . '" format="" class="" /]',
+						'short' => true,
 					),
 			),
 
@@ -2415,16 +2415,16 @@ $shortcode_definitions = array(
 		 * Marker
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'marker' => array(
 				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Marker', 'wm_domain' ),
-						'code' => '[PREFIX_marker color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" class=""]{{content}}[/PREFIX_marker]',
-						'vc_enabled' => true,
+						'name'  => __( 'Marker', 'wm_domain' ),
+						'code'  => '[PREFIX_marker color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" class=""]{{content}}[/PREFIX_marker]',
+						'short' => true,
 					),
 			),
 
@@ -2655,9 +2655,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Posts (custom posts)', 'wm_domain' ),
-						'code'       => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="-1" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
-						'vc_enabled' => false,
+						'name'  => __( 'Posts (custom posts)', 'wm_domain' ),
+						'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="-1" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Posts (custom posts)', 'wm_domain' ),
@@ -3074,16 +3074,16 @@ $shortcode_definitions = array(
 		 * Pre
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'pre' => array(
 				'since'      => '1.0',
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Preformatted text', 'wm_domain' ),
-						'code' => '[PREFIX_pre]{{content}}[/PREFIX_pre]',
-						'vc_enabled' => true,
+						'name'  => __( 'Preformatted text', 'wm_domain' ),
+						'code'  => '[PREFIX_pre]{{content}}[/PREFIX_pre]',
+						'short' => true,
 					),
 			),
 
@@ -3099,16 +3099,16 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Pricing table', 'wm_domain' ),
-						'code'       => '[PREFIX_pricing_table no_margin="0/1" class=""]<br />[PREFIX_price caption="' . __( 'Price 1', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" type="NONE/featured/legend" class=""]{{content}}[/PREFIX_price]<br />[PREFIX_price caption="' . __( 'Price 2', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" type="NONE/featured/legend" class=""]' . __( 'Price 2 content goes here', 'wm_domain' ) . '[/PREFIX_price]<br />[/PREFIX_pricing_table]',
-						'vc_enabled' => false,
+						'name'  => __( 'Pricing table', 'wm_domain' ),
+						'code'  => '[PREFIX_pricing_table no_margin="0/1" class=""]<br />[PREFIX_price caption="' . __( 'Price 1', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" appearance="NONE/featured/legend" class=""]{{content}}[/PREFIX_price]<br />[PREFIX_price caption="' . __( 'Price 2', 'wm_domain' ) . '" color="" color_text="" cost="" heading_tag="" appearance="NONE/featured/legend" class=""]' . __( 'Price 2 content goes here', 'wm_domain' ) . '[/PREFIX_price]<br />[/PREFIX_pricing_table]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'            => __( 'Pricing table', 'wm_domain' ),
 						'output'          => '[PREFIX_pricing_table{{no_margin}}{{class}}]{{children}}[/PREFIX_pricing_table]',
-						'output_children' => '[PREFIX_price{{caption}}{{cost}}{{color}}{{color_text}}{{type_bb}}{{class}}]{{content}}[/PREFIX_price]',
+						'output_children' => '[PREFIX_price{{caption}}{{cost}}{{color}}{{color_text}}{{appearance}}{{class}}]{{content}}[/PREFIX_price]',
 						'params'          => array( 'no_margin', 'class' ),
-						'params_children' => array( 'caption', 'cost', 'color', 'color_text', 'type_bb', 'class', 'content' ),
+						'params_children' => array( 'caption', 'cost', 'color', 'color_text', 'appearance', 'class', 'content' ),
 						'form'            => array(
 
 								//Tab
@@ -3271,10 +3271,10 @@ $shortcode_definitions = array(
 												'title'  => __( 'Column style', 'wm_domain' ),
 												'fields' => array(
 
-													'type_bb' => array(
+													'appearance' => array(
 														'type' => 'select',
 														//description
-														'label' => __( 'Styling', 'wm_domain' ),
+														'label' => __( 'Appearance', 'wm_domain' ),
 														//type specific
 														'options' => array(
 																''         => __( 'Default price column', 'wm_domain' ),
@@ -3283,7 +3283,7 @@ $shortcode_definitions = array(
 															),
 														//preview
 														'preview' => array( 'type' => 'refresh' ),
-													), // /type_bb
+													), // /appearance
 
 													'class' => array(
 														'type' => 'text',
@@ -3361,9 +3361,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Price (pricing table item)', 'wm_domain' ),
-						'code'       => '[PREFIX_price caption="' . __( 'Title', 'wm_domain' ) . '" cost="99$" color="" color_text="" type="default/featured/legend" class=""]{{content}}[/PREFIX_price]',
-						'vc_enabled' => false,
+						'name'  => __( 'Price (pricing table item)', 'wm_domain' ),
+						'code'  => '[PREFIX_price caption="' . __( 'Title', 'wm_domain' ) . '" cost="99$" color="" color_text="" appearance="default/featured/legend" class=""]{{content}}[/PREFIX_price]',
+						'short' => false,
 					),
 				'vc_plugin'  => array(
 						'name'            => $this->prefix_shortcode_name . __( 'Price', 'wm_domain' ),
@@ -3416,10 +3416,10 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								array(
-									'heading'     => __( 'Styling', 'wm_domain' ),
+									'heading'     => __( 'Appearance', 'wm_domain' ),
 									'description' => '',
 									'type'        => 'dropdown',
-									'param_name'  => 'type',
+									'param_name'  => 'appearance',
 									'value'       => array(
 											__( 'Default price column', 'wm_domain' )  => '',
 											__( 'Featured price column', 'wm_domain' ) => 'featured',
@@ -3453,9 +3453,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Progress bar', 'wm_domain' ),
-						'code'       => '[PREFIX_progress color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" progress="75" class=""]{{content}}[/PREFIX_progress]',
-						'vc_enabled' => false,
+						'name'  => __( 'Progress bar', 'wm_domain' ),
+						'code'  => '[PREFIX_progress color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" progress="75" class=""]{{content}}[/PREFIX_progress]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Progress bar', 'wm_domain' ),
@@ -3571,16 +3571,16 @@ $shortcode_definitions = array(
 		 * Row
 		 *
 		 * @since    1.0
-		 * @version  1.0.9.8
+		 * @version  1.1
 		 */
 		'row' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Row', 'wm_domain' ),
-						'code' => ( wma_is_active_vc() ) ? ( '[vc_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
-						'vc_enabled' => false,
+						'name'  => __( 'Row', 'wm_domain' ),
+						'code'  => ( wma_is_active_vc() ) ? ( '[vc_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
+						'short' => false,
 					),
 			),
 
@@ -3589,16 +3589,16 @@ $shortcode_definitions = array(
 		 * Search form
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'search_form' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Search form', 'wm_domain' ),
-						'code'       => '[PREFIX_search_form /]',
-						'vc_enabled' => true,
+						'name'  => __( 'Search form', 'wm_domain' ),
+						'code'  => '[PREFIX_search_form /]',
+						'short' => true,
 					),
 			),
 
@@ -3614,9 +3614,9 @@ $shortcode_definitions = array(
 				'preprocess' => true,
 				'style'      => array(),
 				'generator'  => array(
-						'name' => __( 'Separator heading', 'wm_domain' ),
-						'code' => '[PREFIX_separator_heading align="' . implode( '/', array( 'left', 'center', 'right' ) ) . '" tag="' . implode( '/', array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) . '" class="" id=""]{{content}}[/PREFIX_separator_heading]',
-						'vc_enabled' => true,
+						'name'  => __( 'Separator heading', 'wm_domain' ),
+						'code'  => '[PREFIX_separator_heading align="' . implode( '/', array( 'left', 'center', 'right' ) ) . '" tag="' . implode( '/', array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) . '" class="" id=""]{{content}}[/PREFIX_separator_heading]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Separator heading', 'wm_domain' ),
@@ -3771,9 +3771,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Slideshow', 'wm_domain' ),
-						'code'       => '[PREFIX_slideshow ids="" nav="none/thumbs/pagination" size="full/' . implode( '/', get_intermediate_image_sizes() ) . '" speed="3000" class="" /]',
-						'vc_enabled' => false,
+						'name'  => __( 'Slideshow', 'wm_domain' ),
+						'code'  => '[PREFIX_slideshow ids="" nav="none/thumbs/pagination" size="full/' . implode( '/', get_intermediate_image_sizes() ) . '" speed="3000" class="" /]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Slideshow', 'wm_domain' ),
@@ -3913,14 +3913,14 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Table (CSV data)', 'wm_domain' ),
-						'code'       => '[PREFIX_table type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['table_types'] ) ) ) . '" separator="," class=""]{{content}}[/PREFIX_table]',
-						'vc_enabled' => false,
+						'name'  => __( 'Table (CSV data)', 'wm_domain' ),
+						'code'  => '[PREFIX_table appearance="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['table_appearance'] ) ) ) . '" separator="," class=""]{{content}}[/PREFIX_table]',
+						'short' => false,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Table', 'wm_domain' ),
-						'output' => '[PREFIX_table{{type_bb}}{{separator}}{{class}}]{{content}}[/PREFIX_table]',
-						'params' => array( 'type_bb', 'separator', 'class', 'content' ),
+						'output' => '[PREFIX_table{{appearance}}{{separator}}{{class}}]{{content}}[/PREFIX_table]',
+						'params' => array( 'appearance', 'separator', 'class', 'content' ),
 						'form'   => array(
 
 								//Tab
@@ -3936,15 +3936,15 @@ $shortcode_definitions = array(
 											'title'  => '',
 											'fields' => array(
 
-												'type_bb' => array(
+												'appearance' => array(
 													'type' => 'select',
 													//description
-													'label' => __( 'Table style', 'wm_domain' ),
+													'label' => __( 'Appearance', 'wm_domain' ),
 													//type specific
-													'options' => self::$codes_globals['table_types'],
+													'options' => self::$codes_globals['table_appearance'],
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
-												), // /type_bb
+												), // /appearance
 
 												'separator' => array(
 													'type' => 'text',
@@ -4005,10 +4005,10 @@ $shortcode_definitions = array(
 									'class'      => '',
 								),
 								30 => array(
-									'heading'    => __( 'Table style', 'wm_domain' ),
+									'heading'    => __( 'Appearance', 'wm_domain' ),
 									'type'       => 'dropdown',
-									'param_name' => 'type',
-									'value'      => array_flip( self::$codes_globals['table_types'] ),
+									'param_name' => 'appearance',
+									'value'      => array_flip( self::$codes_globals['table_appearance'] ),
 									'holder'     => 'hidden',
 									'class'      => '',
 								),
@@ -4038,9 +4038,9 @@ $shortcode_definitions = array(
 				'preprocess'         => false,
 				'style'              => array(),
 				'generator'          => array(
-						'name'       => __( 'Testimonials', 'wm_domain' ),
-						'code'       => '[PREFIX_testimonials testimonial="testimonial-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" category="optional-category-slug" scroll="0" pagination="0/1" no_margin="0/1" class=""]{{content}}[/PREFIX_testimonials]',
-						'vc_enabled' => false,
+						'name'  => __( 'Testimonials', 'wm_domain' ),
+						'code'  => '[PREFIX_testimonials testimonial="testimonial-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" category="optional-category-slug" scroll="0" pagination="0/1" no_margin="0/1" class=""]{{content}}[/PREFIX_testimonials]',
+						'short' => false,
 					),
 				'bb_plugin'          => array(
 						'name'   => __( 'Testimonials', 'wm_domain' ),
@@ -4389,16 +4389,16 @@ $shortcode_definitions = array(
 		 * Video
 		 *
 		 * @since    1.0
-		 * @version  1.0.9
+		 * @version  1.1
 		 */
 		'video' => array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Video', 'wm_domain' ),
-						'code'       => '[PREFIX_video src="" poster="" autoplay="0/1" loop="0/1" class="" /]',
-						'vc_enabled' => false,
+						'name'  => __( 'Video', 'wm_domain' ),
+						'code'  => '[PREFIX_video src="" poster="" autoplay="0/1" loop="0/1" class="" /]',
+						'short' => false,
 					),
 				'vc_plugin'  => array(
 						'name'     => $this->prefix_shortcode_name . __( 'Video', 'wm_domain' ),
@@ -4473,9 +4473,9 @@ $shortcode_definitions = array(
 				'preprocess' => false,
 				'style'      => array(),
 				'generator'  => array(
-						'name'       => __( 'Widgets area', 'wm_domain' ),
-						'code'       => '[PREFIX_widget_area area="' . implode( '/', array_keys( wma_ksort( wma_widget_areas_array() ) ) ) . '" class="" max_widgets_count="0" /]',
-						'vc_enabled' => true,
+						'name'  => __( 'Widgets area', 'wm_domain' ),
+						'code'  => '[PREFIX_widget_area area="' . implode( '/', array_keys( wma_ksort( wma_widget_areas_array() ) ) ) . '" class="" max_widgets_count="0" /]',
+						'short' => true,
 					),
 				'bb_plugin'  => array(
 						'name'   => __( 'Widgets area', 'wm_domain' ),

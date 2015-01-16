@@ -11,4 +11,4 @@
  * @version  1.1
  */
 
-.wm-accordion .wm-item-content,.wm-tabs-items .wm-item{display:none !important}.wm-tabs-items .wm-item:first-child{display:block !important}
+.fl-builder-lightbox .fl-lightbox{width:680px}.fl-builder-settings-tab{width:100%}.mce-container div[id^="wm_shortcodes_list_short_id"],.mce-container div[id^="wm_shortcodes_list_id"]{display:none}.mce-container div[id^="wm_shortcodes_list_short_id"]{display:block}

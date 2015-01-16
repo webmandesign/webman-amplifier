@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WebMan Amplifier v1.1\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
 "POT-Creation-Date: 2015-01-16 22:21+0100\n"
-"PO-Revision-Date: 2015-01-16 22:22+0100\n"
+"PO-Revision-Date: 2015-01-17 00:22+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: en\n"
@@ -21,19 +21,14 @@ msgstr ""
 
 # Copyright (C) 2015 WebMan - Oliver Juhas
 # This file is distributed under the same license as the WordPress package.
-
-
-
-
-
 #: class-wm-amplifier.php:128 class-wm-amplifier.php:140
 msgid "Cheatin&#8217; huh?"
-msgstr ""
+msgstr "Podvádzaš, čo?"
 
 #: class-wm-amplifier.php:233
 msgctxt "Plugin action link."
 msgid "Icon Font"
-msgstr ""
+msgstr "Ikonky"
 
 #: class-wm-amplifier.php:647
 msgid ""
@@ -43,36 +38,41 @@ msgid ""
 "href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
 "the Isotope licence</a>."
 msgstr ""
+"Používate WebMan Amplifier modul, ktorý obsahuje <a href=\"http://isotope."
+"metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />Ak "
+"používate tento modul na komrečnej webstránke, musíte si <a href=\"http://"
+"isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť Isotope "
+"licenciu</a>."
 
 #: includes/class-icon-font.php:236
 msgid "You do not have sufficient permissions to access this page."
-msgstr ""
+msgstr "Nemáte oprávnenia na prístup k tejto stránke."
 
 #: includes/class-icon-font.php:244
 msgctxt "Admin page title."
 msgid "Icon Font"
-msgstr ""
+msgstr "Ikonky"
 
 #: includes/class-icon-font.php:245
 msgctxt "Admin menu title."
 msgid "Icon Font"
-msgstr ""
+msgstr "Ikonky"
 
 #: includes/class-icon-font.php:267
 msgid "Click to display the recent available icons"
-msgstr ""
+msgstr "Kliknite sem pre zobrazenie aktuálne používaných ikoniek"
 
 #: includes/class-icon-font.php:283
 msgid "Fontello ZIP package file"
-msgstr ""
+msgstr "Súbor ZIP balíka Fontello"
 
 #: includes/class-icon-font.php:284
 msgid "Set the file"
-msgstr ""
+msgstr "Nastaviť súbor"
 
 #: includes/class-icon-font.php:285
 msgid "Fontello ZIP package file URL"
-msgstr ""
+msgstr "URL súboru ZIP balíka Fontello"
 
 #: includes/class-icon-font.php:286
 #, php-format
@@ -84,10 +84,15 @@ msgid ""
 "or use \"fontello\" as font name. Otherwise the font icons will not be "
 "generated.</strong>"
 msgstr ""
+"Nahrajte ZIP balík nových ikoniek generovaný pomocou <a%s>Fontello.com</a>."
+"<br />Použite tlačidlo vpravo pre znovunastavenie pôvodného balíka ikoniek."
+"<br /><strong>DÔLEŽITÉ: Nenastavujte vlastný názov ikonkového fontu na "
+"Fontello.com. Ponechajte pole prázdne, alebo použite názov \"fontello\". V "
+"opačnom prípade nebudú ikonky aplikované.</strong>"
 
 #: includes/class-icon-font.php:315
 msgid "Icon Font Setup"
-msgstr ""
+msgstr "Nastavenie ikoniek"
 
 #: includes/class-icon-font.php:321
 #, php-format
@@ -97,214 +102,219 @@ msgid ""
 "and add the \"zip\" file extension to the list of allowed <em>\"Upload file "
 "types\"</em>."
 msgstr ""
+"<strong>Používate WordPress multisite inštaláciu a nemáte nastavené "
+"nahrávanie ZIP súborov.</strong><br/>Navigujte do <a%s>nastavenia siete</a> "
+"a pridajte \"zip\" príponu súborov do zoznamu povolených typov súborov."
 
 #: includes/class-icon-font.php:323
 msgid "The ZIP file was processed successfully and new icon font was set up."
-msgstr ""
+msgstr "ZIP súbor bol úspešne spracovaný a nové ikonky boli aplikované."
 
 #: includes/class-icon-font.php:325
 msgid "<strong>Error during processing of your ZIP file.</strong>"
-msgstr ""
+msgstr "<strong>Nastala chyba počas spracovania ZIP súboru.</strong>"
 
 #: includes/class-icon-font.php:327
 msgid ""
 "<strong>Using this feature is reserved for administrators. You don't have "
 "the necessary permissions.</strong>"
 msgstr ""
+"<strong>Táto funkcionalita je prístupná iba pre administrátorov. Nemáte "
+"dostatočné oprávnenia.</strong>"
 
 #: includes/class-icon-font.php:329
 msgid "Default icon font file was restored."
-msgstr ""
+msgstr "Predvolený súbor ikoniek bol nastavený."
 
 #: includes/class-icon-font.php:345
 msgid "Icon Font File Setup"
-msgstr ""
+msgstr "Nastavenie súboru ikoniek"
 
 #: includes/class-icon-font.php:354
 msgid "Save changes"
-msgstr ""
+msgstr "Uložiť zmeny"
 
 #: includes/class-icon-font.php:364
 #, php-format
 msgid "To display the icon font, please, use this CSS file: %s"
-msgstr ""
+msgstr "Na zobrazenie ikoniek použite tento CSS súbor: %s"
 
 #: includes/class-icon-font.php:384
 msgid "Use default"
-msgstr ""
+msgstr "Použiť predvolené"
 
 #: includes/custom-posts/logos.php:92 includes/custom-posts/logos.php:93
 msgctxt "Custom post labels: Logos."
 msgid "Logos"
-msgstr ""
+msgstr "Logá"
 
 #: includes/custom-posts/logos.php:94 includes/custom-posts/logos.php:95
 #: includes/custom-posts/logos.php:96
 msgctxt "Custom post labels: Logos."
 msgid "Add New"
-msgstr ""
+msgstr "Pridať nové"
 
 #: includes/custom-posts/logos.php:97
 msgctxt "Custom post labels: Logos."
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: includes/custom-posts/logos.php:98
 msgctxt "Custom post labels: Logos."
 msgid "View"
-msgstr ""
+msgstr "Zobraziť"
 
 #: includes/custom-posts/logos.php:99
 msgctxt "Custom post labels: Logos."
 msgid "Search"
-msgstr ""
+msgstr "Hľadať"
 
 #: includes/custom-posts/logos.php:100
 msgctxt "Custom post labels: Logos."
 msgid "No item found"
-msgstr ""
+msgstr "Žiadne záznamy"
 
 #: includes/custom-posts/logos.php:101
 msgctxt "Custom post labels: Logos."
 msgid "No item found in trash"
-msgstr ""
+msgstr "Žiadne záznamy v koši"
 
 #: includes/custom-posts/logos.php:133
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: includes/custom-posts/logos.php:134 includes/custom-posts/staff.php:135
 msgid "Name"
-msgstr ""
+msgstr "Názov"
 
 #: includes/custom-posts/logos.php:135 includes/custom-posts/projects.php:137
 #: includes/custom-posts/testimonials.php:136
 #: includes/shortcodes/definitions/definitions.php:4140
 #: includes/shortcodes/definitions/definitions.php:4316
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
 #: includes/custom-posts/logos.php:136 includes/custom-posts/modules.php:137
 #: includes/custom-posts/projects.php:139
 msgid "Custom link"
-msgstr ""
+msgstr "Odkaz"
 
 #: includes/custom-posts/logos.php:137 includes/custom-posts/modules.php:139
 #: includes/custom-posts/projects.php:140 includes/custom-posts/staff.php:138
 #: includes/custom-posts/testimonials.php:138
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
 #: includes/custom-posts/logos.php:138 includes/custom-posts/modules.php:140
 #: includes/custom-posts/projects.php:141 includes/custom-posts/staff.php:139
 #: includes/custom-posts/testimonials.php:139
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: includes/custom-posts/logos.php:229
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories"
-msgstr ""
+msgstr "Logo kategórie"
 
 #: includes/custom-posts/logos.php:230
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Category"
-msgstr ""
+msgstr "Logo kategória"
 
 #: includes/custom-posts/logos.php:231
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Search Category"
-msgstr ""
+msgstr "Hľadať kategóriu"
 
 #: includes/custom-posts/logos.php:232
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "All Categories"
-msgstr ""
+msgstr "Všetky kategórie"
 
 #: includes/custom-posts/logos.php:233
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Parent Category"
-msgstr ""
+msgstr "Nadradená kategória"
 
 #: includes/custom-posts/logos.php:234
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Edit Category"
-msgstr ""
+msgstr "Upraviť kategóriu"
 
 #: includes/custom-posts/logos.php:235
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Update Category"
-msgstr ""
+msgstr "Aktualizovať kategóriu"
 
 #: includes/custom-posts/logos.php:236
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Add New Category"
-msgstr ""
+msgstr "Pridať novú kategóriu"
 
 #: includes/custom-posts/logos.php:237
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "New Category Title"
-msgstr ""
+msgstr "Názov novej kategórie"
 
 #: includes/custom-posts/logos.php:263
 msgid "Logos Custom Post Permalinks"
-msgstr ""
+msgstr "Trvalé odkazy pre logá"
 
 #: includes/custom-posts/logos.php:271
 msgid "Single logo permalink"
-msgstr ""
+msgstr "Trvalý odkaz logo stránky"
 
 #: includes/custom-posts/logos.php:282
 msgid "Logo category base"
-msgstr ""
+msgstr "Základ logo kategórie"
 
 #: includes/custom-posts/logos.php:304
 msgid "You can change the Logos custom post type permalinks here."
-msgstr ""
+msgstr "Tu môžete zmeniť trvalé odkazy pre Logá."
 
 #: includes/custom-posts/logos.php:330 includes/custom-posts/logos.php:400
 msgid "Logo settings"
-msgstr ""
+msgstr "Nastavenia loga"
 
 #: includes/custom-posts/logos.php:336 includes/custom-posts/modules.php:399
 #: includes/custom-posts/testimonials.php:336
 msgid "Set featured image"
-msgstr ""
+msgstr "Nastaviť prezentačný obrázok"
 
 #: includes/custom-posts/logos.php:336
 msgid "Set the logo image as the featured image of the post"
-msgstr ""
+msgstr "Nastavte logo obrázok ako prezentačný obrázok článku"
 
 #: includes/custom-posts/logos.php:343 includes/custom-posts/modules.php:364
 #: includes/custom-posts/projects.php:387 includes/custom-posts/staff.php:388
 #: includes/custom-posts/testimonials.php:351
 msgid "Custom link URL"
-msgstr ""
+msgstr "URL odkazu"
 
 #: includes/custom-posts/logos.php:344 includes/custom-posts/modules.php:365
 #: includes/custom-posts/projects.php:388 includes/custom-posts/staff.php:389
 #: includes/custom-posts/staff.php:398
 #: includes/custom-posts/testimonials.php:352
 msgid "No link will be displayed / applied when left blank"
-msgstr ""
+msgstr "Ak ponecháte prázdne, odkaz sa nezobrazí / neaplikuje"
 
 #: includes/custom-posts/logos.php:352 includes/custom-posts/modules.php:373
 #: includes/custom-posts/projects.php:395 includes/custom-posts/staff.php:406
 #: includes/custom-posts/testimonials.php:360
 msgid "Custom link action"
-msgstr ""
+msgstr "Akcia odkazu"
 
 #: includes/custom-posts/logos.php:353 includes/custom-posts/modules.php:374
 #: includes/custom-posts/projects.php:396 includes/custom-posts/staff.php:407
 #: includes/custom-posts/testimonials.php:361
 msgid "Choose how to display / apply the link set above"
-msgstr ""
+msgstr "Zvoľte ako zobraziť / aplikovať vyššie nastavený odkaz"
 
 #: includes/custom-posts/logos.php:355 includes/custom-posts/modules.php:376
 #: includes/custom-posts/projects.php:404 includes/custom-posts/staff.php:409
 #: includes/custom-posts/testimonials.php:363
 msgid "Open in new tab / window"
-msgstr ""
+msgstr "Otvoriť v novom okne / záložke"
 
 #: includes/custom-posts/logos.php:356 includes/custom-posts/modules.php:377
 #: includes/custom-posts/projects.php:405 includes/custom-posts/staff.php:410
@@ -317,539 +327,541 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2221
 #: includes/shortcodes/definitions/definitions.php:4978
 msgid "Open in same window"
-msgstr ""
+msgstr "Otvoriť v pôvodnom okne"
 
 #: includes/custom-posts/modules.php:93
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules"
-msgstr ""
+msgstr "Obsahové moduly"
 
 #: includes/custom-posts/modules.php:94
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module"
-msgstr ""
+msgstr "Obsahový modul"
 
 #: includes/custom-posts/modules.php:95 includes/custom-posts/modules.php:97
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New"
-msgstr ""
+msgstr "Pridať nový"
 
 #: includes/custom-posts/modules.php:96
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New module"
-msgstr ""
+msgstr "Pridať nový modul"
 
 #: includes/custom-posts/modules.php:98
 msgctxt "Custom post labels: Content Modules."
 msgid "Edit Module"
-msgstr ""
+msgstr "Upraviť modul"
 
 #: includes/custom-posts/modules.php:99
 msgctxt "Custom post labels: Content Modules."
 msgid "View Module"
-msgstr ""
+msgstr "Zobraziť modul"
 
 #: includes/custom-posts/modules.php:100
 msgctxt "Custom post labels: Content Modules."
 msgid "Search Modules"
-msgstr ""
+msgstr "Hľadať moduly"
 
 #: includes/custom-posts/modules.php:101
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found"
-msgstr ""
+msgstr "Modul sa nenašiel"
 
 #: includes/custom-posts/modules.php:102
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found in trash"
-msgstr ""
+msgstr "Žiadny modul v koši"
 
 #: includes/custom-posts/modules.php:134
 #: includes/custom-posts/projects.php:135
 #: includes/shortcodes/definitions/definitions.php:4950
 msgid "Image"
-msgstr ""
+msgstr "Obrázok"
 
 #: includes/custom-posts/modules.php:135
 msgid "Content module"
-msgstr ""
+msgstr "Obsahový modul"
 
 #: includes/custom-posts/modules.php:136
 #: includes/shortcodes/definitions/definitions.php:326
 #: includes/shortcodes/definitions/definitions.php:633
 #: includes/shortcodes/definitions/definitions.php:773
 msgid "Tags"
-msgstr ""
+msgstr "Značky"
 
 #: includes/custom-posts/modules.php:138
 #: includes/custom-posts/testimonials.php:137
 msgid "Slug"
-msgstr ""
+msgstr "Slug"
 
 #: includes/custom-posts/modules.php:249
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tags"
-msgstr ""
+msgstr "Značky modulov"
 
 #: includes/custom-posts/modules.php:250
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tag"
-msgstr ""
+msgstr "Značka modulov"
 
 #: includes/custom-posts/modules.php:251
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Search Tags"
-msgstr ""
+msgstr "Hľadať značky"
 
 #: includes/custom-posts/modules.php:252
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "All Tags"
-msgstr ""
+msgstr "Všetky značky"
 
 #: includes/custom-posts/modules.php:253
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Edit Tag"
-msgstr ""
+msgstr "Upraviť značku"
 
 #: includes/custom-posts/modules.php:254
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Update Tag"
-msgstr ""
+msgstr "Aktualizovať značku"
 
 #: includes/custom-posts/modules.php:255
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Add New Tag"
-msgstr ""
+msgstr "Pridať novú značku"
 
 #: includes/custom-posts/modules.php:256
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "New Tag Title"
-msgstr ""
+msgstr "Názov novej značky"
 
 #: includes/custom-posts/modules.php:282
 msgid "Content Modules Custom Post Permalinks"
-msgstr ""
+msgstr "Trvalé odkazy obsahových modulov"
 
 #: includes/custom-posts/modules.php:290
 msgid "Single module permalink"
-msgstr ""
+msgstr "Trvalý odkaz stránky obsahového modulu"
 
 #: includes/custom-posts/modules.php:301
 msgid "Module tag base"
-msgstr ""
+msgstr "Základ značky modulov"
 
 #: includes/custom-posts/modules.php:323
 msgid "You can change the Content Modules custom post type permalinks here."
-msgstr ""
+msgstr "Tu môžete zmeniť trvalé odkazy pre obsahové moduly."
 
 #: includes/custom-posts/modules.php:357
 msgctxt "Metabox section title."
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: includes/custom-posts/modules.php:386
 msgid "Use as icon box"
-msgstr ""
+msgstr "Použiť ako ikonkový box"
 
 #: includes/custom-posts/modules.php:387
 msgid "Creates an icon box"
-msgstr ""
+msgstr "Vytvorí ikonkový box"
 
 #: includes/custom-posts/modules.php:399
 msgid ""
 "Set the icon as featured image of the post. If the font icon is used "
 "instead, it will be prioritized."
 msgstr ""
+"Nastavte ikonku ako prezentačný obrázok článku. Ak použijete ikonkový font, "
+"bude uprednostnený."
 
 #: includes/custom-posts/modules.php:407
 msgid "...or choose a font icon"
-msgstr ""
+msgstr "...alebo zvoľte ikonku z fontu"
 
 #: includes/custom-posts/modules.php:408
 msgid "Select from predefined font icons"
-msgstr ""
+msgstr "Zvoľte z preddefinovaných ikoniek vo fonte"
 
 #: includes/custom-posts/modules.php:419
 msgid "Font icon color"
-msgstr ""
+msgstr "Farba ikonky"
 
 #: includes/custom-posts/modules.php:420
 msgid "Set the color of the icon font"
-msgstr ""
+msgstr "Nastavte farbu ikonky"
 
 #: includes/custom-posts/modules.php:437
 msgid "Icon background color"
-msgstr ""
+msgstr "Farba pozadia ikonky"
 
 #: includes/custom-posts/modules.php:438
 msgid "Set the color of the icon background"
-msgstr ""
+msgstr "Nastavte farbu pozadia ikonky"
 
 #: includes/custom-posts/modules.php:495
 msgid "Module settings"
-msgstr ""
+msgstr "Nastavenia modulu"
 
 #: includes/custom-posts/projects.php:94
 msgctxt "Custom post labels: Projects."
 msgid "Projects"
-msgstr ""
+msgstr "Projekty"
 
 #: includes/custom-posts/projects.php:95
 msgctxt "Custom post labels: Projects."
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: includes/custom-posts/projects.php:96 includes/custom-posts/projects.php:98
 msgctxt "Custom post labels: Projects."
 msgid "Add New"
-msgstr ""
+msgstr "Pridať nový"
 
 #: includes/custom-posts/projects.php:97
 msgctxt "Custom post labels: Projects."
 msgid "Add New Project"
-msgstr ""
+msgstr "Pridať nový projekt"
 
 #: includes/custom-posts/projects.php:99
 msgctxt "Custom post labels: Projects."
 msgid "Edit Project"
-msgstr ""
+msgstr "Upraviť projekt"
 
 #: includes/custom-posts/projects.php:100
 msgctxt "Custom post labels: Projects."
 msgid "View Project"
-msgstr ""
+msgstr "Zobraziť projekt"
 
 #: includes/custom-posts/projects.php:101
 msgctxt "Custom post labels: Projects."
 msgid "Search Projects"
-msgstr ""
+msgstr "Hľadať projekty"
 
 #: includes/custom-posts/projects.php:102
 msgctxt "Custom post labels: Projects."
 msgid "No project found"
-msgstr ""
+msgstr "Žiadne projekty"
 
 #: includes/custom-posts/projects.php:103
 msgctxt "Custom post labels: Projects."
 msgid "No project found in trash"
-msgstr ""
+msgstr "Žiadne projekty v koši"
 
 #: includes/custom-posts/projects.php:136
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: includes/custom-posts/projects.php:138
 #: includes/shortcodes/definitions/definitions.php:1585
 #: includes/shortcodes/definitions/definitions.php:1793
 msgid "Tag"
-msgstr ""
+msgstr "Značka"
 
 #: includes/custom-posts/projects.php:245
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Categories"
-msgstr ""
+msgstr "Kategórie projektov"
 
 #: includes/custom-posts/projects.php:246
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Category"
-msgstr ""
+msgstr "Kategória projektov"
 
 #: includes/custom-posts/projects.php:247
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Search Categories"
-msgstr ""
+msgstr "Hľadať kategórie"
 
 #: includes/custom-posts/projects.php:248
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "All Categories"
-msgstr ""
+msgstr "Všetky kategórie"
 
 #: includes/custom-posts/projects.php:249
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Parent Category"
-msgstr ""
+msgstr "Nadradená kategória"
 
 #: includes/custom-posts/projects.php:250
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Edit Category"
-msgstr ""
+msgstr "Upraviť kategóriu"
 
 #: includes/custom-posts/projects.php:251
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Update Category"
-msgstr ""
+msgstr "Aktualizovať kategóriu"
 
 #: includes/custom-posts/projects.php:252
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Add New Category"
-msgstr ""
+msgstr "Pridať novú kategóriu"
 
 #: includes/custom-posts/projects.php:253
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "New Category Title"
-msgstr ""
+msgstr "Názov novej kategórie"
 
 #: includes/custom-posts/projects.php:269
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tags"
-msgstr ""
+msgstr "Značky projektov"
 
 #: includes/custom-posts/projects.php:270
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tag"
-msgstr ""
+msgstr "Značka projektov"
 
 #: includes/custom-posts/projects.php:271
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Search Tags"
-msgstr ""
+msgstr "Hľadať značky"
 
 #: includes/custom-posts/projects.php:272
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "All Tags"
-msgstr ""
+msgstr "Všetky značky"
 
 #: includes/custom-posts/projects.php:273
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Edit Tag"
-msgstr ""
+msgstr "Upraviť značku"
 
 #: includes/custom-posts/projects.php:274
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Update Tag"
-msgstr ""
+msgstr "Aktualizovať značku"
 
 #: includes/custom-posts/projects.php:275
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Add New Tag"
-msgstr ""
+msgstr "Pridať novú značku"
 
 #: includes/custom-posts/projects.php:276
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "New Tag Title"
-msgstr ""
+msgstr "Názov novej značky"
 
 #: includes/custom-posts/projects.php:302
 msgid "Projects Custom Post Permalinks"
-msgstr ""
+msgstr "Trvalé odkazy projektov"
 
 #: includes/custom-posts/projects.php:310
 msgid "Single project permalink"
-msgstr ""
+msgstr "Trvalý odkaz projektu"
 
 #: includes/custom-posts/projects.php:321
 msgid "Project category base"
-msgstr ""
+msgstr "Základ kategórie projektov"
 
 #: includes/custom-posts/projects.php:332
 msgid "Project tag base"
-msgstr ""
+msgstr "Základ značky projektov"
 
 #: includes/custom-posts/projects.php:354
 msgid "You can change the Projects custom post type permalinks here."
-msgstr ""
+msgstr "Tu môžete zmeniť trvalé odkazy pre logá."
 
 #: includes/custom-posts/projects.php:380
 msgctxt "Metabox section title."
 msgid "Attributes"
-msgstr ""
+msgstr "Atribúty"
 
 #: includes/custom-posts/projects.php:399
 msgid "Project page"
-msgstr ""
+msgstr "Stránka projektu"
 
 #: includes/custom-posts/projects.php:400
 msgid "Display link on project page"
-msgstr ""
+msgstr "Zobraziť odkaz na stránke projektu"
 
 #: includes/custom-posts/projects.php:402
 msgid "Apply directly in projects list"
-msgstr ""
+msgstr "Aplikovať priamo v zozname projektov"
 
 #: includes/custom-posts/projects.php:403
 msgid "Open in popup window (videos and images only)"
-msgstr ""
+msgstr "Zobraziť vo vyskakovacom okne (platné iba pre videá a obrázky)"
 
 #: includes/custom-posts/projects.php:450
 msgid "Project settings"
-msgstr ""
+msgstr "Nastavenia projektu"
 
 #: includes/custom-posts/staff.php:93
 msgctxt "Custom post labels: Staff."
 msgid "Staff"
-msgstr ""
+msgstr "Zamestnanci"
 
 #: includes/custom-posts/staff.php:94
 msgctxt "Custom post labels: Staff."
 msgid "Staff Member"
-msgstr ""
+msgstr "Zamestnanec"
 
 #: includes/custom-posts/staff.php:95 includes/custom-posts/staff.php:97
 msgctxt "Custom post labels: Staff."
 msgid "Add New"
-msgstr ""
+msgstr "Pridať nové"
 
 #: includes/custom-posts/staff.php:96
 msgctxt "Custom post labels: Staff."
 msgid "Add New Member"
-msgstr ""
+msgstr "Pridať nového zamestnanca"
 
 #: includes/custom-posts/staff.php:98
 msgctxt "Custom post labels: Staff."
 msgid "Edit Member"
-msgstr ""
+msgstr "Upraviť zamestnanca"
 
 #: includes/custom-posts/staff.php:99
 msgctxt "Custom post labels: Staff."
 msgid "View Member"
-msgstr ""
+msgstr "Zobraziť zamestnanca"
 
 #: includes/custom-posts/staff.php:100
 msgctxt "Custom post labels: Staff."
 msgid "Search Members"
-msgstr ""
+msgstr "Hľadať zamestnancov"
 
 #: includes/custom-posts/staff.php:101
 msgctxt "Custom post labels: Staff."
 msgid "No member found"
-msgstr ""
+msgstr "Žiadne záznamy"
 
 #: includes/custom-posts/staff.php:102
 msgctxt "Custom post labels: Staff."
 msgid "No members found in trash"
-msgstr ""
+msgstr "Žiadne záznamy v koši"
 
 #: includes/custom-posts/staff.php:134
 #: includes/custom-posts/testimonials.php:134
 msgid "Photo"
-msgstr ""
+msgstr "Fotografia"
 
 #: includes/custom-posts/staff.php:136
 msgid "Position"
-msgstr ""
+msgstr "Pracovná pozícia"
 
 #: includes/custom-posts/staff.php:137
 msgid "Department"
-msgstr ""
+msgstr "Oddelenie"
 
 #: includes/custom-posts/staff.php:237
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Departments"
-msgstr ""
+msgstr "Oddelenia"
 
 #: includes/custom-posts/staff.php:238
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Department"
-msgstr ""
+msgstr "Oddelenie"
 
 #: includes/custom-posts/staff.php:239
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Search Departments"
-msgstr ""
+msgstr "Hľadať oddelenia"
 
 #: includes/custom-posts/staff.php:240
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "All Departments"
-msgstr ""
+msgstr "Všetky oddelenia"
 
 #: includes/custom-posts/staff.php:241
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Parent Department"
-msgstr ""
+msgstr "Nadradené oddelenie"
 
 #: includes/custom-posts/staff.php:242
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Edit Department"
-msgstr ""
+msgstr "Upraviť oddelenie"
 
 #: includes/custom-posts/staff.php:243
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Update Department"
-msgstr ""
+msgstr "Aktualizovať oddelenie"
 
 #: includes/custom-posts/staff.php:244
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Add New Department"
-msgstr ""
+msgstr "Pridať nové oddelenie"
 
 #: includes/custom-posts/staff.php:245
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "New Department Title"
-msgstr ""
+msgstr "Názov nového oddelenia"
 
 #: includes/custom-posts/staff.php:261
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Positions"
-msgstr ""
+msgstr "Pracovné pozície"
 
 #: includes/custom-posts/staff.php:262
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Position"
-msgstr ""
+msgstr "Pracovná pozícia"
 
 #: includes/custom-posts/staff.php:263
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Search Positions"
-msgstr ""
+msgstr "Hľadať pracovné pozície"
 
 #: includes/custom-posts/staff.php:264
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "All Positions"
-msgstr ""
+msgstr "Všetky pracovné pozície"
 
 #: includes/custom-posts/staff.php:265
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Edit Position"
-msgstr ""
+msgstr "Upraviť pracovnú pozíciu"
 
 #: includes/custom-posts/staff.php:266
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Update Position"
-msgstr ""
+msgstr "Aktualizovať pracovnú pozíciu"
 
 #: includes/custom-posts/staff.php:267
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Add New Position"
-msgstr ""
+msgstr "Pridať novú pracovnú pozíciu"
 
 #: includes/custom-posts/staff.php:268
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "New Position Title"
-msgstr ""
+msgstr "Názov novej pracovnej pozície"
 
 #: includes/custom-posts/staff.php:294
 msgid "Staff Custom Post Permalinks"
-msgstr ""
+msgstr "Trvalé odkazy pre zamestnancov"
 
 #: includes/custom-posts/staff.php:302
 msgid "Single staff permalink"
-msgstr ""
+msgstr "Trvalý odkaz zamestnanca"
 
 #: includes/custom-posts/staff.php:313
 msgid "Staff department base"
-msgstr ""
+msgstr "Základ oddelenia"
 
 #: includes/custom-posts/staff.php:324
 msgid "Staff positions base"
-msgstr ""
+msgstr "Základ pracovnej pozície"
 
 #: includes/custom-posts/staff.php:346
 msgid "You can change the Staff custom post type permalinks here."
-msgstr ""
+msgstr "Tu môžete zmeniť trvalé odkazy pre zamestnancov."
 
 #: includes/custom-posts/staff.php:381
 msgctxt "Metabox section title."
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: includes/custom-posts/staff.php:397
 msgid "...or link to a page"
-msgstr ""
+msgstr "...alebo odkaz na existujúcu stránku"
 
 #: includes/custom-posts/staff.php:424
 msgctxt "Metabox section title."
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakty"
 
 #: includes/custom-posts/staff.php:433
 #: includes/shortcodes/definitions/definitions.php:299
@@ -865,7 +877,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2507
 #: includes/shortcodes/definitions/definitions.php:2610
 msgid "Icon"
-msgstr ""
+msgstr "Ikonka"
 
 #: includes/custom-posts/staff.php:440
 #: includes/custom-posts/testimonials.php:135
@@ -875,261 +887,263 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:754
 #: includes/shortcodes/definitions/definitions.php:3365
 msgid "Title"
-msgstr ""
+msgstr "Titulok"
 
 #: includes/custom-posts/staff.php:445
 msgid "HTML content"
-msgstr ""
+msgstr "HTML obsah"
 
 #: includes/custom-posts/staff.php:451
 msgid "Staff contacts"
-msgstr ""
+msgstr "Kontaktné údaje zamestnanca"
 
 #: includes/custom-posts/staff.php:495
 msgid "Staff settings"
-msgstr ""
+msgstr "Nasstavenia zamestnanca"
 
 #: includes/custom-posts/testimonials.php:93
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonials"
-msgstr ""
+msgstr "Posudky"
 
 #: includes/custom-posts/testimonials.php:94
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial"
-msgstr ""
+msgstr "Posudok"
 
 #: includes/custom-posts/testimonials.php:95
 #: includes/custom-posts/testimonials.php:97
 msgctxt "Custom post labels: Testimonials."
 msgid "Add New"
-msgstr ""
+msgstr "Pridať nový"
 
 #: includes/custom-posts/testimonials.php:96
 msgctxt "Custom post labels: Testimonials."
 msgid "Add New Testimonial"
-msgstr ""
+msgstr "Pridať nový posudok"
 
 #: includes/custom-posts/testimonials.php:98
 msgctxt "Custom post labels: Testimonials."
 msgid "Edit Testimonial"
-msgstr ""
+msgstr "Upraviť posudok"
 
 #: includes/custom-posts/testimonials.php:99
 msgctxt "Custom post labels: Testimonials."
 msgid "View Testimonial"
-msgstr ""
+msgstr "Zobraziť posudok"
 
 #: includes/custom-posts/testimonials.php:100
 msgctxt "Custom post labels: Testimonials."
 msgid "Search Testimonials"
-msgstr ""
+msgstr "Hľadať posudky"
 
 #: includes/custom-posts/testimonials.php:101
 msgctxt "Custom post labels: Testimonials."
 msgid "No testimonial found"
-msgstr ""
+msgstr "Žiadne záznamy"
 
 #: includes/custom-posts/testimonials.php:102
 msgctxt "Custom post labels: Testimonials."
 msgid "No testimonials found in trash"
-msgstr ""
+msgstr "Žiadne záznamy v koši"
 
 #: includes/custom-posts/testimonials.php:229
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Categories"
-msgstr ""
+msgstr "Kategórie"
 
 #: includes/custom-posts/testimonials.php:230
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
 #: includes/custom-posts/testimonials.php:231
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Search Categories"
-msgstr ""
+msgstr "Hľadať kategórie"
 
 #: includes/custom-posts/testimonials.php:232
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "All Categories"
-msgstr ""
+msgstr "Všetky kategórie"
 
 #: includes/custom-posts/testimonials.php:233
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Parent Category"
-msgstr ""
+msgstr "Nadradená kategória"
 
 #: includes/custom-posts/testimonials.php:234
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Edit Category"
-msgstr ""
+msgstr "Upraviť kategóriu"
 
 #: includes/custom-posts/testimonials.php:235
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Update Category"
-msgstr ""
+msgstr "Aktualizovať kategóriu"
 
 #: includes/custom-posts/testimonials.php:236
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Add New Category"
-msgstr ""
+msgstr "Pridať novú kategóriu"
 
 #: includes/custom-posts/testimonials.php:237
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "New Category Title"
-msgstr ""
+msgstr "Názov novej kategórie"
 
 #: includes/custom-posts/testimonials.php:263
 msgid "Testimonials Custom Post Permalinks"
-msgstr ""
+msgstr "Trvalé odkazy posudkov"
 
 #: includes/custom-posts/testimonials.php:271
 msgid "Single testimonial permalink"
-msgstr ""
+msgstr "Trvalý odkaz posudku"
 
 #: includes/custom-posts/testimonials.php:282
 msgid "Testimonial category base"
-msgstr ""
+msgstr "Základ kategórie posudkov"
 
 #: includes/custom-posts/testimonials.php:304
 msgid "You can change the Testimonials custom post type permalinks here."
-msgstr ""
+msgstr "Tu môžete zmeniť trvalé odkazy pre posudky."
 
 #: includes/custom-posts/testimonials.php:330
 msgctxt "Metabox section title."
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: includes/custom-posts/testimonials.php:336
 msgid "You can set the testimonial author photo or logo as post featured image"
 msgstr ""
+"Môžete nastaviť fotografiu alebo logo autora posudku ako prezentačný obrázok "
+"článku"
 
 #: includes/custom-posts/testimonials.php:343
 msgid "Testimonial author"
-msgstr ""
+msgstr "Autor posudku"
 
 #: includes/custom-posts/testimonials.php:344
 msgid "Set the testimonial author name here"
-msgstr ""
+msgstr "Nastavte meno autora posudku"
 
 #: includes/custom-posts/testimonials.php:408
 msgid "Testimonial settings"
-msgstr ""
+msgstr "Nastavenia posudku"
 
 #: includes/functions.php:251
 msgid "All posts"
-msgstr ""
+msgstr "Všetky články"
 
 #: includes/functions.php:342
 msgid "- Select item -"
-msgstr ""
+msgstr "- Zvoliť záznam -"
 
 #: includes/functions.php:384
 msgid "- Select a page -"
-msgstr ""
+msgstr "- Zvoliť stránku -"
 
 #: includes/functions.php:436
 msgid "- Select area -"
-msgstr ""
+msgstr "- Zvoliť oblasť -"
 
 #: includes/functions.php:1268
 msgid "Original image size (full)"
-msgstr ""
+msgstr "Pôvodná veľkosť obrázku"
 
 #: includes/functions.php:1269
 msgctxt "WordPress image size actions."
 msgid "scaled"
-msgstr ""
+msgstr "zmenšený"
 
 #: includes/functions.php:1269
 msgctxt "WordPress image size actions."
 msgid "cropped"
-msgstr ""
+msgstr "orezaný"
 
 #: includes/metabox/class-metabox.php:376
 #: includes/metabox/class-metabox.php:550
 msgid "Wait, I need to save my changes first!"
-msgstr ""
+msgstr "Počkať, najprv musím uložiť zmeny!"
 
 #: includes/metabox/class-metabox.php:376
 #: includes/metabox/class-metabox.php:550
 msgid "OK, leave without saving..."
-msgstr ""
+msgstr "OK, odísť bez uloženia zmien..."
 
 #: includes/metabox/class-metabox.php:434
 msgctxt "Metabox tab title for native WordPress visual editor tab."
 msgid "Content"
-msgstr ""
+msgstr "Obsah"
 
 #: includes/metabox/class-metabox.php:531
 msgid "Use page builder to create the content."
-msgstr ""
+msgstr "Použite nástroj pre tvorbu stánok pre vytvorenie obsahu."
 
 #: includes/metabox/fields/images.php:44
 msgid "Set image"
-msgstr ""
+msgstr "Nastaviť obrázok"
 
 #: includes/metabox/fields/images.php:102
 msgid "Image URL"
-msgstr ""
+msgstr "URL obrázku"
 
 #: includes/metabox/fields/images.php:122
 msgid "Remove image"
-msgstr ""
+msgstr "Odstrániť obrázok"
 
 #: includes/metabox/fields/images.php:198
 msgid "Set images"
-msgstr ""
+msgstr "Nastaviť obrázky"
 
 #: includes/metabox/fields/images.php:228
 #: includes/metabox/fields/images.php:304
 msgid "Edit images"
-msgstr ""
+msgstr "Upraviť obrázky"
 
 #: includes/metabox/fields/images.php:234
 msgid "Loading images"
-msgstr ""
+msgstr "Načítavam obrázky"
 
 #: includes/metabox/fields/images.php:236
 msgid "Remove images"
-msgstr ""
+msgstr "Odstrániť obrázky"
 
 #: includes/metabox/fields/images.php:292
 msgid "You do not have permissions to do this!"
-msgstr ""
+msgstr "Na toto nemáte dostatočné oprávnenia!"
 
 #: includes/metabox/fields/radio.php:113
 #: includes/metabox/fields/select.php:112
 #: includes/metabox/fields/slider.php:75 includes/metabox/fields/texts.php:122
 #: includes/metabox/fields/texts.php:262
 msgid "Use a default value"
-msgstr ""
+msgstr "Použiť prednastavenú hodnotu"
 
 #: includes/metabox/fields/repeater.php:76
 msgid "Move the item"
-msgstr ""
+msgstr "Presunúť položku"
 
 #: includes/metabox/fields/repeater.php:77
 msgid "Remove this item"
-msgstr ""
+msgstr "Odstrániť položku"
 
 #: includes/shortcodes/class-shortcodes.php:139
 #: includes/widgets/w-posts.php:116
 msgid "Posts"
-msgstr ""
+msgstr "Články"
 
 #: includes/shortcodes/class-shortcodes.php:141
 msgid "Logos"
-msgstr ""
+msgstr "Logá"
 
 #: includes/shortcodes/class-shortcodes.php:144
 msgid "Projects"
-msgstr ""
+msgstr "Projekty"
 
 #: includes/shortcodes/class-shortcodes.php:147
 msgid "Staff"
-msgstr ""
+msgstr "Zamestnanci"
 
 #: includes/shortcodes/class-shortcodes.php:169
 #: includes/shortcodes/definitions/definitions.php:1631
@@ -1141,13 +1155,13 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4186
 #: includes/shortcodes/definitions/definitions.php:4353
 msgid "Left"
-msgstr ""
+msgstr "Vľavo"
 
 #: includes/shortcodes/class-shortcodes.php:170
 #: includes/shortcodes/definitions/definitions.php:3674
 #: includes/shortcodes/definitions/definitions.php:3735
 msgid "Center"
-msgstr ""
+msgstr "V strede"
 
 #: includes/shortcodes/class-shortcodes.php:171
 #: includes/shortcodes/definitions/definitions.php:1632
@@ -1159,123 +1173,123 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4187
 #: includes/shortcodes/definitions/definitions.php:4354
 msgid "Right"
-msgstr ""
+msgstr "Vpravo"
 
 #: includes/shortcodes/class-shortcodes.php:174
 msgid "Blue"
-msgstr ""
+msgstr "Modrá"
 
 #: includes/shortcodes/class-shortcodes.php:175
 msgid "Gray"
-msgstr ""
+msgstr "Sivá"
 
 #: includes/shortcodes/class-shortcodes.php:176
 msgid "Green"
-msgstr ""
+msgstr "Zelená"
 
 #: includes/shortcodes/class-shortcodes.php:177
 msgid "Orange"
-msgstr ""
+msgstr "Oranžová"
 
 #: includes/shortcodes/class-shortcodes.php:178
 msgid "Red"
-msgstr ""
+msgstr "Červená"
 
 #: includes/shortcodes/class-shortcodes.php:182
 msgid "Line"
-msgstr ""
+msgstr "Čiara"
 
 #: includes/shortcodes/class-shortcodes.php:183
 msgid "Dotted"
-msgstr ""
+msgstr "Bodky"
 
 #: includes/shortcodes/class-shortcodes.php:184
 msgid "Dashed"
-msgstr ""
+msgstr "Pomlčky"
 
 #: includes/shortcodes/class-shortcodes.php:185
 msgid "Double line"
-msgstr ""
+msgstr "Dvojitá čiara"
 
 #: includes/shortcodes/class-shortcodes.php:186
 msgid "Whitespace"
-msgstr ""
+msgstr "Prázdne miesto"
 
 #: includes/shortcodes/class-shortcodes.php:189
 msgid "Circle"
-msgstr ""
+msgstr "Kruh"
 
 #: includes/shortcodes/class-shortcodes.php:190
 msgid "Square"
-msgstr ""
+msgstr "Štvorec"
 
 #: includes/shortcodes/class-shortcodes.php:191
 msgid "Rounded square"
-msgstr ""
+msgstr "Zaoblený štvorec"
 
 #: includes/shortcodes/class-shortcodes.php:192
 msgid "Leaf left"
-msgstr ""
+msgstr "List vľavo"
 
 #: includes/shortcodes/class-shortcodes.php:193
 msgid "Leaf right"
-msgstr ""
+msgstr "List vpravo"
 
 #: includes/shortcodes/class-shortcodes.php:194
 msgid "Half circle"
-msgstr ""
+msgstr "Polkruh"
 
 #: includes/shortcodes/class-shortcodes.php:201
 msgid "Small"
-msgstr ""
+msgstr "Malé"
 
 #: includes/shortcodes/class-shortcodes.php:202
 msgid "Medium"
-msgstr ""
+msgstr "Stredné"
 
 #: includes/shortcodes/class-shortcodes.php:203
 msgid "Large"
-msgstr ""
+msgstr "Veľké"
 
 #: includes/shortcodes/class-shortcodes.php:204
 msgid "Extra-large"
-msgstr ""
+msgstr "Extra veľké"
 
 #: includes/shortcodes/class-shortcodes.php:216
 msgid "Basic"
-msgstr ""
+msgstr "Základné"
 
 #: includes/shortcodes/class-shortcodes.php:217
 msgid "Bordered"
-msgstr ""
+msgstr "Orámované"
 
 #: includes/shortcodes/class-shortcodes.php:218
 msgid "Zebra striping"
-msgstr ""
+msgstr "Zebra pruhy"
 
 #: includes/shortcodes/class-shortcodes.php:219
 msgid "Bordered zebra striping"
-msgstr ""
+msgstr "Orámované zebra pruhy"
 
 #: includes/shortcodes/definitions/definitions.php:123
 msgid "Accordion / Toggle"
-msgstr ""
+msgstr "Akordeón"
 
 #: includes/shortcodes/definitions/definitions.php:124
 #: includes/shortcodes/definitions/definitions.php:369
 msgid "Section 1"
-msgstr ""
+msgstr "Sekcia 1"
 
 #: includes/shortcodes/definitions/definitions.php:124
 #: includes/shortcodes/definitions/definitions.php:370
 msgid "Section 2"
-msgstr ""
+msgstr "Sekcia 2"
 
 #: includes/shortcodes/definitions/definitions.php:128
 #: includes/shortcodes/definitions/definitions.php:353
 #: includes/shortcodes/definitions/definitions.php:360
 msgid "Accordion"
-msgstr ""
+msgstr "Akordeón"
 
 #: includes/shortcodes/definitions/definitions.php:138
 #: includes/shortcodes/definitions/definitions.php:247
@@ -1299,7 +1313,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4054
 #: includes/shortcodes/definitions/definitions.php:4489
 msgid "General"
-msgstr ""
+msgstr "Základné"
 
 #: includes/shortcodes/definitions/definitions.php:151
 #: includes/shortcodes/definitions/definitions.php:384
@@ -2673,12 +2687,12 @@ msgstr ""
 #: includes/widgets/w-contact.php:72
 msgctxt "Widget name."
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: includes/widgets/w-contact.php:75
 msgctxt "Widget description."
 msgid "Contact information"
-msgstr ""
+msgstr "Kontaktné informácie"
 
 #: includes/widgets/w-contact.php:105
 msgctxt "Widget description."
@@ -2687,151 +2701,158 @@ msgid ""
 "protection will be applied on the email address (also, email will not be "
 "displayed when JavaScript is turned off)."
 msgstr ""
+"Zobrazí špeciálne naštýlované kontaktné informácie. Anti-spamový filter sa "
+"použije na e-mailovú adresu (v prípade, že je JavaScript v internetovom "
+"prehliadači vypnutý, e-mail sa nezobrazí)."
 
 #: includes/widgets/w-contact.php:108 includes/widgets/w-module.php:105
 #: includes/widgets/w-posts.php:108 includes/widgets/w-subnav.php:105
 #: includes/widgets/w-twitter.php:140
 msgid "Title:"
-msgstr ""
+msgstr "Nadpis:"
 
 #: includes/widgets/w-contact.php:113
 msgctxt "In address."
 msgid "Name:"
-msgstr ""
+msgstr "Meno:"
 
 #: includes/widgets/w-contact.php:118
 msgid "Address:"
-msgstr ""
+msgstr "Adresa:"
 
 #: includes/widgets/w-contact.php:123
 msgid "Business hours:"
-msgstr ""
+msgstr "Otváracie hodiny:"
 
 #: includes/widgets/w-contact.php:125
 msgid ""
 "Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
 msgstr ""
+"Použite čiarku pre oddelenie dní a časov<br />(napríklad \"Piatok, 9:00 - "
+"17:00\")"
 
 #: includes/widgets/w-contact.php:129
 msgid "Phone number:"
-msgstr ""
+msgstr "Telefónne číslo:"
 
 #: includes/widgets/w-contact.php:134
 msgid "Email address:"
-msgstr ""
+msgstr "E-mailová adresa"
 
 #: includes/widgets/w-contact.php:136
 msgid "JavaScript anti-spam protection applied"
-msgstr ""
+msgstr "Aplikuje sa anti-spamová ochrana"
 
 #: includes/widgets/w-module.php:72
 msgctxt "Widget name."
 msgid "Content Module"
-msgstr ""
+msgstr "Obsahový modul"
 
 #: includes/widgets/w-module.php:75
 msgctxt "Widget description."
 msgid "Displays specific Content Module post"
-msgstr ""
+msgstr "Zobrazí zvolený obsahový modul"
 
 #: includes/widgets/w-module.php:102
 msgctxt "Widget description."
 msgid ""
 "Displays content of the specific Content Module custom post. Please choose "
 "the Content Module below."
-msgstr ""
+msgstr "Zobrazí obsah zvoleného obsahového modulu. Zvoľte daný modul nižšie."
 
 #: includes/widgets/w-module.php:120
 msgid "Content Module to display:"
-msgstr ""
+msgstr "Zobrazený modul:"
 
 #: includes/widgets/w-module.php:122
 msgid "- Select Content Module -"
-msgstr ""
+msgstr "- Zvoľte obsahový modul -"
 
 #: includes/widgets/w-module.php:134
 #, php-format
 msgid " (tags: %s)"
-msgstr ""
+msgstr " (značky: %s)"
 
 #: includes/widgets/w-module.php:145
 msgid ""
 "There are no Content Modules to choose from. Please add a new Content Module "
 "first."
 msgstr ""
+"Neboli nájdené žiadne obsahové moduly. Najskôr je nutné vytvoriť nové "
+"obsahové moduly."
 
 #: includes/widgets/w-module.php:151 includes/widgets/w-posts.php:184
 msgid "Optional CSS class:"
-msgstr ""
+msgstr "Nepovinná CSS trieda:"
 
 #: includes/widgets/w-posts.php:72
 msgctxt "Widget name."
 msgid "Posts"
-msgstr ""
+msgstr "Články"
 
 #: includes/widgets/w-posts.php:75
 msgctxt "Widget description."
 msgid "Lists posts or projects"
-msgstr ""
+msgstr "Zobrazí zoznam článkov alebo projektov"
 
 #: includes/widgets/w-posts.php:105
 msgctxt "Widget description."
 msgid "Displays list of Posts or Projects."
-msgstr ""
+msgstr "Zobrazí zoznam článkov alebo projektov."
 
 #: includes/widgets/w-posts.php:113
 msgid "Post type:"
-msgstr ""
+msgstr "Typ obsahu:"
 
 #: includes/widgets/w-posts.php:126
 msgid "Posts count:"
-msgstr ""
+msgstr "Počet:"
 
 #: includes/widgets/w-posts.php:131
 msgid "Ordering:"
-msgstr ""
+msgstr "Zoradenie:"
 
 #: includes/widgets/w-posts.php:135
 msgctxt "List order method."
 msgid "Newest first"
-msgstr ""
+msgstr "Najnovšie ako prvé"
 
 #: includes/widgets/w-posts.php:136
 msgctxt "List order method."
 msgid "Oldest first"
-msgstr ""
+msgstr "Najstaršie ako prvé"
 
 #: includes/widgets/w-posts.php:137
 msgctxt "List order method."
 msgid "Alphabetically"
-msgstr ""
+msgstr "Abecedne"
 
 #: includes/widgets/w-posts.php:138
 msgctxt "List order method."
 msgid "Randomly"
-msgstr ""
+msgstr "Náhodne"
 
 #: includes/widgets/w-posts.php:148
 msgid "Optional posts taxonomy:"
-msgstr ""
+msgstr "Nepovinná taxonómia: "
 
 #: includes/widgets/w-posts.php:155
 msgid "Posts tags"
-msgstr ""
+msgstr "Značky"
 
 #: includes/widgets/w-posts.php:163
 msgid "- All posts/projects -"
-msgstr ""
+msgstr "- Všetky články/projekty -"
 
 #: includes/widgets/w-subnav.php:72
 msgctxt "Widget name."
 msgid "Submenu"
-msgstr ""
+msgstr "Submenu"
 
 #: includes/widgets/w-subnav.php:75
 msgctxt "Widget description."
 msgid "List of subpages"
-msgstr ""
+msgstr "Zoznam podstránok"
 
 #: includes/widgets/w-subnav.php:102
 msgctxt "Widget description."
@@ -2839,76 +2860,78 @@ msgid ""
 "Displays a hierarchical list of subpages and sibling pages for the current "
 "page (page submenu)."
 msgstr ""
+"Zobrazí zoznam podstránok a príbuzných stránok hierarchicky podľa aktuálnej "
+"stránky (tzv. stránkové submenu)."
 
 #: includes/widgets/w-subnav.php:107
 msgid "If you leave blank, the main parent page title will be displayed."
-msgstr ""
+msgstr "Ak ponecháte prázdne, zobrazí sa nadpis hlavnej nadradenej stránky."
 
 #: includes/widgets/w-subnav.php:112
 msgid "Direct parent and children only"
-msgstr ""
+msgstr "Iba priame nadradené a podradené stránky"
 
 #: includes/widgets/w-subnav.php:116
 msgid "List order:"
-msgstr ""
+msgstr "Zoradenie:"
 
 #: includes/widgets/w-subnav.php:120
 msgctxt "List order method."
 msgid "By name"
-msgstr ""
+msgstr "Podľa názvu"
 
 #: includes/widgets/w-subnav.php:121
 msgctxt "List order method."
 msgid "By date"
-msgstr ""
+msgstr "Podľa dátumu"
 
 #: includes/widgets/w-subnav.php:122
 msgctxt "List order method."
 msgid "Menu order"
-msgstr ""
+msgstr "Podľa poradia"
 
 #: includes/widgets/w-tabbed-widgets.php:60
 msgctxt "Widgets area name."
 msgid "Tabbed Widgets"
-msgstr ""
+msgstr "Záložkový widget"
 
 #: includes/widgets/w-tabbed-widgets.php:62
 msgctxt "Widgets area description."
 msgid "Default widget area for Tabbed Widgets widget."
-msgstr ""
+msgstr "Základná widgetová oblasť pre záložkový widget."
 
 #: includes/widgets/w-tabbed-widgets.php:88
 msgctxt "Widget name."
 msgid "Tabbed Widgets"
-msgstr ""
+msgstr "Záložkový widget"
 
 #: includes/widgets/w-tabbed-widgets.php:91
 msgctxt "Widget description."
 msgid "Multiple widgets in tabs"
-msgstr ""
+msgstr "Viacero widgetov zobrazených v záložkách"
 
 #: includes/widgets/w-tabbed-widgets.php:116
 msgctxt "Widget description."
 msgid "Displays widgets from selected widget area in tabbed interface."
-msgstr ""
+msgstr "Zobrazí widgety zo zvolenej widgetovej oblasti v záložkách."
 
 #: includes/widgets/w-tabbed-widgets.php:119
 msgid "Widgets area displayed"
-msgstr ""
+msgstr "Zobraziť oblasť:"
 
 #: includes/widgets/w-tabbed-widgets.php:179
 msgid "Widget area conflict in Tabbed Widgets widget."
-msgstr ""
+msgstr "Konflikt widgetovej oblasti vo widgete Záložkový widget"
 
 #: includes/widgets/w-twitter.php:91
 msgctxt "Widget name."
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: includes/widgets/w-twitter.php:94
 msgctxt "Widget description."
 msgid "Your recent tweets"
-msgstr ""
+msgstr "Vaše najnovšie tweety"
 
 #: includes/widgets/w-twitter.php:137
 msgctxt "Widget description."
@@ -2916,26 +2939,29 @@ msgid ""
 "Displays recent tweets from specific Twitter account. Also displays Twitter "
 "account details. Tweets are being cached to optimize the page loading speeds."
 msgstr ""
+"Zobrazí najnovšie tweety zo špecifického Twitter účtu. Taktiež zobrazí údaje "
+"o účte. Tweety sa v ukladajú do cache pamate pre optimalizovanie rýchlosti "
+"načítania webstránky."
 
 #: includes/widgets/w-twitter.php:145
 msgid "Twitter username:"
-msgstr ""
+msgstr "Twitter užívateľské meno:"
 
 #: includes/widgets/w-twitter.php:150
 msgid "Number of tweets to display:"
-msgstr ""
+msgstr "Počet zobrazených tweetov:"
 
 #: includes/widgets/w-twitter.php:156
 msgid "Display Twitter user info"
-msgstr ""
+msgstr "Zobraziť údaje o užívateľovi"
 
 #: includes/widgets/w-twitter.php:161
 msgid "Display reply tweets"
-msgstr ""
+msgstr "Zobraziť odpovede"
 
 #: includes/widgets/w-twitter.php:167
 msgid "Twitter API settings"
-msgstr ""
+msgstr "Nastavenie Twitter API"
 
 #: includes/widgets/w-twitter.php:168
 msgid ""
@@ -2943,35 +2969,40 @@ msgid ""
 "target=\"_blank\">create a Twitter Application</a>. See theme user manual "
 "for more info."
 msgstr ""
+"Aby ste nastavili tieto polia, musíte si najskôr <a href=\"https://dev."
+"twitter.com/apps\" target=\"_blank\">vytvoriť Twitter Aplikáciu</a>. Viac "
+"informácií o tomto nastavení nájdete v dokumentácii k použitej WordPress "
+"téme."
 
 #: includes/widgets/w-twitter.php:172
 msgid "Consumer key:"
-msgstr ""
+msgstr "Consumer key:"
 
 #: includes/widgets/w-twitter.php:177
 msgid "Consumer secret:"
-msgstr ""
+msgstr "Consumer secret:"
 
 #: includes/widgets/w-twitter.php:182
 msgid "Access token:"
-msgstr ""
+msgstr "Access token:"
 
 #: includes/widgets/w-twitter.php:187
 msgid "Access token secret:"
-msgstr ""
+msgstr "Access token secret:"
 
 #: includes/widgets/w-twitter.php:414
 msgid "No tweets."
-msgstr ""
+msgstr "Žiadne tweety."
 
 #: templates/content-shortcode-posts-post.php:63
 #, php-format
 msgctxt "%s stands for number of comments."
 msgid "Comments: %s"
-msgstr ""
+msgstr "Komentáre: %s"
 
 #: templates/content-shortcode-posts-post.php:84
 #: templates/content-shortcode-posts.php:66
 #, php-format
 msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
 msgstr ""
+"Prečítať <span class=\"screen-reader-text\">článok \"%s\"</span>&raquo;"

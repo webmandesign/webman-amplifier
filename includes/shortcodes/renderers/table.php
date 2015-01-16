@@ -7,22 +7,22 @@
  * @since    1.0
  * @version  1.1
  *
- * @uses   $codes_globals['table_types']
+ * @uses   $codes_globals['table_appearance']
  *
  * @param  string class
  * @param  string separator
- * @param  string type
- * @param  string type_bb Fix for Beaver Builder
+ * @param  string type Legacy attribute
+ * @param  string appearance Introduced not to conflict with Beaver Builder
  */
 
 
 
 //Shortcode attributes
 	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
-			'class'     => '',
-			'separator' => ',',
-			'type'      => '',
-			'type_bb'   => '',
+			'appearance' => '',
+			'class'      => '',
+			'separator'  => ',',
+			'type'       => '',
 		), $shortcode );
 	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
@@ -34,11 +34,11 @@
 		$atts['separator'] = ( $atts['separator'] ) ? ( trim( $atts['separator'] ) ) : ( ',' );
 	//type
 		//Fix for Beaver Builder
-			if ( $atts['type_bb'] ) {
-				$atts['type'] = $atts['type_bb'];
+			if ( $atts['appearance'] ) {
+				$atts['type'] = $atts['appearance'];
 			}
 		$atts['type'] = trim( $atts['type'] );
-		if ( in_array( $atts['type'], array_keys( $codes_globals['table_types'] ) ) ) {
+		if ( in_array( $atts['type'], array_keys( $codes_globals['table_appearance'] ) ) ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
 	//content (table CSV data)

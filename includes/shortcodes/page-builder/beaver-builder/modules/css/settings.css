@@ -1,0 +1,27 @@
+/**
+ * Custom Beaver Builder module settings styles
+ *
+ * This works as a global `settings.css` file for all custom modules.
+ * Put ONLY styles related to custom modules here.
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since    1.1
+ * @version  1.1
+ */
+
+
+
+/**
+ * Fix opening Accordiongs, Toggles and Tabs on page refresh
+ */
+
+	.wm-accordion .wm-item-content,
+	.wm-tabs-items .wm-item { display: none !important; }
+
+	.wm-tabs-items .wm-item:first-child { display: block !important; }
+
+
+
+/* END OF FILE */

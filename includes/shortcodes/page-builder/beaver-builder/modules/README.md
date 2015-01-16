@@ -304,7 +304,7 @@
 							//default
 							'default' => '',
 							//type specific
-							'form'         => 'wm_popup_' . 'test', //See FLBuilder::register_settings_form(). Basically, a popup window name/ID.
+							'form'         => 'wm_popup_' . 'MODULE_SLUG', //See FLBuilder::register_settings_form(). Basically, a popup window name/ID.
 							'preview_text' => 'popup_window_form_field_name', //Do not forget to set this up! It is being used to distinguish between repeater (multiple) fields.
 							//multiple
 							'multiple' => true, //This can be declared for any field, theoretically.
@@ -319,6 +319,8 @@
 		), // /tab
 
 	); // /$module_form
+
+	FLBuilder::register_module( 'WM_BB_Module_' . 'MODULE_NAME', $module_form );
 
 
 
@@ -338,3 +340,5 @@
 		), // /tabs
 
 	); // /$module_form_popup
+
+	FLBuilder::register_settings_form( 'wm_popup_' . 'MODULE_SLUG', $module_form_popup );
