@@ -3,20 +3,18 @@ msgstr ""
 "Project-Id-Version: WebMan Amplifier v1.1\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
 "POT-Creation-Date: 2015-01-16 22:21+0100\n"
-"PO-Revision-Date: 2015-01-17 00:22+0100\n"
+"PO-Revision-Date: 2015-01-17 14:36+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
-"Language: en\n"
+"Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # Copyright (C) 2015 WebMan - Oliver Juhas
@@ -31,18 +29,8 @@ msgid "Icon Font"
 msgstr "Ikonky"
 
 #: class-wm-amplifier.php:647
-msgid ""
-"You are using WebMan Amplifier plugin, which includes the <a href=\"http://"
-"isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br /"
-">If you use the plugin for commercial applications, you are required to <a "
-"href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
-"the Isotope licence</a>."
-msgstr ""
-"Používate WebMan Amplifier modul, ktorý obsahuje <a href=\"http://isotope."
-"metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />Ak "
-"používate tento modul na komrečnej webstránke, musíte si <a href=\"http://"
-"isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť Isotope "
-"licenciu</a>."
+msgid "You are using WebMan Amplifier plugin, which includes the <a href=\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase the Isotope licence</a>."
+msgstr "Používate WebMan Amplifier modul, ktorý obsahuje <a href=\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />Ak používate tento modul na komrečnej webstránke, musíte si <a href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť Isotope licenciu</a>."
 
 #: includes/class-icon-font.php:236
 msgid "You do not have sufficient permissions to access this page."
@@ -76,19 +64,8 @@ msgstr "URL súboru ZIP balíka Fontello"
 
 #: includes/class-icon-font.php:286
 #, php-format
-msgid ""
-"Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br /"
-">Use the default button on right to empty the input field and set the "
-"default icon font file.<br /><strong>IMPORTANT: Please do not use custom "
-"font name when creating your Fontello.com selection. Leave the field blank "
-"or use \"fontello\" as font name. Otherwise the font icons will not be "
-"generated.</strong>"
-msgstr ""
-"Nahrajte ZIP balík nových ikoniek generovaný pomocou <a%s>Fontello.com</a>."
-"<br />Použite tlačidlo vpravo pre znovunastavenie pôvodného balíka ikoniek."
-"<br /><strong>DÔLEŽITÉ: Nenastavujte vlastný názov ikonkového fontu na "
-"Fontello.com. Ponechajte pole prázdne, alebo použite názov \"fontello\". V "
-"opačnom prípade nebudú ikonky aplikované.</strong>"
+msgid "Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use \"fontello\" as font name. Otherwise the font icons will not be generated.</strong>"
+msgstr "Nahrajte ZIP balík nových ikoniek generovaný pomocou <a%s>Fontello.com</a>.<br />Použite tlačidlo vpravo pre znovunastavenie pôvodného balíka ikoniek.<br /><strong>DÔLEŽITÉ: Nenastavujte vlastný názov ikonkového fontu na Fontello.com. Ponechajte pole prázdne, alebo použite názov \"fontello\". V opačnom prípade nebudú ikonky aplikované.</strong>"
 
 #: includes/class-icon-font.php:315
 msgid "Icon Font Setup"
@@ -96,15 +73,8 @@ msgstr "Nastavenie ikoniek"
 
 #: includes/class-icon-font.php:321
 #, php-format
-msgid ""
-"<strong>You are currently on a WordPress multisite installation and ZIP file "
-"upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> "
-"and add the \"zip\" file extension to the list of allowed <em>\"Upload file "
-"types\"</em>."
-msgstr ""
-"<strong>Používate WordPress multisite inštaláciu a nemáte nastavené "
-"nahrávanie ZIP súborov.</strong><br/>Navigujte do <a%s>nastavenia siete</a> "
-"a pridajte \"zip\" príponu súborov do zoznamu povolených typov súborov."
+msgid "<strong>You are currently on a WordPress multisite installation and ZIP file upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> and add the \"zip\" file extension to the list of allowed <em>\"Upload file types\"</em>."
+msgstr "<strong>Používate WordPress multisite inštaláciu a nemáte nastavené nahrávanie ZIP súborov.</strong><br/>Navigujte do <a%s>nastavenia siete</a> a pridajte \"zip\" príponu súborov do zoznamu povolených typov súborov."
 
 #: includes/class-icon-font.php:323
 msgid "The ZIP file was processed successfully and new icon font was set up."
@@ -115,12 +85,8 @@ msgid "<strong>Error during processing of your ZIP file.</strong>"
 msgstr "<strong>Nastala chyba počas spracovania ZIP súboru.</strong>"
 
 #: includes/class-icon-font.php:327
-msgid ""
-"<strong>Using this feature is reserved for administrators. You don't have "
-"the necessary permissions.</strong>"
-msgstr ""
-"<strong>Táto funkcionalita je prístupná iba pre administrátorov. Nemáte "
-"dostatočné oprávnenia.</strong>"
+msgid "<strong>Using this feature is reserved for administrators. You don't have the necessary permissions.</strong>"
+msgstr "<strong>Táto funkcionalita je prístupná iba pre administrátorov. Nemáte dostatočné oprávnenia.</strong>"
 
 #: includes/class-icon-font.php:329
 msgid "Default icon font file was restored."
@@ -258,7 +224,7 @@ msgstr "Názov novej kategórie"
 
 #: includes/custom-posts/logos.php:263
 msgid "Logos Custom Post Permalinks"
-msgstr "Trvalé odkazy pre logá"
+msgstr "URL odkazy pre logá"
 
 #: includes/custom-posts/logos.php:271
 msgid "Single logo permalink"
@@ -270,7 +236,7 @@ msgstr "Základ logo kategórie"
 
 #: includes/custom-posts/logos.php:304
 msgid "You can change the Logos custom post type permalinks here."
-msgstr "Tu môžete zmeniť trvalé odkazy pre Logá."
+msgstr "Tu môžete zmeniť URL odkazy pre Logá."
 
 #: includes/custom-posts/logos.php:330 includes/custom-posts/logos.php:400
 msgid "Logo settings"
@@ -289,7 +255,7 @@ msgstr "Nastavte logo obrázok ako prezentačný obrázok článku"
 #: includes/custom-posts/projects.php:387 includes/custom-posts/staff.php:388
 #: includes/custom-posts/testimonials.php:351
 msgid "Custom link URL"
-msgstr "URL odkazu"
+msgstr "URL odkaz"
 
 #: includes/custom-posts/logos.php:344 includes/custom-posts/modules.php:365
 #: includes/custom-posts/projects.php:388 includes/custom-posts/staff.php:389
@@ -438,7 +404,7 @@ msgstr "Názov novej značky"
 
 #: includes/custom-posts/modules.php:282
 msgid "Content Modules Custom Post Permalinks"
-msgstr "Trvalé odkazy obsahových modulov"
+msgstr "URL odkazy obsahových modulov"
 
 #: includes/custom-posts/modules.php:290
 msgid "Single module permalink"
@@ -450,7 +416,7 @@ msgstr "Základ značky modulov"
 
 #: includes/custom-posts/modules.php:323
 msgid "You can change the Content Modules custom post type permalinks here."
-msgstr "Tu môžete zmeniť trvalé odkazy pre obsahové moduly."
+msgstr "Tu môžete zmeniť URL odkazy pre obsahové moduly."
 
 #: includes/custom-posts/modules.php:357
 msgctxt "Metabox section title."
@@ -466,12 +432,8 @@ msgid "Creates an icon box"
 msgstr "Vytvorí ikonkový box"
 
 #: includes/custom-posts/modules.php:399
-msgid ""
-"Set the icon as featured image of the post. If the font icon is used "
-"instead, it will be prioritized."
-msgstr ""
-"Nastavte ikonku ako prezentačný obrázok článku. Ak použijete ikonkový font, "
-"bude uprednostnený."
+msgid "Set the icon as featured image of the post. If the font icon is used instead, it will be prioritized."
+msgstr "Nastavte ikonku ako prezentačný obrázok článku. Ak použijete ikonkový font, bude uprednostnený."
 
 #: includes/custom-posts/modules.php:407
 msgid "...or choose a font icon"
@@ -643,7 +605,7 @@ msgstr "Názov novej značky"
 
 #: includes/custom-posts/projects.php:302
 msgid "Projects Custom Post Permalinks"
-msgstr "Trvalé odkazy projektov"
+msgstr "URL odkazy projektov"
 
 #: includes/custom-posts/projects.php:310
 msgid "Single project permalink"
@@ -659,7 +621,7 @@ msgstr "Základ značky projektov"
 
 #: includes/custom-posts/projects.php:354
 msgid "You can change the Projects custom post type permalinks here."
-msgstr "Tu môžete zmeniť trvalé odkazy pre logá."
+msgstr "Tu môžete zmeniť URL odkazy projektov."
 
 #: includes/custom-posts/projects.php:380
 msgctxt "Metabox section title."
@@ -699,7 +661,7 @@ msgstr "Zamestnanec"
 #: includes/custom-posts/staff.php:95 includes/custom-posts/staff.php:97
 msgctxt "Custom post labels: Staff."
 msgid "Add New"
-msgstr "Pridať nové"
+msgstr "Pridať nový záznam"
 
 #: includes/custom-posts/staff.php:96
 msgctxt "Custom post labels: Staff."
@@ -831,7 +793,7 @@ msgstr "Názov novej pracovnej pozície"
 
 #: includes/custom-posts/staff.php:294
 msgid "Staff Custom Post Permalinks"
-msgstr "Trvalé odkazy pre zamestnancov"
+msgstr "URL odkazy zamestnancov"
 
 #: includes/custom-posts/staff.php:302
 msgid "Single staff permalink"
@@ -847,7 +809,7 @@ msgstr "Základ pracovnej pozície"
 
 #: includes/custom-posts/staff.php:346
 msgid "You can change the Staff custom post type permalinks here."
-msgstr "Tu môžete zmeniť trvalé odkazy pre zamestnancov."
+msgstr "Tu môžete zmeniť URL odkazy zamestnancov."
 
 #: includes/custom-posts/staff.php:381
 msgctxt "Metabox section title."
@@ -994,7 +956,7 @@ msgstr "Názov novej kategórie"
 
 #: includes/custom-posts/testimonials.php:263
 msgid "Testimonials Custom Post Permalinks"
-msgstr "Trvalé odkazy posudkov"
+msgstr "URL odkazy posudkov"
 
 #: includes/custom-posts/testimonials.php:271
 msgid "Single testimonial permalink"
@@ -1006,7 +968,7 @@ msgstr "Základ kategórie posudkov"
 
 #: includes/custom-posts/testimonials.php:304
 msgid "You can change the Testimonials custom post type permalinks here."
-msgstr "Tu môžete zmeniť trvalé odkazy pre posudky."
+msgstr "Tu môžete zmeniť URL odkazy pre posudky."
 
 #: includes/custom-posts/testimonials.php:330
 msgctxt "Metabox section title."
@@ -1015,9 +977,7 @@ msgstr "Autor"
 
 #: includes/custom-posts/testimonials.php:336
 msgid "You can set the testimonial author photo or logo as post featured image"
-msgstr ""
-"Môžete nastaviť fotografiu alebo logo autora posudku ako prezentačný obrázok "
-"článku"
+msgstr "Môžete nastaviť fotografiu alebo logo autora posudku ako prezentačný obrázok článku"
 
 #: includes/custom-posts/testimonials.php:343
 msgid "Testimonial author"
@@ -1318,22 +1278,22 @@ msgstr "Základné"
 #: includes/shortcodes/definitions/definitions.php:151
 #: includes/shortcodes/definitions/definitions.php:384
 msgid "Mode"
-msgstr ""
+msgstr "Mód"
 
 #: includes/shortcodes/definitions/definitions.php:154
 #: includes/shortcodes/definitions/definitions.php:388
 msgid "Accordion (only one section open)"
-msgstr ""
+msgstr "Otvorená iba jedna sekcia"
 
 #: includes/shortcodes/definitions/definitions.php:155
 #: includes/shortcodes/definitions/definitions.php:389
 msgid "Toggle (multiple sections open)"
-msgstr ""
+msgstr "Otvorené viaceré sekcie"
 
 #: includes/shortcodes/definitions/definitions.php:166
 #: includes/shortcodes/definitions/definitions.php:474
 msgid "Sections"
-msgstr ""
+msgstr "Sekcie"
 
 #: includes/shortcodes/definitions/definitions.php:176
 #: includes/shortcodes/definitions/definitions.php:240
@@ -1343,7 +1303,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:547
 #: includes/shortcodes/definitions/definitions.php:569
 msgid "Section"
-msgstr ""
+msgstr "Sekcia"
 
 #: includes/shortcodes/definitions/definitions.php:195
 #: includes/shortcodes/definitions/definitions.php:292
@@ -1355,19 +1315,19 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3236
 #: includes/shortcodes/definitions/definitions.php:4218
 msgid "Others"
-msgstr ""
+msgstr "Ostatné"
 
 #: includes/shortcodes/definitions/definitions.php:208
 #: includes/shortcodes/definitions/definitions.php:395
 #: includes/shortcodes/definitions/definitions.php:1563
 #: includes/shortcodes/definitions/definitions.php:2760
 msgid "Filtering"
-msgstr ""
+msgstr "Filtrovanie"
 
 #: includes/shortcodes/definitions/definitions.php:209
 #: includes/shortcodes/definitions/definitions.php:396
 msgid "Display the sections filter from sections tags?"
-msgstr ""
+msgstr "Zobraziť filter sekcií vytvorený zo značiek sekcií?"
 
 #: includes/shortcodes/definitions/definitions.php:212
 #: includes/shortcodes/definitions/definitions.php:400
@@ -1394,7 +1354,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4433
 #: includes/shortcodes/definitions/definitions.php:4445
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: includes/shortcodes/definitions/definitions.php:213
 #: includes/shortcodes/definitions/definitions.php:401
@@ -1421,18 +1381,18 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4434
 #: includes/shortcodes/definitions/definitions.php:4446
 msgid "Yes"
-msgstr ""
+msgstr "Áno"
 
 #: includes/shortcodes/definitions/definitions.php:222
 #: includes/shortcodes/definitions/definitions.php:375
 #: includes/shortcodes/definitions/definitions.php:529
 msgid "Active section"
-msgstr ""
+msgstr "Aktívna sekcia"
 
 #: includes/shortcodes/definitions/definitions.php:223
 #: includes/shortcodes/definitions/definitions.php:376
 msgid "Set section order number, \"0\" for all sections closed"
-msgstr ""
+msgstr "Nastavte poradové číslo sekcie, alebo \"0\" pre zatvorenie všetkých sekcií"
 
 #: includes/shortcodes/definitions/definitions.php:272
 #: includes/shortcodes/definitions/definitions.php:358
@@ -1464,28 +1424,28 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4915
 #: includes/shortcodes/definitions/definitions.php:4918
 msgid "Content"
-msgstr ""
+msgstr "Obsah"
 
 #: includes/shortcodes/definitions/definitions.php:320
 #: includes/shortcodes/definitions/definitions.php:627
 msgid "Other parameters"
-msgstr ""
+msgstr "Ostatné parametre"
 
 #: includes/shortcodes/definitions/definitions.php:327
 #: includes/shortcodes/definitions/definitions.php:634
 #: includes/shortcodes/definitions/definitions.php:774
 msgid "Enter comma separated tags. These will be used to filter through items."
-msgstr ""
+msgstr "Zadajte značky oddelené čiarkou. Značky budú použité pri filtrácií položiek."
 
 #: includes/shortcodes/definitions/definitions.php:335
 #: includes/shortcodes/definitions/definitions.php:642
 #: includes/shortcodes/definitions/definitions.php:782
 msgid "HTML heading tag"
-msgstr ""
+msgstr "HTML tag nadpisu"
 
 #: includes/shortcodes/definitions/definitions.php:365
 msgid "Accordion: Add new section"
-msgstr ""
+msgstr "Akordeón: Pridať novú sekciu"
 
 #: includes/shortcodes/definitions/definitions.php:407
 #: includes/shortcodes/definitions/definitions.php:716
@@ -1516,7 +1476,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4927
 #: includes/shortcodes/definitions/definitions.php:4989
 msgid "CSS class"
-msgstr ""
+msgstr "CSS trieda"
 
 #: includes/shortcodes/definitions/definitions.php:408
 #: includes/shortcodes/definitions/definitions.php:717
@@ -1546,24 +1506,24 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4928
 #: includes/shortcodes/definitions/definitions.php:4990
 msgid "Optional CSS additional classes"
-msgstr ""
+msgstr "Nepovinná dodatočná CSS trieda"
 
 #: includes/shortcodes/definitions/definitions.php:430
 #: includes/shortcodes/definitions/definitions.php:435
 #: includes/shortcodes/definitions/definitions.php:660
 #: includes/shortcodes/definitions/definitions.php:667
 msgid "Tabs"
-msgstr ""
+msgstr "Záložky"
 
 #: includes/shortcodes/definitions/definitions.php:431
 #: includes/shortcodes/definitions/definitions.php:676
 msgid "Tab 1"
-msgstr ""
+msgstr "Záložka 1"
 
 #: includes/shortcodes/definitions/definitions.php:431
 #: includes/shortcodes/definitions/definitions.php:677
 msgid "Tab 2"
-msgstr ""
+msgstr "Záložka 2"
 
 #: includes/shortcodes/definitions/definitions.php:458
 #: includes/shortcodes/definitions/definitions.php:691
@@ -1572,57 +1532,57 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3047
 #: includes/shortcodes/definitions/definitions.php:3056
 msgid "Layout"
-msgstr ""
+msgstr "Rozloženie"
 
 #: includes/shortcodes/definitions/definitions.php:461
 #: includes/shortcodes/definitions/definitions.php:696
 msgid "Tabs on top"
-msgstr ""
+msgstr "Záložky navrchu"
 
 #: includes/shortcodes/definitions/definitions.php:462
 #: includes/shortcodes/definitions/definitions.php:697
 msgid "Tabs on left"
-msgstr ""
+msgstr "Záložky vľavo"
 
 #: includes/shortcodes/definitions/definitions.php:463
 #: includes/shortcodes/definitions/definitions.php:698
 msgid "Tabs on right"
-msgstr ""
+msgstr "Záložky vpravo"
 
 #: includes/shortcodes/definitions/definitions.php:516
 #: includes/shortcodes/definitions/definitions.php:704
 msgid "Enable tour mode?"
-msgstr ""
+msgstr "Zapnúť režim sprievodcu?"
 
 #: includes/shortcodes/definitions/definitions.php:530
 #: includes/shortcodes/definitions/definitions.php:683
 msgid "Enter the order number of the tab which should be open by default"
-msgstr ""
+msgstr "Zadajte poradové číslo záložky, ktorá má byť otvorená ako prvá"
 
 #: includes/shortcodes/definitions/definitions.php:672
 msgid "Tab"
-msgstr ""
+msgstr "Záložka"
 
 #: includes/shortcodes/definitions/definitions.php:672
 msgid "Tabs: Add new tab"
-msgstr ""
+msgstr "Záložky: Pridať novú záložku"
 
 #: includes/shortcodes/definitions/definitions.php:682
 msgid "Active tab"
-msgstr ""
+msgstr "Aktívna záložka"
 
 #: includes/shortcodes/definitions/definitions.php:739
 msgid "Item (accordion or tab section)"
-msgstr ""
+msgstr "Položka (sekcia akordeónu alebo záložiek)"
 
 #: includes/shortcodes/definitions/definitions.php:744
 msgid "Item (Accordion / Tab)"
-msgstr ""
+msgstr "Položka (Akordeón / Záložka)"
 
 #: includes/shortcodes/definitions/definitions.php:805
 #: includes/shortcodes/definitions/definitions.php:810
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: includes/shortcodes/definitions/definitions.php:813
 #: includes/shortcodes/definitions/definitions.php:3851
@@ -1631,30 +1591,30 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:5047
 #: includes/shortcodes/definitions/definitions.php:5077
 msgid "Media"
-msgstr ""
+msgstr "Médiá"
 
 #: includes/shortcodes/definitions/definitions.php:816
 msgid "Audio source"
-msgstr ""
+msgstr "Audio zdroj"
 
 #: includes/shortcodes/definitions/definitions.php:817
 msgid "Set the audio URL"
-msgstr ""
+msgstr "Nastavte URL adresu audio súboru"
 
 #: includes/shortcodes/definitions/definitions.php:825
 msgid "Autoplay the audio?"
-msgstr ""
+msgstr "Automatické prehrávanie audia?"
 
 #: includes/shortcodes/definitions/definitions.php:837
 msgid "Loop the audio?"
-msgstr ""
+msgstr "Prehrávanie v slučke?"
 
 #: includes/shortcodes/definitions/definitions.php:873
 #: includes/shortcodes/definitions/definitions.php:878
 #: includes/shortcodes/definitions/definitions.php:999
 #: includes/shortcodes/definitions/definitions.php:1155
 msgid "Button"
-msgstr ""
+msgstr "Tlačidlo"
 
 #: includes/shortcodes/definitions/definitions.php:899
 #: includes/shortcodes/definitions/definitions.php:1005
@@ -1664,18 +1624,18 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3324
 #: includes/shortcodes/definitions/definitions.php:3397
 msgid "Button text"
-msgstr ""
+msgstr "Text tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:901
 #: includes/shortcodes/definitions/definitions.php:1008
 msgid "Button Text"
-msgstr ""
+msgstr "Text tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:909
 #: includes/shortcodes/definitions/definitions.php:1178
 #: includes/shortcodes/definitions/definitions.php:1282
 msgid "Button link URL"
-msgstr ""
+msgstr "URL odkaz tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:919
 #: includes/shortcodes/definitions/definitions.php:1022
@@ -1684,7 +1644,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2215
 #: includes/shortcodes/definitions/definitions.php:4973
 msgid "Target"
-msgstr ""
+msgstr "Cieľ"
 
 #: includes/shortcodes/definitions/definitions.php:920
 #: includes/shortcodes/definitions/definitions.php:1023
@@ -1692,7 +1652,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:1290
 #: includes/shortcodes/definitions/definitions.php:2134
 msgid "Button link target"
-msgstr ""
+msgstr "Cieľ odkazu tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:924
 #: includes/shortcodes/definitions/definitions.php:1028
@@ -1702,7 +1662,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2220
 #: includes/shortcodes/definitions/definitions.php:4979
 msgid "Open in new window / tab"
-msgstr ""
+msgstr "Otvoriť v novom okne / záložke"
 
 #: includes/shortcodes/definitions/definitions.php:933
 #: includes/shortcodes/definitions/definitions.php:1038
@@ -1711,7 +1671,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3493
 #: includes/shortcodes/definitions/definitions.php:3549
 msgid "Color"
-msgstr ""
+msgstr "Farba"
 
 #: includes/shortcodes/definitions/definitions.php:943
 #: includes/shortcodes/definitions/definitions.php:1046
@@ -1722,7 +1682,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2555
 #: includes/shortcodes/definitions/definitions.php:2602
 msgid "Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: includes/shortcodes/definitions/definitions.php:953
 #: includes/shortcodes/definitions/definitions.php:1074
@@ -1733,21 +1693,21 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4769
 #: includes/shortcodes/definitions/definitions.php:4849
 msgid "Optional HTML ID"
-msgstr ""
+msgstr "Nepovinné HTML ID"
 
 #: includes/shortcodes/definitions/definitions.php:1013
 msgid "Button URL"
-msgstr ""
+msgstr "URL tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:1014
 msgid "Set the button link URL"
-msgstr ""
+msgstr "Nastavte URL odkaz tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:1097
 #: includes/shortcodes/definitions/definitions.php:1102
 #: includes/shortcodes/definitions/definitions.php:1249
 msgid "Call to action"
-msgstr ""
+msgstr "Výzva k akcii"
 
 #: includes/shortcodes/definitions/definitions.php:1123
 #: includes/shortcodes/definitions/definitions.php:1255
@@ -1759,72 +1719,72 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3505
 #: includes/shortcodes/definitions/definitions.php:3531
 msgid "Caption"
-msgstr ""
+msgstr "Nadpis"
 
 #: includes/shortcodes/definitions/definitions.php:1202
 #: includes/shortcodes/definitions/definitions.php:1302
 msgid "Button color"
-msgstr ""
+msgstr "Farba tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:1212
 #: includes/shortcodes/definitions/definitions.php:1311
 msgid "Button size"
-msgstr ""
+msgstr "Veľkosť tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:1224
 #: includes/shortcodes/definitions/definitions.php:1320
 msgid "Button icon"
-msgstr ""
+msgstr "Ikonka tlačidla"
 
 #: includes/shortcodes/definitions/definitions.php:1264
 msgid "Content text"
-msgstr ""
+msgstr "Obsah"
 
 #: includes/shortcodes/definitions/definitions.php:1321
 msgid "Choose one of available icons"
-msgstr ""
+msgstr "Zvoľte jednu z predvolených ikoniek"
 
 #: includes/shortcodes/definitions/definitions.php:1356
 #: includes/shortcodes/definitions/definitions.php:4751
 #: includes/shortcodes/definitions/definitions.php:4831
 msgid "Column"
-msgstr ""
+msgstr "Stĺpec"
 
 #: includes/shortcodes/definitions/definitions.php:1374
 #: includes/shortcodes/definitions/definitions.php:1379
 #: includes/shortcodes/definitions/definitions.php:1426
 msgid "Countdown timer"
-msgstr ""
+msgstr "Odpočítavanie"
 
 #: includes/shortcodes/definitions/definitions.php:1400
 #: includes/shortcodes/definitions/definitions.php:1432
 msgid "Time"
-msgstr ""
+msgstr "Čas"
 
 #: includes/shortcodes/definitions/definitions.php:1473
 #: includes/shortcodes/definitions/definitions.php:1478
 #: includes/shortcodes/definitions/definitions.php:1714
 msgid "Content Module"
-msgstr ""
+msgstr "Obsahový modul"
 
 #: includes/shortcodes/definitions/definitions.php:1493
 msgid "Single module display"
-msgstr ""
+msgstr "Zobrazenie jedného modulu"
 
 #: includes/shortcodes/definitions/definitions.php:1499
 #: includes/shortcodes/definitions/definitions.php:1720
 msgid "Single module"
-msgstr ""
+msgstr "Modul"
 
 #: includes/shortcodes/definitions/definitions.php:1500
 #: includes/shortcodes/definitions/definitions.php:1721
 msgid "Leave empty to display multiple modules"
-msgstr ""
+msgstr "Ponechajte prázdne ak chcete zobraziť viacero modulov"
 
 #: includes/shortcodes/definitions/definitions.php:1512
 #: includes/shortcodes/definitions/definitions.php:4080
 msgid "Multiple modules display"
-msgstr ""
+msgstr "Zobrazenie viacerých modulov"
 
 #: includes/shortcodes/definitions/definitions.php:1518
 #: includes/shortcodes/definitions/definitions.php:1730
@@ -1833,7 +1793,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4086
 #: includes/shortcodes/definitions/definitions.php:4266
 msgid "Count"
-msgstr ""
+msgstr "Počet"
 
 #: includes/shortcodes/definitions/definitions.php:1519
 #: includes/shortcodes/definitions/definitions.php:1731
@@ -1842,7 +1802,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4087
 #: includes/shortcodes/definitions/definitions.php:4267
 msgid "Number of items to display (use \"-1\" to display all)"
-msgstr ""
+msgstr "Počet zobrazených položiek (zadajte \"-1\" pre zobrazenie všetkých)"
 
 #: includes/shortcodes/definitions/definitions.php:1529
 #: includes/shortcodes/definitions/definitions.php:1740
@@ -1851,7 +1811,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4097
 #: includes/shortcodes/definitions/definitions.php:4276
 msgid "Columns"
-msgstr ""
+msgstr "Stĺpce"
 
 #: includes/shortcodes/definitions/definitions.php:1548
 #: includes/shortcodes/definitions/definitions.php:1756
@@ -1860,7 +1820,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4116
 #: includes/shortcodes/definitions/definitions.php:4292
 msgid "Order"
-msgstr ""
+msgstr "Zoradenie"
 
 #: includes/shortcodes/definitions/definitions.php:1551
 #: includes/shortcodes/definitions/definitions.php:1760
@@ -1869,7 +1829,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4119
 #: includes/shortcodes/definitions/definitions.php:4296
 msgid "Newest first"
-msgstr ""
+msgstr "Najnovšie ako prvé"
 
 #: includes/shortcodes/definitions/definitions.php:1552
 #: includes/shortcodes/definitions/definitions.php:1761
@@ -1878,7 +1838,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4120
 #: includes/shortcodes/definitions/definitions.php:4297
 msgid "Oldest first"
-msgstr ""
+msgstr "Najstaršie ako prvé"
 
 #: includes/shortcodes/definitions/definitions.php:1553
 #: includes/shortcodes/definitions/definitions.php:1762
@@ -1887,7 +1847,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4121
 #: includes/shortcodes/definitions/definitions.php:4298
 msgid "By name"
-msgstr ""
+msgstr "Podľa názvu"
 
 #: includes/shortcodes/definitions/definitions.php:1554
 #: includes/shortcodes/definitions/definitions.php:1763
@@ -1896,7 +1856,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4122
 #: includes/shortcodes/definitions/definitions.php:4299
 msgid "Randomly"
-msgstr ""
+msgstr "Náhodne"
 
 #: includes/shortcodes/definitions/definitions.php:1576
 #: includes/shortcodes/definitions/definitions.php:1783
@@ -1905,7 +1865,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4131
 #: includes/shortcodes/definitions/definitions.php:4306
 msgid "Scrolling"
-msgstr ""
+msgstr "Rolovanie"
 
 #: includes/shortcodes/definitions/definitions.php:1577
 #: includes/shortcodes/definitions/definitions.php:1784
@@ -1913,16 +1873,13 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2991
 #: includes/shortcodes/definitions/definitions.php:4132
 #: includes/shortcodes/definitions/definitions.php:4307
-msgid ""
-"Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value "
-"for automatic scrolling represents the time of a scroll in miliseconds. "
-"Leave empty to disable scrolling."
-msgstr ""
+msgid "Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling."
+msgstr "Nastavte 1-999 pre manuálne rolovanie, alebo 1000+ pre automatické rolovanie. Hodnota pre automatické rolovanie reprezentuje čas rolovania v milisekundách. Ponechajte prázdne pre vypnutie rolovania."
 
 #: includes/shortcodes/definitions/definitions.php:1586
 #: includes/shortcodes/definitions/definitions.php:1794
 msgid "Display specifically tagged items only"
-msgstr ""
+msgstr "Zobraziť iba špecificky označkované položky"
 
 #: includes/shortcodes/definitions/definitions.php:1596
 #: includes/shortcodes/definitions/definitions.php:1803
@@ -1931,7 +1888,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4151
 #: includes/shortcodes/definitions/definitions.php:4326
 msgid "Display pagination?"
-msgstr ""
+msgstr "Zobraziť stránkovanie?"
 
 #: includes/shortcodes/definitions/definitions.php:1615
 #: includes/shortcodes/definitions/definitions.php:2806
@@ -1939,7 +1896,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3033
 #: includes/shortcodes/definitions/definitions.php:4170
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: includes/shortcodes/definitions/definitions.php:1628
 #: includes/shortcodes/definitions/definitions.php:1826
@@ -1948,7 +1905,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4183
 #: includes/shortcodes/definitions/definitions.php:4349
 msgid "Description alignment"
-msgstr ""
+msgstr "Zarovnanie popisu"
 
 #: includes/shortcodes/definitions/definitions.php:1676
 #: includes/shortcodes/definitions/definitions.php:1838
@@ -1957,7 +1914,7 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4231
 #: includes/shortcodes/definitions/definitions.php:4361
 msgid "Remove gap between items?"
-msgstr ""
+msgstr "Odstrániť medzeru medzi položkami?"
 
 #: includes/shortcodes/definitions/definitions.php:1689
 #: includes/shortcodes/definitions/definitions.php:1852
@@ -1966,20 +1923,18 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3822
 #: includes/shortcodes/definitions/definitions.php:3875
 msgid "Image size"
-msgstr ""
+msgstr "Veľkosť obrázku"
 
 #: includes/shortcodes/definitions/definitions.php:1699
 #: includes/shortcodes/definitions/definitions.php:1861
 msgid "Custom layout"
-msgstr ""
+msgstr "Vlastné rozloženie"
 
 #: includes/shortcodes/definitions/definitions.php:1700
 #: includes/shortcodes/definitions/definitions.php:1862
 #, php-format
-msgid ""
-"Set the custom layout of the output. Order the predefined items (%s) "
-"separated with comma (no spaces)."
-msgstr ""
+msgid "Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces)."
+msgstr "Nastavte vlastné rozloženie prvkov. Zoraďte preddefinované prvky (%s) oddelené čiarkou (bez medzier)."
 
 #: includes/shortcodes/definitions/definitions.php:1737
 #: includes/shortcodes/definitions/definitions.php:1753
@@ -2001,23 +1956,23 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4358
 #: includes/shortcodes/definitions/definitions.php:4371
 msgid "Multiple display"
-msgstr ""
+msgstr "Zobraziť viacero"
 
 #: includes/shortcodes/definitions/definitions.php:1770
 #: includes/shortcodes/definitions/definitions.php:2970
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: includes/shortcodes/definitions/definitions.php:1816
 #: includes/shortcodes/definitions/definitions.php:4339
 msgid "Description text (HTML)"
-msgstr ""
+msgstr "Popis (HTML)"
 
 #: includes/shortcodes/definitions/definitions.php:1896
 #: includes/shortcodes/definitions/definitions.php:1901
 #: includes/shortcodes/definitions/definitions.php:1938
 msgid "Divider / Gap"
-msgstr ""
+msgstr "Oddeľovač / Medzera"
 
 #: includes/shortcodes/definitions/definitions.php:1922
 #: includes/shortcodes/definitions/definitions.php:1945
@@ -2026,44 +1981,44 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:3942
 #: includes/shortcodes/definitions/definitions.php:4008
 msgid "Appearance"
-msgstr ""
+msgstr "Vzhľad"
 
 #: includes/shortcodes/definitions/definitions.php:1954
 msgid "Space before divider"
-msgstr ""
+msgstr "Priestor pred oddeľovačom"
 
 #: includes/shortcodes/definitions/definitions.php:1955
 #: includes/shortcodes/definitions/definitions.php:1964
 msgid "Insert a number (of pixels)"
-msgstr ""
+msgstr "Zadajte číslo (počet pixelov)"
 
 #: includes/shortcodes/definitions/definitions.php:1963
 msgid "Space after divider"
-msgstr ""
+msgstr "Priestor za oddeľovačom"
 
 #: includes/shortcodes/definitions/definitions.php:1981
 #: includes/shortcodes/definitions/definitions.php:2258
 msgid "CSS styles"
-msgstr ""
+msgstr "CSS štýly"
 
 #: includes/shortcodes/definitions/definitions.php:1982
 #: includes/shortcodes/definitions/definitions.php:2259
 msgid "Any custom CSS style inserted into style HTML attribute"
-msgstr ""
+msgstr "Zadajte vlastné CSS štýly, hodnotu \"style\" HTML atribúta"
 
 #: includes/shortcodes/definitions/definitions.php:2005
 msgid "Dropcap"
-msgstr ""
+msgstr "Iniciála"
 
 #: includes/shortcodes/definitions/definitions.php:2023
 #: includes/shortcodes/definitions/definitions.php:2028
 #: includes/shortcodes/definitions/definitions.php:2171
 msgid "Icon (social icon)"
-msgstr ""
+msgstr "Ikonka (sociálna ikonka)"
 
 #: includes/shortcodes/definitions/definitions.php:2082
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilé"
 
 #: includes/shortcodes/definitions/definitions.php:2102
 #: includes/shortcodes/definitions/definitions.php:2203
@@ -2072,115 +2027,111 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2235
 #: includes/shortcodes/definitions/definitions.php:2245
 msgid "Social icon"
-msgstr ""
+msgstr "Sociálna ikonka"
 
 #: includes/shortcodes/definitions/definitions.php:2115
 #: includes/shortcodes/definitions/definitions.php:2197
 msgid "Social icon?"
-msgstr ""
+msgstr "Sociálna ikonka?"
 
 #: includes/shortcodes/definitions/definitions.php:2125
 #: includes/shortcodes/definitions/definitions.php:2206
 msgid "Social icon link URL"
-msgstr ""
+msgstr "URL odkaz sociálnej ikonky"
 
 #: includes/shortcodes/definitions/definitions.php:2147
 #: includes/shortcodes/definitions/definitions.php:2228
 msgid "Social icon title"
-msgstr ""
+msgstr "Titulok sociálnej ikonky"
 
 #: includes/shortcodes/definitions/definitions.php:2148
 #: includes/shortcodes/definitions/definitions.php:2229
 msgid "Will be displayed when mouse hovers over the icon"
-msgstr ""
+msgstr "Zobrazí sa po prechode myšou nad ikonkou"
 
 #: includes/shortcodes/definitions/definitions.php:2156
 #: includes/shortcodes/definitions/definitions.php:2238
 msgid "Social icon relation"
-msgstr ""
+msgstr "Relácia sociálnej ikonky"
 
 #: includes/shortcodes/definitions/definitions.php:2157
 #: includes/shortcodes/definitions/definitions.php:2239
 msgid "The HTML \"rel\" attribute"
-msgstr ""
+msgstr "HTML \"rel\" atribút"
 
 #: includes/shortcodes/definitions/definitions.php:2282
 #: includes/shortcodes/definitions/definitions.php:2287
 #: includes/shortcodes/definitions/definitions.php:2357
 msgid "Icons list"
-msgstr ""
+msgstr "Ikonkový zoznam"
 
 #: includes/shortcodes/definitions/definitions.php:2283
 msgid "List item"
-msgstr ""
+msgstr "Položka zoznamu"
 
 #: includes/shortcodes/definitions/definitions.php:2302
 msgid "List items"
-msgstr ""
+msgstr "Položky zoznamu"
 
 #: includes/shortcodes/definitions/definitions.php:2303
 msgid "Insert unordered list only"
-msgstr ""
+msgstr "Zadajte iba netriedený zoznam"
 
 #: includes/shortcodes/definitions/definitions.php:2332
 #: includes/shortcodes/definitions/definitions.php:2372
 msgid "Bullet icon"
-msgstr ""
+msgstr "Ikonka odrážky"
 
 #: includes/shortcodes/definitions/definitions.php:2363
 msgid "List items (insert unordered list only)"
-msgstr ""
+msgstr "Položky zoznamu (zadajte iba netriedený zoznam)"
 
 #: includes/shortcodes/definitions/definitions.php:2407
 msgid "Last update time"
-msgstr ""
+msgstr "Čas poslednej aktualizácie"
 
 #: includes/shortcodes/definitions/definitions.php:2425
 msgid "Marker"
-msgstr ""
+msgstr "Zvýrazňovač"
 
 #: includes/shortcodes/definitions/definitions.php:2443
 #: includes/shortcodes/definitions/definitions.php:2447
 #: includes/shortcodes/definitions/definitions.php:2571
 msgid "Message"
-msgstr ""
+msgstr "Hlásenie"
 
 #: includes/shortcodes/definitions/definitions.php:2658
 #: includes/shortcodes/definitions/definitions.php:2663
 #: includes/shortcodes/definitions/definitions.php:2896
 msgid "Posts (custom posts)"
-msgstr ""
+msgstr "Články a iné typy obsahu"
 
 #: includes/shortcodes/definitions/definitions.php:2684
 #: includes/shortcodes/definitions/definitions.php:2902
 msgid "Post type"
-msgstr ""
+msgstr "Typ obsahu"
 
 #: includes/shortcodes/definitions/definitions.php:2685
 #: includes/shortcodes/definitions/definitions.php:2903
-msgid ""
-"This shortcode can display several post types. Choose the one you want to "
-"display."
-msgstr ""
+msgid "This shortcode can display several post types. Choose the one you want to display."
+msgstr "Tento modul môže zobraziť niekoľko typov obsahu. Zvoľte typ, ktorý chcete zobraziť."
 
 #: includes/shortcodes/definitions/definitions.php:2740
 #: includes/shortcodes/definitions/definitions.php:2949
 #: includes/shortcodes/definitions/definitions.php:2956
 #: includes/shortcodes/definitions/definitions.php:2966
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonómia"
 
 #: includes/shortcodes/definitions/definitions.php:2741
 #: includes/shortcodes/definitions/definitions.php:2950
-msgid ""
-"Displays items only from a specific taxonomy. Set a taxonomy name and "
-"taxonomy slug separated with colon."
-msgstr ""
+msgid "Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon."
+msgstr "Zobrazí položky iba zo špecifickej taxonómie. Nastavte názov taxonómie a slug taxonómie oddelené dvojbodkou."
 
 #: includes/shortcodes/definitions/definitions.php:2741
 #: includes/shortcodes/definitions/definitions.php:2950
 msgid "For example: \"category:category-slug\"."
-msgstr ""
+msgstr "Napríklad: \"category:category-slug\"."
 
 #: includes/shortcodes/definitions/definitions.php:2741
 #: includes/shortcodes/definitions/definitions.php:2761
@@ -2188,325 +2139,319 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:2960
 #: includes/shortcodes/definitions/definitions.php:2971
 msgid "Available taxonomy names:"
-msgstr ""
+msgstr "Názvy taxonómií k dispozícii:"
 
 #: includes/shortcodes/definitions/definitions.php:2749
 #: includes/shortcodes/definitions/definitions.php:2959
 msgid "Relation"
-msgstr ""
+msgstr "Príbuzné"
 
 #: includes/shortcodes/definitions/definitions.php:2750
 #: includes/shortcodes/definitions/definitions.php:2960
-msgid ""
-"Use only on single post/custom post pages. Displays items related to "
-"recently displayed item through a specific taxonomy. Set a taxonomy name "
-"only."
-msgstr ""
+msgid "Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only."
+msgstr "Použite iba na stránkach článkov. Zobrazí prvky príbuzné k aktuálne zobrazenému článku na základe špecifickej taxonómie. Nastavte iba názov taxonómie."
 
 #: includes/shortcodes/definitions/definitions.php:2750
 #: includes/shortcodes/definitions/definitions.php:2960
 msgid "For example: \"category\"."
-msgstr ""
+msgstr "Napríklad: \"category\"."
 
 #: includes/shortcodes/definitions/definitions.php:2761
 #: includes/shortcodes/definitions/definitions.php:2971
-msgid ""
-"If set, the items will be filtered. Set a taxonomy name (and optional parent "
-"taxonomy slug separated with colon - filter will be created from sub-"
-"taxonomies) which will be used to filter the items."
-msgstr ""
+msgid "If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items."
+msgstr "Po nastavení budete môcť položky filtrovať. Nastavte názov taxonómie (a nepovinný slug nadradenej taxonómie oddelený dvojbodkou - filter bude vytvorený zo sub-taxonómií), ktorá sa použije na filtrovanie položiek."
 
 #: includes/shortcodes/definitions/definitions.php:2761
 #: includes/shortcodes/definitions/definitions.php:2971
 msgid "For example: \"category\" or \"category:parent-category-slug\"."
-msgstr ""
+msgstr "Napríklad: \"category\" alebo \"category:parent-category-slug\"."
 
 #: includes/shortcodes/definitions/definitions.php:2769
 #: includes/shortcodes/definitions/definitions.php:2980
 msgid "Filter layout"
-msgstr ""
+msgstr "Rozloženie filtrovaného obsahu"
 
 #: includes/shortcodes/definitions/definitions.php:2770
 #: includes/shortcodes/definitions/definitions.php:2981
 #, php-format
 msgid "Use one of <a%s>Isotope</a> layouts."
-msgstr ""
+msgstr "Použite názov rozloženia pre <a%s>Isotope</a>."
 
 #: includes/shortcodes/definitions/definitions.php:2770
 #: includes/shortcodes/definitions/definitions.php:2981
 msgid "Default is set to <code>fitRows</code>."
-msgstr ""
+msgstr "Predvolené je <code>fitRows</code>."
 
 #: includes/shortcodes/definitions/definitions.php:2977
 #: includes/shortcodes/definitions/definitions.php:2987
 #: includes/shortcodes/definitions/definitions.php:2997
 msgid "Filter / Scroll"
-msgstr ""
+msgstr "Filtrovanie / Rolovanie"
 
 #: includes/shortcodes/definitions/definitions.php:3014
 msgid "Description text"
-msgstr ""
+msgstr "Popis"
 
 #: includes/shortcodes/definitions/definitions.php:3084
 msgid "Preformatted text"
-msgstr ""
+msgstr "Naformátovaný text"
 
 #: includes/shortcodes/definitions/definitions.php:3102
 #: includes/shortcodes/definitions/definitions.php:3107
 #: includes/shortcodes/definitions/definitions.php:3307
 #: includes/shortcodes/definitions/definitions.php:3314
 msgid "Pricing table"
-msgstr ""
+msgstr "Tabuľka cien"
 
 #: includes/shortcodes/definitions/definitions.php:3103
 #: includes/shortcodes/definitions/definitions.php:3323
 msgid "Price 1"
-msgstr ""
+msgstr "Cena 1"
 
 #: includes/shortcodes/definitions/definitions.php:3103
 #: includes/shortcodes/definitions/definitions.php:3324
 msgid "Price 2"
-msgstr ""
+msgstr "Cena 2"
 
 #: includes/shortcodes/definitions/definitions.php:3103
 msgid "Price 2 content goes here"
-msgstr ""
+msgstr "Obsah ceny 2"
 
 #: includes/shortcodes/definitions/definitions.php:3130
 #: includes/shortcodes/definitions/definitions.php:3329
 msgid "Remove margins between price columns?"
-msgstr ""
+msgstr "Odstrániť medzery medzi cenovými stĺpcami?"
 
 #: includes/shortcodes/definitions/definitions.php:3145
 msgid "Price columns"
-msgstr ""
+msgstr "Cenové stĺpce"
 
 #: includes/shortcodes/definitions/definitions.php:3175
 #: includes/shortcodes/definitions/definitions.php:3319
 #: includes/shortcodes/definitions/definitions.php:3369
 msgid "Price"
-msgstr ""
+msgstr "Cena"
 
 #: includes/shortcodes/definitions/definitions.php:3203
 #: includes/shortcodes/definitions/definitions.php:3385
 msgid "Cost"
-msgstr ""
+msgstr "Suma"
 
 #: includes/shortcodes/definitions/definitions.php:3213
 #: includes/shortcodes/definitions/definitions.php:3393
 msgid "Features list"
-msgstr ""
+msgstr "Zoznam položiek"
 
 #: includes/shortcodes/definitions/definitions.php:3214
 #: includes/shortcodes/definitions/definitions.php:3394
 msgid "Insert an unordered list of features"
-msgstr ""
+msgstr "Zadajte netriedený zoznam položiek"
 
 #: includes/shortcodes/definitions/definitions.php:3243
 msgid "Colors"
-msgstr ""
+msgstr "Farby"
 
 #: includes/shortcodes/definitions/definitions.php:3249
 #: includes/shortcodes/definitions/definitions.php:3402
 msgid "Column color"
-msgstr ""
+msgstr "Farba stĺpca"
 
 #: includes/shortcodes/definitions/definitions.php:3259
 #: includes/shortcodes/definitions/definitions.php:3411
 msgid "Column text color"
-msgstr ""
+msgstr "Farba textu v stĺpci"
 
 #: includes/shortcodes/definitions/definitions.php:3271
 msgid "Column style"
-msgstr ""
+msgstr "Vzhľad stĺpca"
 
 #: includes/shortcodes/definitions/definitions.php:3280
 #: includes/shortcodes/definitions/definitions.php:3424
 msgid "Default price column"
-msgstr ""
+msgstr "Cenový stĺpec"
 
 #: includes/shortcodes/definitions/definitions.php:3281
 #: includes/shortcodes/definitions/definitions.php:3425
 msgid "Featured price column"
-msgstr ""
+msgstr "Zvýraznený cenový stĺpec"
 
 #: includes/shortcodes/definitions/definitions.php:3282
 #: includes/shortcodes/definitions/definitions.php:3426
 msgid "Pricing table legend"
-msgstr ""
+msgstr "Legenda tabuľky cien"
 
 #: includes/shortcodes/definitions/definitions.php:3319
 msgid "Pricing table: Add new price"
-msgstr ""
+msgstr "Tabuľka cien: Pridať novú cenu"
 
 #: includes/shortcodes/definitions/definitions.php:3323
 #: includes/shortcodes/definitions/definitions.php:3324
 #: includes/shortcodes/definitions/definitions.php:3397
 msgid "<ul><li>Price feature</li><li>Another price feature</li></ul>"
-msgstr ""
+msgstr "<ul><li>Položka</li><li>Položka</li></ul>"
 
 #: includes/shortcodes/definitions/definitions.php:3364
 msgid "Price (pricing table item)"
-msgstr ""
+msgstr "Cena (položka v tabuľke cien)"
 
 #: includes/shortcodes/definitions/definitions.php:3456
 #: includes/shortcodes/definitions/definitions.php:3461
 #: includes/shortcodes/definitions/definitions.php:3525
 msgid "Progress bar"
-msgstr ""
+msgstr "Diagram postupu"
 
 #: includes/shortcodes/definitions/definitions.php:3482
 #: includes/shortcodes/definitions/definitions.php:3540
 msgid "Progress in %"
-msgstr ""
+msgstr "Postup v %"
 
 #: includes/shortcodes/definitions/definitions.php:3483
 #: includes/shortcodes/definitions/definitions.php:3541
 msgid "Insert a number between 0 and 100"
-msgstr ""
+msgstr "Zadajte číslo medzi 0 a 100"
 
 #: includes/shortcodes/definitions/definitions.php:3535
 msgid "Progress bar caption"
-msgstr ""
+msgstr "Nadpis postupového diagramu"
 
 #: includes/shortcodes/definitions/definitions.php:3581
 #: includes/shortcodes/definitions/definitions.php:4717
 msgid "Row"
-msgstr ""
+msgstr "Riadok"
 
 #: includes/shortcodes/definitions/definitions.php:3599
 msgid "Search form"
-msgstr ""
+msgstr "Formulár vyhľadávania"
 
 #: includes/shortcodes/definitions/definitions.php:3617
 #: includes/shortcodes/definitions/definitions.php:3622
 #: includes/shortcodes/definitions/definitions.php:3698
 msgid "Separator heading"
-msgstr ""
+msgstr "Oddeľovací nadpis"
 
 #: includes/shortcodes/definitions/definitions.php:3643
 #: includes/shortcodes/definitions/definitions.php:3704
 msgid "Heading text"
-msgstr ""
+msgstr "Text nadpisu"
 
 #: includes/shortcodes/definitions/definitions.php:3651
 #: includes/shortcodes/definitions/definitions.php:3713
 msgid "Heading size"
-msgstr ""
+msgstr "Veľkosť nadpisu"
 
 #: includes/shortcodes/definitions/definitions.php:3670
 #: includes/shortcodes/definitions/definitions.php:3729
 msgid "Text align"
-msgstr ""
+msgstr "Zarovnanie textu"
 
 #: includes/shortcodes/definitions/definitions.php:3774
 #: includes/shortcodes/definitions/definitions.php:3779
 #: includes/shortcodes/definitions/definitions.php:3848
 msgid "Slideshow"
-msgstr ""
+msgstr "Prezentácia obrázkov"
 
 #: includes/shortcodes/definitions/definitions.php:3800
 #: includes/shortcodes/definitions/definitions.php:3854
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 #: includes/shortcodes/definitions/definitions.php:3808
 #: includes/shortcodes/definitions/definitions.php:3863
 msgid "Navigation"
-msgstr ""
+msgstr "Navigácia"
 
 #: includes/shortcodes/definitions/definitions.php:3811
 #: includes/shortcodes/definitions/definitions.php:3867
 msgid "Just Next/Prev button"
-msgstr ""
+msgstr "Iba tlačidlá ďalší a predchádzajuci"
 
 #: includes/shortcodes/definitions/definitions.php:3812
 #: includes/shortcodes/definitions/definitions.php:3868
 msgid "Thumbnails"
-msgstr ""
+msgstr "Náhľady"
 
 #: includes/shortcodes/definitions/definitions.php:3813
 #: includes/shortcodes/definitions/definitions.php:3869
 msgid "Pagination"
-msgstr ""
+msgstr "Stránkovanie"
 
 #: includes/shortcodes/definitions/definitions.php:3832
 #: includes/shortcodes/definitions/definitions.php:3883
 msgid "Speed in miliseconds"
-msgstr ""
+msgstr "Rýchlosť v milisekundách"
 
 #: includes/shortcodes/definitions/definitions.php:3916
 #: includes/shortcodes/definitions/definitions.php:3986
 msgid "Table (CSV data)"
-msgstr ""
+msgstr "Tabuľka (z CSV dát)"
 
 #: includes/shortcodes/definitions/definitions.php:3921
 msgid "Table"
-msgstr ""
+msgstr "Tabuľka"
 
 #: includes/shortcodes/definitions/definitions.php:3952
 #: includes/shortcodes/definitions/definitions.php:4000
 msgid "CSV data separator"
-msgstr ""
+msgstr "Oddeľovač CSV dát"
 
 #: includes/shortcodes/definitions/definitions.php:3964
 #: includes/shortcodes/definitions/definitions.php:3992
 msgid "CSV data"
-msgstr ""
+msgstr "CSV dáta"
 
 #: includes/shortcodes/definitions/definitions.php:4041
 #: includes/shortcodes/definitions/definitions.php:4046
 #: includes/shortcodes/definitions/definitions.php:4250
 msgid "Testimonials"
-msgstr ""
+msgstr "Posudky"
 
 #: includes/shortcodes/definitions/definitions.php:4061
 msgid "Single testimonial display"
-msgstr ""
+msgstr "Zobrazenie jedného posudku"
 
 #: includes/shortcodes/definitions/definitions.php:4067
 #: includes/shortcodes/definitions/definitions.php:4256
 msgid "Single testimonial"
-msgstr ""
+msgstr "Posudok"
 
 #: includes/shortcodes/definitions/definitions.php:4068
 #: includes/shortcodes/definitions/definitions.php:4257
 msgid "Leave empty to display multiple testimonials"
-msgstr ""
+msgstr "Ponechajte prázdne ak chcete zobraziť viacero posudkov"
 
 #: includes/shortcodes/definitions/definitions.php:4141
 #: includes/shortcodes/definitions/definitions.php:4317
 msgid "Displays items only from a specific category"
-msgstr ""
+msgstr "Zobrazí iba položky zo špecifickej kategórie"
 
 #: includes/shortcodes/definitions/definitions.php:4399
 #: includes/shortcodes/definitions/definitions.php:4404
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: includes/shortcodes/definitions/definitions.php:4410
 msgid "Video source"
-msgstr ""
+msgstr "Video zdroj"
 
 #: includes/shortcodes/definitions/definitions.php:4411
 msgid "Set the video URL"
-msgstr ""
+msgstr "Nastavte URL adresu video súboru"
 
 #: includes/shortcodes/definitions/definitions.php:4419
 msgid "Poster"
-msgstr ""
+msgstr "Náhľad"
 
 #: includes/shortcodes/definitions/definitions.php:4420
 msgid "Optional placeholder image"
-msgstr ""
+msgstr "Nepovinný náhľadový obrázok"
 
 #: includes/shortcodes/definitions/definitions.php:4428
 msgid "Autoplay the video?"
-msgstr ""
+msgstr "Automatické prehrávanie videa?"
 
 #: includes/shortcodes/definitions/definitions.php:4440
 msgid "Loop the video?"
-msgstr ""
+msgstr "Prehrávanie v slučke?"
 
 #: includes/shortcodes/definitions/definitions.php:4476
 #: includes/shortcodes/definitions/definitions.php:4481
@@ -2514,36 +2459,34 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:4543
 #: includes/shortcodes/definitions/definitions.php:4549
 msgid "Widgets area"
-msgstr ""
+msgstr "Oblasť widgetov"
 
 #: includes/shortcodes/definitions/definitions.php:4512
 #: includes/shortcodes/definitions/definitions.php:4558
 msgid "Maximum widgets count"
-msgstr ""
+msgstr "Maximálny počet widgetov"
 
 #: includes/shortcodes/definitions/definitions.php:4513
 #: includes/shortcodes/definitions/definitions.php:4559
-msgid ""
-"Area will not be displayed when the number of widgets inserted in it is "
-"greater"
-msgstr ""
+msgid "Area will not be displayed when the number of widgets inserted in it is greater"
+msgstr "Oblasť sa nezobrazí, ak počet widgetov v nej umiestnených prekročí toto nastavenie"
 
 #: includes/shortcodes/definitions/definitions.php:4612
 msgid "Row / Section"
-msgstr ""
+msgstr "Riadok / Sekcia"
 
 #: includes/shortcodes/definitions/definitions.php:4615
 #: includes/shortcodes/definitions/definitions.php:4720
 #: includes/shortcodes/definitions/definitions.php:4754
 #: includes/shortcodes/definitions/definitions.php:4834
 msgid "Structure"
-msgstr ""
+msgstr "Štruktúra"
 
 #: includes/shortcodes/definitions/definitions.php:4639
 #: includes/shortcodes/definitions/definitions.php:4778
 #: includes/shortcodes/definitions/definitions.php:4858
 msgid "Background color"
-msgstr ""
+msgstr "Farba pozadia"
 
 #: includes/shortcodes/definitions/definitions.php:4646
 #: includes/shortcodes/definitions/definitions.php:4656
@@ -2563,36 +2506,34 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:5016
 #: includes/shortcodes/definitions/definitions.php:5026
 msgid "Styling"
-msgstr ""
+msgstr "Štýl"
 
 #: includes/shortcodes/definitions/definitions.php:4649
 #: includes/shortcodes/definitions/definitions.php:4788
 #: includes/shortcodes/definitions/definitions.php:4868
 msgid "Text color"
-msgstr ""
+msgstr "Farba textu"
 
 #: includes/shortcodes/definitions/definitions.php:4659
 #: includes/shortcodes/definitions/definitions.php:4798
 #: includes/shortcodes/definitions/definitions.php:4878
 msgid "Background image"
-msgstr ""
+msgstr "Obrázok pozadia"
 
 #: includes/shortcodes/definitions/definitions.php:4669
 msgid "Parallax scroll speed"
-msgstr ""
+msgstr "Rýchlosť paralaxy"
 
 #: includes/shortcodes/definitions/definitions.php:4670
 #, php-format
-msgid ""
-"Set the inertia of parallax background moving. For example, value of "
-"<code>0.1</code> equals 10% of normal scroll speed."
-msgstr ""
+msgid "Set the inertia of parallax background moving. For example, value of <code>0.1</code> equals to tenth of normal scroll speed."
+msgstr "Nastavte zotrvačnosť pohybu pozadia paralaxy. Napríklad, hodnota <code>0.1</code> zodpovedá desatine normálnej rýchlosti rolovania."
 
 #: includes/shortcodes/definitions/definitions.php:4683
 #: includes/shortcodes/definitions/definitions.php:4808
 #: includes/shortcodes/definitions/definitions.php:4888
 msgid "Padding"
-msgstr ""
+msgstr "Medzera výplne"
 
 #: includes/shortcodes/definitions/definitions.php:4684
 #: includes/shortcodes/definitions/definitions.php:4694
@@ -2601,88 +2542,88 @@ msgstr ""
 #: includes/shortcodes/definitions/definitions.php:5020
 #, php-format
 msgid "Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>"
-msgstr ""
+msgstr "Nastavte <a%s>CSS hodnotu</a>, ako napríklad <code>60px 0 60px 0</code>"
 
 #: includes/shortcodes/definitions/definitions.php:4693
 #: includes/shortcodes/definitions/definitions.php:5019
 msgid "Margin"
-msgstr ""
+msgstr "Medzera"
 
 #: includes/shortcodes/definitions/definitions.php:4912
 msgid "Text block"
-msgstr ""
+msgstr "Textový blok"
 
 #: includes/shortcodes/definitions/definitions.php:4956
 msgid "Image to display"
-msgstr ""
+msgstr "Zobrazený obrázok"
 
 #: includes/shortcodes/definitions/definitions.php:4965
 msgid "Image link URL"
-msgstr ""
+msgstr "URL odkaz obrázku"
 
 #: includes/shortcodes/definitions/definitions.php:4999
 msgid "Image width HTML attribute"
-msgstr ""
+msgstr "HTML atribút šírky obrázku"
 
 #: includes/shortcodes/definitions/definitions.php:5009
 msgid "Image height HTML attribute"
-msgstr ""
+msgstr "HTML atribút výšky obrázku"
 
 #: includes/shortcodes/definitions/definitions.php:5044
 msgid "Soliloquy Slider"
-msgstr ""
+msgstr "Prezentácia Soliloquy"
 
 #: includes/shortcodes/definitions/definitions.php:5050
 msgid "Choose a Soliloquy slider"
-msgstr ""
+msgstr "Zvoľte prezentáciu Soliloquy"
 
 #: includes/shortcodes/definitions/definitions.php:5074
 msgid "Master Slider"
-msgstr ""
+msgstr "Master Slider"
 
 #: includes/shortcodes/definitions/definitions.php:5080
 msgid "Choose a slider"
-msgstr ""
+msgstr "Zvoľte prezentáciu"
 
 #: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:80
 msgctxt "Page builder modules category name."
 msgid "WM Modules"
-msgstr ""
+msgstr "WM Moduly"
 
 #: includes/shortcodes/renderers/accordion.php:65
 #: includes/shortcodes/renderers/content_module.php:213
 #: includes/shortcodes/renderers/posts.php:255
 msgid "All"
-msgstr ""
+msgstr "Všetky"
 
 #: includes/shortcodes/renderers/content_module.php:307
 msgid "Read more"
-msgstr ""
+msgstr "Čítať viac"
 
 #: includes/shortcodes/renderers/countdown_timer.php:44
 msgid "Weeks"
-msgstr ""
+msgstr "Týždne"
 
 #: includes/shortcodes/renderers/countdown_timer.php:45
 msgid "Days"
-msgstr ""
+msgstr "Dni"
 
 #: includes/shortcodes/renderers/countdown_timer.php:46
 msgid "Hours"
-msgstr ""
+msgstr "Hodiny"
 
 #: includes/shortcodes/renderers/countdown_timer.php:47
 msgid "Minutes"
-msgstr ""
+msgstr "Minúty"
 
 #: includes/shortcodes/renderers/countdown_timer.php:48
 msgid "Seconds"
-msgstr ""
+msgstr "Sekundy"
 
 #: includes/shortcodes/renderers/posts.php:235
 #, php-format
 msgid "All <span>%s</span>"
-msgstr ""
+msgstr "Všetko: <span>%s</span>"
 
 #: includes/widgets/w-contact.php:72
 msgctxt "Widget name."
@@ -2696,14 +2637,8 @@ msgstr "Kontaktné informácie"
 
 #: includes/widgets/w-contact.php:105
 msgctxt "Widget description."
-msgid ""
-"Displays specially styled contact information. JavaScript anti-spam "
-"protection will be applied on the email address (also, email will not be "
-"displayed when JavaScript is turned off)."
-msgstr ""
-"Zobrazí špeciálne naštýlované kontaktné informácie. Anti-spamový filter sa "
-"použije na e-mailovú adresu (v prípade, že je JavaScript v internetovom "
-"prehliadači vypnutý, e-mail sa nezobrazí)."
+msgid "Displays specially styled contact information. JavaScript anti-spam protection will be applied on the email address (also, email will not be displayed when JavaScript is turned off)."
+msgstr "Zobrazí špeciálne naštýlované kontaktné informácie. Anti-spamový filter sa použije na e-mailovú adresu (v prípade, že je JavaScript v internetovom prehliadači vypnutý, e-mail sa nezobrazí)."
 
 #: includes/widgets/w-contact.php:108 includes/widgets/w-module.php:105
 #: includes/widgets/w-posts.php:108 includes/widgets/w-subnav.php:105
@@ -2725,11 +2660,8 @@ msgid "Business hours:"
 msgstr "Otváracie hodiny:"
 
 #: includes/widgets/w-contact.php:125
-msgid ""
-"Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
-msgstr ""
-"Použite čiarku pre oddelenie dní a časov<br />(napríklad \"Piatok, 9:00 - "
-"17:00\")"
+msgid "Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
+msgstr "Použite čiarku pre oddelenie dní a časov<br />(napríklad \"Piatok, 9:00 - 17:00\")"
 
 #: includes/widgets/w-contact.php:129
 msgid "Phone number:"
@@ -2755,9 +2687,7 @@ msgstr "Zobrazí zvolený obsahový modul"
 
 #: includes/widgets/w-module.php:102
 msgctxt "Widget description."
-msgid ""
-"Displays content of the specific Content Module custom post. Please choose "
-"the Content Module below."
+msgid "Displays content of the specific Content Module custom post. Please choose the Content Module below."
 msgstr "Zobrazí obsah zvoleného obsahového modulu. Zvoľte daný modul nižšie."
 
 #: includes/widgets/w-module.php:120
@@ -2774,12 +2704,8 @@ msgid " (tags: %s)"
 msgstr " (značky: %s)"
 
 #: includes/widgets/w-module.php:145
-msgid ""
-"There are no Content Modules to choose from. Please add a new Content Module "
-"first."
-msgstr ""
-"Neboli nájdené žiadne obsahové moduly. Najskôr je nutné vytvoriť nové "
-"obsahové moduly."
+msgid "There are no Content Modules to choose from. Please add a new Content Module first."
+msgstr "Neboli nájdené žiadne obsahové moduly. Najskôr je nutné vytvoriť nové obsahové moduly."
 
 #: includes/widgets/w-module.php:151 includes/widgets/w-posts.php:184
 msgid "Optional CSS class:"
@@ -2856,12 +2782,8 @@ msgstr "Zoznam podstránok"
 
 #: includes/widgets/w-subnav.php:102
 msgctxt "Widget description."
-msgid ""
-"Displays a hierarchical list of subpages and sibling pages for the current "
-"page (page submenu)."
-msgstr ""
-"Zobrazí zoznam podstránok a príbuzných stránok hierarchicky podľa aktuálnej "
-"stránky (tzv. stránkové submenu)."
+msgid "Displays a hierarchical list of subpages and sibling pages for the current page (page submenu)."
+msgstr "Zobrazí zoznam podstránok a príbuzných stránok hierarchicky podľa aktuálnej stránky (tzv. stránkové submenu)."
 
 #: includes/widgets/w-subnav.php:107
 msgid "If you leave blank, the main parent page title will be displayed."
@@ -2935,13 +2857,8 @@ msgstr "Vaše najnovšie tweety"
 
 #: includes/widgets/w-twitter.php:137
 msgctxt "Widget description."
-msgid ""
-"Displays recent tweets from specific Twitter account. Also displays Twitter "
-"account details. Tweets are being cached to optimize the page loading speeds."
-msgstr ""
-"Zobrazí najnovšie tweety zo špecifického Twitter účtu. Taktiež zobrazí údaje "
-"o účte. Tweety sa v ukladajú do cache pamate pre optimalizovanie rýchlosti "
-"načítania webstránky."
+msgid "Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds."
+msgstr "Zobrazí najnovšie tweety zo špecifického Twitter účtu. Taktiež zobrazí údaje o účte. Tweety sa v ukladajú do cache pamate pre optimalizovanie rýchlosti načítania webstránky."
 
 #: includes/widgets/w-twitter.php:145
 msgid "Twitter username:"
@@ -2964,15 +2881,8 @@ msgid "Twitter API settings"
 msgstr "Nastavenie Twitter API"
 
 #: includes/widgets/w-twitter.php:168
-msgid ""
-"To set the fields below you need to <a href=\"https://dev.twitter.com/apps\" "
-"target=\"_blank\">create a Twitter Application</a>. See theme user manual "
-"for more info."
-msgstr ""
-"Aby ste nastavili tieto polia, musíte si najskôr <a href=\"https://dev."
-"twitter.com/apps\" target=\"_blank\">vytvoriť Twitter Aplikáciu</a>. Viac "
-"informácií o tomto nastavení nájdete v dokumentácii k použitej WordPress "
-"téme."
+msgid "To set the fields below you need to <a href=\"https://dev.twitter.com/apps\" target=\"_blank\">create a Twitter Application</a>. See theme user manual for more info."
+msgstr "Aby ste nastavili tieto polia, musíte si najskôr <a href=\"https://dev.twitter.com/apps\" target=\"_blank\">vytvoriť Twitter Aplikáciu</a>. Viac informácií o tomto nastavení nájdete v dokumentácii k použitej WordPress téme."
 
 #: includes/widgets/w-twitter.php:172
 msgid "Consumer key:"
@@ -3004,5 +2914,4 @@ msgstr "Komentáre: %s"
 #: templates/content-shortcode-posts.php:66
 #, php-format
 msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
-msgstr ""
-"Prečítať <span class=\"screen-reader-text\">článok \"%s\"</span>&raquo;"
+msgstr "Prečítať <span class=\"screen-reader-text\">článok \"%s\"</span>&raquo;"

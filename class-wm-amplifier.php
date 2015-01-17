@@ -159,12 +159,12 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			public function setup_actions() {
 				//Array of core actions
 					$actions = array(
+						'load_textdomain'               => 'init|-10',          //Load textdomain (priority < 0!)
 						'register_metaboxes'            => 'plugins_loaded',    //Register metaboxes
 						'register_widgets'              => 'init|1',            //Register widgets
 						'save_permalinks'               => 'init',              //Save custom permalinks
 						'register_post_types'           => 'init',              //Register post types
 						'custom_taxonomies'             => 'init|98',           //Register additional custom taxonomies
-						'load_textdomain'               => 'init',              //Load textdomain
 						'register_shortcodes'           => 'init',              //Register shortcodes
 						'register_visual_editor_addons' => 'init',              //Register Visual Editor addons
 						'register_icons'                => 'init',              //Register icon font

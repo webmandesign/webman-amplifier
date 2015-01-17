@@ -329,9 +329,14 @@
 
 		.vc_modal.in .vc_modal-body,
 		.vc_panel .vc_panel-body {
+			position: relative;
 			min-height: 80px;
 			padding: 10px 0;
+			margin-top: 0 !important;
 		}
+		.vc_modal.in .vc_modal-body.vc_with-tabs,
+		.vc_panel .vc_panel-body.vc_with-tabs { padding-top: 60px; }
+
 			.vc_panel .vc_row {
 				padding: 0;
 				margin: 0;
@@ -345,14 +350,22 @@
 		}
 		.vc_panel .vc_panel-tabs {margin-top: -10px}
 			.vc_panel .vc_panel-tabs > ul {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
 				padding: 0 9px;
 				background: #1e8cbe;
 				-webkit-box-sizing: border-box;
 				   -moz-box-sizing: border-box;
 				        box-sizing: border-box;
 			}
-				.vc_panel .vc_panel-tabs > ul a {color: #fff}
-				.vc_panel .vc_panel-tabs > ul .ui-state-active a {color: #444}
+				.vc_panel .vc_panel-tabs > ul a,
+				.vc_panel .vc_panel-tabs > .vc_edit-form-tabs-menu .vc_edit-form-tab-control .vc_edit-form-link,
+				.vc_panel .vc_panel-tabs > .vc_panel-tabs-menu .vc_panel-tabs-control .vc_panel-tabs-link { color: #fff; }
+				.vc_panel .vc_panel-tabs > ul .ui-state-active a,
+				.vc_panel .vc_panel-tabs > .vc_edit-form-tabs-menu .vc_edit-form-tab-control.vc_active a,
+				.vc_panel .vc_panel-tabs > .vc_panel-tabs-menu .vc_panel-tabs-control.vc_active a { color: #444; }
 
 			.vc_panel-tabs .vc_edit-form-tab {padding-top: 10px}
 

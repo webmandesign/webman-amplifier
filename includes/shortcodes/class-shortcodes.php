@@ -1083,128 +1083,6 @@ function wma_shortcodes() {
 
 
 /**
- * Alter Visual Composer shortcodes output
- *
- * @since    1.0
- * @version  1.0.8
- */
-if ( wma_is_active_vc() ) {
-
-		/**
-		 * Customize vc_row shortcode output
-		 *
-		 * Making the output the same as wm_row shortcode.
-		 *
-		 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
-		 *
-		 * @param  array  $atts
-		 * @param  string $content
-		 */
-		function vc_theme_vc_row( $atts, $content = '', $shortcode = '' ) {
-			//Helper variables
-				if ( ! $shortcode ) {
-					$shortcode = 'vc_row';
-				}
-
-			//Allow plugins/themes to override the default shortcode template
-				$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
-				if ( $output ) {
-					return $output;
-				}
-
-			//Render the shortcode
-				$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-				$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'row.php', $shortcode );
-				if ( file_exists( $renderer_file_path ) ) {
-					$prefix_shortcode = 'wm_';
-					include( $renderer_file_path );
-				}
-
-			//Output
-				//general filter to process the output of all shortcodes
-				$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
-				//filter to process the specific shortcode output ($atts are validated already)
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
-		} // /vc_theme_vc_row
-
-
-
-		/**
-		 * Customize vc_row_inner shortcode output
-		 *
-		 * Making the output the same as wm_row shortcode.
-		 *
-		 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
-		 *
-		 * @param  array  $atts
-		 * @param  string $content
-		 */
-		function vc_theme_vc_row_inner( $atts, $content = '' ) {
-			return vc_theme_vc_row( $atts, $content, 'vc_row_inner' );
-		} // /vc_theme_vc_row_inner
-
-
-
-		/**
-		 * Customize vc_column shortcode output
-		 *
-		 * Making the output the same as wm_column shortcode.
-		 *
-		 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
-		 *
-		 * @param  array  $atts
-		 * @param  string $content
-		 */
-		function vc_theme_vc_column( $atts, $content = '', $shortcode = '' ) {
-			//Helper variables
-				if ( ! $shortcode ) {
-					$shortcode = 'vc_column';
-				}
-
-			//Allow plugins/themes to override the default shortcode template
-				$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
-				if ( $output ) {
-					return $output;
-				}
-
-			//Render the shortcode
-				$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-				$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'column.php', $shortcode );
-				if ( file_exists( $renderer_file_path ) ) {
-					$prefix_shortcode = 'wm_';
-					include( $renderer_file_path );
-				}
-
-			//Output
-				//general filter to process the output of all shortcodes
-				$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
-				//filter to process the specific shortcode output ($atts are validated already)
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
-		} // /vc_theme_vc_column
-
-
-
-		/**
-		 * Customize vc_column_inner shortcode output
-		 *
-		 * Making the output the same as wm_column shortcode.
-		 *
-		 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
-		 *
-		 * @param  array  $atts
-		 * @param  string $content
-		 */
-		function vc_theme_vc_column_inner( $atts, $content = '' ) {
-			return vc_theme_vc_column( $atts, $content, 'vc_column_inner' );
-		} // /vc_theme_vc_column_inner
-
-} // /wma_is_active_vc() check
-
-
-
-
-
-/**
  * WM_Shortcodes helper functions
  *
  * @since    1.0.9.8
@@ -1319,5 +1197,198 @@ if ( wma_is_active_vc() ) {
 					return $output;
 			}
 		} // /wma_custom_field_wm_radio
+
+
+
+
+
+/**
+ * Beaver Builder Lite Version multisite support
+ *
+ * Fixing the plugin's deactivation on a single sites in multisite environment.
+ * Runs only during the Beaver Builder activation attempt.
+ *
+ * @uses  register_activation_hook()
+ *
+ * @todo  Remove when Beaver Builder Lite Version supports multisite.
+ *
+ * @since    1.1
+ * @version  1.1
+ */
+if ( is_multisite() && ! class_exists( 'FLBuilderMultisite' ) ) {
+
+	/**
+	 * Activating Beaver Builder
+	 *
+	 * Need to declare the missing `FLBuilderMultisite` class inside
+	 * the function to hook into plugin activation.
+	 * Otherwise, if Pro version of Beaver Builder plugin installed,
+	 * a duplicate class definition error might appear.
+	 */
+	function wma_bb_multisite() {
+		if ( defined( 'FL_BUILDER_LITE' ) && FL_BUILDER_LITE ) {
+
+			/**
+			 * Just a placeholder
+			 */
+			class FLBuilderMultisite {
+				static public function init() {}
+				static public function install() {}
+				static private function uninstall() {}
+			} // /FLBuilderMultisite
+
+			add_action( 'init', 'FLBuilderMultisite::init' );
+
+		}
+	} // /wma_bb_multisite
+
+	register_activation_hook( str_replace( array( 'webman-amplifier/', 'webman-amplifier\\' ), 'beaver-builder-lite-version\\', WMAMP_PLUGIN_DIR ) . '\\fl-builder.php', 'wma_bb_multisite' );
+
+} // /FLBuilderMultisite check
+
+
+
+
+
+/**
+ * Additional Visual Composer requirements
+ *
+ * @since    1.0
+ * @version  1.1
+ */
+if ( wma_is_active_vc() ) {
+
+	/**
+	 * Removing Visual Composer 4.4 "Grid Elements" custom post type
+	 *
+	 * @since    1.1
+	 * @version  1.1
+	 *
+	 * @access  public
+	 */
+	if ( ! function_exists( 'wma_vc_custom_post_removal' ) ) {
+		function wma_vc_custom_post_removal() {
+			global $wp_post_types;
+
+			if ( isset( $wp_post_types['vc_grid_item'] ) ) {
+				unset( $wp_post_types['vc_grid_item'] );
+				// remove_menu_page( 'edit.php?post_type=vc_grid_item' );
+			}
+		}
+	} // /wma_vc_custom_post_removal
+
+	add_action( 'init', 'wma_vc_custom_post_removal', 999 );
+
+
+
+	/**
+	 * Customize vc_row shortcode output
+	 *
+	 * Making the output the same as wm_row shortcode.
+	 *
+	 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
+	 *
+	 * @param  array  $atts
+	 * @param  string $content
+	 */
+	function vc_theme_vc_row( $atts, $content = '', $shortcode = '' ) {
+		//Helper variables
+			if ( ! $shortcode ) {
+				$shortcode = 'vc_row';
+			}
+
+		//Allow plugins/themes to override the default shortcode template
+			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
+			if ( $output ) {
+				return $output;
+			}
+
+		//Render the shortcode
+			$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+			$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'row.php', $shortcode );
+			if ( file_exists( $renderer_file_path ) ) {
+				$prefix_shortcode = 'wm_';
+				include( $renderer_file_path );
+			}
+
+		//Output
+			//general filter to process the output of all shortcodes
+			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
+			//filter to process the specific shortcode output ($atts are validated already)
+			return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
+	} // /vc_theme_vc_row
+
+
+
+	/**
+	 * Customize vc_row_inner shortcode output
+	 *
+	 * Making the output the same as wm_row shortcode.
+	 *
+	 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
+	 *
+	 * @param  array  $atts
+	 * @param  string $content
+	 */
+	function vc_theme_vc_row_inner( $atts, $content = '' ) {
+		return vc_theme_vc_row( $atts, $content, 'vc_row_inner' );
+	} // /vc_theme_vc_row_inner
+
+
+
+	/**
+	 * Customize vc_column shortcode output
+	 *
+	 * Making the output the same as wm_column shortcode.
+	 *
+	 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
+	 *
+	 * @param  array  $atts
+	 * @param  string $content
+	 */
+	function vc_theme_vc_column( $atts, $content = '', $shortcode = '' ) {
+		//Helper variables
+			if ( ! $shortcode ) {
+				$shortcode = 'vc_column';
+			}
+
+		//Allow plugins/themes to override the default shortcode template
+			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
+			if ( $output ) {
+				return $output;
+			}
+
+		//Render the shortcode
+			$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+			$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'column.php', $shortcode );
+			if ( file_exists( $renderer_file_path ) ) {
+				$prefix_shortcode = 'wm_';
+				include( $renderer_file_path );
+			}
+
+		//Output
+			//general filter to process the output of all shortcodes
+			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
+			//filter to process the specific shortcode output ($atts are validated already)
+			return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
+	} // /vc_theme_vc_column
+
+
+
+	/**
+	 * Customize vc_column_inner shortcode output
+	 *
+	 * Making the output the same as wm_column shortcode.
+	 *
+	 * @link  http://kb.wpbakery.com/index.php?title=Extend_Visual_Composer
+	 *
+	 * @param  array  $atts
+	 * @param  string $content
+	 */
+	function vc_theme_vc_column_inner( $atts, $content = '' ) {
+		return vc_theme_vc_column( $atts, $content, 'vc_column_inner' );
+	} // /vc_theme_vc_column_inner
+
+} // /wma_is_active_vc() check
 
 ?>

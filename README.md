@@ -32,6 +32,8 @@ Don't ever get tied to a theme! **Take all the premium functionality with you** 
 
 Have a translation? Please post it on the [support forum](http://support.webmandesign.eu/ "WebMan Support Forum").
 
+Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
+
 
 ## Installation
 
@@ -54,7 +56,7 @@ The plugin supports icon font files from Fontello.com. Visit the website, select
 
 ### How to translate (localize) the plugin?
 
-*Find the instructions in `webman-amplifier/languages/readme.md` file.*
+Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
 
 
 ## Other Notes

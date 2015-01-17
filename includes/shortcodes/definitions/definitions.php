@@ -4667,7 +4667,7 @@ $shortcode_definitions = array(
 						),
 						60 => array(
 							'heading'     => __( 'Parallax scroll speed', 'wm_domain' ),
-							'description' => __( 'Set the inertia of parallax background moving. For example, value of <code>0.1</code> equals 10% of normal scroll speed.', 'wm_domain' ),
+							'description' => __( 'Set the inertia of parallax background moving. For example, value of <code>0.1</code> equals to tenth of normal scroll speed.', 'wm_domain' ),
 							'type'        => 'textfield',
 							'param_name'  => 'parallax',
 							'value'       => '',
