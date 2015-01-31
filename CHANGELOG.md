@@ -1,5 +1,18 @@
 # WebMan Amplifier Changelog
 
+## 1.1.1
+
+* Updated: Improved support for Beaver Builder plugin
+* Updated: Schema.org markup generator function
+* Updated: Hook names
+* Fixed: PHP error when using the Beaver Builder plugin
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	includes/functions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+
 
 ## 1.1
 
@@ -22,78 +35,78 @@
 	class-wm-amplifier.php
 	uninstall.php
 	webman-amplifier-setup.php
-	assets\css\admin-addons.css
-	assets\css\input-wm-radio.css
-	assets\css\metabox.css
-	assets\css\rtl-shortcodes-generator.css
-	assets\css\rtl-shortcodes-vc-addons.css
-	assets\css\shortcodes-bb-addons.css
-	assets\css\shortcodes-vc-addons.css
-	assets\css\dev\admin-addons.dev.css
-	assets\css\dev\input-wm-radio.dev.css
-	assets\css\dev\metabox.dev.css
-	assets\css\dev\rtl-shortcodes-generator.dev.css
-	assets\css\dev\rtl-shortcodes-vc-addons.dev.css
-	assets\css\dev\shortcodes-bb-addons.dev.css
-	assets\css\dev\shortcodes-vc-addons.dev.css
-	assets\js\shortcode-tabs.js
-	assets\js\shortcodes-button.js
-	assets\js\dev\shortcode-tabs.dev.js
-	assets\js\dev\shortcodes-button.dev.js
-	includes\class-icon-font.php
-	includes\functions.php
-	includes\custom-posts\logos.php
-	includes\custom-posts\modules.php
-	includes\custom-posts\projects.php
-	includes\custom-posts\staff.php
-	includes\custom-posts\testimonials.php
-	includes\metabox\class-metabox.php
-	includes\metabox\fields\radio.php
-	includes\metabox\fields\select.php
-	includes\metabox\fields\slider.php
-	includes\metabox\fields\texts.php
-	includes\shortcodes\class-shortcodes.php
-	includes\shortcodes\definitions\definitions.php
-	includes\shortcodes\page-builder\beaver-builder\beaver-builder.php
-	includes\shortcodes\page-builder\beaver-builder\modules\accordion.php
-	includes\shortcodes\page-builder\beaver-builder\modules\button.php
-	includes\shortcodes\page-builder\beaver-builder\modules\call_to_action.php
-	includes\shortcodes\page-builder\beaver-builder\modules\content_module.php
-	includes\shortcodes\page-builder\beaver-builder\modules\countdown_timer.php
-	includes\shortcodes\page-builder\beaver-builder\modules\divider.php
-	includes\shortcodes\page-builder\beaver-builder\modules\icon.php
-	includes\shortcodes\page-builder\beaver-builder\modules\list.php
-	includes\shortcodes\page-builder\beaver-builder\modules\message.php
-	includes\shortcodes\page-builder\beaver-builder\modules\posts.php
-	includes\shortcodes\page-builder\beaver-builder\modules\pricing_table.php
-	includes\shortcodes\page-builder\beaver-builder\modules\progress.php
-	includes\shortcodes\page-builder\beaver-builder\modules\separator_heading.php
-	includes\shortcodes\page-builder\beaver-builder\modules\slideshow.php
-	includes\shortcodes\page-builder\beaver-builder\modules\table.php
-	includes\shortcodes\page-builder\beaver-builder\modules\tabs.php
-	includes\shortcodes\page-builder\beaver-builder\modules\testimonials.php
-	includes\shortcodes\page-builder\beaver-builder\modules\widget_area.php
-	includes\shortcodes\page-builder\beaver-builder\modules\css\settings.css
-	includes\shortcodes\page-builder\beaver-builder\modules\includes\frontend.php
-	includes\shortcodes\page-builder\beaver-builder\modules\js\settings.js
-	includes\shortcodes\renderers\button.php
-	includes\shortcodes\renderers\call_to_action.php
-	includes\shortcodes\renderers\content_module.php
-	includes\shortcodes\renderers\countdown_timer.php
-	includes\shortcodes\renderers\divider.php
-	includes\shortcodes\renderers\icon.php
-	includes\shortcodes\renderers\message.php
-	includes\shortcodes\renderers\price.php
-	includes\shortcodes\renderers\table.php
-	includes\visual-editor\visual-editor.php
-	includes\widgets\w-contact.php
-	includes\widgets\w-module.php
-	includes\widgets\w-posts.php
-	includes\widgets\w-subnav.php
-	includes\widgets\w-tabbed-widgets.php
-	includes\widgets\w-twitter.php
-	templates\content-shortcode-posts-post.php
-	templates\content-shortcode-posts.php
+	assets/css/admin-addons.css
+	assets/css/input-wm-radio.css
+	assets/css/metabox.css
+	assets/css/rtl-shortcodes-generator.css
+	assets/css/rtl-shortcodes-vc-addons.css
+	assets/css/shortcodes-bb-addons.css
+	assets/css/shortcodes-vc-addons.css
+	assets/css/dev/admin-addons.dev.css
+	assets/css/dev/input-wm-radio.dev.css
+	assets/css/dev/metabox.dev.css
+	assets/css/dev/rtl-shortcodes-generator.dev.css
+	assets/css/dev/rtl-shortcodes-vc-addons.dev.css
+	assets/css/dev/shortcodes-bb-addons.dev.css
+	assets/css/dev/shortcodes-vc-addons.dev.css
+	assets/js/shortcode-tabs.js
+	assets/js/shortcodes-button.js
+	assets/js/dev/shortcode-tabs.dev.js
+	assets/js/dev/shortcodes-button.dev.js
+	includes/class-icon-font.php
+	includes/functions.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/metabox/class-metabox.php
+	includes/metabox/fields/radio.php
+	includes/metabox/fields/select.php
+	includes/metabox/fields/slider.php
+	includes/metabox/fields/texts.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/page-builder/beaver-builder/modules/accordion.php
+	includes/shortcodes/page-builder/beaver-builder/modules/button.php
+	includes/shortcodes/page-builder/beaver-builder/modules/call_to_action.php
+	includes/shortcodes/page-builder/beaver-builder/modules/content_module.php
+	includes/shortcodes/page-builder/beaver-builder/modules/countdown_timer.php
+	includes/shortcodes/page-builder/beaver-builder/modules/divider.php
+	includes/shortcodes/page-builder/beaver-builder/modules/icon.php
+	includes/shortcodes/page-builder/beaver-builder/modules/list.php
+	includes/shortcodes/page-builder/beaver-builder/modules/message.php
+	includes/shortcodes/page-builder/beaver-builder/modules/posts.php
+	includes/shortcodes/page-builder/beaver-builder/modules/pricing_table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/progress.php
+	includes/shortcodes/page-builder/beaver-builder/modules/separator_heading.php
+	includes/shortcodes/page-builder/beaver-builder/modules/slideshow.php
+	includes/shortcodes/page-builder/beaver-builder/modules/table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/tabs.php
+	includes/shortcodes/page-builder/beaver-builder/modules/testimonials.php
+	includes/shortcodes/page-builder/beaver-builder/modules/widget_area.php
+	includes/shortcodes/page-builder/beaver-builder/modules/css/settings.css
+	includes/shortcodes/page-builder/beaver-builder/modules/includes/frontend.php
+	includes/shortcodes/page-builder/beaver-builder/modules/js/settings.js
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/divider.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/price.php
+	includes/shortcodes/renderers/table.php
+	includes/visual-editor/visual-editor.php
+	includes/widgets/w-contact.php
+	includes/widgets/w-module.php
+	includes/widgets/w-posts.php
+	includes/widgets/w-subnav.php
+	includes/widgets/w-tabbed-widgets.php
+	includes/widgets/w-twitter.php
+	templates/content-shortcode-posts-post.php
+	templates/content-shortcode-posts.php
 
 
 ## 1.0.9.15

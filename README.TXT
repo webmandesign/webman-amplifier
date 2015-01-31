@@ -83,122 +83,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
-= 1.1 =
-* Added: Visual Composer 4.4 support
-* Added: Beaver Builder plugin support
-* Added: Plugin action links plugins admin page
-* Added: Slovak localization file
-* Updated: Optimized and improved code
-* Updated: Removed obsolete files
-* Updated: Better file organization
-* Updated: Scripts updated: Isotope 2.1.0
-* Updated: Removed support for old WordPress versions
-* Updated: Renamed `type` shortcode attribute to `appearance` (keeping backwards compatibility)
-* Updated: Localization functions and files
-* Fixed: Fixed hook names
-* Fixed: Vertical tabs min tab content height
-
-= 1.0.9.15 =
-* Added: Function to register additional custom taxonomies
-* Added: 'wma_supports_subfeature( $subfeature )' function
-* Updated: Function to check if the theme supports plugin's features
-* Updated: Improved disabling shortcodes and icon font classes
-* Updated: Improved performance of the code
-* Updated: Metabox styles
-* Updated: Renamed 'remove_vc_shortcodes' to 'remove-vc-shortcodes' (while keeping backwards compatibility)
-* Updated: WebMan Amplifier setup file
-* Fixed: Function name for 'WMAMP_LATE_LOAD' feature
-
-= 1.0.9.14 =
-* Updated: Allow disabling shortcodes, icon font and metaboxes classes
-
-= 1.0.9.13 =
-* Updated: Posts shortcode filter name
-
-= 1.0.9.12 =
-* Updated: Updated Twitter OAuth library
-
-= 1.0.9.11 =
-* Updated: Optimized code
-* Updated: Including Twitter OAuth library conditionally to prevent issues with other plugins
-
-= 1.0.9.10 =
-* Updated: Widgets class names
-* Updated: Admin styles
-* Fixed: Post thumbnails size in WordPress admin
-* Fixed: Visual Composer Accordions and Tabs shortcode issue
-
-= 1.0.9.9 =
-* Added: Widgets
-* Added: Option to deactivate the plugin after theme change
-* Updated: Code effectivity
-* Updated: Scripts: imagesLoaded 3.1.8, Isotope 2.0.1, jQuery OwlCarousel 1.3.3
-* Updated: Admin notice function
-* Updated: Localization file
-
-= 1.0.9.8 =
-* Improved Tabs shortcode
-* Fixed Shortcode Generator shortcode attributes
-* Fixed and improved shortcodes scripts enqueuing
-
-= 1.0.9.7 =
-* WordPress 4.0 support
-* Improved shortcodes scripts enqueuing
-
-= 1.0.9.6 =
-* Added additional arguments for `do_action()` for better flexibility.
-
-= 1.0.9.5 =
-* Added compatibility with Visual Composer 4.3+
-
-= 1.0.9.4 =
-* Added `style` attribute to Icon shortcode
-* Fixed applying `active` class on active tab content
-* Visual Composer element screen tabs redesigned
-* Setup actions updated
-
-= 1.0.9.3 =
-* Fixed the non-admin user lockout
-
-= 1.0.9.2 =
-* Fix the Shortcode Generator issue in Firefox browser
-
-= 1.0.9.1 =
-* Fix the issue with admin notice
-
-= 1.0.9 =
-* Added Master Slider shortcode support for Visual Composer
-* Added a shortcode to display a custom post meta field value `[wm_meta field="wmamp-meta-field" custom"1/0" /]`
-* Added option to define the supported version of plugin for themes
-* Column shortcode styling improvements
-* Divider shortcode styling option added for Visual Composer
-* Taxonomies list sorted by name in shortcodes descriptions in Visual Composer
-* Visual Composer inner column support improved
-* Visual Composer Image shortcode styling options added
-* Localization texts changed
-
-= 1.0.8 =
-* Added support for Visual Composer v4.2+
-* Updated sample setup file
-
-= 1.0.7 =
-* Metabox class improved (not to throw out PHP warning)
-* Metabox function name fixed in `webman-amplifier-setup.php`
-
-= 1.0.6 =
-* Isotope filter fixed for RTL languages
-* Sorting font icons preview alphabetically
-
-= 1.0.5 =
-* Added plugin deactivation hook
-* Better hooking into `wma_meta_option()` function
-* Sorting outputs of `wma_pages_array()` and `wma_taxonomy_array()` functions
-* Filter names fixed in `wma_posts_array()`, `wma_pages_array()` and `wma_widget_areas_array()` functions
-
-= 1.0 =
-* Initial release.
+Please see the `CHANGELOG.md` file for details. [https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md]
 
 == Upgrade Notice ==
+
+= 1.1 =
+Improved and fixed support for Beaver Builder plugin, improved Schema.org generator function, updated hook names.
 
 = 1.1 =
 Major update! Added support for Visual Composer 4.4 and Beaver Builder plugin! Added Slovak localization files, optimized and reorganized code, updated scripts, fixed minor bugs.

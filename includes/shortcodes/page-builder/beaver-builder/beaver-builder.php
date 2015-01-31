@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.1
+ * @version  1.1.1
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -47,6 +47,14 @@
 
 
 
+	/**
+	 * Filters
+	 */
+
+		add_filter( 'fl_builder_module_custom_class', 'wma_bb_custom_modules_wrapper_class', 10, 2 );
+
+
+
 
 
 /**
@@ -56,6 +64,9 @@
 	/**
 	 * Get Beaver Builder shortcode definitions
 	 *
+	 * @since    1.1
+	 * @version  1.1.1
+	 *
 	 * @param  string $shortcode
 	 * @param  string $property
 	 */
@@ -64,16 +75,17 @@
 			//Helper variables
 				$output = '';
 
-				$def = wma_shortcodes()->get_definitions()['bb_plugin'];
+				$def = wma_shortcodes()->get_definitions();
+				$def = $def['bb_plugin'];
 
 			//Preparing output
 				if ( 'all' === $shortcode ) {
 
-					return $def;
+					$output = $def;
 
 				} elseif ( isset( $def[ $shortcode ] ) ) {
 
-					$output = wp_parse_args( wma_shortcodes()->get_definitions()['bb_plugin'][ $shortcode ], array(
+					$output = wp_parse_args( $def[ $shortcode ], array(
 							'params'          => array(),
 							'name'            => '-',
 							'description'     => '',
@@ -113,6 +125,9 @@
 
 	/**
 	 * Styles and scripts
+	 *
+	 * @since    1.1
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_bb_assets' ) ) {
 		function wma_bb_assets() {
@@ -134,6 +149,9 @@
 
 	/**
 	 * Add custom modules
+	 *
+	 * @since    1.1
+	 * @version  1.1
 	 */
 	if ( ! function_exists( 'wma_bb_custom_modules' ) ) {
 		function wma_bb_custom_modules() {
@@ -156,7 +174,37 @@
 
 
 	/**
+	 * Remove custom modules classes on module wrapper
+	 *
+	 * @since    1.1.1
+	 * @version  1.1.1
+	 *
+	 * @param  string $class
+	 * @param  object $module
+	 */
+	if ( ! function_exists( 'wma_bb_custom_modules_wrapper_class' ) ) {
+		function wma_bb_custom_modules_wrapper_class( $class, $module ) {
+			//Helper variables
+				$defs = wma_bb_shortcode_def( 'all' );
+				$defs = array_keys( $defs );
+
+			//Preparing output
+				if ( in_array( $module->settings->type, $defs ) ) {
+					$class = '';
+				}
+
+			//Output
+				return $class;
+		}
+	} // /wma_bb_custom_modules_wrapper_class
+
+
+
+	/**
 	 * Module output
+	 *
+	 * @since    1.1
+	 * @version  1.1
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -293,6 +341,9 @@
 
 	/**
 	 * Custom page builder input field: wm_radio
+	 *
+	 * @since    1.1
+	 * @version  1.1
 	 *
 	 * @param  string $name
 	 * @param  string $value

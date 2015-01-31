@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.1
+ * @version	 1.1.1
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -152,14 +152,14 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.1
 			 *
 			 * @access  public
 			 */
 			public function setup_actions() {
 				//Array of core actions
 					$actions = array(
-						'load_textdomain'               => 'init|-10',          //Load textdomain (priority < 0!)
+						'load_textdomain'               => 'plugins_loaded',    //Load textdomain
 						'register_metaboxes'            => 'plugins_loaded',    //Register metaboxes
 						'register_widgets'              => 'init|1',            //Register widgets
 						'save_permalinks'               => 'init',              //Save custom permalinks

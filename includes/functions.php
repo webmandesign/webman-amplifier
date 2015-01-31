@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.1
  */
 
 
@@ -181,7 +181,7 @@
 	 * Get post meta option
 	 *
 	 * @since    1.0
-	 * @version  1.0.9.11
+	 * @version  1.1.1
 	 *
 	 * @param    string  $name    Meta option name.
 	 * @param    integer $post_id Specific post ID.
@@ -201,7 +201,7 @@
 				}
 
 			//Helper variables
-				$output = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output_premature', '', $name, $post_id );
+				$output = apply_filters( WMAMP_HOOK_PREFIX . 'wma_meta_option' . '_output_pre', '', $name, $post_id );
 
 				//Premature output
 					if ( $output ) {
@@ -932,13 +932,16 @@
 	 * By default, the Schema.org markup is disabled. Please enable it in your theme
 	 * by hooking onto WMAMP_HOOK_PREFIX.'disable_schema_org' filter.
 	 *
-	 * @since   1.0
-	 * @uses    schema.org
-	 * @link    http://schema.org/docs/gs.html
-	 * @link    http://leaves-and-love.net/how-to-improve-wordpress-seo-with-schema-org/
+	 * @link  http://schema.org/docs/gs.html
+	 * @link  http://leaves-and-love.net/how-to-improve-wordpress-seo-with-schema-org/
 	 *
-	 * @param   string  $element
-	 * @param   boolean $output_meta_tag  Outputs in a <meta> tag.
+	 * @uses  schema.org
+	 *
+	 * @since    1.0
+	 * @version  1.1.1
+	 *
+	 * @param  string  $element
+	 * @param  boolean $output_meta_tag  Wraps output in a <meta> tag.
 	 *
 	 * @return  string Schema.org HTML attributes
 	 */
@@ -950,7 +953,7 @@
 				}
 
 			//Helper variables
-				$output = apply_filters( WMAMP_HOOK_PREFIX . 'schema_org_output_premature', '', $element, $output_meta_tag );
+				$output = apply_filters( WMAMP_HOOK_PREFIX . 'schema_org_output_pre', '', $element, $output_meta_tag );
 
 				if ( $output ) {
 					return apply_filters( WMAMP_HOOK_PREFIX . 'wma_schema_org' . '_output', ' ' . $output, $element, $output_meta_tag );
@@ -958,10 +961,14 @@
 
 				$base    = apply_filters( WMAMP_HOOK_PREFIX . 'schema_org_base', 'http://schema.org/', $element, $output_meta_tag );
 				$post_id = ( is_home() ) ? ( get_option( 'page_for_posts' ) ) : ( null );
-				$type    = wma_meta_option( 'schema-type', $post_id );
+				$type    = wma_meta_option( 'schemaorg-type', $post_id );
+
+				if ( empty( $type ) ) {
+					$type = get_post_meta( $post_id, 'schemaorg_type', true );
+				}
 
 				//Add custom post types that describe a single item to this array
-					$itempage_array = apply_filters( WMAMP_HOOK_PREFIX . 'schema_org_itempage_array', array( 'wm_projects' ), $element, $output_meta_tag );
+					$itempage_array = (array) apply_filters( WMAMP_HOOK_PREFIX . 'schema_org_itempage_array', array( 'wm_projects', 'jetpack-portfolio' ), $element, $output_meta_tag );
 
 			//Generate output
 				switch ( $element ) {
@@ -999,6 +1006,7 @@
 
 					case 'date_published':
 					case 'publish_date':
+					case 'datePublished':
 							$output = 'itemprop="datePublished"';
 						break;
 
@@ -1006,11 +1014,50 @@
 							$output = 'itemprop="description"';
 						break;
 
+					case 'entry':
+							$output = 'itemscope ';
+
+							if ( is_page() ) {
+								$output .= 'itemtype="' . $base . 'WebPage"';
+
+							} elseif ( is_singular( $itempage_array ) ) {
+								$output .= 'itemprop="workExample" itemtype="' . $base . 'CreativeWork"';
+
+							} elseif ( 'audio' === get_post_format() ) {
+								$output .= 'itemtype="' . $base . 'AudioObject"';
+
+							} elseif ( 'gallery' === get_post_format() ) {
+								$output .= 'itemprop="ImageGallery" itemtype="' . $base . 'ImageGallery"';
+
+							} elseif ( 'video' === get_post_format() ) {
+								$output .= 'itemprop="video" itemtype="' . $base . 'VideoObject"';
+
+							} else {
+								$output .= 'itemprop="blogPost" itemtype="' . $base . 'BlogPosting"';
+
+							}
+						break;
+
+					case 'entry_body':
+							if ( ! is_single() ) {
+								$output = 'itemprop="description"';
+
+							} elseif ( is_page() ) {
+								$output = 'itemprop="mainContentOfPage"';
+
+							} else {
+								$output = 'itemprop="articleBody"';
+
+							}
+						break;
+
 					case 'footer':
+					case 'WPFooter':
 							$output = 'itemscope itemtype="' . $base . 'WPFooter"';
 						break;
 
 					case 'header':
+					case 'WPHeader':
 							$output = 'itemscope itemtype="' . $base . 'WPHeader"';
 						break;
 
@@ -1022,16 +1069,22 @@
 							if ( ! $type ) {
 								if ( is_singular( $itempage_array ) ) {
 									$type = 'ItemPage';
+
 								} elseif( is_singular( 'post' ) ) {
 									$type = 'BlogPosting';
+
 								} elseif( is_single() ) {
 									$type = 'Article';
+
 								} elseif( is_author() ) {
 									$type = 'ProfilePage';
+
 								} elseif( is_search() ) {
 									$type = 'SearchResultsPage';
+
 								} elseif( is_archive() ) {
 									$type = 'CollectionPage';
+
 								} else {
 									$type = 'WebPage';
 								}
@@ -1044,7 +1097,12 @@
 						break;
 
 					case 'item_list':
+					case 'ItemList':
 							$output = 'itemscope itemtype="' . $base . 'ItemList"';
+						break;
+
+					case 'keywords':
+							$output = 'itemprop="keywords"';
 						break;
 
 					case 'main_content':
@@ -1060,6 +1118,7 @@
 						break;
 
 					case 'person':
+					case 'Person':
 							$output = 'itemscope itemtype="' . $base . 'Person"';
 						break;
 
@@ -1072,11 +1131,20 @@
 						break;
 
 					case 'sidebar':
+					case 'WPSideBar':
 							$output = 'itemscope itemtype="' . $base . 'WPSideBar"';
+						break;
+
+					case 'SiteNavigationElement':
+							$output = 'itemscope itemtype="' . $base . 'SiteNavigationElement"';
 						break;
 
 					case 'text':
 							$output = 'itemprop="text"';
+						break;
+
+					case 'url':
+							$output = 'itemprop="url"';
 						break;
 
 					default:
@@ -1336,11 +1404,14 @@
 		 */
 		if ( ! function_exists( 'wma_is_active_bb' ) ) {
 			function wma_is_active_bb() {
+				//Helper variables
+					$supported_post_types = get_option( '_fl_builder_post_types' );
+
 				//Output
 					if (
 							class_exists( 'FLBuilder' )
 							&& ! is_admin()
-							&& ! empty( $supported_post_types = get_option( '_fl_builder_post_types' ) )
+							&& ! empty( $supported_post_types )
 							&& is_singular( (array) $supported_post_types )
 							&& (
 									get_post_meta( get_the_ID(), '_fl_builder_enabled', true )
