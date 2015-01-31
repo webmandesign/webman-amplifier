@@ -1,6 +1,6 @@
 === WebMan Amplifier ===
 Contributors: webmandesign
-Tags: webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
+Tags: webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
 Donate link: http://www.webmandesign.eu/
 Author URI: http://www.webmandesign.eu/
 Plugin URI: http://www.webmandesign.eu/webman-amplifier/
@@ -16,7 +16,7 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 
 **[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
 
-This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular premium (3rd party) Visual Composer plugin. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready and contains bunch of useful widgets! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
+This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular Beaver Builder and premium Visual Composer page builder plugins. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready and contains bunch of useful widgets! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
 
 Don't ever get tied to a theme! **Take all the premium functionality with you** no matter what theme you use!
 
@@ -24,7 +24,7 @@ Don't ever get tied to a theme! **Take all the premium functionality with you** 
 
 * A lot of useful and well thought shortcodes
 * Simple and fast Shortcode Generator
-* Visual Composer (3rd party premium plugin) integration
+* [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) and Visual Composer page builder integration
 * Projects custom post type to create your own portfolios
 * Logos custom post type to manage your clients and/or partners logo lists
 * Testimonials custom post type
@@ -83,11 +83,11 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
-Please see the `CHANGELOG.md` file for details. [https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md]
+Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md) for details.
 
 == Upgrade Notice ==
 
-= 1.1 =
+= 1.1.1 =
 Improved and fixed support for Beaver Builder plugin, improved Schema.org generator function, updated hook names.
 
 = 1.1 =
