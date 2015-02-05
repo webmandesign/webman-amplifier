@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.1.1
+ * @version  1.1.2
  */
 
 
@@ -130,12 +130,17 @@
 	/**
 	 * Create a folder
 	 *
-	 * @since  1.0
+	 * This function creates a folder within WP uploads dir.
+	 * Also, applies 0755 permission on the created folder.
 	 *
-	 * @param  array $args
+	 * @since    1.0
+	 * @version  1.1.2
+	 *
+	 * @param  array $folder
+	 * @param  bool  $add_indexphp
 	 */
 	if ( ! function_exists( 'wma_create_folder' ) ) {
-		function wma_create_folder( $folder = '', $add_indexphp = true, $chmod = 0755 ) {
+		function wma_create_folder( $folder = '', $add_indexphp = true ) {
 			//Check if folder exists already
 				if ( is_dir( $folder ) ) {
 					return true;
@@ -145,7 +150,7 @@
 				$created = wp_mkdir_p( trailingslashit( $folder ) );
 
 			//Set privilegues
-				@chmod( $folder, $chmod );
+				@chmod( $folder, 0755 );
 
 			//Need for index.php file inside the folder?
 				if ( ! $add_indexphp ) {
@@ -171,7 +176,7 @@
 				}
 
 			//Return
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_create_folder' . '_output', $created, $folder, $add_indexphp, $chmod );
+				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_create_folder' . '_output', $created, $folder, $add_indexphp );
 		}
 	} // /wma_create_folder
 
@@ -743,7 +748,7 @@
 	 * Hex color to RGB
 	 *
 	 * @since    1.0
-	 * @version  1.0.9.9
+	 * @version  1.1.2
 	 *
 	 * @param   string $hex
 	 *
@@ -760,18 +765,12 @@
 				$hex = substr( $hex, 0, 6 );
 
 			//Converting hex color into rgb
-				if ( $hex ) {
-					if ( 6 == strlen( $hex ) ) {
-						$rgb['r'] = hexdec( $hex[0] . $hex[1] );
-						$rgb['g'] = hexdec( $hex[2] . $hex[3] );
-						$rgb['b'] = hexdec( $hex[4] . $hex[5] );
-					} else {
-					//If shorthand notation, we need some string manipulations
-						$rgb['r'] = hexdec( $hex[0] . $hex[0] );
-						$rgb['g'] = hexdec( $hex[1] . $hex[1] );
-						$rgb['b'] = hexdec( $hex[2] . $hex[2] );
-					}
-				}
+				//Converting hex color into rgb
+					$color = (int) hexdec( $hex );
+
+					$rgb['r'] = (int) 0xFF & ( $color >> 0x10 );
+					$rgb['g'] = (int) 0xFF & ( $color >> 0x8 );
+					$rgb['b'] = (int) 0xFF & $color;
 
 			//Return RGB array
 				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_color_hex_to_rgb' . '_output', $rgb, $hex );
@@ -1270,16 +1269,26 @@
 	/**
 	 * Puts content into the local file
 	 *
-	 * @since  1.0
+	 * This function creates a file if it doesn't exist.
+	 * Also, applies 0755 permission on the file.
 	 *
-	 * @param  string $path
+	 * @since    1.0
+	 * @version  1.1.2
+	 *
+	 * @param  string $path  Full file path.
 	 * @param  string $content
 	 */
 	if ( ! function_exists( 'wma_write_local_file' ) ) {
 		function wma_write_local_file( $path, $content ) {
 			//Output
 			//If file does not exist, the file is created. Otherwise, the existing file is overwritten.
-				return file_put_contents( $path, $content, LOCK_EX );
+				if ( file_put_contents( $path, $content, LOCK_EX ) ) {
+					if ( apply_filters( WMAMP_HOOK_PREFIX . 'wma_write_local_file' . '_chmod755_enabled', true ) ) {
+						@chmod( $path, 0755 );
+					}
+
+					return true;
+				}
 		}
 	} // /wma_write_local_file
 

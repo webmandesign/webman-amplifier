@@ -34,6 +34,13 @@ Have a translation? Please post it on the [support forum](http://support.webmand
 
 Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
 
+### Additional Resources
+
+* [Write a review](http://wordpress.org/support/view/plugin-reviews/webman-amplifier#postform)
+* [Have a question?](http://support.webmandesign.eu/)
+* [Follow @webmandesigneu](https://twitter.com/webmandesigneu)
+* [Visit WebMan Design](http://www.webmandesign.eu)
+
 
 ## Installation
 

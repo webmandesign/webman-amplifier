@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.2
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -392,7 +392,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			/**
 			 * Enqueue frontend styles and scripts
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1.2
+			 *
 			 * @access  public
 			 */
 			public function assets_frontend() {
@@ -410,6 +412,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							wp_enqueue_style( 'wm-shortcodes-rtl' );
 						}
 					}
+
+					//Visual Composer - deregister frontend styles
+						if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
+							wp_deregister_style( 'js_composer_front' );
+						}
 
 				//Scripts
 					if ( $is_IE && apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'enqueue_shortcode_ie_script', true ) ) {

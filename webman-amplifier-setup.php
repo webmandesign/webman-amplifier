@@ -7,170 +7,215 @@
  * with `locate_template( 'webman-amplifier-setup.php', true );` WordPress function.
  * Edit the file to your needs.
  *
- * PLUGIN LOCALIZATION
- * Note that custom translation files inside the plugin folder will be removed on plugin updates.
- * If you're creating custom translation files, please use the global WordPress language folder.
- * Just create a `wp-content/languages/wm-amplifier` folder and place your plugin localization
- * files (such as `pt_BR.mo` for Brazilian Portuguese localization file) in there.
- *
  * @package    WebMan Amplifier
  * @copyright  2015 WebMan - Oliver Juhas
  * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
  *
- * @link  http://www.webmandesign.eu
+ * @link  https://wordpress.org/plugins/webman-amplifier/
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.2
+ *
+ * CONTENT:
+ * -  1) Requirements check
+ * - 10) Actions and filters
+ * - 20) Plugin setup
+ * - 30) Custom posts setup
+ * - 40) Shortcodes
+ * - 50) Metaboxes
+ * - 60) Icons
  */
 
 
 
+
+
 /**
- * SET UP THE PLUGIN
+ * 1) Requirements check
+ */
+
+	if ( ! function_exists( 'wma_amplifier' ) ) {
+		return;
+	}
+
+
+
+
+
+/**
+ * 10) Actions and filters
+ *
+ * See the custom functions used in the hooks below.
  */
 
 	/**
-	 * Enabling plugin features
-	 *
-	 * Please note that your theme must support them. If you enable any of custom
-	 * post types, make sure your theme contains the appropriate single post
-	 * and archive templates.
+	 * Actions
 	 */
-	add_theme_support( 'webman-amplifier', array(
-			/**
-			 * Uncomment to enable Logos custom post type ("wm_logos")
-			 *
-			 * This will also create a new taxonomy: "logo_category"
-			 */
-			// 'cp-logos',
 
-			/**
-			 * Uncomment to enable Content Modules (icon boxes) custom post type ("wm_modules")
-			 *
-			 * This will also create a new taxonomy: "module_tag"
-			 */
-			// 'cp-modules',
-
-			/**
-			 * Uncomment to enable Projects (portfolio) custom post type ("wm_projects")
-			 *
-			 * This will also create a new taxonomy: "project_tag" and "project_category"
-			 */
-			// 'cp-projects',
-
-			/**
-			 * Uncomment to enable Staff (team) custom post type ("wm_staff")
-			 *
-			 * This will also create a new taxonomy: "staff_department" and "staff_position"
-			 */
-			// 'cp-staff',
-
-			/**
-			 * Uncomment to enable Testimonials custom post type ("wm_testimonials")
-			 *
-			 * This will also create a new taxonomy: "testimonial_category"
-			 */
-			// 'cp-testimonials',
-
-
-			/**
-			 * Uncomment to enable Contact widget
-			 */
-			// 'widget-contact',
-
-			/**
-			 * Uncomment to enable Content Module widget
-			 */
-			// 'widget-module',
-
-			/**
-			 * Uncomment to enable Posts widget
-			 */
-			// 'widget-posts',
-
-			/**
-			 * Uncomment to enable Sub-navigation widget
-			 */
-			// 'widget-subnav',
-
-			/**
-			 * Uncomment to enable Tabbed Widgets widget
-			 */
-			// 'widget-tabbed-widgets',
-
-			/**
-			 * Uncomment to enable Twitter widget
-			 */
-			// 'widget-twitter',
-
-
-			/**
-			 * Uncomment to remove default Visual Composer elements (shortcodes)
-			 */
-			// 'remove-vc-shortcodes',
-
-
-			/**
-			 * Uncomment to disable the plugin's feature
-			 */
-			// 'disable-fonticons',
-			// 'disable-isotope-notice',
-			// 'disable-shortcodes',
-		) );
+		//Plugin setup
+			add_action( 'after_setup_theme', 'wmamp_setup' );
 
 
 
-		/**
-		 * Uncomment to enable WebMan Advanced Metaboxes
-		 */
-		// add_filter( 'wmhook_metabox_visual_wrapper_toggle', '__return_true' );
+	/**
+	 * Filters
+	 */
 
-		/**
-		 * Uncomment to disable plugin's frontend shortcodes styles
-		 */
-		// add_filter( 'wmhook_shortcode_enqueue_shortcode_css', '__return_false' );
+		//Plugin version shortcodes support
+			add_filter( 'wmhook_shortcode_supported_version', 'wmamp_supported_shortcode_until_version' );
 
-		/**
-		 * Uncomment to disable the Isotope licence purchase admin notice
-		 */
-		// add_filter( 'wmhook_wmamp_notice_isotope_licence', '__return_false' );
+		//Uncomment to enable WebMan Advanced Metaboxes
+			// add_filter( 'wmhook_metabox_visual_wrapper_toggle', '__return_true' );
 
+		//Uncomment to disable plugin's frontend shortcodes styles
+			// add_filter( 'wmhook_shortcode_enqueue_shortcode_css', '__return_false' );
 
+		//Uncomment to enable the Schema.org function
+			// add_filter( 'wmhook_wmamp_disable_schema_org', '__return_false' );
 
-		/**
-		 * Supported shortcodes version
-		 *
-		 * Use this to declare the plugin version that your theme supports.
-		 * It is possible that in future versions of the plugin there will be more
-		 * shortcodes added and your theme might not suppot them out of the box.
-		 * Setting this version number will make sure only the shortcodes included
-		 * with the specific plugin version will be available to your theme users.
-		 *
-		 * To use this function just uncomment the "add_filter" below
-		 */
-		function wma_supported_shortcode_until_version() {
-			return '1.0.9'; //Set the plugin version your theme supports
-		} // /wma_supported_shortcode_until_version
-		// add_filter( 'wmhook_shortcode_supported_version', 'wma_supported_shortcode_until_version' );
+		//Uncomment to add your custom post meta fields
+			// add_filter( 'wmhook_wmamp_cp_metafields_' . 'wm_projects', 'wmamp_additional_metafields' );
+
+		//Uncomment to set the custom default iconfont CSS file URL
+			// add_filter( 'wmhook_icons_default_iconfont_css_url', 'wmamp_iconfont_css_url' );
+
+		//Uncomment to set the custom default icons config array file path
+			// add_filter( 'wmhook_icons_default_iconfont_config_path', 'wmamp_iconfont_config_path' );
+
+		//Uncomment to set the custom default icons config array file path
+			// add_filter( 'wmhook_icons_default_iconfont_config_array', 'wmamp_iconfont_config_array' );
 
 
 
 
 
 /**
- * CUSTOM POST SETTINGS
+ * 20) Plugin setup
  */
+
+	/**
+	 * Plugin setup
+	 */
+	function wmamp_setup() {
+
+		/**
+		 * Plugin features
+		 *
+		 * Please note that your theme must support them. If you enable any of custom
+		 * post types, make sure your theme contains the appropriate single post
+		 * and archive templates.
+		 */
+		add_theme_support( 'webman-amplifier', array(
+				/**
+				 * Uncomment to enable Logos custom post type ("wm_logos")
+				 *
+				 * This will also create a new taxonomy: "logo_category"
+				 */
+				// 'cp-logos',
+
+				/**
+				 * Uncomment to enable Content Modules (icon boxes) custom post type ("wm_modules")
+				 *
+				 * This will also create a new taxonomy: "module_tag"
+				 */
+				// 'cp-modules',
+
+				/**
+				 * Uncomment to enable Projects (portfolio) custom post type ("wm_projects")
+				 *
+				 * This will also create a new taxonomy: "project_tag" and "project_category"
+				 */
+				// 'cp-projects',
+
+				/**
+				 * Uncomment to enable Staff (team) custom post type ("wm_staff")
+				 *
+				 * This will also create a new taxonomy: "staff_department" and "staff_position"
+				 */
+				// 'cp-staff',
+
+				/**
+				 * Uncomment to enable Testimonials custom post type ("wm_testimonials")
+				 *
+				 * This will also create a new taxonomy: "testimonial_category"
+				 */
+				// 'cp-testimonials',
+
+
+				/**
+				 * Uncomment to enable Contact widget
+				 */
+				// 'widget-contact',
+
+				/**
+				 * Uncomment to enable Content Module widget
+				 */
+				// 'widget-module',
+
+				/**
+				 * Uncomment to enable Posts widget
+				 */
+				// 'widget-posts',
+
+				/**
+				 * Uncomment to enable Sub-navigation widget
+				 */
+				// 'widget-subnav',
+
+				/**
+				 * Uncomment to enable Tabbed Widgets widget
+				 */
+				// 'widget-tabbed-widgets',
+
+				/**
+				 * Uncomment to enable Twitter widget
+				 */
+				// 'widget-twitter',
+
+
+				/**
+				 * Uncomment to remove default Visual Composer elements (shortcodes)
+				 */
+				// 'remove-vc-shortcodes',
+
+
+				/**
+				 * Uncomment to disable the plugin's feature
+				 */
+				// 'disable-fonticons',
+				// 'disable-isotope-notice',
+				// 'disable-shortcodes',
+			) );
+
+		/**
+		 * Automatically deactivate plugin on theme switch
+		 */
+		// if ( ! get_transient( 'wmamp-deactivate' ) ) {
+		// 	set_transient( 'wmamp-deactivate', true );
+		// }
+
+	} // /wmamp_setup
+
+
+
+
+
+/**
+ * 30) Custom posts setup
+ */
+
 	/**
 	 * Projects custom post
 	 */
+
 		/**
 		 * Manipulate projects custom post metafields
 		 *
-		 * @param   array $fields Array of predefined metafields
+		 * @param  array $fields Array of predefined metafields
 		 *
 		 * @return  array Modified $fields array
 		 */
-		function wma_additional_metafields( $fields = array() ) {
+		function wmamp_additional_metafields( $fields = array() ) {
 			//"Form fields test" tab
 				$fields[3000] = array(
 						'type'  => 'section-open',
@@ -298,95 +343,37 @@
 			 */
 
 			return $fields;
-		} // /wma_additional_metafields
-
-		/**
-		 * Uncomment to add your custom post meta fields
-		 */
-		// add_filter( 'wmhook_wmamp_cp_metafields_wm_projects', 'wma_additional_metafields' );
+		} // /wmamp_additional_metafields
 
 
 
 
 
 /**
- * VISUAL COMPOSER PLUGIN SUPPORT
- *
- * Please note that this is 3rd party plugin. The WebMan Amplifier plugin
- * just integrates its shortcodes feature with the Visual Composer plugin
- * to make it easier to create content. If you have any difficulties
- * with Visual Composer plugin, please contact its developers.
- *
- * @since    1.0
- * @version  1.0.8
- *
- * @link     http://codecanyon.net/item/visual-composer-for-wordpress/242431
+ * 40) Shortcodes
  */
-	if ( function_exists( 'wma_is_active_vc' ) && wma_is_active_vc() ) {
-
-		/**
-		 * Enable Visual Composer for custom post types
-		 */
-			//Set post types, where Visual Composer should be always enabled
-				$vc_post_types = array(
-						'page',
-						'wm_projects',
-					);
-			//Comparing and altering the Visual Composer settings
-				$vc_post_types_diff = array_diff( $vc_post_types, (array) get_option( 'wpb_js_content_types' ) );
-
-				if ( ! empty( $vc_post_types_diff ) ) {
-					$vc_post_types_new = array_filter( array_merge( (array) get_option( 'wpb_js_content_types' ), $vc_post_types_diff ) );
-					update_option( 'wpb_js_content_types', $vc_post_types_new );
-				}
-
-
-
-		/**
-		 * Disable Visual Composer "VC: Custom Teaser" metabox
-		 */
-			function wma_remove_vc_metabox() {
-				$vc_post_types = (array) get_option( 'wpb_js_content_types' );
-
-				foreach ( $vc_post_types as $post_type ) {
-					remove_meta_box( 'vc_teaser', $post_type, 'side' );
-				}
-			} // /wma_remove_vc_metabox
-
-			add_action( 'admin_init', 'wma_remove_vc_metabox', 10 );
-
-	} // /wma_is_active_vc() check
-
-
 
 	/**
-	 * Add custom Visual Composer templates
+	 * Supported shortcodes version
 	 *
-	 * Please note that this procedure works with Visual Composer version 4.3 and above.
-	 * Uncomment the code below to set a custom Visual Composer predefined templates.
+	 * Use this to declare the plugin version that your theme supports.
+	 * It is possible that in future versions of the plugin there will be more
+	 * shortcodes added and your theme might not suppot them out of the box.
+	 * Setting this version number will make sure only the shortcodes included
+	 * with the specific plugin version will be available to your theme users.
 	 */
-		/*
-		if ( function_exists( 'vc_add_default_templates' ) ) {
-			$wm_custom_vc_templates = array(
-				'my_custom_template' => array(
-						'name'    => 'Custom template name',
-						'content' => '...your custom content goes here...',
-					),
-				);
-
-			foreach ( $wm_custom_vc_templates as $template ) {
-				vc_add_default_templates( (array) $template );
-			}
-		} // check if vc_add_default_templates() exists
-		*/
+	function wmamp_supported_shortcode_until_version() {
+		return '1.1'; //Set the plugin version your theme supports
+	} // /wmamp_supported_shortcode_until_version
 
 
 
 
 
 /**
- * ADDING YOUR OWN METABOXES
+ * 50) Metaboxes
  */
+
 	/**
 	 * Uncomment to add your custom post metabox
 	 */
@@ -432,24 +419,24 @@
 
 
 /**
- * ICON FONT SETUP
- *
- * You can use these functions to set the custom iconfont CSS
- * stylesheet file URL and icons configuration array file path
- * (or the actual configuration array) if you want to use
- * a font bundled with your theme.
+ * 60) Icons
  */
+
+	/**
+	 * Icons font setup
+	 *
+	 * You can use these functions to set the custom iconfont CSS
+	 * stylesheet file URL and icons configuration array file path
+	 * (or the actual configuration array) if you want to use
+	 * a font bundled with your theme.
+	 */
+
 	/**
 	 * Changing the default icon font CSS file URL
 	 */
-	function wma_iconfont_css_url() {
+	function wmamp_iconfont_css_url() {
 		return get_stylesheet_directory_uri() . '/font/fontello.css'; //Change the URL to your needs
-	} // /wma_iconfont_css_url
-
-	/**
-	 * Uncomment to set the custom default iconfont CSS file URL
-	 */
-	// add_filter( 'wmhook_icons_default_iconfont_css_url', 'wma_iconfont_css_url' );
+	} // /wmamp_iconfont_css_url
 
 
 
@@ -459,14 +446,9 @@
 	 * The default config file should contain an $icons array.
 	 * Please see the "wm-amplifier/font/config.php" file for the structure.
 	 */
-	function wma_iconfont_config_path() {
+	function wmamp_iconfont_config_path() {
 		return get_stylesheet_directory() . '/font/config.php'; //Change the file path to your needs
-	} // /wma_iconfont_config_path
-
-	/**
-	 * Uncomment to set the custom default icons config array file path
-	 */
-	// add_filter( 'wmhook_icons_default_iconfont_config_path', 'wma_iconfont_config_path' );
+	} // /wmamp_iconfont_config_path
 
 
 
@@ -476,17 +458,12 @@
 	 * Alternatively, instead of setting custom icons config array file path,
 	 * you can actually change the array itself.
 	 */
-	function wma_iconfont_config_array() {
+	function wmamp_iconfont_config_array() {
 		$icons = array();
 
 		$icons['icon_class'] = array( 'class' => 'icon_class', 'char' => 'character_used' );
 
 		return $icons;
-	} // /wma_iconfont_config_array
-
-	/**
-	 * Uncomment to set the custom default icons config array file path
-	 */
-	// add_filter( 'wmhook_icons_default_iconfont_config_array', 'wma_iconfont_config_array' );
+	} // /wmamp_iconfont_config_array
 
 ?>

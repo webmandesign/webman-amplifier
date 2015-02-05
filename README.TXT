@@ -41,9 +41,12 @@ Have a translation? Please post it on the [support forum](http://support.webmand
 
 Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
 
-= Plugin Support =
+= Additional Resources =
 
-Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum")
+* [Write a review](http://wordpress.org/support/view/plugin-reviews/webman-amplifier#postform)
+* [Have a question?](http://support.webmandesign.eu/)
+* [Follow @webmandesigneu](https://twitter.com/webmandesigneu)
+* [Visit WebMan Design](http://www.webmandesign.eu)
 
 == Installation ==
 
@@ -86,6 +89,9 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md) for details.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Improved support with Visual Composer, improved file and folder creation functions.
 
 = 1.1.1 =
 Improved and fixed support for Beaver Builder plugin, improved Schema.org generator function, updated hook names.

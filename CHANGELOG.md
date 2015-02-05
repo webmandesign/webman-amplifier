@@ -1,5 +1,19 @@
 # WebMan Amplifier Changelog
 
+## 1.1.2
+
+* Updated: Function for color format change
+* Updated: Functions for folder and file creation
+* Updated: Example setup file
+* Fixed: Removing Visual Composer front end styles
+
+#### Files changed:
+
+	webman-amplifier-setup.php
+	includes/functions.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.1.1
 
 * Updated: Improved support for Beaver Builder plugin
