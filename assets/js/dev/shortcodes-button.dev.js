@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.3
  */
 
 
@@ -16,13 +16,14 @@
 
 	tinymce.PluginManager.add( 'wmShortcodes', function( editor, url ) {
 
-		var wmShortcodesMenuArray      = new Array(),
+		var i = 0,
+		    wmShortcodesMenuArray      = new Array(),
 		    wmShortcodesMenuArrayShort = new Array(),
 		    wmShortcodesHelper         = ( 'undefined' === typeof wmShortcodesArray ) ? ( [{name:'Shortcode',code:'',class:'shortcode'}] ) : ( wmShortcodesArray ),
 		    wmButtonIdSuffix           = '_id' + Math.floor( ( Math.random() * 1000 ) + 1 ); //This is important to allow multiple instances of TinyMCE on the screen with their specific shortcode generator buttons
 
 		//Set the menu button items (default)
-			for ( var i in wmShortcodesHelper ) {
+			for ( i = 0; i < wmShortcodesHelper.length; i++ ) {
 				wmShortcodesMenuArray[i] = {
 						text    : wmShortcodesHelper[i]['name'],
 						id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesHelper[i]['class'],
@@ -53,7 +54,7 @@
 		//Set the menu button items (short)
 			if ( 'undefined' != typeof wmShortcodesArrayShort ) {
 
-				for ( var i in wmShortcodesArrayShort ) {
+				for ( i = 0; i < wmShortcodesArrayShort.length; i++ ) {
 					wmShortcodesMenuArrayShort[i] = {
 							text    : wmShortcodesArrayShort[i]['name'],
 							id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesArrayShort[i]['class'],

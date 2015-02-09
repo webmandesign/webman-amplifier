@@ -1,19 +1,21 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WebMan Amplifier v1.1\n"
+"Project-Id-Version: WebMan Amplifier v1.1.3\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-01-16 22:21+0100\n"
-"PO-Revision-Date: 2015-01-17 14:36+0100\n"
+"POT-Creation-Date: 2015-02-09 11:40+0100\n"
+"PO-Revision-Date: 2015-02-09 11:46+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -23,14 +25,33 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr "Podvádzaš, čo?"
 
-#: class-wm-amplifier.php:233
+#: class-wm-amplifier.php:234
 msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr "Ikonky"
 
-#: class-wm-amplifier.php:647
-msgid "You are using WebMan Amplifier plugin, which includes the <a href=\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase the Isotope licence</a>."
-msgstr "Používate WebMan Amplifier modul, ktorý obsahuje <a href=\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />Ak používate tento modul na komrečnej webstránke, musíte si <a href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť Isotope licenciu</a>."
+#: class-wm-amplifier.php:317
+msgid "Isotope Licensing"
+msgstr "Licencia pre Isotope"
+
+#: class-wm-amplifier.php:317
+msgid ""
+"You are using WebMan Amplifier plugin, which includes the <a href=\"http://"
+"isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>."
+msgstr ""
+"Používate modul WebMan Amplifier, ktorý obsahuje <a href=\"http://isotope."
+"metafizzy.co/\" target=\"_blank\">JavaScript filtrovaciu knižnicu Isotope</"
+"a> ."
+
+#: class-wm-amplifier.php:317
+msgid ""
+"If you use the plugin for commercial applications, you are required to <a "
+"href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
+"the Isotope licence</a>."
+msgstr ""
+"Ak používate modul na komerčných webstránkach a aplikáciách, ste povinní <a "
+"href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť "
+"licenciu pre Isotope</a> ."
 
 #: includes/class-icon-font.php:236
 msgid "You do not have sufficient permissions to access this page."
@@ -64,8 +85,19 @@ msgstr "URL súboru ZIP balíka Fontello"
 
 #: includes/class-icon-font.php:286
 #, php-format
-msgid "Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use \"fontello\" as font name. Otherwise the font icons will not be generated.</strong>"
-msgstr "Nahrajte ZIP balík nových ikoniek generovaný pomocou <a%s>Fontello.com</a>.<br />Použite tlačidlo vpravo pre znovunastavenie pôvodného balíka ikoniek.<br /><strong>DÔLEŽITÉ: Nenastavujte vlastný názov ikonkového fontu na Fontello.com. Ponechajte pole prázdne, alebo použite názov \"fontello\". V opačnom prípade nebudú ikonky aplikované.</strong>"
+msgid ""
+"Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br /"
+">Use the default button on right to empty the input field and set the "
+"default icon font file.<br /><strong>IMPORTANT: Please do not use custom "
+"font name when creating your Fontello.com selection. Leave the field blank "
+"or use \"fontello\" as font name. Otherwise the font icons will not be "
+"generated.</strong>"
+msgstr ""
+"Nahrajte ZIP balík nových ikoniek generovaný pomocou <a%s>Fontello.com</a>."
+"<br />Použite tlačidlo vpravo pre znovunastavenie pôvodného balíka ikoniek."
+"<br /><strong>DÔLEŽITÉ: Nenastavujte vlastný názov ikonkového fontu na "
+"Fontello.com. Ponechajte pole prázdne, alebo použite názov \"fontello\". V "
+"opačnom prípade nebudú ikonky aplikované.</strong>"
 
 #: includes/class-icon-font.php:315
 msgid "Icon Font Setup"
@@ -73,8 +105,15 @@ msgstr "Nastavenie ikoniek"
 
 #: includes/class-icon-font.php:321
 #, php-format
-msgid "<strong>You are currently on a WordPress multisite installation and ZIP file upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> and add the \"zip\" file extension to the list of allowed <em>\"Upload file types\"</em>."
-msgstr "<strong>Používate WordPress multisite inštaláciu a nemáte nastavené nahrávanie ZIP súborov.</strong><br/>Navigujte do <a%s>nastavenia siete</a> a pridajte \"zip\" príponu súborov do zoznamu povolených typov súborov."
+msgid ""
+"<strong>You are currently on a WordPress multisite installation and ZIP file "
+"upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> "
+"and add the \"zip\" file extension to the list of allowed <em>\"Upload file "
+"types\"</em>."
+msgstr ""
+"<strong>Používate WordPress multisite inštaláciu a nemáte nastavené "
+"nahrávanie ZIP súborov.</strong><br/>Navigujte do <a%s>nastavenia siete</a> "
+"a pridajte \"zip\" príponu súborov do zoznamu povolených typov súborov."
 
 #: includes/class-icon-font.php:323
 msgid "The ZIP file was processed successfully and new icon font was set up."
@@ -85,8 +124,12 @@ msgid "<strong>Error during processing of your ZIP file.</strong>"
 msgstr "<strong>Nastala chyba počas spracovania ZIP súboru.</strong>"
 
 #: includes/class-icon-font.php:327
-msgid "<strong>Using this feature is reserved for administrators. You don't have the necessary permissions.</strong>"
-msgstr "<strong>Táto funkcionalita je prístupná iba pre administrátorov. Nemáte dostatočné oprávnenia.</strong>"
+msgid ""
+"<strong>Using this feature is reserved for administrators. You don't have "
+"the necessary permissions.</strong>"
+msgstr ""
+"<strong>Táto funkcionalita je prístupná iba pre administrátorov. Nemáte "
+"dostatočné oprávnenia.</strong>"
 
 #: includes/class-icon-font.php:329
 msgid "Default icon font file was restored."
@@ -432,8 +475,12 @@ msgid "Creates an icon box"
 msgstr "Vytvorí ikonkový box"
 
 #: includes/custom-posts/modules.php:399
-msgid "Set the icon as featured image of the post. If the font icon is used instead, it will be prioritized."
-msgstr "Nastavte ikonku ako prezentačný obrázok článku. Ak použijete ikonkový font, bude uprednostnený."
+msgid ""
+"Set the icon as featured image of the post. If the font icon is used "
+"instead, it will be prioritized."
+msgstr ""
+"Nastavte ikonku ako prezentačný obrázok článku. Ak použijete ikonkový font, "
+"bude uprednostnený."
 
 #: includes/custom-posts/modules.php:407
 msgid "...or choose a font icon"
@@ -977,7 +1024,9 @@ msgstr "Autor"
 
 #: includes/custom-posts/testimonials.php:336
 msgid "You can set the testimonial author photo or logo as post featured image"
-msgstr "Môžete nastaviť fotografiu alebo logo autora posudku ako prezentačný obrázok článku"
+msgstr ""
+"Môžete nastaviť fotografiu alebo logo autora posudku ako prezentačný obrázok "
+"článku"
 
 #: includes/custom-posts/testimonials.php:343
 msgid "Testimonial author"
@@ -991,32 +1040,32 @@ msgstr "Nastavte meno autora posudku"
 msgid "Testimonial settings"
 msgstr "Nastavenia posudku"
 
-#: includes/functions.php:251
+#: includes/functions.php:256
 msgid "All posts"
 msgstr "Všetky články"
 
-#: includes/functions.php:342
+#: includes/functions.php:347
 msgid "- Select item -"
 msgstr "- Zvoliť záznam -"
 
-#: includes/functions.php:384
+#: includes/functions.php:389
 msgid "- Select a page -"
 msgstr "- Zvoliť stránku -"
 
-#: includes/functions.php:436
+#: includes/functions.php:441
 msgid "- Select area -"
 msgstr "- Zvoliť oblasť -"
 
-#: includes/functions.php:1268
+#: includes/functions.php:1345
 msgid "Original image size (full)"
 msgstr "Pôvodná veľkosť obrázku"
 
-#: includes/functions.php:1269
+#: includes/functions.php:1346
 msgctxt "WordPress image size actions."
 msgid "scaled"
 msgstr "zmenšený"
 
-#: includes/functions.php:1269
+#: includes/functions.php:1346
 msgctxt "WordPress image size actions."
 msgid "cropped"
 msgstr "orezaný"
@@ -1392,7 +1441,8 @@ msgstr "Aktívna sekcia"
 #: includes/shortcodes/definitions/definitions.php:223
 #: includes/shortcodes/definitions/definitions.php:376
 msgid "Set section order number, \"0\" for all sections closed"
-msgstr "Nastavte poradové číslo sekcie, alebo \"0\" pre zatvorenie všetkých sekcií"
+msgstr ""
+"Nastavte poradové číslo sekcie, alebo \"0\" pre zatvorenie všetkých sekcií"
 
 #: includes/shortcodes/definitions/definitions.php:272
 #: includes/shortcodes/definitions/definitions.php:358
@@ -1435,7 +1485,8 @@ msgstr "Ostatné parametre"
 #: includes/shortcodes/definitions/definitions.php:634
 #: includes/shortcodes/definitions/definitions.php:774
 msgid "Enter comma separated tags. These will be used to filter through items."
-msgstr "Zadajte značky oddelené čiarkou. Značky budú použité pri filtrácií položiek."
+msgstr ""
+"Zadajte značky oddelené čiarkou. Značky budú použité pri filtrácií položiek."
 
 #: includes/shortcodes/definitions/definitions.php:335
 #: includes/shortcodes/definitions/definitions.php:642
@@ -1873,8 +1924,14 @@ msgstr "Rolovanie"
 #: includes/shortcodes/definitions/definitions.php:2991
 #: includes/shortcodes/definitions/definitions.php:4132
 #: includes/shortcodes/definitions/definitions.php:4307
-msgid "Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling."
-msgstr "Nastavte 1-999 pre manuálne rolovanie, alebo 1000+ pre automatické rolovanie. Hodnota pre automatické rolovanie reprezentuje čas rolovania v milisekundách. Ponechajte prázdne pre vypnutie rolovania."
+msgid ""
+"Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value "
+"for automatic scrolling represents the time of a scroll in miliseconds. "
+"Leave empty to disable scrolling."
+msgstr ""
+"Nastavte 1-999 pre manuálne rolovanie, alebo 1000+ pre automatické "
+"rolovanie. Hodnota pre automatické rolovanie reprezentuje čas rolovania v "
+"milisekundách. Ponechajte prázdne pre vypnutie rolovania."
 
 #: includes/shortcodes/definitions/definitions.php:1586
 #: includes/shortcodes/definitions/definitions.php:1794
@@ -1933,8 +1990,12 @@ msgstr "Vlastné rozloženie"
 #: includes/shortcodes/definitions/definitions.php:1700
 #: includes/shortcodes/definitions/definitions.php:1862
 #, php-format
-msgid "Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces)."
-msgstr "Nastavte vlastné rozloženie prvkov. Zoraďte preddefinované prvky (%s) oddelené čiarkou (bez medzier)."
+msgid ""
+"Set the custom layout of the output. Order the predefined items (%s) "
+"separated with comma (no spaces)."
+msgstr ""
+"Nastavte vlastné rozloženie prvkov. Zoraďte preddefinované prvky (%s) "
+"oddelené čiarkou (bez medzier)."
 
 #: includes/shortcodes/definitions/definitions.php:1737
 #: includes/shortcodes/definitions/definitions.php:1753
@@ -2113,8 +2174,12 @@ msgstr "Typ obsahu"
 
 #: includes/shortcodes/definitions/definitions.php:2685
 #: includes/shortcodes/definitions/definitions.php:2903
-msgid "This shortcode can display several post types. Choose the one you want to display."
-msgstr "Tento modul môže zobraziť niekoľko typov obsahu. Zvoľte typ, ktorý chcete zobraziť."
+msgid ""
+"This shortcode can display several post types. Choose the one you want to "
+"display."
+msgstr ""
+"Tento modul môže zobraziť niekoľko typov obsahu. Zvoľte typ, ktorý chcete "
+"zobraziť."
 
 #: includes/shortcodes/definitions/definitions.php:2740
 #: includes/shortcodes/definitions/definitions.php:2949
@@ -2125,8 +2190,12 @@ msgstr "Taxonómia"
 
 #: includes/shortcodes/definitions/definitions.php:2741
 #: includes/shortcodes/definitions/definitions.php:2950
-msgid "Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon."
-msgstr "Zobrazí položky iba zo špecifickej taxonómie. Nastavte názov taxonómie a slug taxonómie oddelené dvojbodkou."
+msgid ""
+"Displays items only from a specific taxonomy. Set a taxonomy name and "
+"taxonomy slug separated with colon."
+msgstr ""
+"Zobrazí položky iba zo špecifickej taxonómie. Nastavte názov taxonómie a "
+"slug taxonómie oddelené dvojbodkou."
 
 #: includes/shortcodes/definitions/definitions.php:2741
 #: includes/shortcodes/definitions/definitions.php:2950
@@ -2148,8 +2217,14 @@ msgstr "Príbuzné"
 
 #: includes/shortcodes/definitions/definitions.php:2750
 #: includes/shortcodes/definitions/definitions.php:2960
-msgid "Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only."
-msgstr "Použite iba na stránkach článkov. Zobrazí prvky príbuzné k aktuálne zobrazenému článku na základe špecifickej taxonómie. Nastavte iba názov taxonómie."
+msgid ""
+"Use only on single post/custom post pages. Displays items related to "
+"recently displayed item through a specific taxonomy. Set a taxonomy name "
+"only."
+msgstr ""
+"Použite iba na stránkach článkov. Zobrazí prvky príbuzné k aktuálne "
+"zobrazenému článku na základe špecifickej taxonómie. Nastavte iba názov "
+"taxonómie."
 
 #: includes/shortcodes/definitions/definitions.php:2750
 #: includes/shortcodes/definitions/definitions.php:2960
@@ -2158,8 +2233,14 @@ msgstr "Napríklad: \"category\"."
 
 #: includes/shortcodes/definitions/definitions.php:2761
 #: includes/shortcodes/definitions/definitions.php:2971
-msgid "If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items."
-msgstr "Po nastavení budete môcť položky filtrovať. Nastavte názov taxonómie (a nepovinný slug nadradenej taxonómie oddelený dvojbodkou - filter bude vytvorený zo sub-taxonómií), ktorá sa použije na filtrovanie položiek."
+msgid ""
+"If set, the items will be filtered. Set a taxonomy name (and optional parent "
+"taxonomy slug separated with colon - filter will be created from sub-"
+"taxonomies) which will be used to filter the items."
+msgstr ""
+"Po nastavení budete môcť položky filtrovať. Nastavte názov taxonómie (a "
+"nepovinný slug nadradenej taxonómie oddelený dvojbodkou - filter bude "
+"vytvorený zo sub-taxonómií), ktorá sa použije na filtrovanie položiek."
 
 #: includes/shortcodes/definitions/definitions.php:2761
 #: includes/shortcodes/definitions/definitions.php:2971
@@ -2468,8 +2549,12 @@ msgstr "Maximálny počet widgetov"
 
 #: includes/shortcodes/definitions/definitions.php:4513
 #: includes/shortcodes/definitions/definitions.php:4559
-msgid "Area will not be displayed when the number of widgets inserted in it is greater"
-msgstr "Oblasť sa nezobrazí, ak počet widgetov v nej umiestnených prekročí toto nastavenie"
+msgid ""
+"Area will not be displayed when the number of widgets inserted in it is "
+"greater"
+msgstr ""
+"Oblasť sa nezobrazí, ak počet widgetov v nej umiestnených prekročí toto "
+"nastavenie"
 
 #: includes/shortcodes/definitions/definitions.php:4612
 msgid "Row / Section"
@@ -2525,9 +2610,12 @@ msgid "Parallax scroll speed"
 msgstr "Rýchlosť paralaxy"
 
 #: includes/shortcodes/definitions/definitions.php:4670
-#, php-format
-msgid "Set the inertia of parallax background moving. For example, value of <code>0.1</code> equals to tenth of normal scroll speed."
-msgstr "Nastavte zotrvačnosť pohybu pozadia paralaxy. Napríklad, hodnota <code>0.1</code> zodpovedá desatine normálnej rýchlosti rolovania."
+msgid ""
+"Set the inertia of parallax background moving. For example, value of "
+"<code>0.1</code> equals to tenth of normal scroll speed."
+msgstr ""
+"Nastavte zotrvačnosť pohybu pozadia paralaxy. Napríklad, hodnota <code>0.1</"
+"code> zodpovedá desatine normálnej rýchlosti rolovania."
 
 #: includes/shortcodes/definitions/definitions.php:4683
 #: includes/shortcodes/definitions/definitions.php:4808
@@ -2542,7 +2630,8 @@ msgstr "Medzera výplne"
 #: includes/shortcodes/definitions/definitions.php:5020
 #, php-format
 msgid "Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>"
-msgstr "Nastavte <a%s>CSS hodnotu</a>, ako napríklad <code>60px 0 60px 0</code>"
+msgstr ""
+"Nastavte <a%s>CSS hodnotu</a>, ako napríklad <code>60px 0 60px 0</code>"
 
 #: includes/shortcodes/definitions/definitions.php:4693
 #: includes/shortcodes/definitions/definitions.php:5019
@@ -2585,7 +2674,7 @@ msgstr "Master Slider"
 msgid "Choose a slider"
 msgstr "Zvoľte prezentáciu"
 
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:80
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:92
 msgctxt "Page builder modules category name."
 msgid "WM Modules"
 msgstr "WM Moduly"
@@ -2637,8 +2726,14 @@ msgstr "Kontaktné informácie"
 
 #: includes/widgets/w-contact.php:105
 msgctxt "Widget description."
-msgid "Displays specially styled contact information. JavaScript anti-spam protection will be applied on the email address (also, email will not be displayed when JavaScript is turned off)."
-msgstr "Zobrazí špeciálne naštýlované kontaktné informácie. Anti-spamový filter sa použije na e-mailovú adresu (v prípade, že je JavaScript v internetovom prehliadači vypnutý, e-mail sa nezobrazí)."
+msgid ""
+"Displays specially styled contact information. JavaScript anti-spam "
+"protection will be applied on the email address (also, email will not be "
+"displayed when JavaScript is turned off)."
+msgstr ""
+"Zobrazí špeciálne naštýlované kontaktné informácie. Anti-spamový filter sa "
+"použije na e-mailovú adresu (v prípade, že je JavaScript v internetovom "
+"prehliadači vypnutý, e-mail sa nezobrazí)."
 
 #: includes/widgets/w-contact.php:108 includes/widgets/w-module.php:105
 #: includes/widgets/w-posts.php:108 includes/widgets/w-subnav.php:105
@@ -2660,8 +2755,11 @@ msgid "Business hours:"
 msgstr "Otváracie hodiny:"
 
 #: includes/widgets/w-contact.php:125
-msgid "Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
-msgstr "Použite čiarku pre oddelenie dní a časov<br />(napríklad \"Piatok, 9:00 - 17:00\")"
+msgid ""
+"Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
+msgstr ""
+"Použite čiarku pre oddelenie dní a časov<br />(napríklad \"Piatok, 9:00 - "
+"17:00\")"
 
 #: includes/widgets/w-contact.php:129
 msgid "Phone number:"
@@ -2687,7 +2785,9 @@ msgstr "Zobrazí zvolený obsahový modul"
 
 #: includes/widgets/w-module.php:102
 msgctxt "Widget description."
-msgid "Displays content of the specific Content Module custom post. Please choose the Content Module below."
+msgid ""
+"Displays content of the specific Content Module custom post. Please choose "
+"the Content Module below."
 msgstr "Zobrazí obsah zvoleného obsahového modulu. Zvoľte daný modul nižšie."
 
 #: includes/widgets/w-module.php:120
@@ -2704,8 +2804,12 @@ msgid " (tags: %s)"
 msgstr " (značky: %s)"
 
 #: includes/widgets/w-module.php:145
-msgid "There are no Content Modules to choose from. Please add a new Content Module first."
-msgstr "Neboli nájdené žiadne obsahové moduly. Najskôr je nutné vytvoriť nové obsahové moduly."
+msgid ""
+"There are no Content Modules to choose from. Please add a new Content Module "
+"first."
+msgstr ""
+"Neboli nájdené žiadne obsahové moduly. Najskôr je nutné vytvoriť nové "
+"obsahové moduly."
 
 #: includes/widgets/w-module.php:151 includes/widgets/w-posts.php:184
 msgid "Optional CSS class:"
@@ -2782,8 +2886,12 @@ msgstr "Zoznam podstránok"
 
 #: includes/widgets/w-subnav.php:102
 msgctxt "Widget description."
-msgid "Displays a hierarchical list of subpages and sibling pages for the current page (page submenu)."
-msgstr "Zobrazí zoznam podstránok a príbuzných stránok hierarchicky podľa aktuálnej stránky (tzv. stránkové submenu)."
+msgid ""
+"Displays a hierarchical list of subpages and sibling pages for the current "
+"page (page submenu)."
+msgstr ""
+"Zobrazí zoznam podstránok a príbuzných stránok hierarchicky podľa aktuálnej "
+"stránky (tzv. stránkové submenu)."
 
 #: includes/widgets/w-subnav.php:107
 msgid "If you leave blank, the main parent page title will be displayed."
@@ -2857,8 +2965,13 @@ msgstr "Vaše najnovšie tweety"
 
 #: includes/widgets/w-twitter.php:137
 msgctxt "Widget description."
-msgid "Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds."
-msgstr "Zobrazí najnovšie tweety zo špecifického Twitter účtu. Taktiež zobrazí údaje o účte. Tweety sa v ukladajú do cache pamate pre optimalizovanie rýchlosti načítania webstránky."
+msgid ""
+"Displays recent tweets from specific Twitter account. Also displays Twitter "
+"account details. Tweets are being cached to optimize the page loading speeds."
+msgstr ""
+"Zobrazí najnovšie tweety zo špecifického Twitter účtu. Taktiež zobrazí údaje "
+"o účte. Tweety sa v ukladajú do cache pamate pre optimalizovanie rýchlosti "
+"načítania webstránky."
 
 #: includes/widgets/w-twitter.php:145
 msgid "Twitter username:"
@@ -2881,8 +2994,15 @@ msgid "Twitter API settings"
 msgstr "Nastavenie Twitter API"
 
 #: includes/widgets/w-twitter.php:168
-msgid "To set the fields below you need to <a href=\"https://dev.twitter.com/apps\" target=\"_blank\">create a Twitter Application</a>. See theme user manual for more info."
-msgstr "Aby ste nastavili tieto polia, musíte si najskôr <a href=\"https://dev.twitter.com/apps\" target=\"_blank\">vytvoriť Twitter Aplikáciu</a>. Viac informácií o tomto nastavení nájdete v dokumentácii k použitej WordPress téme."
+msgid ""
+"To set the fields below you need to <a href=\"https://dev.twitter.com/apps\" "
+"target=\"_blank\">create a Twitter Application</a>. See theme user manual "
+"for more info."
+msgstr ""
+"Aby ste nastavili tieto polia, musíte si najskôr <a href=\"https://dev."
+"twitter.com/apps\" target=\"_blank\">vytvoriť Twitter Aplikáciu</a>. Viac "
+"informácií o tomto nastavení nájdete v dokumentácii k použitej WordPress "
+"téme."
 
 #: includes/widgets/w-twitter.php:172
 msgid "Consumer key:"
@@ -2914,4 +3034,18 @@ msgstr "Komentáre: %s"
 #: templates/content-shortcode-posts.php:66
 #, php-format
 msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
-msgstr "Prečítať <span class=\"screen-reader-text\">článok \"%s\"</span>&raquo;"
+msgstr ""
+"Prečítať <span class=\"screen-reader-text\">článok \"%s\"</span>&raquo;"
+
+#~ msgid ""
+#~ "You are using WebMan Amplifier plugin, which includes the <a href="
+#~ "\"http://isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript "
+#~ "filter</a>.<br />If you use the plugin for commercial applications, you "
+#~ "are required to <a href=\"http://isotope.metafizzy.co/license.html\" "
+#~ "target=\"_blank\">purchase the Isotope licence</a>."
+#~ msgstr ""
+#~ "Používate WebMan Amplifier modul, ktorý obsahuje <a href=\"http://isotope."
+#~ "metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br />Ak "
+#~ "používate tento modul na komrečnej webstránke, musíte si <a href=\"http://"
+#~ "isotope.metafizzy.co/license.html\" target=\"_blank\">zakúpiť Isotope "
+#~ "licenciu</a>."

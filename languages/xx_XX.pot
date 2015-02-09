@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WebMan Amplifier v1.1\n"
+"Project-Id-Version: WebMan Amplifier v1.1.3\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-01-16 22:21+0100\n"
-"PO-Revision-Date: 2015-01-16 22:22+0100\n"
-"Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
-"Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
+"POT-Creation-Date: 2015-02-09 11:40+0100\n"
+"PO-Revision-Date: 2015-02-09 11:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -21,25 +21,28 @@ msgstr ""
 
 # Copyright (C) 2015 WebMan - Oliver Juhas
 # This file is distributed under the same license as the WordPress package.
-
-
-
-
-
 #: class-wm-amplifier.php:128 class-wm-amplifier.php:140
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: class-wm-amplifier.php:233
+#: class-wm-amplifier.php:234
 msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr ""
 
-#: class-wm-amplifier.php:647
+#: class-wm-amplifier.php:317
+msgid "Isotope Licensing"
+msgstr ""
+
+#: class-wm-amplifier.php:317
 msgid ""
 "You are using WebMan Amplifier plugin, which includes the <a href=\"http://"
-"isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>.<br /"
-">If you use the plugin for commercial applications, you are required to <a "
+"isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>."
+msgstr ""
+
+#: class-wm-amplifier.php:317
+msgid ""
+"If you use the plugin for commercial applications, you are required to <a "
 "href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
 "the Isotope licence</a>."
 msgstr ""
@@ -1017,32 +1020,32 @@ msgstr ""
 msgid "Testimonial settings"
 msgstr ""
 
-#: includes/functions.php:251
+#: includes/functions.php:256
 msgid "All posts"
 msgstr ""
 
-#: includes/functions.php:342
+#: includes/functions.php:347
 msgid "- Select item -"
 msgstr ""
 
-#: includes/functions.php:384
+#: includes/functions.php:389
 msgid "- Select a page -"
 msgstr ""
 
-#: includes/functions.php:436
+#: includes/functions.php:441
 msgid "- Select area -"
 msgstr ""
 
-#: includes/functions.php:1268
+#: includes/functions.php:1345
 msgid "Original image size (full)"
 msgstr ""
 
-#: includes/functions.php:1269
+#: includes/functions.php:1346
 msgctxt "WordPress image size actions."
 msgid "scaled"
 msgstr ""
 
-#: includes/functions.php:1269
+#: includes/functions.php:1346
 msgctxt "WordPress image size actions."
 msgid "cropped"
 msgstr ""
@@ -2568,7 +2571,6 @@ msgid "Parallax scroll speed"
 msgstr ""
 
 #: includes/shortcodes/definitions/definitions.php:4670
-#, php-format
 msgid ""
 "Set the inertia of parallax background moving. For example, value of "
 "<code>0.1</code> equals to tenth of normal scroll speed."
@@ -2630,7 +2632,7 @@ msgstr ""
 msgid "Choose a slider"
 msgstr ""
 
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:80
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:92
 msgctxt "Page builder modules category name."
 msgid "WM Modules"
 msgstr ""

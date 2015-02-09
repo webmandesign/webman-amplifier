@@ -1,5 +1,26 @@
 # WebMan Amplifier Changelog
 
+## 1.1.3
+
+* Updated: Icon font updated to Font Awesome v4.1 (resave the font to regenerate)
+* Updated: Isotope license notification moved to WordPress pointer
+* Updated: Localization function
+* Updated: Removed deprecated action hooks
+* Fixed: Scripts and conditions for including Shortcode Generator button
+* Fixed: Localization texts
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	assets/font/config.php
+	assets/font/fontello.dev.css
+	assets/js/shortcodes-button.js
+	assets/js/dev/shortcodes-button.dev.js
+	includes/visual-editor/visual-editor.php
+	languages/sk_SK.po
+	languages/xx_XX.pot
+
+
 ## 1.1.2
 
 * Updated: Function for color format change

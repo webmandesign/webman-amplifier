@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.1.1
+ * @version	 1.1.3
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -145,31 +145,32 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 
 		/**
-		 * PRIVATE METHODS
+		 * SETUP METHODS
 		 */
 
 			/**
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.1.1
+			 * @version  1.1.3
 			 *
 			 * @access  public
 			 */
 			public function setup_actions() {
 				//Array of core actions
 					$actions = array(
-						'load_textdomain'               => 'plugins_loaded',    //Load textdomain
-						'register_metaboxes'            => 'plugins_loaded',    //Register metaboxes
-						'register_widgets'              => 'init|1',            //Register widgets
-						'save_permalinks'               => 'init',              //Save custom permalinks
-						'register_post_types'           => 'init',              //Register post types
-						'custom_taxonomies'             => 'init|98',           //Register additional custom taxonomies
-						'register_shortcodes'           => 'init',              //Register shortcodes
-						'register_visual_editor_addons' => 'init',              //Register Visual Editor addons
-						'register_icons'                => 'init',              //Register icon font
-						'admin_notices'                 => 'admin_notices',     //Display admin notices
-						'deactivate'                    => 'switch_theme|10|2', //Deactivate plugin when theme changed
+						'load_textdomain'               => 'plugins_loaded',             //Load textdomain
+						'register_metaboxes'            => 'plugins_loaded',             //Register metaboxes
+						'register_widgets'              => 'widgets_init|-10',           //Register widgets
+						'save_permalinks'               => 'init',                       //Save custom permalinks
+						'register_post_types'           => 'init',                       //Register post types
+						'custom_taxonomies'             => 'init|98',                    //Register additional custom taxonomies
+						'register_shortcodes'           => 'init',                       //Register shortcodes
+						'register_visual_editor_addons' => 'init',                       //Register Visual Editor addons
+						'register_icons'                => 'init',                       //Register icon font
+						'admin_notices'                 => 'admin_notices',              //Display admin notices
+						'admin_footer_scripts'          => 'admin_print_footer_scripts', //Display admin pointers
+						'deactivate'                    => 'switch_theme|10|2',          //Deactivate plugin when theme changed
 					);
 
 				//Add actions
@@ -252,13 +253,16 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.3
 			 *
 			 * @access  public
 			 */
 			public function assets() {
 				//Helper variables
 					global $current_screen, $wp_version;
+
+					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
+					$pointers_seen   = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 
 				//Register
 					//Styles
@@ -269,7 +273,69 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						//Styles
 							wp_enqueue_style( 'wmamp-admin-styles' );
 					}
+
+				//Isotope license pointer
+					if (
+							$display_isotope
+							&& ! in_array( 'wmamp_isotope_license', $pointers_seen )
+						) {
+						wp_enqueue_style( 'wp-pointer' );
+						wp_enqueue_script( 'wp-pointer' );
+					}
 			} // /assets
+
+
+
+			/**
+			 * Print admin footer scripts
+			 *
+			 * @since    1.1.3
+			 * @version  1.1.3
+			 *
+			 * @access  public
+			 */
+			public function admin_footer_scripts() {
+				//Helper variables
+					$output = '';
+
+					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
+					$pointers_seen   = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+
+				//Preparing output
+					//Isotope license notice
+						if (
+								$display_isotope
+								&& ! in_array( 'wmamp_isotope_license', $pointers_seen )
+							) {
+							$output .= '
+									if ( "undefined" !== typeof( jQuery().pointer ) ) {
+										var $wmampPointerObject = ( jQuery( "#menu-plugins" ).length ) ? ( jQuery( "#menu-plugins" ) ) : ( jQuery( "#menu-appearance" ) );
+
+										$wmampPointerObject
+											.pointer( {
+												pointerClass : "wp-pointer wmamp_isotope_license",
+												content : "' . addslashes( '<h3>' . __( 'Isotope Licensing', 'wm_domain' ) . '</h3><p><strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.', 'wm_domain' ) . '</strong></p><p>' . __( 'If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'wm_domain' ) . '</p>' ) . '",
+												position : {
+														edge  : "left",
+														align : "center"
+													},
+												close : function() {
+														jQuery.post( ajaxurl, {
+																pointer : "wmamp_isotope_license",
+																action  : "dismiss-wp-pointer"
+															} );
+													}
+											} )
+											.pointer( "open" );
+									}
+								';
+						}
+
+				//Output
+					if ( $output ) {
+						echo '<script type="text/javascript">jQuery( function() { ' . $output . ' } );</script>';
+					}
+			} // /admin_footer_scripts
 
 
 
@@ -311,7 +377,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Setup the post types
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1.3
+			 *
 			 * @access  public
 			 */
 			public function register_post_types() {
@@ -339,9 +407,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					if ( wma_supports_subfeature( 'cp-testimonials' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/testimonials.php' );
 					}
-
-				//Plugin register custom posts action
-					do_action( WMAMP_HOOK_PREFIX . 'register_post_types' );
 			} // /register_post_types
 
 
@@ -385,7 +450,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Custom post types in feed
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.1.3
+			 *
 			 * @access  public
 			 *
 			 * @param   array $query
@@ -442,9 +509,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						}
 
 				}
-
-				//Plugin custom posts in feed action
-					do_action( WMAMP_HOOK_PREFIX . 'post_types_in_feed' );
 
 				//Output
 					return apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_query', $query );
@@ -539,7 +603,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Register widgets
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.3
 			 *
 			 * @access  public
 			 */
@@ -573,9 +637,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					if ( wma_supports_subfeature( 'widget-twitter' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'widgets/w-twitter.php' );
 					}
-
-				//Plugin register custom posts action
-					do_action( WMAMP_HOOK_PREFIX . 'register_widgets' );
 			} // /register_widgets
 
 
@@ -592,7 +653,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * );
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.3
 			 *
 			 * @access   public
 			 */
@@ -607,13 +668,11 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					$class  = 'updated';
 					$repeat = 0;
 
-					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
-
 					$capability = apply_filters( WMAMP_HOOK_PREFIX . 'notice_capability', 'switch_themes' );
 					$message    = get_transient( 'wmamp-admin-notice' );
 
 				//Requirements check
-					if ( empty( $message ) && ! $display_isotope ) {
+					if ( empty( $message ) ) {
 						return;
 					}
 
@@ -642,11 +701,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 							set_transient( 'wmamp-admin-notice', $message, ( 60 * 60 * 48 ) );
 						}
 
-					//Isotope licence notice
-						if ( $display_isotope ) {
-							$output .= '<div class="wm-notice error isotope-licence"><p><strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.<br />If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'wm_domain' ) . '</strong></p></div>';
-						}
-
 				//Output
 					if ( $output ) {
 						echo apply_filters( WMAMP_HOOK_PREFIX . 'admin_notices_output', $output, $message );
@@ -658,16 +712,19 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Localization
 			 *
-			 * Load the translation file for current language. Checks the languages
-			 * folder inside the plugin first, and then the default WordPress
-			 * languages folder.
+			 * Load the translation file for the current language.
+			 * Checks the languages folder inside the plugin first,
+			 * and then the default WordPress languages folder.
 			 *
 			 * Note that custom translation files inside the plugin folder
 			 * will be removed on plugin updates. If you're creating custom
 			 * translation files, please use the global language folder.
 			 *
+			 * Note: the first-loaded translation file overrides any
+			 * following ones if the same translation is present.
+			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.3
 			 *
 			 * @access  public
 			 *
@@ -678,20 +735,11 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					$locale = apply_filters( 'plugin_locale', get_locale(), 'wm_domain' );
 					$mofile = $locale . '.mo';
 
-				//Setup paths to current locale file
-					$mofile_local  = apply_filters( WMAMP_HOOK_PREFIX . 'lang_dir', trailingslashit( WMAMP_PLUGIN_DIR . 'languages' ) ) . $mofile;
-					$mofile_global = WP_LANG_DIR . '/plugins/webman-amplifier/' . $mofile;
+				//Look in local /wp-content/plugins/webman-amplifier/languages/ folder
+					load_textdomain( 'wm_domain', trailingslashit( WMAMP_PLUGIN_DIR ) . 'languages/' . $mofile );
 
-					if ( file_exists( $mofile_global ) ) {
-						//Look in global /wp-content/languages/webman-amplifier folder
-							return load_textdomain( 'wm_domain', $mofile_global );
-					} elseif ( file_exists( $mofile_local ) ) {
-						//Look in local /wp-content/plugins/webman-amplifier/languages/ folder
-							return load_textdomain( 'wm_domain', $mofile_local );
-					}
-
-				//Nothing found
-					return false;
+				//Look in global /wp-content/languages/webman-amplifier folder
+					load_textdomain( 'wm_domain', trailingslashit( WP_LANG_DIR ) . 'plugins/webman-amplifier/' . $mofile );
 			} // /load_textdomain
 
 
