@@ -90,6 +90,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.1.4 =
+IMPORTANT: Custom posts issue introduced in update 1.1.3 was fixed.
+
 = 1.1.3 =
 Icon font updated to Font Awesome v4.1 (resave the font to regenerate), fixed code and conditions for including Shortcode Generator button (fixes issue with MasterSlider plugin).
 

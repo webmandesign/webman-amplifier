@@ -1,5 +1,13 @@
 # WebMan Amplifier Changelog
 
+## 1.1.4
+
+* Fixed: Custom posts issue introduced in update 1.1.3
+
+#### Files changed:
+
+	class-wm-amplifier.php
+
 ## 1.1.3
 
 * Updated: Icon font updated to Font Awesome v4.1 (resave the font to regenerate)

@@ -378,7 +378,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the post types
 			 *
 			 * @since    1.0
-			 * @version  1.1.3
+			 * @version  1.1.4
 			 *
 			 * @access  public
 			 */
@@ -407,6 +407,9 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					if ( wma_supports_subfeature( 'cp-testimonials' ) ) {
 						include_once( WMAMP_INCLUDES_DIR . 'custom-posts/testimonials.php' );
 					}
+
+				//Plugin register custom posts action
+					do_action( WMAMP_HOOK_PREFIX . 'register_post_types' );
 			} // /register_post_types
 
 
