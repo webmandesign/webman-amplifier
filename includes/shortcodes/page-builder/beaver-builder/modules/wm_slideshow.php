@@ -2,13 +2,13 @@
 /**
  * Custom Beaver Builder module init
  *
- * Content module
+ * Slideshow
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
  * @since    1.1
- * @version  1.1
+ * @version  1.1.5
  *
  * CONTENT:
  * - 10) Helper variables
@@ -24,7 +24,7 @@
  * 10) Helper variables
  */
 
-	$module               = basename( __FILE__, '.php' );
+	$module               = wma_bb_get_custom_module_slug( __FILE__ );
 	$module_form          = wma_bb_shortcode_def( $module, 'form' );
 	$module_form_children = wma_bb_shortcode_def( $module, 'form_children' );
 
@@ -39,11 +39,11 @@
 	/**
 	 * Module registration class
 	 */
-	class WM_BB_Module_Content_module extends FLBuilderModule {
+	class WM_BB_Module_Slideshow extends FLBuilderModule {
 
 		public function __construct() {
 
-			$module = basename( __FILE__, '.php' );
+			$module = wma_bb_get_custom_module_slug( __FILE__ );
 
 			parent::__construct( apply_filters( WMAMP_HOOK_PREFIX . 'bb_module_construct_' . 'test', array(
 					'name'          => wma_bb_shortcode_def( $module, 'name' ),
@@ -57,7 +57,7 @@
 
 		} // /__construct
 
-	} // /WM_BB_Module_Content_module
+	} // /WM_BB_Module_Slideshow
 
 
 
@@ -71,7 +71,7 @@
 	 * Register the module and its form
 	 */
 	if ( ! empty( $module_form ) && is_array( $module_form ) ) {
-		FLBuilder::register_module( 'WM_BB_Module_Content_module', $module_form );
+		FLBuilder::register_module( 'WM_BB_Module_Slideshow', $module_form );
 	}
 
 

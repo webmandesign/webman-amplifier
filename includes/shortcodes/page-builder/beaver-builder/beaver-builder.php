@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.1.1
+ * @version  1.1.5
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -65,7 +65,7 @@
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.1.1
+	 * @version  1.1.5
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
@@ -78,6 +78,12 @@
 				$def = wma_shortcodes()->get_definitions();
 				$def = $def['bb_plugin'];
 
+				$custom_modules_category = _x( 'WM Modules', 'Page builder modules category name.', 'wm_domain' );
+
+				if ( apply_filters( 'wma_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
+					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); //Taking translation from Beaver Builder plugin
+				}
+
 			//Preparing output
 				if ( 'all' === $shortcode ) {
 
@@ -89,7 +95,7 @@
 							'params'          => array(),
 							'name'            => '-',
 							'description'     => '',
-							'category'        => _x( 'WM Modules', 'Page builder modules category name.', 'wm_domain' ),
+							'category'        => $custom_modules_category,
 							'enabled'         => true,
 							'editor_export'   => true, //Export content to WP editor?
 							'dir'             => trailingslashit( WMAMP_INCLUDES_DIR ) . 'shortcodes/page-builder/beaver-builder/modules/',
@@ -161,8 +167,7 @@
 			//Include files
 				if ( ! empty( $defs ) ) {
 					foreach ( $defs as $module => $def ) {
-						$module_file_path = trailingslashit( WMAMP_INCLUDES_DIR ) .'shortcodes/page-builder/beaver-builder/modules/' . $module . '.php';
-
+						$module_file_path = trailingslashit( WMAMP_INCLUDES_DIR ) .'shortcodes/page-builder/beaver-builder/modules/wm_' . $module . '.php';
 						if ( file_exists( $module_file_path ) ) {
 							require_once( $module_file_path );
 						}
@@ -204,7 +209,7 @@
 	 * Module output
 	 *
 	 * @since    1.1
-	 * @version  1.1
+	 * @version  1.1.5
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -219,7 +224,11 @@
 			//Helper variables
 				$shortcode_output = $replace_children = '';
 
-				$module = $module->slug;
+				/**
+				 * Removing 'wm_' (string length = 3) from the beginning
+				 * of the custom module file name slug.
+				 */
+				$module = substr( $module->slug, 3 );
 
 				$output   = array(
 						'parent' => (string) wma_bb_shortcode_def( $module, 'output' ),
@@ -343,7 +352,7 @@
 	 * Custom page builder input field: wm_radio
 	 *
 	 * @since    1.1
-	 * @version  1.1
+	 * @version  1.1.5
 	 *
 	 * @param  string $name
 	 * @param  string $value
@@ -352,8 +361,28 @@
 	if ( ! function_exists( 'wma_bb_custom_field_wm_radio' ) ) {
 		function wma_bb_custom_field_wm_radio( $name, $value, $field ) {
 			//Output
-				echo apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'wma_bb_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
+				echo wma_custom_field_wm_radio( $name, $value, $field );
 		}
 	} // /wma_bb_custom_field_wm_radio
+
+
+
+	/**
+	 * Get custom module slug
+	 *
+	 * Removing 'wm_' (string length = 3) from the beginning
+	 * of the custom module file name slug.
+	 *
+	 * @since    1.1.5
+	 * @version  1.1.5
+	 *
+	 * @param  path $file
+	 */
+	if ( ! function_exists( 'wma_bb_get_custom_module_slug' ) ) {
+		function wma_bb_get_custom_module_slug( $file = __FILE__ ) {
+			//Output
+				return substr( basename( $file, '.php' ), 3 );
+		}
+	} // /wma_bb_get_custom_module_slug
 
 ?>

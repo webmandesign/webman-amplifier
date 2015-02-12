@@ -90,6 +90,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.1.5 =
+Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed).
+
 = 1.1.4 =
 IMPORTANT: Custom posts issue introduced in update 1.1.3 was fixed.
 

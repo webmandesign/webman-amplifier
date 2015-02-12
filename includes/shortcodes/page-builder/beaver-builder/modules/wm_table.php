@@ -2,13 +2,13 @@
 /**
  * Custom Beaver Builder module init
  *
- * Countdown timer
+ * Table
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
  * @since    1.1
- * @version  1.1
+ * @version  1.1.5
  *
  * CONTENT:
  * - 10) Helper variables
@@ -24,7 +24,7 @@
  * 10) Helper variables
  */
 
-	$module               = basename( __FILE__, '.php' );
+	$module               = wma_bb_get_custom_module_slug( __FILE__ );
 	$module_form          = wma_bb_shortcode_def( $module, 'form' );
 	$module_form_children = wma_bb_shortcode_def( $module, 'form_children' );
 
@@ -39,13 +39,13 @@
 	/**
 	 * Module registration class
 	 */
-	class WM_BB_Module_Countdown_timer extends FLBuilderModule {
+	class WM_BB_Module_Table extends FLBuilderModule {
 
 		public function __construct() {
 
-			$module = basename( __FILE__, '.php' );
+			$module = wma_bb_get_custom_module_slug( __FILE__ );
 
-			parent::__construct( apply_filters( WMAMP_HOOK_PREFIX . 'bb_module_construct_' . 'test', array(
+			parent::__construct( apply_filters( WMAMP_HOOK_PREFIX . 'bb_module_construct_' . $module, array(
 					'name'          => wma_bb_shortcode_def( $module, 'name' ),
 					'description'   => wma_bb_shortcode_def( $module, 'description' ),
 					'category'      => wma_bb_shortcode_def( $module, 'category' ),
@@ -57,7 +57,7 @@
 
 		} // /__construct
 
-	} // /WM_BB_Module_Countdown_timer
+	} // /WM_BB_Module_Table
 
 
 
@@ -71,7 +71,7 @@
 	 * Register the module and its form
 	 */
 	if ( ! empty( $module_form ) && is_array( $module_form ) ) {
-		FLBuilder::register_module( 'WM_BB_Module_Countdown_timer', $module_form );
+		FLBuilder::register_module( 'WM_BB_Module_Table', $module_form );
 	}
 
 

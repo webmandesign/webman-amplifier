@@ -1,5 +1,32 @@
 # WebMan Amplifier Changelog
 
+## 1.1.5
+
+* Updated: Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed)
+
+#### Files changed:
+
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_accordion.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_button.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_call_to_action.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_content_module.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_countdown_timer.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_divider.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_icon.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_list.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_message.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_posts.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_pricing_table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_progress.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_separator_heading.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_slideshow.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_tabs.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_testimonials.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_widget_area.php
+
+
 ## 1.1.4
 
 * Fixed: Custom posts issue introduced in update 1.1.3
