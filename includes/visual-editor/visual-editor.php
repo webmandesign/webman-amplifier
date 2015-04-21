@@ -15,7 +15,7 @@
  * @uses  wma_shortcodes()->get_definitions()['generator']
  *
  * @since    1.1
- * @version  1.1.3
+ * @version  1.1.6
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -62,6 +62,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 	/**
 	 * Enqueuing required assets
+	 *
+	 * @since    1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_ve_assets' ) ) {
 		function wma_ve_assets() {
@@ -70,14 +73,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				$codes = ( is_callable( 'wma_shortcodes' ) ) ? ( wma_shortcodes()->get_definitions() ) : ( array( 'generator' => null ) );
 
-				$admin_pages = apply_filters( WMAMP_HOOK_PREFIX . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
+				$admin_pages = apply_filters( 'wmhook_wmamp_' . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
 
 				//Requirements check
 					if (
 							empty( $codes['generator'] )
 							//page builders check
 							|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-							|| ( ! is_admin() && ! isset( $_GET['fl_builder'] ) )
+							|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
 						) {
 						return;
 					}
@@ -129,7 +132,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							! empty( $codes['generator_short'] )
 							&& (
 								//Beaver Builder
-								( ! is_admin() && isset( $_GET['fl_builder'] ) && in_array( $post_type, $supported_post_types['beaver-builder'] ) )
+								( ! is_admin() && in_array( $post_type, $supported_post_types['beaver-builder'] ) )
 								//Visual Composer
 								|| ( wma_is_active_vc() && in_array( $post_type, $supported_post_types['visual-composer'] ) )
 							)
@@ -154,7 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Visual Editor custom plugin
 	 *
 	 * @since    1.0
-	 * @version  1.1.3
+	 * @version  1.1.6
 	 *
 	 * @param  array $plugins_array
 	 */
@@ -165,14 +168,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				$codes = ( is_callable( 'wma_shortcodes' ) ) ? ( wma_shortcodes()->get_definitions() ) : ( array( 'generator' => null ) );
 
-				$admin_pages = apply_filters( WMAMP_HOOK_PREFIX . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
+				$admin_pages = apply_filters( 'wmhook_wmamp_' . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
 
 				//Requirements check
 					if (
 							empty( $codes['generator'] )
 							//page builders check
 							|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-							|| ( ! is_admin() && ! isset( $_GET['fl_builder'] ) )
+							|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
 						) {
 						return;
 					}
@@ -181,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$plugins_array['wmShortcodes'] = WMAMP_ASSETS_URL . 'js/shortcodes-button.js';
 
 			//Output
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_ve_custom_mce_plugin' . '_output', $plugins_array );
+				return apply_filters( 'wmhook_wmamp_' . 'wma_ve_custom_mce_plugin' . '_output', $plugins_array );
 		}
 	} // /wma_ve_custom_mce_plugin
 
@@ -197,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_ve_add_buttons_row1' ) ) {
 		function wma_ve_add_buttons_row1( $buttons ) {
 			//Requirements check
-				if ( ! current_user_can( apply_filters( WMAMP_HOOK_PREFIX . 'editor_capability', 'edit_posts' ) ) ) {
+				if ( ! current_user_can( apply_filters( 'wmhook_wmamp_' . 'editor_capability', 'edit_posts' ) ) ) {
 					return $buttons;
 				}
 

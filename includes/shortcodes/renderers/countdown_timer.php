@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  *
  * @uses   $codes_globals['sizes']['values']
  *
@@ -17,12 +17,12 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class' => '',
 			'size'  => '',
 			'time'  => ''
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
@@ -38,7 +38,7 @@
 		}
 	//class
 		$atts['class'] = trim( 'wm-countdown-timer ' . trim( $atts['class'] ) );
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 	//labels
 		$atts['labels'] = array(
 				'weeks'   => __( 'Weeks', 'wm_domain' ),
@@ -47,7 +47,7 @@
 				'minutes' => __( 'Minutes', 'wm_domain' ),
 				'seconds' => __( 'Seconds', 'wm_domain' ),
 			);
-		$atts['labels'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_labels', $atts['labels'] );
+		$atts['labels'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_labels', $atts['labels'] );
 
 //Helper variables
 	$wm_countdown_timer_id = rand( 100, 999 );
@@ -55,7 +55,7 @@
 //Output
 	if ( $atts['time'] ) {
 
-		$output = '<div class="' . $atts['class'] . '">
+		$output = '<div class="' . esc_attr( $atts['class'] ) . '">
 					<div id="wm-countdown-timer-' . $wm_countdown_timer_id . '">
 						<div class="dash weeks_dash">
 							<div class="dash_title">' . $atts['labels']['weeks'] . '</div>

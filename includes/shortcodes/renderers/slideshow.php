@@ -7,7 +7,7 @@
  * You can use "Description" field of images to set the custom link on them.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.1.6
  *
  * @param  string class
  * @param  string ids
@@ -19,14 +19,14 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class'      => '',
 			'ids'        => '',
 			'nav'        => '',
 			'image_size' => 'large',
 			'speed'      => 3000,
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
@@ -36,19 +36,19 @@
 	//nav
 		$atts['nav'] = trim( $atts['nav'] );
 		if ( ! in_array( $atts['nav'], array( 'thumbs', 'pagination' ) ) ) {
-			$atts['nav'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_nav', '' );
+			$atts['nav'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_nav', '', $atts );
 		}
 	//image_sizes
 		$atts['image_size']  = trim( $atts['image_size'] );
 		$image_sizes   = get_intermediate_image_sizes();
 		$image_sizes[] = 'large';
 		if ( ! in_array( $atts['image_size'], $image_sizes ) ) {
-			$atts['image_size'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_size', 'large' );
+			$atts['image_size'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'large', $atts );
 		}
 	//speed
 		$atts['speed'] = absint( $atts['speed'] );
 		if ( 500 > $atts['speed'] ) {
-			$atts['speed'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_speed', 3000 );
+			$atts['speed'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_speed', 3000, $atts );
 		}
 	//content
 		$atts['content'] = $atts['pager'] = '';
@@ -57,7 +57,7 @@
 			foreach ( $atts['ids'] as $id ) {
 				$image       = wp_get_attachment_image( $id, $atts['image_size'], false, array( 'title' => esc_attr( strip_tags( get_the_title( $id ) ) ) ) );
 				$image_thumb = '<a data-slide-index="' . $i++ . '" href="">' . wp_get_attachment_image( $id, 'thumbnail' ) . '</a>';
-				$link        = wp_get_attachment_image_src( $id, apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_modal_image_size', 'full' ) );
+				$link        = wp_get_attachment_image_src( $id, apply_filters( 'wmhook_shortcode_' . $shortcode . '_modal_image_size', 'full', $atts ) );
 				$link        = $link[0];
 
 				$image_description = get_post( $id );
@@ -69,7 +69,7 @@
 				}
 
 				if ( $link ) {
-					$image = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_html', '<a href="' . $link . '">' . $image . '</a>' );
+					$image = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_html', '<a href="' . esc_url( $link ) . '">' . $image . '</a>', $atts );
 				}
 
 				$atts['content'] .= $image;
@@ -85,15 +85,15 @@
 			$opening_tag .= '">';
 			$atts['content'] = $opening_tag . $atts['content'] . '</div>';
 			if ( 'thumbs' == $atts['nav'] ) {
-				$atts['content'] .= '<div id="wm-slideshow-pager-' . $unique_id . '" class="wm-slideshow-pager">' . $atts['pager'] . '</div>';
+				$atts['content'] .= '<div id="wm-slideshow-pager-' . esc_attr( $unique_id ) . '" class="wm-slideshow-pager">' . $atts['pager'] . '</div>';
 			}
 		}
 	//content filters
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $atts['content'], $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//class
 		$atts['class'] = trim( esc_attr( 'wm-slideshow clearfix auto-height ' . trim( $atts['class'] ) ) );
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', $atts['class'] );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Enqueue scripts
 	$enqueue_scripts = array(
@@ -105,7 +105,7 @@
 
 //Output
 	if ( $atts['content'] ) {
-		$output = '<div class="' . $atts['class'] . '" data-speed="' . $atts['speed'] . '" data-nav="' . $atts['nav'] . '">' . $atts['content'] . '</div>';
+		$output = '<div class="' . esc_attr( $atts['class'] ) . '" data-speed="' . esc_attr( $atts['speed'] ) . '" data-nav="' . esc_attr( $atts['nav'] ) . '">' . $atts['content'] . '</div>';
 	}
 
 ?>

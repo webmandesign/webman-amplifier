@@ -1,14 +1,14 @@
 === WebMan Amplifier ===
-Contributors: webmandesign
-Tags: webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
-Donate link: http://www.webmandesign.eu/
-Author URI: http://www.webmandesign.eu/
-Plugin URI: http://www.webmandesign.eu/webman-amplifier/
+Contributors:      webmandesign
+Donate link:       http://www.webmandesign.eu/
+Author URI:        http://www.webmandesign.eu/
+Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.0
-Tested up to: 4.1
-Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to:      4.2
+Stable tag:        trunk
+License:           GPLv2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
 
 Amplifies functionality of WP themes. Provides custom post types, shortcodes, metaboxes, icons. Theme developer's best friend!
 
@@ -89,6 +89,9 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md) for details.
 
 == Upgrade Notice ==
+
+= 1.1.6 =
+Code, security and page builders support improvements.
 
 = 1.1.5 =
 Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed).

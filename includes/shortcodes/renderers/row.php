@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.1.6
  *
  * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
@@ -27,7 +27,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'behaviour'     => '',
 			'bg_attachment' => '',
 			'bg_color'      => '',
@@ -47,13 +47,13 @@
 			'padding'       => '',
 			'parallax'      => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//attributes
 		$atts['attributes'] = array( 'spacer' => '', 'style' => '' );
 	//mode
@@ -69,7 +69,7 @@
 		if ( $atts['bg_color'] ) {
 			$atts['attributes']['style'] .= ' background-color: ' . esc_attr( $atts['bg_color'] ) . ';';
 
-			if ( absint( apply_filters( WMAMP_HOOK_PREFIX . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['bg_color'] ) ) {
+			if ( absint( apply_filters( 'wmhook_wmamp_' . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['bg_color'] ) ) {
 				$atts['class'] .= ' colorset-bg-dark';
 			} else {
 				$atts['class'] .= ' colorset-bg-light';
@@ -78,7 +78,7 @@
 	//bg_image
 		$atts['bg_image'] = trim( $atts['bg_image'] );
 		if ( is_numeric( $atts['bg_image'] ) ) {
-			$image_size = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_size', 'full' );
+			$image_size = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'full', $atts );
 			$image      = wp_get_attachment_image_src( absint( $atts['bg_image'] ), $image_size );
 
 			if ( is_array( $image ) && isset( $image[0] ) && $image[0] ) {
@@ -105,7 +105,7 @@
 			} else {
 				$atts['bg_attachment'] = '';
 			}
-			$atts['attributes']['style'] .= apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_bg_attachment', $atts['bg_attachment'], $atts );
+			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_attachment', $atts['bg_attachment'], $atts );
 		}
 	//bg_position
 		$atts['bg_position'] = trim( $atts['bg_position'] );
@@ -118,7 +118,7 @@
 			if ( $atts['parallax'] ) {
 				$atts['bg_position'] = '';
 			}
-			$atts['attributes']['style'] .= apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_bg_position', $atts['bg_position'], $atts );
+			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_position', $atts['bg_position'], $atts );
 		}
 	//bg_repeat
 		$atts['bg_repeat'] = trim( $atts['bg_repeat'] );
@@ -128,7 +128,7 @@
 			} else {
 				$atts['bg_repeat'] = '';
 			}
-			$atts['attributes']['style'] .= apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_bg_repeat', $atts['bg_repeat'], $atts );
+			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_repeat', $atts['bg_repeat'], $atts );
 		}
 	//bg_size
 		$atts['bg_size'] = trim( $atts['bg_size'] );
@@ -138,14 +138,14 @@
 			} else {
 				$atts['bg_size'] = '';
 			}
-			$atts['attributes']['style'] .= apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_bg_size', $atts['bg_size'], $atts );
+			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_size', $atts['bg_size'], $atts );
 		}
 	//font_color
 		$atts['font_color'] = trim( $atts['font_color'] );
 		if ( $atts['font_color'] ) {
 			$atts['attributes']['style'] .= ' color: ' . esc_attr( $atts['font_color'] ) . ';';
 
-			if ( absint( apply_filters( WMAMP_HOOK_PREFIX . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['font_color'] ) ) {
+			if ( absint( apply_filters( 'wmhook_wmamp_' . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['font_color'] ) ) {
 				$atts['class'] .= ' colorset-text-dark';
 			} else {
 				$atts['class'] .= ' colorset-text-light';
@@ -167,14 +167,14 @@
 			$atts['attributes']['style'] .= ' padding: ' . esc_attr( $atts['padding'] ) . ';';
 		}
 	//attributes
-		$atts['attributes'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_html_attributes', $atts['attributes'], $atts );
+		$atts['attributes'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_html_attributes', $atts['attributes'], $atts );
 	//style
 		if ( isset( $atts['attributes']['style'] ) && $atts['attributes']['style'] ) {
 			$atts['attributes']['style'] = 'style="' . esc_attr( trim( $atts['attributes']['style'] ) ) . '"';
 		}
 	//class
 		$atts['class'] = trim( 'wm-row clearfix ' . $shortcode . '-shortcode ' . trim( $atts['class'] ) );
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Enqueue scripts
 	$enqueue_scripts = array();
@@ -188,9 +188,9 @@
 	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
-	$replacements = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output_replacements', array(
+	$replacements = apply_filters( 'wmhook_shortcode_' . $shortcode . '_output_replacements', array(
 			'{attributes}' => implode( ' ', $atts['attributes'] ),
-			'{class}'      => $atts['class'],
+			'{class}'      => esc_attr( $atts['class'] ),
 			'{content}'    => $atts['content'],
 		), $atts );
 	$output = strtr( $atts['html'][ $atts['mode'] ], $replacements );

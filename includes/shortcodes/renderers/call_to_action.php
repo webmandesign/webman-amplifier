@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  *
  * @uses   $codes_globals['colors'], $codes_globals['sizes']['values']
  *
@@ -24,7 +24,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'button_class' => '',
 			'button_color' => '',
 			'button_icon'  => '',
@@ -35,7 +35,7 @@
 			'class'        => '',
 			'heading_tag'  => 'h2',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	//get the custom attributes in $atts['attributes']
 	//parameters: $defaults, $atts, $remove, $aside, $shortcode
 	$atts = wma_shortcode_custom_atts( $defaults, $atts, array( 'href' ), array( 'class' ), $prefix_shortcode . $shortcode );
@@ -44,8 +44,8 @@
 	//class
 		$atts['class'] = trim( 'wm-call-to-action ' . trim( $atts['class'] ) );
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//button_color
 		$atts['button_color'] = trim( $atts['button_color'] );
 		if ( in_array( $atts['button_color'], array_keys( $codes_globals['colors'] ) ) ) {
@@ -76,9 +76,9 @@
 	//button
 		$atts['button'] = ( $atts['button_text'] ) ? ( '<div class="wm-call-to-action-button wm-call-to-action-element"><a href="' . $atts['button_url'] . '" class="' . $atts['button_class'] . '"' . $atts['attributes'] . '>' . $atts['button_icon'] . $atts['button_text'] . '</a></div>' ) : ( '' );
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '"><div class="wm-call-to-action-content wm-call-to-action-element">' . $atts['caption'] . $atts['content'] . '</div>' . $atts['button'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="wm-call-to-action-content wm-call-to-action-element">' . $atts['caption'] . $atts['content'] . '</div>' . $atts['button'] . '</div>';
 
 ?>

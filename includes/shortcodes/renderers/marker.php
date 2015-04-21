@@ -4,7 +4,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1.6
  *
  * @uses   $codes_globals['colors']
  *
@@ -15,17 +16,17 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class' => '',
 			'color' => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//class
 		$atts['class'] = trim( 'wm-marker ' . trim( $atts['class'] ) );
 	//color
@@ -34,9 +35,9 @@
 			$atts['class'] .= ' color-' . $atts['color'];
 		}
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
-	$output = '<mark class="' . $atts['class'] . '">' . $atts['content'] . '</mark>';
+	$output = '<mark class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</mark>';
 
 ?>

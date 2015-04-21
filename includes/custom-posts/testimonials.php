@@ -29,11 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 */
 
 		//Registering CP
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_testimonials_cp_register', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_testimonials_cp_register', 10 );
 		//CP list table columns
 			add_action( 'manage_wm_testimonials_posts_custom_column', 'wma_testimonials_cp_columns_render' );
 		//Registering taxonomies
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_testimonials_cp_taxonomies', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_testimonials_cp_taxonomies', 10 );
 		//Permanlinks settings
 			add_action( 'admin_init', 'wma_testimonials_cp_permalinks' );
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Custom post registration arguments
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_register_' . 'wm_testimonials', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_testimonials', array(
 					'query_var'           => 'testimonials',
 					'capability_type'     => 'page',
 					'public'              => true,
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$suffix = '-wm_testimonials';
 
 			//Register table columns
-				$columns = apply_filters( WMAMP_HOOK_PREFIX . 'cp_columns_' . 'wm_testimonials', array(
+				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_testimonials', array(
 					'cb'                           => '<input type="checkbox" />',
 					$prefix . 'thumb' . $suffix    => __( 'Photo', 'wm_domain' ),
 					'title'                        => __( 'Title', 'wm_domain' ),
@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					'author'                       => __( 'Author', 'wm_domain' )
 				) );
 
-			return apply_filters( WMAMP_HOOK_PREFIX . 'wma_testimonials_cp_columns_register' . '_output', $columns );
+			return apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_columns_register' . '_output', $columns );
 		}
 	} // /wma_testimonials_cp_columns_register
 
@@ -177,7 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					break;
 					case $prefix . 'thumb' . $suffix:
 
-						$size  = apply_filters( WMAMP_HOOK_PREFIX . 'cp_admin_thumb_size', 'admin-thumbnail' );
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Testimonial categories
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'testimonial_category', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'testimonial_category', array(
 					'hierarchical'      => true,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -274,7 +274,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_testimonials' . '-permalinks',
 						array(
 								'name'        => 'testimonial',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'testimonial', 'testimonial' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial', 'testimonial' )
 							)
 					);
 				add_settings_field(
@@ -285,7 +285,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_testimonials' . '-permalinks',
 						array(
 								'name'        => 'testimonial_category',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'testimonial_category', 'testimonial-category' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial_category', 'testimonial-category' )
 							)
 					);
 		}
@@ -301,7 +301,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_testimonials_cp_permalinks_render_section' ) ) {
 		function wma_testimonials_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( WMAMP_HOOK_PREFIX . 'wma_testimonials_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Testimonials custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Testimonials custom post type permalinks here.', 'wm_domain' ) . '</p>' );
 		}
 	} // /wma_testimonials_cp_permalinks_render_section
 
@@ -371,13 +371,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// /"Author" tab
 
 			//Apply filter to manipulate with metafields array
-				$fields = apply_filters( WMAMP_HOOK_PREFIX . 'cp_metafields_' . 'wm_testimonials', $fields );
+				$fields = apply_filters( 'wmhook_wmamp_' . 'cp_metafields_' . 'wm_testimonials', $fields );
 
 			//Sort the array by the keys
 				ksort( $fields );
 
 			//Output
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_testimonials_cp_metafields' . '_output', $fields );
+				return apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_metafields' . '_output', $fields );
 		}
 	} // /wma_testimonials_cp_metafields
 

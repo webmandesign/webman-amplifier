@@ -1,5 +1,63 @@
 # WebMan Amplifier Changelog
 
+## 1.1.6
+
+* Updated: Security tightening
+* Updated: Improved support with Beaver Builder page builder plugin
+* Updated: Improved shortcodes filters and escaping
+* Updated: Removed `wptexturize()` from preformated text shortcode
+* Updated: Removed obsolete constants
+* Updated: Metabox fields improvements
+* Updated: Localization
+* Updated: Update scripts: Isotope v2.2.0, BxSlider v4.2.3
+
+#### Files changed:
+
+	includes/functions.php
+	includes/metabox/fields/checkbox.php
+	includes/metabox/fields/images.php
+	includes/metabox/fields/radio.php
+	includes/metabox/fields/repeater.php
+	includes/metabox/fields/sections.php
+	includes/metabox/fields/select.php
+	includes/metabox/fields/slider.php
+	includes/metabox/fields/texts.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/renderers/accordion.php
+	includes/shortcodes/renderers/audio.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/column.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/divider.php
+	includes/shortcodes/renderers/dropcap.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/image.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/last_update.php
+	includes/shortcodes/renderers/list.php
+	includes/shortcodes/renderers/marker.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/pre.php
+	includes/shortcodes/renderers/price.php
+	includes/shortcodes/renderers/pricing_table.php
+	includes/shortcodes/renderers/progress.php
+	includes/shortcodes/renderers/row.php
+	includes/shortcodes/renderers/separator_heading.php
+	includes/shortcodes/renderers/slideshow.php
+	includes/shortcodes/renderers/table.php
+	includes/shortcodes/renderers/tabs.php
+	includes/shortcodes/renderers/testimonials.php
+	includes/shortcodes/renderers/text_block.php
+	includes/shortcodes/renderers/video.php
+	includes/shortcodes/renderers/widget_area.php
+	includes/visual-editor/visual-editor.php
+
+
 ## 1.1.5
 
 * Updated: Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed)

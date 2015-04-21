@@ -297,7 +297,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 		public function contentAdmin( $atts, $content = null ) {
 			$title = $output = '';
 
-			extract( shortcode_atts( apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
+			extract( shortcode_atts( apply_filters( 'wmhook_shortcode_' . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
 
 			$column_controls = $this->getColumnControls( $this->settings( 'controls' ) );
 			$column_controls_bottom = $this->getColumnControls( 'add', 'bottom-controls' );
@@ -365,7 +365,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 		public function contentAdmin_old( $atts, $content = null ) {
 			$width = $output = $title = '';
 
-			extract( shortcode_atts( apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
+			extract( shortcode_atts( apply_filters( 'wmhook_shortcode_' . '_defaults', $this->predefined_atts, 'item' ), $atts ) );
 
 			$column_controls = $this->getColumnControls( $this->settings( 'controls' ) );
 

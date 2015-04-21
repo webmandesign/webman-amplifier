@@ -45,7 +45,7 @@
 
 			$module = wma_bb_get_custom_module_slug( __FILE__ );
 
-			parent::__construct( apply_filters( WMAMP_HOOK_PREFIX . 'bb_module_construct_' . 'test', array(
+			parent::__construct( apply_filters( 'wmhook_wmamp_' . 'bb_module_construct_' . 'test', array(
 					'name'          => wma_bb_shortcode_def( $module, 'name' ),
 					'description'   => wma_bb_shortcode_def( $module, 'description' ),
 					'category'      => wma_bb_shortcode_def( $module, 'category' ),

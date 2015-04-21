@@ -13,7 +13,7 @@
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         http://www.webmandesign.eu/
  * Description:        Pack of additional WordPress features. Contains shortcodes, additional custom post types, meta box generator, Visual Composer plugin (3rd party) integration, icon font management.
- * Version:            1.1.5
+ * Version:            1.1.6
  * Author:             WebMan - Oliver Juhas
  * Author URI:         http://www.webmandesign.eu/
  * Text Domain:        wm_domain
@@ -21,7 +21,7 @@
  * License URI:        http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:        /languages
  * Requires at least:  4.0
- * Tested up to:       4.1
+ * Tested up to:       4.2
  */
 
 
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 	//Define global constants
 		//Plugin version
-			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.1.5' );
+			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.1.6' );
 		//Paths
 			if ( ! defined( 'WMAMP_PLUGIN_FILE' ) )  define( 'WMAMP_PLUGIN_FILE',  __FILE__                                          );
 			if ( ! defined( 'WMAMP_PLUGIN_DIR' ) )   define( 'WMAMP_PLUGIN_DIR',   plugin_dir_path( __FILE__ )                       );
@@ -48,23 +48,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			if ( ! defined( 'WMAMP_ASSETS_URL' ) )   define( 'WMAMP_ASSETS_URL',   trailingslashit( WMAMP_PLUGIN_URL ) . 'assets/'   );
 		//Variables
 			if ( ! defined( 'WMAMP_COLOR_BRIGHTNESS_TRESHOLD' ) ) define( 'WMAMP_COLOR_BRIGHTNESS_TRESHOLD', 127 );
-		//Special filter/action hooks prefix
-			if ( ! defined( 'WMAMP_HOOK_PREFIX' ) ) define( 'WMAMP_HOOK_PREFIX', 'wmhook_wmamp_' );
 
 	//Define Metabox class constants
 		if ( ! defined( 'WM_METABOX_FIELD_PREFIX' ) )    define( 'WM_METABOX_FIELD_PREFIX',    'wm-'                                   );
 		if ( ! defined( 'WM_METABOX_SERIALIZED_NAME' ) ) define( 'WM_METABOX_SERIALIZED_NAME', '_' . WM_METABOX_FIELD_PREFIX . 'meta'  );
 		if ( ! defined( 'WM_METABOX_LABEL_HTML' ) )      define( 'WM_METABOX_LABEL_HTML',      '<a><br><code><em><img><small><strong>' );
-		if ( ! defined( 'WM_METABOX_HOOK_PREFIX' ) )     define( 'WM_METABOX_HOOK_PREFIX',     'wmhook_metabox_'                       );
-
-	//Define Shortcodes class constants
-		if ( ! defined( 'WM_SHORTCODES_HOOK_PREFIX' ) ) define( 'WM_SHORTCODES_HOOK_PREFIX', 'wmhook_shortcode_' );
-
-	//Define Font Icons class constants
-		if ( ! defined( 'WM_ICONS_HOOK_PREFIX' ) ) define( 'WM_ICONS_HOOK_PREFIX', 'wmhook_icons_' );
-
-	//Define Widgets constants
-		if ( ! defined( 'WM_WIDGETS_HOOK_PREFIX' ) ) define( 'WM_WIDGETS_HOOK_PREFIX', 'wmhook_widgets_' );
 
 
 
@@ -102,7 +90,7 @@ function wma_amplifier() {
  * @since  1.0
  */
 function wma_amplifier_activate() {
-	do_action( WMAMP_HOOK_PREFIX . 'plugin_activation' );
+	do_action( 'wmhook_wmamp_' . 'plugin_activation' );
 } // /wma_amplifier_activate
 
 register_activation_hook( WMAMP_PLUGIN_FILE, 'wma_amplifier_activate' );
@@ -115,7 +103,7 @@ register_activation_hook( WMAMP_PLUGIN_FILE, 'wma_amplifier_activate' );
  * @since  1.0.5
  */
 function wma_amplifier_deactivate() {
-	do_action( WMAMP_HOOK_PREFIX . 'plugin_deactivation' );
+	do_action( 'wmhook_wmamp_' . 'plugin_deactivation' );
 } // /wma_amplifier_deactivate
 
 register_deactivation_hook( WMAMP_PLUGIN_FILE, 'wma_amplifier_deactivate' );

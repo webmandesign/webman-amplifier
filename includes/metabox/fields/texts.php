@@ -9,7 +9,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  */
 
 
@@ -25,7 +25,7 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_text' ) ) {
 		function wma_field_text( $field, $page_template = null ) {
@@ -87,7 +87,7 @@
 					}
 				}
 
-				$value = apply_filters( WM_METABOX_HOOK_PREFIX . 'wma_field_text' . '_sanitize', sanitize_text_field( $value ), $field, $page_template );
+				$value = apply_filters( 'wmhook_metabox_' . 'wma_field_text' . '_sanitize', wp_kses_post( $value ), $field, $page_template );
 
 				if ( $value || $field['empty'] ) {
 					$value = esc_html( $value );
@@ -125,17 +125,15 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_text
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'color',    'wma_field_text', 10, 2 );
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'password', 'wma_field_text', 10, 2 );
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'text',     'wma_field_text', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'color',    'wma_field_text', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'password', 'wma_field_text', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'text',     'wma_field_text', 10, 2 );
 
 
 
@@ -178,9 +176,9 @@
 		}
 	} // /wma_field_text_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'color',    'wma_field_text_validation', 10, 3 );
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'password', 'wma_field_text_validation', 10, 3 );
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'text',     'wma_field_text_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'color',    'wma_field_text_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'password', 'wma_field_text_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'text',     'wma_field_text_validation', 10, 3 );
 
 
 
@@ -191,7 +189,7 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_textarea' ) ) {
 		function wma_field_textarea( $field, $page_template = null ) {
@@ -265,15 +263,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_textarea
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'textarea', 'wma_field_textarea', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'textarea', 'wma_field_textarea', 10, 2 );
 
 
 
@@ -294,6 +290,6 @@
 		}
 	} // /wma_field_textarea_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'textarea', 'wma_field_textarea_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'textarea', 'wma_field_textarea_validation', 10, 3 );
 
 ?>

@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_contact_info' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_atts', $atts );
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_contact_info' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_contact_info' . '_form', $instance );
 
 		} // /form
 
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['title']   = $new_instance['title'];
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_contact_info' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 
@@ -230,7 +230,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					}
 
 				//Filter the $address and prepare it for output
-					$address = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_contact_info' . '_address', $address, $args, $instance );
+					$address = apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_address', $address, $args, $instance );
 					$address = implode( '', $address );
 
 				//Output wrapper
@@ -240,7 +240,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				if ( $output ) {
-					echo apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_contact_info' . '_output', $args['before_widget'] . $output . $args['after_widget'], $args, $instance );
+					echo apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_output', $args['before_widget'] . $output . $args['after_widget'], $args, $instance );
 				}
 
 		} // /widget

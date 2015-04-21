@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  *
  * @uses   $codes_globals['table_appearance']
  *
@@ -18,13 +18,13 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'appearance' => '',
 			'class'      => '',
 			'separator'  => ',',
 			'type'       => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
@@ -51,14 +51,14 @@
 				$row_class = 'odd';
 
 				//Remove HTML tags
-					$row = strip_tags( $row, apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_allowed_html_tags', '<a><code><em><img><small><strong>' ) );
+					$row = strip_tags( $row, apply_filters( 'wmhook_shortcode_' . $shortcode . '_allowed_html_tags', '<a><code><em><img><small><strong>', $atts ) );
 
 				//Set columns count and prepare rows
 					if ( $key ) {
 						if ( 0 === absint( $key ) % 2 ) {
 							$row_class = 'even';
 						}
-						$row = '<tr class="' . $row_class . '"><td>' . str_replace( $atts['separator'], '</td><td>', $row ) . '</td></tr>';
+						$row = '<tr class="' . esc_attr( $row_class ) . '"><td>' . str_replace( $atts['separator'], '</td><td>', $row ) . '</td></tr>';
 					} else {
 						$atts['columns_count'] = substr_count( $row, $atts['separator'] ) + 1;
 						$row = '<thead><tr><th>' . str_replace( $atts['separator'], '</th><th>', $row ) . '</th></tr></thead><tbody>';
@@ -71,14 +71,14 @@
 			$atts['content'] = '';
 		}
 	//content filters
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $atts['content'], $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
 	if ( $atts['content'] ) {
-		$output = '<table class="' . $atts['class'] . '">' . $atts['content'] . '</table>';
+		$output = '<table class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</table>';
 	}
 
 ?>

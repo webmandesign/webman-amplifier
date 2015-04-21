@@ -51,7 +51,7 @@
 		}
 	} // /wma_field_hidden
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'hidden', 'wma_field_hidden', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'hidden', 'wma_field_hidden', 10, 2 );
 
 
 
@@ -72,6 +72,6 @@
 		}
 	} // /wma_field_hidden_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'hidden', 'wma_field_hidden_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'hidden', 'wma_field_hidden_validation', 10, 3 );
 
 ?>

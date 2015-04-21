@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -18,11 +21,12 @@
 	/**
 	 * Dynamically added elements (repeater)
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_repeater' ) ) {
 		function wma_field_repeater( $field, $page_template = null ) {
@@ -93,7 +97,7 @@
 																'value' => $cell_value,
 															);
 													//Display form fields using action hook (echo the function return)
-														do_action( WM_METABOX_HOOK_PREFIX . 'render_' . $cell_field['type'], $cell_field, '' );
+														do_action( 'wmhook_metabox_' . 'render_' . $cell_field['type'], $cell_field, '' );
 												}
 											}
 
@@ -108,14 +112,12 @@
 						echo "\r\n\t\t" . '<a href="#" class="button button-add-cell" data-id="' . $field['id'] . '">' . $field['button-text'] . '</a>';
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_repeater
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'repeater', 'wma_field_repeater', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'repeater', 'wma_field_repeater', 10, 2 );
 
 ?>

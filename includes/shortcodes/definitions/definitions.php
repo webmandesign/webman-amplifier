@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  */
 
 /**
@@ -81,28 +81,33 @@
 
 
 //Helper variables
-	$wm_social_icons_array = self::$codes_globals['social_icons'];
-	array_push( $wm_social_icons_array, '', 'background-light', 'background-dark' );
-	asort( $wm_social_icons_array );
-	$wm_social_icons_array = array_combine( $wm_social_icons_array, $wm_social_icons_array );
-	$wm_taxonomies = get_taxonomies( '', 'names' );
-	unset( $wm_taxonomies['nav_menu'] );
-	unset( $wm_taxonomies['link_category'] );
-	asort( $wm_taxonomies );
-	$wm_modules_slugs = wma_posts_array( 'post_name', 'wm_modules' );
-	$wm_modules_tags  = wma_taxonomy_array( array(
-			'all_post_type' => '',
-			'all_text'      => '',
-			'hierarchical'  => '0',
-			'tax_name'      => 'module_tag'
-		) );
-	$wm_testimonials_slugs      = wma_posts_array( 'post_name', 'wm_testimonials' );
-	$wm_testimonials_categories = wma_taxonomy_array( array(
-			'all_post_type' => '',
-			'all_text'      => '',
-			'hierarchical'  => '0',
-			'tax_name'      => 'testimonial_category'
-		) );
+	//Social icons array
+		$wm_social_icons_array = self::$codes_globals['social_icons'];
+		array_push( $wm_social_icons_array, '', 'background-light', 'background-dark' );
+		asort( $wm_social_icons_array );
+		$wm_social_icons_array = array_combine( $wm_social_icons_array, $wm_social_icons_array );
+
+	//Taxonomies
+		$wm_taxonomies = get_taxonomies( '', 'names' );
+		unset( $wm_taxonomies['nav_menu'] );
+		unset( $wm_taxonomies['link_category'] );
+		asort( $wm_taxonomies );
+
+	//Slugs
+		$wm_modules_slugs = wma_posts_array( 'post_name', 'wm_modules' );
+		$wm_modules_tags  = wma_taxonomy_array( array(
+				'all_post_type' => '',
+				'all_text'      => '',
+				'hierarchical'  => '0',
+				'tax_name'      => 'module_tag'
+			) );
+		$wm_testimonials_slugs      = wma_posts_array( 'post_name', 'wm_testimonials' );
+		$wm_testimonials_categories = wma_taxonomy_array( array(
+				'all_post_type' => '',
+				'all_text'      => '',
+				'hierarchical'  => '0',
+				'tax_name'      => 'testimonial_category'
+			) );
 
 
 
@@ -420,7 +425,7 @@ $shortcode_definitions = array(
 		 * Tabs wrapper
 		 *
 		 * @since    1.0
-		 * @version  1.1
+		 * @version  1.1.6
 		 */
 		'tabs' => array(
 				'since'      => '1.0',
@@ -483,7 +488,7 @@ $shortcode_definitions = array(
 													//default
 													'default' => array( 'title' => __( 'Section', 'wm_domain' ) ), //This will be converted automatically
 													//type specific
-													'form'         => 'wm_children_form_' . 'accordion',
+													'form'         => 'wm_children_form_' . 'tabs',
 													'preview_text' => 'title', //DO NOT FORGET TO SET!
 													//multiple
 													'multiple' => true,
@@ -618,33 +623,6 @@ $shortcode_definitions = array(
 														//preview
 														'preview' => array( 'type' => 'none' ),
 													), // /icon
-
-												), // /fields
-											), // /section
-
-											//Section
-											'other' => array(
-												'title'  => __( 'Other parameters', 'wm_domain' ),
-												'fields' => array(
-
-													'tags' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'Tags', 'wm_domain' ),
-														'help'  => __( 'Enter comma separated tags. These will be used to filter through items.', 'wm_domain' ),
-														//preview
-														'preview' => array( 'type' => 'none' ),
-													), // /tags
-
-													'heading_tag' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'HTML heading tag', 'wm_domain' ),
-														//type specific
-														'placeholder' => 'h3',
-														//preview
-														'preview' => array( 'type' => 'none' ),
-													), // /heading_tag
 
 												), // /fields
 											), // /section
@@ -1462,7 +1440,7 @@ $shortcode_definitions = array(
 		 * Content Module
 		 *
 		 * @since    1.0
-		 * @version  1.1
+		 * @version  1.1.6
 		 */
 		'content_module' => array(
 				'since'      => '1.0',
@@ -1561,6 +1539,7 @@ $shortcode_definitions = array(
 													'type' => 'select',
 													//description
 													'label' => __( 'Filtering', 'wm_domain' ),
+													'help'  => __( 'Display the modules filter from module tags?', 'wm_domain' ),
 													//type specific
 													'options' => array(
 														''  => __( 'No', 'wm_domain' ),
@@ -1582,7 +1561,7 @@ $shortcode_definitions = array(
 												'tag' => array(
 													'type' => 'select',
 													//description
-													'label' => __( 'Tag', 'wm_domain' ),
+													'label' => __( 'Tagged as', 'wm_domain' ),
 													'help'  => __( 'Display specifically tagged items only', 'wm_domain' ),
 													//type specific
 													'options' => $wm_modules_tags,
@@ -1696,8 +1675,8 @@ $shortcode_definitions = array(
 												'layout' => array(
 													'type' => 'text',
 													//description
-													'label' => __( 'Custom layout', 'wm_domain' ),
-													'help'  => sprintf( __( 'Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces).', 'wm_domain' ), '<code>content,image,morelink,tag,title</code>' ),
+													'label'       => __( 'Custom layout', 'wm_domain' ),
+													'description' => '<br />' . sprintf( __( 'Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces).', 'wm_domain' ), '<code>content,image,morelink,tag,title</code>' ),
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
 												), // /layout
@@ -2648,7 +2627,7 @@ $shortcode_definitions = array(
 		 * Posts
 		 *
 		 * @since    1.0
-		 * @version  1.1
+		 * @version  1.1.6
 		 */
 		'posts' => array(
 				'since'      => '1.0',
@@ -2734,66 +2713,6 @@ $shortcode_definitions = array(
 													'preview' => array( 'type' => 'refresh' ),
 												), // /order
 
-												'taxonomy' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Taxonomy', 'wm_domain' ),
-													'help'  => __( 'Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon.', 'wm_domain' ) . '<br />' . __( 'For example: "category:category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /taxonomy
-
-												'related' => array(
-													'type' => 'select',
-													//description
-													'label' => __( 'Relation', 'wm_domain' ),
-													'help'  => __( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'wm_domain' ) . ' ' . __( 'For example: "category".', 'wm_domain' ),
-													//type specific
-													'options' => wma_asort( array_merge( array( '' => '' ), $wm_taxonomies ) ),
-													//preview
-													'preview' => array( 'type' => 'none' ),
-												), // /related
-
-												'filter' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Filtering', 'wm_domain' ),
-													'help'  => __( 'If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'wm_domain' ) . '<br />' . __( 'For example: "category" or "category:parent-category-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( '</code>, <code>', $wm_taxonomies ) . '</code>',
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /filter
-
-												'filter_layout' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Filter layout', 'wm_domain' ),
-													'help'  => sprintf( __( 'Use one of <a%s>Isotope</a> layouts.', 'wm_domain' ), ' href="http://isotope.metafizzy.co/layout-modes.html" target="_blank"' ) . ' ' . __( 'Default is set to <code>fitRows</code>.', 'wm_domain' ),
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /filter_layout
-
-												'scroll' => array(
-													'type' => 'text',
-													//description
-													'label' => __( 'Scrolling', 'wm_domain' ),
-													'help'  => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /scroll
-
-												'pagination' => array(
-													'type' => 'select',
-													//description
-													'label' => __( 'Display pagination?', 'wm_domain' ),
-													//type specific
-													'options' => array(
-														''  => __( 'No', 'wm_domain' ),
-														'1' => __( 'Yes', 'wm_domain' ),
-													),
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /pagination
-
 											), // /fields
 										), // /section
 
@@ -2873,6 +2792,66 @@ $shortcode_definitions = array(
 													//preview
 													'preview' => array( 'type' => 'refresh' ),
 												), // /no_margin
+
+												'taxonomy' => array(
+													'type' => 'text',
+													//description
+													'label'       => __( 'From taxonomy', 'wm_domain' ),
+													'description' => '<br />' . __( 'Example: "taxonomy_name" or more specific "taxonomy_name:taxonomy-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( ', ', $wm_taxonomies ) . '</code>',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /taxonomy
+
+												'filter' => array(
+													'type' => 'text',
+													//description
+													'label'       => __( 'Filter by', 'wm_domain' ),
+													'description' => '<br />' . __( 'Example: "taxonomy_name" or more specific "taxonomy_name:taxonomy-slug".', 'wm_domain' ) . '<br />' . __( 'Available taxonomy names:', 'wm_domain' ) . ' <code>' . implode( ', ', $wm_taxonomies ) . '</code>',
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /filter
+
+												'filter_layout' => array(
+													'type' => 'text',
+													//description
+													'label'       => __( 'Filter layout', 'wm_domain' ),
+													'description' => sprintf( __( 'Use one of <a%s>Isotope</a> layouts.', 'wm_domain' ), ' href="http://isotope.metafizzy.co/layout-modes.html" target="_blank"' ) . ' ' . __( 'Default is set to <code>fitRows</code>.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /filter_layout
+
+												'scroll' => array(
+													'type' => 'text',
+													//description
+													'label' => __( 'Scrolling', 'wm_domain' ),
+													'help'  => __( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'wm_domain' ),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /scroll
+
+												'related' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Related by', 'wm_domain' ),
+													'help'  => __( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'wm_domain' ),
+													//type specific
+													'options' => wma_asort( array_merge( array( '' => '' ), $wm_taxonomies ) ),
+													//preview
+													'preview' => array( 'type' => 'none' ),
+												), // /related
+
+												'pagination' => array(
+													'type' => 'select',
+													//description
+													'label' => __( 'Display pagination?', 'wm_domain' ),
+													//type specific
+													'options' => array(
+														''  => __( 'No', 'wm_domain' ),
+														'1' => __( 'Yes', 'wm_domain' ),
+													),
+													//preview
+													'preview' => array( 'type' => 'refresh' ),
+												), // /pagination
 
 												'image_size' => array(
 													'type' => 'select',
@@ -3831,7 +3810,7 @@ $shortcode_definitions = array(
 													//description
 													'label' => __( 'Speed in miliseconds', 'wm_domain' ),
 													//default
-													'default' => apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'slideshow_speed', 3000 ),
+													'default' => apply_filters( 'wmhook_shortcode_' . 'slideshow_speed', 3000 ),
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /speed
@@ -3884,7 +3863,7 @@ $shortcode_definitions = array(
 									'description' => '',
 									'type'        => 'textfield',
 									'param_name'  => 'speed',
-									'value'       => apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'slideshow_speed', 3000 ),
+									'value'       => apply_filters( 'wmhook_shortcode_' . 'slideshow_speed', 3000 ),
 									'holder'      => 'hidden',
 									'class'       => '',
 								),
@@ -4030,7 +4009,7 @@ $shortcode_definitions = array(
 		 * Testimonials
 		 *
 		 * @since    1.0
-		 * @version  1.1
+		 * @version  1.1.6
 		 */
 		'testimonials' => array(
 				'since'              => '1.0',
@@ -4137,7 +4116,7 @@ $shortcode_definitions = array(
 												'category' => array(
 													'type' => 'select',
 													//description
-													'label' => __( 'Category', 'wm_domain' ),
+													'label' => __( 'From category', 'wm_domain' ),
 													'help'  => __( 'Displays items only from a specific category', 'wm_domain' ),
 													//type specific
 													'options' => $wm_testimonials_categories,

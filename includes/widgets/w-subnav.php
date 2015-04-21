@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_atts', $atts );
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'List order:', 'wm_domain' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
-						$options = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_form' . '_order', array(
+						$options = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_form' . '_order', array(
 								'post_title' => _x( 'By name', 'List order method.', 'wm_domain' ),
 								'post_date'  => _x( 'By date', 'List order method.', 'wm_domain' ),
 								'menu_order' => _x( 'Menu order', 'List order method.', 'wm_domain' ),
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_subnav' . '_form', $instance );
 
 		} // /form
 
@@ -149,7 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['title']  = $new_instance['title'];
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 
@@ -219,7 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$output .= $args['after_widget'];
 
 			//Output
-				echo apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_subnav' . '_output', $output, $args, $instance );
+				echo apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_output', $output, $args, $instance );
 
 		} // /widget
 

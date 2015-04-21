@@ -76,9 +76,9 @@
 
 					if ( $field['id'] ) {
 						//Conditional display
-							do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-							do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-							do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+							do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
+							do_action( 'wmhook_metabox_' . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
+							do_action( 'wmhook_metabox_' . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
 
 						echo "\r\n\t" . '</td></tr>';
 					}
@@ -86,6 +86,6 @@
 		}
 	} // /wma_field_html
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'html', 'wma_field_html', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'html', 'wma_field_html', 10, 2 );
 
 ?>

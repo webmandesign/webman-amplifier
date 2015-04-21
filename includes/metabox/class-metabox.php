@@ -139,7 +139,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
 					$this->meta_box        = (array) $meta_box;
 					$this->fields          = (string) $meta_box['fields'];
-					$this->field_files     = apply_filters( WM_METABOX_HOOK_PREFIX . 'field_files', $field_files );
+					$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', $field_files );
 
 				//Adding missing metabox options
 					$this->meta_box = wp_parse_args( $this->meta_box, array(
@@ -151,7 +151,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							'priority'           => 'high',
 							'tabs'               => true,
 							'title'              => '',
-							'visual-wrapper'     => apply_filters( WM_METABOX_HOOK_PREFIX . 'visual_wrapper_toggle', false ),
+							'visual-wrapper'     => apply_filters( 'wmhook_metabox_' . 'visual_wrapper_toggle', false ),
 							'visual-wrapper-add' => '',
 						) );
 
@@ -207,8 +207,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 */
 			public function assets() {
 				//Helper variables
-					$icon_font_url   = apply_filters( WM_METABOX_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
-					$icon_font_posts = apply_filters( WM_METABOX_HOOK_PREFIX . 'iconfont_admin_screen_addon', array( 'edit-wm_modules' ) );
+					$icon_font_url   = apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_posts = apply_filters( 'wmhook_metabox_' . 'iconfont_admin_screen_addon', array( 'edit-wm_modules' ) );
 
 				//Register
 					//Styles
@@ -342,8 +342,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					wp_nonce_field( $this->prefix . $post->post_type . '-metabox-nonce', $post->post_type . '-metabox-nonce' );
 
 				//Action hooks
-					do_action( WM_METABOX_HOOK_PREFIX . 'before' );
-					do_action( WM_METABOX_HOOK_PREFIX . 'before_' . $this->meta_box['id'] );
+					do_action( 'wmhook_metabox_' . 'before' );
+					do_action( 'wmhook_metabox_' . 'before_' . $this->meta_box['id'] );
 
 				//Display meta box form HTML
 					$output = "\r\n\r\n" . '<div class="wm-meta-wrap' . $tabbed . '">' . "\r\n";
@@ -369,7 +369,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						foreach ( $meta_fields as $field ) {
 							if ( isset( $field['type'] ) ) {
 								//Display form fields using action hook (echo the function return)
-								do_action( WM_METABOX_HOOK_PREFIX . 'render_' . $field['type'], $field, $page_template );
+								do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
 							}
 						}
 
@@ -379,8 +379,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					echo $output;
 
 				//Action hooks
-					do_action( WM_METABOX_HOOK_PREFIX . 'after' );
-					do_action( WM_METABOX_HOOK_PREFIX . 'after_' . $this->meta_box['id'] );
+					do_action( 'wmhook_metabox_' . 'after' );
+					do_action( 'wmhook_metabox_' . 'after_' . $this->meta_box['id'] );
 			} // /show
 
 
@@ -423,8 +423,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					wp_nonce_field( $this->prefix . $post->post_type . '-metabox-nonce', $post->post_type . '-metabox-nonce' );
 
 				//Action hooks
-					do_action( WM_METABOX_HOOK_PREFIX . 'before' );
-					do_action( WM_METABOX_HOOK_PREFIX . 'before_' . $this->meta_box['id'] );
+					do_action( 'wmhook_metabox_' . 'before' );
+					do_action( 'wmhook_metabox_' . 'before_' . $this->meta_box['id'] );
 
 				//Display meta box form HTML
 					$output = "\r\n\r\n" . '<div class="wm-meta-wrap meta-special jquery-ui-tabs">' . "\r\n";
@@ -449,7 +449,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							array(
 								'type'     => 'section-open',
 								'id'       => 'visual-editor',
-								'exclude'  => apply_filters( WM_METABOX_HOOK_PREFIX . 'visual_editor_exclude', array() ),
+								'exclude'  => apply_filters( 'wmhook_metabox_' . 'visual_editor_exclude', array() ),
 								'no-table' => true
 							)
 						);
@@ -458,7 +458,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						foreach ( $editor_tab_content as $field ) {
 							if ( isset( $field['type'] ) ) {
 								//Display form fields using action hook (echo the function return)
-									do_action( WM_METABOX_HOOK_PREFIX . 'render_' . $field['type'], $field, $page_template );
+									do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
 							}
 						}
 
@@ -543,7 +543,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						foreach ( $meta_fields as $field ) {
 							if ( isset( $field['type'] ) ) {
 								//Display form fields using action hook (echo the function return)
-									do_action( WM_METABOX_HOOK_PREFIX . 'render_' . $field['type'], $field, $page_template );
+									do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
 							}
 						}
 
@@ -553,8 +553,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					echo $output;
 
 				//Action hooks
-					do_action( WM_METABOX_HOOK_PREFIX . 'after' );
-					do_action( WM_METABOX_HOOK_PREFIX . 'after_' . $this->meta_box['id'] );
+					do_action( 'wmhook_metabox_' . 'after' );
+					do_action( 'wmhook_metabox_' . 'after_' . $this->meta_box['id'] );
 			} // /metabox_end
 
 
@@ -636,7 +636,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 								//Get new meta field value and run it through saving (validation) process filter
 									$new = ( isset( $_POST[$field['id']] ) ) ? ( $_POST[$field['id']] ) : ( null );
 									if ( isset( $field['type'] ) ) {
-										$new = apply_filters( WM_METABOX_HOOK_PREFIX . 'saving_' . $field['type'], $new, $field, $post_id );
+										$new = apply_filters( 'wmhook_metabox_' . 'saving_' . $field['type'], $new, $field, $post_id );
 									}
 
 								//Append/overwrite the meta value in $meta_options helper variable
@@ -754,7 +754,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					}
 
 				//Output
-					return apply_filters( WM_METABOX_HOOK_PREFIX . 'page_template_conditional_class' . '_output', $output );
+					return apply_filters( 'wmhook_metabox_' . 'page_template_conditional_class' . '_output', $output );
 			} // /page_template_conditional_class
 
 	} // /WM_Metabox

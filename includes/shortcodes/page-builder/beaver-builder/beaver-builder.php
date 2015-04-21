@@ -43,13 +43,15 @@
 
 		add_action( 'fl_builder_control_' . 'wm_radio', 'wma_bb_custom_field_wm_radio', 10, 3 );
 
-		add_action( WM_SHORTCODES_HOOK_PREFIX . 'bb_module_output', 'wma_bb_custom_module_output', 10, 2 );
+		add_action( 'wmhook_shortcode_' . 'bb_module_output', 'wma_bb_custom_module_output', 10, 2 );
 
 
 
 	/**
 	 * Filters
 	 */
+
+		add_filter( 'fl_builder_upgrade_url', 'wma_bb_upgrade_url' );
 
 		add_filter( 'fl_builder_module_custom_class', 'wma_bb_custom_modules_wrapper_class', 10, 2 );
 
@@ -62,10 +64,27 @@
  */
 
 	/**
+	 * Upgrade link URL
+	 *
+	 * @since    1.1.6
+	 * @version  1.1.6
+	 *
+	 * @param  string $url
+	 */
+	if ( ! function_exists( 'wma_bb_upgrade_url' ) ) {
+		function wma_bb_upgrade_url( $url ) {
+			//Output
+				return $url . '&fla=67';
+		}
+	} // /wma_bb_upgrade_url
+
+
+
+	/**
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.1.5
+	 * @version  1.1.6
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
@@ -92,7 +111,6 @@
 				} elseif ( isset( $def[ $shortcode ] ) ) {
 
 					$output = wp_parse_args( $def[ $shortcode ], array(
-							'params'          => array(),
 							'name'            => '-',
 							'description'     => '',
 							'category'        => $custom_modules_category,
@@ -133,12 +151,12 @@
 	 * Styles and scripts
 	 *
 	 * @since    1.1
-	 * @version  1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_bb_assets' ) ) {
 		function wma_bb_assets() {
 			//Styles
-				if ( isset( $_GET['fl_builder'] ) ) {
+				if ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_active() ) {
 					wp_enqueue_style( 'wm-radio' );
 					wp_enqueue_style( 'wm-shortcodes-bb-addon' );
 				}

@@ -4,7 +4,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1.6
  *
  * @uses   $codes_globals['colors']
  *
@@ -16,12 +17,12 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class'    => '',
 			'color'    => '',
 			'progress' => 66,
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
@@ -36,19 +37,19 @@
 			$atts['class_bar'] .= ' color-' . $atts['color'];
 		}
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
-		$atts['content'] = '<div class="' . $atts['class_caption'] . '">' . $atts['content'] . '</div>';
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+		$atts['content'] = '<div class="' . esc_attr( $atts['class_caption'] ) . '">' . $atts['content'] . '</div>';
 	//progress
 		$atts['progress'] = absint( $atts['progress'] );
 		if ( 100 < $atts['progress'] ) {
 			$atts['progress'] = 66;
 		}
 	//class
-		$atts['class']     = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
-		$atts['class_bar'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_bar_classes', esc_attr( $atts['class_bar'] ) );
+		$atts['class']     = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
+		$atts['class_bar'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_bar_classes', $atts['class_bar'], $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '" title="' . $atts['progress'] . '%" data-progress="' . $atts['progress'] . '">' . $atts['content'] . '<div class="' . $atts['class_bar'] . '" style="width:' . $atts['progress'] . '%;"></div></div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '" title="' . esc_attr( $atts['progress'] ) . '%" data-progress="' . esc_attr( $atts['progress'] ) . '">' . $atts['content'] . '<div class="' . esc_attr( $atts['class_bar'] ) . '" style="width:' . esc_attr( $atts['progress'] ) . '%;"></div></div>';
 
 ?>

@@ -29,11 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 */
 
 		//Registering CP
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_projects_cp_register', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_projects_cp_register', 10 );
 		//CP list table columns
 			add_action( 'manage_wm_projects_posts_custom_column', 'wma_projects_cp_columns_render' );
 		//Registering taxonomies
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_projects_cp_taxonomies', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_projects_cp_taxonomies', 10 );
 		//Permanlinks settings
 			add_action( 'admin_init', 'wma_projects_cp_permalinks' );
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Custom post registration arguments
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_register_' . 'wm_projects', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_projects', array(
 					'query_var'           => 'projects',
 					'capability_type'     => 'post',
 					'public'              => true,
@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$suffix = '-wm_projects';
 
 			//Register table columns
-				$columns = apply_filters( WMAMP_HOOK_PREFIX . 'cp_columns_' . 'wm_projects', array(
+				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_projects', array(
 					'cb'                           => '<input type="checkbox" />',
 					$prefix . 'thumb' . $suffix    => __( 'Image', 'wm_domain' ),
 					'title'                        => __( 'Project', 'wm_domain' ),
@@ -141,7 +141,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					'author'                       => __( 'Author', 'wm_domain' )
 				) );
 
-			return apply_filters( WMAMP_HOOK_PREFIX . 'wma_projects_cp_columns_register' . '_output', $columns );
+			return apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_columns_register' . '_output', $columns );
 		}
 	} // /wma_projects_cp_columns_register
 
@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					break;
 					case $prefix . 'thumb' . $suffix:
 
-						$size  = apply_filters( WMAMP_HOOK_PREFIX . 'cp_admin_thumb_size', 'admin-thumbnail' );
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
@@ -233,7 +233,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Projects categories
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'project_category', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_category', array(
 					'hierarchical'      => true,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -257,7 +257,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				register_taxonomy( 'project_category', 'wm_projects', $args );
 
 			//Projects tags
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'project_tag', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_tag', array(
 					'hierarchical'      => false,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -313,7 +313,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_projects' . '-permalinks',
 						array(
 								'name'        => 'project',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'project', 'project' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'project', 'project' )
 							)
 					);
 				add_settings_field(
@@ -324,7 +324,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_projects' . '-permalinks',
 						array(
 								'name'        => 'project_category',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'project_category', 'project-category' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'project_category', 'project-category' )
 							)
 					);
 				add_settings_field(
@@ -335,7 +335,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_projects' . '-permalinks',
 						array(
 								'name'        => 'project_tag',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'project_tag', 'project-tag' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'project_tag', 'project-tag' )
 							)
 					);
 		}
@@ -351,7 +351,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_projects_cp_permalinks_render_section' ) ) {
 		function wma_projects_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( WMAMP_HOOK_PREFIX . 'wma_projects_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Projects custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Projects custom post type permalinks here.', 'wm_domain' ) . '</p>' );
 		}
 	} // /wma_projects_cp_permalinks_render_section
 
@@ -413,13 +413,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// /"Attributes" tab
 
 			//Apply filter to manipulate with metafields array
-				$fields = apply_filters( WMAMP_HOOK_PREFIX . 'cp_metafields_' . 'wm_projects', $fields );
+				$fields = apply_filters( 'wmhook_wmamp_' . 'cp_metafields_' . 'wm_projects', $fields );
 
 			//Sort the array by the keys
 				ksort( $fields );
 
 			//Output
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_projects_cp_metafields' . '_output', $fields );
+				return apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_metafields' . '_output', $fields );
 		}
 	} // /wma_projects_cp_metafields
 

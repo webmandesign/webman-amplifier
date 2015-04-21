@@ -192,7 +192,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					add_filter( 'plugin_action_links_' . plugin_basename( WMAMP_PLUGIN_FILE ), array( $this, 'setup_action_links' ) );
 
 				//Loaded action
-					do_action( WMAMP_HOOK_PREFIX . 'loaded' );
+					do_action( 'wmhook_wmamp_' . 'loaded' );
 			} // /setup_actions
 
 
@@ -207,7 +207,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function setup_features() {
 				//Cropped squared image used in admin post tables
-					$admin_thumb_size = apply_filters( WMAMP_HOOK_PREFIX . 'admin_thumb_size', array( 100, 100 ) );
+					$admin_thumb_size = apply_filters( 'wmhook_wmamp_' . 'admin_thumb_size', array( 100, 100 ) );
 					add_image_size( 'admin-thumbnail', $admin_thumb_size[0], $admin_thumb_size[1], true );
 
 				//Load assets (JS and CSS)
@@ -228,7 +228,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				//Preparing output
 					//Icon font setup link
 						if (
-								apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true )
+								apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
 								&& ! wma_supports_subfeature( 'disable-fonticons' )
 							) {
 							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . _x( 'Icon Font', 'Plugin action link.', 'wm_domain' ) . '</a>';
@@ -261,7 +261,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				//Helper variables
 					global $current_screen, $wp_version;
 
-					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
+					$display_isotope = apply_filters( 'wmhook_wmamp_' . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
 					$pointers_seen   = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 
 				//Register
@@ -298,7 +298,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				//Helper variables
 					$output = '';
 
-					$display_isotope = apply_filters( WMAMP_HOOK_PREFIX . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
+					$display_isotope = apply_filters( 'wmhook_wmamp_' . 'notice_isotope_licence', true ) && ! wma_supports_subfeature( 'disable-isotope-notice' );
 					$pointers_seen   = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 
 				//Preparing output
@@ -409,7 +409,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					}
 
 				//Plugin register custom posts action
-					do_action( WMAMP_HOOK_PREFIX . 'register_post_types' );
+					do_action( 'wmhook_wmamp_' . 'register_post_types' );
 			} // /register_post_types
 
 
@@ -433,7 +433,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function custom_taxonomies() {
 				//Helper variables
-					$taxonomies = (array) apply_filters( WMAMP_HOOK_PREFIX . 'custom_taxonomies', array() );
+					$taxonomies = (array) apply_filters( 'wmhook_wmamp_' . 'custom_taxonomies', array() );
 
 				//Requirements check
 					if ( empty( $taxonomies ) ) {
@@ -474,7 +474,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					//Content Modules
 						if (
 								wma_supports_subfeature( 'cp-modules' )
-								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_modules', false )
+								&& apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_' . 'wm_modules', false )
 							) {
 							$query['post_type'][] = 'wm_modules';
 						}
@@ -482,7 +482,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					//Logos
 						if (
 								wma_supports_subfeature( 'cp-logos' )
-								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_logos', false )
+								&& apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_' . 'wm_logos', false )
 							) {
 							$query['post_type'][] = 'wm_logos';
 						}
@@ -490,7 +490,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					//Projects
 						if (
 								wma_supports_subfeature( 'cp-projects' )
-								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_projects', true )
+								&& apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_' . 'wm_projects', true )
 							) {
 							$query['post_type'][] = 'wm_projects';
 						}
@@ -498,7 +498,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					//Staff
 						if (
 								wma_supports_subfeature( 'cp-staff' )
-								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_staff', false )
+								&& apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_' . 'wm_staff', false )
 							) {
 							$query['post_type'][] = 'wm_staff';
 						}
@@ -506,7 +506,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					//Testimonials
 						if (
 								wma_supports_subfeature( 'cp-testimonials' )
-								&& apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_' . 'wm_testimonials', false )
+								&& apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_' . 'wm_testimonials', false )
 							) {
 							$query['post_type'][] = 'wm_testimonials';
 						}
@@ -514,7 +514,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				}
 
 				//Output
-					return apply_filters( WMAMP_HOOK_PREFIX . 'post_types_in_feed_query', $query );
+					return apply_filters( 'wmhook_wmamp_' . 'post_types_in_feed_query', $query );
 			} // /post_types_in_feed
 
 
@@ -549,7 +549,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function register_shortcodes() {
 				if (
-						apply_filters( WMAMP_HOOK_PREFIX . 'enable_shortcodes', true )
+						apply_filters( 'wmhook_wmamp_' . 'enable_shortcodes', true )
 						&& ! wma_supports_subfeature( 'disable-shortcodes' )
 					) {
 					require( WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php' );
@@ -571,7 +571,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function register_visual_editor_addons() {
 				if (
-						apply_filters( WMAMP_HOOK_PREFIX . 'enable_visual_editor_addons', true )
+						apply_filters( 'wmhook_wmamp_' . 'enable_visual_editor_addons', true )
 						&& ! wma_supports_subfeature( 'disable-visual-editor-addons' )
 					) {
 					require( WMAMP_INCLUDES_DIR . 'visual-editor/visual-editor.php' );
@@ -592,7 +592,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 */
 			public function register_icons() {
 				if (
-						apply_filters( WMAMP_HOOK_PREFIX . 'enable_iconfont', true )
+						apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
 						&& ! wma_supports_subfeature( 'disable-fonticons' )
 					) {
 					require( WMAMP_INCLUDES_DIR . 'class-icon-font.php' );
@@ -671,7 +671,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					$class  = 'updated';
 					$repeat = 0;
 
-					$capability = apply_filters( WMAMP_HOOK_PREFIX . 'notice_capability', 'switch_themes' );
+					$capability = apply_filters( 'wmhook_wmamp_' . 'notice_capability', 'switch_themes' );
 					$message    = get_transient( 'wmamp-admin-notice' );
 
 				//Requirements check
@@ -706,7 +706,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 
 				//Output
 					if ( $output ) {
-						echo apply_filters( WMAMP_HOOK_PREFIX . 'admin_notices_output', $output, $message );
+						echo apply_filters( 'wmhook_wmamp_' . 'admin_notices_output', $output, $message );
 					}
 			} // /admin_notices
 

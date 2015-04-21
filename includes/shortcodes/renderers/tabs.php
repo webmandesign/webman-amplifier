@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.1.6
  *
  * @param  integer active
  * @param  string class
@@ -16,13 +16,13 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'active' => 0,
 			'class'  => '',
 			'layout' => 'top',
 			'tour'   => false,
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Helper variables
@@ -38,8 +38,8 @@
 			$atts['layout'] = 'top';
 		}
 	//content
-		$content = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$content = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $content );
+		$content = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$content = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $content, $atts );
 		//Prepare tabs output
 			$tabs        = array();
 			$tabs_output = '';
@@ -56,10 +56,10 @@
 				//Tabs output
 					foreach ( $tabs as $tab ) {
 						$tab          = explode( '&&', $tab );
-						$tabs_output .= '<li class="wm-tab-items-' . $tab[0] . '"><a href="#' . $tab[0] . '" data-tab="#' . $tab[0] . '">' . html_entity_decode( $tab[1] ) . '</a></li>';
+						$tabs_output .= '<li class="wm-tab-items-' . esc_attr( $tab[0] ) . '"><a href="#' . esc_attr( $tab[0] ) . '" data-tab="#' . esc_attr( $tab[0] ) . '">' . html_entity_decode( $tab[1] ) . '</a></li>';
 						$i++;
 					}
-					$tabs_output = '<ul class="wm-tab-links wm-tab-count-' . $i . '">' . $tabs_output . '</ul>';
+					$tabs_output = '<ul class="wm-tab-links wm-tab-count-' . esc_attr( $i ) . '">' . $tabs_output . '</ul>';
 			}
 
 		//Implement tabs output
@@ -70,7 +70,7 @@
 		if ( $atts['tour'] ) {
 			$atts['class'] .= ' tour-tabs';
 		}
-		$atts['class']  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', $atts['class'] );
+		$atts['class']  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Enqueue scripts
 	$enqueue_scripts = array(
@@ -80,6 +80,6 @@
 	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '">' . $atts['content'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '" data-active="' . esc_attr( $atts['active'] ) . '">' . $atts['content'] . '</div>';
 
 ?>

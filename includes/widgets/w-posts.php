@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_atts', $atts );
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type:', 'wm_domain' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'post_type' ); ?>" id="<?php echo $this->get_field_id( 'post_type' ); ?>">
 						<?php
-						$options = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form' . '_post_type', array( 'post' => __( 'Posts', 'wm_domain' ) ) );
+						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_post_type', array( 'post' => __( 'Posts', 'wm_domain' ) ) );
 
 						foreach ( $options as $value => $name ) {
 							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['post_type'] ), $value, false ) . '>' . $name . '</option>';
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Ordering:', 'wm_domain' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
-						$options = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form' . '_order', array(
+						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_order', array(
 								'new'    => _x( 'Newest first', 'List order method.', 'wm_domain' ),
 								'old'    => _x( 'Oldest first', 'List order method.', 'wm_domain' ),
 								'name'   => _x( 'Alphabetically', 'List order method.', 'wm_domain' ),
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						<?php
 						if ( function_exists( 'wma_taxonomy_array' ) ) {
 
-							$taxonomy_args = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form' . '_taxonomy', array(
+							$taxonomy_args = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_taxonomy', array(
 									'post' => array(
 											'optgroup'     => __( 'Posts tags', 'wm_domain' ),
 											'all'          => false,
@@ -186,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_posts_widget' . '_form', $instance );
 
 		} // /form
 
@@ -209,7 +209,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['title']     = $new_instance['title'];
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 
@@ -223,7 +223,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Helper variables
 				$output = '';
 
-				$instance = wp_parse_args( $instance, apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_defaults', array(
+				$instance = wp_parse_args( $instance, apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_defaults', array(
 						'class'     => '',
 						'count'     => 4,
 						'layout'    => array( 'post' => 'widget' ),
@@ -240,12 +240,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 				}
 
-				$output .= do_shortcode( apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_shortcode', '[wm_posts class="' . $instance['class'] . '" columns="1" count="' . $instance['count'] . '" image_size="admin-thumbnail" layout="' . $instance['layout'][ $instance['post_type'] ] . '" order="' . $instance['order'] . '" post_type="' . $instance['post_type'] . '" taxonomy="' . $instance['taxonomy'] . '" /]', $args, $instance ) );
+				$output .= do_shortcode( apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_shortcode', '[wm_posts class="' . $instance['class'] . '" columns="1" count="' . $instance['count'] . '" image_size="admin-thumbnail" layout="' . $instance['layout'][ $instance['post_type'] ] . '" order="' . $instance['order'] . '" post_type="' . $instance['post_type'] . '" taxonomy="' . $instance['taxonomy'] . '" /]', $args, $instance ) );
 
 				$output .= $args['after_widget'];
 
 			//Output
-				echo apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_posts_widget' . '_output', $output, $args, $instance );
+				echo apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_output', $output, $args, $instance );
 
 		} // /widget
 

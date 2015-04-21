@@ -130,6 +130,6 @@
 		}
 	} // /wma_conditional_show
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'conditional', 'wma_conditional_show', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'conditional', 'wma_conditional_show', 10, 2 );
 
 ?>

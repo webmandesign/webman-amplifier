@@ -7,7 +7,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9
+ * @version  1.1.6
  *
  * @param  string class
  * @param  absint height
@@ -22,7 +22,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class'  => '',
 			'height' => '',
 			'link'   => '',
@@ -31,7 +31,7 @@
 			'title'  => '',
 			'width'  => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	//get the custom attributes in $atts['attributes']
 	//parameters: $defaults, $atts, $remove, $aside, $shortcode
 	$atts = wma_shortcode_custom_atts( $defaults, $atts, array( 'href' ), array(), $prefix_shortcode . $shortcode );
@@ -40,7 +40,7 @@
 	//content
 		$atts['content'] = '';
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', trim( esc_attr( 'wm-image ' . trim( $atts['class'] ) ) ) );
+		$atts['class'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', 'wm-image ' . trim( $atts['class'] ), $atts ) );
 	//margin
 		$atts['margin'] = trim( $atts['margin'] );
 		if ( $atts['margin'] ) {
@@ -59,7 +59,7 @@
 	//src
 		$atts['src'] = trim( $atts['src'] );
 		if ( is_numeric( $atts['src'] ) ) {
-			$image_size      = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_size', 'full' );
+			$image_size      = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'full', $atts );
 			$attr            = array( 'title' => esc_attr( get_the_title( absint( $atts['src'] ) ) ) );
 			$atts['content'] = wp_get_attachment_image( absint( $atts['src'] ), $image_size, false, $attr );
 			if ( trim( image_hwstring( $atts['width'], $atts['height'] ) ) ) {
@@ -70,7 +70,7 @@
 				$atts['content'] = str_replace( ' />', $atts['margin'] . ' />', $atts['content'] );
 			}
 		} else {
-			$atts['content'] = '<img src="' . esc_url( $atts['src'] ) . '" title="' . $atts['title'] . '" alt="' . $atts['title'] . '"' . trim( image_hwstring( $atts['width'], $atts['height'] ) ) . ' />';
+			$atts['content'] = '<img src="' . esc_url( $atts['src'] ) . '" title="' . esc_attr( $atts['title'] ) . '" alt="' . esc_attr( $atts['title'] ) . '"' . trim( image_hwstring( $atts['width'], $atts['height'] ) ) . ' />';
 		}
 	//link
 		$atts['link'] = trim( $atts['link'] );
@@ -78,10 +78,10 @@
 			$atts['content'] = '<a href="' . esc_url( $atts['link'] ) . '"' . $atts['attributes'] . '>' . $atts['content'] . '</a>';
 		}
 	//content filters
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $atts['content'], $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '">' . $atts['content'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
 
 ?>

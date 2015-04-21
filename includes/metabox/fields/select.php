@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -22,7 +25,7 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_select' ) ) {
 		function wma_field_select( $field, $page_template = null ) {
@@ -115,15 +118,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_select
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'select', 'wma_field_select', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'select', 'wma_field_select', 10, 2 );
 
 
 
@@ -144,6 +145,6 @@
 		}
 	} // /wma_field_select_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'select', 'wma_field_select_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'select', 'wma_field_select_validation', 10, 3 );
 
 ?>

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  *
  * @uses   $codes_globals['divider_appearance']
  *
@@ -20,7 +20,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'appearance'   => '',
 			'class'        => '',
 			'space_after'  => '-',
@@ -28,7 +28,7 @@
 			'style'        => '',
 			'type'         => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
@@ -56,9 +56,9 @@
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
-	$output = '<hr class="' . $atts['class'] . '"' . $atts['style'] . ' />';
+	$output = '<hr class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . ' />';
 
 ?>

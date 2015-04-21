@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.0.9.13
+ * @version  1.1.6
  *
  * @uses   $codes_globals['post_types']
  *
@@ -32,7 +32,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'align'            => 'left',
 			'class'            => '',
 			'columns'          => 4,
@@ -51,7 +51,7 @@
 			'scroll'           => 0,
 			'taxonomy'         => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Helper variables
@@ -61,7 +61,7 @@
 	}
 	$paged                 = max( $page, $paged );
 	$output                = $filter_content = '';
-	$image_size            = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_size', 'medium' );
+	$image_size            = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'medium', $atts );
 	$excerpt_length        = 10;
 	$filter_settings       = false;
 	$posts_container_class = 'wm-posts-container wm-items-container';
@@ -73,7 +73,7 @@
 	//post_type
 		$atts['post_type'] = trim( $atts['post_type'] );
 		$post_type         = ( ! in_array( $atts['post_type'], array_keys( $codes_globals['post_types'] ) ) ) ? ( 'default' ) : ( $atts['post_type'] );
-		$image_size        = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_image_size_' . $atts['post_type'], $image_size );
+		$image_size        = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size_' . $atts['post_type'], $image_size, $atts );
 	//align
 		$atts['align'] = ( 'right' === trim( $atts['align'] ) ) ? ( trim( $atts['align'] ) ) : ( 'left' );
 	//columns
@@ -153,8 +153,8 @@
 			}
 		}
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//class
 		if (
 				! $atts['filter']
@@ -165,7 +165,7 @@
 			$atts['class']          = str_replace( 'masonry', 'wm-posts-masonry-enabled', $atts['class'] );
 			$masonry_layout         = true;
 		}
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( trim( 'wm-posts wm-posts-wrap clearfix wm-posts-' . $atts['post_type'] . ' ' . trim( $atts['class'] ) ) ) );
+		$atts['class'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', 'wm-posts wm-posts-wrap clearfix wm-posts-' . $atts['post_type'] . ' ' . trim( $atts['class'] ), $atts ) );
 
 //Preparing content
 	//Get the posts
@@ -194,8 +194,8 @@
 			}
 
 			//Allow filtering the query
-				$query_args = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_query_args', $query_args );
-				$query_args = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_query_args_' . $atts['post_type'], $query_args );
+				$query_args = apply_filters( 'wmhook_shortcode_' . $shortcode . '_query_args', $query_args, $atts );
+				$query_args = apply_filters( 'wmhook_shortcode_' . $shortcode . '_query_args_' . $atts['post_type'], $query_args, $atts );
 
 		//Set query and loop through it
 			$posts = new WP_Query( $query_args );
@@ -241,7 +241,7 @@
 									$output_array = array();
 									foreach ( $terms as $child ) {
 										$child = get_term_by( 'id', $child, $atts['filter'][0] );
-										$output_array['<li class="wm-filter-items-' . $child->slug . '"><a href="#" data-filter=".' . $atts['filter'][0] . '-' . $child->slug . '">' . $child->name . '<span class="count"> (' . $child->count . ')</span></a></li>'] = $child->name;
+										$output_array['<li class="wm-filter-items-' . esc_attr( $child->slug ) . '"><a href="#" data-filter=".' . esc_attr( $atts['filter'][0] . '-' . $child->slug ) . '">' . $child->name . '<span class="count"> (' . $child->count . ')</span></a></li>'] = $child->name;
 									}
 									asort( $output_array );
 									$output_array = array_flip( $output_array );
@@ -259,7 +259,7 @@
 								$count = count( $terms );
 								if ( ! is_wp_error( $terms ) && 0 < $count ) {
 									foreach ( $terms as $term ) {
-										$filter_content .= '<li class="wm-filter-items-' . $term->slug . '"><a href="#" data-filter=".' . $atts['filter'][0] . '-' . $term->slug . '">' . $term->name . '<span class="count"> (' . $term->count . ')</span></a></li>';
+										$filter_content .= '<li class="wm-filter-items-' . esc_attr( $term->slug ) . '"><a href="#" data-filter=".' . esc_attr( $atts['filter'][0] . '-' . $term->slug ) . '">' . $term->name . '<span class="count"> (' . $term->count . ')</span></a></li>';
 									}
 								}
 
@@ -288,22 +288,22 @@
 				} // /if scroll
 
 			//Posts grid container openings
-				$posts_container_class = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_posts_container_class', $posts_container_class );
+				$posts_container_class = apply_filters( 'wmhook_shortcode_' . $shortcode . '_posts_container_class', $posts_container_class, $atts );
 				if ( $atts['content'] ) {
 					if ( 'right' == $atts['align'] ) {
 					//open posts container div only
-						$output .= '<div class="wm-column width-' . ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] . '">' . $atts['filter'] . '<div class="' . $posts_container_class . '" data-columns="' . $atts['columns'] . '" data-time="' . absint( $atts['scroll'] ) . '" data-layout-mode="' . $atts['filter_layout'] . '"' . wma_schema_org( 'item_list' ) . '>';
+						$output .= '<div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . '">' . $atts['filter'] . '<div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '" data-layout-mode="' . esc_attr( $atts['filter_layout'] ) . '"' . wma_schema_org( 'item_list' ) . '>';
 					} else {
 					//insert posts description (shortcode content) in a column and open the posts container div
-						$output .= '<div class="wm-column width-1-' . $atts['desc_column_size'] . ' wm-posts-description">' . $atts['content'] . '</div><div class="wm-column width-' . ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] . ' last">' . $atts['filter'] . '<div class="' . $posts_container_class . '" data-columns="' . $atts['columns'] . '" data-time="' . absint( $atts['scroll'] ) . '" data-layout-mode="' . $atts['filter_layout'] . '"' . wma_schema_org( 'item_list' ) . '>';
+						$output .= '<div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' wm-posts-description">' . $atts['content'] . '</div><div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . ' last">' . $atts['filter'] . '<div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '" data-layout-mode="' . esc_attr( $atts['filter_layout'] ) . '"' . wma_schema_org( 'item_list' ) . '>';
 					}
 				} else {
-					$output .= $atts['filter'] . '<div class="' . $posts_container_class . '" data-columns="' . $atts['columns'] . '" data-time="' . absint( $atts['scroll'] ) . '" data-layout-mode="' . $atts['filter_layout'] . '"' . wma_schema_org( 'item_list' ) . '>';
+					$output .= $atts['filter'] . '<div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '" data-layout-mode="' . esc_attr( $atts['filter_layout'] ) . '"' . wma_schema_org( 'item_list' ) . '>';
 				}
 
 			//Row
 				$row_condition  = ( ! $atts['filter'] && ! $atts['scroll'] && 1 != $atts['columns'] && ! $masonry_layout );
-				$output        .= ( $row_condition ) ? ( '<div class="wm-row' . $atts['no_margin'] . '">' ) : ( '' );
+				$output        .= ( $row_condition ) ? ( '<div class="wm-row' . esc_attr( $atts['no_margin'] ) . '">' ) : ( '' );
 
 			//Alternative item class and helper variables
 				$alt = '';
@@ -318,7 +318,7 @@
 				//Row
 					if ( $row_condition ) {
 						$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
-						$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row' . $atts['no_margin'] . '">' ) : ( '' );
+						$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row' . esc_attr( $atts['no_margin'] ) . '">' ) : ( '' );
 					}
 
 				//Output the posts item
@@ -334,7 +334,7 @@
 						//image_size
 							$helper['image_size'] = $image_size;
 						//item_class
-							$helper['item_class'] = 'wm-posts-item wm-posts-item-' . $post_id . ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt;
+							$helper['item_class'] = esc_attr( 'wm-posts-item wm-posts-item-' . $post_id . ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt );
 							if (
 									( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
 									&& ! $atts['filter']
@@ -359,14 +359,14 @@
 									'wm_projects' == $atts['post_type']
 									&& ! $link_atts[2]
 								) {
-								$helper['link'] = ' href="' . get_permalink() . '"';
+								$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
 							} elseif ( $link_atts[0] ) {
 								$page_object = get_page_by_path( $link_atts[0] );
-								$helper['link'] = ( $page_object ) ? ( ' href="' . get_permalink( $page_object->ID ) . '"' ) : ( '#' );
+								$helper['link'] = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
 							} elseif ( $link_atts[1] ) {
 								$helper['link'] = ' href="' . esc_url( $link_atts[1] ) . '"';
 							} else {
-								$helper['link'] = ' href="' . get_permalink() . '"';
+								$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
 							}
 							if (
 									( 'wm_staff' == $atts['post_type'] || 'wm_logos' == $atts['post_type'] )
@@ -384,7 +384,7 @@
 						//post_id
 							$helper['post_id'] = $post_id;
 
-						$helper = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_helper', $helper, $post_id );
+						$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper', $helper, $post_id, $atts );
 
 					//single post output template
 						if (
@@ -401,7 +401,7 @@
 						}
 
 					//filter the posts item html output
-						$output_item = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_item_html', $output_item, $post_id, $atts );
+						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
 
 				$output .= $output_item;
 
@@ -416,7 +416,7 @@
 				if ( $atts['content'] ) {
 					if ( 'right' == $atts['align'] ) {
 					//close posts container div and output description column
-						$output .= '</div>' . $atts['pagination'] . '</div><div class="wm-column width-1-' . $atts['desc_column_size'] . ' last wm-posts-description">' . $atts['content'] . '</div>';
+						$output .= '</div>' . $atts['pagination'] . '</div><div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' last wm-posts-description">' . $atts['content'] . '</div>';
 					} else {
 					//close the posts container div
 						$output .= '</div>' . $atts['pagination'] . '</div>';
@@ -454,6 +454,6 @@
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '">' . $atts['content'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
 
 ?>

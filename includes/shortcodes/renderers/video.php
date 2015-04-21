@@ -6,7 +6,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since  1.0
+ * @since    1.0
+ * @version  1.1.6
  *
  * @param  string class
  * @param  string poster @link http://codex.wordpress.org/Video_Shortcode
@@ -17,14 +18,14 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'autoplay' => false,
 			'class'    => '',
 			'loop'     => false,
 			'poster'   => '',
 			'src'      => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	//get the custom attributes in $atts['attributes']
 	//parameters: $defaults, $atts, $remove, $aside, $shortcode
 	$atts = wma_shortcode_custom_atts( $defaults, $atts, array( 'autoplay', 'loop', 'poster', 'src' ), array(), $prefix_shortcode . $shortcode );
@@ -44,7 +45,7 @@
 					|| stripos( $atts['src'], 'flv' )
 				) {
 
-				$atts['content'] = do_shortcode( '[video src="' . $atts['src'] . '" poster="' . $atts['poster'] . '" autoplay="' . $atts['autoplay'] . '" loop="' . $atts['loop'] . '" ' . $atts['attributes'] . ' /]' );
+				$atts['content'] = do_shortcode( '[video src="' . esc_url( $atts['src'] ) . '" poster="' . esc_url( $atts['poster'] ) . '" autoplay="' . esc_attr( $atts['autoplay'] ) . '" loop="' . esc_attr( $atts['loop'] ) . '" ' . $atts['attributes'] . ' /]' );
 
 			} else {
 
@@ -79,7 +80,7 @@
 						}
 
 						//Allow filtering URL addons
-							$url_addons = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_url_addons', $url_addons, $atts );
+							$url_addons = apply_filters( 'wmhook_shortcode_' . $shortcode . '_url_addons', $url_addons, $atts );
 
 						//Search for the src="URL"
 							preg_match( '/src=\"([^\"]*)\"/', $atts['content'], $matches );
@@ -97,11 +98,11 @@
 			}
 		}
 	//content filters
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $atts['content'], $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//class
 		$atts['class'] = trim( 'wm-video ' . trim( $atts['class'] ) );
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 	//poster
 		$atts['poster'] = trim( $atts['poster'] );
 		if ( is_numeric( $atts['poster'] ) ) {
@@ -110,6 +111,6 @@
 		$atts['poster'] = esc_url( $atts['poster'] );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '"><div class="media-container">' . $atts['content'] . '</div></div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="media-container">' . $atts['content'] . '</div></div>';
 
 ?>

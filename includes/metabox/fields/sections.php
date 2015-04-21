@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -119,7 +122,7 @@
 		}
 	} // /wma_field_section_open
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'section-open', 'wma_field_section_open', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'section-open', 'wma_field_section_open', 10, 2 );
 
 
 
@@ -150,7 +153,7 @@
 		}
 	} // /wma_field_section_close
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'section-close', 'wma_field_section_close', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'section-close', 'wma_field_section_close', 10, 2 );
 
 
 
@@ -185,18 +188,19 @@
 		}
 	} // /wma_field_sub_section_open
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'sub-section-open', 'wma_field_sub_section_open', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'sub-section-open', 'wma_field_sub_section_open', 10, 2 );
 
 
 
 	/**
 	 * Sub-section close
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_sub_section_close' ) ) {
 		function wma_field_sub_section_close( $field, $page_template = null ) {
@@ -214,14 +218,12 @@
 
 			//Output
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</tbody> <!-- /SUB-SECTION -->' . "\r\n\t" . '<tbody>';
 		}
 	} // /wma_field_sub_section_close
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'sub-section-close', 'wma_field_sub_section_close', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'sub-section-close', 'wma_field_sub_section_close', 10, 2 );
 
 ?>

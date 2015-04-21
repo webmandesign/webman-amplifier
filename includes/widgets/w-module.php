@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_atts', $atts );
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				<p>
 					<?php
-					$posts = get_posts( apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_form' . '_get_posts', array(
+					$posts = get_posts( apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_form' . '_get_posts', array(
 							'posts_per_page' => -1,
 							'orderby'        => 'title',
 							'order'          => 'ASC',
@@ -122,7 +122,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							<option value="" <?php selected( $instance['module'], '' ); ?>><?php _e( '- Select Content Module -', 'wm_domain' ); ?></option>
 						<?php
 						foreach ( $posts as $post ) {
-							$terms = get_the_terms( $post->ID , apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_form' . '_taxonomy', 'module_tag' ) );
+							$terms = get_the_terms( $post->ID , apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_form' . '_taxonomy', 'module_tag' ) );
 							$tags  = '';
 							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 								$taxonomy = array();
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_module_widget' . '_form', $instance );
 
 		} // /form
 
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['title']  = $new_instance['title'];
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 
@@ -200,12 +200,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 				}
 
-				$output .= do_shortcode( apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_shortcode', '[wm_content_module class="' . $instance['class'] . '" module="' . $instance['module'] . '" /]', $args, $instance ) );
+				$output .= do_shortcode( apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_shortcode', '[wm_content_module class="' . $instance['class'] . '" module="' . $instance['module'] . '" /]', $args, $instance ) );
 
 				$output .= $args['after_widget'];
 
 			//Output
-				echo apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_module_widget' . '_output', $output, $args, $instance );
+				echo apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_output', $output, $args, $instance );
 
 		} // /widget
 

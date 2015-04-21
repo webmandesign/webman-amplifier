@@ -119,10 +119,10 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					$this->paths['tempdir'] = trailingslashit( $this->paths['basedir'] ) . $this->paths['temp'];
 					$this->paths['fonturl'] = trailingslashit( $this->paths['baseurl'] ) . $this->paths['fonts'] . '/' . $this->font_name;
 					$this->paths['tempurl'] = trailingslashit( $this->paths['baseurl'] ) . trailingslashit( $this->paths['temp'] );
-					$this->paths            = apply_filters( WM_ICONS_HOOK_PREFIX . 'paths', $this->paths );
+					$this->paths            = apply_filters( 'wmhook_icons_' . 'paths', $this->paths );
 
 				//Capability to upload font file
-					$this->capability = apply_filters( WM_ICONS_HOOK_PREFIX . 'capability', 'switch_themes' );
+					$this->capability = apply_filters( 'wmhook_icons_' . 'capability', 'switch_themes' );
 			} // /setup_globals
 
 
@@ -140,11 +140,11 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 				//If no icons stored, reset the default icons
 					if ( empty( $icons ) ) {
 						//Include the default icons config file which contains $icons array definition
-							$default_fonticons_config_file = apply_filters( WM_ICONS_HOOK_PREFIX . 'default_iconfont_config_path', WMAMP_ASSETS_DIR . 'font/config.php' );
+							$default_fonticons_config_file = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_path', WMAMP_ASSETS_DIR . 'font/config.php' );
 							include_once( $default_fonticons_config_file );
 
 						//Assign the $icons array to $font_config variable
-							$this->font_config = apply_filters( WM_ICONS_HOOK_PREFIX . 'default_iconfont_config_array', $icons );
+							$this->font_config = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_array', $icons );
 
 						//Process the $font_config variable
 							$this->write_config();
@@ -186,7 +186,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 				//Helper variables
 					global $current_screen;
 
-					$icon_font_url = apply_filters( WM_METABOX_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url = apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
 				//Register
 					//Styles
@@ -393,7 +393,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					$output .= '</div>';
 
 				//Output
-					echo apply_filters( WM_ICONS_HOOK_PREFIX . 'admin_form' . '_output', $output );
+					echo apply_filters( 'wmhook_icons_' . 'admin_form' . '_output', $output );
 			} // /admin_form
 
 
@@ -417,7 +417,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 					//Get the ZIP file path
 						$attachment = ( isset( $_POST['wmamp-font-zip'] ) ) ? ( $_POST['wmamp-font-zip'] ) : ( '' );
-						$attachment = apply_filters( WM_ICONS_HOOK_PREFIX . 'uploaded_icon_font_zip_url', $attachment );
+						$attachment = apply_filters( 'wmhook_icons_' . 'uploaded_icon_font_zip_url', $attachment );
 						if (
 								! is_array( $attachment )
 								|| ! isset( $attachment['url'] )
@@ -439,8 +439,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 							}
 							die();
 						}
-						$path       = realpath( get_attached_file( $attachment['id'] ) );
-						$unzipped   = $this->zip_flatten( $path, array(
+						$path     = realpath( get_attached_file( $attachment['id'] ) );
+						$unzipped = $this->zip_flatten( $path, array(
 								'\.eot',
 								'\.svg',
 								'\.ttf',
@@ -647,8 +647,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 				//Prepare icons array to store in database
 					if ( is_array( $this->font_config ) && $this->font_config ) {
-						$icons['css-prefix'] = apply_filters( WM_ICONS_HOOK_PREFIX . 'icon_css_prefix', 'icon-' );
-						$icons['css-suffix'] = apply_filters( WM_ICONS_HOOK_PREFIX . 'icon_css_suffix', '' );
+						$icons['css-prefix'] = apply_filters( 'wmhook_icons_' . 'icon_css_prefix', 'icon-' );
+						$icons['css-suffix'] = apply_filters( 'wmhook_icons_' . 'icon_css_suffix', '' );
 
 						foreach ( $this->font_config as $key => $icon ) {
 							if ( ! empty( $icon ) && 'wmamp-font-file-url' !== $key ) {
@@ -662,7 +662,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					if ( isset( $this->font_config['wmamp-font-file-url'] ) ) {
 						$fontcss = $this->font_config['wmamp-font-file-url'];
 					} else {
-						$fontcss = apply_filters( WM_ICONS_HOOK_PREFIX . 'default_iconfont_css_url', WMAMP_ASSETS_URL . 'font/' . $this->font_name . '.css' );
+						$fontcss = apply_filters( 'wmhook_icons_' . 'default_iconfont_css_url', WMAMP_ASSETS_URL . 'font/' . $this->font_name . '.css' );
 					}
 
 				//Cache in database

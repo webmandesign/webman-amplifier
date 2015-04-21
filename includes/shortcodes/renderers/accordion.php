@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.0.9.8
+ * @version  1.1.6
  *
  * @param  integer active
  * @param  string behaviour  Synonym for "mode" attribute.
@@ -17,14 +17,14 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'active'    => 0,
 			'behaviour' => 'accordion',
 			'class'     => '',
 			'filter'    => false,
 			'mode'      => '',
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Helper variables
@@ -43,8 +43,8 @@
 			$atts['mode'] = $atts['behaviour'] = 'accordion';
 		}
 	//content
-		$content = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$content = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $content );
+		$content = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$content = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $content, $atts );
 		if ( $atts['filter'] ) {
 			//Prepare filter output
 				$tags = array();
@@ -75,11 +75,11 @@
 			$atts['content'] = $content;
 		}
 	//class
-		$atts['class'] = trim( esc_attr( 'wm-accordion clearfix ' . trim( $atts['class'] ) ) );
+		$atts['class'] = trim( 'wm-accordion clearfix ' . trim( $atts['class'] ) );
 		if ( $atts['filter'] ) {
 			$atts['class'] .= ' filterable-simple';
 		}
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', $atts['class'] );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Enqueue scripts
 	$enqueue_scripts = array(
@@ -89,6 +89,6 @@
 	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '" data-active="' . $atts['active'] . '" data-mode="' . $atts['mode'] . '">' . $atts['content'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '" data-active="' . esc_attr( $atts['active'] ) . '" data-mode="' . esc_attr( $atts['mode'] ) . '">' . $atts['content'] . '</div>';
 
 ?>

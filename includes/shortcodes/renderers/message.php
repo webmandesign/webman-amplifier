@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.6
  *
  * @uses   $this->$codes_globals['colors'], $codes_globals['sizes']['values']
  *
@@ -20,7 +20,7 @@
 
 
 //Shortcode attributes
-	$defaults = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_defaults', array(
+	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'class'       => '',
 			'color'       => '',
 			'heading_tag' => 'h3',
@@ -28,17 +28,17 @@
 			'size'        => '',
 			'title'       => ''
 		), $shortcode );
-	$atts = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_attributes', $atts, $shortcode );
+	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Validation
 	//class
 		$atts['class'] = trim( 'wm-message ' . trim( $atts['class'] ) );
 	//content
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . '_content', $content, $shortcode );
-		$atts['content'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_content', $atts['content'] );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
+		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 		$iconated = ( 0 === strpos( $atts['content'], '<i class="icon-' ) ) ? ( ' iconated' ) : ( '' );
-		$atts['content'] = '<div class="wm-message-content wm-message-element' . $iconated . '">' . $atts['content'] . '</div>';
+		$atts['content'] = '<div class="wm-message-content wm-message-element' . esc_attr( $iconated ) . '">' . $atts['content'] . '</div>';
 	//color
 		$atts['color'] = trim( $atts['color'] );
 		if ( in_array( $atts['color'], array_keys( $codes_globals['colors'] ) ) ) {
@@ -58,12 +58,12 @@
 		$atts['title'] = trim( $atts['title'] );
 		if ( $atts['title'] ) {
 			$atts['title'] = strip_tags( $atts['title'], $this->inline_tags );
-			$atts['title'] = '<' . $atts['heading_tag'] . ' class="wm-message-title wm-message-element">' . $atts['title'] . '</' . $atts['heading_tag'] . '>';
+			$atts['title'] = '<' . esc_attr( $atts['heading_tag'] ) . ' class="wm-message-title wm-message-element">' . $atts['title'] . '</' . esc_attr( $atts['heading_tag'] ) . '>';
 		}
 	//class
-		$atts['class'] = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_classes', esc_attr( $atts['class'] ) );
+		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
-	$output = '<div class="' . $atts['class'] . '">' . $atts['title'] . $atts['content'] . '</div>';
+	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['title'] . $atts['content'] . '</div>';
 
 ?>

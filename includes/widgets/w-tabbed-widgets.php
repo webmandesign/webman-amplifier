@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_tabbed_widgets' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_tabbed_widgets' . '_atts', $atts );
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_tabbed_widgets' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_tabbed_widgets' . '_form', $instance );
 
 		} // /form
 
@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['sidebar'] = $new_instance['sidebar'];
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_tabbed_widgets' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_tabbed_widgets' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 

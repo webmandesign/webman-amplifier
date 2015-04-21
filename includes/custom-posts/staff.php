@@ -29,11 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 */
 
 		//Registering CP
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_staff_cp_register', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_staff_cp_register', 10 );
 		//CP list table columns
 			add_action( 'manage_wm_staff_posts_custom_column', 'wma_staff_cp_columns_render' );
 		//Registering taxonomies
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_staff_cp_taxonomies', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_staff_cp_taxonomies', 10 );
 		//Permanlinks settings
 			add_action( 'admin_init', 'wma_staff_cp_permalinks' );
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Custom post registration arguments
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_register_' . 'wm_staff', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_staff', array(
 					'query_var'           => 'staff',
 					'capability_type'     => 'page',
 					'public'              => true,
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$suffix = '-wm_staff';
 
 			//Register table columns
-				$columns = apply_filters( WMAMP_HOOK_PREFIX . 'cp_columns_' . 'wm_staff', array(
+				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_staff', array(
 					'cb'                             => '<input type="checkbox" />',
 					$prefix . 'thumb' . $suffix      => __( 'Photo', 'wm_domain' ),
 					'title'                          => __( 'Name', 'wm_domain' ),
@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					'author'                         => __( 'Author', 'wm_domain' )
 				) );
 
-			return apply_filters( WMAMP_HOOK_PREFIX . 'wma_staff_cp_columns_register' . '_output', $columns );
+			return apply_filters( 'wmhook_wmamp_' . 'wma_staff_cp_columns_register' . '_output', $columns );
 		}
 	} // /wma_staff_cp_columns_register
 
@@ -185,7 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					break;
 					case $prefix . 'thumb' . $suffix:
 
-						$size  = apply_filters( WMAMP_HOOK_PREFIX . 'cp_admin_thumb_size', 'admin-thumbnail' );
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
@@ -225,7 +225,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Staff departments
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'staff_department', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_department', array(
 					'hierarchical'      => true,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -249,7 +249,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				register_taxonomy( 'staff_department', 'wm_staff', $args );
 
 			//Staff positions
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'staff_position', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_position', array(
 					'hierarchical'      => false,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -305,7 +305,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_staff' . '-permalinks',
 						array(
 								'name'        => 'staff',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'staff', 'staff' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff', 'staff' )
 							)
 					);
 				add_settings_field(
@@ -316,7 +316,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_staff' . '-permalinks',
 						array(
 								'name'        => 'staff_department',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'staff_department', 'staff-department' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_department', 'staff-department' )
 							)
 					);
 				add_settings_field(
@@ -327,7 +327,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_staff' . '-permalinks',
 						array(
 								'name'        => 'staff_position',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'staff_position', 'staff-position' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_position', 'staff-position' )
 							)
 					);
 		}
@@ -343,7 +343,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_staff_cp_permalinks_render_section' ) ) {
 		function wma_staff_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( WMAMP_HOOK_PREFIX . 'wma_staff_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Staff custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_staff_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Staff custom post type permalinks here.', 'wm_domain' ) . '</p>' );
 		}
 	} // /wma_staff_cp_permalinks_render_section
 
@@ -444,7 +444,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'id'    => 'content',
 								'label' => __( 'HTML content', 'wm_domain' ),
 							);
-						$contact_fields = apply_filters( WMAMP_HOOK_PREFIX . 'cp_metafields_' . 'wm_staff' . '_contact_fields', $contact_fields, $fonticons );
+						$contact_fields = apply_filters( 'wmhook_wmamp_' . 'cp_metafields_' . 'wm_staff' . '_contact_fields', $contact_fields, $fonticons );
 							$fields[3020] = array(
 									'type'   => 'repeater',
 									'id'     => 'contacts',
@@ -458,13 +458,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// /"Contacts" tab
 
 			//Apply filter to manipulate with metafields array
-				$fields = apply_filters( WMAMP_HOOK_PREFIX . 'cp_metafields_' . 'wm_staff', $fields );
+				$fields = apply_filters( 'wmhook_wmamp_' . 'cp_metafields_' . 'wm_staff', $fields );
 
 			//Sort the array by the keys
 				ksort( $fields );
 
 			//Output
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_staff_cp_metafields' . '_output', $fields );
+				return apply_filters( 'wmhook_wmamp_' . 'wma_staff_cp_metafields' . '_output', $fields );
 		}
 	} // /wma_staff_cp_metafields
 

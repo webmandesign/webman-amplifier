@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1.2
+ * @version  1.1.6
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Shortcodes globals setup
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.1.6
 			 *
 			 * @access  private
 			 */
@@ -146,25 +146,25 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					if ( in_array( 'wm_staff', $postTypes ) ) {
 						$post_types['wm_staff'] = __( 'Staff', 'wm_domain' );
 					}
-					$post_types = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'post_types', $post_types );
+					$post_types = apply_filters( 'wmhook_shortcode_' . 'post_types', $post_types );
 					asort( $post_types );
 
 				//Editor user capability
-					$this->editor_capability = apply_filters( WMAMP_HOOK_PREFIX . 'editor_capability', 'edit_posts' );
+					$this->editor_capability = apply_filters( 'wmhook_wmamp_' . 'editor_capability', 'edit_posts' );
 
 				//Paths and URLs
-					$this->definitions_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
-					$this->renderers_dir    = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-					$this->page_builder_dir = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder' ) );
+					$this->definitions_dir  = apply_filters( 'wmhook_shortcode_' . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
+					$this->renderers_dir    = apply_filters( 'wmhook_shortcode_' . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+					$this->page_builder_dir = apply_filters( 'wmhook_shortcode_' . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder' ) );
 
 				//Visual Composer integration
 					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
-						$this->prefix_shortcode_name = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'prefix_name', 'WM ' );
+						$this->prefix_shortcode_name = apply_filters( 'wmhook_shortcode_' . 'prefix_name', 'WM ' );
 					}
 
 				//Shortcodes globals (variables used across multiple shortcodes)
-					$this->inline_tags   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'inline_tags',   '<a><abbr><b><br><code><em><i><img><mark><small><span><strong><u>' );
-					self::$codes_globals = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'codes_globals', array(
+					$this->inline_tags   = apply_filters( 'wmhook_shortcode_' . 'inline_tags',   '<a><abbr><b><br><code><em><i><img><mark><small><span><strong><u>' );
+					self::$codes_globals = apply_filters( 'wmhook_shortcode_' . 'codes_globals', array(
 							'align' => array(
 									'left'   => __( 'Left', 'wm_domain' ),
 									'center' => __( 'Center', 'wm_domain' ),
@@ -218,16 +218,16 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 									'striped'          => __( 'Zebra striping', 'wm_domain' ),
 									'bordered-striped' => __( 'Bordered zebra striping', 'wm_domain' ),
 								),
-						) );
+						), $post_types, $fonticons );
 
 				//Get shortcodes definitions array
-					$definitions_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_path', $this->definitions_dir . 'definitions.php' );
+					$definitions_file_path = apply_filters( 'wmhook_shortcode_' . 'definitions_path', $this->definitions_dir . 'definitions.php' );
 					if ( file_exists( $definitions_file_path ) ) {
 						include_once( $definitions_file_path );
 					}
 
 				//Define the shortcodes
-					$codes = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions', $shortcode_definitions );
+					$codes = apply_filters( 'wmhook_shortcode_' . 'definitions', $shortcode_definitions );
 
 				//Empty self::$codes variable before processing
 					self::$codes = array(
@@ -255,7 +255,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							if (
 									isset( $definition['since'] )
 									&& $definition['since']
-									&& version_compare( apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'supported_version', WMAMP_VERSION ), $definition['since'], '<' )
+									&& version_compare( apply_filters( 'wmhook_shortcode_' . 'supported_version', WMAMP_VERSION ), $definition['since'], '<' )
 								) {
 								continue;
 							}
@@ -331,7 +331,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 						//Visual Composer plugin integration
 							if (
-									isset( $definition['vc_plugin'] )
+									wma_is_active_vc()
+									&& isset( $definition['vc_plugin'] )
 									&& is_array( $definition['vc_plugin'] ) && ! empty( $definition['vc_plugin'] )
 									&& isset( $definition['vc_plugin']['name'] ) && trim( $definition['vc_plugin']['name'] ) //"name" is required parameter by the Visual Composer plugin
 									&& isset( $definition['vc_plugin']['base'] ) && trim( $definition['vc_plugin']['base'] ) //"base" is required parameter by the Visual Composer plugin
@@ -342,7 +343,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					} // /foreach
 
 				//Postprocess filters
-					self::$codes = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'definitions_processed', self::$codes );
+					self::$codes = apply_filters( 'wmhook_shortcode_' . 'definitions_processed', self::$codes );
 			} // /setup_globals
 
 
@@ -357,7 +358,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 */
 			public function assets_register() {
 				//Helper variables
-					$icon_font_url = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 					$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
 
 				//Styles
@@ -400,13 +401,13 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			public function assets_frontend() {
 				//Helper variables
 					global $is_IE;
-					$icon_font_url = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
 				//Styles
 					if ( $icon_font_url ) {
 						wp_enqueue_style( 'wm-fonticons' );
 					}
-					if ( apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'enqueue_shortcode_css', true ) ) {
+					if ( apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_css', true ) ) {
 						wp_enqueue_style( 'wm-shortcodes' );
 						if ( is_rtl() ) {
 							wp_enqueue_style( 'wm-shortcodes-rtl' );
@@ -419,7 +420,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 				//Scripts
-					if ( $is_IE && apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'enqueue_shortcode_ie_script', true ) ) {
+					if ( $is_IE && apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_ie_script', true ) ) {
 						wp_enqueue_script( 'wm-shortcodes-ie' );
 					}
 			} // /assets_frontend
@@ -444,7 +445,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					global $pagenow, $post_type;
 
 					$admin_pages   = array( 'post.php', 'post-new.php' );
-					$icon_font_url = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
 				//Styles
 					if ( $icon_font_url ) {
@@ -454,7 +455,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Visual Composer plugin integration
 					$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
 					if (
-							in_array( $pagenow, apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_admin_pages', $admin_pages ) )
+							in_array( $pagenow, apply_filters( 'wmhook_shortcode_' . 'vc_admin_pages', $admin_pages ) )
 							&& wma_is_active_vc()
 							&& in_array( $post_type, $vc_supported_post_types )
 							&& defined( 'WPB_VC_VERSION' )
@@ -499,12 +500,12 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					add_filter( 'the_content', array( $this, 'fix_shortcodes' ) );
 
 				//Shortcodes' $content variable filtering
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . '_content',          array( $this, 'shortcodes_content' ),     20, 2 );
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'pre' . '_content',  array( $this, 'shortcodes_content_pre' ), 10    );
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'list' . '_content', 'shortcode_unautop',                      10    );
+					add_filter( 'wmhook_shortcode_' . '_content',          array( $this, 'shortcodes_content' ),     20, 2 );
+					add_filter( 'wmhook_shortcode_' . 'pre' . '_content',  array( $this, 'shortcodes_content_pre' ), 10    );
+					add_filter( 'wmhook_shortcode_' . 'list' . '_content', 'shortcode_unautop',                      10    );
 
 				//Shortcodes' output filtering
-					add_filter( WM_SHORTCODES_HOOK_PREFIX . 'widget_area' . '_output', 'wma_minify_html', 10 );
+					add_filter( 'wmhook_shortcode_' . 'widget_area' . '_output', 'wma_minify_html', 10 );
 			} // /setup_filters
 
 
@@ -569,7 +570,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * @access  public
 			 */
 			public function get_definitions() {
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'get_definitions', self::$codes );
+				return apply_filters( 'wmhook_shortcode_' . 'get_definitions', self::$codes );
 			} // /get_definitions
 
 
@@ -583,7 +584,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * @access  public
 			 */
 			public function get_globals() {
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'get_globals', self::$codes_globals );
+				return apply_filters( 'wmhook_shortcode_' . 'get_globals', self::$codes_globals );
 			} // /get_definitions
 
 
@@ -611,7 +612,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				);
 				$content = strtr( $content, $fix );
 
-				return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'fix_shortcodes' . '_output', $content );
+				return apply_filters( 'wmhook_shortcode_' . 'fix_shortcodes' . '_output', $content );
 			} // /fix_shortcodes
 
 
@@ -634,7 +635,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 */
 			public function preprocess_shortcodes( $content = '' ) {
 				//Helper variables
-					$codes = (array) apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'preprocess_shortcodes_array', self::$codes['preprocess'] );
+					$codes = (array) apply_filters( 'wmhook_shortcode_' . 'preprocess_shortcodes_array', self::$codes['preprocess'] );
 
 				//If there is no shortcode to preprocess, do nothing
 					if ( empty( $codes ) ) {
@@ -651,7 +652,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Register shortcodes in preprocessing
 					call_user_func_array( array( $this, 'add_shortcodes' ), array( $codes ) );
 
-					do_action( WM_SHORTCODES_HOOK_PREFIX . 'preprocess_shortcodes', $codes, $content );
+					do_action( 'wmhook_shortcode_' . 'preprocess_shortcodes', $codes, $content );
 
 				//Do the preprocess shortcodes prematurely (in WordPress standards)
 					$content = do_shortcode( $content );
@@ -660,7 +661,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$shortcode_tags = $shortcodesBackup;
 
 				//Output
-					return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'preprocess_shortcodes' . '_output', $content );
+					return apply_filters( 'wmhook_shortcode_' . 'preprocess_shortcodes' . '_output', $content );
 			} // /preprocess_shortcodes
 
 
@@ -690,7 +691,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					}
 
 				//Helper variables
-					$codes = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'shortcodes_content_codes', array(
+					$codes = apply_filters( 'wmhook_shortcode_' . 'shortcodes_content_codes', array(
 							'do_shortcode'       => array(
 									'accordion',
 									'button',
@@ -871,7 +872,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 					//VC additional shortcodes admin interface
-						$vc_shortcodes_admin_tweaks = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_shortcodes_admin_tweaks_file', $this->page_builder_dir . 'visual-composer/visual-composer.php' );
+						$vc_shortcodes_admin_tweaks = apply_filters( 'wmhook_shortcode_' . 'vc_shortcodes_admin_tweaks_file', $this->page_builder_dir . 'visual-composer/visual-composer.php' );
 						require_once( $vc_shortcodes_admin_tweaks );
 
 					//VC setup screen modifications
@@ -888,7 +889,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								&& class_exists( 'WPBMap' )
 							) {
 							$vc_shortcodes_all    = array_keys( WPBMap::getShortCodes() );
-							$vc_shortcodes_keep   = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_keep', array(
+							$vc_shortcodes_keep   = apply_filters( 'wmhook_shortcode_' . 'vc_keep', array(
 									//rows
 										'vc_row',
 										'vc_row_inner',
@@ -904,7 +905,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 										'layerslider_vc',
 										'rev_slider_vc',
 								) );
-							$vc_shortcodes_remove = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
+							$vc_shortcodes_remove = apply_filters( 'wmhook_shortcode_' . 'vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
 
 							//Array check required due to filter applied above
 								if ( is_array( $vc_shortcodes_remove ) && ! empty( $vc_shortcodes_remove ) ) {
@@ -953,7 +954,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					unset( $tabs['element_css'] );
 					unset( $tabs['custom_css'] );
 
-					return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_setup' . '_output', $tabs, $tabs_original );
+					return apply_filters( 'wmhook_shortcode_' . 'vc_setup' . '_output', $tabs, $tabs_original );
 				} // /visual_composer_setup
 
 
@@ -982,7 +983,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						$dependency = vc_generate_dependencies_attributes( $settings );
 
 					//Output
-						return apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
+						return apply_filters( 'wmhook_shortcode_' . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
 				} // /visual_composer_custom_field_wm_radio
 
 
@@ -1015,7 +1016,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 				//Allow plugins/themes to override the default shortcode template
 					$codes_globals = self::$codes_globals;
-					$output        = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content, $codes_globals );
+					$output        = apply_filters( 'wmhook_shortcode_' . $shortcode, '', $atts, $content, $codes_globals );
 					if ( $output ) {
 						return $output;
 					}
@@ -1054,7 +1055,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								}
 						}
 
-					$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_path, $shortcode );
+					$renderer_file_path = apply_filters( 'wmhook_shortcode_' . 'renderer_path', $renderer_file_path, $shortcode );
 
 					if ( file_exists( $renderer_file_path ) ) {
 						include( $renderer_file_path );
@@ -1062,9 +1063,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 				//Output
 					//filter to process the output of shortcodes
-					$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
+					$output = apply_filters( 'wmhook_shortcode_' . 'output', $output, $shortcode, $atts );
 					//filter to process the specific shortcode output ($atts are validated already)
-					return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
+					return apply_filters( 'wmhook_shortcode_' . $shortcode . '_output', $output, $atts );
 			} // /shortcode_render
 
 	} // /WM_Shortcodes
@@ -1108,7 +1109,7 @@ function wma_shortcodes() {
 	if ( ! function_exists( 'wma_shortcode_enqueue_scripts' ) ) {
 		function wma_shortcode_enqueue_scripts( $shortcode = '', $enqueue_scripts = array(), $atts = array() ) {
 			//Helper variables
-				$enqueue_scripts = array_filter( (array) apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
+				$enqueue_scripts = array_filter( (array) apply_filters( 'wmhook_shortcode_' . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
 
 			//Requirements check
 				if (
@@ -1127,7 +1128,7 @@ function wma_shortcodes() {
 			 * Using this action hook will remove all the previously added shortcode scripts
 			 * @todo  Find out why this happens
 			 */
-			do_action( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_do_enqueue_scripts', $atts );
+			do_action( 'wmhook_shortcode_' . $shortcode . '_do_enqueue_scripts', $atts );
 		}
 	} // /wma_shortcode_enqueue_scripts
 
@@ -1305,14 +1306,14 @@ if ( wma_is_active_vc() ) {
 			}
 
 		//Allow plugins/themes to override the default shortcode template
-			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
+			$output = apply_filters( 'wmhook_shortcode_' . $shortcode, '', $atts, $content );
 			if ( $output ) {
 				return $output;
 			}
 
 		//Render the shortcode
-			$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-			$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'row.php', $shortcode );
+			$renderer_file_dir  = apply_filters( 'wmhook_shortcode_' . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+			$renderer_file_path = apply_filters( 'wmhook_shortcode_' . 'renderer_path', $renderer_file_dir . 'row.php', $shortcode );
 			if ( file_exists( $renderer_file_path ) ) {
 				$prefix_shortcode = 'wm_';
 				include( $renderer_file_path );
@@ -1320,9 +1321,9 @@ if ( wma_is_active_vc() ) {
 
 		//Output
 			//general filter to process the output of all shortcodes
-			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
+			$output = apply_filters( 'wmhook_shortcode_' . 'output', $output, $shortcode, $atts );
 			//filter to process the specific shortcode output ($atts are validated already)
-			return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
+			return apply_filters( 'wmhook_shortcode_' . $shortcode . '_output', $output, $atts );
 	} // /vc_theme_vc_row
 
 
@@ -1360,14 +1361,14 @@ if ( wma_is_active_vc() ) {
 			}
 
 		//Allow plugins/themes to override the default shortcode template
-			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode, '', $atts, $content );
+			$output = apply_filters( 'wmhook_shortcode_' . $shortcode, '', $atts, $content );
 			if ( $output ) {
 				return $output;
 			}
 
 		//Render the shortcode
-			$renderer_file_dir  = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-			$renderer_file_path = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'renderer_path', $renderer_file_dir . 'column.php', $shortcode );
+			$renderer_file_dir  = apply_filters( 'wmhook_shortcode_' . 'renderers_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+			$renderer_file_path = apply_filters( 'wmhook_shortcode_' . 'renderer_path', $renderer_file_dir . 'column.php', $shortcode );
 			if ( file_exists( $renderer_file_path ) ) {
 				$prefix_shortcode = 'wm_';
 				include( $renderer_file_path );
@@ -1375,9 +1376,9 @@ if ( wma_is_active_vc() ) {
 
 		//Output
 			//general filter to process the output of all shortcodes
-			$output = apply_filters( WM_SHORTCODES_HOOK_PREFIX . 'output', $output, $shortcode, $atts );
+			$output = apply_filters( 'wmhook_shortcode_' . 'output', $output, $shortcode, $atts );
 			//filter to process the specific shortcode output ($atts are validated already)
-			return apply_filters( WM_SHORTCODES_HOOK_PREFIX . $shortcode . '_output', $output, $atts );
+			return apply_filters( 'wmhook_shortcode_' . $shortcode . '_output', $output, $atts );
 	} // /vc_theme_vc_column
 
 

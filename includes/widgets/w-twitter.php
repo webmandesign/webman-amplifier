@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				$atts['control_ops'] = array();
 
-				$atts = apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_atts', $atts );
+				$atts = apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_atts', $atts );
 
 				//Set globals
 					$transient_prefix = ( defined( 'WM_THEME_SHORTNAME' ) ) ? ( WM_THEME_SHORTNAME . '_' ) : ( 'wmamp_' );
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		function form( $instance ) {
 
 			//Helper variables
-				$instance = wp_parse_args( $instance, apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_defaults', array(
+				$instance = wp_parse_args( $instance, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_defaults', array(
 						'count'    => 3,
 						'replies'  => false,
 						'title'    => '',
@@ -189,7 +189,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					</p>
 				<?php
 
-				do_action( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_form', $instance );
+				do_action( 'wmhook_widgets_' . 'wm_twitter' . '_form', $instance );
 
 		} // /form
 
@@ -238,7 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					}
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_instance', $instance, $new_instance, $old_instance );
+				return apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
 
@@ -252,7 +252,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Helper variables
 				$output = '';
 
-				$instance = wp_parse_args( $instance, apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_defaults', array(
+				$instance = wp_parse_args( $instance, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_defaults', array(
 						'count'    => 3,
 						'replies'  => false,
 						'title'    => '',
@@ -360,7 +360,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 							//Set cache
 								if ( $user ) {
-									set_transient( $user_option, $user, apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_cache_interval', 900 ) );
+									set_transient( $user_option, $user, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_cache_interval', 900 ) );
 								}
 								update_option( $tweets_option, $tweets );
 
@@ -388,7 +388,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								$output_user .= ( $user['description'] ) ? ( $user['description'] ) : ( '' );
 								$output_user .= '</div>';
 
-								$output .= apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_output_user', $output_user, $args, $instance );
+								$output .= apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_output_user', $output_user, $args, $instance );
 
 							}
 
@@ -405,7 +405,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 									}
 								}
 
-								$output .= '<ul>' . apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_output_tweets', $output_tweets, $args, $instance ) . '</ul>';
+								$output .= '<ul>' . apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_output_tweets', $output_tweets, $args, $instance ) . '</ul>';
 
 							}
 
@@ -420,7 +420,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$output .= $args['after_widget'];
 
 			//Output
-				echo apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_output', $output, $args, $instance );
+				echo apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_output', $output, $args, $instance );
 
 		} // /widget
 
@@ -433,7 +433,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		private function filter_tweet( $text ) {
 
-			if ( apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_enable_filter_tweet', true ) ) {
+			if ( apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_enable_filter_tweet', true ) ) {
 
 				//Preparing output
 					/**
@@ -468,7 +468,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 
 			//Output
-				return apply_filters( WM_WIDGETS_HOOK_PREFIX . 'wm_twitter' . '_filter_tweet', $text );
+				return apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_filter_tweet', $text );
 
 		} // /filter_tweet
 

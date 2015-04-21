@@ -29,11 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 */
 
 		//Registering CP
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_logos_cp_register', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_logos_cp_register', 10 );
 		//CP list table columns
 			add_action( 'manage_wm_logos_posts_custom_column', 'wma_logos_cp_columns_render' );
 		//Registering taxonomies
-			add_action( WMAMP_HOOK_PREFIX . 'register_post_types', 'wma_logos_cp_taxonomies', 10 );
+			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_logos_cp_taxonomies', 10 );
 		//Permanlinks settings
 			add_action( 'admin_init', 'wma_logos_cp_permalinks' );
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Custom post registration arguments
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_register_' . 'wm_logos', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_logos', array(
 					'query_var'           => 'logos',
 					'capability_type'     => 'post',
 					'public'              => true,
@@ -128,7 +128,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$suffix = '-wm_logos';
 
 			//Register table columns
-				$columns = apply_filters( WMAMP_HOOK_PREFIX . 'cp_columns_' . 'wm_logos', array(
+				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_logos', array(
 					'cb'                           => '<input type="checkbox" />',
 					$prefix . 'thumb' . $suffix    => __( 'Logo', 'wm_domain' ),
 					'title'                        => __( 'Name', 'wm_domain' ),
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					'author'                       => __( 'Author', 'wm_domain' )
 				) );
 
-			return apply_filters( WMAMP_HOOK_PREFIX . 'wma_logos_cp_columns_register' . '_output', $columns );
+			return apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_columns_register' . '_output', $columns );
 		}
 	} // /wma_logos_cp_columns_register
 
@@ -177,7 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					break;
 					case $prefix . 'thumb' . $suffix:
 
-						$size  = apply_filters( WMAMP_HOOK_PREFIX . 'cp_admin_thumb_size', 'admin-thumbnail' );
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$permalinks = get_option( 'wmamp-permalinks' );
 
 			//Logos categories
-				$args = apply_filters( WMAMP_HOOK_PREFIX . 'cp_taxonomy_' . 'logo_category', array(
+				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'logo_category', array(
 					'hierarchical'      => true,
 					'show_in_nav_menus' => false,
 					'show_ui'           => true,
@@ -274,7 +274,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_logos' . '-permalinks',
 						array(
 								'name'        => 'logo',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'logo', 'logo' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'logo', 'logo' )
 							)
 					);
 				add_settings_field(
@@ -285,7 +285,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'wmamp-' . 'wm_logos' . '-permalinks',
 						array(
 								'name'        => 'logo_category',
-								'placeholder' => apply_filters( WMAMP_HOOK_PREFIX . 'cp_permalink_' . 'logo_category', 'logo-category' )
+								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'logo_category', 'logo-category' )
 							)
 					);
 		}
@@ -301,7 +301,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_logos_cp_permalinks_render_section' ) ) {
 		function wma_logos_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( WMAMP_HOOK_PREFIX . 'wma_logos_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Logos custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Logos custom post type permalinks here.', 'wm_domain' ) . '</p>' );
 		}
 	} // /wma_logos_cp_permalinks_render_section
 
@@ -363,13 +363,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// /"Attributes" tab
 
 			//Apply filter to manipulate with metafields array
-				$fields = apply_filters( WMAMP_HOOK_PREFIX . 'cp_metafields_' . 'wm_logos', $fields );
+				$fields = apply_filters( 'wmhook_wmamp_' . 'cp_metafields_' . 'wm_logos', $fields );
 
 			//Sort the array by the keys
 				ksort( $fields );
 
 			//Output
-				return apply_filters( WMAMP_HOOK_PREFIX . 'wma_logos_cp_metafields' . '_output', $fields );
+				return apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_metafields' . '_output', $fields );
 		}
 	} // /wma_logos_cp_metafields
 

@@ -18,6 +18,6 @@
 
 
 
-do_action( WM_SHORTCODES_HOOK_PREFIX . 'bb_module_output', $module, $settings );
+do_action( 'wmhook_shortcode_' . 'bb_module_output', $module, $settings );
 
 ?>

@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -18,11 +21,12 @@
 	/**
 	 * Checkbox
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since    1.0
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_checkbox' ) ) {
 		function wma_field_checkbox( $field, $page_template = null ) {
@@ -81,15 +85,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</th></tr>';
 		}
 	} // /wma_field_checkbox
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'checkbox', 'wma_field_checkbox', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'checkbox', 'wma_field_checkbox', 10, 2 );
 
 
 
@@ -110,6 +112,6 @@
 		}
 	} // /wma_field_checkbox_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'checkbox', 'wma_field_checkbox_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'checkbox', 'wma_field_checkbox_validation', 10, 3 );
 
 ?>

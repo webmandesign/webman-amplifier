@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -22,7 +25,7 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since    1.0
-	 * @version  1.1
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_slider' ) ) {
 		function wma_field_slider( $field, $page_template = null ) {
@@ -78,15 +81,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_slider
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'slider', 'wma_field_slider', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'slider', 'wma_field_slider', 10, 2 );
 
 
 
@@ -107,6 +108,6 @@
 		}
 	} // /wma_field_slider_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'slider', 'wma_field_slider_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'slider', 'wma_field_slider_validation', 10, 3 );
 
 ?>

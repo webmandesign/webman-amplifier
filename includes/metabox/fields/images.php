@@ -7,6 +7,9 @@
  *
  * @package     WebMan Amplifier
  * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.1.6
  */
 
 
@@ -18,12 +21,13 @@
 	/**
 	 * Image upload field
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
 	 * @return      array Image url and id (such as array( 'url' => 'IMAGE_URL', 'id' => 123 ))
+	 *
+	 * @since    1.0
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_image' ) ) {
 		function wma_field_image( $field, $page_template = null ) {
@@ -125,15 +129,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_image
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'image', 'wma_field_image', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'image', 'wma_field_image', 10, 2 );
 
 
 
@@ -164,7 +166,7 @@
 		}
 	} // /wma_field_image_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'image', 'wma_field_image_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'image', 'wma_field_image_validation', 10, 3 );
 
 
 
@@ -175,12 +177,13 @@
 	/**
 	 * Gallery upload field
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
 	 * @author      WebMan
-	 * @version     1.0
 	 * @return      string Image IDs separated with commas (such as "123,124,125")
+	 *
+	 * @since    1.0
+	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_gallery' ) ) {
 		function wma_field_gallery( $field, $page_template = null ) {
@@ -238,15 +241,13 @@
 					echo $output;
 
 				//Conditional display
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional', $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-					do_action( WM_METABOX_HOOK_PREFIX . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
 
 				echo "\r\n\t" . '</td></tr>';
 		}
 	} // /wma_field_gallery
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'render_' . 'gallery', 'wma_field_gallery', 10, 2 );
+	add_action( 'wmhook_metabox_' . 'render_' . 'gallery', 'wma_field_gallery', 10, 2 );
 
 
 
@@ -267,7 +268,7 @@
 		}
 	} // /wma_field_gallery_validation
 
-	add_action( WM_METABOX_HOOK_PREFIX . 'saving_' . 'gallery', 'wma_field_gallery_validation', 10, 3 );
+	add_action( 'wmhook_metabox_' . 'saving_' . 'gallery', 'wma_field_gallery_validation', 10, 3 );
 
 
 
