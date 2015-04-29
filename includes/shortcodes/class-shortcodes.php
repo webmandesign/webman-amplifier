@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.1.7
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -861,7 +861,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * @todo  Support for Frontend Editor (VC4+)
 				 *
 				 * @since    1.0
-				 * @version  1.1
+				 * @version  1.1.7
 				 *
 				 * @access  public
 				 */
@@ -878,6 +878,13 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					//VC setup screen modifications
 						add_filter( 'vc_settings_tabs', array( $this, 'visual_composer_setup' ) );
 						delete_option( 'wpb_js_use_custom' );
+
+					//Disable VC Guide Tour
+						if ( function_exists( 'vc_editor_post_types' ) ) {
+							foreach ( vc_editor_post_types() as $post_type ) {
+								add_filter( 'vc_ui-pointers-' . $post_type, '__return_empty_array', 999 );
+							}
+						}
 
 					//VC extending shortcode parameters
 						add_shortcode_param( 'wm_radio',  array( $this, 'visual_composer_custom_field_wm_radio' ) );
@@ -942,17 +949,21 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 *
 				 * http://vc.wpbakery.com/
 				 *
-				 * @since   1.0
+				 * @since    1.0
+				 * @version  1.1.7
+				 *
 				 * @access  public
 				 *
-				 * @param   array $tabs
+				 * @param  array $tabs
 				 */
 				public function visual_composer_setup( $tabs = array() ) {
 					$tabs_original = $tabs;
 
 					unset( $tabs['color'] );
+					unset( $tabs['vc-color'] );
 					unset( $tabs['element_css'] );
 					unset( $tabs['custom_css'] );
+					unset( $tabs['vc-custom_css'] );
 
 					return apply_filters( 'wmhook_shortcode_' . 'vc_setup' . '_output', $tabs, $tabs_original );
 				} // /visual_composer_setup
@@ -1262,7 +1273,7 @@ if ( is_multisite() && ! class_exists( 'FLBuilderMultisite' ) ) {
  * Additional Visual Composer requirements
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.1.7
  */
 if ( wma_is_active_vc() ) {
 
@@ -1270,17 +1281,27 @@ if ( wma_is_active_vc() ) {
 	 * Removing Visual Composer 4.4 "Grid Elements" custom post type
 	 *
 	 * @since    1.1
-	 * @version  1.1
+	 * @version  1.1.7
 	 *
 	 * @access  public
 	 */
 	if ( ! function_exists( 'wma_vc_custom_post_removal' ) ) {
 		function wma_vc_custom_post_removal() {
-			global $wp_post_types;
+			global $wp_post_types, $vc_teaser_box;
 
 			if ( isset( $wp_post_types['vc_grid_item'] ) ) {
+
 				unset( $wp_post_types['vc_grid_item'] );
 				// remove_menu_page( 'edit.php?post_type=vc_grid_item' );
+
+				if ( function_exists( 'vc_menu_page_build' ) ) {
+					remove_action( 'vc_menu_page_build', 'vc_gitem_add_submenu_page' );
+				}
+
+				if ( isset( $vc_teaser_box ) && is_object( $vc_teaser_box ) ) {
+					remove_action( 'admin_init', array( $vc_teaser_box, 'jsComposerEditPage' ), 6 );
+				}
+
 			}
 		}
 	} // /wma_vc_custom_post_removal

@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0.9.5
- * @version  1.1
+ * @version  1.1.7
  */
 
 
@@ -93,7 +93,7 @@
 			position: relative;
 			height: 32px;
 			padding: 0;
-			margin-top: -34px;
+			margin-top: -32px;
 			background: #fff;
 			border: 1px solid #d6d6d6;
 			-webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0, .2);

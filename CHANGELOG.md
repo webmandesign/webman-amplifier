@@ -1,5 +1,16 @@
 # WebMan Amplifier Changelog
 
+## 1.1.7
+
+* Updated: Compatibility with Visual Composer 4.5
+
+#### Files changed:
+
+	assets/css/shortcodes-vc-addons.css
+	assets/css/dev/shortcodes-vc-addons.dev.css
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.1.6
 
 * Updated: Security tightening

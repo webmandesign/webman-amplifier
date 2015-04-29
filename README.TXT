@@ -90,6 +90,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.1.7 =
+Added compatibility with Visual Composer 4.5.
+
 = 1.1.6 =
 Code, security and page builders support improvements.
 
