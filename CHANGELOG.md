@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.1.7.5
+
+* Updated: Contact Widget anti-spam protection
+
+#### Files changed:
+
+	includes/widgets/w-contact.php
+
+
 ## 1.1.7
 
 * Updated: Compatibility with Visual Composer 4.5

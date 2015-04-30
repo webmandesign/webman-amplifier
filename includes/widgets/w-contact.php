@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.1
+ * @version  1.1.7.5
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _ex( 'Displays specially styled contact information. JavaScript anti-spam protection will be applied on the email address (also, email will not be displayed when JavaScript is turned off).', 'Widget description.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays specially styled contact information. Anti-spam protection will be applied on the email address.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label>
@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p>
 					<label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php _e( 'Email address:', 'wm_domain' ) ?></label>
 					<textarea cols="50" rows="2" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"><?php echo esc_textarea( $instance['email'] ); ?></textarea>
-					<small><?php _e( 'JavaScript anti-spam protection applied', 'wm_domain' ); ?></small>
+					<small><?php _e( 'Anti-spam protection applied automatically', 'wm_domain' ); ?></small>
 				</p>
 				<?php
 
@@ -168,6 +168,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Widget HTML
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.1.7.5
 		 */
 		function widget( $args, $instance ) {
 
@@ -221,8 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 						if ( $matches && is_array( $matches ) ) {
 							foreach ( $matches[0] as $email ) {
-								$email_nospam = ( function_exists( 'wm_nospam' ) ) ? ( wm_nospam( $email ) ) : ( $email );
-								$instance['email'] = str_replace( $email, '<a href="#" data-address="' . $email_nospam . '" class="email-nospam">' . $email_nospam . '</a>', $instance['email'] );
+								$instance['email'] = str_replace( $email, '<a href="' . antispambot( 'mailto:' . $email ) . '" data-address="' . antispambot( $email ) . '" class="email-nospam">' . antispambot( $email ) . '</a>', $instance['email'] );
 							}
 						}
 
