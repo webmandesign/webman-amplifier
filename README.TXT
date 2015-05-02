@@ -14,7 +14,11 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 
 == Description ==
 
-> **Before you rate the plugin**, please note that the plugin was created **for WordPress theme developers**. If you are a normal, non-tech-savvy WordPress user, this plugin will be disappointing for you as it was created for different purpose. If you are a theme developer and have any issue with the plugin, please, consider rising a ticket at [WebMan Support Forum](http://support.webmandesign.eu/) first, before you rate the plugin.
+> ** Before you rate/review the plugin: **
+>
+> Please note that the plugin was created **for WordPress theme developers**. *If you are a normal, non-tech-savvy WordPress user*, this plugin will be disappointing for you and you don't need to install it as it was created for different purpose.
+>
+> *If you are a theme developer* and have any issue with the plugin, please, consider rising a ticket at [WebMan Support Forum](http://support.webmandesign.eu/) first, before you rate the plugin.
 
 **[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
 
