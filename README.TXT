@@ -14,7 +14,7 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 
 == Description ==
 
-> ** Before you rate/review the plugin: **
+> **Before you rate/review the plugin:**
 >
 > Please note that the plugin was created **for WordPress theme developers**. *If you are a normal, non-tech-savvy WordPress user*, this plugin will be disappointing for you and you don't need to install it as it was created for different purpose.
 >
