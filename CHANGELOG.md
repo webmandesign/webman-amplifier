@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.1.7.6
+
+* Updated: Removing `uninstall.php` file to prevent possible issues when deleting the plugin via WordPress dashboard
+
+#### Files removed:
+
+	uninstall.php
+
+
 ## 1.1.7.5
 
 * Updated: Contact Widget anti-spam protection

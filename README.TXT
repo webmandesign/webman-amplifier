@@ -96,6 +96,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.1.7.6 =
+Removing `uninstall.php` file to prevent possible issues when deleting the plugin via WordPress dashboard.
+
 = 1.1.7.5 =
 Contact widget anti-spam protection updated.
 
