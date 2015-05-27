@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @uses   $codes_globals['sizes']['values']
  *
@@ -108,7 +108,7 @@
 
 		//Enqueue scripts
 			$enqueue_scripts = array(
-					'wm-jquery-lwtCountdown'
+					'jquery-lwtCountdown'
 				);
 
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );

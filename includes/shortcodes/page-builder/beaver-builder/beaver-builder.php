@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.1.5
+ * @version  1.2
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -67,14 +67,17 @@
 	 * Upgrade link URL
 	 *
 	 * @since    1.1.6
-	 * @version  1.1.6
+	 * @version  1.2
 	 *
 	 * @param  string $url
 	 */
 	if ( ! function_exists( 'wma_bb_upgrade_url' ) ) {
 		function wma_bb_upgrade_url( $url ) {
-			//Output
-				return $url . '&fla=67';
+
+			// Output
+
+				return esc_url( add_query_arg( 'fla', '67', $url ) );
+
 		}
 	} // /wma_bb_upgrade_url
 
@@ -84,7 +87,7 @@
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.1.6
+	 * @version  1.2
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
@@ -99,7 +102,7 @@
 
 				$custom_modules_category = _x( 'WM Modules', 'Page builder modules category name.', 'wm_domain' );
 
-				if ( apply_filters( 'wma_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
+				if ( apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
 					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); //Taking translation from Beaver Builder plugin
 				}
 
@@ -227,7 +230,7 @@
 	 * Module output
 	 *
 	 * @since    1.1
-	 * @version  1.1.5
+	 * @version  1.2
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -283,7 +286,7 @@
 									}
 
 								$replace = ( 'content' === $param ) ? ( $value ) : ( ' ' . $param . '="' . $value . '"' );
-								$replace = apply_filters( 'wma_bb_custom_module_output_parent_replace', $replace, $module, $param, $settings );
+								$replace = apply_filters( 'wmhook_shortcode_wma_bb_custom_module_output_parent_replace', $replace, $module, $param, $settings );
 
 							}
 
@@ -330,7 +333,7 @@
 											}
 
 										$replace = ( 'content' === $param ) ? ( $value ) : ( ' ' . $param . '="' . $value . '"' );
-										$replace = apply_filters( 'wma_bb_custom_module_output_child_replace', $replace, $module, $param, $child, $settings );
+										$replace = apply_filters( 'wmhook_shortcode_wma_bb_custom_module_output_child_replace', $replace, $module, $param, $child, $settings );
 
 									}
 
@@ -351,7 +354,7 @@
 
 					$shortcode_output = str_replace( array( '{{children}}', '{{items}}' ), $replace_children, $output['parent'] );
 
-					$shortcode_output = apply_filters( 'wma_bb_custom_module_output', $shortcode_output, $module, $settings );
+					$shortcode_output = apply_filters( 'wmhook_shortcode_wma_bb_custom_module_output', $shortcode_output, $module, $settings );
 
 			//Output
 				echo $shortcode_output;

@@ -7,7 +7,7 @@
  * You can use "Description" field of images to set the custom link on them.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string class
  * @param  string ids
@@ -97,7 +97,7 @@
 
 //Enqueue scripts
 	$enqueue_scripts = array(
-			'wm-jquery-owl-carousel',
+			'jquery-owl-carousel',
 			'wm-shortcodes-slideshow'
 		);
 

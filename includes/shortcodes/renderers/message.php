@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @uses   $this->$codes_globals['colors'], $codes_globals['sizes']['values']
  *
@@ -58,7 +58,7 @@
 		$atts['title'] = trim( $atts['title'] );
 		if ( $atts['title'] ) {
 			$atts['title'] = strip_tags( $atts['title'], $this->inline_tags );
-			$atts['title'] = '<' . esc_attr( $atts['heading_tag'] ) . ' class="wm-message-title wm-message-element">' . $atts['title'] . '</' . esc_attr( $atts['heading_tag'] ) . '>';
+			$atts['title'] = '<' . tag_escape( $atts['heading_tag'] ) . ' class="wm-message-title wm-message-element">' . $atts['title'] . '</' . tag_escape( $atts['heading_tag'] ) . '>';
 		}
 	//class
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string align
  * @param  string class
@@ -171,7 +171,7 @@
 					);
 			} else {
 				$query_args = array(
-						'paged'               => ( $atts['pagination'] ) ? ( $paged ) : ( 1 ),
+						'paged'               => 1,
 						'post_type'           => $atts['post_type'],
 						'posts_per_page'      => $atts['count'],
 						'ignore_sticky_posts' => 1,
@@ -184,6 +184,12 @@
 						'field'    => 'slug',
 						'terms'    => explode( ',', $atts['tag'][1] )
 					) );
+				}
+
+				if ( $atts['pagination'] ) {
+					$query_args['paged'] = $paged;
+				} else {
+					$query_args['no_found_rows'] = true;
 				}
 			}
 
@@ -306,7 +312,7 @@
 							'image'    => '',
 							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . apply_filters( 'wmhook_shortcode_' . 'read_more_text', __( 'Read more', 'wm_domain' ), $shortcode, $post_id, $atts ) . '</a></div>' ) : ( '' ),
 							'tag'      => '',
-							'title'    => ( $helpers['link'] ) ? ( '<header class="wm-content-module-element wm-html-element title"><' . esc_attr( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . esc_attr( $atts['heading_tag'] ) . '></header>' ) : ( '<header class="wm-content-module-element wm-html-element title"><' . esc_attr( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . esc_attr( $atts['heading_tag'] ) . '></header>' ),
+							'title'    => ( $helpers['link'] ) ? ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></header>' ) : ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></header>' ),
 						);
 
 					//image layout element
@@ -424,12 +430,12 @@
 			$enqueue_scripts = array();
 			if ( $atts['scroll'] ) {
 				$enqueue_scripts = array(
-						'wm-jquery-owl-carousel',
+						'jquery-owl-carousel',
 						'wm-shortcodes-posts'
 					);
 			} elseif ( $atts['filter'] ) {
 				$enqueue_scripts = array(
-						'wm-isotope',
+						'isotope',
 						'wm-shortcodes-posts'
 					);
 			} elseif ( $masonry_layout ) {

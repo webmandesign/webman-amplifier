@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -123,7 +123,7 @@
 					);
 			} else {
 				$query_args = array(
-						'paged'               => ( $atts['pagination'] ) ? ( $paged ) : ( 1 ),
+						'paged'               => 1,
 						'post_type'           => $atts['post_type'],
 						'posts_per_page'      => $atts['count'],
 						'ignore_sticky_posts' => 1,
@@ -136,6 +136,12 @@
 						'field'    => 'slug',
 						'terms'    => explode( ',', $atts['category'][1] )
 					) );
+				}
+
+				if ( $atts['pagination'] ) {
+					$query_args['paged'] = $paged;
+				} else {
+					$query_args['no_found_rows'] = true;
 				}
 			}
 
@@ -290,7 +296,7 @@
 			$enqueue_scripts = array();
 			if ( $atts['scroll'] ) {
 				$enqueue_scripts = array(
-						'wm-jquery-owl-carousel',
+						'jquery-owl-carousel',
 						'wm-shortcodes-posts'
 					);
 			} elseif ( $masonry_layout ) {

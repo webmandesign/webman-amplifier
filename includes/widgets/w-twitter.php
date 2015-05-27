@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.1
+ * @version  1.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -85,10 +85,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Helper variables
 				$atts = array();
 
-				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
-
 				$atts['id']          = 'wm-twitter';
-				$atts['name']       .= _x( 'Twitter', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Twitter', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-twitter',
 						'description' => _x( 'Your recent tweets', 'Widget description.', 'wm_domain' )
@@ -98,11 +96,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts = apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_atts', $atts );
 
 				//Set globals
-					$transient_prefix = ( defined( 'WM_THEME_SHORTNAME' ) ) ? ( WM_THEME_SHORTNAME . '_' ) : ( 'wmamp_' );
-
-					$this->user_transient = $transient_prefix . 'twitter_v2_user_';
-					$this->tweets_option  = $transient_prefix . 'twitter_v2_tweets_';
-					$this->twitter_api    = $transient_prefix . 'twitter_v2_api';
+					$this->user_transient = 'wmamp_twitter_v2_user_';
+					$this->tweets_option  = 'wmamp_twitter_v2_tweets_';
+					$this->twitter_api    = 'wmamp_twitter_v2_api';
 
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
@@ -233,8 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							$instance['username'] != $old_instance['username']
 							|| $instance['count'] != $old_instance['count']
 						) {
-						$transient_prefix = ( defined( 'WM_THEME_SHORTNAME' ) ) ? ( WM_THEME_SHORTNAME . '_' ) : ( 'wmamp_' );
-						delete_transient( $transient_prefix . 'tweets_id_' . esc_attr( $instance['username'] ) );
+						delete_transient( 'wmamp_tweets_id_' . esc_attr( $instance['username'] ) );
 					}
 
 			//Output

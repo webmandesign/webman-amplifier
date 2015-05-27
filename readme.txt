@@ -96,6 +96,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2 =
+Fixed compatibility with Visual Composer 4.5.2+, optimized code and fixed bugs.
+
 = 1.1.7.6 =
 Removing `uninstall.php` file to prevent possible issues when deleting the plugin via WordPress dashboard.
 

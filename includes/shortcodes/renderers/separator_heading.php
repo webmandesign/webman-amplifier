@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string align
  * @param  string class
@@ -39,11 +39,6 @@
 		if ( $atts['id'] ) {
 			$atts['id'] = ' id="' . esc_attr( $atts['id'] ) . '"';
 		}
-	//tag
-		$atts['tag'] = strtolower( trim( $atts['tag'] ) );
-		if ( ! in_array( $atts['tag'], array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div' ) ) ) {
-			$atts['tag'] = 'h2';
-		}
 	//content
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
@@ -58,6 +53,6 @@
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 //Output
-	$output = '<' . esc_attr( $atts['tag'] ) . $atts['id'] . ' class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</' . esc_attr( $atts['tag'] ) . '>';
+	$output = '<' . tag_escape( $atts['tag'] ) . $atts['id'] . ' class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</' . tag_escape( $atts['tag'] ) . '>';
 
 ?>

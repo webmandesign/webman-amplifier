@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.1.3
+ * @version	 1.2
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -152,7 +152,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.1.3
+			 * @version  1.2
 			 *
 			 * @access  public
 			 */
@@ -161,7 +161,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					$actions = array(
 						'load_textdomain'               => 'plugins_loaded',             //Load textdomain
 						'register_metaboxes'            => 'plugins_loaded',             //Register metaboxes
-						'register_widgets'              => 'widgets_init|-10',           //Register widgets
+						'register_widgets'              => 'init|-10',                   //Register widgets
 						'save_permalinks'               => 'init',                       //Save custom permalinks
 						'register_post_types'           => 'init',                       //Register post types
 						'custom_taxonomies'             => 'init|98',                    //Register additional custom taxonomies
@@ -750,14 +750,15 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Plugin deactivation
 			 *
-			 * @since   1.0.9.9
+			 * @since    1.0.9.9
+			 * @version  1.2
+			 *
 			 * @access  public
 			 */
 			public function deactivate( $newname, $newtheme ) {
 				if (
 					current_user_can( 'activate_plugins' )
-					&& defined( 'WM_THEME_NAME' )
-					&& WM_THEME_NAME !== $newname
+					&& wp_get_theme()->get( 'Name' ) !== $newname
 					&& get_transient( 'wmamp-deactivate' )
 				) {
 					delete_transient( 'wmamp-deactivate' );

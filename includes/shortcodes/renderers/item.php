@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string icon
  * @param  string heading_tag (heading tag setup option for better SEO)
@@ -67,7 +67,7 @@
 	//Markup for "wm_accordion" parent shortcode
 
 		$output  = "\r\n" . '<div class="' .  esc_attr( trim( $atts['class']['wrapper'] . ' ' . $atts['tags'] ) ) . '">';
-		$output .= '<' . esc_attr( $atts['heading_tag'] ) . ' class="wm-item-title ' . esc_attr( trim( $atts['class']['title'] . ' ' . $atts['tags'] ) ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-tag-names="' . esc_attr( implode( '|', $atts['tag_names'] ) ) . '">' . $atts['title'] . '</' . esc_attr( $atts['heading_tag'] ) . '>';
+		$output .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="wm-item-title ' . esc_attr( trim( $atts['class']['title'] . ' ' . $atts['tags'] ) ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-tag-names="' . esc_attr( implode( '|', $atts['tag_names'] ) ) . '">' . $atts['title'] . '</' . tag_escape( $atts['heading_tag'] ) . '>';
 		$output .= '<div class="' . esc_attr( trim( $atts['class']['content'] . ' ' . sanitize_html_class( strip_tags( $atts['title'] ) ) ) ) . '">' . $atts['content'] . '</div>';
 		$output .= '</div>' . "\r\n";
 

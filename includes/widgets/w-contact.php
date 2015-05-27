@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.1.7.5
+ * @version  1.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -66,10 +66,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Helper variables
 				$atts = array();
 
-				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
-
 				$atts['id']          = 'wm-contact-info';
-				$atts['name']       .= _x( 'Contact', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-contact-info',
 						'description' => _x( 'Contact information', 'Widget description.', 'wm_domain' )

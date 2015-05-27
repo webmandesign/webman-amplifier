@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.1
+ * @version  1.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -82,10 +82,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Helper variables
 				$atts = array();
 
-				$atts['name'] = ( defined( 'WM_THEME_NAME' ) ) ? ( WM_THEME_NAME . ' ' ) : ( '' );
-
 				$atts['id']          = 'wm-tabbed-widgets';
-				$atts['name']       .= _x( 'Tabbed Widgets', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-tabbed-widgets',
 						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'wm_domain' )

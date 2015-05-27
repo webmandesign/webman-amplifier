@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @uses   $codes_globals['post_types']
  *
@@ -171,7 +171,7 @@
 	//Get the posts
 		//Set query arguments
 			$query_args = array(
-					'paged'               => ( $atts['pagination'] ) ? ( $paged ) : ( 1 ),
+					'paged'               => 1,
 					'post_type'           => $atts['post_type'],
 					'posts_per_page'      => $atts['count'],
 					'ignore_sticky_posts' => 1,
@@ -191,6 +191,12 @@
 			}
 			if ( $atts['related'] && get_the_ID() ) {
 				$query_args['post__not_in'] = array( get_the_ID() );
+			}
+
+			if ( $atts['pagination'] ) {
+				$query_args['paged'] = $paged;
+			} else {
+				$query_args['no_found_rows'] = true;
 			}
 
 			//Allow filtering the query
@@ -436,12 +442,12 @@
 			$enqueue_scripts = array();
 			if ( $atts['scroll'] ) {
 				$enqueue_scripts = array(
-						'wm-jquery-owl-carousel',
+						'jquery-owl-carousel',
 						'wm-shortcodes-posts'
 					);
 			} elseif ( $atts['filter'] ) {
 				$enqueue_scripts = array(
-						'wm-isotope',
+						'isotope',
 						'wm-shortcodes-posts'
 					);
 			} elseif ( $masonry_layout ) {

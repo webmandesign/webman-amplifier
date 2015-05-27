@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  */
 
 
@@ -459,9 +459,10 @@
 	/**
 	 * Sidebar (display widget area)
 	 *
-	 * @since   1.0
+	 * @since    1.0
+	 * @version  1.2
 	 *
-	 * @param   array $atts Setup attributes.
+	 * @param  array $atts Setup attributes.
 	 *
 	 * @return  Sidebar HTML (with a special class of number of included widgets).
 	 */
@@ -542,7 +543,7 @@
 							$output .= wmhook_sidebars_before();
 						}
 
-						$output .= "\r\n\r\n" . '<' . $atts['tag'] . ' class="' . $atts['class'] . '" data-id="' . $atts['sidebar'] . '" data-widgets-count="' . count( $atts['widgets'] ) . '"' . $atts['attributes'] . '>' . "\r\n"; //data-id is to prevent double ID attributes on the website
+						$output .= "\r\n\r\n" . '<' . tag_escape( $atts['tag'] ) . ' class="' . $atts['class'] . '" data-id="' . $atts['sidebar'] . '" data-widgets-count="' . count( $atts['widgets'] ) . '"' . $atts['attributes'] . '>' . "\r\n"; //data-id is to prevent double ID attributes on the website
 
 							$output .= apply_filters( 'wmhook_wmamp_' . 'sidebar_widgets_pre', '', $atts );
 
@@ -565,7 +566,7 @@
 
 							$output .= apply_filters( 'wmhook_wmamp_' . 'sidebar_widgets_post', '', $atts );
 
-						$output .= "\r\n" . '</' . $atts['tag'] . '>' . "\r\n\r\n";
+						$output .= "\r\n" . '</' . tag_escape( $atts['tag'] ) . '>' . "\r\n\r\n";
 
 						if ( function_exists( 'wmhook_sidebars_after' ) ) {
 							$output .= wmhook_sidebars_after();

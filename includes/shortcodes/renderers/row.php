@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
@@ -180,7 +180,7 @@
 	$enqueue_scripts = array();
 	if ( $atts['parallax'] ) {
 		$enqueue_scripts = array(
-				'wm-jquery-parallax',
+				'jquery-parallax',
 				'wm-shortcodes-parallax'
 			);
 	}

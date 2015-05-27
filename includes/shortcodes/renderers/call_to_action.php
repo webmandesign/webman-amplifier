@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2
  *
  * @uses   $codes_globals['colors'], $codes_globals['sizes']['values']
  *
@@ -69,7 +69,7 @@
 	//caption
 		$atts['caption'] = trim( $atts['caption'] );
 		if ( $atts['caption'] ) {
-			$atts['caption'] = '<div class="wm-call-to-action-caption wm-call-to-action-element"><' . $atts['heading_tag'] . '>' . $atts['caption'] . '</' . $atts['heading_tag'] . '></div>';
+			$atts['caption'] = '<div class="wm-call-to-action-caption wm-call-to-action-element"><' . tag_escape( $atts['heading_tag'] ) . '>' . $atts['caption'] . '</' . tag_escape( $atts['heading_tag'] ) . '></div>';
 		}
 	//button_class
 		$atts['button_class'] = trim( 'wm-button ' . trim( $atts['button_class'] ) );
