@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2
+ * @version  1.2.1
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -428,41 +428,66 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		private function filter_tweet( $text ) {
 
-			if ( apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_enable_filter_tweet', true ) ) {
+			// Processing
 
-				//Preparing output
-					/**
-					 * Fix for some special characters that might be in the actual tweet,
-					 * but breaks the WordPress database record (breaks serialization of array).
-					 */
-					$text = esc_textarea( $text );
-					$text = html_entity_decode( str_replace( '&#039;', "'", $text ) );
+				if ( apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_enable_filter_tweet', true ) ) {
 
-					//Create links from Twitter predefined strings
-						$text = preg_replace(
-							'/\b([a-zA-Z]+:\/\/[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',
-							"<a href=\"$1\" class=\"twitter-link\">$1</a>",
-							$text );
-						$text = preg_replace(
-							'/\b(?<!:\/\/)(www\.[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',
-							"<a href=\"http://$1\" class=\"twitter-link\">$1</a>",
-							$text );
-						$text = preg_replace(
-							"/\b([a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]*\@[a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]{2,6})\b/i",
-							"<a href=\"mailto://$1\" class=\"twitter-link\">$1</a>",
-							$text );
-						$text = preg_replace(
-							"/#(\w+)/",
-							"<a class=\"twitter-link\" href=\"http://search.twitter.com/search?q=\\1\">#\\1</a>",
-							$text );
-						$text = preg_replace(
-							"/@(\w+)/",
-							"<a class=\"twitter-link\" href=\"http://twitter.com/\\1\">@\\1</a>",
-							$text );
+					// Preparing output
 
-			}
+						/**
+						 * Fix for some special characters that might be in the actual tweet,
+						 * but breaks the WordPress database record (breaks serialization of array).
+						 */
+						$text = esc_textarea( $text );
+						$text = html_entity_decode( str_replace( '&#039;', "'", $text ) );
 
-			//Output
+						// Create links from Twitter predefined strings
+
+							// For full "http://..." links
+
+								$text = preg_replace(
+										'/\b([a-zA-Z]+:\/\/[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',
+										"<a href=\"$1\" class=\"twitter-link\">$1</a>",
+										$text
+									);
+
+							// For links starting with "www" only
+
+								$text = preg_replace(
+										'/\b(?<!:\/\/)(www\.[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',
+										"<a href=\"http://$1\" class=\"twitter-link\">$1</a>",
+										$text
+									);
+
+							// Email links
+
+								$text = preg_replace(
+										"/\b([a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]*\@[a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]{2,6})\b/i",
+										"<a href=\"mailto://$1\" class=\"twitter-link\">$1</a>",
+										$text
+									);
+
+							// Hashtags
+
+								$text = preg_replace(
+										"/#(\w+)/",
+										"<a class=\"twitter-link\" href=\"http://twitter.com/hashtag/\\1\">#\\1</a>",
+										$text
+									);
+
+							// User account links ("@username")
+
+								$text = preg_replace(
+										"/@(\w+)/",
+										"<a class=\"twitter-link\" href=\"http://twitter.com/\\1\">@\\1</a>",
+										$text
+									);
+
+				}
+
+
+			// Output
+
 				return apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_filter_tweet', $text );
 
 		} // /filter_tweet

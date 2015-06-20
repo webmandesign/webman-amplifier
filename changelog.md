@@ -1,5 +1,16 @@
 # WebMan Amplifier Changelog
 
+## 1.2.1
+
+* **Update**: Font Awesome 4.3
+* **Fix**: Hashtag links in Twitter widget
+
+#### Files removed:
+
+	assets/font/*.*
+	includes/widgets/w-twitter.php
+
+
 ## 1.2
 
 * **Add**: Visual Composer 4.5.2 compatibility (fixed the `content` parameter not being parsed)

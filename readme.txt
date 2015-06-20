@@ -96,6 +96,9 @@ Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.1 =
+Fixed hashtag links in Twitter widget, updated Font Awesome to version 4.3.
+
 = 1.2 =
 Fixed compatibility with Visual Composer 4.5.2+, optimized code and fixed bugs.
 
