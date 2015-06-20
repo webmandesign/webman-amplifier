@@ -5,7 +5,7 @@
 * **Update**: Font Awesome 4.3
 * **Fix**: Hashtag links in Twitter widget
 
-#### Files removed:
+#### Files changed:
 
 	assets/font/*.*
 	includes/widgets/w-twitter.php
@@ -22,7 +22,7 @@
 * **Update**: Beaver Builder affiliate link updated
 * **Fix**: Filter hook names for Beaver Builder page builder integration
 
-#### Files removed:
+#### Files changed:
 
 	class-wm-amplifier.php
 	includes/functions.php
