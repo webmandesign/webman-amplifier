@@ -9,7 +9,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2.2
  */
 
 
@@ -21,41 +21,49 @@
 	/**
 	 * Radio buttons
 	 *
-	 * @package	    WebMan Amplifier
-	 * @subpackage  Metabox
-	 *
 	 * @since    1.0
-	 * @version  1.1.6
+	 * @version  1.2.2
 	 */
-	if ( ! function_exists( 'wma_field_radio' ) ) {
-		function wma_field_radio( $field, $page_template = null ) {
-			//Field definition array
+	function wma_field_radio( $field, $page_template = null ) {
+
+		// Helper variables
+
+			// Definition
+
 				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'type'        => 'radio',  //Field type name *
-						'id'          => 'id',     //Field ID (form field name) *
-						'label'       => '',       //Field label
-						'description' => '',       //Field description
-						'class'       => '',       //Additional CSS class
-						'options'     => array(),  //Radio options (array( key => value ))
-						'default'     => '',       //Default value
-						'inline'      => false,    //By default the radio buttons are displayed as list. You can align them in a row here.
-						'repeater'    => false,    //Special values when used in Repeater field
-						'custom'      => '',       //Custom label HTML (use "{{value}}"" to substitute for current item value and "{{name}}"" to display the item name)
-						'hide-radio'  => false,    //If set to true, the ".hide" CSS class will be applied on radio input field (useful with custom label HTML)
-						'conditional' => '',       //Conditional display setup
+						// DEFAULTS:
+						// * = Required setting
+						'type'        => 'radio',  // Field type name *
+						'id'          => 'id',     // Field ID (form field name) *
+						'label'       => '',       // Field label
+						'description' => '',       // Field description
+						'class'       => '',       // Additional CSS class
+						'options'     => array(),  // Radio options (array( key => value ))
+						'default'     => '',       // Default value
+						'inline'      => false,    // By default the radio buttons are displayed as list. You can align them in a row here.
+						'filter'      => false,    // Whether to display filter. Only for custom HTML radios.
+						'repeater'    => false,    // Special values when used in Repeater field
+						'custom'      => '',       // Custom label HTML (use "{{value}}"" to substitute for current item value and "{{name}}"" to display the item name)
+						'hide-radio'  => false,    // If set to true, the ".hide" CSS class will be applied on radio input field (useful with custom label HTML)
+						'conditional' => '',       // Conditional display setup
 					) );
 
-			//Alter class when custom label HTML used
+			// Alter class when custom label HTML used
+
 				if ( trim( $field['custom'] ) ) {
 					$field['class'] = 'custom-label ' . $field['class'];
 				}
+
 				if ( $field['hide-radio'] ) {
 					$field['hide-radio'] = ' hide';
 				}
 
-			//Value processing
+				if ( $field['filter'] ) {
+					$field['class'] .= ' filterable';
+				}
+
+			// Value processing
+
 				if (
 						$field['repeater']
 						&& is_array( $field['repeater'] )
@@ -72,7 +80,8 @@
 					$value = esc_attr( $field['default'] );
 				}
 
-			//Field ID setup
+			// Field ID setup
+
 				if (
 						$field['repeater']
 						&& is_array( $field['repeater'] )
@@ -83,46 +92,88 @@
 					$field['id'] = WM_METABOX_FIELD_PREFIX . $field['id'];
 				}
 
-			//Output
-				$output  = "\r\n\t" . '<tr class="option radio-wrap option-' . trim( $field['id'] . ' ' . $field['class'] ) . '" data-option="' . $field['id'] . '"><th>';
-					//Radio group label
-						$output .= "\r\n\t\t" . '<strong class="label">' . trim( strip_tags( $field['label'], WM_METABOX_LABEL_HTML ) ) . '</strong>';
-					//Description
-						if ( trim( $field['description'] ) ) {
-							$output .= "\r\n\t\t" . '<p class="description">' . trim( $field['description'] ) . '</p>';
-						}
-				$output .= "\r\n\t" . '</th><td>';
-					//Input field
+
+		// Output
+
+			$output = "\r\n\t" . '<tr class="option radio-wrap option-' . esc_attr( trim( $field['id'] . ' ' . $field['class'] ) ) . '" data-option="' . esc_attr( $field['id'] ) . '"><th>';
+
+				// Radio group label
+
+					$output .= "\r\n\t\t" . '<strong class="label">' . trim( strip_tags( $field['label'], WM_METABOX_LABEL_HTML ) ) . '</strong>';
+
+				// Description
+
+					if ( trim( $field['description'] ) ) {
+						$output .= "\r\n\t\t" . '<p class="description">' . trim( $field['description'] ) . '</p>';
+					}
+
+				// Filter
+
+					if ( $field['filter'] ) {
+						$output .= "\r\n\t\t" . '<p class="filter"><input type="text" value="" placeholder="' . esc_attr__( 'Filter: start typing...', 'wm_domain' ) . '" class="filter-text" /></p>';
+					}
+
+			$output .= "\r\n\t" . '</th><td>';
+
+				// Input field
+
 					if ( is_array( $field['options'] ) && ! empty( $field['options'] ) ) {
+
 						$i = 0;
+
+						$output .= "\r\n\t" . '<div class="radio-items">';
+
 						foreach ( $field['options'] as $option_value => $option ) {
+
 							$i++;
+
 							$output .= "\r\n\t\t";
-							$output .= ( ! $field['inline'] ) ? ( '<p>' ) : ( '<span class="inline-radio">' );
+							$output .= ( ! $field['inline'] ) ? ( '<p class="radio-item"' ) : ( '<span class="radio-item inline-radio"' );
+							$output .= ' data-value="' . esc_attr( $option_value ) . '">';
+
 								$checked = trim( checked( $value, $option_value, false ) . ' /' );
 								$option  = trim( strip_tags( $option, WM_METABOX_LABEL_HTML ) );
+
 								if ( ! trim( $field['custom'] ) ) {
-									$output .= '<input type="' . $field['type'] . '" name="' . $field['id'] . '" id="' . $field['id'] . '-' . $i . '" value="' . $option_value . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio" ' . $checked . '> ';
-									$output .= '<label for="' . $field['id'] . '-' . $i . '">' . $option . '</label>';
+
+									$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio" ' . $checked . '> ';
+
+									$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . $option . '</label>';
+
 								} else {
-									$output .= '<label for="' . $field['id'] . '-' . $i . '">' . trim( str_replace( array( '{{value}}', '{{name}}' ), array( $option_value, $option ), $field['custom'] ) ) . '</label>';
-									$output .= '<input type="' . $field['type'] . '" name="' . $field['id'] . '" id="' . $field['id'] . '-' . $i . '" value="' . $option_value . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio' . $field['hide-radio'] . '" ' . $checked . '>';
+
+									$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . trim( str_replace(
+											array( '{{value}}', '{{name}}' ),
+											array( $option_value, $option ),
+											$field['custom']
+										) ) . '</label>';
+
+									$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio' . esc_attr( $field['hide-radio'] ) . '" ' . $checked . '>';
+
 								}
+
 							$output .= ( ! $field['inline'] ) ? ( '</p>' ) : ( '</span> ' );
-						}
+
+						} // /foreach
+
+						$output .= "\r\n\t" . '</div>';
+
 					}
-					//Reset default value button
-						if ( trim( $field['default'] ) ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
-						}
 
-					echo $output;
+				// Reset default value button
 
-				//Conditional display
-					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
+					if ( trim( $field['default'] ) ) {
+						$output .= "\r\n\t\t" . '<a data-option="' . esc_attr( $field['id'] ) . '" class="button-default-value" title="' . esc_attr__( 'Use a default value', 'wm_domain' ) . '"><span>' . esc_attr( $field['default'] ) . '</span></a>';
+					}
 
-				echo "\r\n\t" . '</td></tr>';
-		}
+				echo $output;
+
+			// Conditional display
+
+				do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
+
+			echo "\r\n\t" . '</td></tr>';
+
 	} // /wma_field_radio
 
 	add_action( 'wmhook_metabox_' . 'render_' . 'radio', 'wma_field_radio', 10, 2 );
@@ -132,20 +183,15 @@
 	/**
 	 * Radio buttons validation
 	 *
-	 * @since       1.0
-	 * @package	    WebMan Amplifier
-	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 * @since    1.0
+	 * @version  1.2.2
 	 */
-	if ( ! function_exists( 'wma_field_radio_validation' ) ) {
-		function wma_field_radio_validation( $new, $field, $post_id ) {
-			$new = esc_attr( $new );
+	function wma_field_radio_validation( $new, $field, $post_id ) {
 
-			return $new;
-		}
+		// Output
+
+			return esc_attr( $new );
+
 	} // /wma_field_radio_validation
 
 	add_action( 'wmhook_metabox_' . 'saving_' . 'radio', 'wma_field_radio_validation', 10, 3 );
-
-?>

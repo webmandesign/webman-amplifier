@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2.2
  */
 
 
@@ -335,7 +335,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register metabox fields
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.2
 	 */
 	if ( ! function_exists( 'wma_modules_cp_metafields' ) ) {
 		function wma_modules_cp_metafields() {
@@ -408,6 +409,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 											'description' => __( 'Select from predefined font icons', 'wm_domain' ),
 											'options'     => $fonticons,
 											'inline'      => true,
+											'filter'      => true,
 											'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
 											'hide-radio'  => true,
 										);

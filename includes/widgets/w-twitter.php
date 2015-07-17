@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2.1
+ * @version  1.2.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -18,7 +18,8 @@
 
 
 
-//Exit if accessed directly
+// Exit if accessed directly
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -82,7 +83,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		function __construct() {
 
-			//Helper variables
+			// Helper variables
+
 				$atts = array();
 
 				$atts['id']          = 'wm-twitter';
@@ -95,12 +97,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				$atts = apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_atts', $atts );
 
-				//Set globals
+				// Set globals
+
 					$this->user_transient = 'wmamp_twitter_v2_user_';
 					$this->tweets_option  = 'wmamp_twitter_v2_tweets_';
 					$this->twitter_api    = 'wmamp_twitter_v2_api';
 
-			//Register widget attributes
+			// Register widget attributes
+
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
 
 		} // /__construct
@@ -112,7 +116,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		function form( $instance ) {
 
-			//Helper variables
+			// Helper variables
+
 				$instance = wp_parse_args( $instance, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_defaults', array(
 						'count'    => 3,
 						'replies'  => false,
@@ -121,15 +126,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'username' => '',
 					) ) );
 
-				//Twitter API 1.1
+				// Twitter API 1.1
+
 					$twitter_api         = get_option( $this->twitter_api );
 					$consumer_key        = ( isset( $twitter_api['consumer_key'] ) ) ? ( $twitter_api['consumer_key'] ) : ( '' );
 					$consumer_secret     = ( isset( $twitter_api['consumer_secret'] ) ) ? ( $twitter_api['consumer_secret'] ) : ( '' );
 					$access_token        = ( isset( $twitter_api['access_token'] ) ) ? ( $twitter_api['access_token'] ) : ( '' );
 					$access_token_secret = ( isset( $twitter_api['access_token_secret'] ) ) ? ( $twitter_api['access_token_secret'] ) : ( '' );
 
-			//Output
+			// Output
+
 				?>
+
 				<p class="wm-desc"><?php _ex( 'Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds.', 'Widget description.', 'wm_domain' ) ?></p>
 
 				<p>
@@ -183,6 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						<label for="<?php echo $this->get_field_id( 'access_token_secret' ); ?>"><?php _e( 'Access token secret:', 'wm_domain' ) ?></label><br />
 						<input class="widefat" id="<?php echo $this->get_field_id( 'access_token_secret' ); ?>" name="<?php echo $this->get_field_name( 'access_token_secret' ); ?>" type="text" value="<?php echo esc_attr( $access_token_secret ); ?>" />
 					</p>
+
 				<?php
 
 				do_action( 'wmhook_widgets_' . 'wm_twitter' . '_form', $instance );
@@ -196,7 +205,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		function update( $new_instance, $old_instance ) {
 
-			//Helper variables
+			// Helper variables
+
 				$instance = $old_instance;
 
 				$old_instance = array(
@@ -204,27 +214,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'count'    => isset( $instance['count'] ) ? ( $instance['count'] ) : ( '' ),
 					);
 
-			//Preparing output
+			// Preparing output
+
 				$instance['count']    = ( 0 < absint( $new_instance['count'] ) ) ? ( absint( $new_instance['count'] ) ) : ( 3 );
 				$instance['replies']  = $new_instance['replies'];
 				$instance['title']    = $new_instance['title'];
 				$instance['username'] = sanitize_title( trim( strip_tags( $new_instance['username'] ) ) );
 				$instance['userinfo'] = $new_instance['userinfo'];
 
-				//Twitter API 1.1
+				// Twitter API 1.1
+
 					$twitter_api                        = array();
 					$twitter_api['consumer_key']        = trim( $new_instance['consumer_key'] );
 					$twitter_api['consumer_secret']     = trim( $new_instance['consumer_secret'] );
 					$twitter_api['access_token']        = trim( $new_instance['access_token'] );
 					$twitter_api['access_token_secret'] = trim( $new_instance['access_token_secret'] );
 
-					//Remove empty values
+					// Remove empty values
+
 						$twitter_api = array_filter( $twitter_api );
 
-					//Save Twitter API variables globally
+					// Save Twitter API variables globally
+
 						update_option( $this->twitter_api, $twitter_api );
 
-				//Flush Tweets cache if username or count changed
+				// Flush Tweets cache if username or count changed
+
 					if (
 							$instance['username'] != $old_instance['username']
 							|| $instance['count'] != $old_instance['count']
@@ -232,7 +247,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						delete_transient( 'wmamp_tweets_id_' . esc_attr( $instance['username'] ) );
 					}
 
-			//Output
+			// Output
+
 				return apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
@@ -244,7 +260,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 */
 		function widget( $args, $instance ) {
 
-			//Helper variables
+			// Helper variables
+
 				$output = '';
 
 				$instance = wp_parse_args( $instance, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_defaults', array(
@@ -262,7 +279,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				$user = $tweets = array();
 
-				//Twitter API 1.1
+				// Twitter API 1.1
+
 					$twitter_api         = get_option( $this->twitter_api );
 					$consumer_key        = ( isset( $twitter_api['consumer_key'] ) ) ? ( $twitter_api['consumer_key'] ) : ( '' );
 					$consumer_secret     = ( isset( $twitter_api['consumer_secret'] ) ) ? ( $twitter_api['consumer_secret'] ) : ( '' );
@@ -270,8 +288,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$access_token_secret = ( isset( $twitter_api['access_token_secret'] ) ) ? ( $twitter_api['access_token_secret'] ) : ( '' );
 
 
-			//Praparing output
-				//Get tweets
+			// Processing
+
+				// Get tweets
+
 					if (
 							$consumer_key
 							&& $consumer_secret
@@ -279,35 +299,38 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							&& $access_token_secret
 						) {
 
-						//Names of options storing cached data
+						// Names of options storing cached data
+
 							$user_option   = $this->user_transient . esc_attr( $instance['username'] );
 							$tweets_option = $this->tweets_option . esc_attr( $instance['username'] );
 
-						//Get cache (per user name) if available
+						// Get cache (per user name) if available
+
 							$user = get_transient( $user_option );
 
-						if ( $user ) {
-						//Get cached tweets
+						if ( $user ) { // Get cached tweets
 
 							$tweets = get_option( $tweets_option );
 
-						} else {
-						//Get new tweets and set new cache
+						} else { // Get new tweets and set new cache
 
-							//Load the helper class
+							// Load the helper class
+
 								if ( ! class_exists( 'TwitterOAuth' ) ) {
-									require_once( WMAMP_INCLUDES_DIR . '/twitter-api/twitteroauth.php' );
+									require_once( WMAMP_INCLUDES_DIR . '/twitteroauth/twitteroauth.php' );
 								}
 
-							//Set the connection
-							$tweetter_connection = new TwitterOAuth(
+							// Set the connection
+
+								$tweetter_connection = new TwitterOAuth(
 									$consumer_key,
 									$consumer_secret,
 									$access_token,
 									$access_token_secret
 								);
 
-							//Get the tweets
+							// Get the tweets
+
 								$tweets = $tweetter_connection->get(
 										'statuses/user_timeline',
 										array(
@@ -317,13 +340,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 											)
 									);
 
-							if ( 200 != $tweetter_connection->http_code ) {
-							//Response is not "OK" -> just get cached tweets
+							if ( 200 != $tweetter_connection->http_code ) { // Response is not "OK" -> just get cached tweets
 
 								$tweets = get_option( $tweets_option, $tweets );
 
-							} elseif ( ! empty( $tweets ) ) {
-							//We got tweets, process them
+							} elseif ( ! empty( $tweets ) ) { // We got tweets, process them
 
 								$i = 0;
 								$tweets_processed = array();
@@ -353,7 +374,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 							}
 
-							//Set cache
+							// Set cache
+
 								if ( $user ) {
 									set_transient( $user_option, $user, apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_cache_interval', 900 ) );
 								}
@@ -363,7 +385,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					}
 
-				//Actual output
+				// Actual output
+
 					$output .= $args['before_widget'];
 
 					if ( trim( $instance['title'] ) ) {
@@ -374,7 +397,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					if ( $tweets ) {
 
-						//User info
+						// User info
+
 							if ( $instance['userinfo'] && ! empty( $user ) ) {
 
 								$output_user  = '<div class="user-info">';
@@ -387,7 +411,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 							}
 
-						//Tweets list
+						// Tweets list
+
 							if ( is_array( $tweets ) && ! empty( $tweets ) ) {
 
 								$output_tweets = '';
@@ -414,7 +439,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					$output .= $args['after_widget'];
 
-			//Output
+			// Output
+
 				echo apply_filters( 'wmhook_widgets_' . 'wm_twitter' . '_output', $output, $args, $instance );
 
 		} // /widget
@@ -493,5 +519,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		} // /filter_tweet
 
 	} // /WM_Twitter
-
-?>

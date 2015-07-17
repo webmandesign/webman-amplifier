@@ -2,7 +2,7 @@
 /**
  * WebMan Amplifier plugin setup
  *
- * THEME IMPLEMENTATION
+ * THEME IMPLEMENTATION:
  * Copy this file into your theme's folder and inlude it in the theme's `functions.php` file
  * with `locate_template( 'webman-amplifier-setup.php', true );` WordPress function.
  * Edit the file to your needs.
@@ -14,16 +14,17 @@
  * @link  https://wordpress.org/plugins/webman-amplifier/
  *
  * @since    1.0
- * @version  1.1.2
+ * @version  1.2.2
  *
- * CONTENT:
- * -  1) Requirements check
- * - 10) Actions and filters
- * - 20) Plugin setup
- * - 30) Custom posts setup
- * - 40) Shortcodes
- * - 50) Metaboxes
- * - 60) Icons
+ * Contents:
+ *
+ *  1) Requirements check
+ * 10) Actions and filters
+ * 20) Plugin setup
+ * 30) Custom posts setup
+ * 40) Shortcodes
+ * 50) Metaboxes
+ * 60) Icons
  */
 
 
@@ -34,7 +35,7 @@
  * 1) Requirements check
  */
 
-	if ( ! function_exists( 'wma_amplifier' ) ) {
+	if ( ! class_exists( 'WM_Amplifier' ) ) {
 		return;
 	}
 

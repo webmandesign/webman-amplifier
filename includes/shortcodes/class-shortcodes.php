@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.2
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Shortcodes globals setup
 			 *
 			 * @since    1.0
-			 * @version  1.1.6
+			 * @version  1.2.2
 			 *
 			 * @access  private
 			 */
@@ -308,14 +308,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								}
 							}
 
-						//Set the setup array for shortcodes that can be replaced with "Style" button in visual editor
-							if (
-									isset( $definition['style'] )
-									&& is_array( $definition['style'] ) && ! empty( $definition['style'] )
-								) {
-								self::$codes['styles'] = array_merge( self::$codes['styles'], (array) $definition['style'] );
-							}
-
 						//Beaver Builder integration
 							if (
 									isset( $definition['bb_plugin'] )
@@ -352,7 +344,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.2
+			 * @version  1.2.2
 			 *
 			 * @access   public
 			 */
@@ -363,8 +355,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 				//Styles
 					wp_register_style( 'wm-radio',                   WMAMP_ASSETS_URL . 'css/input-wm-radio.css',           array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes',              WMAMP_ASSETS_URL . 'css/shortcodes.css',               array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-rtl',          WMAMP_ASSETS_URL . 'css/rtl-shortcodes.css',           array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-bb-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
 					wp_register_style( 'wm-shortcodes-vc-addon-rtl', WMAMP_ASSETS_URL . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
@@ -394,7 +384,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue frontend styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.1.2
+			 * @version  1.2.2
 			 *
 			 * @access  public
 			 */
@@ -406,12 +396,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Styles
 					if ( $icon_font_url ) {
 						wp_enqueue_style( 'wm-fonticons' );
-					}
-					if ( apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_css', true ) ) {
-						wp_enqueue_style( 'wm-shortcodes' );
-						if ( is_rtl() ) {
-							wp_enqueue_style( 'wm-shortcodes-rtl' );
-						}
 					}
 
 					//Visual Composer - deregister frontend styles
@@ -1424,5 +1408,3 @@ if ( wma_is_active_vc() ) {
 	} // /vc_theme_vc_column_inner
 
 } // /wma_is_active_vc() check
-
-?>

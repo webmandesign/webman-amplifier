@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.2
  */
 
 
@@ -241,7 +241,7 @@
 	 * Taxonomy list
 	 *
 	 * @since    1.0
-	 * @version  1.0.5
+	 * @version  1.2.2
 	 *
 	 * @param    array $args
 	 *
@@ -253,7 +253,7 @@
 					//"All" option
 						'all'           => true,                           //whether to display "all" option
 						'all_post_type' => 'post',                         //post type to count posts for "all" option, if left empty, the posts count will not be displayed
-						'all_text'      => __( 'All posts', 'wm_domain' ), //"all" option text
+						'all_text'      => '- ' . __( 'All posts', 'wm_domain' ), //"all" option text
 					//Query settings
 						'hierarchical'  => '1',                            //whether taxonomy is hierarchical
 						'order_by'      => 'name',                         //in which order the taxonomy titles should appear
@@ -285,7 +285,7 @@
 						$all_count = wp_count_posts( $args['all_post_type'], $readable );
 						$all_count = ' (' . absint( $all_count->publish ) . ')';
 					}
-					$output[''] = apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_all', '- ' . $args['all_text'] . $all_count . ' -', $args, $all_count );
+					$output[''] = apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_all', $args['all_text'] . $all_count, $args, $all_count );
 				}
 
 				if ( ! is_wp_error( $terms ) && is_array( $terms ) && ! empty( $terms ) ) {
