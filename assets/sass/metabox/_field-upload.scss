@@ -1,0 +1,53 @@
+// Uploads: image, ZIP file and gallery
+
+.wm-meta-wrap {
+
+	.image-wrap input.fieldtype-image,
+	.zip-wrap input.fieldtype-zip {
+		width: 75%;
+		max-width: 46em;
+		margin-right: 10px;
+	}
+
+	.zip-wrap {
+
+		input.fieldtype-zip[readonly] {
+			background: #fff;
+		}
+
+	}
+
+	.image-preview a,
+	.gallery-preview a,
+	.gallery-loading {
+		display: inline-block;
+		max-width: 100px;
+		padding: 4px;
+		margin: 4px 4px 0 0;
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+
+	.gallery-loading {
+		display: none;
+	}
+
+	.image-preview img,
+	.gallery-preview img {
+		height: auto !important;
+		max-width: 100%;
+		max-height: 100px !important;
+		vertical-align: bottom;
+	}
+
+}
+
+.wmamp-gallery {
+
+	.gallery-settings {
+		display: none;
+	}
+
+}

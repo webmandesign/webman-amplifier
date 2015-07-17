@@ -1,0 +1,108 @@
+// Repeater field
+
+.wm-meta-wrap {
+
+	.repeater-wrap {
+
+		> th label {
+			cursor: auto;
+		}
+
+	}
+
+	.repeater-cell {
+		position: relative;
+		width: 100%;
+		padding: 3px;
+		margin: 1em 0 0;
+		background: #fff;
+		border: 1px solid #e6e6e6;
+		border-spacing: 0;
+		border-radius: 3px;
+
+		&-controls {
+			display: none;
+			position: absolute;
+			right: 0;
+			z-index: 9;
+
+			th {
+				position: relative;
+				padding: 4px 10px;
+				overflow: hidden;
+			}
+
+			.button {
+				position: relative;
+				float: right;
+				margin-left: 4px;
+			}
+
+		}
+
+		&:hover {
+
+			.repeater-cell-controls {
+				display: table-header-group;
+			}
+
+		}
+
+		.option {
+
+			> th {
+				width: 140px;
+				padding: 10px;
+			}
+
+			> td {
+				padding: 10px 60px 10px 10px;
+			}
+
+		}
+
+		// Checkbox field fixes for repeater cell
+
+			.checkbox-wrap {
+
+				label {
+					width: 140px;
+				}
+
+				:root & {
+
+					input + label:before {
+						left: 160px;
+						margin-top: 0;
+					}
+
+				}
+
+			}
+
+	}
+
+	.button-add-cell,
+	.button-remove-cell {
+		font-size: 1.4em;
+	}
+
+	.button-move-cell {
+		cursor: move;
+	}
+
+	.button-add-cell {
+		margin-top: 20px;
+		float: right;
+	}
+
+	// jQuery UI Sortable
+
+		.ui-sortable-placeholder {
+			visibility: visible !important;
+			background: #f5f7f9;
+			border-color: rgba(0, 0, 0, .05);
+			box-shadow: 0 .19em .62em rgba(0, 0, 0, .1);
+		}
+
+}

@@ -1,0 +1,139 @@
+// Checkboxes and radios
+
+.wm-meta-wrap {
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		left: 240px;
+		vertical-align: middle;
+		background: #fff;
+		color: #666;
+		border: 1px solid #ccc;
+		cursor: pointer;
+	}
+
+	input[type="radio"] {
+		position: relative;
+		left: auto;
+	}
+
+	.checkbox-wrap,
+	.radio-wrap {
+
+		label {
+			display: inline-block;
+			position: relative;
+			margin-right: 1em;
+		}
+
+	}
+
+	.checkbox-wrap {
+
+		th {
+			position: relative;
+			padding: 20px;
+		}
+
+		label {
+			float: left;
+			width: 200px;
+			padding-right: 70px;
+			margin-right: 0;
+		}
+
+		input {
+			position: absolute;
+			clip: rect( 0, 0, 0, 0 );
+
+			+ label::before {
+				content: '\00d7';
+				box-sizing: border-box;
+				display: inline-block;
+				position: absolute;
+				width: 40px;
+				height: 2em;
+				left: 220px;
+				margin: -.19em 0 0;
+				line-height: 2em;
+				text-align: center;
+				font-size: .81em;
+				font-weight: bold;
+				background: #eaecee;
+				color: #aaacae;
+				border: 1px solid;
+				border-left-width: 16px;
+				border-color: rgba(0, 0, 0, .1);
+				border-radius: 3px;
+				vertical-align: middle;
+				transition: all .2s;
+			}
+
+			&:checked + label::before {
+				content: '\2713';
+				background: #4a9c4e;
+				color: #fafcfe;
+				border-right-width: 16px;
+				border-left-width: 1px;
+			}
+
+		}
+
+		.description {
+			float: left;
+			margin: 0;
+		}
+
+	}
+
+	.radio-wrap {
+
+		&.custom-label {
+
+			.inline-radio {
+				display: inline-block;
+				padding: .5em;
+				margin: 0 .5em .5em 0;
+				text-align: center;
+				background: #fff;
+				border: 1px solid #e6e6e6;
+				border-radius: 3px;
+
+				&:hover,
+				&.active {
+					z-index: 1;
+					box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+					transform: scale( 1.5 );
+				}
+
+				&.active {
+					background: #d9edf7;
+					border-color: #b7cbd0;
+				}
+
+				&:hover {
+					z-index: 2;
+				}
+
+			}
+
+			label {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+
+		}
+
+	}
+
+	.radio-items {
+		max-height: 20em;
+		padding: 1em;
+		overflow-y: auto;
+	}
+
+}

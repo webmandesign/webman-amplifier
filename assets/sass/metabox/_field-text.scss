@@ -1,0 +1,35 @@
+// Text fields
+
+.wm-meta-wrap {
+
+	.form-table {
+
+		input[type="text"],
+		input[type="password"],
+		input[type="number"],
+		input[type="email"],
+		textarea,
+		select {
+			width: 100%;
+			max-width: 60em;
+		}
+
+		select {
+			max-width: 30em;
+		}
+
+	}
+
+	.option {
+
+		.wp-editor-wrap {
+			margin-top: 10px;
+		}
+
+		.wp-editor-container {
+			background: #fff;
+		}
+
+	}
+
+}

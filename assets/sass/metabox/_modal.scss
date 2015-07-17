@@ -1,0 +1,29 @@
+// Modal box
+
+.modal-box {
+	position: fixed;
+	display: none;
+	width: 320px;
+	left: 50%;
+	top: 30%;
+	padding: 20px;
+	margin: 0 -160px;
+	text-align: center;
+	background: #191919;
+	background: rgba(0, 0, 0, .75);
+	color: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	z-index: 9999;
+
+	a.button,
+	a.button-primary {
+		display: block;
+		height: 32px;
+		margin: 10px 0;
+		line-height: 31px;
+		font-size: 1.1em;
+		cursor: pointer;
+	}
+
+}

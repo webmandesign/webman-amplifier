@@ -1,0 +1,71 @@
+// Message / info boxes
+
+.wm-meta-wrap {
+
+	.box {
+		padding: 20px;
+		background: #fff;
+		color: #777;
+		border: 1px dashed #ddd;
+		overflow: hidden;
+
+		code {
+			background: transparent;
+		}
+
+		.inline-ol {
+
+			li {
+				float: left;
+				margin-right: 1.5em;
+			}
+
+			code {
+				padding: 0;
+			}
+
+		}
+
+		#poststuff & h2,
+		#poststuff & h3,
+		#poststuff & h4 {
+			font-size: 1.15em;
+			font-weight: 600;
+			color: inherit;
+		}
+
+		&.blue,
+		&.green,
+		&.red,
+		&.yellow {
+			border-style: solid;
+			box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .15);
+		}
+
+		&.blue {
+			background: #d9edf7;
+			color: #3a87ad;
+			border-color: #bce8f1;
+		}
+
+		&.green {
+			background: #dff0d8;
+			color: #468847;
+			border-color: #d6e9c6;
+		}
+
+		&.red {
+			background: #f2dede;
+			color: #b94a48;
+			border-color: #eed3d7;
+		}
+
+		&.yellow {
+			background: #fcf8e3;
+			color: #c09853;
+			border-color: #fbeed5;
+		}
+
+	}
+
+}

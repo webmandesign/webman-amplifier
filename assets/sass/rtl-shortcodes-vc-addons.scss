@@ -1,0 +1,187 @@
+/**
+ * WebMan Visual Composer plugin admin styles
+ *
+ * RTL languages support
+ * Since version 1.0.9.5 the Visual Composer 4.3+ compatibility was added.
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since    1.0
+ * @version  1.2.2
+ */
+
+
+
+#wpb_visual_composer .inside,
+.wpb_bootstrap_modals,
+.vc_modal, .vc_panel {direction: rtl}
+
+
+
+/**
+ * Navigation bar (with element selection and templates button)
+ */
+
+	.rtl .vc_navbar.subnav-fixed .vc_navbar-inner {
+		padding-left: 0;
+		padding-right: 166px;
+	}
+
+	.rtl .vc_navbar .vc_nav {
+		float: right;
+		margin: 0 0 0 5px;
+	}
+		.rtl #wpb_visual_composer .vc_navbar .vc_dropdown {
+			margin-left: 0;
+			margin-right: 30px;
+		}
+		.rtl #wpb_visual_composer .wpb_templates_ul .wpb_template_li .wpb_remove_template {
+			left: 0;
+			right: auto;
+		}
+
+	.rtl .vc_navbar .vc_nav.pull-right {
+		float: left;
+		margin: 0 5px 0 0;
+	}
+
+
+
+/**
+ * Row and columns
+ */
+
+	.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete {
+		left: 10px;
+		right: auto;
+	}
+		.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete a {
+			margin-left: 0;
+			margin-right: 3px;
+		}
+		.rtl .controls_row .column_delete,
+		.rtl .controls_row .column_clone,
+		.rtl .controls_row .column_edit {float: left}
+
+	.rtl #wpb_visual_composer .controls_row .vc_row_layouts {
+		left: auto;
+		right: 10px;
+	}
+
+	.rtl .vc_row-fluid [class*="vc_span"],
+	.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column,
+	.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column_inner {
+		float: right;
+		margin-left: 0;
+		margin-right: 2%;
+	}
+		.rtl .vc_row-fluid [class*="vc_span"]:first-child,
+		.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column:first-child,
+		.rtl #wpb_visual_composer .wpb_row_container > .wpb_vc_column_inner:first-child {margin-right: 0}
+
+	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wm-sections-mode-section,
+	.rtl .wpb_content_element .wpb_element_wrapper .wpb_accordion_holder .wpb_vc_accordion_tab {overflow: hidden}
+
+	/* Row layouts selector button */
+		.rtl #wpb_visual_composer .controls_row .vc_row_layouts {
+			left: auto;
+			right: 10px;
+		}
+
+	/* Edit / Clone / Delete buttons */
+		.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete {
+			right: auto;
+			left: 10px;
+		}
+			.rtl #wpb_visual_composer .controls_row .vc_row_edit_clone_delete a {
+				margin-left: 0;
+				margin-right: 3px;
+			}
+
+
+
+/**
+ * Element
+ */
+
+	.rtl .wpb_content_element:hover > div.controls,
+	#wpb_visual_composer .vc_controls > .vc_controls-cc {
+		right: auto;
+		left: 5px;
+	}
+
+	.rtl #wpb_visual_composer .wpb_content_element h4 {margin: 0 0 0 10px !important}
+
+
+
+/**
+ * Settings modal styles
+ */
+
+	.rtl .modal-header .close {
+		left: 10px;
+		right: auto;
+	}
+	.rtl .wpb_bootstrap_modals.in #vc_elements_name_filter {
+		left: 60px;
+		right: auto;
+	}
+
+	.rtl .wpb-content-layouts-container .isotope-filter li {
+		margin-left: 0;
+		margin-right: 10px;
+	}
+
+	.rtl .wpb_el_type_attach_images .gallery_widget_add_images,
+	.rtl .wpb_el_type_attach_image .gallery_widget_add_images {float: right}
+		.rtl .gallery_widget_img_select li,
+		.rtl .gallery_widget_attached_images_list li {
+			float: right;
+			margin: 0 0 5px 5px;
+		}
+
+
+
+/**
+ * Special shortcodes (elements) stylings
+ */
+
+	.rtl .wpb_content_element .wpb_vc_param_value {
+		margin-left: 0;
+		margin-right: .5em;
+	}
+
+	.rtl #poststuff .wpb_element_wrapper h3.ui-accordion-header:before {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+
+
+/**
+ * Other fixes
+ */
+
+	.rtl .vc_modal.in .vc_modal-header .vc_close,
+	.rtl .vc_panel .vc_panel-heading .vc_close {float: left}
+
+	.rtl .vc_elements-list-filter {
+		right: auto;
+		left: 44px;
+	}
+
+	.rtl .vc_panel-tabs > ul li {
+		float: right;
+		margin: 7px 0 0 2px;
+	}
+		.rtl .vc_panel-tabs > ul > :first-child {
+			margin-left: 2px;
+			margin-right: 6px;
+		}
+
+	.rtl .controls_row .vc_row_edit_clone_delete .vc_control {float: left}
+
+
+
+/* END OF FILE */

@@ -1,0 +1,281 @@
+// Metabox wrapper
+
+.wm-meta-wrap {
+	direction: ltr;
+	min-width: 180px;
+	max-width: 100%;
+	padding: 0;
+	background: none;
+	border: 0;
+
+	.wm-admin-wrap & {
+		margin-top: 20px;
+		background: #fff;
+		border: 1px solid #dfdfdf;
+		box-shadow: 0 0 5px #ddd;
+	}
+
+	// Special metabox, wrapped around visual editor
+
+		&.meta-special {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			background: #fff;
+			border: 1px solid #dfdfdf;
+			border-radius: 3px;
+
+			.wp-editor-container,
+			#post-status-info {
+				box-shadow: 0 0 5px #ddd;
+			}
+
+			.wp-editor-container {
+				background: #fff;
+			}
+
+			#postdivrich {
+				box-shadow: none;
+			}
+
+		}
+
+	// Basic elements
+
+		.hide,
+		.hidden-wrap {
+			display: none;
+		}
+
+		#poststuff & h2,
+		#poststuff & h3 {
+			padding: 0;
+			margin: 0;
+			font-family: sans-serif;
+			font-weight: normal;
+			text-transform: uppercase;
+			background: transparent;
+			color: #888;
+			border: 0;
+			-webkit-box-shadow: none;
+			        box-shadow: none;
+		}
+
+		.tab-content h2,
+		.tab-content h3 {
+			cursor: help;
+		}
+
+		p {
+			margin: 1em 0 0;
+
+			&.description {
+				margin-top: 4px;
+				font-size: .9em;
+				color: #999;
+			}
+
+		}
+
+		.color-wrap p.description,
+		textarea + p.description {
+			margin-top: 0;
+		}
+
+		label {
+			display: block;
+			text-align: left;
+			font-weight: 600;
+		}
+
+
+	// Default value button
+
+		.button-default-value {
+			position: absolute;
+			display: block;
+			width: 1em;
+			height: 1em;
+			right: 20px;
+			top: 20px;
+			line-height: 1em;
+			text-align: center;
+			font-size: 1rem;
+			background: #caccce;
+			color: #fff;
+			border-radius: 50%;
+			cursor: pointer;
+			overflow: hidden;
+			transition: none;
+
+			&::before {
+				content: '\00d7';
+			}
+
+			&:hover {
+				background: #fa7c7e;
+			}
+
+			span {
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				left: 20px;
+				top: 20px;
+				overflow: hidden;
+			}
+
+		}
+
+		.repeater-cell .button-default-value {
+			right: 10px;
+		}
+
+	// Form table
+
+		.form-table {
+			margin: 0;
+
+			th {
+				text-align: left;
+			}
+
+			caption {
+				padding: 20px;
+				margin: 0;
+				text-align: left;
+				font-family: sans-serif;
+				font-weight: 600;
+				text-transform: uppercase;
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);
+				background-color: #278ab7;
+				background-image: linear-gradient( to bottom, #2e9fd2, #21759b );
+				color: #fff;
+				border: #1b607f 1px solid;
+				box-shadow: inset 0 1px 0 rgba(120, 200, 230, .6);
+			}
+
+		}
+
+		.postarea + .form-table {
+			margin-top: 20px;
+			border: 1px solid #e6e6e6;
+			border-radius: 3px;
+		}
+
+		body.wm-visual-composer-on & .postarea + .form-table {
+			margin: 0 0 20px;
+		}
+
+		.option + .option,
+		tbody + tbody {
+			border-top: 1px solid #e6e6e6;
+		}
+
+		.option {
+
+			> th {
+				padding: 20px 10px 20px 20px;
+			}
+
+			> td {
+				position: relative;
+				padding: 20px 50px 20px 10px;
+				vertical-align: top;
+			}
+
+			&:hover > th,
+			&:hover > td {
+				background: #fcfcfc;
+			}
+
+		}
+
+		.padding-20 > td,
+		.option.padding-20 > td {
+			padding: 20px;
+		}
+
+		tfoot {
+			border-top: 1px solid #e6e6e6;
+
+			tr {
+				background: #fcfcfc;
+			}
+
+		}
+
+		// Metafields in side metabox
+
+			#side-sortables & th,
+			#side-sortables & td {
+				clear: both;
+				display: block;
+				width: 100%;
+				padding: 10px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			#side-sortables & th {
+				padding-bottom: 0;
+			}
+
+			#side-sortables & td {
+				padding-bottom: 5px;
+			}
+
+		// Heading row
+
+			.option-heading {
+
+				th,
+				td {
+					padding: 1em 10px 1em 20px;
+					background: #e6e6e6;
+					background-image: linear-gradient( to top, #e6e6e6, #eee );
+					border-top: 1px solid #e6e6e6;
+					cursor: help;
+				}
+
+				&.toggle {
+					border-left: 2px solid #999;
+
+					&:hover {
+						border-left: 6px solid #999;
+
+						th,
+						td {
+							background: #f1f1f1;
+						}
+
+					}
+
+					th,
+					td,
+					h2,
+					h3 {
+						cursor: pointer;
+					}
+
+				}
+
+				+ .option th,
+				+ .option td {
+					padding-top: 20px;
+				}
+
+			}
+
+}
+
+.wm-admin-wrap {
+	max-width: 920px;
+}
+
+// Fix default WordPress metabox content paddings
+
+#poststuff .postbox[id^="wmamp-metabox"] .inside {
+	padding: 0;
+	margin: 0;
+}
