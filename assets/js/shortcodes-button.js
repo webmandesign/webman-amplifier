@@ -5,7 +5,147 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.1.3
+ * @version  1.2.2
  */
 
-!function(){"use strict";tinymce.PluginManager.add("wmShortcodes",function(a){var c=0,d=new Array,e=new Array,f="undefined"==typeof wmShortcodesArray?[{name:"Shortcode",code:"","class":"shortcode"}]:wmShortcodesArray,g="_id"+Math.floor(1e3*Math.random()+1);for(c=0;c<f.length;c++)d[c]={text:f[c].name,id:"wm"+("0"+c).slice(-2)+"_"+f[c]["class"],"class":f[c]["class"],onclick:function(b){var c=b.target.id;if(c=parseInt(c.substring(2,4)),""!=a.selection.getContent()){var d=f[c].code.replace("{{content}}",a.selection.getContent());a.selection.setContent(d)}else{var d=f[c].code.replace("{{content}}","TEXT");a.selection.setContent(d)}}};if("undefined"!=typeof wmShortcodesArrayShort)for(c=0;c<wmShortcodesArrayShort.length;c++)e[c]={text:wmShortcodesArrayShort[c].name,id:"wm"+("0"+c).slice(-2)+"_"+wmShortcodesArrayShort[c]["class"],"class":wmShortcodesArrayShort[c]["class"],onclick:function(b){var c=b.target.id;if(c=parseInt(c.substring(2,4)),""!=a.selection.getContent()){var d=wmShortcodesArrayShort[c].code.replace("{{content}}",a.selection.getContent());a.selection.setContent(d)}else{var d=wmShortcodesArrayShort[c].code.replace("{{content}}","TEXT");a.selection.setContent(d)}}};a.addButton("wm_shortcodes_list",{type:"menubutton",text:"[s]",title:"Shortcode",id:"wm_shortcodes_list"+g,icon:!1,menu:d}),"undefined"!=typeof wmShortcodesArrayShort&&a.addButton("wm_shortcodes_list_short",{type:"menubutton",text:"[s]",title:"Shortcode",id:"wm_shortcodes_list_short"+g,icon:!1,menu:e})})}();
+
+
+
+
+( function() {
+
+
+
+
+
+	'use strict';
+
+
+
+
+
+	tinymce.PluginManager.add( 'wmShortcodes', function( editor, url ) {
+
+		var i = 0,
+		    wmShortcodesMenuArray      = new Array(),
+		    wmShortcodesMenuArrayShort = new Array(),
+		    wmShortcodesHelper         = ( 'undefined' === typeof wmShortcodesArray ) ? ( [{name:'Shortcode',code:'',class:'shortcode'}] ) : ( wmShortcodesArray ),
+		    wmButtonIdSuffix           = '_id' + Math.floor( ( Math.random() * 1000 ) + 1 ); // This is important to allow multiple instances of TinyMCE on the screen with their specific shortcode generator buttons
+
+		// Set the menu button items (default)
+
+			for ( i = 0; i < wmShortcodesHelper.length; i++ ) {
+
+				wmShortcodesMenuArray[i] = {
+
+						text    : wmShortcodesHelper[i]['name'],
+						id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesHelper[i]['class'],
+						class   : wmShortcodesHelper[i]['class'],
+						onclick : function( wholeMenuButton ) {
+
+							var menuId = wholeMenuButton.target.id;
+
+							menuId = parseInt( menuId.substring( 2, 4 ) );
+
+							// Retrieve the shortcode content based on menu button item ID pressed
+
+								if ( '' != editor.selection.getContent() ) {
+
+									var shortcodeOutput = wmShortcodesHelper[menuId]['code'].replace( '{{content}}', editor.selection.getContent() );
+
+									editor.selection.setContent( shortcodeOutput );
+
+								} else {
+
+									var shortcodeOutput = wmShortcodesHelper[menuId]['code'].replace( '{{content}}', 'TEXT' );
+
+									editor.selection.setContent( shortcodeOutput );
+
+								}
+
+						}
+
+					};
+
+			}
+
+		// Set the menu button items (short)
+
+			if ( 'undefined' != typeof wmShortcodesArrayShort ) {
+
+				for ( i = 0; i < wmShortcodesArrayShort.length; i++ ) {
+
+					wmShortcodesMenuArrayShort[i] = {
+
+							text    : wmShortcodesArrayShort[i]['name'],
+							id      : 'wm' + ( '0' + i ).slice( -2 ) + '_' + wmShortcodesArrayShort[i]['class'],
+							class   : wmShortcodesArrayShort[i]['class'],
+							onclick : function( wholeMenuButton ) {
+
+								var menuId = wholeMenuButton.target.id;
+
+								menuId = parseInt( menuId.substring( 2, 4 ) );
+
+								// Retrieve the shortcode content based on menu button item ID pressed
+
+									if ( '' != editor.selection.getContent() ) {
+
+										var shortcodeOutput = wmShortcodesArrayShort[menuId]['code'].replace( '{{content}}', editor.selection.getContent() );
+
+										editor.selection.setContent( shortcodeOutput );
+
+									} else {
+
+										var shortcodeOutput = wmShortcodesArrayShort[menuId]['code'].replace( '{{content}}', 'TEXT' );
+
+										editor.selection.setContent( shortcodeOutput );
+
+									}
+
+							}
+
+						};
+
+				}
+
+			}
+
+
+
+		// Shortcode Generator Button
+
+			editor.addButton( 'wm_shortcodes_list', {
+
+				type  : 'menubutton',
+				text  : '[s]',
+				title : 'Shortcode',
+				id    : 'wm_shortcodes_list' + wmButtonIdSuffix,
+				icon  : false,
+				menu  : wmShortcodesMenuArray
+
+			} );
+
+		// Shortcode Generator Short Button
+
+			if ( 'undefined' != typeof wmShortcodesArrayShort ) {
+
+				editor.addButton( 'wm_shortcodes_list_short', {
+
+					type  : 'menubutton',
+					text  : '[s]',
+					title : 'Shortcode',
+					id    : 'wm_shortcodes_list_short' + wmButtonIdSuffix,
+					icon  : false,
+					menu  : wmShortcodesMenuArrayShort
+
+				} );
+
+			}
+
+	} );
+
+
+
+
+
+} )();

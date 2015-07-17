@@ -4,8 +4,282 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since       1.0
- * @version     1.0.6
+ * @since    1.0
+ * @version  1.2.2
  */
 
-jQuery(function(){function c(){b.each(function(){var b=jQuery(this);b.isotope({layoutMode:b.data("layout-mode"),isOriginLeft:"rtl"!=jQuery("html").attr("dir"),transformsEnabled:"rtl"!=jQuery("html").attr("dir")})})}function e(a){if(a.hasClass("with-margin")){var b=2*(a.outerWidth()/104)+"px";a.find(".owl-item").css({paddingLeft:b,paddingRight:b})}}function f(a){a.children().each(function(a,b){jQuery(b).parent().prepend(jQuery(b))})}function g(){jQuery('[class*="scrollable-"]').each(function(){var c=jQuery(this),d=c.find(".wm-items-container"),e=d.children().eq(0).outerWidth(!0),f=e-d.children().eq(0).outerWidth(),g=d.data("columns")?d.data("columns"):3,h=d.hasClass("stack")?g:1,i=d.data("time")&&999<d.data("time")?d.data("time"):4e3;768>a?(e=c.outerWidth(),f=0,g=h=1,d.closest(".wm-posts-wrap").hasClass("wm-posts-wm_logos")&&(e/=3,g=h=3)):e-=f,d.bxSlider({auto:d.closest(".wm-posts-wrap").hasClass("scrollable-auto"),pause:i,minSlides:1,maxSlides:g,slideWidth:parseInt(e),slideMargin:parseInt(f),moveSlides:h,pager:!1,autoHover:!0,adaptiveHeight:c.hasClass("auto-height"),useCSS:!1})})}var a=document.body.clientWidth;if(jQuery(window).on("resize orientationchange",function(){a=document.body.clientWidth}),jQuery().isotope){var b=jQuery(".filter-this");b.prev(".wm-filter").on("click","a",function(a){a.preventDefault();var b=jQuery(this),c=b.data("filter");b.closest(".wm-posts-wrap").find(".filter-this").isotope({filter:c,isOriginLeft:"rtl"!=jQuery("html").attr("dir"),transformsEnabled:"rtl"!=jQuery("html").attr("dir")}),b.parent("li").addClass("active").siblings("li").removeClass("active")}),b.imagesLoaded(function(){c()})}if(jQuery().masonry){var d=jQuery(".masonry-this");d.imagesLoaded(function(){d.masonry({isRTL:"rtl"==jQuery("html").attr("dir"),isOriginLeft:"rtl"!=jQuery("html").attr("dir")})})}jQuery().owlCarousel?jQuery('[class*="scrollable-"]').each(function(){var b=jQuery(this),c=b.find(".wm-items-container"),d=c.data("columns")?c.data("columns"):3,g=Math.min(2,d),h=Math.min(3,d),i=c.hasClass("stack")?!0:!1,j=b.hasClass("scrollable-auto")&&c.data("time")&&999<c.data("time")?c.data("time"):!1;c.owlCarousel({items:d,autoPlay:j,stopOnHover:!0,scrollPerPage:i,navigation:!0,navigationText:["<",">"],pagination:!1,slideSpeed:800,autoHeight:b.hasClass("auto-height"),afterAction:e,itemsCustom:[[0,1],[420,g],[768,h],[1020,d]],itemsDesktopSmall:[1020,h],itemsTablet:[768,g],itemsMobile:[420,1],autoPlayDirection:"rtl"!=jQuery("html").attr("dir")?!1:"rtl",startPosition:"rtl"!=jQuery("html").attr("dir")?!1:-1,beforeInit:"rtl"!=jQuery("html").attr("dir")?!1:f})}):jQuery().bxSlider&&(g(),jQuery(window).on("resize orientationchange",function(){g()}))});
+
+
+
+
+jQuery( function() {
+
+
+
+
+
+	// Set browser window width on resize
+
+		var WMbrowserWidth = document.body.clientWidth;
+
+		jQuery( window )
+			.on( 'resize orientationchange', function() {
+				WMbrowserWidth = document.body.clientWidth;
+			} );
+
+
+
+	/**
+	 * Filterable posts
+	 */
+
+		if ( jQuery().isotope ) {
+
+			var $WmampFilteredContent = jQuery( '.filter-this' );
+
+			/**
+			 * Function to run Isotope on each filerable items list
+			 */
+			function runIsotope() {
+
+				$WmampFilteredContent
+					.each( function( e ) {
+
+						var $this = jQuery( this );
+
+						$this
+							.isotope( {
+								layoutMode        : $this.data( 'layout-mode' ),
+								isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
+								transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
+							} );
+
+					} );
+
+			} // /runIsotope
+
+			/**
+			 * Filter items when filter link is clicked
+			 */
+			$WmampFilteredContent
+				.prev( '.wm-filter' )
+					.on( 'click', 'a', function( e ) {
+
+						e.preventDefault();
+
+						var $this    = jQuery( this ),
+						    selector = $this.data( 'filter' );
+
+						$this
+							.closest( '.wm-posts-wrap' )
+								.find( '.filter-this' )
+									.isotope( {
+										filter            : selector,
+										isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
+										transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
+									} );
+
+						$this
+							.parent( 'li' )
+								.addClass( 'active' )
+								.siblings( 'li' )
+									.removeClass( 'active' );
+
+					} );
+
+
+			// Apply Isotope after the images have been loaded
+
+				$WmampFilteredContent
+					.imagesLoaded( function() {
+
+						runIsotope();
+
+					} );
+
+		} // /isotope
+
+
+
+	/**
+	 * Masonry posts
+	 */
+
+		if ( jQuery().masonry ) {
+
+			var $WmampMasonryThis = jQuery( '.masonry-this' );
+
+			$WmampMasonryThis
+				.imagesLoaded( function() {
+
+					$WmampMasonryThis
+						.masonry( {
+							isRTL        : ( 'rtl' == jQuery( 'html' ).attr( 'dir' ) ), // Masonry 2 compatibility (pre WP v3.9)
+							isOriginLeft : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) // Masonry 3+
+						} );
+
+				} );
+
+		} // /masonry
+
+
+
+	/**
+	 * Sliding posts
+	 */
+
+		if ( jQuery().owlCarousel ) {
+
+			/**
+			 * Setting proper Owl Carousel items spacing
+			 */
+			function wmOwlCarouselItemPadding( el ) {
+
+				if ( el.hasClass( 'with-margin' ) ) {
+
+					var scrollableColumnMargin = ( el.outerWidth() / 104 * 2 ) + 'px';
+
+					el
+						.find( '.owl-item' )
+							.css( {
+								paddingLeft  : scrollableColumnMargin,
+								paddingRight : scrollableColumnMargin
+							} );
+
+				}
+
+			} // /wmOwlCarouselItemPadding
+
+			/**
+			 * RTL swap items
+			 * @link  http://owlgraphic.com/rtldemo/demos/rtl.html
+			 */
+			function wmOwlRTLSwapItems( el ) {
+
+				el
+					.children()
+						.each( function( i, e ) {
+
+							jQuery( e )
+								.parent()
+									.prepend( jQuery( e ) );
+
+						} );
+
+			} // /wmOwlRTLSwapItems
+
+
+
+			jQuery( '[class*="scrollable-"]' )
+				.each( function( item ) {
+
+					var $thisParent             = jQuery( this ),
+					    $this                   = $thisParent.find( '.wm-items-container' ),
+					    scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+					    scrollableMobileColumns = Math.min( 2, scrollableColumns ),
+					    scrollableTabletColumns = Math.min( 3, scrollableColumns ),
+					    scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( true ) : ( false ),
+					    scrollableAuto          = ( $thisParent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
+
+					$this
+						.owlCarousel( {
+							items             : scrollableColumns,
+							autoPlay          : scrollableAuto,
+							stopOnHover       : true,
+							scrollPerPage     : scrollableStack,
+							navigation        : true,
+							navigationText    : [ '<', '>' ],
+							pagination        : false,
+							slideSpeed        : 800,
+							autoHeight        : $thisParent.hasClass( 'auto-height' ),
+							afterAction       : wmOwlCarouselItemPadding,
+							itemsCustom       : [
+									[0, 1],
+									[420, scrollableMobileColumns],
+									[768, scrollableTabletColumns],
+									[1020, scrollableColumns]
+								],
+							/**
+							 * RTL script version support
+							 */
+							itemsDesktopSmall : [1020, scrollableTabletColumns],
+							itemsTablet       : [768, scrollableMobileColumns],
+							itemsMobile       : [420, 1],
+							autoPlayDirection : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( 'rtl' ),
+							startPosition     : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( -1 ),
+							beforeInit        : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( wmOwlRTLSwapItems )
+						} );
+
+				} );
+
+
+
+		} // /owlCarousel
+
+		if ( jQuery().bxSlider ) {
+
+			function wmPostsCarousel() {
+
+				jQuery( '[class*="scrollable-"]' )
+					.each( function( item ) {
+
+						var $thisParent          = jQuery( this ),
+						    $this                = $thisParent.find( '.wm-items-container' ),
+						    itemScrollableWidth  = $this.children().eq( 0 ).outerWidth( true ),
+						    itemScrollableMargin = itemScrollableWidth - $this.children().eq( 0 ).outerWidth(),
+						    scrollableColumns    = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+						    scrollableMove       = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
+						    scrollablePause      = ( $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( 4000 );
+
+						if ( 680 > WMbrowserWidth ) {
+
+							itemScrollableWidth  = $thisParent.outerWidth();
+							itemScrollableMargin = 0;
+							scrollableColumns    = scrollableMove = 1;
+
+							if ( $this.closest( '.wm-posts-wrap' ).hasClass( 'wm-posts-wm_logos' ) ) {
+								itemScrollableWidth = itemScrollableWidth / 3;
+								scrollableColumns   = scrollableMove = 3;
+							}
+
+						} else {
+
+							itemScrollableWidth = itemScrollableWidth - itemScrollableMargin;
+
+						}
+
+						$this
+							.bxSlider( {
+								auto           : $this.closest( '.wm-posts-wrap' ).hasClass( 'scrollable-auto' ),
+								pause          : scrollablePause,
+								minSlides      : 1,
+								maxSlides      : scrollableColumns,
+								slideWidth     : parseInt( itemScrollableWidth ),
+								slideMargin    : parseInt( itemScrollableMargin ),
+								moveSlides     : scrollableMove,
+								pager          : false,
+								autoHover      : true,
+								adaptiveHeight : $thisParent.hasClass( 'auto-height' ),
+								useCSS         : false // This prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
+							} );
+
+					} );
+
+			} // /wmPostsCarousel
+
+			wmPostsCarousel();
+
+			jQuery( window )
+				.on( 'resize orientationchange', function() {
+
+					wmPostsCarousel();
+
+				} );
+
+		} // /bxSlider
+
+
+
+
+
+} );

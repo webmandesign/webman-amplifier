@@ -4,7 +4,736 @@
  * @package     WebMan Amplifier
  * @subpackage  Metabox
  *
- * @since       1.0
+ * @since    1.0
+ * @version  1.2.2
  */
 
-jQuery(function(){function b(a,b){return b.replace(/(\[\d+\])/,function(a,b){return b=b.substr(1,b.length-2),"["+(Number(b)+1)+"]"})}function c(){jQuery("#wpb_visual_composer").is(":visible")?jQuery("body").addClass("wm-visual-composer-on"):jQuery("body").removeClass("wm-visual-composer-on")}if(jQuery(".no-js").removeClass("no-js"),jQuery().wpColorPicker){var a="undefined"==typeof wmColorPickerOptions?null:wmColorPickerOptions;jQuery(".wm-meta-wrap .color-wrap .fieldtype-text").wpColorPicker(a)}jQuery(".button-default-value").on("click",function(){var a=jQuery(this),b=a.data("option"),c=a.find("span").text();if(a.hasClass("default-gallery"))jQuery("#"+b).attr("value",c),jQuery(".gallery-"+b).html("");else if(a.hasClass("default-slider")&&jQuery().slider)jQuery("#"+b+"-slider").slider("option","value",c),jQuery("#"+b).attr("value",c);else{var d='.wm-meta-wrap [name="'+b+'"]';"radio"===jQuery(d).attr("type")?jQuery(d+'[value="'+c+'"]').attr("checked","checked"):jQuery(d).val(c).change()}}),wmFeaturedImage={get:function(){return wp.media.view.settings.post.featuredImageId},set:function(a){var b=wp.media.view.settings;b.post.featuredImageId=a,wp.media.post("set-post-thumbnail",{json:!0,post_id:b.post.id,thumbnail_id:b.post.featuredImageId,_wpnonce:b.post.nonce}).done(function(a){jQuery(".inside","#postimagediv").html(a)})},frame:function(){return this._frame?this._frame:(this._frame=wp.media({state:"featured-image",states:[new wp.media.controller.FeaturedImage]}),this._frame.on("toolbar:create:featured-image",function(a){this.createSelectToolbar(a,{text:wp.media.view.l10n.setFeaturedImage})},this._frame),this._frame.state("featured-image").on("select",this.select),this._frame)},select:function(){var a=wp.media.view.settings,b=this.get("selection").single();a.post.featuredImageId&&wmFeaturedImage.set(b?b.id:-1)},init:function(){jQuery(".button-set-featured-image").on("click",function(a){a.preventDefault(),a.stopPropagation(),wmFeaturedImage.frame().open()})}},wmFeaturedImage.init(),jQuery(".wm-meta-wrap .gallery-wrap").on("click",".button-set-gallery",function(a){if("undefined"!=typeof wp&&wp.media&&wp.media.gallery){var b=jQuery(this).data("id"),c="undefined"==typeof wmGalleryPreviewNonce?"":wmGalleryPreviewNonce,d=jQuery("#"+b),e=wp.media.gallery,f=e.edit('[gallery ids="'+d.val()+'"]'),g=f.el.getAttribute("class");f.el.setAttribute("class",g+" wmamp-gallery"),f.state("gallery-edit").on("update",function(a){var f=e.shortcode(a).attrs.named.ids,g=f.join(",");jQuery(".gallery-"+b).find("a").hide(),jQuery(".gallery-loading-"+b).show(),f.length&&jQuery.post(ajaxurl,{action:"wm-gallery-preview-refresh",fieldID:b,images:f,wmGalleryNonce:c},function(a){jQuery(".gallery-"+b).html(a),jQuery(".gallery-loading-"+b).hide()}),d.val(g)}),a.preventDefault()}}),jQuery(".wm-meta-wrap .image-wrap label, .wm-meta-wrap .button-set-image").on("click",function(a){if("undefined"!=typeof wp&&wp.media&&wp.media.editor){var b=jQuery(this).data("id"),c=wp.media.editor.send.attachment;wp.media.editor.send.attachment=function(a,d){jQuery('input[name="'+b+'[url]"]').val(d.url),jQuery('input[name="'+b+'[url]"]').attr("data-preview",d.sizes.thumbnail.url),jQuery('input[name="'+b+'[id]"]').val(d.id),jQuery("div.image-"+b).removeClass("hide").find("img").attr("src",d.sizes.thumbnail.url),wp.media.editor.send.attachment=c},wp.media.editor.open(),a.preventDefault()}}),jQuery(".wm-meta-wrap .preview-enabled .fieldtype-image").on("change",function(){var a=jQuery(this),b=a.val(),c=a.attr("id"),d=a.data("nothumb");b?(b=a.data("preview")?a.data("preview"):a.val(),jQuery("div.image-"+c).find("img").attr("src",b)):(a.data("preview",""),jQuery("div.image-"+c).find("img").attr("src",d))}),jQuery(".wm-meta-wrap .fieldtype-image").change(),jQuery(".wm-meta-wrap .confirm").on("click",function(a){var b=jQuery(this).attr("href"),c=jQuery(".wm-meta-wrap .modal-box").fadeIn();c.find("a").on("click",function(){var a=jQuery(this).data("action");"stay"===a?c.fadeOut():window.location=b}),a.preventDefault()}),jQuery().slider&&jQuery(".wm-meta-wrap .slider-wrap").each(function(){var a="#"+jQuery(this).data("option"),b=jQuery(a+"-slider").data("value"),c=jQuery(a+"-slider").data("min"),d=jQuery(a+"-slider").data("max"),e=jQuery(a+"-slider").data("step");jQuery(a).attr("readonly","readonly"),jQuery(a+"-slider").slider({value:b,min:c,max:d,step:e,slide:function(b,c){jQuery(a).val(c.value)}})}),jQuery(".wm-meta-wrap .radio-wrap.custom-label input:checked").parent(".inline-radio").addClass("active"),jQuery(".wm-meta-wrap .radio-wrap.custom-label input").on("change",function(){jQuery(this).parent(".inline-radio").addClass("active").siblings(".inline-radio").removeClass("active")}),jQuery(".wm-meta-wrap .button-add-cell").on("click",function(a){a.preventDefault();var c=jQuery(this),d=c.parent("td").find(".repeater-cells"),e=c.parent("td").find(".repeater-cell:last"),f=e.clone(!0).off();e.length<1&&alert("Please, reload the page"),jQuery('[class*="fieldtype-"]',f).val("").attr("name",function(a,c){return b(a,c)}).attr("id",function(a,c){return b(a,c)}),jQuery("label",f).attr("for",function(a,c){return b(a,c)}),jQuery("[data-option]",f).attr("data-option",function(a,c){return b(a,c)}),f.insertAfter(e,c.parent("td").find(".repeater-cells")),d.children().length>1&&d.find(".button-remove-cell").removeClass("button-disabled")}),jQuery(".wm-meta-wrap .button-remove-cell").on("click",function(a){var b=jQuery(this),c=b.closest(".repeater-cells");b.closest(".repeater-cells").children().length>1&&b.closest(".repeater-cell").remove(),c.children().length<=1&&c.find(".button-remove-cell").addClass("button-disabled"),a.preventDefault()}),jQuery().sortable&&jQuery(".wm-meta-wrap .repeater-cells").sortable({cursor:"move",handle:".button-move-cell",items:"> .repeater-cell",opacity:.66,revert:!0}),jQuery().tabs&&jQuery(".wm-meta-wrap.jquery-ui-tabs").tabs(),jQuery(".wm-meta-wrap .option-heading.toggle").not(".open").closest("tbody").next("tbody").hide(),jQuery(".wm-meta-wrap .option-heading.toggle").on("click",function(){jQuery(this).closest("tbody").next("tbody").toggle()});var d=jQuery(".composer-switch a");c(),d.live("click",function(){c()}),jQuery(".wm-meta-wrap .zip-wrap label, .wm-meta-wrap .zip-wrap .fieldtype-zip, .wm-meta-wrap .button-set-zip").on("click",function(a){if("undefined"!=typeof wp&&wp.media&&wp.media.editor){var b=jQuery(this).data("id"),c=wp.media.editor.send.attachment;wp.media.editor.send.attachment=function(a,d){1<d.url.search(".zip")||1<d.url.search(".ZIP")?(jQuery('input[name="'+b+'[url]"]').val(d.url),jQuery('input[name="'+b+'[id]"]').val(d.id)):(alert("No ZIP file selected"),jQuery('input[name="'+b+'[url]"]').val(""),jQuery('input[name="'+b+'[id]"]').val("")),wp.media.editor.send.attachment=c},wp.media.editor.open(),a.preventDefault()}}),jQuery('select[name="page_template"], .wm-meta-wrap select').change()});
+
+
+
+
+jQuery( function() {
+
+
+
+
+
+	/**
+	 * Basics
+	 */
+
+		jQuery( '.no-js' )
+			.removeClass( 'no-js' );
+
+
+
+	/**
+	 * Color picker
+	 */
+
+		if ( jQuery().wpColorPicker ) {
+
+			var wmColorPickerOptionsArray = ( typeof wmColorPickerOptions == 'undefined' ) ? ( null ) : ( wmColorPickerOptions );
+
+			jQuery( '.wm-meta-wrap .color-wrap .fieldtype-text' )
+				.wpColorPicker( wmColorPickerOptionsArray );
+
+		} // /wpColorPicker
+
+
+
+	/**
+	 * Default value button
+	 */
+
+		jQuery( '.button-default-value' )
+			.on( 'click', function() {
+
+				var $this        = jQuery( this ),
+				    defaultInput = $this.data( 'option' ),
+				    defaultValue = $this.find( 'span' ).text();
+
+				if ( $this.hasClass( 'default-gallery' ) ) {
+
+					jQuery( '#' + defaultInput )
+						.attr( 'value', defaultValue );
+
+					jQuery( '.gallery-' + defaultInput )
+						.html( '' );
+
+				} else if ( $this.hasClass( 'default-slider' ) && jQuery().slider ) {
+
+					jQuery( '#' + defaultInput + '-slider' )
+						.slider( 'option', 'value', defaultValue );
+
+					jQuery( '#' + defaultInput )
+						.attr( 'value', defaultValue );
+
+				} else {
+
+					var defaultField = '.wm-meta-wrap [name="' + defaultInput + '"]';
+
+					if ( 'radio' === jQuery( defaultField ).attr( 'type' ) ) {
+
+						jQuery( defaultField + '[value="' + defaultValue + '"]' )
+							.attr( 'checked', 'checked' );
+
+					} else {
+
+						jQuery( defaultField )
+							.val( defaultValue )
+							.change();
+
+					}
+
+				}
+
+			} );
+
+
+
+	/**
+	 * Featured image setup
+	 */
+
+		wmFeaturedImage = {
+
+
+
+			get : function() {
+
+				return wp.media.view.settings.post.featuredImageId;
+
+			},
+
+
+
+			set : function( id ) {
+
+				var settings = wp.media.view.settings;
+
+				settings.post.featuredImageId = id;
+
+				wp.media.post( 'set-post-thumbnail', {
+					json         : true,
+					post_id      : settings.post.id,
+					thumbnail_id : settings.post.featuredImageId,
+					_wpnonce     : settings.post.nonce
+				} ).done( function( html ) {
+
+					jQuery( '.inside', '#postimagediv' )
+						.html( html );
+
+				} );
+
+			},
+
+
+
+			frame : function() {
+
+				if ( this._frame ) {
+					return this._frame;
+				}
+
+				this._frame = wp.media( {
+					state  : 'featured-image',
+					states : [ new wp.media.controller.FeaturedImage() ]
+				} );
+
+				this._frame.on( 'toolbar:create:featured-image', function( toolbar ) {
+					this.createSelectToolbar( toolbar, {
+						text : wp.media.view.l10n.setFeaturedImage
+					} );
+				}, this._frame );
+
+				this._frame.state( 'featured-image' ).on( 'select', this.select );
+
+				return this._frame;
+
+			},
+
+
+
+			select : function() {
+
+				var settings  = wp.media.view.settings,
+				    selection = this.get( 'selection' ).single();
+
+				if ( ! settings.post.featuredImageId ) {
+					return;
+				}
+
+				wmFeaturedImage.set( selection ? selection.id : -1 );
+
+			},
+
+
+
+			init : function() {
+
+				// Open the content media manager to the 'featured image' tab
+
+					jQuery( '.button-set-featured-image' ).on( 'click', function( event ) {
+						event.preventDefault();
+						event.stopPropagation(); // Stop propagation to prevent thickbox from activating.
+
+						wmFeaturedImage.frame().open();
+					} );
+
+			}
+
+
+		};
+
+		wmFeaturedImage.init();
+
+
+
+	/**
+	 * Gallery uploader
+	 */
+
+		// Upload multiple images (gallery) action
+
+			jQuery( '.wm-meta-wrap .gallery-wrap' )
+				.on( 'click', '.button-set-gallery', function( e ) {
+
+					// Check if the wp.media.gallery API exists.
+
+						if ( typeof wp === 'undefined' || ! wp.media || ! wp.media.gallery ) {
+							return;
+						}
+
+					var galleryID    = jQuery( this ).data( 'id' ),
+					    galleryNonce = ( typeof wmGalleryPreviewNonce == 'undefined' ) ? ( '' ) : ( wmGalleryPreviewNonce ),
+					    galleryField = jQuery( '#' + galleryID ),
+					    wpGallery    = wp.media.gallery,
+					    frame        = wpGallery.edit( '[gallery ids="' + galleryField.val() + '"]' ),
+					    frameClasses = frame.el.getAttribute( 'class' );
+
+					frame.el.setAttribute( 'class', frameClasses + ' wmamp-gallery' );
+
+					frame.state( 'gallery-edit' ).on( 'update', function( selection ) {
+
+						var imageIDarray = wpGallery.shortcode( selection ).attrs.named.ids,
+						    imageIDs     = imageIDarray.join( ',' );
+
+						// Remove existing images and display loader animation
+
+							jQuery( '.gallery-' + galleryID )
+								.find( 'a' )
+									.hide();
+
+							jQuery( '.gallery-loading-' + galleryID )
+								.show();
+
+						// Do AJAX and get response (result)
+
+							if ( imageIDarray.length ) {
+
+								jQuery.post( ajaxurl, {
+									action         : 'wm-gallery-preview-refresh',
+									fieldID        : galleryID,
+									images         : imageIDarray,
+									wmGalleryNonce : galleryNonce
+								}, function( response ) {
+
+									// Load new images
+
+										jQuery( '.gallery-' + galleryID )
+											.html( response );
+
+									// Hide loader animation
+
+										jQuery( '.gallery-loading-' + galleryID )
+											.hide();
+
+								} );
+
+							}
+
+						galleryField.val( imageIDs );
+
+					} );
+
+					e.preventDefault();
+
+				} );
+
+
+
+	/**
+	 * Image uploader
+	 */
+
+		// Upload image action
+
+			jQuery( '.wm-meta-wrap .image-wrap label, .wm-meta-wrap .button-set-image' )
+				.on( 'click', function( e ) {
+
+					// Check if the wp.media.editor API exists.
+
+						if ( typeof wp === 'undefined' || ! wp.media || ! wp.media.editor ) {
+							return;
+						}
+
+					var uploadFieldId     = jQuery( this ).data( 'id' ),
+					    sendAttachmentBkp = wp.media.editor.send.attachment;
+
+					wp.media.editor.send.attachment = function( props, attachment ) {
+
+						// Set input field values
+
+							jQuery( 'input[name="' + uploadFieldId + '[url]"]' )
+								.val( attachment.url );
+
+							jQuery( 'input[name="' + uploadFieldId + '[url]"]' )
+								.attr( 'data-preview', attachment.sizes.thumbnail.url );
+
+							jQuery( 'input[name="' + uploadFieldId + '[id]"]' )
+								.val( attachment.id );
+
+						// Set preview image
+
+							jQuery( 'div.image-' + uploadFieldId )
+								.removeClass( 'hide' )
+								.find( 'img' )
+									.attr( 'src', attachment.sizes.thumbnail.url );
+
+						wp.media.editor.send.attachment = sendAttachmentBkp;
+
+					}
+
+					wp.media.editor.open();
+
+					e.preventDefault();
+
+				} );
+
+		// Live image preview change
+
+			jQuery( '.wm-meta-wrap .preview-enabled .fieldtype-image' )
+				.on( 'change', function() {
+
+					var $this         = jQuery( this ),
+					    imageSrc      = $this.val(),
+					    uploadFieldId = $this.attr('id'),
+					    noThumbSrc    = $this.data( 'nothumb' );
+
+					if ( imageSrc ) {
+
+					  imageSrc = ( $this.data( 'preview' ) ) ? ( $this.data( 'preview' ) ) : ( $this.val() );
+
+						jQuery( 'div.image-' + uploadFieldId )
+							.find( 'img' )
+								.attr( 'src', imageSrc );
+
+					} else {
+
+						$this.data( 'preview', '' );
+
+						jQuery( 'div.image-' + uploadFieldId )
+							.find( 'img' )
+								.attr( 'src', noThumbSrc );
+
+					}
+
+				} );
+
+			// Trigger action on page load
+
+				jQuery( '.wm-meta-wrap .fieldtype-image' )
+					.change();
+
+
+
+	/**
+	 * Modal confirmation
+	 */
+
+		jQuery( '.wm-meta-wrap .confirm' )
+			.on( 'click', function( e ) {
+
+				var btnUrl   = jQuery( this ).attr( 'href' ),
+				    modalBox = jQuery( '.wm-meta-wrap .modal-box' ).fadeIn();
+
+				modalBox.find( 'a' )
+					.on( 'click', function() {
+
+						var modalAction = jQuery( this ).data( 'action' );
+
+						if ( 'stay' === modalAction ) {
+
+							modalBox
+								.fadeOut();
+
+						} else {
+
+							window.location = btnUrl;
+
+						}
+
+					} );
+
+				e.preventDefault();
+
+			} );
+
+
+
+	/**
+	 * Range (numeric slider)
+	 */
+
+		if ( jQuery().slider ) {
+
+			jQuery( '.wm-meta-wrap .range-wrap' )
+				.each( function() {
+
+					var sliderOptionId   = '#' + jQuery( this ).data( 'option' ),
+					    sliderOptionVal  = jQuery( sliderOptionId + '-slider' ).data( 'value' ),
+					    sliderOptionMin  = jQuery( sliderOptionId + '-slider' ).data( 'min' ),
+					    sliderOptionMax  = jQuery( sliderOptionId + '-slider' ).data( 'max' ),
+					    sliderOptionStep = jQuery( sliderOptionId + '-slider' ).data( 'step' );
+
+					// Make the input field read-only
+
+						jQuery( sliderOptionId )
+							.attr( 'readonly', 'readonly' );
+
+					// Initialize jQuery UI Slider
+
+						jQuery( sliderOptionId + '-slider' )
+							.slider( {
+								value : sliderOptionVal,
+								min   : sliderOptionMin,
+								max   : sliderOptionMax,
+								step  : sliderOptionStep,
+								slide : function( event, ui ) {
+
+									jQuery( sliderOptionId )
+										.val( ui.value );
+
+								}
+							} );
+
+				} );
+
+		} // /slider
+
+
+
+	/**
+	 * Radio buttons
+	 */
+
+		// Add "active" class to radio button items if custom label is used
+
+			jQuery( '.wm-meta-wrap .radio-wrap.custom-label .radio-item' )
+				.find( 'input' )
+					.on( 'change', function() {
+
+						jQuery( this )
+							.parent( '.inline-radio' )
+								.addClass( 'active' )
+								.siblings( '.inline-radio' )
+									.removeClass( 'active' );
+
+					} )
+				.end()
+				.find( 'input:checked' )
+					.parent( '.inline-radio' )
+						.addClass( 'active' );
+
+		// Radio buttons filtering
+
+			jQuery( '.filter-text' )
+				.on( 'keyup', function() {
+
+					var $this = jQuery( this ),
+					    text  = $this.val();
+
+					$this
+						.closest( '.filterable' )
+						.find( '.radio-item' )
+							.each( function() {
+
+								var item  = jQuery( this ),
+								    value = item.data( 'value' ).replace( 'icon', '' );
+
+								if ( -1 == value.indexOf( text ) ) {
+									item.hide();
+								} else {
+									item.show();
+								}
+
+							} );
+
+				} );
+
+
+
+	/**
+	 * Repeater (dynamic items)
+	 */
+
+		// Helper functions for repeater
+
+			function wm_increase_cell_number( index, name ) {
+
+				return name.replace( /(\[\d+\])/, function( fullMatch, n ) {
+						n = n.substr( 1, n.length-2 );
+						return '[' + ( Number( n ) + 1 ) + ']';
+					} );
+
+			} // /wm_increase_cell_number
+
+		// Adding new cells (items)
+
+			jQuery( '.wm-meta-wrap .button-add-cell' )
+				.on( 'click', function( e ) {
+
+					e.preventDefault();
+
+					var $this        = jQuery( this ),
+					    cellsWrapper = $this.parent( 'td' ).find( '.repeater-cells' ),
+					    cellLocation = $this.parent( 'td' ).find( '.repeater-cell:last' ),
+					    cellClone    = cellLocation.clone( true ).off();
+
+					// Alert when there is no repeater cell
+
+						if ( cellLocation.length < 1 ) {
+							alert( 'Please, reload the page' );
+						}
+
+					// Increase cell index
+
+						// Input fields
+
+							jQuery( '[class*="fieldtype-"]', cellClone )
+								.val( '' )
+								.attr( 'name', function( index, name ) {
+									return wm_increase_cell_number( index, name );
+								} )
+								.attr( 'id', function( index, name ) {
+									return wm_increase_cell_number( index, name );
+								} );
+
+						// Labels
+
+							jQuery( 'label', cellClone )
+								.attr( 'for', function( index, name ) {
+									return wm_increase_cell_number( index, name );
+								} );
+
+						// Others
+
+							jQuery( '[data-option]', cellClone )
+								.attr( 'data-option', function( index, name ) {
+									return wm_increase_cell_number( index, name );
+								} );
+
+					// Insert new clonned cell
+
+						cellClone.insertAfter( cellLocation, $this.parent( 'td' ).find( '.repeater-cells' ) );
+
+					// Reactivate remove button when more than one item in stack
+
+						if ( cellsWrapper.children().length > 1 ) {
+
+							cellsWrapper
+								.find( '.button-remove-cell' )
+									.removeClass( 'button-disabled' );
+
+						}
+
+				} );
+
+		// Removing existing cells (items)
+
+			jQuery( '.wm-meta-wrap .button-remove-cell' )
+				.on( 'click', function( e ) {
+
+					var $this        = jQuery( this ),
+					    cellsWrapper = $this.closest( '.repeater-cells' );
+
+					// Remove cell only if there is more than one in the stack
+
+						if ( $this.closest( '.repeater-cells' ).children().length > 1 ) {
+							$this
+								.closest( '.repeater-cell' )
+									.remove();
+						}
+
+					// Deactivate remove button when only one item in stack
+
+						if ( cellsWrapper.children().length <= 1 ) {
+							cellsWrapper
+								.find( '.button-remove-cell' )
+									.addClass( 'button-disabled' );
+						}
+
+					e.preventDefault();
+
+				} );
+
+		// Enable sorting of the cells (items)
+
+			if ( jQuery().sortable ) {
+
+				jQuery( '.wm-meta-wrap .repeater-cells' )
+					.sortable( {
+						cursor  : 'move',
+						handle  : '.button-move-cell',
+						items   : '> .repeater-cell',
+						opacity : 0.66,
+						revert  : true,
+					} );
+
+			} // /sortable
+
+
+
+	/**
+	 * Tabs
+	 */
+
+		if ( jQuery().tabs ) {
+
+			jQuery( '.wm-meta-wrap.jquery-ui-tabs' )
+				.tabs();
+
+		} // /tabs
+
+
+
+	/**
+	 * Toggles
+	 */
+
+		// Toggle sub-sections
+
+			jQuery( '.wm-meta-wrap .option-heading.toggle' )
+				.not( '.open' )
+				.closest( 'tbody' )
+					.next( 'tbody' )
+						.hide();
+
+			jQuery( '.wm-meta-wrap .option-heading.toggle' )
+				.on( 'click', function() {
+
+					jQuery( this )
+						.closest( 'tbody' )
+							.next( 'tbody' )
+								.toggle();
+
+				} );
+
+
+
+	/**
+	 * Visual Composer plugin support
+	 */
+
+		// Function to control display CSS class upon Visual Composer visibility
+
+			function wm_vc_visible() {
+
+				if ( jQuery( '#wpb_visual_composer' ).is( ':visible' ) ) {
+
+					jQuery( 'body' )
+						.addClass( 'wm-visual-composer-on' );
+
+				} else {
+
+					jQuery( 'body' )
+						.removeClass( 'wm-visual-composer-on' );
+
+				}
+
+			} // /wm_vc_visible
+
+		// Cache Visual Composer switch button
+
+			var $WmampVcButton = jQuery( '.composer-switch a' );
+
+		// Run the function first in case there is a Visual Composer globally disabled (in its settings)
+
+			wm_vc_visible();
+
+		// Visual Composer switch button action
+
+			$WmampVcButton
+				.live( 'click', function() {
+					wm_vc_visible();
+				} );
+
+
+
+	/**
+	 * ZIP uploader
+	 */
+
+		// Upload ZIP file action
+
+			jQuery( '.wm-meta-wrap .zip-wrap label, .wm-meta-wrap .zip-wrap .fieldtype-zip, .wm-meta-wrap .button-set-zip' )
+				.on( 'click', function( e ) {
+
+					// Check if the wp.media.editor API exists.
+
+						if ( typeof wp === 'undefined' || ! wp.media || ! wp.media.editor ) {
+							return;
+						}
+
+					var uploadFieldId     = jQuery( this ).data( 'id' ),
+					    sendAttachmentBkp = wp.media.editor.send.attachment;
+
+					wp.media.editor.send.attachment = function( props, attachment ) {
+
+						// Set input field values
+
+							if ( 1 < attachment.url.search( '.zip' ) || 1 < attachment.url.search( '.ZIP' ) ) {
+
+								jQuery( 'input[name="' + uploadFieldId + '[url]"]' )
+									.val( attachment.url );
+								jQuery( 'input[name="' + uploadFieldId + '[id]"]' )
+									.val( attachment.id );
+
+							} else {
+
+								alert( 'No ZIP file selected' );
+
+								jQuery( 'input[name="' + uploadFieldId + '[url]"]' )
+									.val( '' );
+								jQuery( 'input[name="' + uploadFieldId + '[id]"]' )
+									.val( '' );
+
+							}
+
+						wp.media.editor.send.attachment = sendAttachmentBkp;
+
+					}
+
+					wp.media.editor.open();
+
+					e.preventDefault();
+
+				} );
+
+
+
+	/**
+	 * +++ Required actions +++
+	 */
+
+		// Required select field changes on load
+
+			jQuery( 'select[name="page_template"], .wm-meta-wrap select' )
+				.change();
+
+
+
+
+
+} );
