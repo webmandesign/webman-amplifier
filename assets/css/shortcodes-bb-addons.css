@@ -1,0 +1,27 @@
+/**
+ * WebMan Beaver Builder plugin helper styles
+ *
+ * This stylesheet is being applied only when page builder
+ * is active and in use.
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since    1.2.2
+ * @version  1.2.2
+ */
+.fl-builder-lightbox .fl-lightbox {
+  width: 680px;
+}
+
+.fl-builder-settings-tab {
+  width: 100%;
+}
+
+.mce-container div[id^="wm_shortcodes_list_short_id"],
+.mce-container div[id^="wm_shortcodes_list_id"] {
+  display: none;
+}
+.mce-container div[id^="wm_shortcodes_list_short_id"] {
+  display: block;
+}

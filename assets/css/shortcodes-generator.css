@@ -1,0 +1,27 @@
+/**
+ * WebMan Shortcodes Generator styles
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since     1.2.2
+ * @verstion  1.2.2
+ */
+#wm_shortcodes_list-open span,
+#wm_shortcodes_list_short-open span {
+  font-weight: bold;
+}
+
+div[id*="_wm_shortcodes_list_menu_co"] .mceIcon,
+div[id*="_wm_shortcodes_list_short_menu_co"] .mceIcon {
+  width: 0 !important;
+}
+div[id*="_wm_shortcodes_list_menu_co"] .mceText,
+div[id*="_wm_shortcodes_list_short_menu_co"] .mceText {
+  padding: 0 20px 0 10px !important;
+}
+
+div[id*="_wm_shortcodes_list_menu_co"] {
+  max-height: 200px;
+  overflow-y: scroll;
+}
