@@ -15,10 +15,36 @@
 
 
 .wm-radio-block {
-	max-height: 16em;
 	border: 1px solid #dfdfdf;
 	border-radius: 3px;
-	overflow-y: auto;
+	overflow: hidden;
+
+	.filter {
+		float: left;
+		width: 25%;
+		min-width: 10em;
+		padding: 0;
+		margin: 0;
+
+		.rtl & {
+			float: right;
+		}
+
+		input {
+			box-sizing: border-box;
+			width: 100% !important;
+			padding: .62em !important;
+			line-height: 1.62 !important;
+			vertical-align: top;
+		}
+
+	}
+
+	.radio-items {
+		max-height: 12em;
+		padding: 1em;
+		overflow-y: auto;
+	}
 
 	.hide {
 		display: none;

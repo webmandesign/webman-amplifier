@@ -287,6 +287,7 @@ $shortcode_definitions = array(
 														//type specific
 														'options'    => self::$codes_globals['font_icons'],
 														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'filter'     => true,
 														'hide_radio' => true,
 														'inline'     => true,
 														//preview
@@ -594,6 +595,7 @@ $shortcode_definitions = array(
 														//type specific
 														'options'    => self::$codes_globals['font_icons'],
 														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'filter'     => true,
 														'hide_radio' => true,
 														'inline'     => true,
 														//preview
@@ -718,6 +720,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'filter'      => true,
 									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'hidden',
@@ -933,6 +936,7 @@ $shortcode_definitions = array(
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
 												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
 												//preview
@@ -1008,6 +1012,7 @@ $shortcode_definitions = array(
 								'param_name'  => 'icon',
 								'value'       => self::$codes_globals['font_icons'],
 								'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'filter'      => true,
 								'hide_radio'  => true,
 								'inline'      => true,
 								'holder'      => 'hidden',
@@ -1182,6 +1187,7 @@ $shortcode_definitions = array(
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
 												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
 												//preview
@@ -1274,6 +1280,7 @@ $shortcode_definitions = array(
 									'param_name'  => 'button_icon',
 									'value'       => self::$codes_globals['font_icons'],
 									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'filter'      => true,
 									'hide_radio'  => true,
 									'inline'      => true,
 									'holder'      => 'hidden',
@@ -2015,6 +2022,7 @@ $shortcode_definitions = array(
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
 												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
 												//preview
@@ -2126,6 +2134,7 @@ $shortcode_definitions = array(
 								'param_name' => 'icon',
 								'value'      => self::$codes_globals['font_icons'],
 								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,
 								'holder'     => 'div',
@@ -2285,6 +2294,7 @@ $shortcode_definitions = array(
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
 												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
 												//preview
@@ -2320,6 +2330,7 @@ $shortcode_definitions = array(
 								'param_name' => 'bullet',
 								'value'      => self::$codes_globals['font_icons'],
 								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,
 								'holder'     => 'div',
@@ -2457,6 +2468,7 @@ $shortcode_definitions = array(
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
 												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
 												//preview
@@ -2555,6 +2567,7 @@ $shortcode_definitions = array(
 								'param_name' => 'icon',
 								'value'      => self::$codes_globals['font_icons'],
 								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,
 								'holder'     => 'hidden',

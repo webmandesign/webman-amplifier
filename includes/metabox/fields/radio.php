@@ -123,38 +123,38 @@
 
 						$output .= "\r\n\t" . '<div class="radio-items">';
 
-						foreach ( $field['options'] as $option_value => $option ) {
+							foreach ( $field['options'] as $option_value => $option ) {
 
-							$i++;
+								$i++;
 
-							$output .= "\r\n\t\t";
-							$output .= ( ! $field['inline'] ) ? ( '<p class="radio-item"' ) : ( '<span class="radio-item inline-radio"' );
-							$output .= ' data-value="' . esc_attr( $option_value ) . '">';
+								$output .= "\r\n\t\t";
+								$output .= ( ! $field['inline'] ) ? ( '<p class="radio-item"' ) : ( '<span class="radio-item inline-radio"' );
+								$output .= ' data-value="' . esc_attr( $option_value ) . '">';
 
-								$checked = trim( checked( $value, $option_value, false ) . ' /' );
-								$option  = trim( strip_tags( $option, WM_METABOX_LABEL_HTML ) );
+									$checked = trim( checked( $value, $option_value, false ) . ' /' );
+									$option  = trim( strip_tags( $option, WM_METABOX_LABEL_HTML ) );
 
-								if ( ! trim( $field['custom'] ) ) {
+									if ( ! trim( $field['custom'] ) ) {
 
-									$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio" ' . $checked . '> ';
+										$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio" ' . $checked . '> ';
 
-									$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . $option . '</label>';
+										$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . $option . '</label>';
 
-								} else {
+									} else {
 
-									$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . trim( str_replace(
-											array( '{{value}}', '{{name}}' ),
-											array( $option_value, $option ),
-											$field['custom']
-										) ) . '</label>';
+										$output .= '<label for="' . esc_attr( $field['id'] . '-' . $i ) . '">' . trim( str_replace(
+												array( '{{value}}', '{{name}}' ),
+												array( $option_value, $option ),
+												$field['custom']
+											) ) . '</label>';
 
-									$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio' . esc_attr( $field['hide-radio'] ) . '" ' . $checked . '>';
+										$output .= '<input type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="fieldtype-radio' . esc_attr( $field['hide-radio'] ) . '" ' . $checked . '>';
 
-								}
+									}
 
-							$output .= ( ! $field['inline'] ) ? ( '</p>' ) : ( '</span> ' );
+								$output .= ( ! $field['inline'] ) ? ( '</p>' ) : ( '</span> ' );
 
-						} // /foreach
+							} // /foreach
 
 						$output .= "\r\n\t" . '</div>';
 

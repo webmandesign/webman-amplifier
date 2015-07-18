@@ -451,10 +451,10 @@ jQuery( function() {
 			jQuery( '.filter-text' )
 				.on( 'keyup', function() {
 
-					var $this = jQuery( this ),
-					    text  = $this.val();
+					var search = jQuery( this ),
+					    text   = search.val();
 
-					$this
+					search
 						.closest( '.filterable' )
 						.find( '.radio-item' )
 							.each( function() {
