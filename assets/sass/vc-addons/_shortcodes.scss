@@ -1,0 +1,224 @@
+// Special shortcodes (elements) stylings
+
+// Elements parameters
+
+	.wpb_content_element {
+
+		.wpb_vc_param_value {
+			display: inline;
+			margin-left: .5em;
+			font-size: 11px;
+			font-style: italic;
+			color: #ccc;
+
+			* {
+				display: inline;
+			}
+
+			&::after,
+			&::before {
+				content: '"';
+			}
+
+		}
+
+	}
+
+// jQuery UI Sortable placeholder
+
+	.wpb_element_wrapper .vc_container_for_children .group.ui-sortable-placeholder,
+	.wm-shortcode-vc-price.ui-sortable-placeholder {
+		visibility: visible !important;
+		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQALl5eX/GWF8EKezs5MRLADjgNiMyByQAAC2xw5pFYdCMwAAAABJRU5ErkJggg==);
+		border: 0;
+	}
+
+	%ui_sortable_heading {
+		background: #777;
+		border: 0 !important;
+		border-radius: 3px;
+	}
+
+// Price (Pricing Table item) element
+
+	#wpb_visual_composer {
+
+		.wpb_content_element {
+
+			&.wm-shortcode-vc-price {
+				margin: 0 0 10px;
+
+				> .wpb_element_wrapper {
+					@extend %ui_sortable_heading;
+				}
+
+			}
+
+		}
+
+	}
+
+// Accordion and tabs element
+
+	#wpb_visual_composer {
+
+		.wpb_content_element {
+
+			.wm-sections-mode-title {
+				display: block;
+				padding-bottom: 10px;
+			}
+
+		}
+
+	}
+
+	// Accordion "add new section" button
+
+		%add_tab {
+			width: 100%;
+			height: 40px;
+			padding: 0 !important;
+			line-height: 40px;
+			font-size: 11px;
+			font-weight: bold;
+			text-transform: uppercase;
+			background: transparent;
+			background: linear-gradient( to bottom, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 100% );
+			color: #ccc;
+			border: 0;
+			border-top: 1px solid #333;
+			outline: 0;
+			cursor: pointer;
+		}
+
+		.wm-sections-mode,
+		.wpb_vc_accordion {
+
+			> .wpb_element_wrapper {
+
+				.tab_controls {
+
+					.add_tab {
+						@extend %add_tab;
+
+						&:focus {
+							@extend %add_tab;
+						}
+
+						&:hover {
+							background: #111;
+							background: linear-gradient( to bottom, rgba(0, 0, 0,.3) 0%, rgba(0, 0, 0, 0) 100% );
+							color: #fff;
+							opacity: 1;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	// Accordion new section styling
+
+		.wpb_element_wrapper {
+
+			.wpb_content_element & {
+
+				.wpb_accordion_holder {
+
+					.wm-sections-mode-section,
+					.wpb_vc_accordion_tab {
+						padding: 0;
+						background: transparent;
+						border: 0;
+						overflow: hidden;
+					}
+
+				}
+
+			}
+
+			#poststuff & {
+
+				h3.ui-accordion-header {
+					@extend %ui_sortable_heading;
+
+					&::before {
+						content: '+';
+						margin-right: 10px;
+						font-size: 16px;
+						font-weight: bold;
+						text-shadow: none;
+						color: #ccc;
+					}
+
+					span {
+						text-shadow: none;
+						color: #ccc;
+					}
+
+					&.ui-state-active {
+						background: #e8e8e8;
+						border-bottom: 1px solid #e3e3e3 !important;
+						border-radius: 3px 3px 0 0;
+
+						&::before {
+							content: '−';
+							color: inherit;
+						}
+
+						span {
+							font-weight: bold;
+							color: #333;
+						}
+
+					}
+
+				}
+
+			}
+
+			.wm-sections-mode > &,
+			.wpb_vc_accordion > & {
+
+				h3.ui-accordion-header {
+
+					span.ui-icon {
+						display: none;
+					}
+
+				}
+
+			}
+
+			.vc_container_for_children {
+
+				.group {
+					margin-bottom: 10px;
+					background: #f8f8f8;
+					border-radius: 3px;
+				}
+
+			}
+
+		}
+
+	// Element in accordion section
+
+		#wpb_visual_composer {
+
+			.wm-sections-mode-section .wpb_content_element > .wpb_element_wrapper,
+			.wpb_vc_accordion_tab .wpb_content_element > .wpb_element_wrapper {
+				background: #888;
+				border-color: #777;
+
+				h4 {
+					color: #fff;
+				}
+
+			}
+
+		}

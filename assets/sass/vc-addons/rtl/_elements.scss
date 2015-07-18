@@ -1,0 +1,45 @@
+// RTL
+
+// Elements
+
+.rtl {
+
+	.wpb_content_element {
+
+		&:hover {
+
+			> div.controls {
+				right: auto;
+				left: 5px;
+			}
+
+		}
+
+	}
+
+	#wpb_visual_composer {
+
+		// Elements control buttons
+
+			.vc_controls {
+
+				> .vc_controls-cc {
+					right: auto;
+					left: 5px;
+				}
+
+			}
+
+		// Element title and parameters display
+
+			.wpb_content_element {
+
+				h4 {
+					margin: 0 0 0 10px !important;
+				}
+
+			}
+
+	}
+
+}

@@ -152,30 +152,6 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
 .wm-meta-wrap .option:hover > th, .wm-meta-wrap .option:hover > td {
   background: #fcfcfc;
 }
-.wm-meta-wrap .padding-20 > td,
-.wm-meta-wrap .option.padding-20 > td {
-  padding: 20px;
-}
-.wm-meta-wrap tfoot {
-  border-top: 1px solid #e6e6e6;
-}
-.wm-meta-wrap tfoot tr {
-  background: #fcfcfc;
-}
-#side-sortables .wm-meta-wrap th, #side-sortables .wm-meta-wrap td {
-  clear: both;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 0;
-  box-sizing: border-box;
-}
-#side-sortables .wm-meta-wrap th {
-  padding-bottom: 0;
-}
-#side-sortables .wm-meta-wrap td {
-  padding-bottom: 5px;
-}
 .wm-meta-wrap .option-heading th,
 .wm-meta-wrap .option-heading td {
   padding: 1em 10px 1em 20px;
@@ -203,6 +179,30 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
 .wm-meta-wrap .option-heading + .option th,
 .wm-meta-wrap .option-heading + .option td {
   padding-top: 20px;
+}
+.wm-meta-wrap .padding-20 > td,
+.wm-meta-wrap .option.padding-20 > td {
+  padding: 20px;
+}
+.wm-meta-wrap tfoot {
+  border-top: 1px solid #e6e6e6;
+}
+.wm-meta-wrap tfoot tr {
+  background: #fcfcfc;
+}
+#side-sortables .wm-meta-wrap th, #side-sortables .wm-meta-wrap td {
+  clear: both;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+#side-sortables .wm-meta-wrap th {
+  padding-bottom: 0;
+}
+#side-sortables .wm-meta-wrap td {
+  padding-bottom: 5px;
 }
 
 .wm-admin-wrap {
@@ -400,7 +400,7 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
   vertical-align: middle;
   transition: all .2s;
 }
-.wm-meta-wrap .checkbox-wrap input:checked + label::before {
+.wm-meta-wrap .checkbox-wrap input:checked + label ::before {
   content: '\2713';
   background: #4a9c4e;
   color: #fafcfe;
@@ -580,7 +580,7 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
 .wm-meta-wrap .repeater-cell .checkbox-wrap label {
   width: 140px;
 }
-:root .wm-meta-wrap .repeater-cell .checkbox-wrap input + label:before {
+.wm-meta-wrap .repeater-cell .checkbox-wrap input + label::before {
   left: 160px;
   margin-top: 0;
 }

@@ -13,29 +13,29 @@
 
 
 
+
+
 // Make the sttings modal window wider
 
-.fl-builder-lightbox .fl-lightbox {
-	width: 680px;
-}
+	.fl-builder-lightbox .fl-lightbox {
+		width: 680px;
+	}
 
-.fl-builder-settings-tab {
-	width: 100%;
-}
-
-
+	.fl-builder-settings-tab {
+		width: 100%;
+	}
 
 // Display Short Shortcode Generator only
 
-.mce-container {
+	.mce-container {
 
-	div[id^="wm_shortcodes_list_short_id"],
-	div[id^="wm_shortcodes_list_id"] {
-		display: none;
+		div[id^="wm_shortcodes_list_short_id"],
+		div[id^="wm_shortcodes_list_id"] {
+			display: none;
+		}
+
+		div[id^="wm_shortcodes_list_short_id"] {
+			display: block;
+		}
+
 	}
-
-	div[id^="wm_shortcodes_list_short_id"] {
-		display: block;
-	}
-
-}

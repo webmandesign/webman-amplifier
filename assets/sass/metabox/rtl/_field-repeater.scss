@@ -1,0 +1,54 @@
+// RTL
+
+// Repeater field
+
+.wm-meta-wrap {
+
+	.repeater-cell {
+
+		&-controls {
+			right: auto;
+			left: 0;
+
+			.button {
+				float: left;
+				margin-left: 0;
+				margin-right: 4px;
+			}
+
+		}
+
+		.option {
+
+			> td {
+				padding: 10px 10px 10px 60px;
+			}
+
+		}
+
+		// Checkbox field fixes for repeater cell
+
+			.checkbox-wrap {
+
+				input {
+
+					+ label {
+
+						&::before {
+							left: auto;
+							right: 160px;
+						}
+
+					}
+
+				}
+
+			}
+
+	}
+
+	.button-add-cell {
+		float: left;
+	}
+
+}

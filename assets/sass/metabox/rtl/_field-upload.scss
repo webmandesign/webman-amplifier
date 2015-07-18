@@ -1,0 +1,19 @@
+// RTL
+
+// Uploads: image, ZIP file and gallery
+
+.wm-meta-wrap {
+
+	.image-wrap input.fieldtype-image,
+	.zip-wrap input.fieldtype-zip {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	.image-preview a,
+	.gallery-preview a,
+	.gallery-loading {
+		margin: 4px 0 0 4px;
+	}
+
+}

@@ -1,0 +1,154 @@
+// Row
+
+#wpb_visual_composer {
+
+	.vc_row {
+		margin: 0;
+	}
+
+	.wpb_vc_row {
+		margin-top: 20px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+	}
+
+	// Row controls
+
+		#visual_composer_content {
+
+			.controls_row {
+				display: none;
+				position: relative;
+				height: 32px;
+				padding: 0;
+				margin-top: -32px;
+				background: #fff;
+				border: 1px solid #d6d6d6;
+				box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+				z-index: 99;
+			}
+
+			.wpb_vc_row {
+
+				&:hover {
+
+					> .controls_row {
+						display: block;
+					}
+
+				}
+
+				&_inner {
+
+					.controls_row {
+						display: block;
+						margin: 0;
+						opacity: .5;
+					}
+
+					&:hover {
+
+						.controls_row {
+							opacity: 1;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		.controls_row {
+
+			a {
+				border: 1px solid #ddd;
+				border-radius: 0;
+			}
+
+			.column_move {
+				position: absolute;
+				width: 100%;
+				height: 32px;
+				left: 0;
+				top: 0;
+				padding: 0;
+				margin: 0;
+				line-height: 30px;
+				background-color: transparent;
+				border: 0;
+				z-index: 0;
+
+				&:hover {
+					background-color: #fcfcfc;
+					box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
+				}
+
+				.vc_icon {
+					vertical-align: middle;
+				}
+
+			}
+
+			> span {
+				position: absolute;
+				z-index: 1;
+			}
+
+			// Row layouts selector button
+
+				.vc_row_layouts {
+					width: 34px;
+					height: 22px;
+					left: 10px;
+					top: 4px;
+					padding: 0;
+					background: #f5f5f5;
+
+					&:hover {
+						width: auto;
+						height: auto;
+						padding: 5px;
+						background: #fff;
+						box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+					}
+
+					.custom_columns {
+						padding: 5px 0;
+						margin-top: 5px;
+						border: 0;
+					}
+
+				}
+
+				.column_add {
+					display: none;
+				}
+
+			// Edit / Clone / Delete buttons
+
+				.vc_row_edit_clone_delete {
+					right: 10px;
+					top: 4px;
+
+					a {
+						margin-left: 3px;
+					}
+
+				}
+
+				.column_delete{
+
+					&:hover {
+						background-color: #f99;
+					}
+
+				}
+
+		}
+
+}

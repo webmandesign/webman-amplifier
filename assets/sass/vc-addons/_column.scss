@@ -1,0 +1,67 @@
+// Column
+
+#wpb_visual_composer {
+
+	$grid: 12; // number of grid elements (spans)
+	$gutter: 2; // in %
+
+	.wpb_row_container {
+
+		> .wpb_vc_column,
+		> .wpb_vc_column_inner {
+			padding: 0;
+			background: #f8f8f8;
+			border: 1px solid #e1e1e1;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+		}
+
+		> .wpb_vc_column + .wpb_vc_column,
+		> .wpb_vc_column_inner + .wpb_vc_column_inner {
+			margin-left: percentage( $gutter / 100 );
+		}
+
+		> .wpb_vc_column > .wpb_element_wrapper,
+		> .wpb_vc_column_inner > .wpb_element_wrapper {
+			padding: 0;
+		}
+
+	}
+
+	// Widths
+
+		$span: ( 100 + $gutter ) / $grid;
+
+		@for $i from 1 through $grid {
+
+			.vc_col-sm-#{$i} {
+				width: percentage( ( $span * $i - $gutter ) / 100 );
+			}
+
+		}
+
+	// Column control buttons hiding
+
+		.wpb_vc_column {
+
+			.wpb_column_container {
+				min-height: 40px !important;
+				padding: 5px;
+				transition: all .25s ease-in-out;
+			}
+
+			.controls_column {
+				position: relative;
+				top: 0;
+				bottom: 0;
+				padding: 5px 5px 0;
+				z-index: 0;
+
+				&.bottom-controls {
+					padding: 0 5px 5px;
+				}
+
+			}
+
+		}
+
+}

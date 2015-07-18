@@ -1,0 +1,49 @@
+// Navigation bar (with element selection and templates button)
+
+#wpb_visual_composer {
+
+	.vc_navbar {
+		padding: 0;
+		background: #21759b;
+		border: 0 !important;
+		box-shadow: inset 0 0 30px rgba(0, 0, 0, .5);
+
+		// Hide the VC logo
+
+			&-header {
+				display: none;
+			}
+
+		// Button styles
+
+			.vc_navbar-nav {
+
+				> li {
+					border: 0;
+				}
+
+			}
+
+			.vc_icon-btn {
+				background-position: 0 0;
+				border: 0;
+
+				&:hover {
+					background-color: transparent;
+					opacity: .75;
+					box-shadow: inset 0 0 30px rgba(0, 0, 0, .5);
+				}
+
+			}
+
+			.vc_templates-button {
+				background-position: 0 -55px;
+			}
+
+			.vc_post-settings {
+				background-position: 0 -110px;
+			}
+
+	}
+
+}

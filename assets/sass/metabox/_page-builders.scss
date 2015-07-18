@@ -1,17 +1,17 @@
 // Visual Composer plugin conditional texts
 
-p.composer-switch {
-	height: auto;
-}
-
-.if-page-builder-on {
-	display: none;
-	font-weight: 600;
-
-	body.fl-builder-enabled &,
-	body.wm-visual-composer-on & {
-		display: block;
-		margin-top: 20px;
+	p.composer-switch {
+		height: auto;
 	}
 
-}
+	.if-page-builder-on {
+		display: none;
+		font-weight: 600;
+
+		body.fl-builder-enabled &,
+		body.wm-visual-composer-on & {
+			display: block;
+			margin-top: 20px;
+		}
+
+	}

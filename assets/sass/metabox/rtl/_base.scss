@@ -1,0 +1,76 @@
+// RTL
+
+// Metabox wrapper
+
+.wm-meta-wrap {
+	direction: rtl;
+
+	// Basic elements
+
+		label {
+			text-align: right;
+		}
+
+	// Default value button
+
+		.button-default-value {
+			left: 20px;
+			right: auto;
+
+			span {
+				left: auto;
+				right: 20px;
+			}
+
+		}
+
+		.repeater-cell .button-default-value {
+			left: 10px;
+			right: auto;
+		}
+
+	// Form table
+
+		.form-table {
+
+			th {
+				text-align: right;
+			}
+
+		}
+
+		.option {
+
+			> th {
+				padding: 20px 20px 20px 10px;
+			}
+
+			> td {
+				padding: 20px 10px 20px 50px;
+			}
+
+			// Heading row
+
+				&-heading {
+
+					th,
+					td {
+						padding: 1em 20px 1em 10px
+					}
+
+					&.toggle {
+						border-left: 0;
+						border-right: 2px solid #999;
+
+						&:hover {
+							border-left: 0;
+							border-right: 6px solid #999;
+						}
+
+					}
+
+				}
+
+		}
+
+}

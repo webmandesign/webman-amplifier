@@ -69,11 +69,15 @@
 					width: 140px;
 				}
 
-				:root & {
+				input {
 
-					input + label:before {
-						left: 160px;
-						margin-top: 0;
+					+ label {
+
+						&::before {
+							left: 160px;
+							margin-top: 0;
+						}
+
 					}
 
 				}

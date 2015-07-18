@@ -1,0 +1,53 @@
+// RTL
+
+// Row
+
+.rtl {
+
+	.controls_row {
+
+		.column_delete,
+		.column_clone,
+		.column_edit,
+		.vc_row_edit_clone_delete .vc_control {
+			float: left;
+		}
+
+	}
+
+	#wpb_visual_composer {
+
+		// Row controls
+
+			.controls_row {
+
+				.column_move {
+					left: auto;
+					right: 0;
+				}
+
+				// Row layouts selector button
+
+					.vc_row_layouts {
+						left: auto;
+						right: 10px;
+					}
+
+				// Edit / Clone / Delete buttons
+
+					.vc_row_edit_clone_delete {
+						right: auto;
+						left: 10px;
+
+						a {
+							margin-left: 0;
+							margin-right: 3px;
+						}
+
+					}
+
+			}
+
+	}
+
+}

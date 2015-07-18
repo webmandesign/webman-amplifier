@@ -1,0 +1,24 @@
+/**
+ * WebMan Shortcodes Generator styles
+ *
+ * RTL languages support
+ *
+ * @package     WebMan Amplifier
+ * @subpackage  Shortcodes
+ *
+ * @since    1.2.2
+ * @version  1.2.2
+ */
+div[id*="_wm_shortcodes_list_menu_co"] .mceText,
+div[id*="_wm_shortcodes_list_short_menu_co"] .mceText {
+  text-align: right !important;
+  padding: 0 10px 0 20px !important;
+}
+
+div[id*="_wm_shortcodes_list_menu"] {
+  margin-left: -164px;
+}
+
+div[id*="_wm_shortcodes_list_short_menu"] {
+  margin-left: -95px;
+}
