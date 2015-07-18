@@ -78,7 +78,7 @@
 
 			&:checked + label {
 
-				::before {
+				&::before {
 					content: '\2713';
 					background: #4a9c4e;
 					color: #fafcfe;

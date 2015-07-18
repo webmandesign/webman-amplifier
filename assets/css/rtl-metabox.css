@@ -82,13 +82,14 @@
   padding-right: 0;
   margin-left: 0;
 }
-.wm-meta-wrap .checkbox-wrap input + label ::before {
+.wm-meta-wrap .checkbox-wrap input + label::before {
   left: auto;
   right: 220px;
   border: 1px solid;
   border-right-width: 16px;
+  border-color: rgba(0, 0, 0, 0.1);
 }
-.wm-meta-wrap .checkbox-wrap input:checked + label ::before {
+.wm-meta-wrap .checkbox-wrap input:checked + label::before {
   border-right-width: 1px;
   border-left-width: 16px;
 }

@@ -400,7 +400,7 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
   vertical-align: middle;
   transition: all .2s;
 }
-.wm-meta-wrap .checkbox-wrap input:checked + label ::before {
+.wm-meta-wrap .checkbox-wrap input:checked + label::before {
   content: '\2713';
   background: #4a9c4e;
   color: #fafcfe;
