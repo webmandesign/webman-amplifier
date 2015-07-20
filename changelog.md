@@ -1,5 +1,63 @@
 # WebMan Amplifier Changelog
 
+## 1.2.2
+
+* **Add**: Visual Composer 4.6+ support
+* **Add**: Ability to filter icons in metaboxes and page builders
+* **Add**: Applied SASS for all CSS stylesheets
+* **Update**: Scripts updates: Isotope 2.2.1, bxSlider 4.2.5
+* **Update**: Retina ready admin interface, removed support for Internet Explorer 8
+* **Update**: Removed front-end shortcodes sample CSS stylesheet
+* **Update**: Removed obsolete jQuery plugins CSS stylesheets
+* **Update**: Supplying unpacked, non-minified styles and JavaScript
+* **Update**: Metabox icons selector (custom radio buttons control) styles and functionality
+* **Update**: Sample plugin setup file for usage in themes
+* **Update**: Improved and optimized code
+* **Update**: Localization
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	webman-amplifier-setup.php
+	webman-amplifier.php
+	assets/css/admin-addons.css
+	assets/css/input-wm-radio.css
+	assets/css/metabox.css
+	assets/css/rtl-metabox.css
+	assets/css/rtl-shortcodes-generator.css
+	assets/css/rtl-shortcodes-vc-addons.css
+	assets/css/shortcodes-bb-addons.css
+	assets/css/shortcodes-vc-addons.css
+	assets/js/metabox.js
+	assets/js/shortcode-accordion.js
+	assets/js/shortcode-parallax.js
+	assets/js/shortcode-posts.js
+	assets/js/shortcode-slideshow.js
+	assets/js/shortcode-tabs.js
+	assets/js/shortcodes-button.js
+	assets/js/shortcodes-ie.js
+	assets/js/shortcodes-vc-addons.js
+	assets/sass/admin-addons.scss
+	assets/sass/input-wm-radio.scss
+	assets/sass/metabox.scss
+	assets/sass/rtl-metabox.scss
+	assets/sass/rtl-shortcodes-generator.scss
+	assets/sass/rtl-shortcodes-vc-addons.scss
+	assets/sass/shortcodes-bb-addons.scss
+	assets/sass/shortcodes-vc-addons.scss
+	includes/functions.php
+	includes/custom-posts/modules.php
+	includes/metabox/fields/radio.php
+	includes/metabox/fields/slider.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/definitions.php
+	includes/visual-editor/visual-editor.php
+	includes/widgets/w-twitter.php
+	languages/sk_SK.mo
+	languages/sk_SK.po
+	languages/xx_XX.pot
+
+
 ## 1.2.1
 
 * **Update**: Font Awesome 4.3

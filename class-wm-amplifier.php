@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.2
+ * @version	 1.2.2
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -584,20 +584,24 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Register icon font file
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.2.2
 			 *
 			 * @access  public
 			 *
 			 * @uses  WM_Icons
 			 */
 			public function register_icons() {
-				if (
-						apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
-						&& ! wma_supports_subfeature( 'disable-fonticons' )
-					) {
-					require( WMAMP_INCLUDES_DIR . 'class-icon-font.php' );
-					return WM_Icons::instance();
-				}
+
+				// Output
+
+					if (
+							apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
+							&& ! wma_supports_subfeature( 'disable-fonticons' )
+						) {
+						require( WMAMP_INCLUDES_DIR . 'icons/class-icon-font.php' );
+						return WM_Icons::instance();
+					}
+
 			} // /register_icons
 
 
