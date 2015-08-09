@@ -6,64 +6,66 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2
+ * @version  1.2.3
  *
- * CONTENT:
- * - 10) Actions and filters
- * - 20) Helpers
- * - 30) Widget class
+ * Contents:
+ *
+ * 10) Registration
+ * 20) Widget class
  */
 
 
 
-//Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+
+
+// Exit if accessed directly
+
+	if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 
 
 
 /**
- * 10) Actions and filters
- */
-
-	/**
-	 * Actions
-	 */
-
-		add_action( 'widgets_init', 'wm_contact_info_registration' );
-
-
-
-
-
-/**
- * 20) Helpers
+ * 10) Registration
  */
 
 	/**
 	 * Widget registration
+	 *
+	 * @since    1.0.9.9
+	 * @version  1.2.3
 	 */
 	function wm_contact_info_registration() {
-		register_widget( 'WM_Contact_Info' );
+
+		// Processing
+
+			register_widget( 'WM_Contact_Info' );
+
 	} // /wm_contact_info_registration
+
+	add_action( 'widgets_init', 'wm_contact_info_registration' );
 
 
 
 
 
 /**
- * 30) Widget class
+ * 20) Widget class
  */
 
 	class WM_Contact_Info extends WP_Widget {
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.3
 		 */
 		function __construct() {
 
-			//Helper variables
+			// Helper variables
+
 				$atts = array();
 
 				$atts['id']          = 'wm-contact-info';
@@ -76,7 +78,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				$atts = apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_atts', $atts );
 
-			//Register widget attributes
+
+			// Processing
+
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
 
 		} // /__construct
@@ -85,10 +89,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Options form
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.3
 		 */
 		function form( $instance ) {
 
-			//Helper variables
+			// Helper variables
+
 				$instance = wp_parse_args( $instance, array(
 						'address' => '',
 						'email'   => '',
@@ -98,41 +106,47 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'title'   => '',
 					) );
 
-			//Output
+
+			// Output
+
 				?>
-				<p class="wm-desc"><?php _ex( 'Displays specially styled contact information. Anti-spam protection will be applied on the email address.', 'Widget description.', 'wm_domain' ) ?></p>
+
+				<p class="wm-desc">
+					<?php echo esc_html_x( 'Displays specially styled contact information. Anti-spam protection will be applied on the email address.', 'Widget description.', 'wm_domain' ) ?>
+				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'wm_domain' ); ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _ex( 'Name:', 'In address.', 'wm_domain' ) ?></label>
+					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php echo esc_html_x( 'Name:', 'In address.', 'wm_domain' ); ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $instance['name'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php _e( 'Address:', 'wm_domain' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php esc_html_e( 'Address:', 'wm_domain' ); ?></label><br />
 					<textarea cols="50" rows="5" id="<?php echo $this->get_field_id( 'address' ); ?>" name="<?php echo $this->get_field_name( 'address' ); ?>"><?php echo esc_textarea( $instance['address'] ); ?></textarea>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php _e( 'Business hours:', 'wm_domain' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php esc_html_e( 'Business hours:', 'wm_domain' ); ?></label><br />
 					<textarea cols="50" rows="3" id="<?php echo $this->get_field_id( 'hours' ); ?>" name="<?php echo $this->get_field_name( 'hours' ); ?>"><?php echo esc_textarea( $instance['hours'] ); ?></textarea>
 					<small><?php _e( 'Use comma to separate days and times<br />(such as "Friday, 9:00 - 17:00")', 'wm_domain' ) ?></small>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'phone' ); ?>"><?php _e( 'Phone number:', 'wm_domain' ) ?></label>
+					<label for="<?php echo $this->get_field_id( 'phone' ); ?>"><?php esc_html_e( 'Phone number:', 'wm_domain' ); ?></label>
 					<textarea cols="50" rows="2" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"><?php echo esc_textarea( $instance['phone'] ); ?></textarea>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php _e( 'Email address:', 'wm_domain' ) ?></label>
+					<label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php esc_html_e( 'Email address:', 'wm_domain' ); ?></label>
 					<textarea cols="50" rows="2" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"><?php echo esc_textarea( $instance['email'] ); ?></textarea>
-					<small><?php _e( 'Anti-spam protection applied automatically', 'wm_domain' ); ?></small>
+					<small><?php esc_html_e( 'Anti-spam protection applied automatically', 'wm_domain' ); ?></small>
 				</p>
+
 				<?php
 
 				do_action( 'wmhook_widgets_' . 'wm_contact_info' . '_form', $instance );
@@ -143,13 +157,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Save the options
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.3
 		 */
 		function update( $new_instance, $old_instance ) {
 
-			//Helper variables
+			// Helper variables
+
 				$instance = $old_instance;
 
-			//Preparing output
+
+			// Processing
+
 				$instance['address'] = $new_instance['address'];
 				$instance['email']   = $new_instance['email'];
 				$instance['hours']   = $new_instance['hours'];
@@ -157,7 +177,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['phone']   = $new_instance['phone'];
 				$instance['title']   = $new_instance['title'];
 
-			//Output
+
+			// Output
+
 				return apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_instance', $instance, $new_instance, $old_instance );
 
 		} // /update
@@ -168,13 +190,25 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Widget HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.1.7.5
+		 * @version  1.2.3
 		 */
 		function widget( $args, $instance ) {
 
-			//Helper variables
-				$output  = '';
-				$address = array();
+			// Helper variables
+
+				$output       = '';
+				$address      = array();
+				$heading_tag  = intval( preg_replace( '/[^0-9]+/', '', $args['after_title'] ) ) + 1;
+				$heading_atts = ' class="screen-reader-text"';
+
+				if (
+						2 > $heading_tag
+						|| 6 < $heading_tag
+					) {
+					$heading_tag = 6;
+				}
+
+				$heading_tag = 'h' . $heading_tag;
 
 				$instance = wp_parse_args( $instance, array(
 						'address' => '',
@@ -185,18 +219,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'title'   => '',
 					) );
 
-			//Preparing output
+
+			// Processing
+
 				if ( trim( $instance['title'] ) ) {
 					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 				}
 
-				//Address
+				// Address
+
 					if ( trim( $instance['name'] ) || trim( $instance['address'] ) ) {
-						$address[10] = '<div class="address contact-info"' . wma_schema_org( 'itemprop="address"' ) . '><strong' . wma_schema_org( 'itemprop="name"' ) . '>' . $instance['name'] . '</strong><br />' . str_replace( "\r\n", '<br />', $instance['address'] ) . '</div>';
+
+						$address[10] = '<div class="address contact-info"' . wma_schema_org( 'itemprop="address"' ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Address:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . '<strong' . wma_schema_org( 'itemprop="name"' ) . '>' . $instance['name'] . '</strong><br />'
+						               . str_replace( "\r\n", '<br />', $instance['address'] )
+						               . '</div>';
+
 					}
 
-				//Business hours
+				// Business hours
+
 					if ( trim( $instance['hours'] ) ) {
+
 						$instance['hours'] = trim( $instance['hours'] );
 
 						if ( false === strpos( $instance['hours'], ',' ) ) {
@@ -208,16 +253,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						$instance['hours'] = str_replace( '-', '&ndash;', $instance['hours'] );
 						$instance['hours'] = '<table><tr><td>' . $instance['hours'] . '</td></tr></table>';
 
-						$address[20] = '<div class="hours contact-info"' . wma_schema_org( 'itemprop="openingHours"' ) . '>' . $instance['hours'] . '</div>';
+						$address[20] = '<div class="hours contact-info"' . wma_schema_org( 'itemprop="openingHours"' ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Business hours:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . $instance['hours']
+						               . '</div>';
+
 					}
 
-				//Phone numbers
+				// Phone numbers
+
 					if ( trim( $instance['phone'] ) ) {
-						$address[30] = '<div class="phone contact-info"' . wma_schema_org( 'itemprop="telephone"' ) . '>' . $instance['phone'] . '</div>';
+
+						$address[30] = '<div class="phone contact-info"' . wma_schema_org( 'itemprop="telephone"' ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Phone number:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . $instance['phone']
+						               . '</div>';
+
 					}
 
-				//Email addresses
+				// Email addresses
+
 					if ( trim( $instance['email'] ) ) {
+
 						preg_match_all( '/(\S+@\S+\.\S+)/i', $instance['email'], $matches );
 
 						if ( $matches && is_array( $matches ) ) {
@@ -226,19 +283,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							}
 						}
 
-						$address[40] = '<div class="email contact-info"' . wma_schema_org( 'itemprop="email"' ) . '>' . $instance['email'] . '</div>';
+						$address[40] = '<div class="email contact-info"' . wma_schema_org( 'itemprop="email"' ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Email address:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . $instance['email']
+						               . '</div>';
+
 					}
 
-				//Filter the $address and prepare it for output
-					$address = apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_address', $address, $args, $instance );
-					$address = implode( '', $address );
+				// Filter the $address and prepare it for output
 
-				//Output wrapper
+					$address = implode( '', (array) apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_address', $address, $args, $instance ) );
+
+				// Output wrapper
+
 					if ( $address ) {
-						$output .= '<div class="address-container"' . wma_schema_org( 'itemprop="sourceOrganization" itemscope itemtype="http://schema.org/LocalBusiness"' ) . '>' . apply_filters( 'wmhook_content_filters', $address ) . '</div>';
+
+						$output .= '<div class="address-container"' . wma_schema_org( 'itemprop="sourceOrganization" itemscope itemtype="http://schema.org/LocalBusiness"' ) . '>'
+						           . apply_filters( 'wmhook_content_filters', $address )
+						           . '</div>';
+
 					}
 
-			//Output
+
+			// Output
+
 				if ( $output ) {
 					echo apply_filters( 'wmhook_widgets_' . 'wm_contact_info' . '_output', $args['before_widget'] . $output . $args['after_widget'], $args, $instance );
 				}
@@ -246,5 +314,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		} // /widget
 
 	} // /WM_Contact_Info
-
-?>

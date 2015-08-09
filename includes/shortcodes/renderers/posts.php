@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.3
  *
  * @uses   $codes_globals['post_types']
  *
@@ -315,101 +315,147 @@
 				$alt = '';
 				$row = $i = 0;
 
-		//Loop the posts
-			while ( $posts->have_posts() ) :
-				$posts->the_post();
+		// Loop the posts
+
+			while ( $posts->have_posts() ) : $posts->the_post();
 
 				$post_id = get_the_id();
 
-				//Row
+				// Row
+
 					if ( $row_condition ) {
 						$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
 						$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row' . esc_attr( $atts['no_margin'] ) . '">' ) : ( '' );
 					}
 
-				//Output the posts item
-					//helper variables
-						$output_item = '';
+				// Output the posts item
 
-						$helper = array();
+					// Helper variables
 
-						//shortcode atts
-							$helper['atts'] = $atts;
-						//excerpt_length
-							$helper['excerpt_length'] = $excerpt_length;
-						//image_size
-							$helper['image_size'] = $image_size;
-						//item_class
-							$helper['item_class'] = esc_attr( 'wm-posts-item wm-posts-item-' . $post_id . ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt );
-							if (
-									( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
-									&& ! $atts['filter']
-									&& ! $atts['scroll']
-									&& ! $masonry_layout
-									&& ( $i % $atts['columns'] === 0 )
-								) {
-								$helper['item_class'] .= ' last';
-							}
-							if ( $atts['filter'] && isset( $filter_settings[0] ) ) {
-								$terms = get_the_terms( $post_id , $filter_settings[0] );
-								if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-									foreach( $terms as $term ) {
-										$helper['item_class'] .= ' ' . $filter_settings[0] . '-' . $term->slug;
+						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
+
+						if ( empty( $output_item ) ) {
+
+							$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper_pre', array(), $post_id, $atts );
+
+							if ( false !== $helper ) {
+
+								// Shortcode atts
+
+									$helper['atts'] = $atts;
+
+								// Excerpt_length
+
+									$helper['excerpt_length'] = $excerpt_length;
+
+								// Image_size
+
+									$helper['image_size'] = $image_size;
+
+								// Item_class
+
+									$helper['item_class'] = esc_attr( 'wm-posts-item wm-posts-item-' . $post_id . ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt );
+
+									if (
+											( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
+											&& ! $atts['filter']
+											&& ! $atts['scroll']
+											&& ! $masonry_layout
+											&& ( $i % $atts['columns'] === 0 )
+										) {
+										$helper['item_class'] .= ' last';
 									}
+
+									if ( $atts['filter'] && isset( $filter_settings[0] ) ) {
+										$terms = get_the_terms( $post_id , $filter_settings[0] );
+										if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+											foreach( $terms as $term ) {
+												$helper['item_class'] .= ' ' . $filter_settings[0] . '-' . $term->slug;
+											}
+										}
+									}
+
+								// Link
+
+									$helper['link'] = '';
+
+									$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
+
+									if (
+											'wm_projects' == $atts['post_type']
+											&& ! $link_atts[2]
+										) {
+
+										$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
+
+									} elseif ( $link_atts[0] ) {
+
+										$page_object = get_page_by_path( $link_atts[0] );
+										$helper['link'] = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
+
+									} elseif ( $link_atts[1] ) {
+
+										$helper['link'] = ' href="' . esc_url( $link_atts[1] ) . '"';
+
+									} else {
+
+										$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
+
+									}
+
+									if (
+											( 'wm_staff' == $atts['post_type'] || 'wm_logos' == $atts['post_type'] )
+											&& ! $link_atts[0]
+											&& ! $link_atts[1]
+										) {
+										$helper['link'] = '';
+									}
+
+									if (
+											$helper['link']
+											&& $link_atts[2]
+										) {
+										$helper['link'] .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
+									}
+
+								// Post ID
+
+									$helper['post_id'] = $post_id;
+
+								// Allow final filtering of $helper
+
+									$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper', $helper, $post_id, $atts );
+
+							}
+
+							// Single post output template
+
+								if (
+										function_exists( 'ob_start' )
+										&& function_exists( 'ob_get_clean' )
+									) {
+
+									ob_start();
+
+									$template = $post_type;
+
+									if ( $atts['layout'] ) {
+										$template .= '-' . $atts['layout'];
+									}
+
+									wma_get_template_part( 'content-shortcode-' . $shortcode, $template, $helper );
+
+									$output_item = ob_get_clean();
+
 								}
-							}
-						//link
-							$helper['link'] = '';
-							$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
-							if (
-									'wm_projects' == $atts['post_type']
-									&& ! $link_atts[2]
-								) {
-								$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
-							} elseif ( $link_atts[0] ) {
-								$page_object = get_page_by_path( $link_atts[0] );
-								$helper['link'] = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
-							} elseif ( $link_atts[1] ) {
-								$helper['link'] = ' href="' . esc_url( $link_atts[1] ) . '"';
-							} else {
-								$helper['link'] = ' href="' . esc_url( get_permalink() ) . '"';
-							}
-							if (
-									( 'wm_staff' == $atts['post_type'] || 'wm_logos' == $atts['post_type'] )
-									&& ! $link_atts[0]
-									&& ! $link_atts[1]
-								) {
-								$helper['link'] = '';
-							}
-							if (
-									$helper['link']
-									&& $link_atts[2]
-								) {
-								$helper['link'] .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
-							}
-						//post_id
-							$helper['post_id'] = $post_id;
 
-						$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper', $helper, $post_id, $atts );
+							// Filter the posts item html output
 
-					//single post output template
-						if (
-								function_exists( 'ob_start' )
-								&& function_exists( 'ob_get_clean' )
-							) {
-							ob_start();
-							$template = $post_type;
-							if ( $atts['layout'] ) {
-								$template .= '-' . $atts['layout'];
-							}
-							wma_get_template_part( 'content-shortcode-' . $shortcode, $template, $helper );
-							$output_item = ob_get_clean();
+								$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
+
 						}
 
-					//filter the posts item html output
-						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
-
-				$output .= $output_item;
+				$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $post_id, $atts );
 
 				$alt = ( $alt ) ? ( '' ) : ( ' alt' );
 

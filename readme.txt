@@ -4,7 +4,7 @@ Donate link:       http://www.webmandesign.eu/
 Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.0
-Tested up to:      4.2
+Tested up to:      4.3
 Stable tag:        trunk
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -95,6 +95,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md) for details.
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+WordPress 4.3 support, redesigned metabox controls, accessibility improvements, improved shortcodes overriding, fixed issue with Visual Composer custom shortcode mapping via dashboard.
+
+= 1.2.2 =
+Visual Composer 4.6+ support, SASS used for stylesheets, redesigned metabox controls, icon selector with filter, scripts updated.
 
 = 1.2.1 =
 Fixed hashtag links in Twitter widget, updated Font Awesome to version 4.3.

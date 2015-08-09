@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2.3
  */
 
 
@@ -121,7 +121,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register table columns
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.3
 	 */
 	if ( ! function_exists( 'wma_projects_cp_columns_register' ) ) {
 		function wma_projects_cp_columns_register( $columns ) {
@@ -132,8 +133,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_projects', array(
 					'cb'                           => '<input type="checkbox" />',
-					$prefix . 'thumb' . $suffix    => __( 'Image', 'wm_domain' ),
 					'title'                        => __( 'Project', 'wm_domain' ),
+					$prefix . 'thumb' . $suffix    => __( 'Image', 'wm_domain' ),
 					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
 					$prefix . 'tag' . $suffix      => __( 'Tag', 'wm_domain' ),
 					$prefix . 'link' . $suffix     => __( 'Custom link', 'wm_domain' ),

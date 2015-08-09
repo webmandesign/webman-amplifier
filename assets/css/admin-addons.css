@@ -4,23 +4,19 @@
  * @package  WebMan Amplifier
  *
  * @since    1.2.2
- * @version  1.2.2
+ * @version  1.2.3
  */
 .hide {
   display: none !important;
 }
 
-.fixed [class*="column-wmamp-thumb"] {
-  width: 80px;
-  text-align: center;
-}
 .fixed .wm-image-container {
-  display: block;
+  display: inline-block;
   position: relative;
   width: 50px;
   height: 50px;
   padding: 2px;
-  margin: -3px auto 0;
+  margin: -3px 0 0;
   line-height: 48px;
   background: #fff;
   border: 1px solid #d3d3d3;
@@ -45,6 +41,12 @@
   vertical-align: middle;
 }
 
+@media screen and (min-width: 782px) {
+  .fixed [class*="column-wmamp-thumb"] {
+    width: 80px;
+    text-align: center;
+  }
+}
 .sticky-menu #adminmenuwrap {
   z-index: 999;
 }

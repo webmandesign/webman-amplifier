@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since    1.2.2
- * @version  1.2.2
+ * @version  1.2.3
  */
 .wm-meta-wrap {
   direction: ltr;
@@ -449,57 +449,47 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table {
   width: 80px;
 }
 
-.wm-meta-wrap .option.range-wrap input {
-  width: 60px;
-  margin-right: 10px;
-  text-align: center;
-}
 .wm-meta-wrap .fieldtype-range {
   display: inline-block;
   position: relative;
   width: 196px;
+  padding: 0 1em;
   vertical-align: middle;
 }
 .wm-meta-wrap .range-wrap .ui-slider {
-  display: block;
   position: relative;
-  float: left;
-  width: 196px;
+  display: block;
+  width: 100%;
   height: 2px;
   margin: 10px 0;
   text-align: left;
-  background: #eaecee;
-  border: 1px solid #caccce;
+  background: #fff;
+  border: 2px solid #bbb;
   border-radius: 10px;
 }
-.wm-meta-wrap .range-wrap .ui-slider .ui-slider-handle {
+.wm-meta-wrap .range-wrap .ui-slider-handle {
   position: absolute;
   z-index: 2;
-  width: 18px;
-  height: 10px;
+  min-width: 18px;
+  min-height: 10px;
   top: 0;
-  margin: -5px 0 0 -10px;
-  background: #fafcfe;
-  background-image: linear-gradient(to bottom, #fafcfe, #f5f7f9);
-  border: 1px solid #babcbe;
+  padding: .19em .62em;
+  text-align: center;
+  font-size: .81em;
+  font-weight: 700;
+  background-color: #28b;
+  color: #fff;
+  border: 2px solid #069;
   outline: 0;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 100px;
   cursor: e-resize;
-}
-.wm-meta-wrap .range-wrap .ui-slider .ui-slider-handle .ui-slider-handle:hover,
-.wm-meta-wrap .range-wrap .ui-slider .ui-slider-handle .ui-slider-handle:active {
-  background-color: #2a7c9e;
-  background-image: linear-gradient(to bottom, #2a7c9e, #257799);
-  border-color: #2a7c9e;
-  border-bottom-color: #1a6c8e;
-  box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.5);
-}
-.wm-meta-wrap .range-wrap .ui-slider .ui-slider-range-min {
-  left: 0;
-}
-.wm-meta-wrap .range-wrap .ui-slider .ui-slider-range-max {
-  right: 0;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .wm-meta-wrap .image-wrap input.fieldtype-image,

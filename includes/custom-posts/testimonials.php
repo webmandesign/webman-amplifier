@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2.3
  */
 
 
@@ -120,7 +120,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register table columns
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.3
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_columns_register' ) ) {
 		function wma_testimonials_cp_columns_register( $columns ) {
@@ -131,8 +132,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_testimonials', array(
 					'cb'                           => '<input type="checkbox" />',
-					$prefix . 'thumb' . $suffix    => __( 'Photo', 'wm_domain' ),
 					'title'                        => __( 'Title', 'wm_domain' ),
+					$prefix . 'thumb' . $suffix    => __( 'Photo', 'wm_domain' ),
 					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
 					$prefix . 'slug' . $suffix     => __( 'Slug', 'wm_domain' ),
 					'date'                         => __( 'Date', 'wm_domain' ),

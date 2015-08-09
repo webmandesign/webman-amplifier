@@ -1,5 +1,34 @@
 # WebMan Amplifier Changelog
 
+## 1.2.3
+
+* **Add**: WordPress 4.3 support
+* **Update**: Metabox controls styles
+* **Update**: Improved accessibility
+* **Update**: Allowed overriding `$helper` variable in Posts shortcode
+* **Update**: Allowed premature overriding of Posts and Testimonials shortcode item
+* **Update**: Added headings into Contact widget sections
+* **Fix**: Visual Composer custom shortcode mapping via dashboard not working
+
+#### Files changed:
+
+	assets/css/admin-addons.css
+	assets/css/metabox.css
+	assets/js/metabox.js
+	assets/sass/admin-addons.scss
+	assets/sass/metabox.scss
+	assets/sass/metabox/_field-range.scss
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/testimonials.php
+	includes/widgets/w-contact.php
+
+
 ## 1.2.2
 
 * **Add**: Visual Composer 4.6+ support

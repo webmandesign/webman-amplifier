@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2.3
  */
 
 
@@ -119,7 +119,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register table columns
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.3
 	 */
 	if ( ! function_exists( 'wma_logos_cp_columns_register' ) ) {
 		function wma_logos_cp_columns_register( $columns ) {
@@ -130,8 +131,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_logos', array(
 					'cb'                           => '<input type="checkbox" />',
-					$prefix . 'thumb' . $suffix    => __( 'Logo', 'wm_domain' ),
 					'title'                        => __( 'Name', 'wm_domain' ),
+					$prefix . 'thumb' . $suffix    => __( 'Logo', 'wm_domain' ),
 					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
 					$prefix . 'link' . $suffix     => __( 'Custom link', 'wm_domain' ),
 					'date'                         => __( 'Date', 'wm_domain' ),

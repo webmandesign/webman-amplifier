@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.2.3
  */
 
 
@@ -64,7 +64,9 @@ jQuery( function() {
 				} else if ( $this.hasClass( 'default-slider' ) && jQuery().slider ) {
 
 					jQuery( '#' + defaultInput + '-slider' )
-						.slider( 'option', 'value', defaultValue );
+						.slider( 'option', 'value', defaultValue )
+							.find( '.ui-slider-handle' )
+								.text( parseInt( defaultValue ) );
 
 					jQuery( '#' + defaultInput )
 						.attr( 'value', defaultValue );
@@ -400,20 +402,32 @@ jQuery( function() {
 					// Make the input field read-only
 
 						jQuery( sliderOptionId )
-							.attr( 'readonly', 'readonly' );
+							.attr( 'type', 'hidden' );
 
 					// Initialize jQuery UI Slider
 
 						jQuery( sliderOptionId + '-slider' )
 							.slider( {
-								value : sliderOptionVal,
-								min   : sliderOptionMin,
-								max   : sliderOptionMax,
-								step  : sliderOptionStep,
-								slide : function( event, ui ) {
+								value  : sliderOptionVal,
+								min    : sliderOptionMin,
+								max    : sliderOptionMax,
+								step   : sliderOptionStep,
+								create : function( e, ui ) {
+
+									jQuery( this )
+										.find( '.ui-slider-handle' )
+											.text( parseInt( jQuery( sliderOptionId ).val() ) );
+
+								},
+								slide  : function( e, ui ) {
+
+									jQuery( this )
+										.find( '.ui-slider-handle' )
+											.text( parseInt( ui.value ) );
 
 									jQuery( sliderOptionId )
-										.val( ui.value );
+										.val( parseInt( ui.value ) )
+											.change();
 
 								}
 							} );

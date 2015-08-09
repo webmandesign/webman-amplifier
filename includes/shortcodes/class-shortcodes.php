@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.2.3
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -845,7 +845,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * @todo  Support for Frontend Editor (VC4+)
 				 *
 				 * @since    1.0
-				 * @version  1.2
+				 * @version  1.2.3
 				 *
 				 * @access  public
 				 */
@@ -879,8 +879,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 								&& ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) )
 								&& class_exists( 'WPBMap' )
 							) {
-							$vc_shortcodes_all    = array_keys( WPBMap::getShortCodes() );
-							$vc_shortcodes_keep   = apply_filters( 'wmhook_shortcode_' . 'vc_keep', array(
+
+							$vc_shortcodes_all  = array_keys( WPBMap::getShortCodes() );
+							$vc_shortcodes_keep = array(
 									//rows
 										'vc_row',
 										'vc_row_inner',
@@ -895,7 +896,24 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 										'gravityform',
 										'layerslider_vc',
 										'rev_slider_vc',
-								) );
+								);
+
+							// Do not remove custom mapped shortcodes via WP admin
+
+								if (
+										class_exists( 'Vc_Automap_Model' )
+										&& is_callable( 'Vc_Automap_Model::findAll' )
+									) {
+
+									$vc_shortcodes_custom = Vc_Automap_Model::findAll();
+
+									foreach ( $vc_shortcodes_custom as $shortcode ) {
+										$vc_shortcodes_keep[] = $shortcode->tag;
+									}
+
+								}
+
+							$vc_shortcodes_keep   = apply_filters( 'wmhook_shortcode_' . 'vc_keep', $vc_shortcodes_keep );
 							$vc_shortcodes_remove = apply_filters( 'wmhook_shortcode_' . 'vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
 
 							//Array check required due to filter applied above
@@ -904,6 +922,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 										vc_remove_element( $shortcode );
 									}
 								}
+
 						}
 
 					//Add custom VC elements
