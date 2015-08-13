@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.4
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -103,7 +103,7 @@
 		}
 	//content
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+		$atts['content'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts ) );
 	//class
 		if ( false !== strpos( $atts['class'], 'masonry' ) ) {
 			//Use masonry when "masonry" class set
@@ -227,7 +227,7 @@
 
 						// Testimonial title (for accessibility)
 
-							$output_item .= '<h1 class="screen-reader-text">' . get_the_title( $post_id ) . '</h1>';
+							$output_item .= '<h2 class="screen-reader-text">' . get_the_title( $post_id ) . '</h2>';
 
 						// Testimonial content
 

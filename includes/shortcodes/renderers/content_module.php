@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.4
  *
  * @param  string align
  * @param  string class
@@ -34,7 +34,7 @@
 			'columns'          => 4,
 			'count'            => -1,
 			'desc_column_size' => 4,
-			'filter'           => false,
+			'filter'           => '',
 			'filter_layout'    => 'fitRows',
 			'heading_tag'      => 'h3',
 			'image_size'       => '',
@@ -85,7 +85,7 @@
 			$atts['desc_column_size'] = 4;
 		}
 	//filter
-		$atts['filter'] = ( $atts['filter'] ) ? ( 'module_tag' ) : ( '' );
+		$atts['filter'] = ( trim( $atts['filter'] ) ) ? ( 'module_tag' ) : ( '' );
 	//filter_layout
 		$atts['filter_layout'] = trim( $atts['filter_layout'] );
 		if ( ! $atts['filter_layout'] ) {
@@ -148,7 +148,7 @@
 		}
 	//content
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+		$atts['content'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts ) );
 	//class
 		if (
 				! $atts['filter']

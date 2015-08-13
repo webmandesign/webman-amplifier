@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.2.4
+
+* **Update**: Testimonials headings updated to H2 tag
+* **Fix**: Visual Composer shortcodes layout issue (for Posts, Testimonials and Content Modules)
+
+#### Files changed:
+
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/testimonials.php
+
+
 ## 1.2.3
 
 * **Add**: WordPress 4.3 support

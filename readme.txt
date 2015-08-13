@@ -92,9 +92,12 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 
 == Changelog ==
 
-Please see the [`CHANGELOG.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/CHANGELOG.md) for details.
+Please see the [`changelog.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/changelog.md) for details.
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+Fixing Visual Composer shortcodes layout issue (for Posts, Testimonials and Content Modules).
 
 = 1.2.3 =
 WordPress 4.3 support, redesigned metabox controls, accessibility improvements, improved shortcodes overriding, fixed issue with Visual Composer custom shortcode mapping via dashboard.
