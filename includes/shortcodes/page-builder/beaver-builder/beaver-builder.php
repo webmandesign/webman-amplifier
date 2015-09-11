@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.2
+ * @version  1.2.5
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -87,14 +87,16 @@
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.2
+	 * @version  1.2.5
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
 	 */
 	if ( ! function_exists( 'wma_bb_shortcode_def' ) ) {
 		function wma_bb_shortcode_def( $shortcode, $property = '' ) {
-			//Helper variables
+
+			// Helper variables
+
 				$output = '';
 
 				$def = wma_shortcodes()->get_definitions();
@@ -106,7 +108,9 @@
 					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); //Taking translation from Beaver Builder plugin
 				}
 
-			//Preparing output
+
+			// Processing
+
 				if ( 'all' === $shortcode ) {
 
 					$output = $def;
@@ -129,6 +133,10 @@
 							'form_children'   => array(),
 						) );
 
+					// Allow filtering
+
+						$output = apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_output', $output, $shortcode );
+
 					if ( $property && isset( $output[ $property ] ) ) {
 						$output = $output[ $property ];
 					} elseif ( $property && ! isset( $output[ $property ] ) ) {
@@ -137,8 +145,11 @@
 
 				}
 
-			//Output
+
+			// Output
+
 				return $output;
+
 		}
 	} // /wma_bb_shortcode_def
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WebMan Amplifier v1.1.6\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-08-09 19:51+0200\n"
+"POT-Creation-Date: 2015-09-11 11:53+0200\n"
 "PO-Revision-Date: 2015-04-21 12:38+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -24,22 +24,22 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: class-wm-amplifier.php:234
+#: class-wm-amplifier.php:243
 msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr ""
 
-#: class-wm-amplifier.php:317
+#: class-wm-amplifier.php:326
 msgid "Isotope Licensing"
 msgstr ""
 
-#: class-wm-amplifier.php:317
+#: class-wm-amplifier.php:326
 msgid ""
 "You are using WebMan Amplifier plugin, which includes the <a href=\"http://"
 "isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>."
 msgstr ""
 
-#: class-wm-amplifier.php:317
+#: class-wm-amplifier.php:326
 msgid ""
 "If you use the plugin for commercial applications, you are required to <a "
 "href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
@@ -82,7 +82,7 @@ msgctxt "Custom post labels: Logos."
 msgid "No item found in trash"
 msgstr ""
 
-#: includes/custom-posts/logos.php:134 includes/custom-posts/staff.php:135
+#: includes/custom-posts/logos.php:134 includes/custom-posts/staff.php:139
 msgid "Name"
 msgstr ""
 
@@ -102,13 +102,13 @@ msgid "Custom link"
 msgstr ""
 
 #: includes/custom-posts/logos.php:138 includes/custom-posts/modules.php:140
-#: includes/custom-posts/projects.php:141 includes/custom-posts/staff.php:139
+#: includes/custom-posts/projects.php:141 includes/custom-posts/staff.php:144
 #: includes/custom-posts/testimonials.php:139
 msgid "Date"
 msgstr ""
 
 #: includes/custom-posts/logos.php:139 includes/custom-posts/modules.php:141
-#: includes/custom-posts/projects.php:142 includes/custom-posts/staff.php:140
+#: includes/custom-posts/projects.php:142 includes/custom-posts/staff.php:145
 #: includes/custom-posts/testimonials.php:140
 msgid "Author"
 msgstr ""
@@ -188,38 +188,38 @@ msgid "Set the logo image as the featured image of the post"
 msgstr ""
 
 #: includes/custom-posts/logos.php:344 includes/custom-posts/modules.php:366
-#: includes/custom-posts/projects.php:388 includes/custom-posts/staff.php:389
+#: includes/custom-posts/projects.php:388 includes/custom-posts/staff.php:491
 #: includes/custom-posts/testimonials.php:352
 msgid "Custom link URL"
 msgstr ""
 
 #: includes/custom-posts/logos.php:345 includes/custom-posts/modules.php:367
-#: includes/custom-posts/projects.php:389 includes/custom-posts/staff.php:390
-#: includes/custom-posts/staff.php:399
+#: includes/custom-posts/projects.php:389 includes/custom-posts/staff.php:492
+#: includes/custom-posts/staff.php:501
 #: includes/custom-posts/testimonials.php:353
 msgid "No link will be displayed / applied when left blank"
 msgstr ""
 
 #: includes/custom-posts/logos.php:353 includes/custom-posts/modules.php:375
-#: includes/custom-posts/projects.php:396 includes/custom-posts/staff.php:407
+#: includes/custom-posts/projects.php:396 includes/custom-posts/staff.php:509
 #: includes/custom-posts/testimonials.php:361
 msgid "Custom link action"
 msgstr ""
 
 #: includes/custom-posts/logos.php:354 includes/custom-posts/modules.php:376
-#: includes/custom-posts/projects.php:397 includes/custom-posts/staff.php:408
+#: includes/custom-posts/projects.php:397 includes/custom-posts/staff.php:510
 #: includes/custom-posts/testimonials.php:362
 msgid "Choose how to display / apply the link set above"
 msgstr ""
 
 #: includes/custom-posts/logos.php:356 includes/custom-posts/modules.php:378
-#: includes/custom-posts/projects.php:405 includes/custom-posts/staff.php:410
+#: includes/custom-posts/projects.php:405 includes/custom-posts/staff.php:512
 #: includes/custom-posts/testimonials.php:364
 msgid "Open in new tab / window"
 msgstr ""
 
 #: includes/custom-posts/logos.php:357 includes/custom-posts/modules.php:379
-#: includes/custom-posts/projects.php:406 includes/custom-posts/staff.php:411
+#: includes/custom-posts/projects.php:406 includes/custom-posts/staff.php:513
 #: includes/custom-posts/testimonials.php:365
 #: includes/shortcodes/definitions/definitions.php:878
 #: includes/shortcodes/definitions/definitions.php:983
@@ -628,139 +628,187 @@ msgctxt "Custom post labels: Staff."
 msgid "No members found in trash"
 msgstr ""
 
-#: includes/custom-posts/staff.php:136
+#: includes/custom-posts/staff.php:140
 #: includes/custom-posts/testimonials.php:136
 msgid "Photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:137
+#: includes/custom-posts/staff.php:141
 msgid "Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:138
+#: includes/custom-posts/staff.php:142
 msgid "Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:238
+#: includes/custom-posts/staff.php:143
+msgid "Specialty"
+msgstr ""
+
+#: includes/custom-posts/staff.php:293
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:239
+#: includes/custom-posts/staff.php:294
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:240
+#: includes/custom-posts/staff.php:295
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Search Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:241
+#: includes/custom-posts/staff.php:296
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "All Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:242
+#: includes/custom-posts/staff.php:297
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Parent Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:243
+#: includes/custom-posts/staff.php:298
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Edit Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:244
+#: includes/custom-posts/staff.php:299
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Update Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:245
+#: includes/custom-posts/staff.php:300
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Add New Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:246
+#: includes/custom-posts/staff.php:301
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "New Department Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:262
+#: includes/custom-posts/staff.php:318
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:263
+#: includes/custom-posts/staff.php:319
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:264
+#: includes/custom-posts/staff.php:320
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Search Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:265
+#: includes/custom-posts/staff.php:321
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "All Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:266
+#: includes/custom-posts/staff.php:322
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Edit Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:267
+#: includes/custom-posts/staff.php:323
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Update Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:268
+#: includes/custom-posts/staff.php:324
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Add New Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:269
+#: includes/custom-posts/staff.php:325
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "New Position Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:295
-msgid "Staff Custom Post Permalinks"
+#: includes/custom-posts/staff.php:342
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:303
-msgid "Single staff permalink"
+#: includes/custom-posts/staff.php:343
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:314
-msgid "Staff department base"
+#: includes/custom-posts/staff.php:344
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Search Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:325
-msgid "Staff positions base"
+#: includes/custom-posts/staff.php:345
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "All Specialties"
+msgstr ""
+
+#: includes/custom-posts/staff.php:346
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Edit Specialty"
 msgstr ""
 
 #: includes/custom-posts/staff.php:347
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Update Specialty"
+msgstr ""
+
+#: includes/custom-posts/staff.php:348
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "Add New Specialty"
+msgstr ""
+
+#: includes/custom-posts/staff.php:349
+msgctxt "Custom taxonomy labels: Staff specialties."
+msgid "New Specialty Title"
+msgstr ""
+
+#: includes/custom-posts/staff.php:381
+msgid "Staff Custom Post Permalinks"
+msgstr ""
+
+#: includes/custom-posts/staff.php:390
+msgid "Single staff permalink"
+msgstr ""
+
+#: includes/custom-posts/staff.php:402
+msgid "Staff department base"
+msgstr ""
+
+#: includes/custom-posts/staff.php:414
+msgid "Staff positions base"
+msgstr ""
+
+#: includes/custom-posts/staff.php:426
+msgid "Staff specialty base"
+msgstr ""
+
+#: includes/custom-posts/staff.php:449
 msgid "You can change the Staff custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/staff.php:382
+#: includes/custom-posts/staff.php:484
 msgctxt "Metabox section title."
 msgid "Info"
 msgstr ""
 
-#: includes/custom-posts/staff.php:398
+#: includes/custom-posts/staff.php:500
 msgid "...or link to a page"
 msgstr ""
 
-#: includes/custom-posts/staff.php:425
+#: includes/custom-posts/staff.php:527
 msgctxt "Metabox section title."
 msgid "Contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:434
+#: includes/custom-posts/staff.php:536
 #: includes/shortcodes/definitions/definitions.php:280
 #: includes/shortcodes/definitions/definitions.php:588
 #: includes/shortcodes/definitions/definitions.php:718
@@ -776,7 +824,7 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: includes/custom-posts/staff.php:441
+#: includes/custom-posts/staff.php:543
 #: includes/custom-posts/testimonials.php:135
 #: includes/shortcodes/definitions/definitions.php:241
 #: includes/shortcodes/definitions/definitions.php:549
@@ -786,15 +834,15 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:446
+#: includes/custom-posts/staff.php:548
 msgid "HTML content"
 msgstr ""
 
-#: includes/custom-posts/staff.php:452
+#: includes/custom-posts/staff.php:554
 msgid "Staff contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:496
+#: includes/custom-posts/staff.php:598
 msgid "Staff settings"
 msgstr ""
 
@@ -2650,12 +2698,12 @@ msgstr ""
 msgid "Choose a slider"
 msgstr ""
 
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:103
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:105
 msgctxt "Page builder modules category name."
 msgid "WM Modules"
 msgstr ""
 
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:106
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:108
 msgid "Advanced Modules"
 msgstr ""
 
@@ -2666,7 +2714,10 @@ msgid "All"
 msgstr ""
 
 #: includes/shortcodes/renderers/content_module.php:313
-msgid "Read more"
+#: templates/content-shortcode-posts-post.php:84
+#: templates/content-shortcode-posts.php:66
+#, php-format
+msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
 msgstr ""
 
 #: includes/shortcodes/renderers/countdown_timer.php:44
@@ -2991,10 +3042,4 @@ msgstr ""
 #, php-format
 msgctxt "%s stands for number of comments."
 msgid "Comments: %s"
-msgstr ""
-
-#: templates/content-shortcode-posts-post.php:84
-#: templates/content-shortcode-posts.php:66
-#, php-format
-msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
 msgstr ""

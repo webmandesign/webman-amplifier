@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.5
  */
 
 
@@ -121,26 +121,35 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.2.3
+	 * @version  1.2.5
 	 */
 	if ( ! function_exists( 'wma_staff_cp_columns_register' ) ) {
 		function wma_staff_cp_columns_register( $columns ) {
-			//Helper variables
+
+			// Helper variables
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_staff';
 
-			//Register table columns
+
+			// Processing
+
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_staff', array(
 					'cb'                             => '<input type="checkbox" />',
 					'title'                          => __( 'Name', 'wm_domain' ),
 					$prefix . 'thumb' . $suffix      => __( 'Photo', 'wm_domain' ),
 					$prefix . 'position' . $suffix   => __( 'Position', 'wm_domain' ),
 					$prefix . 'department' . $suffix => __( 'Department', 'wm_domain' ),
+					$prefix . 'specialty' . $suffix  => __( 'Specialty', 'wm_domain' ),
 					'date'                           => __( 'Date', 'wm_domain' ),
 					'author'                         => __( 'Author', 'wm_domain' )
 				) );
 
-			return apply_filters( 'wmhook_wmamp_' . 'wma_staff_cp_columns_register' . '_output', $columns );
+
+			// Output
+
+				return apply_filters( 'wmhook_wmamp_' . 'wma_staff_cp_columns_register' . '_output', $columns );
+
 		}
 	} // /wma_staff_cp_columns_register
 
@@ -149,62 +158,100 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Render table columns
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.5
 	 */
 	if ( ! function_exists( 'wma_staff_cp_columns_render' ) ) {
 		function wma_staff_cp_columns_render( $column ) {
-			//Helper variables
+
+			// Helper variables
+
 				global $post;
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_staff';
 
-			//Columns renderers
-				switch ( $column ) {
-					case $prefix . 'department' . $suffix:
 
-						$terms = get_the_terms( $post->ID , 'staff_department' );
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-								echo '<strong class="staff-department">' . $termName . '</strong><br />';
+			// Processing
+
+				// Columns renderers
+
+					switch ( $column ) {
+
+						case $prefix . 'department' . $suffix:
+
+							$terms = get_the_terms( $post->ID , 'staff_department' );
+
+							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+								foreach ( $terms as $term ) {
+
+									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
+
+									echo '<strong class="staff-department">' . $termName . '</strong><br />';
+
+								} // /foreach
 							}
-						}
 
-					break;
-					case $prefix . 'position' . $suffix:
+						break;
+						case $prefix . 'position' . $suffix:
 
-						$separator = '';
-						$terms     = get_the_terms( $post->ID , 'staff_position' );
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-								echo $separator . $termName;
-								$separator = ', ';
+							$separator = '';
+							$terms     = get_the_terms( $post->ID , 'staff_position' );
+
+							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+								foreach ( $terms as $term ) {
+
+									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
+
+									echo $separator . $termName;
+
+									$separator = ', ';
+
+								} // /foreach
 							}
-						}
 
-					break;
-					case $prefix . 'thumb' . $suffix:
+						break;
+						case $prefix . 'specialty' . $suffix:
 
-						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
-						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
+							$separator = '';
+							$terms     = get_the_terms( $post->ID , 'staff_specialty' );
 
-						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
+							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+								foreach ( $terms as $term ) {
 
-						echo '<span class="wm-image-container' . $hasThumb . '">';
+									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
 
-						if ( get_edit_post_link() ) {
-							edit_post_link( $image );
-						} else {
-							echo '<a href="' . get_permalink() . '">' . $image . '</a>';
-						}
+									echo $separator . $termName;
 
-						echo '</span>';
+									$separator = ', ';
 
-					break;
-					default:
-					break;
-				} // /switch
+								} // /foreach
+							}
+
+						break;
+						case $prefix . 'thumb' . $suffix:
+
+							$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
+							$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
+
+							$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
+
+							echo '<span class="wm-image-container' . $hasThumb . '">';
+
+							if ( get_edit_post_link() ) {
+								edit_post_link( $image );
+							} else {
+								echo '<a href="' . get_permalink() . '">' . $image . '</a>';
+							}
+
+							echo '</span>';
+
+						break;
+						default:
+						break;
+
+					} // /switch
+
 		}
 	} // /wma_staff_cp_columns_render
 
@@ -219,58 +266,92 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register taxonomies
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.5
 	 */
 	if ( ! function_exists( 'wma_staff_cp_taxonomies' ) ) {
 		function wma_staff_cp_taxonomies() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Staff departments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_department', array(
-					'hierarchical'      => true,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'staff-department',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['staff_department'] ) && $permalinks['staff_department'] ) ? ( $permalinks['staff_department'] ) : ( 'staff-department' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'singular_name' => _x( 'Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'all_items'     => _x( 'All Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'parent_item'   => _x( 'Parent Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Department Title', 'Custom taxonomy labels: Staff departments.', 'wm_domain' )
-					)
-				) );
+			// Helper variables
 
-				register_taxonomy( 'staff_department', 'wm_staff', $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Staff positions
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_position', array(
-					'hierarchical'      => false,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'staff-position',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['staff_position'] ) && $permalinks['staff_position'] ) ? ( $permalinks['staff_position'] ) : ( 'staff-position' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'singular_name' => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'all_items'     => _x( 'All Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Position Title', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
-					)
-				) );
 
-				register_taxonomy( 'staff_position', 'wm_staff', $args );
+			// Processing
+
+				// Staff departments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_department', array(
+						'hierarchical'      => true,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'staff-department',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['staff_department'] ) && $permalinks['staff_department'] ) ? ( $permalinks['staff_department'] ) : ( 'staff-department' )
+							),
+						'labels'            => array(
+							'name'          => _x( 'Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'singular_name' => _x( 'Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'search_items'  => _x( 'Search Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'all_items'     => _x( 'All Departments', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'parent_item'   => _x( 'Parent Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'edit_item'     => _x( 'Edit Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'update_item'   => _x( 'Update Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'add_new_item'  => _x( 'Add New Department', 'Custom taxonomy labels: Staff departments.', 'wm_domain' ),
+							'new_item_name' => _x( 'New Department Title', 'Custom taxonomy labels: Staff departments.', 'wm_domain' )
+						)
+					) );
+
+					register_taxonomy( 'staff_department', 'wm_staff', $args );
+
+				// Staff positions
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_position', array(
+						'hierarchical'      => false,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'staff-position',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['staff_position'] ) && $permalinks['staff_position'] ) ? ( $permalinks['staff_position'] ) : ( 'staff-position' )
+							),
+						'labels'            => array(
+							'name'          => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'singular_name' => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'search_items'  => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'all_items'     => _x( 'All Positions', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'edit_item'     => _x( 'Edit Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'update_item'   => _x( 'Update Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'add_new_item'  => _x( 'Add New Position', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+							'new_item_name' => _x( 'New Position Title', 'Custom taxonomy labels: Staff positions.', 'wm_domain' ),
+						)
+					) );
+
+					register_taxonomy( 'staff_position', 'wm_staff', $args );
+
+				// Staff specialty
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_specialty', array(
+						'hierarchical'      => false,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'staff-specialty',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['staff_specialty'] ) && $permalinks['staff_specialty'] ) ? ( $permalinks['staff_specialty'] ) : ( 'staff-specialty' )
+							),
+						'labels'            => array(
+							'name'          => _x( 'Specialties', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'singular_name' => _x( 'Specialty', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'search_items'  => _x( 'Search Specialties', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'all_items'     => _x( 'All Specialties', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'edit_item'     => _x( 'Edit Specialty', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'update_item'   => _x( 'Update Specialty', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'add_new_item'  => _x( 'Add New Specialty', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+							'new_item_name' => _x( 'New Specialty Title', 'Custom taxonomy labels: Staff specialties.', 'wm_domain' ),
+						)
+					) );
+
+					register_taxonomy( 'staff_specialty', 'wm_staff', $args );
+
 		}
 	} // /wma_staff_cp_taxonomies
 
@@ -285,52 +366,73 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Create permalinks settings fields in WordPress admin
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.5
 	 */
 	if ( ! function_exists( 'wma_staff_cp_permalinks' ) ) {
 		function wma_staff_cp_permalinks() {
-			//Adding sections
-				add_settings_section(
-						'wmamp-' . 'wm_staff' . '-permalinks',
-						__( 'Staff Custom Post Permalinks', 'wm_domain' ),
-						'wma_staff_cp_permalinks_render_section',
-						'permalink'
-					);
 
-			//Adding settings fields
-				add_settings_field(
-						'staff',
-						__( 'Single staff permalink', 'wm_domain' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_staff' . '-permalinks',
-						array(
-								'name'        => 'staff',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff', 'staff' )
-							)
-					);
-				add_settings_field(
-						'staff_department',
-						__( 'Staff department base', 'wm_domain' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_staff' . '-permalinks',
-						array(
-								'name'        => 'staff_department',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_department', 'staff-department' )
-							)
-					);
-				add_settings_field(
-						'staff_position',
-						__( 'Staff positions base', 'wm_domain' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_staff' . '-permalinks',
-						array(
-								'name'        => 'staff_position',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_position', 'staff-position' )
-							)
-					);
+			// Processing
+
+				// Adding sections
+
+					add_settings_section(
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							__( 'Staff Custom Post Permalinks', 'wm_domain' ),
+							'wma_staff_cp_permalinks_render_section',
+							'permalink'
+						);
+
+				// Adding settings fields
+
+					add_settings_field(
+							'staff',
+							__( 'Single staff permalink', 'wm_domain' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							array(
+									'name'        => 'staff',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff', 'staff' )
+								)
+						);
+
+					add_settings_field(
+							'staff_department',
+							__( 'Staff department base', 'wm_domain' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							array(
+									'name'        => 'staff_department',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_department', 'staff-department' )
+								)
+						);
+
+					add_settings_field(
+							'staff_position',
+							__( 'Staff positions base', 'wm_domain' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							array(
+									'name'        => 'staff_position',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_position', 'staff-position' )
+								)
+						);
+
+					add_settings_field(
+							'staff_specialty',
+							__( 'Staff specialty base', 'wm_domain' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							array(
+									'name'        => 'staff_specialty',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff_specialty', 'staff-specialty' )
+								)
+						);
+
 		}
 	} // /wma_staff_cp_permalinks
 

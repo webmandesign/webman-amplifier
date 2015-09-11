@@ -104,9 +104,10 @@
 
 		.ui-sortable-placeholder {
 			visibility: visible !important;
-			background: #f5f7f9;
-			border-color: rgba(0, 0, 0, .05);
-			box-shadow: 0 .19em .62em rgba(0, 0, 0, .1);
+			margin-top: 1em !important;
+			margin-bottom: 1em !important;
+			border: 1px dashed #b4b9be;
+			border-color: rgba( 0, 0, 0, .3 );
 		}
 
 }

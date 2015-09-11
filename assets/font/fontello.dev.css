@@ -7,16 +7,14 @@
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.2.1
+ * @version  1.2.5
  */
 
 
 
 @font-face {
 	font-family: 'fontello';
-	src: url('fontello.eot?54707568');
-	src: url('fontello.eot?54707568#iefix') format('embedded-opentype'),
-	     url('fontello.woff?54707568') format('woff'),
+	src: url('fontello.woff?54707568') format('woff'),
 	     url('fontello.ttf?54707568') format('truetype'),
 	     url('fontello.svg?54707568#fontello') format('svg');
 	font-weight: normal;

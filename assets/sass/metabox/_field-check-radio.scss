@@ -41,7 +41,7 @@
 		label {
 			float: left;
 			width: 200px;
-			padding-right: 70px;
+			padding-right: 80px;
 			margin-right: 0;
 		}
 
@@ -56,7 +56,7 @@
 					box-sizing: border-box;
 					display: inline-block;
 					position: absolute;
-					width: 40px;
+					width: 48px;
 					height: 2em;
 					left: 220px;
 					margin: -.19em 0 0;
@@ -67,9 +67,9 @@
 					background: #eaecee;
 					color: #aaacae;
 					border: 1px solid;
-					border-left-width: 16px;
+					border-right-width: 24px;
 					border-color: rgba(0, 0, 0, .1);
-					border-radius: 3px;
+					border-radius: 24px;
 					vertical-align: middle;
 					transition: all .2s;
 				}
@@ -82,8 +82,8 @@
 					content: '\2713';
 					background: #4a9c4e;
 					color: #fafcfe;
-					border-right-width: 16px;
-					border-left-width: 1px;
+					border-left-width: 24px;
+					border-right-width: 1px;
 				}
 
 			}

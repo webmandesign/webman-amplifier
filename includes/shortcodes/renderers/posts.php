@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.2.4
+ * @version  1.2.5
  *
  * @uses   $codes_globals['post_types']
  *
@@ -332,13 +332,13 @@
 
 					// Helper variables
 
-						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
+						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts, $i );
 
 						if ( empty( $output_item ) ) {
 
-							$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper_pre', array(), $post_id, $atts );
+							$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper_pre', array(), $post_id, $atts, $i );
 
-							if ( false !== $helper ) {
+							if ( false !== $helper || ! empty( $helper ) ) {
 
 								// Shortcode atts
 
@@ -424,7 +424,7 @@
 
 								// Allow final filtering of $helper
 
-									$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper', $helper, $post_id, $atts );
+									$helper = apply_filters( 'wmhook_shortcode_' . $shortcode . '_helper', $helper, $post_id, $atts, $i );
 
 							}
 
@@ -451,11 +451,11 @@
 
 							// Filter the posts item html output
 
-								$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
+								$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts, $i );
 
 						}
 
-				$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $post_id, $atts );
+				$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $post_id, $atts, $i );
 
 				$alt = ( $alt ) ? ( '' ) : ( ' alt' );
 

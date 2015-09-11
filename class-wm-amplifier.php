@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.2.2
+ * @version	 1.2.5
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -152,18 +152,20 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.2
+			 * @version  1.2.5
 			 *
 			 * @access  public
 			 */
 			public function setup_actions() {
-				//Array of core actions
+
+				// Helper variables
+
 					$actions = array(
 						'load_textdomain'               => 'plugins_loaded',             //Load textdomain
 						'register_metaboxes'            => 'plugins_loaded',             //Register metaboxes
 						'register_widgets'              => 'init|-10',                   //Register widgets
 						'save_permalinks'               => 'init',                       //Save custom permalinks
-						'register_post_types'           => 'init',                       //Register post types
+						'register_post_types'           => 'init|0',                     //Register post types - before `widgets_init` fires (@link  https://codex.wordpress.org/Plugin_API/Action_Reference)
 						'custom_taxonomies'             => 'init|98',                    //Register additional custom taxonomies
 						'register_shortcodes'           => 'init',                       //Register shortcodes
 						'register_visual_editor_addons' => 'init',                       //Register Visual Editor addons
@@ -173,8 +175,11 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						'deactivate'                    => 'switch_theme|10|2',          //Deactivate plugin when theme changed
 					);
 
-				//Add actions
+
+				// Processing
+
 					foreach( $actions as $class_action => $hook ) {
+
 						$hook = explode( '|', $hook );
 
 						if ( ! isset( $hook[1] ) ) {
@@ -185,14 +190,18 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						}
 
 						add_action( $hook[0], array( $this, $class_action ), $hook[1], $hook[2] );
-					}
 
-				//Add filters
-					add_filter( 'request', array( $this, 'post_types_in_feed' ) );
-					add_filter( 'plugin_action_links_' . plugin_basename( WMAMP_PLUGIN_FILE ), array( $this, 'setup_action_links' ) );
+					} // /foreach
 
-				//Loaded action
-					do_action( 'wmhook_wmamp_' . 'loaded' );
+					// Add filters
+
+						add_filter( 'request', array( $this, 'post_types_in_feed' ) );
+						add_filter( 'plugin_action_links_' . plugin_basename( WMAMP_PLUGIN_FILE ), array( $this, 'setup_action_links' ) );
+
+					// Loaded action
+
+						do_action( 'wmhook_wmamp_' . 'loaded' );
+
 			} // /setup_actions
 
 

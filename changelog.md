@@ -1,5 +1,33 @@
 # WebMan Amplifier Changelog
 
+## 1.2.5
+
+* **Add**: "Specialty" taxonomy to Staff custom post type
+* **Update**: Improved Content Module shortcode
+* **Update**: Improved accessibility
+* **Update**: Improved admin UI
+* **Update**: Allowed filtering Beaver Builder custom module definition array
+* **Update**: Removed obsolete `.eot` font files
+* **Update**: Hooking custom posts registration on `init` action with priority `0` instead of `10` (before `widgets_init`)
+* **Update**: Localization
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	assets/css/metabox.css
+	assets/font/fontello.css
+	assets/font/fontello.dev.css
+	assets/font/fontello.eot
+	includes/custom-posts/staff.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/posts.php
+	languages/sk_SK.mo
+	languages/sk_SK.po
+	languages/xx_XX.pot
+
+
 ## 1.2.4
 
 * **Update**: Testimonials headings updated to H2 tag

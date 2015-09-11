@@ -96,6 +96,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.5 =
+Adding a "Specialty" taxonomy on Staff posts, improved accessibility, improved admin UI, improved Content Module shortcode, improved custom posts registration, removed obsolete `.eot` font files.
+
 = 1.2.4 =
 Fixing Visual Composer shortcodes layout issue (for Posts, Testimonials and Content Modules).
 

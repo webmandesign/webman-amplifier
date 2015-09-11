@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.4
+ * @version  1.2.5
  *
  * @param  string align
  * @param  string class
@@ -310,7 +310,7 @@
 					$layout_elements = array(
 							'content'  => do_shortcode( '<div class="wm-content-module-element wm-html-element content">' . wpautop( get_the_content() ) . '</div>' ),
 							'image'    => '',
-							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . apply_filters( 'wmhook_shortcode_' . 'read_more_text', __( 'Read more', 'wm_domain' ), $shortcode, $post_id, $atts ) . '</a></div>' ) : ( '' ),
+							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . sprintf( apply_filters( 'wmhook_shortcode_' . 'read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'wm_domain' ), $shortcode, $post_id, $atts ), get_the_title() ) . '</a></div>' ) : ( '' ),
 							'tag'      => '',
 							'title'    => ( $helpers['link'] ) ? ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></header>' ) : ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></header>' ),
 						);
@@ -370,6 +370,15 @@
 						$class_item .= 'wm-content-module-item wm-content-module-item-' . $post_id;
 						if ( $icon['box'] ) {
 							$class_item .= ' wm-iconbox-module';
+						}
+						if ( $icon['color'] ) {
+							$class_item .= ' has-color';
+						}
+						if ( $icon['color-background'] ) {
+							$class_item .= ' has-background';
+						}
+						if ( has_post_thumbnail( $post_id ) ) {
+							$class_item .= ' has-post-thumbnail';
 						}
 						if ( ! $atts['module'] ) {
 							$class_item .= ' wm-column width-1-' . esc_attr( $atts['columns'] . $atts['no_margin'] . $alt );
