@@ -96,6 +96,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.6 =
+Improved PHP versions (mainly 7, but applies for others too) compatibility.
+
 = 1.2.5 =
 Adding a "Specialty" taxonomy on Staff posts, improved accessibility, improved admin UI, improved Content Module shortcode, improved custom posts registration, removed obsolete `.eot` font files.
 

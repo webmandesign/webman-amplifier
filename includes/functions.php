@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.2.6
  */
 
 
@@ -241,74 +241,119 @@
 	 * Taxonomy list
 	 *
 	 * @since    1.0
-	 * @version  1.2.2
+	 * @version  1.2.6
 	 *
-	 * @param    array $args
+	 * @param  array $args
 	 *
-	 * @return   array Array of taxonomy slug => name.
+	 * @return  array Array of taxonomy slug => name.
 	 */
 	if ( ! function_exists( 'wma_taxonomy_array' ) ) {
 		function wma_taxonomy_array( $args = array() ) {
-			$args = wp_parse_args( $args, array(
-					//"All" option
-						'all'           => true,                           //whether to display "all" option
-						'all_post_type' => 'post',                         //post type to count posts for "all" option, if left empty, the posts count will not be displayed
-						'all_text'      => '- ' . __( 'All posts', 'wm_domain' ), //"all" option text
-					//Query settings
-						'hierarchical'  => '1',                            //whether taxonomy is hierarchical
-						'order_by'      => 'name',                         //in which order the taxonomy titles should appear
-						'parents_only'  => false,                          //will return only parent (highest level) categories
-						'hide_empty'    => 0,                              //whether to display only used taxonomies
-					//Default returns
-						'return'        => 'slug',                         //what to return as a value (slug, or term_id?)
-						'tax_name'      => 'category',                     //taxonomy name
-				) );
 
-			//Helper variables
+			// Helper variables
+
 				$output = array();
 
-			//Check
+				$args = wp_parse_args( $args, array(
+
+						// "All" option
+
+							'all'           => true, // Display "all" option?
+							'all_post_type' => 'post', // Post type to count posts for "all" option, if left empty, the posts count will not be displayed
+							'all_text'      => '- ' . __( 'All posts', 'wm_domain' ), // "All" option text
+
+						// Query settings
+
+							'hierarchical' => '1', // Is taxonomy hierarchical?
+							'order_by'     => 'name',
+							'parents_only' => false, // Should return parent (highest level) terms only?
+							'hide_empty'   => 0,
+
+						// Default returns
+
+							'return'   => 'slug', // What should be returned from the term, `slug` or `term_id`?
+							'tax_name' => 'category',
+
+					) );
+
+
+			// Requirements check
+
 				if ( ! taxonomy_exists( $args['tax_name'] ) ) {
 					return apply_filters( 'wmhook_wmamp_' . 'taxonomy_array', $output, $args );
 				}
 
-			//Get terms
-				$terms  = get_terms( $args['tax_name'], 'orderby=' . $args['order_by'] . '&hide_empty=' . $args['hide_empty'] . '&hierarchical=' . $args['hierarchical'] );
 
-			//Preparing output array
-				if ( $args['all'] ) {
-				//Set "All" option
-					if ( ! $args['all_post_type'] ) {
-						$all_count = '';
-					} else {
-						$readable  = ( in_array( $args['all_post_type'], array( 'post', 'page' ) ) ) ? ( 'readable' ) : ( null );
-						$all_count = wp_count_posts( $args['all_post_type'], $readable );
-						$all_count = ' (' . absint( $all_count->publish ) . ')';
-					}
-					$output[''] = apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_all', $args['all_text'] . $all_count, $args, $all_count );
-				}
+			// Processing
 
-				if ( ! is_wp_error( $terms ) && is_array( $terms ) && ! empty( $terms ) ) {
-					foreach ( $terms as $term ) {
-						if ( ! $args['parents_only'] ) {
-						//All taxonomies (categories) including children
-							$output[$term->$args['return']]  = $term->name;
-							$output[$term->$args['return']] .= ( ! $args['all_post_type'] ) ? ( '' ) : ( apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_count', ' (' . $term->count . ')', $args, $term->count ) );
-						} elseif ( $args['parents_only'] && ! $term->parent ) {
-						//Get only parent taxonomies (categories), no children
-							$output[$term->$args['return']]  = $term->name;
-							$output[$term->$args['return']] .= ( ! $args['all_post_type'] ) ? ( '' ) : ( apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_count', ' (' . $term->count . ')', $args, $term->count ) );
+				// Get terms
+
+					$terms = get_terms(
+							$args['tax_name'],
+							array(
+								'orderby'      => $args['order_by'],
+								'hide_empty'   => $args['hide_empty'],
+								'hierarchical' => $args['hierarchical'],
+							)
+						);
+
+				// Set "All" option
+
+					if ( $args['all'] ) {
+
+						if ( ! $args['all_post_type'] ) {
+
+							$all_count = '';
+
+						} else {
+
+							$readable  = ( in_array( $args['all_post_type'], array( 'post', 'page' ) ) ) ? ( 'readable' ) : ( null );
+							$all_count = wp_count_posts( $args['all_post_type'], $readable );
+							$all_count = ' (' . absint( $all_count->publish ) . ')';
+
 						}
-					}
-				}
 
-				//Sort alphabetically
+						$output[''] = apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_all', $args['all_text'] . $all_count, $args, $all_count );
+
+					}
+
+				// Adding actual terms into output array
+
+					if ( ! is_wp_error( $terms ) && is_array( $terms ) && ! empty( $terms ) ) {
+						foreach ( $terms as $term ) {
+
+							$term = (array) $term; // Converting object to array to prevent PHP issues with passing the `$args['return']` value
+
+							if ( ! $args['parents_only'] ) {
+
+								// All terms including children
+
+									$output[ $term[ $args['return'] ] ]  = $term['name'];
+									$output[ $term[ $args['return'] ] ] .= ( ! $args['all_post_type'] ) ? ( '' ) : ( apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_count', ' (' . $term['count'] . ')', $args, $term['count'] ) );
+
+							} elseif ( $args['parents_only'] && empty( $term['parent'] ) ) {
+
+								// Get only parent terms and no children
+
+									$output[ $term[ $args['return'] ] ]  = $term['name'];
+									$output[ $term[ $args['return'] ] ] .= ( ! $args['all_post_type'] ) ? ( '' ) : ( apply_filters( 'wmhook_wmamp_' . 'taxonomy_array_count', ' (' . $term['count'] . ')', $args, $term['count'] ) );
+
+							}
+
+						} // /foreach
+					}
+
+				// Sort the array alphabetically
+
 					if ( ! $args['hierarchical'] ) {
 						asort( $output );
 					}
 
-			//Output
-				return apply_filters( 'wmhook_wmamp_' . 'wma_taxonomy_array' . '_output', $output, $args );
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_wmamp_' . 'wma_taxonomy_array' . '_output', $output, $args );
+
 		}
 	} // /wma_taxonomy_array
 

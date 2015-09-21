@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.2.6
+
+* **Fix**: Improved PHP versions (mainly 7, but applies for others too) compatibility
+
+#### Files changed:
+
+	includes/functions.php
+
+
 ## 1.2.5
 
 * **Add**: "Specialty" taxonomy to Staff custom post type
