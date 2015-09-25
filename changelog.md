@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.2.7
+
+* **Fix**: Issue of loading icon font files on each admin page (now they load on post edit screen only and only for specific post types to prevent issues with other plugins, such as Caldera Forms)
+
+#### Files changed:
+
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.2.6
 
 * **Fix**: Improved PHP versions (mainly 7, but applies for others too) compatibility

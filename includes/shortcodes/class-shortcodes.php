@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.7
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -415,46 +415,55 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue backend (admin) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.2.7
 			 *
 			 * @access  public
 			 */
 			public function assets_backend() {
-				//Requirements check
+
+				// Requirements check
+
 					if ( ! current_user_can( $this->editor_capability ) ) {
 						return;
 					}
 
-				//Helper variables
+
+				// Helper variables
+
 					global $pagenow, $post_type;
 
 					$admin_pages   = array( 'post.php', 'post-new.php' );
 					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
-				//Styles
-					if ( $icon_font_url ) {
-						wp_enqueue_style( 'wm-fonticons' );
-					}
 
-				//Visual Composer plugin integration
-					$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
-					if (
-							in_array( $pagenow, apply_filters( 'wmhook_shortcode_' . 'vc_admin_pages', $admin_pages ) )
-							&& wma_is_active_vc()
-							&& in_array( $post_type, $vc_supported_post_types )
-							&& defined( 'WPB_VC_VERSION' )
-						) {
-						//Styles
-							wp_enqueue_style( 'wm-shortcodes-vc-addon' );
-							wp_enqueue_style( 'wm-radio' );
+				// Processing
 
-							if ( is_rtl() ) {
-								wp_enqueue_style( 'wm-shortcodes-vc-addon-rtl' );
-							}
+					// Visual Composer plugin integration
 
-						//Scripts
-							wp_enqueue_script( 'wm-shortcodes-vc-addon' );
-					}
+						$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
+
+						if (
+								in_array( $pagenow, apply_filters( 'wmhook_shortcode_' . 'vc_admin_pages', $admin_pages ) )
+								&& wma_is_active_vc()
+								&& in_array( $post_type, $vc_supported_post_types )
+								&& defined( 'WPB_VC_VERSION' )
+							) {
+
+							// Styles
+
+								wp_enqueue_style( 'wm-shortcodes-vc-addon' );
+								wp_enqueue_style( 'wm-radio' );
+
+								if ( is_rtl() ) {
+									wp_enqueue_style( 'wm-shortcodes-vc-addon-rtl' );
+								}
+
+							// Scripts
+
+								wp_enqueue_script( 'wm-shortcodes-vc-addon' );
+
+						}
+
 			} // /assets_backend
 
 

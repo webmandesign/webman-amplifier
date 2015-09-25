@@ -96,6 +96,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.7 =
+Fixing issue of loading icon font files on each admin page. Now they load on post edit screen only and only for specific post types to prevent issues with other plugins.
+
 = 1.2.6 =
 Improved PHP versions (mainly 7, but applies for others too) compatibility.
 
