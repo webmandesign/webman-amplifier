@@ -6,47 +6,16 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2
- *
- * CONTENT:
- * - 10) Actions and filters
- * - 20) Helpers
- * - 30) Widget class
+ * @version  1.2.8
  */
 
 
 
-//Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly
 
-
-
-
-
-/**
- * 10) Actions and filters
- */
-
-	/**
-	 * Actions
-	 */
-
-		add_action( 'widgets_init', 'wm_subnav_registration' );
-
-
-
-
-
-/**
- * 20) Helpers
- */
-
-	/**
-	 * Widget registration
-	 */
-	function wm_subnav_registration() {
-		register_widget( 'WM_Subnav' );
-	} // /wm_subnav_registration
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
 
 
 
@@ -55,111 +24,88 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * 30) Widget class
  */
+/**
+ * Widget class
+ *
+ * @since    1.0.9.9
+ * @version  1.2.8
+ *
+ * Contents:
+ *
+ *  0) Init
+ * 10) Output
+ * 20) Options
+ */
+class WM_Subnav extends WP_Widget {
 
-	class WM_Subnav extends WP_Widget {
+
+
+
+
+	/**
+	 * 0) Init
+	 */
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.8
 		 */
 		function __construct() {
 
-			//Helper variables
+			// Helper variables
+
 				$atts = array();
 
 				$atts['id']          = 'wm-subnav';
 				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Submenu', 'Widget name.', 'wm_domain' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-subnav',
-						'description' => _x( 'List of subpages', 'Widget description.', 'wm_domain' )
+						'description' => esc_html_x( 'List of subpages', 'Widget description.', 'wm_domain' )
 					);
 				$atts['control_ops'] = array();
 
 				$atts = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_atts', $atts );
 
-			//Register widget attributes
+
+			// Processing
+
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
 
 		} // /__construct
 
 
 
-		/**
-		 * Options form
-		 */
-		function form( $instance ) {
-
-			//Helper variables
-				$instance = wp_parse_args( $instance, array(
-						'order'  => 'menu_order',
-						'parent' => '',
-						'title'  => '',
-					) );
-
-			//Output
-				?>
-				<p class="wm-desc"><?php _ex( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'wm_domain' ) ?></p>
-
-				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label>
-					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" />
-					<small><?php _e( 'If you leave blank, the main parent page title will be displayed.', 'wm_domain' ) ?></small>
-				</p>
-
-				<p>
-					<input id="<?php echo $this->get_field_id( 'parent' ); ?>" name="<?php echo $this->get_field_name( 'parent' ); ?>" type="checkbox" <?php checked( $instance['parent'], 'on' ); ?>/>
-					<label for="<?php echo $this->get_field_id( 'parent' ); ?>"><?php _e( 'Direct parent and children only', 'wm_domain' ); ?></label>
-				</p>
-
-				<p>
-					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'List order:', 'wm_domain' ); ?></label><br />
-					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
-						<?php
-						$options = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_form' . '_order', array(
-								'post_title' => _x( 'By name', 'List order method.', 'wm_domain' ),
-								'post_date'  => _x( 'By date', 'List order method.', 'wm_domain' ),
-								'menu_order' => _x( 'Menu order', 'List order method.', 'wm_domain' ),
-							) );
-						foreach ( $options as $value => $name ) {
-							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . $name . '</option>';
-						}
-						?>
-					</select>
-				</p>
-				<?php
-
-				do_action( 'wmhook_widgets_' . 'wm_subnav' . '_form', $instance );
-
-		} // /form
 
 
+	/**
+	 * 10) Output
+	 */
 
 		/**
-		 * Save the options
-		 */
-		function update( $new_instance, $old_instance ) {
-
-			//Helper variables
-				$instance = $old_instance;
-
-			//Preparing output
-				$instance['order']  = $new_instance['order'];
-				$instance['parent'] = $new_instance['parent'];
-				$instance['title']  = $new_instance['title'];
-
-			//Output
-				return apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_instance', $instance, $new_instance, $old_instance );
-
-		} // /update
-
-
-
-		/**
-		 * Widget HTML
+		 * Output HTML
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.8
 		 */
 		function widget( $args, $instance ) {
 
-			//Helper variables
-				global $post, $page_exclusions;
+			// Requirements check
+
+				$post_types = get_post_types( array( 'hierarchical' => true ) );
+
+				if (
+						! is_singular( $post_types )
+						|| apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_disabled', false, $args, $instance )
+					) {
+					return;
+				}
+
+
+			// Helper variables
+
+				global $post;
 
 				$output = '';
 
@@ -170,57 +116,214 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					) );
 
 				$post    = ( is_home() ) ? ( get_post( get_option( 'page_for_posts' ) ) ) : ( $post );
-				$parents = ( isset( $post->ancestors ) ) ? ( $post->ancestors ) : ( '' );
+				$parents = get_ancestors( $post->ID, get_post_type( $post ) );
 
-				if ( $instance['parent'] && ! empty( $parents ) ) {
-					//Get direct parent
+				// Get the direct parent or the highest level parent
+
+					if ( $instance['parent'] && ! empty( $parents ) ) {
 						$grandparent = $parents[0];
-				} elseif ( ! $instance['parent'] && ! empty( $parents ) ) {
-					//Get the first parent page (at the end of the array)
+					} elseif ( ! $instance['parent'] && ! empty( $parents ) ) {
 						$grandparent = end( $parents );
-				} else {
-					$grandparent = '';
-				}
-
-				if ( ! trim( $instance['title'] ) ) {
-					$instance['title'] = ( $grandparent ) ? ( '<a href="' . get_permalink( $grandparent ) . '">' . get_the_title( $grandparent ) . '</a>' ) : ( '<a href="' . get_permalink( $post->ID ) . '">' . get_the_title( $post->ID ) . '</a>' );
-				}
-
-				//Subpages or siblings
-					if ( $grandparent ) {
-						$children = wp_list_pages( 'sort_column=' . $instance['order'] . '&exclude=' . $page_exclusions . '&title_li=&child_of=' . $grandparent . '&echo=0&depth=3' );
 					} else {
-						$children = wp_list_pages( 'sort_column=' . $instance['order'] . '&exclude=' . $page_exclusions . '&title_li=&child_of=' . $post->ID . '&echo=0&depth=3' );
+						$grandparent = '';
 					}
 
-			//Praparing output
-				//No need to display on archive pages, single post page and when there area no subpages
-					if (
-							is_search()
-							|| is_404()
-							|| is_archive()
-							|| is_single()
-							|| empty( $children )
-						) {
+				// Set the parent page title as a widget title when it was left empty
+
+					if ( ! trim( $instance['title'] ) ) {
+
+						if ( $grandparent ) {
+							$instance['title'] = '<a href="' . esc_url( get_permalink( $grandparent ) ) . '">&laquo; ' . get_the_title( $grandparent ) . '</a>';
+						} else {
+							$instance['title'] = '<a href="' . esc_url( get_permalink( $post->ID ) ) . '">' . get_the_title( $post->ID ) . '</a>';
+						}
+
+						$instance['title'] = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_title_auto', $instance['title'], $args, $instance );
+
+					}
+
+
+				// Subpages or siblings
+
+					$args_children = array(
+							'post_type'   => get_post_type( $post ),
+							'title_li'    => '',
+							'depth'       => 3,
+							'sort_column' => $instance['order'],
+							'echo'        => false,
+							'child_of'    => $post->ID,
+						);
+
+					if ( $grandparent ) {
+						$args_children['child_of'] = $grandparent;
+					}
+
+					$children = wp_list_pages( (array) apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_wp_list_pages_args', $args_children, $args, $instance ) );
+
+				// If there are no pages, don't display the widget
+
+					if ( empty( $children ) ) {
 						return;
 					}
 
-				//Actual output
+
+			// Processing
+
+				// Before widget
+
 					$output .= $args['before_widget'];
+
+				// Title
 
 					if ( trim( $instance['title'] ) ) {
 						$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 					}
 
-					$output .= '<ul class="sub-nav">' . $children . '</ul> <!-- /sub-nav -->';
+					$output .= '<ul class="sub-nav">' . $children . '</ul>';
+
+
+				// After widget
 
 					$output .= $args['after_widget'];
 
-			//Output
+
+			// Output
+
 				echo apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_output', $output, $args, $instance );
 
 		} // /widget
 
-	} // /WM_Subnav
 
-?>
+
+
+
+	/**
+	 * 20) Options
+	 */
+
+		/**
+		 * Options form
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.8
+		 */
+		function form( $instance ) {
+
+			// Helper variables
+
+				$instance = wp_parse_args( $instance, array(
+						'order'  => 'menu_order',
+						'parent' => '',
+						'title'  => '',
+					) );
+
+
+			// Output
+
+				?>
+
+				<p class="wm-desc">
+					<?php echo esc_html_x( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'wm_domain' ) ?>
+				</p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>">
+						<?php esc_html_e( 'Title:', 'wm_domain' ) ?>
+					</label>
+					<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
+					<small>
+						<?php esc_html_e( 'If you leave blank, the main parent page title will be displayed.', 'wm_domain' ) ?>
+					</small>
+				</p>
+
+				<p>
+					<input type="checkbox" name="<?php echo $this->get_field_name( 'parent' ); ?>" id="<?php echo $this->get_field_id( 'parent' ); ?>" <?php checked( $instance['parent'], 'on' ); ?>/>
+					<label for="<?php echo $this->get_field_id( 'parent' ); ?>">
+						<?php esc_html_e( 'Direct parent and children only', 'wm_domain' ); ?>
+					</label>
+				</p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id( 'order' ); ?>">
+						<?php esc_html_e( 'List order:', 'wm_domain' ); ?>
+					</label>
+					<select name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>" class="widefat">
+
+						<?php
+
+						$options = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_form' . '_order', array(
+								'post_title' => esc_html_x( 'By name', 'List order method.', 'wm_domain' ),
+								'post_date'  => esc_html_x( 'By date', 'List order method.', 'wm_domain' ),
+								'menu_order' => esc_html_x( 'Menu order', 'List order method.', 'wm_domain' ),
+							) );
+
+						foreach ( $options as $value => $name ) {
+
+							echo '<option value="' . esc_attr( $value ) . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . esc_html( $name ) . '</option>';
+
+						} // /foreach
+
+						?>
+
+					</select>
+				</p>
+
+				<?php
+
+				do_action( 'wmhook_widgets_' . 'wm_subnav' . '_form', $instance );
+
+		} // /form
+
+
+
+		/**
+		 * Save the options
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.2.8
+		 */
+		function update( $new_instance, $old_instance ) {
+
+			// Helper variables
+
+				$instance = $old_instance;
+
+
+			// Processing
+
+				$instance['title']  = $new_instance['title'];
+				$instance['order']  = $new_instance['order'];
+				$instance['parent'] = $new_instance['parent'];
+
+
+			// Output
+
+				return apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_instance', $instance, $new_instance, $old_instance );
+
+		} // /update
+
+
+
+
+
+} // /WM_Subnav
+
+
+
+
+
+/**
+ * Widget registration
+ *
+ * @since    1.0.9.9
+ * @version  1.2.8
+ */
+function wm_subnav_registration() {
+
+	// Processing
+
+		register_widget( 'WM_Subnav' );
+
+} // /wm_subnav_registration
+
+add_action( 'widgets_init', 'wm_subnav_registration' );

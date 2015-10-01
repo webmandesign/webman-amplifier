@@ -96,6 +96,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.8 =
+Visual Composer compatibility fixed and improved, removing custom admin styles in favour of page builder's native UI styles. Improved custom posts capabilities names, improved Submenu widget.
+
 = 1.2.7 =
 Fixing issue of loading icon font files on each admin page. Now they load on post edit screen only and only for specific post types to prevent issues with other plugins.
 

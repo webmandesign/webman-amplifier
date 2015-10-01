@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.8
  */
 
 
@@ -63,50 +63,60 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Custom post registration
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.8
 	 */
 	if ( ! function_exists( 'wma_projects_cp_register' ) ) {
 		function wma_projects_cp_register() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Custom post registration arguments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_projects', array(
-					'query_var'           => 'projects',
-					'capability_type'     => 'post',
-					'public'              => true,
-					'show_ui'             => true,
-					'exclude_from_search' => false,
-					'hierarchical'        => false,
-					'rewrite'             => array(
-							'slug' => ( isset( $permalinks['project'] ) && $permalinks['project'] ) ? ( $permalinks['project'] ) : ( 'project' )
-						),
-					'menu_position'       => 30,
-					'menu_icon'           => 'dashicons-portfolio',
-					'supports'            => array(
-							'title',
-							'editor',
-							'excerpt',
-							'thumbnail',
-							'custom-fields',
-							'author',
-						),
-					'labels'              => array(
-						'name'               => _x( 'Projects', 'Custom post labels: Projects.', 'wm_domain' ),
-						'singular_name'      => _x( 'Project', 'Custom post labels: Projects.', 'wm_domain' ),
-						'add_new'            => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
-						'add_new_item'       => _x( 'Add New Project', 'Custom post labels: Projects.', 'wm_domain' ),
-						'new_item'           => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
-						'edit_item'          => _x( 'Edit Project', 'Custom post labels: Projects.', 'wm_domain' ),
-						'view_item'          => _x( 'View Project', 'Custom post labels: Projects.', 'wm_domain' ),
-						'search_items'       => _x( 'Search Projects', 'Custom post labels: Projects.', 'wm_domain' ),
-						'not_found'          => _x( 'No project found', 'Custom post labels: Projects.', 'wm_domain' ),
-						'not_found_in_trash' => _x( 'No project found in trash', 'Custom post labels: Projects.', 'wm_domain' ),
-						'parent_item_colon'  => '',
-					)
-				) );
+			// Helper variables
 
-			//Register custom post type
-				register_post_type( 'wm_projects' , $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Custom post registration arguments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_projects', array(
+						'query_var'           => 'projects',
+						'capability_type'     => array( 'project', 'projects' ),
+						'public'              => true,
+						'show_ui'             => true,
+						'exclude_from_search' => false,
+						'hierarchical'        => false,
+						'rewrite'             => array(
+								'slug' => ( isset( $permalinks['project'] ) && $permalinks['project'] ) ? ( $permalinks['project'] ) : ( 'project' )
+							),
+						'menu_position'       => 30,
+						'menu_icon'           => 'dashicons-portfolio',
+						'supports'            => array(
+								'title',
+								'editor',
+								'excerpt',
+								'thumbnail',
+								'custom-fields',
+								'author',
+							),
+						'labels'              => array(
+							'name'               => _x( 'Projects', 'Custom post labels: Projects.', 'wm_domain' ),
+							'singular_name'      => _x( 'Project', 'Custom post labels: Projects.', 'wm_domain' ),
+							'add_new'            => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
+							'add_new_item'       => _x( 'Add New Project', 'Custom post labels: Projects.', 'wm_domain' ),
+							'new_item'           => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
+							'edit_item'          => _x( 'Edit Project', 'Custom post labels: Projects.', 'wm_domain' ),
+							'view_item'          => _x( 'View Project', 'Custom post labels: Projects.', 'wm_domain' ),
+							'search_items'       => _x( 'Search Projects', 'Custom post labels: Projects.', 'wm_domain' ),
+							'not_found'          => _x( 'No project found', 'Custom post labels: Projects.', 'wm_domain' ),
+							'not_found_in_trash' => _x( 'No project found in trash', 'Custom post labels: Projects.', 'wm_domain' ),
+							'parent_item_colon'  => '',
+						)
+					) );
+
+				// Register custom post type
+
+					register_post_type( 'wm_projects' , $args );
+
 		}
 	} // /wma_projects_cp_register
 

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.8
  */
 
 
@@ -63,49 +63,59 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Custom post registration
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.8
 	 */
 	if ( ! function_exists( 'wma_modules_cp_register' ) ) {
 		function wma_modules_cp_register() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Custom post registration arguments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_modules', array(
-					'query_var'           => 'modules',
-					'capability_type'     => 'page',
-					'public'              => true,
-					'show_ui'             => true,
-					'exclude_from_search' => true,
-					'show_in_nav_menus'   => false,
-					'hierarchical'        => false,
-					'rewrite'             => array(
-							'slug' => ( isset( $permalinks['module'] ) && $permalinks['module'] ) ? ( $permalinks['module'] ) : ( 'module' )
-						),
-					'menu_position'       => 45,
-					'menu_icon'           => 'dashicons-format-aside',
-					'supports'            => array(
-							'title',
-							'editor',
-							'thumbnail',
-							'author',
-						),
-					'labels'              => array(
-						'name'               => _x( 'Content Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'singular_name'      => _x( 'Content Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'add_new'            => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'add_new_item'       => _x( 'Add New module', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'new_item'           => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'edit_item'          => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'view_item'          => _x( 'View Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'search_items'       => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'not_found'          => _x( 'No module found', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'not_found_in_trash' => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'wm_domain' ),
-						'parent_item_colon'  => ''
-					)
-				) );
+			// Helper variables
 
-			//Register custom post type
-				register_post_type( 'wm_modules' , $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Custom post registration arguments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_modules', array(
+						'query_var'           => 'modules',
+						'capability_type'     => array( 'content_module', 'content_modules' ),
+						'public'              => true,
+						'show_ui'             => true,
+						'exclude_from_search' => true,
+						'show_in_nav_menus'   => false,
+						'hierarchical'        => false,
+						'rewrite'             => array(
+								'slug' => ( isset( $permalinks['module'] ) && $permalinks['module'] ) ? ( $permalinks['module'] ) : ( 'module' )
+							),
+						'menu_position'       => 45,
+						'menu_icon'           => 'dashicons-format-aside',
+						'supports'            => array(
+								'title',
+								'editor',
+								'thumbnail',
+								'author',
+							),
+						'labels'              => array(
+							'name'               => _x( 'Content Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'singular_name'      => _x( 'Content Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'add_new'            => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'add_new_item'       => _x( 'Add New module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'new_item'           => _x( 'Add New', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'edit_item'          => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'view_item'          => _x( 'View Module', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'search_items'       => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'not_found'          => _x( 'No module found', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'not_found_in_trash' => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'wm_domain' ),
+							'parent_item_colon'  => ''
+						)
+					) );
+
+				// Register custom post type
+
+					register_post_type( 'wm_modules' , $args );
+
 		}
 	} // /wma_modules_cp_register
 

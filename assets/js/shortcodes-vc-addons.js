@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.2.8
  */
 
 
@@ -23,59 +23,28 @@
 	/**
 	 * Extending VC shortcode attributes
 	 *
-	 * From "composer-atts.js" file.
+	 * From "assets/js/params/composer-atts.js" file.
 	 */
 
 		/**
 		 * Radio buttons
 		 *
-		 * @since  1.0
+		 * @since    1.0
+		 * @version  1.2.8
 		 */
-		_.extend( vc.atts, {
+		vc.atts.wm_radio = {
 
 
 
-			wm_radio : {
+			parse : function( param ) {
+
+				return jQuery( 'input[name=' + param.param_name + ']:checked', this.content() ).val();
+
+			} // /parse
 
 
 
-				parse : function( param ) {
-
-					var arr       = [],
-					    new_value = '';
-
-					$( 'input[name=' + param.param_name + ']', this.$content )
-						.each( function( index ) {
-
-							var self = $( this );
-
-							if ( self.is( ':checked' ) ) {
-
-								arr.push( self.attr( 'value' ) );
-
-								self
-									.parent( '.input-item' )
-										.addClass( 'active' );
-
-							}
-
-						} );
-
-					if ( arr.length > 0 ) {
-						new_value = arr.join( ',' );
-					}
-
-					return new_value;
-
-				}
-
-
-
-			}
-
-
-
-		} );
+		};
 
 
 
@@ -84,7 +53,7 @@
 	/**
 	 * Extending VC ViewModel objects for shortcodes with custom functionality
 	 *
-	 * From "composer-custom-views.js" file.
+	 * From "assets/js/backend/composer-custom-views.js" file.
 	 */
 
 		/**

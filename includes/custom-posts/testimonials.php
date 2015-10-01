@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.8
  */
 
 
@@ -63,49 +63,59 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Custom post registration
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.8
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Custom post registration arguments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_testimonials', array(
-					'query_var'           => 'testimonials',
-					'capability_type'     => 'page',
-					'public'              => true,
-					'show_ui'             => true,
-					'exclude_from_search' => true,
-					'show_in_nav_menus'   => false,
-					'hierarchical'        => false,
-					'rewrite'             => array(
-							'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' )
-						),
-					'menu_position'       => 39,
-					'menu_icon'           => 'dashicons-testimonial',
-					'supports'            => array(
-							'title',
-							'editor',
-							'thumbnail',
-							'author',
-						),
-					'labels'              => array(
-						'name'               => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'singular_name'      => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'add_new'            => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'add_new_item'       => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'new_item'           => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'edit_item'          => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'view_item'          => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'search_items'       => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'not_found'          => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'not_found_in_trash' => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'wm_domain' ),
-						'parent_item_colon'  => ''
-					)
-				) );
+			// Helper variables
 
-			//Register custom post type
-				register_post_type( 'wm_testimonials' , $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Custom post registration arguments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_testimonials', array(
+						'query_var'           => 'testimonials',
+						'capability_type'     => array( 'testimonial', 'testimonials' ),
+						'public'              => true,
+						'show_ui'             => true,
+						'exclude_from_search' => true,
+						'show_in_nav_menus'   => false,
+						'hierarchical'        => false,
+						'rewrite'             => array(
+								'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' )
+							),
+						'menu_position'       => 39,
+						'menu_icon'           => 'dashicons-testimonial',
+						'supports'            => array(
+								'title',
+								'editor',
+								'thumbnail',
+								'author',
+							),
+						'labels'              => array(
+							'name'               => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'singular_name'      => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'add_new'            => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'add_new_item'       => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'new_item'           => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'edit_item'          => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'view_item'          => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'search_items'       => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'not_found'          => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'not_found_in_trash' => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'wm_domain' ),
+							'parent_item_colon'  => ''
+						)
+					) );
+
+				// Register custom post type
+
+					register_post_type( 'wm_testimonials' , $args );
+
 		}
 	} // /wma_testimonials_cp_register
 

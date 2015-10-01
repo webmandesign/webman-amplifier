@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.7
+ * @version  1.2.8
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -344,7 +344,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.2.2
+			 * @version  1.2.8
 			 *
 			 * @access   public
 			 */
@@ -354,10 +354,9 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 					$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
 
 				//Styles
-					wp_register_style( 'wm-radio',                   WMAMP_ASSETS_URL . 'css/input-wm-radio.css',           array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-bb-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-vc-addon',     WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
-					wp_register_style( 'wm-shortcodes-vc-addon-rtl', WMAMP_ASSETS_URL . 'css/rtl-shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-radio',               WMAMP_ASSETS_URL . 'css/input-wm-radio.css',           array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-bb-addon', WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css',     array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css',     array(), WMAMP_VERSION, 'screen' );
 					if ( $icon_font_url ) {
 						wp_register_style( 'wm-fonticons', $icon_font_url, array(), WMAMP_VERSION, 'screen' );
 					}
@@ -415,7 +414,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue backend (admin) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.2.7
+			 * @version  1.2.8
 			 *
 			 * @access  public
 			 */
@@ -453,10 +452,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 								wp_enqueue_style( 'wm-shortcodes-vc-addon' );
 								wp_enqueue_style( 'wm-radio' );
-
-								if ( is_rtl() ) {
-									wp_enqueue_style( 'wm-shortcodes-vc-addon-rtl' );
-								}
 
 							// Scripts
 
@@ -1170,7 +1165,7 @@ function wma_shortcodes() {
 		 * Custom page builder input field: wm_radio
 		 *
 		 * @since    1.1
-		 * @version  1.2.2
+		 * @version  1.2.8
 		 *
 		 * @param  string $name
 		 * @param  string $value
@@ -1199,7 +1194,13 @@ function wma_shortcodes() {
 					$block_class .= ' custom-label';
 				}
 
-				$hide_radio = ( isset( $field['hide_radio'] ) && $field['hide_radio'] ) ? ( ' hide' ) : ( '' );
+				$class = ( isset( $field['hide_radio'] ) && $field['hide_radio'] && isset( $field['custom'] ) && $field['custom'] ) ? ( ' hide' ) : ( '' );
+
+				// Adding field class required in Visual Composer
+
+					if ( wma_is_active_vc() ) {
+						$class .= ' wpb_vc_param_value';
+					}
 
 				$field['inline'] = ( isset( $field['inline'] ) && $field['inline'] ) ? ( true ) : ( false );
 
@@ -1234,9 +1235,9 @@ function wma_shortcodes() {
 
 							$checked = trim( checked( $value, $option_value, false ) . ' /' );
 
-							if ( ! trim( $field['custom'] ) ) {
+							if ( ! isset( $field['custom'] ) || ! $field['custom'] ) {
 
-								$output .= '<input type="radio" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="wm-radio" ' . $checked . '> ';
+								$output .= '<input type="radio" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="wm-radio' . esc_attr( $class ) . '" ' . $checked . '> ';
 
 								$output .= '<label for="' . esc_attr( $name . '-' . $i ) . '">' . $option . '</label>';
 
@@ -1248,7 +1249,7 @@ function wma_shortcodes() {
 										$field['custom']
 									) ) . '</label>';
 
-								$output .= '<input type="radio" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="wm-radio ' . esc_attr( $hide_radio ) . '" ' . $checked . '>';
+								$output .= '<input type="radio" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name . '-' . $i ) . '" value="' . esc_attr( $option_value ) . '" title="' . esc_attr( $option ) . '" class="wm-radio' . esc_attr( $class ) . '" ' . $checked . '>';
 
 							}
 

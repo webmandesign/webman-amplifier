@@ -1,5 +1,45 @@
 # WebMan Amplifier Changelog
 
+## 1.2.8
+
+* **Update**: Removed custom Visual Composer admin styling in favour of native Visual Composer UI
+* **Update**: Updated custom post types capabilities names
+* **Update**: Improved Submenu widget
+* **Fix**: Visual Composer icon selector not keeping the selected icon
+
+#### Files changed:
+
+	assets/css/shortcodes-vc-addons.css
+	assets/js/shortcodes-vc-addons.js
+	assets/sass/shortcodes-vc-addons.scss
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/definitions.php
+	includes/widgets/w-subnav.php
+
+#### Files removed:
+
+	assets/css/rtl-shortcodes-vc-addons.css
+	assets/sass/rtl-shortcodes-vc-addons.scss
+	assets/sass/vc-addons/_base.scss
+	assets/sass/vc-addons/_columns.scss
+	assets/sass/vc-addons/_elements.scss
+	assets/sass/vc-addons/_modals.scss
+	assets/sass/vc-addons/_navigation-bar.scss
+	assets/sass/vc-addons/_row.scss
+	assets/sass/vc-addons/rtl/_base.scss
+	assets/sass/vc-addons/rtl/_columns.scss
+	assets/sass/vc-addons/rtl/_elements.scss
+	assets/sass/vc-addons/rtl/_modals.scss
+	assets/sass/vc-addons/rtl/_navigation-bar.scss
+	assets/sass/vc-addons/rtl/_row.scss
+	assets/sass/vc-addons/rtl/_shortcodes.scss
+
+
 ## 1.2.7
 
 * **Fix**: Issue of loading icon font files on each admin page (now they load on post edit screen only and only for specific post types to prevent issues with other plugins, such as Caldera Forms)

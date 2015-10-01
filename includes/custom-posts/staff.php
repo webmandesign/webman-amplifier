@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.5
+ * @version  1.2.8
  */
 
 
@@ -63,49 +63,59 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Custom post registration
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.8
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Custom post registration arguments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_staff', array(
-					'query_var'           => 'staff',
-					'capability_type'     => 'page',
-					'public'              => true,
-					'show_ui'             => true,
-					'exclude_from_search' => true,
-					'show_in_nav_menus'   => false,
-					'hierarchical'        => false,
-					'rewrite'             => array(
-							'slug' => ( isset( $permalinks['staff'] ) && $permalinks['staff'] ) ? ( $permalinks['staff'] ) : ( 'staff' )
-						),
-					'menu_position'       => 42,
-					'menu_icon'           => 'dashicons-businessman',
-					'supports'            => array(
-							'title',
-							'editor',
-							'thumbnail',
-							'author',
-						),
-					'labels'              => array(
-						'name'               => _x( 'Staff', 'Custom post labels: Staff.', 'wm_domain' ),
-						'singular_name'      => _x( 'Staff Member', 'Custom post labels: Staff.', 'wm_domain' ),
-						'add_new'            => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
-						'add_new_item'       => _x( 'Add New Member', 'Custom post labels: Staff.', 'wm_domain' ),
-						'new_item'           => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
-						'edit_item'          => _x( 'Edit Member', 'Custom post labels: Staff.', 'wm_domain' ),
-						'view_item'          => _x( 'View Member', 'Custom post labels: Staff.', 'wm_domain' ),
-						'search_items'       => _x( 'Search Members', 'Custom post labels: Staff.', 'wm_domain' ),
-						'not_found'          => _x( 'No member found', 'Custom post labels: Staff.', 'wm_domain' ),
-						'not_found_in_trash' => _x( 'No members found in trash', 'Custom post labels: Staff.', 'wm_domain' ),
-						'parent_item_colon'  => ''
-					)
-				) );
+			// Helper variables
 
-			//Register custom post type
-				register_post_type( 'wm_staff' , $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Custom post registration arguments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_staff', array(
+						'query_var'           => 'staff',
+						'capability_type'     => array( 'staff_member', 'staff_members' ),
+						'public'              => true,
+						'show_ui'             => true,
+						'exclude_from_search' => true,
+						'show_in_nav_menus'   => false,
+						'hierarchical'        => false,
+						'rewrite'             => array(
+								'slug' => ( isset( $permalinks['staff'] ) && $permalinks['staff'] ) ? ( $permalinks['staff'] ) : ( 'staff' )
+							),
+						'menu_position'       => 42,
+						'menu_icon'           => 'dashicons-businessman',
+						'supports'            => array(
+								'title',
+								'editor',
+								'thumbnail',
+								'author',
+							),
+						'labels'              => array(
+							'name'               => _x( 'Staff', 'Custom post labels: Staff.', 'wm_domain' ),
+							'singular_name'      => _x( 'Staff Member', 'Custom post labels: Staff.', 'wm_domain' ),
+							'add_new'            => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
+							'add_new_item'       => _x( 'Add New Member', 'Custom post labels: Staff.', 'wm_domain' ),
+							'new_item'           => _x( 'Add New', 'Custom post labels: Staff.', 'wm_domain' ),
+							'edit_item'          => _x( 'Edit Member', 'Custom post labels: Staff.', 'wm_domain' ),
+							'view_item'          => _x( 'View Member', 'Custom post labels: Staff.', 'wm_domain' ),
+							'search_items'       => _x( 'Search Members', 'Custom post labels: Staff.', 'wm_domain' ),
+							'not_found'          => _x( 'No member found', 'Custom post labels: Staff.', 'wm_domain' ),
+							'not_found_in_trash' => _x( 'No members found in trash', 'Custom post labels: Staff.', 'wm_domain' ),
+							'parent_item_colon'  => ''
+						)
+					) );
+
+				// Register custom post type
+
+					register_post_type( 'wm_staff' , $args );
+
 		}
 	} // /wma_staff_cp_register
 

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.2.8
  */
 
 
@@ -63,48 +63,58 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Custom post registration
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.8
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Custom post registration arguments
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_logos', array(
-					'query_var'           => 'logos',
-					'capability_type'     => 'post',
-					'public'              => true,
-					'show_ui'             => true,
-					'exclude_from_search' => true,
-					'show_in_nav_menus'   => false,
-					'hierarchical'        => false,
-					'rewrite'             => array(
-							'slug' => ( isset( $permalinks['logo'] ) && $permalinks['logo'] ) ? ( $permalinks['logo'] ) : ( 'logo' )
-						),
-					'menu_position'       => 33,
-					'menu_icon'           => 'dashicons-id-alt',
-					'supports'            => array(
-							'title',
-							'thumbnail',
-							'author',
-						),
-					'labels'              => array(
-						'name'               => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
-						'singular_name'      => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
-						'add_new'            => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-						'add_new_item'       => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-						'new_item'           => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-						'edit_item'          => _x( 'Edit', 'Custom post labels: Logos.', 'wm_domain' ),
-						'view_item'          => _x( 'View', 'Custom post labels: Logos.', 'wm_domain' ),
-						'search_items'       => _x( 'Search', 'Custom post labels: Logos.', 'wm_domain' ),
-						'not_found'          => _x( 'No item found', 'Custom post labels: Logos.', 'wm_domain' ),
-						'not_found_in_trash' => _x( 'No item found in trash', 'Custom post labels: Logos.', 'wm_domain' ),
-						'parent_item_colon'  => ''
-					)
-				) );
+			// Helper variables
 
-			//Register custom post type
-				register_post_type( 'wm_logos' , $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Custom post registration arguments
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_logos', array(
+						'query_var'           => 'logos',
+						'capability_type'     => array( 'logo', 'logos' ),
+						'public'              => true,
+						'show_ui'             => true,
+						'exclude_from_search' => true,
+						'show_in_nav_menus'   => false,
+						'hierarchical'        => false,
+						'rewrite'             => array(
+								'slug' => ( isset( $permalinks['logo'] ) && $permalinks['logo'] ) ? ( $permalinks['logo'] ) : ( 'logo' )
+							),
+						'menu_position'       => 33,
+						'menu_icon'           => 'dashicons-id-alt',
+						'supports'            => array(
+								'title',
+								'thumbnail',
+								'author',
+							),
+						'labels'              => array(
+							'name'               => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
+							'singular_name'      => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
+							'add_new'            => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+							'add_new_item'       => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+							'new_item'           => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
+							'edit_item'          => _x( 'Edit', 'Custom post labels: Logos.', 'wm_domain' ),
+							'view_item'          => _x( 'View', 'Custom post labels: Logos.', 'wm_domain' ),
+							'search_items'       => _x( 'Search', 'Custom post labels: Logos.', 'wm_domain' ),
+							'not_found'          => _x( 'No item found', 'Custom post labels: Logos.', 'wm_domain' ),
+							'not_found_in_trash' => _x( 'No item found in trash', 'Custom post labels: Logos.', 'wm_domain' ),
+							'parent_item_colon'  => ''
+						)
+					) );
+
+				// Register custom post type
+
+					register_post_type( 'wm_logos' , $args );
+
 		}
 	} // /wma_logos_cp_register
 
