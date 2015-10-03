@@ -96,6 +96,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
+= 1.2.8.1 =
+Fixing issue with custom post types not being displayed in WordPress admin (reverting back the custom post types capabilities update introduced in version 1.2.8).
+
 = 1.2.8 =
 Visual Composer compatibility fixed and improved, removing custom admin styles in favour of page builder's native UI styles. Improved custom posts capabilities names, improved Submenu widget.
 

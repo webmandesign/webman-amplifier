@@ -1,5 +1,18 @@
 # WebMan Amplifier Changelog
 
+## 1.2.8.1
+
+* **Fix**: Reverting back the custom post types custom capabilities in favour of WordPress native ones
+
+#### Files changed:
+
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+
+
 ## 1.2.8
 
 * **Update**: Removed custom Visual Composer admin styling in favour of native Visual Composer UI

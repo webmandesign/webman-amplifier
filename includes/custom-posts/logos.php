@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8
+ * @version  1.2.8.1
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8
+	 * @version  1.2.8.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_logos', array(
 						'query_var'           => 'logos',
-						'capability_type'     => array( 'logo', 'logos' ),
+						'capability_type'     => 'post',
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,

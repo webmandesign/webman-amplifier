@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8
+ * @version  1.2.8.1
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8
+	 * @version  1.2.8.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_register' ) ) {
 		function wma_modules_cp_register() {
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_modules', array(
 						'query_var'           => 'modules',
-						'capability_type'     => array( 'content_module', 'content_modules' ),
+						'capability_type'     => 'page',
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,

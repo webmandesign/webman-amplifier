@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8
+ * @version  1.2.8.1
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8
+	 * @version  1.2.8.1
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_staff', array(
 						'query_var'           => 'staff',
-						'capability_type'     => array( 'staff_member', 'staff_members' ),
+						'capability_type'     => 'page',
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,
