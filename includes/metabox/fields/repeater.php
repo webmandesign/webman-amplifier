@@ -77,8 +77,8 @@
 
 										//Controls row
 											$output .= "\r\n\t\t\t" . '<thead class="repeater-cell-controls"><tr><th colspan="2">';
-											$output .= "\r\n\t\t\t\t" . '<a class="button button-move-cell" data-id="' . $field['id'] . '" title="' . __( 'Move the item', 'wm_domain' ) . '">&equiv;</a>';
-											$output .= "\r\n\t\t\t\t" . '<a class="button button-remove-cell" data-id="' . $field['id'] . '" title="' . __( 'Remove this item', 'wm_domain' ) . '">-</a>';
+											$output .= "\r\n\t\t\t\t" . '<a class="button button-move-cell" data-id="' . $field['id'] . '" title="' . __( 'Move the item', 'webman-amplifier' ) . '">&equiv;</a>';
+											$output .= "\r\n\t\t\t\t" . '<a class="button button-remove-cell" data-id="' . $field['id'] . '" title="' . __( 'Remove this item', 'webman-amplifier' ) . '">-</a>';
 											$output .= "\r\n\t\t\t" . '</th></tr></thead>';
 
 											$output .= "\r\n\t\t\t" . '<tbody>';

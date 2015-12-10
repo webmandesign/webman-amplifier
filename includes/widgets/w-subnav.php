@@ -59,10 +59,10 @@ class WM_Subnav extends WP_Widget {
 				$atts = array();
 
 				$atts['id']          = 'wm-subnav';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Submenu', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Submenu', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-subnav',
-						'description' => esc_html_x( 'List of subpages', 'Widget description.', 'wm_domain' )
+						'description' => esc_html_x( 'List of subpages', 'Widget description.', 'webman-amplifier' )
 					);
 				$atts['control_ops'] = array();
 
@@ -223,38 +223,38 @@ class WM_Subnav extends WP_Widget {
 				?>
 
 				<p class="wm-desc">
-					<?php echo esc_html_x( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'wm_domain' ) ?>
+					<?php echo esc_html_x( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'webman-amplifier' ) ?>
 				</p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-						<?php esc_html_e( 'Title:', 'wm_domain' ) ?>
+						<?php esc_html_e( 'Title:', 'webman-amplifier' ) ?>
 					</label>
 					<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
 					<small>
-						<?php esc_html_e( 'If you leave blank, the main parent page title will be displayed.', 'wm_domain' ) ?>
+						<?php esc_html_e( 'If you leave blank, the main parent page title will be displayed.', 'webman-amplifier' ) ?>
 					</small>
 				</p>
 
 				<p>
 					<input type="checkbox" name="<?php echo $this->get_field_name( 'parent' ); ?>" id="<?php echo $this->get_field_id( 'parent' ); ?>" <?php checked( $instance['parent'], 'on' ); ?>/>
 					<label for="<?php echo $this->get_field_id( 'parent' ); ?>">
-						<?php esc_html_e( 'Direct parent and children only', 'wm_domain' ); ?>
+						<?php esc_html_e( 'Direct parent and children only', 'webman-amplifier' ); ?>
 					</label>
 				</p>
 
 				<p>
 					<label for="<?php echo $this->get_field_id( 'order' ); ?>">
-						<?php esc_html_e( 'List order:', 'wm_domain' ); ?>
+						<?php esc_html_e( 'List order:', 'webman-amplifier' ); ?>
 					</label>
 					<select name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>" class="widefat">
 
 						<?php
 
 						$options = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_form' . '_order', array(
-								'post_title' => esc_html_x( 'By name', 'List order method.', 'wm_domain' ),
-								'post_date'  => esc_html_x( 'By date', 'List order method.', 'wm_domain' ),
-								'menu_order' => esc_html_x( 'Menu order', 'List order method.', 'wm_domain' ),
+								'post_title' => esc_html_x( 'By name', 'List order method.', 'webman-amplifier' ),
+								'post_date'  => esc_html_x( 'By date', 'List order method.', 'webman-amplifier' ),
+								'menu_order' => esc_html_x( 'Menu order', 'List order method.', 'webman-amplifier' ),
 							) );
 
 						foreach ( $options as $value => $name ) {

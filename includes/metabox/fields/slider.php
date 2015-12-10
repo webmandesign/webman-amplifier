@@ -88,7 +88,7 @@
 				// Reset default value button
 
 					if ( trim( $field['default'] ) ) {
-						$output .= "\r\n\t\t" . '<a data-option="' . esc_attr( $field['id'] ) . '" class="button-default-value default-slider" title="' . esc_attr__( 'Use a default value', 'wm_domain' ) . '"><span>' . esc_attr( $field['default'] ) . '</span></a>';
+						$output .= "\r\n\t\t" . '<a data-option="' . esc_attr( $field['id'] ) . '" class="button-default-value default-slider" title="' . esc_attr__( 'Use a default value', 'webman-amplifier' ) . '"><span>' . esc_attr( $field['default'] ) . '</span></a>';
 					}
 
 				echo $output;

@@ -1,5 +1,40 @@
 # WebMan Amplifier Changelog
 
+## 1.2.9
+
+* **Add**: Prepared for WordPress language packs
+* **Add**: Added WordPress 4.4 compatibility (additional custom post types and taxonomies labels)
+* **Update**: Visual Composer 4.9 plugin supported
+* **Update**: Icons font admin screen improved
+* **Update**: Renamed `sass` folder to `scss`
+* **Update**: Using specific number of posts in `WP_Query` objects in shortcodes
+* **Update**: Localization texts (updated also translation text domain) and files
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	readme.txt
+	webman-amplifier.php
+	assets/css/shortcodes-vc-addons.css
+	assets/scss/shortcodes-vc-addons.scss
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/icons/class-icon-font.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/page-builder/visual-composer/visual-composer.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/testimonials.php
+	languages/readme.md
+	languages/webman-amplifier-sk_SK.mo
+	languages/webman-amplifier-sk_SK.po
+	languages/webman-amplifier-xx_XX.pot
+	All the PHP files containing the translation strings.
+
+
 ## 1.2.8.1
 
 * **Fix**: Reverting back the custom post types custom capabilities in favour of WordPress native ones

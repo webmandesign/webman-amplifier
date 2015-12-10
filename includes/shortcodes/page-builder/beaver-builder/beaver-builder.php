@@ -102,10 +102,10 @@
 				$def = wma_shortcodes()->get_definitions();
 				$def = $def['bb_plugin'];
 
-				$custom_modules_category = _x( 'WM Modules', 'Page builder modules category name.', 'wm_domain' );
+				$custom_modules_category = _x( 'WM Modules', 'Page builder modules category name.', 'webman-amplifier' );
 
 				if ( apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
-					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); //Taking translation from Beaver Builder plugin
+					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); // Taking translation from Beaver Builder plugin
 				}
 
 

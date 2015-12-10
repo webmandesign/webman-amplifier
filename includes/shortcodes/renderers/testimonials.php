@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.4
+ * @version  1.2.9
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -28,7 +28,7 @@
 			'category'         => '',
 			'class'            => '',
 			'columns'          => 4,
-			'count'            => -1,
+			'count'            => 20,
 			'desc_column_size' => 4,
 			'no_margin'        => false,
 			'order'            => 'new',

@@ -63,7 +63,7 @@
 	?>
 
 	<div class="wm-posts-element wm-html-element more-link">
-		<a href="<?php echo get_permalink(); ?>"<?php echo wma_schema_org( 'bookmark' ); ?>><?php printf( apply_filters( 'wmhook_shortcode_' . 'posts_item_read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'wm_domain' ) ), get_the_title() ); ?></a>
+		<a href="<?php echo get_permalink(); ?>"<?php echo wma_schema_org( 'bookmark' ); ?>><?php printf( apply_filters( 'wmhook_shortcode_' . 'posts_item_read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'webman-amplifier' ) ), get_the_title() ); ?></a>
 	</div>
 
 </article>

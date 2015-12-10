@@ -12,7 +12,7 @@
 		//Tab
 		'field_test' => array(
 			//Title
-			'title'       => __( 'Fields test', 'wm_domain' ),
+			'title'       => __( 'Fields test', 'webman-amplifier' ),
 			'description' => '',
 			//Sections
 			'sections' => array(
@@ -33,9 +33,9 @@
 						'wm_radio' => array(
 							'type' => 'wm_radio',
 							//description
-							'label'       => __( 'WM_Radio field', 'wm_domain' ),
+							'label'       => __( 'WM_Radio field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -62,9 +62,9 @@
 						'wm_code' => array(
 							'type' => 'code',
 							//description
-							'label'       => __( 'Code field', 'wm_domain' ),
+							'label'       => __( 'Code field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '...some default value',
 							//type specific
@@ -78,9 +78,9 @@
 						'wm_suggest' => array(
 							'type' => 'suggest',
 							//description
-							'label'       => __( 'Suggest field', 'wm_domain' ),
+							'label'       => __( 'Suggest field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '...some default value',
 							//type specific
@@ -95,9 +95,9 @@
 						'wm_text' => array(
 							'type' => 'text',
 							//description
-							'label'       => __( 'Text field', 'wm_domain' ),
+							'label'       => __( 'Text field', 'webman-amplifier' ),
 							'description' => 'px',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '...some default value',
 							//type specific
@@ -112,9 +112,9 @@
 						'wm_textarea' => array(
 							'type' => 'textarea',
 							//description
-							'label'       => __( 'Textarea field', 'wm_domain' ),
+							'label'       => __( 'Textarea field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '...some default value',
 							//type specific
@@ -136,9 +136,9 @@
 						'wm_color' => array(
 							'type' => 'color',
 							//description
-							'label'       => __( 'Color field', 'wm_domain' ),
+							'label'       => __( 'Color field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => 'ffcc00',
 							//type specific
@@ -151,9 +151,9 @@
 						'wm_icon' => array(
 							'type' => 'icon',
 							//description
-							'label'       => __( 'Icon field', 'wm_domain' ),
+							'label'       => __( 'Icon field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -166,9 +166,9 @@
 						'wm_layout' => array(
 							'type' => 'layout',
 							//description
-							'label'       => __( 'Layout field', 'wm_domain' ),
+							'label'       => __( 'Layout field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -185,9 +185,9 @@
 						'wm_link' => array(
 							'type' => 'link',
 							//description
-							'label'       => __( 'Link field', 'wm_domain' ),
+							'label'       => __( 'Link field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific - none
@@ -198,9 +198,9 @@
 						'wm_multiple-photos' => array(
 							'type' => 'multiple-photos',
 							//description
-							'label'       => __( 'Multiple photos field', 'wm_domain' ),
+							'label'       => __( 'Multiple photos field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -212,9 +212,9 @@
 						'wm_photo-sizes' => array(
 							'type' => 'photo-sizes',
 							//description
-							'label'       => __( 'Photo sizes field', 'wm_domain' ),
+							'label'       => __( 'Photo sizes field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific - none
@@ -225,9 +225,9 @@
 						'wm_photo' => array(
 							'type' => 'photo',
 							//description
-							'label'       => __( 'Photo field', 'wm_domain' ),
+							'label'       => __( 'Photo field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -239,9 +239,9 @@
 						'wm_post-type' => array(
 							'type' => 'post-type',
 							//description
-							'label'       => __( 'Post type field', 'wm_domain' ),
+							'label'       => __( 'Post type field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -253,9 +253,9 @@
 						'wm_select' => array(
 							'type' => 'select',
 							//description
-							'label'       => __( 'Select field', 'wm_domain' ),
+							'label'       => __( 'Select field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -276,9 +276,9 @@
 						'wm_video' => array(
 							'type' => 'video',
 							//description
-							'label'       => __( 'Video field', 'wm_domain' ),
+							'label'       => __( 'Video field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -298,9 +298,9 @@
 						'wm_form' => array(
 							'type' => 'form',
 							//description
-							'label'       => __( 'Form field', 'wm_domain' ),
+							'label'       => __( 'Form field', 'webman-amplifier' ),
 							'description' => '',
-							'help'        => __( 'Field help text', 'wm_domain' ),
+							'help'        => __( 'Field help text', 'webman-amplifier' ),
 							//default
 							'default' => '',
 							//type specific
@@ -330,7 +330,7 @@
 	$module_form_popup = array(
 
 		//Title
-		'title' => __( 'Popup window title', 'wm_domain' ),
+		'title' => __( 'Popup window title', 'webman-amplifier' ),
 		//Tabs
 		'tabs' => array(
 

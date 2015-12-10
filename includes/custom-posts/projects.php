@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8.1
+ * @version  1.2.9
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8.1
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_projects_cp_register' ) ) {
 		function wma_projects_cp_register() {
@@ -99,17 +99,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'               => _x( 'Projects', 'Custom post labels: Projects.', 'wm_domain' ),
-							'singular_name'      => _x( 'Project', 'Custom post labels: Projects.', 'wm_domain' ),
-							'add_new'            => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
-							'add_new_item'       => _x( 'Add New Project', 'Custom post labels: Projects.', 'wm_domain' ),
-							'new_item'           => _x( 'Add New', 'Custom post labels: Projects.', 'wm_domain' ),
-							'edit_item'          => _x( 'Edit Project', 'Custom post labels: Projects.', 'wm_domain' ),
-							'view_item'          => _x( 'View Project', 'Custom post labels: Projects.', 'wm_domain' ),
-							'search_items'       => _x( 'Search Projects', 'Custom post labels: Projects.', 'wm_domain' ),
-							'not_found'          => _x( 'No project found', 'Custom post labels: Projects.', 'wm_domain' ),
-							'not_found_in_trash' => _x( 'No project found in trash', 'Custom post labels: Projects.', 'wm_domain' ),
-							'parent_item_colon'  => '',
+							'name'                  => _x( 'Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'add_new'               => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'new_item'              => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No project found', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'not_found_in_trash'    => _x( 'No project found in trash', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'filter_items_list'     => _x( 'Filter projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Projects list navigation', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -143,13 +145,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_projects', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Project', 'wm_domain' ),
-					$prefix . 'thumb' . $suffix    => __( 'Image', 'wm_domain' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
-					$prefix . 'tag' . $suffix      => __( 'Tag', 'wm_domain' ),
-					$prefix . 'link' . $suffix     => __( 'Custom link', 'wm_domain' ),
-					'date'                         => __( 'Date', 'wm_domain' ),
-					'author'                       => __( 'Author', 'wm_domain' )
+					'title'                        => __( 'Project', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => __( 'Image', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
+					$prefix . 'tag' . $suffix      => __( 'Tag', 'webman-amplifier' ),
+					$prefix . 'link' . $suffix     => __( 'Custom link', 'webman-amplifier' ),
+					'date'                         => __( 'Date', 'webman-amplifier' ),
+					'author'                       => __( 'Author', 'webman-amplifier' )
 				) );
 
 			return apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_columns_register' . '_output', $columns );
@@ -237,58 +239,72 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register taxonomies
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_projects_cp_taxonomies' ) ) {
 		function wma_projects_cp_taxonomies() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Projects categories
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_category', array(
-					'hierarchical'      => true,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'project-category',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['project_category'] ) && $permalinks['project_category'] ) ? ( $permalinks['project_category'] ) : ( 'project-category' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Project Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'singular_name' => _x( 'Project Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Projects categories.', 'wm_domain' ),
-					)
-				) );
+			// Helper variables
 
-				register_taxonomy( 'project_category', 'wm_projects', $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Projects tags
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_tag', array(
-					'hierarchical'      => false,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'project-tag',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['project_tag'] ) && $permalinks['project_tag'] ) ? ( $permalinks['project_tag'] ) : ( 'project-tag' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Project Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'singular_name' => _x( 'Project Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'all_items'     => _x( 'All Tags', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Tag', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Tag Title', 'Custom taxonomy labels: Projects tags.', 'wm_domain' ),
-					)
-				) );
 
-				register_taxonomy( 'project_tag', 'wm_projects', $args );
+			// Processing
+
+				// Projects categories
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_category', array(
+						'hierarchical'      => true,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'project-category',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['project_category'] ) && $permalinks['project_category'] ) ? ( $permalinks['project_category'] ) : ( 'project-category' )
+							),
+						'labels'            => array(
+							'name'                  => _x( 'Project Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Project Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'new_item_name'         => _x( 'New Category Title', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Project Categories list navigation', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Project Categories list', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+						)
+					) );
+
+					register_taxonomy( 'project_category', 'wm_projects', $args );
+
+				// Projects tags
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'project_tag', array(
+						'hierarchical'      => false,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'project-tag',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['project_tag'] ) && $permalinks['project_tag'] ) ? ( $permalinks['project_tag'] ) : ( 'project-tag' )
+							),
+						'labels'            => array(
+							'name'                  => _x( 'Project Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Project Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'all_items'             => _x( 'All Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'update_item'           => _x( 'Update Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'new_item_name'         => _x( 'New Tag Title', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Project Tags list navigation', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Project Tags list', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+						)
+					) );
+
+					register_taxonomy( 'project_tag', 'wm_projects', $args );
+
 		}
 	} // /wma_projects_cp_taxonomies
 
@@ -310,7 +326,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding sections
 				add_settings_section(
 						'wmamp-' . 'wm_projects' . '-permalinks',
-						__( 'Projects Custom Post Permalinks', 'wm_domain' ),
+						__( 'Projects Custom Post Permalinks', 'webman-amplifier' ),
 						'wma_projects_cp_permalinks_render_section',
 						'permalink'
 					);
@@ -318,7 +334,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding settings fields
 				add_settings_field(
 						'project',
-						__( 'Single project permalink', 'wm_domain' ),
+						__( 'Single project permalink', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_projects' . '-permalinks',
@@ -329,7 +345,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				add_settings_field(
 						'project_category',
-						__( 'Project category base', 'wm_domain' ),
+						__( 'Project category base', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_projects' . '-permalinks',
@@ -340,7 +356,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				add_settings_field(
 						'project_tag',
-						__( 'Project tag base', 'wm_domain' ),
+						__( 'Project tag base', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_projects' . '-permalinks',
@@ -362,7 +378,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_projects_cp_permalinks_render_section' ) ) {
 		function wma_projects_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Projects custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Projects custom post type permalinks here.', 'webman-amplifier' ) . '</p>' );
 		}
 	} // /wma_projects_cp_permalinks_render_section
 
@@ -388,32 +404,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'project-attributes-section',
-							'title' => _x( 'Attributes', 'Metabox section title.', 'wm_domain' ),
+							'title' => _x( 'Attributes', 'Metabox section title.', 'webman-amplifier' ),
 						);
 
 						//Project custom link input field
 							$fields[1020] = array(
 									'type'        => 'text',
 									'id'          => 'link',
-									'label'       => __( 'Custom link URL', 'wm_domain' ),
-									'description' => __( 'No link will be displayed / applied when left blank', 'wm_domain' ),
+									'label'       => __( 'Custom link URL', 'webman-amplifier' ),
+									'description' => __( 'No link will be displayed / applied when left blank', 'webman-amplifier' ),
 								);
 
 						//Project custom link actions
 							$fields[1040] = array(
 									'type'        => 'select',
 									'id'          => 'link-action',
-									'label'       => __( 'Custom link action', 'wm_domain' ),
-									'description' => __( 'Choose how to display / apply the link set above', 'wm_domain' ),
+									'label'       => __( 'Custom link action', 'webman-amplifier' ),
+									'description' => __( 'Choose how to display / apply the link set above', 'webman-amplifier' ),
 									'optgroups'   => true,
 									'options'     => array(
-											'1OPTGROUP'  => __( 'Project page', 'wm_domain' ),
-												''         => __( 'Display link on project page', 'wm_domain' ),
+											'1OPTGROUP'  => __( 'Project page', 'webman-amplifier' ),
+												''         => __( 'Display link on project page', 'webman-amplifier' ),
 											'1/OPTGROUP' => '',
-											'2OPTGROUP'  => __( 'Apply directly in projects list', 'wm_domain' ),
-												'modal'    => __( 'Open in popup window (videos and images only)', 'wm_domain' ),
-												'_blank'   => __( 'Open in new tab / window', 'wm_domain' ),
-												'_self'    => __( 'Open in same window', 'wm_domain' ),
+											'2OPTGROUP'  => __( 'Apply directly in projects list', 'webman-amplifier' ),
+												'modal'    => __( 'Open in popup window (videos and images only)', 'webman-amplifier' ),
+												'_blank'   => __( 'Open in new tab / window', 'webman-amplifier' ),
+												'_self'    => __( 'Open in same window', 'webman-amplifier' ),
 											'2/OPTGROUP' => '',
 										),
 								);
@@ -458,7 +474,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'tabs' => true,
 
 				// Meta box title.
-				'title' => __( 'Project settings', 'wm_domain' ),
+				'title' => __( 'Project settings', 'webman-amplifier' ),
 			) );
 	}
 

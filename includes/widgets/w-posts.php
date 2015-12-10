@@ -67,10 +67,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts = array();
 
 				$atts['id']          = 'wm-posts-widget';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Posts', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Posts', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-posts-widget',
-						'description' => _x( 'Lists posts or projects', 'Widget description.', 'wm_domain' )
+						'description' => _x( 'Lists posts or projects', 'Widget description.', 'webman-amplifier' )
 					);
 				$atts['control_ops'] = array();
 
@@ -100,18 +100,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _ex( 'Displays list of Posts or Projects.', 'Widget description.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays list of Posts or Projects.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wm_domain' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br />
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type:', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type:', 'webman-amplifier' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'post_type' ); ?>" id="<?php echo $this->get_field_id( 'post_type' ); ?>">
 						<?php
-						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_post_type', array( 'post' => __( 'Posts', 'wm_domain' ) ) );
+						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_post_type', array( 'post' => __( 'Posts', 'webman-amplifier' ) ) );
 
 						foreach ( $options as $value => $name ) {
 							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['post_type'] ), $value, false ) . '>' . $name . '</option>';
@@ -121,19 +121,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Posts count:', 'wm_domain' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Posts count:', 'webman-amplifier' ) ?></label><br />
 					<input class="text-center" type="number" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo absint( $instance['count'] ); ?>" size="5" maxlength="2" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Ordering:', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Ordering:', 'webman-amplifier' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
 						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_order', array(
-								'new'    => _x( 'Newest first', 'List order method.', 'wm_domain' ),
-								'old'    => _x( 'Oldest first', 'List order method.', 'wm_domain' ),
-								'name'   => _x( 'Alphabetically', 'List order method.', 'wm_domain' ),
-								'random' => _x( 'Randomly', 'List order method.', 'wm_domain' ),
+								'new'    => _x( 'Newest first', 'List order method.', 'webman-amplifier' ),
+								'old'    => _x( 'Oldest first', 'List order method.', 'webman-amplifier' ),
+								'name'   => _x( 'Alphabetically', 'List order method.', 'webman-amplifier' ),
+								'random' => _x( 'Randomly', 'List order method.', 'webman-amplifier' ),
 							) );
 						foreach ( $options as $value => $name ) {
 							echo '<option value="' . $value . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . $name . '</option>';
@@ -143,14 +143,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Optional posts taxonomy:', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Optional posts taxonomy:', 'webman-amplifier' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
 						<?php
 						if ( function_exists( 'wma_taxonomy_array' ) ) {
 
 							$taxonomy_args = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_taxonomy', array(
 									'post' => array(
-											'optgroup'     => __( 'Posts tags', 'wm_domain' ),
+											'optgroup'     => __( 'Posts tags', 'webman-amplifier' ),
 											'all'          => false,
 											'hierarchical' => '0',
 											'tax_name'     => 'post_tag',
@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								) );
 
 							//All option
-								echo '<option value="" ' . selected( esc_attr( $instance['taxonomy'] ), '', false ) . '>' . __( '- All posts/projects -', 'wm_domain' ) . '</option>';
+								echo '<option value="" ' . selected( esc_attr( $instance['taxonomy'] ), '', false ) . '>' . __( '- All posts/projects -', 'webman-amplifier' ) . '</option>';
 
 							//Post tags
 								foreach ( $taxonomy_args as $taxonomy => $tax_args ) {
@@ -179,7 +179,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'wm_domain' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'webman-amplifier' ) ?></label><br />
 					<input class="widefat" id="<?php echo $this->get_field_id( 'class' ); ?>" name="<?php echo $this->get_field_name( 'class' ); ?>" type="text" value="<?php echo esc_attr( $instance['class'] ); ?>" />
 				</p>
 				<?php

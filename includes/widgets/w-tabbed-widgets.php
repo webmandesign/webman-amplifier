@@ -57,9 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wm_tabbed_widgets_init' ) ) {
 		function wm_tabbed_widgets_init() {
 			register_sidebar( array(
-				'name'        => _x( 'Tabbed Widgets', 'Widgets area name.', 'wm_domain' ),
+				'name'        => _x( 'Tabbed Widgets', 'Widgets area name.', 'webman-amplifier' ),
 				'id'          => 'tabbed-widgets',
-				'description' => _x( 'Default widget area for Tabbed Widgets widget.', 'Widgets area description.', 'wm_domain' ),
+				'description' => _x( 'Default widget area for Tabbed Widgets widget.', 'Widgets area description.', 'webman-amplifier' ),
 			) );
 		}
 	} // /wm_tabbed_widgets_init
@@ -83,10 +83,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts = array();
 
 				$atts['id']          = 'wm-tabbed-widgets';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-tabbed-widgets',
-						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'wm_domain' )
+						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'webman-amplifier' )
 					);
 				$atts['control_ops'] = array();
 
@@ -111,10 +111,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			//Output
 				?>
-				<p class="wm-desc"><?php _ex( 'Displays widgets from selected widget area in tabbed interface.', 'Widget description.', 'wm_domain' ) ?></p>
+				<p class="wm-desc"><?php _ex( 'Displays widgets from selected widget area in tabbed interface.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widgets area displayed', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widgets area displayed', 'webman-amplifier' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'sidebar' ); ?>" id="<?php echo $this->get_field_id( 'sidebar' ); ?>">
 						<?php
 						if ( function_exists( 'wma_widget_areas_array' ) ) {
@@ -174,7 +174,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					} else {
 
-						_e( 'Widget area conflict in Tabbed Widgets widget.', 'wm_domain' );
+						_e( 'Widget area conflict in Tabbed Widgets widget.', 'webman-amplifier' );
 
 					}
 

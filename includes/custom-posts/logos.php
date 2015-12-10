@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8.1
+ * @version  1.2.9
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8.1
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -97,17 +97,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'               => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
-							'singular_name'      => _x( 'Logos', 'Custom post labels: Logos.', 'wm_domain' ),
-							'add_new'            => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-							'add_new_item'       => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-							'new_item'           => _x( 'Add New', 'Custom post labels: Logos.', 'wm_domain' ),
-							'edit_item'          => _x( 'Edit', 'Custom post labels: Logos.', 'wm_domain' ),
-							'view_item'          => _x( 'View', 'Custom post labels: Logos.', 'wm_domain' ),
-							'search_items'       => _x( 'Search', 'Custom post labels: Logos.', 'wm_domain' ),
-							'not_found'          => _x( 'No item found', 'Custom post labels: Logos.', 'wm_domain' ),
-							'not_found_in_trash' => _x( 'No item found in trash', 'Custom post labels: Logos.', 'wm_domain' ),
-							'parent_item_colon'  => ''
+							'name'                  => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'add_new'               => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'new_item'              => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No item found', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'not_found_in_trash'    => _x( 'No item found in trash', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'filter_items_list'     => _x( 'Filter logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Logos list navigation', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -141,12 +143,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_logos', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Name', 'wm_domain' ),
-					$prefix . 'thumb' . $suffix    => __( 'Logo', 'wm_domain' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
-					$prefix . 'link' . $suffix     => __( 'Custom link', 'wm_domain' ),
-					'date'                         => __( 'Date', 'wm_domain' ),
-					'author'                       => __( 'Author', 'wm_domain' )
+					'title'                        => __( 'Name', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => __( 'Logo', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
+					$prefix . 'link' . $suffix     => __( 'Custom link', 'webman-amplifier' ),
+					'date'                         => __( 'Date', 'webman-amplifier' ),
+					'author'                       => __( 'Author', 'webman-amplifier' )
 				) );
 
 			return apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_columns_register' . '_output', $columns );
@@ -221,35 +223,46 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register taxonomies
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_logos_cp_taxonomies' ) ) {
 		function wma_logos_cp_taxonomies() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Logos categories
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'logo_category', array(
-					'hierarchical'      => true,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'logo-category',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['logo_category'] ) && $permalinks['logo_category'] ) ? ( $permalinks['logo_category'] ) : ( 'logo-category' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Logo Categories', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'singular_name' => _x( 'Logo Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Logos categories.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Logos categories.', 'wm_domain' )
-					)
-				) );
+			// Helper variables
 
-				register_taxonomy( 'logo_category', 'wm_logos', $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Logos categories
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'logo_category', array(
+						'hierarchical'      => true,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'logo-category',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['logo_category'] ) && $permalinks['logo_category'] ) ? ( $permalinks['logo_category'] ) : ( 'logo-category' )
+							),
+						'labels'            => array(
+							'name'                  => _x( 'Logo Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Logo Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'new_item_name'         => _x( 'New Category Title', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Logo Categories list navigation', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Logo Categories list', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+						)
+					) );
+
+					register_taxonomy( 'logo_category', 'wm_logos', $args );
+
 		}
 	} // /wma_logos_cp_taxonomies
 
@@ -271,7 +284,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding sections
 				add_settings_section(
 						'wmamp-' . 'wm_logos' . '-permalinks',
-						__( 'Logos Custom Post Permalinks', 'wm_domain' ),
+						__( 'Logos Custom Post Permalinks', 'webman-amplifier' ),
 						'wma_logos_cp_permalinks_render_section',
 						'permalink'
 					);
@@ -279,7 +292,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding settings fields
 				add_settings_field(
 						'logo',
-						__( 'Single logo permalink', 'wm_domain' ),
+						__( 'Single logo permalink', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_logos' . '-permalinks',
@@ -290,7 +303,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				add_settings_field(
 						'logo_category',
-						__( 'Logo category base', 'wm_domain' ),
+						__( 'Logo category base', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_logos' . '-permalinks',
@@ -312,7 +325,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_logos_cp_permalinks_render_section' ) ) {
 		function wma_logos_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Logos custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Logos custom post type permalinks here.', 'webman-amplifier' ) . '</p>' );
 		}
 	} // /wma_logos_cp_permalinks_render_section
 
@@ -338,21 +351,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'logo-settings-section',
-							'title' => __( 'Logo settings', 'wm_domain' ),
+							'title' => __( 'Logo settings', 'webman-amplifier' ),
 						);
 
 						//Logo image
 							$fields[1020] = array(
 									'type'    => 'html',
-									'content' => '<tr class="option padding-20"><td colspan="2"><div class="box blue"><a href="#" class="button-primary button-set-featured-image" style="margin-right: 1em">' . __( 'Set featured image', 'wm_domain' ) . '</a> ' . __( 'Set the logo image as the featured image of the post', 'wm_domain' ) . '</div></td></tr>',
+									'content' => '<tr class="option padding-20"><td colspan="2"><div class="box blue"><a href="#" class="button-primary button-set-featured-image" style="margin-right: 1em">' . __( 'Set featured image', 'webman-amplifier' ) . '</a> ' . __( 'Set the logo image as the featured image of the post', 'webman-amplifier' ) . '</div></td></tr>',
 								);
 
 						//Logo custom link input field
 							$fields[1040] = array(
 									'type'        => 'text',
 									'id'          => 'link',
-									'label'       => __( 'Custom link URL', 'wm_domain' ),
-									'description' => __( 'No link will be displayed / applied when left blank', 'wm_domain' ),
+									'label'       => __( 'Custom link URL', 'webman-amplifier' ),
+									'description' => __( 'No link will be displayed / applied when left blank', 'webman-amplifier' ),
 									'validate'    => 'url',
 								);
 
@@ -360,11 +373,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							$fields[1060] = array(
 									'type'        => 'select',
 									'id'          => 'link-action',
-									'label'       => __( 'Custom link action', 'wm_domain' ),
-									'description' => __( 'Choose how to display / apply the link set above', 'wm_domain' ),
+									'label'       => __( 'Custom link action', 'webman-amplifier' ),
+									'description' => __( 'Choose how to display / apply the link set above', 'webman-amplifier' ),
 									'options'     => array(
-											'_blank' => __( 'Open in new tab / window', 'wm_domain' ),
-											'_self'  => __( 'Open in same window', 'wm_domain' ),
+											'_blank' => __( 'Open in new tab / window', 'webman-amplifier' ),
+											'_self'  => __( 'Open in same window', 'webman-amplifier' ),
 										),
 								);
 
@@ -408,7 +421,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'tabs' => false,
 
 				// Meta box title.
-				'title' => __( 'Logo settings', 'wm_domain' ),
+				'title' => __( 'Logo settings', 'webman-amplifier' ),
 
 				// Wrap the meta form around visual editor? (This is always tabbed.)
 				'visual-wrapper' => false,

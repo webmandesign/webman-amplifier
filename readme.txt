@@ -4,7 +4,7 @@ Donate link:       http://www.webmandesign.eu/
 Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.0
-Tested up to:      4.3
+Tested up to:      4.4
 Stable tag:        trunk
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -95,6 +95,9 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`changelog.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/changelog.md) for details.
 
 == Upgrade Notice ==
+
+= 1.2.9 =
+Visual Composer 4.9 compatible, improved WordPress 4.4 compatibility, improved icon font admin screen, prepared for WordPress language packs.
 
 = 1.2.8.1 =
 Fixing issue with custom post types not being displayed in WordPress admin (reverting back the custom post types capabilities update introduced in version 1.2.8).

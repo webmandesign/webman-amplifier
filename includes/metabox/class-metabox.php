@@ -373,7 +373,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							}
 						}
 
-						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'wm_domain' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'wm_domain' ) . '</a></div>' . "\r\n";
+						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'webman-amplifier' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'webman-amplifier' ) . '</a></div>' . "\r\n";
 					$output .= '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
 
 					echo $output;
@@ -431,7 +431,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 					//Tabs
 						$output .= "\t" . '<ul class="tabs no-js">' . "\r\n";
-						$output .= "\t\t" . '<li class="item-0 ' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor"><a href="#' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor">' . _x( 'Content', 'Metabox tab title for native WordPress visual editor tab.', 'wm_domain' ) . '</a></li>' . "\r\n";
+						$output .= "\t\t" . '<li class="item-0 ' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor"><a href="#' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor">' . _x( 'Content', 'Metabox tab title for native WordPress visual editor tab.', 'webman-amplifier' ) . '</a></li>' . "\r\n";
 						$i = 0;
 						foreach ( $meta_fields as $tab ) {
 							if ( isset( $tab['type'] ) && 'section-open' == $tab['type'] ) {
@@ -528,7 +528,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						array(
 							array(
 								'type'      => 'html',
-								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'wm_domain' ) . '</div>',
+								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'webman-amplifier' ) . '</div>',
 								'condition' => wma_is_active_page_builder()
 							),
 							array(
@@ -547,7 +547,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							}
 						}
 
-						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'wm_domain' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'wm_domain' ) . '</a></div>' . "\r\n";
+						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'webman-amplifier' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'webman-amplifier' ) . '</a></div>' . "\r\n";
 					$output .= '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
 
 					echo $output;

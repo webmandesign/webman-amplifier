@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.2.5
+ * @version	 1.2.9
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -125,7 +125,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * @access  public
 			 */
 			public function __clone() {
-				_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wm_domain' ), '2.1' );
+				_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'webman-amplifier' ), '2.1' );
 			} // /__clone
 
 
@@ -137,7 +137,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * @access  public
 			 */
 			public function __wakeup() {
-				_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wm_domain' ), '2.1' );
+				_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'webman-amplifier' ), '2.1' );
 			} // /__wakeup
 
 
@@ -240,7 +240,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 								apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
 								&& ! wma_supports_subfeature( 'disable-fonticons' )
 							) {
-							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . _x( 'Icon Font', 'Plugin action link.', 'wm_domain' ) . '</a>';
+							$links[] = '<a href="' . get_admin_url( null, 'themes.php?page=icon-font' ) . '">' . _x( 'Icon Font', 'Plugin action link.', 'webman-amplifier' ) . '</a>';
 						}
 
 					//Themes link
@@ -323,7 +323,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 										$wmampPointerObject
 											.pointer( {
 												pointerClass : "wp-pointer wmamp_isotope_license",
-												content : "' . addslashes( '<h3>' . __( 'Isotope Licensing', 'wm_domain' ) . '</h3><p><strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.', 'wm_domain' ) . '</strong></p><p>' . __( 'If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'wm_domain' ) . '</p>' ) . '",
+												content : "' . addslashes( '<h3>' . __( 'Isotope Licensing', 'webman-amplifier' ) . '</h3><p><strong>' . __( 'You are using WebMan Amplifier plugin, which includes the <a href="http://isotope.metafizzy.co/" target="_blank">Isotope JavaScript filter</a>.', 'webman-amplifier' ) . '</strong></p><p>' . __( 'If you use the plugin for commercial applications, you are required to <a href="http://isotope.metafizzy.co/license.html" target="_blank">purchase the Isotope licence</a>.', 'webman-amplifier' ) . '</p>' ) . '",
 												position : {
 														edge  : "left",
 														align : "center"
@@ -728,34 +728,21 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Localization
 			 *
-			 * Load the translation file for the current language.
-			 * Checks the languages folder inside the plugin first,
-			 * and then the default WordPress languages folder.
-			 *
-			 * Note that custom translation files inside the plugin folder
-			 * will be removed on plugin updates. If you're creating custom
-			 * translation files, please use the global language folder.
-			 *
-			 * Note: the first-loaded translation file overrides any
-			 * following ones if the same translation is present.
+			 * Read more at @link  http://wptavern.com/how-to-prepare-and-take-advantage-of-language-packs-for-plugins-hosted-on-wordpress-org
 			 *
 			 * @since    1.0
-			 * @version  1.1.3
+			 * @version  1.2.9
 			 *
 			 * @access  public
 			 *
 			 * @return  boolean
 			 */
 			public function load_textdomain() {
-				//Traditional WordPress plugin locale filter
-					$locale = apply_filters( 'plugin_locale', get_locale(), 'wm_domain' );
-					$mofile = $locale . '.mo';
 
-				//Look in local /wp-content/plugins/webman-amplifier/languages/ folder
-					load_textdomain( 'wm_domain', trailingslashit( WMAMP_PLUGIN_DIR ) . 'languages/' . $mofile );
+				// Processing
 
-				//Look in global /wp-content/languages/webman-amplifier folder
-					load_textdomain( 'wm_domain', trailingslashit( WP_LANG_DIR ) . 'plugins/webman-amplifier/' . $mofile );
+					load_plugin_textdomain( 'webman-amplifier', false, dirname( plugin_basename( WMAMP_PLUGIN_FILE ) ) . '/languages/' );
+
 			} // /load_textdomain
 
 

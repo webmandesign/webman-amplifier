@@ -119,7 +119,7 @@
 						}
 					//Reset default value button
 						if ( trim( $field['default'] ) ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'webman-amplifier' ) . '"><span>' . $field['default'] . '</span></a>';
 						}
 
 					echo $output;
@@ -257,7 +257,7 @@
 						}
 					//Reset default value button
 						if ( trim( $field['default'] ) && ! $field['editor'] ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value" title="' . __( 'Use a default value', 'webman-amplifier' ) . '"><span>' . $field['default'] . '</span></a>';
 						}
 
 					echo $output;

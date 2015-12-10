@@ -62,7 +62,7 @@
 					asort( $tags );
 
 					//Filter output
-						$atts['filter'] = '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . __( 'All', 'wm_domain' ) . '</a></li>';
+						$atts['filter'] = '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . __( 'All', 'webman-amplifier' ) . '</a></li>';
 						foreach ( $tags as $tag ) {
 							$tag_class = esc_attr( 'tag-' . sanitize_html_class( $tag ) );
 							$atts['filter'] .= '<li class="wm-filter-items-' . $tag_class . '"><a href="#" data-filter=".' . $tag_class . '">' . html_entity_decode( $tag ) . '</a></li>';

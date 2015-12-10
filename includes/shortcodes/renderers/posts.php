@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.2.5
+ * @version  1.2.9
  *
  * @uses   $codes_globals['post_types']
  *
@@ -36,7 +36,7 @@
 			'align'            => 'left',
 			'class'            => '',
 			'columns'          => 4,
-			'count'            => -1,
+			'count'            => 20,
 			'desc_column_size' => 4,
 			'filter'           => '',
 			'filter_layout'    => 'fitRows',
@@ -238,7 +238,7 @@
 
 								//"All" item
 								$parent_tax = get_term_by( 'slug', $atts['filter'][1], $atts['filter'][0] );
-								$filter_content .= '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . sprintf( __( 'All <span>%s</span>', 'wm_domain' ), $parent_tax->name ) . '</a></li>';
+								$filter_content .= '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . sprintf( __( 'All <span>%s</span>', 'webman-amplifier' ), $parent_tax->name ) . '</a></li>';
 
 								//Other items
 								$terms  = get_term_children( $parent_tax->term_id, $atts['filter'][0] );
@@ -258,7 +258,7 @@
 							//No parent taxonomy - filter from all taxonomies
 
 								//"All" item
-								$filter_content .= '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . __( 'All', 'wm_domain' ) . '</a></li>';
+								$filter_content .= '<li class="wm-filter-items-all active"><a href="#" data-filter="*">' . __( 'All', 'webman-amplifier' ) . '</a></li>';
 
 								//Other items
 								$terms = get_terms( $atts['filter'][0] );

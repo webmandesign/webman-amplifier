@@ -260,7 +260,7 @@
 
 							'all'           => true, // Display "all" option?
 							'all_post_type' => 'post', // Post type to count posts for "all" option, if left empty, the posts count will not be displayed
-							'all_text'      => '- ' . __( 'All posts', 'wm_domain' ), // "All" option text
+							'all_text'      => '- ' . __( 'All posts', 'webman-amplifier' ), // "All" option text
 
 						// Query settings
 
@@ -389,7 +389,7 @@
 				}
 
 			//Preparing output array
-				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_posts_array_select_text', __( '- Select item -', 'wm_domain' ), $return, $post_type );
+				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_posts_array_select_text', __( '- Select item -', 'webman-amplifier' ), $return, $post_type );
 
 				if ( is_array( $posts ) && ! empty( $posts ) ) {
 					foreach ( $posts as $post ) {
@@ -431,7 +431,7 @@
 				$output = array();
 
 			//Preparing output array
-				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_pages_array_select_text', __( '- Select a page -', 'wm_domain' ), $return );
+				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_pages_array_select_text', __( '- Select a page -', 'webman-amplifier' ), $return );
 
 				if ( is_array( $pages ) && ! empty( $pages ) ) {
 					foreach ( $pages as $page ) {
@@ -483,7 +483,7 @@
 				$output = array();
 
 			//Preparing output array
-				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_widget_areas_array_select_text', __( '- Select area -', 'wm_domain' ) );
+				$output[''] = apply_filters( 'wmhook_wmamp_' . 'wma_widget_areas_array_select_text', __( '- Select area -', 'webman-amplifier' ) );
 
 				if ( is_array( $wp_registered_sidebars ) && ! empty( $wp_registered_sidebars ) ) {
 					foreach ( $wp_registered_sidebars as $area ) {
@@ -1375,8 +1375,8 @@
 			//Helper variables
 				global $_wp_additional_image_sizes;
 
-				$output   = array( 'full' => __( 'Original image size (full)', 'wm_domain' ) );
-				$cropping = array( _x( 'scaled', 'WordPress image size actions.', 'wm_domain' ), _x( 'cropped', 'WordPress image size actions.', 'wm_domain' ) );
+				$output   = array( 'full' => __( 'Original image size (full)', 'webman-amplifier' ) );
+				$cropping = array( _x( 'scaled', 'WordPress image size actions.', 'webman-amplifier' ), _x( 'cropped', 'WordPress image size actions.', 'webman-amplifier' ) );
 
 			//Preparing output
 				foreach( get_intermediate_image_sizes() as $size ) {

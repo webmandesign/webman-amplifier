@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.1
+ * @version  1.2.9
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -233,7 +233,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 						) {
 						//Check if the user is allowed to edit options
 							if ( ! current_user_can( $this->capability ) ) {
-								wp_die( __( 'You do not have sufficient permissions to access this page.', 'wm_domain' ) );
+								wp_die( __( 'You do not have sufficient permissions to access this page.', 'webman-amplifier' ) );
 							} else {
 								$this->add_zipped_font();
 							}
@@ -241,8 +241,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 				//Adding admin menu item under "Appearance" menu
 					add_theme_page(
-							_x( 'Icon Font', 'Admin page title.', 'wm_domain' ), //page_title
-							_x( 'Icon Font', 'Admin menu title.', 'wm_domain' ), //menu_title
+							_x( 'Icon Font', 'Admin page title.', 'webman-amplifier' ), //page_title
+							_x( 'Icon Font', 'Admin menu title.', 'webman-amplifier' ), //menu_title
 							$this->capability,              //capability
 							'icon-font',                    //menu_slug
 							array( $this, 'admin_form' )    //form render function callback
@@ -255,133 +255,165 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.0.6
+			 * @version  1.2.9
+			 *
 			 * @access   public
 			 */
 			public function admin_form() {
-				//Helper variables
+
+				// Helper variables
+
 					$fonticons = get_option( 'wmamp-icons' );
 					if ( isset( $fonticons['icons_select'] ) ) {
 						$fonticons = wma_ksort( $fonticons['icons_select'] );
 
-						$output  = '<tr class="option-heading toggle"><th colspan="2">' . __( 'Click to display the recent available icons', 'wm_domain' ) . '</th></tr></tbody><tbody><tr class="option padding-20"><td colspan="2"><div class="box yellow">';
-						$output .= '<ol class="no-inline-ol">';
+						$output  = '<div class="wm-meta-wrap wmamp-icons-classes-list-container">';
+						$output .= '<div class="box yellow">';
+						$output .= '<h2>' . __( 'List of the recently used icons with their CSS classes:', 'webman-amplifier' ) . '</h2>';
+						$output .= '<ol class="wmamp-icons-classes-list">';
 						foreach ( $fonticons as $icon => $name ) {
-							$output .= '<li><i class="' . $icon . '" style="display: inline-block; width: 24px; height: 24px; margin: 0 5px; text-align: center; line-height: 24px; font-size: 16px; background: rgba(0,0,0, .1); color: #000; border-radius: 100px;"></i><input type="text" value="' . $icon . '" readonly="readonly" style="display: inline-block; max-width: 50%;" onfocus="this.select();" /></li>';
+							$output .= '<li><i class="' . $icon . '"></i><input type="text" value="' . $icon . '" readonly="readonly" onfocus="this.select();" /></li>';
 						}
 						$output .= '</ol>';
-						$output .= '</div></td></tr></tbody><tbody>';
+						$output .= '</div>';
+						$output .= '</div>';
 
 						$fonticons = $output;
 					} else {
 						$fonticons = '';
 					}
 
-				//Form fields setup
-					$fields = array( array(
-							'id'          => 'wmamp-font-zip',
-							'label'       => __( 'Fontello ZIP package file', 'wm_domain' ),
-							'button'      => __( 'Set the file', 'wm_domain' ),
-							'placeholder' => __( 'Fontello ZIP package file URL', 'wm_domain' ),
-							'description' => sprintf( __( 'Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use "fontello" as font name. Otherwise the font icons will not be generated.</strong>', 'wm_domain' ), ' href="http://fontello.com/" target="_blank"'),
-							'default'     => '',
-						) );
+					// Form fields setup
 
-				//Form fields values setup
-					$icon_font = get_option( 'wmamp-icon-font' );
-					$zip_file  = get_option( $fields[0]['id'] );
-					if (
-							! is_array( $zip_file )
-							|| ! isset( $zip_file['url'] )
-							|| ! trim( $zip_file['url'] )
-							|| ! isset( $zip_file['id'] )
-							|| ! trim( $zip_file['id'] )
-							|| false === stripos( $zip_file['url'], '.zip' )
-						) {
-						$zip_file = array(
-								'url' => '',
-								'id'  => '',
+						$fields = array( array(
+								'id'          => 'wmamp-font-zip',
+								'label'       => __( 'Fontello ZIP package file', 'webman-amplifier' ),
+								'button'      => __( 'Set the file', 'webman-amplifier' ),
+								'placeholder' => __( 'Fontello ZIP package file URL', 'webman-amplifier' ),
+								'description' => sprintf( __( 'Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use "fontello" as font name. Otherwise the font icons will not be generated.</strong>', 'webman-amplifier' ), ' href="http://fontello.com/" target="_blank"'),
+								'default'     => '',
+							) );
+
+					// Form fields values setup
+
+						$icon_font = get_option( 'wmamp-icon-font' );
+						$zip_file  = get_option( $fields[0]['id'] );
+						if (
+								! is_array( $zip_file )
+								|| ! isset( $zip_file['url'] )
+								|| ! trim( $zip_file['url'] )
+								|| ! isset( $zip_file['id'] )
+								|| ! trim( $zip_file['id'] )
+								|| false === stripos( $zip_file['url'], '.zip' )
+							) {
+							$zip_file = array(
+									'url' => '',
+									'id'  => '',
+								);
+						}
+						$options = array(
+								$fields[0]['id']  => $zip_file,
+								'wmamp-icon-font' => ( trim( $icon_font ) ) ? ( esc_url( $icon_font ) ) : ( '' ),
 							);
-					}
-					$options = array(
-							$fields[0]['id']  => $zip_file,
-							'wmamp-icon-font' => ( trim( $icon_font ) ) ? ( esc_url( $icon_font ) ) : ( '' ),
-						);
 
-				//Preparing output
+
+				// Processing
+
 					$output = '<div class="wrap wm-admin-wrap">';
 
-					//Title
-						$output .= get_screen_icon() . '<h2>' . __( 'Icon Font Setup', 'wm_domain' ) . '</h2>';
+					// Title
 
-					//Status messages
+						$output .= get_screen_icon() . '<h1>' . __( 'Icon Font Setup', 'webman-amplifier' ) . '</h1>';
+
+					// Status messages
+
 						$message = ( isset( $_GET['message'] ) ) ? ( absint( $_GET['message'] ) ) : ( 0 );
 
 						if ( is_multisite() && false === stripos( get_site_option( 'upload_filetypes' ), 'zip') ) {
-							$message = sprintf( __( '<strong>You are currently on a WordPress multisite installation and ZIP file upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> and add the "zip" file extension to the list of allowed <em>"Upload file types"</em>.', 'wm_domain' ), ' href="' . network_admin_url( 'settings.php' ) . '"' );
+							$message = sprintf( __( '<strong>You are currently on a WordPress multisite installation and ZIP file upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> and add the "zip" file extension to the list of allowed <em>"Upload file types"</em>.', 'webman-amplifier' ), ' href="' . network_admin_url( 'settings.php' ) . '"' );
 						} elseif ( 1 === $message ) {
-							$message = __( 'The ZIP file was processed successfully and new icon font was set up.', 'wm_domain' );
+							$message = __( 'The ZIP file was processed successfully and new icon font was set up.', 'webman-amplifier' );
 						} elseif ( 2 === $message ) {
-							$message = __( '<strong>Error during processing of your ZIP file.</strong>', 'wm_domain' );
+							$message = __( '<strong>Error during processing of your ZIP file.</strong>', 'webman-amplifier' );
 						} elseif ( 3 === $message ) {
-							$message = __( "<strong>Using this feature is reserved for administrators. You don't have the necessary permissions.</strong>", 'wm_domain' );
+							$message = __( "<strong>Using this feature is reserved for administrators. You don't have the necessary permissions.</strong>", 'webman-amplifier' );
 						} elseif ( 4 === $message ) {
-							$message = __( "Default icon font file was restored.", 'wm_domain' );
+							$message = __( "Default icon font file was restored.", 'webman-amplifier' );
 						} else {
 							$message = '';
 						}
 
-						//Display message box if any message sent
+						// Display message box if any message sent
+
 							if ( $message ) {
 								$output .= '<div id="message" class="updated"><p>' . $message . '</p></div>';
 							}
 
-					//Render form
+					// Render form
+
 						$output .= '<form class="wm-meta-wrap" method="post" action="' . admin_url( 'themes.php?page=icon-font' ) . '">';
 							$output .= '<table class="form-table">';
 
-							//Caption
+							// Caption
+
 								$output .= '<caption>';
-									$output .= __( 'Icon Font File Setup', 'wm_domain' );
+									$output .= __( 'Icon Font File Setup', 'webman-amplifier' );
 								$output .= '</caption>';
 
-							//Save button
+							// Save button
+
 								$output .= '<tfoot>';
 									$output .= '<tr class="padding-20"><td colspan="2">';
-										//Nonce
-										$output .= wp_nonce_field( 'icon_font', '_wpnonce', true, false );
-										//Button
-										$output .= '<input type="submit" name="save-icon-font" id="save-icon-font" class="button button-primary button-large" value="' . __( 'Save changes', 'wm_domain' ) . '" />';
-										$output .= '<input type="hidden" name="action" value="wmamp-uploading-icon-font" />';
+
+										// Nonce
+
+											$output .= wp_nonce_field( 'icon_font', '_wpnonce', true, false );
+
+										// Button
+
+											$output .= '<input type="submit" name="save-icon-font" id="save-icon-font" class="button button-primary button-large" value="' . __( 'Save changes', 'webman-amplifier' ) . '" />';
+											$output .= '<input type="hidden" name="action" value="wmamp-uploading-icon-font" />';
+
 									$output .= '</td></tr>';
 								$output .= '</tfoot>';
 
 								$output .= '<tbody>';
 
-								//Font CSS file link
+								// Font CSS file link
+
 									if ( $options['wmamp-icon-font'] ) {
 										$output .= '<tr class="option padding-20"><td colspan="2">';
-											$output .= '<div class="box blue">' . sprintf( __( 'To display the icon font, please, use this CSS file: %s', 'wm_domain' ), '<br /><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
+											$output .= '<div class="box blue">' . sprintf( __( 'To display the icon font, please, use this CSS file: %s', 'webman-amplifier' ), '<br /><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
 										$output .= '</td></tr>';
 									}
 
-								//Available icon classes
-									$output .= $fonticons;
+								// Upload field
 
-								//Upload field
 									$output .= '<tr class="option zip-wrap option-' . $fields[0]['id'] . '" data-option="' . $fields[0]['id'] . '"><th>';
-										//Label
+
+										// Label
+
 											$output .= '<label for="' . $fields[0]['id'] . '" data-id="' . $fields[0]['id'] . '">' . $fields[0]['label'] . '</label>';
+
 									$output .= '</th><td>';
-										//Input field
+
+										// Input field
+
 											$output .= '<input type="text" name="' . $fields[0]['id'] . '[url]" id="' . $fields[0]['id'] . '" value="' . $options[$fields[0]['id']]['url'] . '" class="fieldtype-zip" placeholder="' . $fields[0]['placeholder'] . '" readonly="readonly" />';
 											$output .= '<input type="hidden" name="' . $fields[0]['id'] . '[id]" value="' . $options[$fields[0]['id']]['id'] . '" />';
-										//Upload button
+
+										// Upload button
+
 											$output .= '<a href="#" class="button button-set-zip" data-id="' . $fields[0]['id'] . '">' . $fields[0]['button'] . '</a>';
-										//Description
+
+										// Description
+
 											$output .= '<p class="description">' . $fields[0]['description'] . '</p>';
-										//Default value button
-											$output .= '<a data-option="' . $fields[0]['id'] . '[url]" class="button-default-value" title="' . __( 'Use default', 'wm_domain' ) . '"><span>' . $fields[0]['default'] . '</span></a>';
+
+										// Default value button
+
+											$output .= '<a data-option="' . $fields[0]['id'] . '[url]" class="button-default-value" title="' . __( 'Use default', 'webman-amplifier' ) . '"><span>' . $fields[0]['default'] . '</span></a>';
+
 									$output .= '</td></tr>';
 
 								$output .= '</tbody>';
@@ -389,11 +421,29 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 							$output .= '</table>';
 						$output .= '</form>';
 
+						// Available icon classes
+
+							$output .= '<style>';
+							$output .= '.wmamp-icons-classes-list-container h2 { margin: 0 0 1.62em; font-size: 1.62em; font-weight: 300; }';
+							$output .= '.wmamp-icons-classes-list { display: flex; flex-wrap: wrap; margin: 20px 0; list-style: none; counter-reset: wmamp-icons-classes-list; }';
+							$output .= '.wmamp-icons-classes-list li { position: relative; display: inline-block; flex-grow: 1; padding: 10px; margin: -1px -1px 0 0; text-align: center; border: 1px dashed rgba(0,0,0, .1); vertical-align: top; overflow: hidden; counter-increment: wmamp-icons-classes-list; }';
+							$output .= '.wmamp-icons-classes-list li::before { content: counter(wmamp-icons-classes-list); position: absolute; left: 0; top: 0; font-size: 20px; font-weight: 300; color: rgba(0,0,0, .33); }';
+							$output .= '.wmamp-icons-classes-list:hover li { opacity: .33; }';
+							$output .= '.wmamp-icons-classes-list li:hover { border-color: #111; opacity: 1; z-index: 9999; }';
+							$output .= '.wmamp-icons-classes-list i { display: block; width: 54px; height: 54px; margin: 0 auto; line-height: 54px; font-size: 32px; color: #111; border-radius: 100px; }';
+							$output .= '.wmamp-icons-classes-list input { display: inline-block; width: auto; max-width: none; padding: 2px; margin-top: 10px; text-align: inherit; font-size: 10px; font-weight: 700; }';
+							$output .= '</style>';
+
+							$output .= $fonticons;
+
 
 					$output .= '</div>';
 
-				//Output
+
+				// Output
+
 					echo apply_filters( 'wmhook_icons_' . 'admin_form' . '_output', $output );
+
 			} // /admin_form
 
 

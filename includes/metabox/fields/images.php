@@ -45,7 +45,7 @@
 						'preview'     => true,                            //Enable image preview
 						'size'        => 'medium',                        //Preview image size
 						'upload-only' => false,                           //Should the image be set only via media uploader? Image ID will be passed too.
-						'button-text' => __( 'Set image', 'wm_domain' ),  //Preview image size
+						'button-text' => __( 'Set image', 'webman-amplifier' ),  //Preview image size
 						'conditional' => '',                              //Conditional display setup
 					) );
 
@@ -103,7 +103,7 @@
 				$output .= "\r\n\t" . '</th><td>';
 					//Input field
 						$output .= "\r\n\t\t";
-						$output .= '<input type="text" name="' . $field['id'] . '[url]" id="' . $field['id'] . '" value="' . $value['url'] . '" class="fieldtype-image" placeholder="' . __( 'Image URL', 'wm_domain' ) . '" data-nothumb="' . $noPreviewURL . '" data-preview="' . $previewURL . '" ' . trim( $field['attributes'] . ' /' ) . '>';
+						$output .= '<input type="text" name="' . $field['id'] . '[url]" id="' . $field['id'] . '" value="' . $value['url'] . '" class="fieldtype-image" placeholder="' . __( 'Image URL', 'webman-amplifier' ) . '" data-nothumb="' . $noPreviewURL . '" data-preview="' . $previewURL . '" ' . trim( $field['attributes'] . ' /' ) . '>';
 						if ( $field['upload-only'] ) {
 							$output .= '<input type="hidden" name="' . $field['id'] . '[id]" value="' . $value['id'] . '" />';
 						}
@@ -123,7 +123,7 @@
 						}
 					//Reset default value button
 						if ( trim( $field['default'] ) || $field['upload-only'] ) {
-							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '[url]" class="button-default-value" title="' . __( 'Remove image', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+							$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '[url]" class="button-default-value" title="' . __( 'Remove image', 'webman-amplifier' ) . '"><span>' . $field['default'] . '</span></a>';
 						}
 
 					echo $output;
@@ -198,7 +198,7 @@
 						'class'       => '',                                //Additional CSS class
 						'default'     => '',                                //Default value
 						'size'        => 'thumbnail',                       //Preview image size
-						'button-text' => __( 'Set images', 'wm_domain' ),  //Preview image size
+						'button-text' => __( 'Set images', 'webman-amplifier' ),  //Preview image size
 						'conditional' => '',                                //Conditional display setup
 					) );
 
@@ -228,15 +228,15 @@
 						$output .= "\r\n\t\t" . '<div class="gallery-preview gallery-' . $field['id'] . '">';
 						if ( is_array( $value ) && ! empty( $value ) ) {
 							foreach ( $value as $image_id ) {
-								$output .= '<a class="button-set-gallery" data-id="' . $field['id'] . '" title="' . __( 'Edit images', 'wm_domain' ) . '">';
+								$output .= '<a class="button-set-gallery" data-id="' . $field['id'] . '" title="' . __( 'Edit images', 'webman-amplifier' ) . '">';
 								$output .= wp_get_attachment_image( absint( $image_id ), $field['size'] );
 								$output .= '</a>';
 							}
 						}
 						$output .= '</div>';
-						$output .= "\r\n\t\t" . '<img class="gallery-loading gallery-loading-' . $field['id'] . '" src="' . WMAMP_ASSETS_URL . 'images/meta/loading.gif" width="16" height="16" alt="' . __( 'Loading images', 'wm_domain' ) . '" title="' . __( 'Loading images', 'wm_domain' ) . '" />';
+						$output .= "\r\n\t\t" . '<img class="gallery-loading gallery-loading-' . $field['id'] . '" src="' . WMAMP_ASSETS_URL . 'images/meta/loading.gif" width="16" height="16" alt="' . __( 'Loading images', 'webman-amplifier' ) . '" title="' . __( 'Loading images', 'webman-amplifier' ) . '" />';
 					//Reset default value button
-						$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value default-gallery" title="' . __( 'Remove images', 'wm_domain' ) . '"><span>' . $field['default'] . '</span></a>';
+						$output .= "\r\n\t\t" . '<a data-option="' . $field['id'] . '" class="button-default-value default-gallery" title="' . __( 'Remove images', 'webman-amplifier' ) . '"><span>' . $field['default'] . '</span></a>';
 
 					echo $output;
 
@@ -290,7 +290,7 @@
 						|| ! isset( $_POST['wmGalleryNonce'] )
 						|| ! wp_verify_nonce( $_POST['wmGalleryNonce'], 'wm-gallery-preview-refresh' )
 					) {
-					_e( 'You do not have permissions to do this!', 'wm_domain' );
+					_e( 'You do not have permissions to do this!', 'webman-amplifier' );
 					die();
 				}
 
@@ -302,7 +302,7 @@
 
 				if ( ! empty( $images ) ) {
 					foreach ( $images as $image_id ) {
-						$output .= '<a class="button-set-gallery" data-id="' . $fieldID . '" title="' . __( 'Edit images', 'wm_domain' ) . '">';
+						$output .= '<a class="button-set-gallery" data-id="' . $fieldID . '" title="' . __( 'Edit images', 'webman-amplifier' ) . '">';
 						$output .= wp_get_attachment_image( absint( $image_id ), 'thumbnail' );
 						$output .= '</a>';
 					}

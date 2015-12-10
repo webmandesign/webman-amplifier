@@ -60,7 +60,7 @@
 
 	<div class="wm-posts-element wm-html-element meta">
 		<time class="meta-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"<?php echo wma_schema_org( 'publish_date' ); ?>><?php echo esc_html( get_the_date() ); ?></time>
-		<a class="meta-comments" href="<?php echo get_comments_link(); ?>" title="<?php printf( _x( 'Comments: %s', '%s stands for number of comments.', 'wm_domain' ), get_comments_number() ); ?>"><?php echo get_comments_number(); ?></a>
+		<a class="meta-comments" href="<?php echo get_comments_link(); ?>" title="<?php printf( _x( 'Comments: %s', '%s stands for number of comments.', 'webman-amplifier' ), get_comments_number() ); ?>"><?php echo get_comments_number(); ?></a>
 	</div>
 
 	<?php
@@ -81,7 +81,7 @@
 	?>
 
 	<div class="wm-posts-element wm-html-element more-link">
-		<a href="<?php echo get_permalink(); ?>"<?php echo wma_schema_org( 'bookmark' ); ?>><?php printf( apply_filters( 'wmhook_shortcode_' . 'posts_item_read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'wm_domain' ) ), get_the_title() ); ?></a>
+		<a href="<?php echo get_permalink(); ?>"<?php echo wma_schema_org( 'bookmark' ); ?>><?php printf( apply_filters( 'wmhook_shortcode_' . 'posts_item_read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'webman-amplifier' ) ), get_the_title() ); ?></a>
 	</div>
 
 </article>

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.8.1
+ * @version  1.2.9
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.8.1
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -98,17 +98,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'               => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'singular_name'      => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'add_new'            => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'add_new_item'       => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'new_item'           => _x( 'Add New', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'edit_item'          => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'view_item'          => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'search_items'       => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'not_found'          => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'not_found_in_trash' => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'wm_domain' ),
-							'parent_item_colon'  => ''
+							'name'                  => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'add_new'               => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'new_item'              => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'not_found_in_trash'    => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'filter_items_list'     => _x( 'Filter testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Testimonials list navigation', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -142,12 +144,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register table columns
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_testimonials', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Title', 'wm_domain' ),
-					$prefix . 'thumb' . $suffix    => __( 'Photo', 'wm_domain' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'wm_domain' ),
-					$prefix . 'slug' . $suffix     => __( 'Slug', 'wm_domain' ),
-					'date'                         => __( 'Date', 'wm_domain' ),
-					'author'                       => __( 'Author', 'wm_domain' )
+					'title'                        => __( 'Title', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => __( 'Photo', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
+					$prefix . 'slug' . $suffix     => __( 'Slug', 'webman-amplifier' ),
+					'date'                         => __( 'Date', 'webman-amplifier' ),
+					'author'                       => __( 'Author', 'webman-amplifier' )
 				) );
 
 			return apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_columns_register' . '_output', $columns );
@@ -221,35 +223,46 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Register taxonomies
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.2.9
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_taxonomies' ) ) {
 		function wma_testimonials_cp_taxonomies() {
-			$permalinks = get_option( 'wmamp-permalinks' );
 
-			//Testimonial categories
-				$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'testimonial_category', array(
-					'hierarchical'      => true,
-					'show_in_nav_menus' => false,
-					'show_ui'           => true,
-					'query_var'         => 'testimonial-category',
-					'rewrite'           => array(
-							'slug' => ( isset( $permalinks['testimonial_category'] ) && $permalinks['testimonial_category'] ) ? ( $permalinks['testimonial_category'] ) : ( 'testimonial-category' )
-						),
-					'labels'            => array(
-						'name'          => _x( 'Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'singular_name' => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'search_items'  => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'all_items'     => _x( 'All Categories', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'parent_item'   => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'edit_item'     => _x( 'Edit Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'update_item'   => _x( 'Update Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'add_new_item'  => _x( 'Add New Category', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' ),
-						'new_item_name' => _x( 'New Category Title', 'Custom taxonomy labels: Testimonials categories.', 'wm_domain' )
-					)
-				) );
+			// Helper variables
 
-				register_taxonomy( 'testimonial_category', 'wm_testimonials', $args );
+				$permalinks = get_option( 'wmamp-permalinks' );
+
+
+			// Processing
+
+				// Testimonial categories
+
+					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'testimonial_category', array(
+						'hierarchical'      => true,
+						'show_in_nav_menus' => false,
+						'show_ui'           => true,
+						'query_var'         => 'testimonial-category',
+						'rewrite'           => array(
+								'slug' => ( isset( $permalinks['testimonial_category'] ) && $permalinks['testimonial_category'] ) ? ( $permalinks['testimonial_category'] ) : ( 'testimonial-category' )
+							),
+						'labels'            => array(
+							'name'                  => _x( 'Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add New Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'new_item_name'         => _x( 'New Category Title', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'items_list_navigation' => _x( 'Testimonials Categories list navigation', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'items_list'            => _x( 'Testimonials Categories list', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+						)
+					) );
+
+					register_taxonomy( 'testimonial_category', 'wm_testimonials', $args );
+
 		}
 	} // /wma_testimonials_cp_taxonomies
 
@@ -271,7 +284,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding sections
 				add_settings_section(
 						'wmamp-' . 'wm_testimonials' . '-permalinks',
-						__( 'Testimonials Custom Post Permalinks', 'wm_domain' ),
+						__( 'Testimonials Custom Post Permalinks', 'webman-amplifier' ),
 						'wma_testimonials_cp_permalinks_render_section',
 						'permalink'
 					);
@@ -279,7 +292,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Adding settings fields
 				add_settings_field(
 						'testimonial',
-						__( 'Single testimonial permalink', 'wm_domain' ),
+						__( 'Single testimonial permalink', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_testimonials' . '-permalinks',
@@ -290,7 +303,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					);
 				add_settings_field(
 						'testimonial_category',
-						__( 'Testimonial category base', 'wm_domain' ),
+						__( 'Testimonial category base', 'webman-amplifier' ),
 						'wma_permalinks_render_field',
 						'permalink',
 						'wmamp-' . 'wm_testimonials' . '-permalinks',
@@ -312,7 +325,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( ! function_exists( 'wma_testimonials_cp_permalinks_render_section' ) ) {
 		function wma_testimonials_cp_permalinks_render_section() {
 			//Settings section description
-				echo apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Testimonials custom post type permalinks here.', 'wm_domain' ) . '</p>' );
+				echo apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Testimonials custom post type permalinks here.', 'webman-amplifier' ) . '</p>' );
 		}
 	} // /wma_testimonials_cp_permalinks_render_section
 
@@ -338,29 +351,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$fields[1000] = array(
 							'type'  => 'section-open',
 							'id'    => 'testimonial-author-section',
-							'title' => _x( 'Author', 'Metabox section title.', 'wm_domain' ),
+							'title' => _x( 'Author', 'Metabox section title.', 'webman-amplifier' ),
 						);
 
 						//Testimonial image
 							$fields[1020] = array(
 									'type'    => 'html',
-									'content' => '<tr class="option padding-20"><td colspan="2"><div class="box blue"><a href="#" class="button-primary button-set-featured-image" style="margin-right: 1em">' . __( 'Set featured image', 'wm_domain' ) . '</a> ' . __( 'You can set the testimonial author photo or logo as post featured image', 'wm_domain' ) . '</div></td></tr>',
+									'content' => '<tr class="option padding-20"><td colspan="2"><div class="box blue"><a href="#" class="button-primary button-set-featured-image" style="margin-right: 1em">' . __( 'Set featured image', 'webman-amplifier' ) . '</a> ' . __( 'You can set the testimonial author photo or logo as post featured image', 'webman-amplifier' ) . '</div></td></tr>',
 								);
 
 						//Testimonial author input field
 							$fields[1040] = array(
 									'type'        => 'text',
 									'id'          => 'author',
-									'label'       => __( 'Testimonial author', 'wm_domain' ),
-									'description' => __( 'Set the testimonial author name here', 'wm_domain' ),
+									'label'       => __( 'Testimonial author', 'webman-amplifier' ),
+									'description' => __( 'Set the testimonial author name here', 'webman-amplifier' ),
 								);
 
 						//Testimonial custom link input field
 							$fields[1060] = array(
 									'type'        => 'text',
 									'id'          => 'link',
-									'label'       => __( 'Custom link URL', 'wm_domain' ),
-									'description' => __( 'No link will be displayed / applied when left blank', 'wm_domain' ),
+									'label'       => __( 'Custom link URL', 'webman-amplifier' ),
+									'description' => __( 'No link will be displayed / applied when left blank', 'webman-amplifier' ),
 									'validate'    => 'url',
 								);
 
@@ -368,11 +381,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							$fields[1080] = array(
 									'type'        => 'select',
 									'id'          => 'link-action',
-									'label'       => __( 'Custom link action', 'wm_domain' ),
-									'description' => __( 'Choose how to display / apply the link set above', 'wm_domain' ),
+									'label'       => __( 'Custom link action', 'webman-amplifier' ),
+									'description' => __( 'Choose how to display / apply the link set above', 'webman-amplifier' ),
 									'options'     => array(
-											'_blank' => __( 'Open in new tab / window', 'wm_domain' ),
-											'_self'  => __( 'Open in same window', 'wm_domain' ),
+											'_blank' => __( 'Open in new tab / window', 'webman-amplifier' ),
+											'_self'  => __( 'Open in same window', 'webman-amplifier' ),
 										),
 								);
 
@@ -416,7 +429,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'tabs' => true,
 
 				// Meta box title.
-				'title' => __( 'Testimonial settings', 'wm_domain' ),
+				'title' => __( 'Testimonial settings', 'webman-amplifier' ),
 			) );
 	}
 

@@ -69,10 +69,10 @@
 				$atts = array();
 
 				$atts['id']          = 'wm-contact-info';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'wm_domain' );
+				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-contact-info',
-						'description' => _x( 'Contact information', 'Widget description.', 'wm_domain' )
+						'description' => _x( 'Contact information', 'Widget description.', 'webman-amplifier' )
 					);
 				$atts['control_ops'] = array();
 
@@ -112,39 +112,39 @@
 				?>
 
 				<p class="wm-desc">
-					<?php echo esc_html_x( 'Displays specially styled contact information. Anti-spam protection will be applied on the email address.', 'Widget description.', 'wm_domain' ) ?>
+					<?php echo esc_html_x( 'Displays specially styled contact information. Anti-spam protection will be applied on the email address.', 'Widget description.', 'webman-amplifier' ) ?>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'wm_domain' ); ?></label>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'webman-amplifier' ); ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php echo esc_html_x( 'Name:', 'In address.', 'wm_domain' ); ?></label>
+					<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php echo esc_html_x( 'Name:', 'In address.', 'webman-amplifier' ); ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $instance['name'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php esc_html_e( 'Address:', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php esc_html_e( 'Address:', 'webman-amplifier' ); ?></label><br />
 					<textarea cols="50" rows="5" id="<?php echo $this->get_field_id( 'address' ); ?>" name="<?php echo $this->get_field_name( 'address' ); ?>"><?php echo esc_textarea( $instance['address'] ); ?></textarea>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php esc_html_e( 'Business hours:', 'wm_domain' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php esc_html_e( 'Business hours:', 'webman-amplifier' ); ?></label><br />
 					<textarea cols="50" rows="3" id="<?php echo $this->get_field_id( 'hours' ); ?>" name="<?php echo $this->get_field_name( 'hours' ); ?>"><?php echo esc_textarea( $instance['hours'] ); ?></textarea>
-					<small><?php _e( 'Use comma to separate days and times<br />(such as "Friday, 9:00 - 17:00")', 'wm_domain' ) ?></small>
+					<small><?php _e( 'Use comma to separate days and times<br />(such as "Friday, 9:00 - 17:00")', 'webman-amplifier' ) ?></small>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'phone' ); ?>"><?php esc_html_e( 'Phone number:', 'wm_domain' ); ?></label>
+					<label for="<?php echo $this->get_field_id( 'phone' ); ?>"><?php esc_html_e( 'Phone number:', 'webman-amplifier' ); ?></label>
 					<textarea cols="50" rows="2" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"><?php echo esc_textarea( $instance['phone'] ); ?></textarea>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php esc_html_e( 'Email address:', 'wm_domain' ); ?></label>
+					<label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php esc_html_e( 'Email address:', 'webman-amplifier' ); ?></label>
 					<textarea cols="50" rows="2" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"><?php echo esc_textarea( $instance['email'] ); ?></textarea>
-					<small><?php esc_html_e( 'Anti-spam protection applied automatically', 'wm_domain' ); ?></small>
+					<small><?php esc_html_e( 'Anti-spam protection applied automatically', 'webman-amplifier' ); ?></small>
 				</p>
 
 				<?php
@@ -231,7 +231,7 @@
 					if ( trim( $instance['name'] ) || trim( $instance['address'] ) ) {
 
 						$address[10] = '<div class="address contact-info"' . wma_schema_org( 'itemprop="address"' ) . '>'
-						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Address:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Address:', 'webman-amplifier' ) . '</' . tag_escape( $heading_tag ) . '>'
 						               . '<strong' . wma_schema_org( 'itemprop="name"' ) . '>' . $instance['name'] . '</strong><br />'
 						               . str_replace( "\r\n", '<br />', $instance['address'] )
 						               . '</div>';
@@ -254,7 +254,7 @@
 						$instance['hours'] = '<table><tr><td>' . $instance['hours'] . '</td></tr></table>';
 
 						$address[20] = '<div class="hours contact-info"' . wma_schema_org( 'itemprop="openingHours"' ) . '>'
-						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Business hours:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Business hours:', 'webman-amplifier' ) . '</' . tag_escape( $heading_tag ) . '>'
 						               . $instance['hours']
 						               . '</div>';
 
@@ -265,7 +265,7 @@
 					if ( trim( $instance['phone'] ) ) {
 
 						$address[30] = '<div class="phone contact-info"' . wma_schema_org( 'itemprop="telephone"' ) . '>'
-						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Phone number:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Phone number:', 'webman-amplifier' ) . '</' . tag_escape( $heading_tag ) . '>'
 						               . $instance['phone']
 						               . '</div>';
 
@@ -284,7 +284,7 @@
 						}
 
 						$address[40] = '<div class="email contact-info"' . wma_schema_org( 'itemprop="email"' ) . '>'
-						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Email address:', 'wm_domain' ) . '</' . tag_escape( $heading_tag ) . '>'
+						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Email address:', 'webman-amplifier' ) . '</' . tag_escape( $heading_tag ) . '>'
 						               . $instance['email']
 						               . '</div>';
 
