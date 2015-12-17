@@ -5,10 +5,10 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.5
+ * @version  1.2.9.1
  *
  * @param  string icon
- * @param  string heading_tag (heading tag setup option for better SEO)
+ * @param  string heading_tag (heading tag option for better accessibility setup)
  * @param  string tags
  * @param  string title
  */

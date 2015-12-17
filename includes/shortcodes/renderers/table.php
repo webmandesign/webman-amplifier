@@ -5,9 +5,9 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.2.9.1
  *
- * @uses   $codes_globals['table_appearance']
+ * @uses  $codes_globals['table_appearance']
  *
  * @param  string class
  * @param  string separator
@@ -38,7 +38,7 @@
 				$atts['type'] = $atts['appearance'];
 			}
 		$atts['type'] = trim( $atts['type'] );
-		if ( in_array( $atts['type'], array_keys( $codes_globals['table_appearance'] ) ) ) {
+		if ( $atts['type'] && in_array( $atts['type'], array_keys( $codes_globals['table_appearance'] ) ) ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
 	//content (table CSV data)

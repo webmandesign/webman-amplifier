@@ -5,9 +5,9 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.2.9.1
  *
- * @uses   $codes_globals['sizes']['values']
+ * @uses  $codes_globals['sizes']['values']
  *
  * @param  string class
  * @param  string size
@@ -28,7 +28,7 @@
 //Validation
 	//size
 		$atts['size'] = trim( $atts['size'] );
-		if ( in_array( $atts['size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
+		if ( $atts['size'] && in_array( $atts['size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
 			$atts['class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['size'] ];
 		}
 	//url

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  *
  * @param  string align
  * @param  string class
@@ -14,7 +14,7 @@
  * @param  integer desc_column_size
  * @param  boolean filter
  * @param  string filter_layout
- * @param  string heading_tag (heading tag setup option for better SEO)
+ * @param  string heading_tag (heading tag option for better accessibility setup)
  * @param  string image_size
  * @param  string layout (available options: content, image, morelink, tag, title)
  * @param  string module (ID or slug, if this is set, a single module will be displayed only)
@@ -31,9 +31,9 @@
 	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'align'            => 'left',
 			'class'            => '',
-			'columns'          => 4,
-			'count'            => 20,
-			'desc_column_size' => 4,
+			'columns'          => 3,
+			'count'            => 3,
+			'desc_column_size' => 3,
 			'filter'           => '',
 			'filter_layout'    => 'fitRows',
 			'heading_tag'      => 'h3',

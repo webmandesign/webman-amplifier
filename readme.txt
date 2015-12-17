@@ -3,9 +3,9 @@ Contributors:      webmandesign
 Donate link:       http://www.webmandesign.eu/
 Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
-Requires at least: 4.0
+Requires at least: 4.3
 Tested up to:      4.4
-Stable tag:        trunk
+Stable tag:        1.2.9.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
@@ -95,6 +95,9 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`changelog.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/changelog.md) for details.
 
 == Upgrade Notice ==
+
+= 1.2.9.1 =
+Improved custom post types and taxonomies labels, reset default shortcodes options values, improved shortcodes classes and accessibility.
 
 = 1.2.9 =
 Visual Composer 4.9 compatible, improved WordPress 4.4 compatibility, improved icon font admin screen, prepared for WordPress language packs.

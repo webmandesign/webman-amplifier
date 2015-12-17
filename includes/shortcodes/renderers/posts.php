@@ -6,9 +6,9 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  *
- * @uses   $codes_globals['post_types']
+ * @uses  $codes_globals['post_types']
  *
  * @param  string align
  * @param  string class
@@ -17,7 +17,7 @@
  * @param  integer desc_column_size
  * @param  string filter (example: "taxonomy_name:taxonomy_slug" - "taxonomy_slug" is optional and will act like parent category)
  * @param  string filter_layout
- * @param  string heading_tag (heading tag setup option for better SEO)
+ * @param  string heading_tag (heading tag option for better accessibility setup)
  * @param  string image_size
  * @param  string layout (layout template file name)
  * @param  boolean no_margin
@@ -35,12 +35,12 @@
 	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
 			'align'            => 'left',
 			'class'            => '',
-			'columns'          => 4,
-			'count'            => 20,
-			'desc_column_size' => 4,
+			'columns'          => 3,
+			'count'            => 3,
+			'desc_column_size' => 3,
 			'filter'           => '',
 			'filter_layout'    => 'fitRows',
-			'heading_tag'      => 'h3',
+			'heading_tag'      => 'h2',
 			'image_size'       => '',
 			'layout'           => '',
 			'no_margin'        => false,

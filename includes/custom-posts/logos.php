@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.2.9.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -107,6 +107,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'search_items'          => _x( 'Search', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'not_found'             => _x( 'No item found', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'not_found_in_trash'    => _x( 'No item found in trash', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'featured_image'        => _x( 'Logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'set_featured_image'    => _x( 'Set logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'remove_featured_image' => _x( 'Remove logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'use_featured_image'    => _x( 'Use as logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'filter_items_list'     => _x( 'Filter logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Logos list navigation', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
@@ -224,7 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.2.9.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_taxonomies' ) ) {
 		function wma_logos_cp_taxonomies() {
@@ -251,6 +255,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Logo Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  */
 
 
@@ -240,7 +240,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.2.9.1
 	 */
 	if ( ! function_exists( 'wma_projects_cp_taxonomies' ) ) {
 		function wma_projects_cp_taxonomies() {
@@ -267,6 +267,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Project Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No Categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
@@ -294,6 +295,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Project Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No Tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'add_new_item'          => _x( 'Add New Tag', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),

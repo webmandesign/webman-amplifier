@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -13,6 +13,7 @@
  * @param  integer columns
  * @param  integer count
  * @param  integer desc_column_size
+ * @param  string heading_tag (heading tag option for better accessibility setup)
  * @param  boolean no_margin
  * @param  string order
  * @param  boolean pagination
@@ -27,9 +28,10 @@
 			'align'            => 'left',
 			'category'         => '',
 			'class'            => '',
-			'columns'          => 4,
-			'count'            => 20,
-			'desc_column_size' => 4,
+			'columns'          => 3,
+			'count'            => 3,
+			'desc_column_size' => 3,
+			'heading_tag'      => 'h2',
 			'no_margin'        => false,
 			'order'            => 'new',
 			'pagination'       => false,

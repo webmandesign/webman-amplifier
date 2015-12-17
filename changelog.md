@@ -1,5 +1,44 @@
 # WebMan Amplifier Changelog
 
+## 1.2.9.1
+
+* **Add**: Additional custom post type and taxonomy labels
+* **Update**: Shortcodes default options
+* **Update**: Shortcodes classes output
+* **Update**: Shortcodes accessibility (heading tag setup)
+* **Update**: Localization
+
+#### Files changed:
+
+	readme.txt
+	webman-amplifier.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/divider.php
+	includes/shortcodes/renderers/dropcap.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/marker.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/price.php
+	includes/shortcodes/renderers/progress.php
+	includes/shortcodes/renderers/table.php
+	includes/shortcodes/renderers/testimonials.php
+	languages/webman-amplifier-sk_SK.mo
+	languages/webman-amplifier-sk_SK.po
+	languages/webman-amplifier-xx_XX.pot
+
+
 ## 1.2.9
 
 * **Add**: Prepared for WordPress language packs

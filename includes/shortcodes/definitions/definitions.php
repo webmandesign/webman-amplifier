@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.8
+ * @version  1.2.9.1
  */
 
 /**
@@ -314,7 +314,7 @@ $shortcode_definitions = array(
 													'heading_tag' => array(
 														'type' => 'text',
 														//description
-														'label' => __( 'HTML heading tag', 'webman-amplifier' ),
+														'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
 														//type specific
 														'placeholder' => 'h3',
 														//preview
@@ -738,7 +738,7 @@ $shortcode_definitions = array(
 									'class'       => '',
 								),
 								40 => array(
-									'heading'     => __( 'HTML heading tag', 'webman-amplifier' ),
+									'heading'     => __( 'Heading HTML tag', 'webman-amplifier' ),
 									'type'        => 'textfield',
 									'param_name'  => 'heading_tag',
 									'value'       => '',
@@ -1059,8 +1059,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'  => array(
 					'name'   => __( 'Call to action', 'webman-amplifier' ),
-					'output' => '[PREFIX_call_to_action{{caption}}{{button_text}}{{button_url}}{{target}}{{button_color}}{{button_size}}{{button_icon}}{{class}}]{{content}}[/PREFIX_call_to_action]',
-					'params' => array( 'caption', 'button_text', 'button_url', 'target', 'button_color', 'button_size', 'button_icon', 'class', 'content' ),
+					'output' => '[PREFIX_call_to_action{{caption}}{{heading_tag}}{{button_text}}{{button_url}}{{target}}{{button_color}}{{button_size}}{{button_icon}}{{class}}]{{content}}[/PREFIX_call_to_action]',
+					'params' => array( 'caption', 'heading_tag', 'button_text', 'button_url', 'target', 'button_color', 'button_size', 'button_icon', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
@@ -1085,6 +1085,16 @@ $shortcode_definitions = array(
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /caption
+
+											'heading_tag' => array(
+												'type' => 'text',
+												//description
+												'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
+												//type specific
+												'placeholder' => 'h2',
+												//preview
+												'preview' => array( 'type' => 'none' ),
+											), // /heading_tag
 
 											), // /fields
 										), // /section
@@ -1436,8 +1446,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'          => array(
 					'name'   => __( 'Content Module', 'webman-amplifier' ),
-					'output' => '[PREFIX_content_module{{module}}{{align}}{{columns}}{{count}}{{order}}{{tag}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{no_margin}}{{layout}}{{class}}]{{content}}[/PREFIX_content_module]',
-					'params' => array( 'module', 'align', 'columns', 'count', 'order', 'tag', 'image_size', 'filter', 'scroll', 'pagination', 'no_margin', 'layout', 'class', 'content' ),
+					'output' => '[PREFIX_content_module{{module}}{{align}}{{columns}}{{count}}{{order}}{{tag}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{no_margin}}{{heading_tag}}{{layout}}{{class}}]{{content}}[/PREFIX_content_module]',
+					'params' => array( 'module', 'align', 'columns', 'count', 'order', 'tag', 'image_size', 'filter', 'scroll', 'pagination', 'no_margin', 'heading_tag', 'layout', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
@@ -1478,7 +1488,7 @@ $shortcode_definitions = array(
 												'label' => __( 'Count', 'webman-amplifier' ),
 												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
 											), // /count
@@ -1488,7 +1498,7 @@ $shortcode_definitions = array(
 												//description
 												'label' => __( 'Columns', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//type specific
 												'options' => array(
 														1 => 1,
@@ -1654,6 +1664,16 @@ $shortcode_definitions = array(
 												'preview' => array( 'type' => 'refresh' ),
 											), // /image_size
 
+											'heading_tag' => array(
+												'type' => 'text',
+												//description
+												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												//type specific
+												'placeholder' => 'h3',
+												//preview
+												'preview' => array( 'type' => 'none' ),
+											), // /heading_tag
+
 											'layout' => array(
 												'type' => 'text',
 												//description
@@ -1693,7 +1713,7 @@ $shortcode_definitions = array(
 								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
-								'value'       => 4,
+								'value'       => 3,
 								'holder'      => 'hidden',
 								'class'       => '',
 								'group'       => __( 'Multiple display', 'webman-amplifier' ),
@@ -2408,8 +2428,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'  => array(
 					'name'   => __( 'Message', 'webman-amplifier' ),
-					'output' => '[PREFIX_message{{title}}{{color}}{{size}}{{icon}}{{class}}]{{content}}[/PREFIX_message]',
-					'params' => array( 'title', 'color', 'size', 'icon', 'class', 'content' ),
+					'output' => '[PREFIX_message{{title}}{{heading_tag}}{{color}}{{size}}{{icon}}{{class}}]{{content}}[/PREFIX_message]',
+					'params' => array( 'title', 'heading_tag', 'color', 'size', 'icon', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
@@ -2434,6 +2454,16 @@ $shortcode_definitions = array(
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
 											), // /title
+
+											'heading_tag' => array(
+												'type' => 'text',
+												//description
+												'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
+												//type specific
+												'placeholder' => 'h3',
+												//preview
+												'preview' => array( 'type' => 'none' ),
+											), // /heading_tag
 
 											), // /fields
 										), // /section
@@ -2626,8 +2656,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'  => array(
 					'name'   => __( 'Posts (custom posts)', 'webman-amplifier' ),
-					'output' => '[PREFIX_posts{{post_type}}{{align}}{{columns}}{{count}}{{order}}{{taxonomy}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{related}}{{no_margin}}{{class}}]{{content}}[/PREFIX_posts]',
-					'params' => array( 'post_type', 'align', 'columns', 'count', 'order', 'taxonomy', 'image_size', 'filter', 'scroll', 'pagination', 'related', 'no_margin', 'class', 'content' ),
+					'output' => '[PREFIX_posts{{post_type}}{{align}}{{columns}}{{count}}{{order}}{{taxonomy}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{related}}{{no_margin}}{{heading_tag}}{{class}}]{{content}}[/PREFIX_posts]',
+					'params' => array( 'post_type', 'align', 'columns', 'count', 'order', 'taxonomy', 'image_size', 'filter', 'scroll', 'pagination', 'related', 'no_margin', 'heading_tag', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
@@ -2660,7 +2690,7 @@ $shortcode_definitions = array(
 												'label' => __( 'Count', 'webman-amplifier' ),
 												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
 											), // /count
@@ -2670,7 +2700,7 @@ $shortcode_definitions = array(
 												//description
 												'label' => __( 'Columns', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//type specific
 												'options' => array(
 														1 => 1,
@@ -2849,6 +2879,16 @@ $shortcode_definitions = array(
 												'preview' => array( 'type' => 'refresh' ),
 											), // /image_size
 
+											'heading_tag' => array(
+												'type' => 'text',
+												//description
+												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												//type specific
+												'placeholder' => 'h2',
+												//preview
+												'preview' => array( 'type' => 'none' ),
+											), // /heading_tag
+
 										), // /fields
 									), // /section
 
@@ -2878,7 +2918,7 @@ $shortcode_definitions = array(
 								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
-								'value'       => 4,
+								'value'       => 3,
 								'holder'      => 'hidden',
 								'class'       => '',
 							),
@@ -3075,9 +3115,9 @@ $shortcode_definitions = array(
 				'bb_plugin'  => array(
 						'name'            => __( 'Pricing table', 'webman-amplifier' ),
 						'output'          => '[PREFIX_pricing_table{{no_margin}}{{class}}]{{children}}[/PREFIX_pricing_table]',
-						'output_children' => '[PREFIX_price{{caption}}{{cost}}{{color}}{{color_text}}{{appearance}}{{class}}]{{content}}[/PREFIX_price]',
+						'output_children' => '[PREFIX_price{{caption}}{{heading_tag}}{{cost}}{{color}}{{color_text}}{{appearance}}{{class}}]{{content}}[/PREFIX_price]',
 						'params'          => array( 'no_margin', 'class' ),
-						'params_children' => array( 'caption', 'cost', 'color', 'color_text', 'appearance', 'class', 'content' ),
+						'params_children' => array( 'caption', 'heading_tag', 'cost', 'color', 'color_text', 'appearance', 'class', 'content' ),
 						'form'            => array(
 
 								//Tab
@@ -3165,6 +3205,16 @@ $shortcode_definitions = array(
 														//preview
 														'preview' => array( 'type' => 'refresh' ),
 													), // /caption
+
+													'heading_tag' => array(
+														'type' => 'text',
+														//description
+														'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
+														//type specific
+														'placeholder' => 'h3',
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /heading_tag
 
 													'cost' => array(
 														'type' => 'text',
@@ -4011,8 +4061,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'          => array(
 					'name'   => __( 'Testimonials', 'webman-amplifier' ),
-					'output' => '[PREFIX_testimonials{{testimonial}}{{align}}{{columns}}{{count}}{{order}}{{category}}{{scroll}}{{pagination}}{{no_margin}}{{class}}]{{content}}[/PREFIX_testimonials]',
-					'params' => array( 'testimonial', 'align', 'columns', 'count', 'order', 'category', 'scroll', 'pagination', 'no_margin', 'class', 'content' ),
+					'output' => '[PREFIX_testimonials{{testimonial}}{{align}}{{columns}}{{count}}{{order}}{{category}}{{scroll}}{{pagination}}{{no_margin}}{{heading_tag}}{{class}}]{{content}}[/PREFIX_testimonials]',
+					'params' => array( 'testimonial', 'align', 'columns', 'count', 'order', 'category', 'scroll', 'pagination', 'no_margin', 'heading_tag', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
@@ -4053,7 +4103,7 @@ $shortcode_definitions = array(
 												'label' => __( 'Count', 'webman-amplifier' ),
 												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
 											), // /count
@@ -4063,7 +4113,7 @@ $shortcode_definitions = array(
 												//description
 												'label' => __( 'Columns', 'webman-amplifier' ),
 												//default
-												'default' => 4,
+												'default' => 3,
 												//type specific
 												'options' => array(
 														1 => 1,
@@ -4205,6 +4255,16 @@ $shortcode_definitions = array(
 												'preview' => array( 'type' => 'refresh' ),
 											), // /no_margin
 
+											'heading_tag' => array(
+												'type' => 'text',
+												//description
+												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												//type specific
+												'placeholder' => 'h2',
+												//preview
+												'preview' => array( 'type' => 'none' ),
+											), // /heading_tag
+
 										), // /fields
 									), // /section
 
@@ -4235,7 +4295,7 @@ $shortcode_definitions = array(
 								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
-								'value'       => 4,
+								'value'       => 3,
 								'holder'      => 'hidden',
 								'class'       => '',
 								'group'       => __( 'Multiple display', 'webman-amplifier' ),

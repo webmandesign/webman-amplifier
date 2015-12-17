@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  */
 
 
@@ -224,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.2.9.1
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_taxonomies' ) ) {
 		function wma_testimonials_cp_taxonomies() {
@@ -251,6 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'no_terms '             => _x( 'No Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),

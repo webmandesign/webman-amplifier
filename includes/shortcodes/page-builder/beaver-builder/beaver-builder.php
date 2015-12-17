@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.2.5
+ * @version  1.2.9.1
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -87,7 +87,7 @@
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.2.5
+	 * @version  1.2.9.1
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
@@ -102,7 +102,7 @@
 				$def = wma_shortcodes()->get_definitions();
 				$def = $def['bb_plugin'];
 
-				$custom_modules_category = _x( 'WM Modules', 'Page builder modules category name.', 'webman-amplifier' );
+				$custom_modules_category = apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_custom_name', _x( 'Theme Modules', 'Page builder modules category name.', 'webman-amplifier' ) );
 
 				if ( apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
 					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); // Taking translation from Beaver Builder plugin

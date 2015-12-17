@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.2.9.1
  */
 
 
@@ -244,7 +244,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.2.9.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_taxonomies' ) ) {
 		function wma_modules_cp_taxonomies() {
@@ -271,6 +271,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Module Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'add_new_item'          => _x( 'Add New Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
