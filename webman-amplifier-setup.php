@@ -11,7 +11,6 @@
  *
  * @package    WebMan Amplifier
  * @copyright  2015 WebMan - Oliver Juhas
- * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @link  https://wordpress.org/plugins/webman-amplifier/
  *

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.2.9.2
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -229,7 +229,7 @@
 
 						// Testimonial title (for accessibility)
 
-							$output_item .= '<h2 class="screen-reader-text">' . get_the_title( $post_id ) . '</h2>';
+							$output_item .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text">' . get_the_title( $post_id ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
 
 						// Testimonial content
 

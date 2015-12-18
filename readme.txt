@@ -5,10 +5,10 @@ Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.3
 Tested up to:      4.4
-Stable tag:        1.2.9.1
-License:           GPLv2 or later
-License URI:       http://www.gnu.org/licenses/gpl-2.0.html
-Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, messabe, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
+Stable tag:        1.2.9.2
+License:           GNU General Public License v3
+License URI:       http://www.gnu.org/licenses/gpl-3.0.html
+Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, message, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
 
 Amplifies functionality of WP themes. Provides custom post types, shortcodes, metaboxes, icons. Theme developer's best friend!
 
@@ -49,7 +49,7 @@ Please, find the instructions on how to localize the plugin in `webman-amplifier
 
 = Additional Resources =
 
-* [Write a review](http://wordpress.org/support/view/plugin-reviews/webman-amplifier#postform)
+* [Write a review](http://wordpress.org/support/view/plugin-reviews/webman-amplifier/#postform)
 * [Have a question?](http://support.webmandesign.eu/)
 * [Follow @webmandesigneu](https://twitter.com/webmandesigneu)
 * [Visit WebMan Design](http://www.webmandesign.eu)
@@ -70,7 +70,7 @@ You have to define the plugin support in your theme. Please see the `webman-ampl
 
 = How to upload custom icon font? =
 
-The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plutin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to *"Appearance > Icon Font"* and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
+The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plugin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to *"Appearance > Icon Font"* and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
 
 = How to translate (localize) the plugin? =
 
@@ -88,13 +88,16 @@ Please, find the instructions on how to localize the plugin in `webman-amplifier
 
 = Isotope Licensing =
 
-Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
+Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 license for non-commercial use. If you intend to use the plugin for commercial purpose, please purchase the [Isotope license](http://isotope.metafizzy.co/license.html).
 
 == Changelog ==
 
 Please see the [`changelog.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/changelog.md) for details.
 
 == Upgrade Notice ==
+
+= 1.2.9.2 =
+Improved Testimonials shortcode accessibility, fixing typos in readme files, updating license to GPLv3.
 
 = 1.2.9.1 =
 Improved custom post types and taxonomies labels, reset default shortcodes options values, improved shortcodes classes and accessibility.
@@ -145,7 +148,7 @@ Added compatibility with Visual Composer 4.5.
 Code, security and page builders support improvements.
 
 = 1.1.5 =
-Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed).
+Improved support with Beaver Builder (unfortunately, not backwards compatible as custom modules file names have been renamed).
 
 = 1.1.4 =
 IMPORTANT: Custom posts issue introduced in update 1.1.3 was fixed.

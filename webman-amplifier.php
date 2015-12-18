@@ -6,20 +6,19 @@
  *
  * @package    WebMan Amplifier
  * @copyright  2015 WebMan - Oliver Juhas
- * @license    GPL-2.0+, http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @link  http://www.webmandesign.eu
  *
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         http://www.webmandesign.eu/
  * Description:        Pack of additional WordPress features. Contains shortcodes, additional custom post types, meta box generator, Visual Composer plugin (3rd party) integration, icon font management.
- * Version:            1.2.9.1
+ * Version:            1.2.9.2
  * Author:             WebMan - Oliver Juhas
  * Author URI:         http://www.webmandesign.eu/
  * Text Domain:        webman-amplifier
  * Domain Path:        /languages
- * License:            GPL-2.0+
- * License URI:        http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:            GNU General Public License v3
+ * License URI:        http://www.gnu.org/licenses/gpl-3.0.txt
  * Requires at least:  4.3
  * Tested up to:       4.4
  */
@@ -44,7 +43,7 @@
 
 		// Plugin version
 
-			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.2.9.1' );
+			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.2.9.2' );
 
 		// Paths
 

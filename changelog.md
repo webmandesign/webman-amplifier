@@ -1,5 +1,20 @@
 # WebMan Amplifier Changelog
 
+## 1.2.9.2
+
+* **Update**: Improved Testimonials shortcode accessibility (heading tag setup)
+* **Update**: License updated to GPLv3
+* **Fix**: Typos in readme files
+
+#### Files changed:
+
+	license.txt
+	readme.txt
+	readme.md
+	webman-amplifier.php
+	includes/shortcodes/renderers/testimonials.php
+
+
 ## 1.2.9.1
 
 * **Add**: Additional custom post type and taxonomy labels

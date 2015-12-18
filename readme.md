@@ -59,7 +59,7 @@ You have to define the plugin support in your theme. Please see the `webman-ampl
 
 ### How to upload custom icon font?
 
-The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plutin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to *"Appearance > Icon Font"* and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
+The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plugin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to *"Appearance > Icon Font"* and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
 
 ### How to translate (localize) the plugin?
 
@@ -70,4 +70,4 @@ Please, find the instructions on how to localize the plugin in `webman-amplifier
 
 ### Isotope
 
-Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 licence for non-commercial use. If you inted to use the plugin for commercial purpose, please purchase the [Isotope licence](http://isotope.metafizzy.co/license.html).
+Please note that the plugin integrates an Isotope JavaScript filter. This script is released under GPL v3 license for non-commercial use. If you intend to use the plugin for commercial purpose, please purchase the [Isotope license](http://isotope.metafizzy.co/license.html).
