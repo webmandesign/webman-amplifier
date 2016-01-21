@@ -165,11 +165,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				//Shortcodes globals (variables used across multiple shortcodes)
 					$this->inline_tags   = apply_filters( 'wmhook_shortcode_' . 'inline_tags',   '<a><abbr><b><br><code><em><i><img><mark><small><span><strong><u>' );
 					self::$codes_globals = apply_filters( 'wmhook_shortcode_' . 'codes_globals', array(
-							'align' => array(
-									'left'   => __( 'Left', 'webman-amplifier' ),
-									'center' => __( 'Center', 'webman-amplifier' ),
-									'right'  => __( 'Right', 'webman-amplifier' ),
-								),
 							'colors' => array(
 									'blue'   => __( 'Blue', 'webman-amplifier' ),
 									'gray'   => __( 'Gray', 'webman-amplifier' ),

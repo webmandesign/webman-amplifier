@@ -5,9 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
- *
- * @uses  $codes_globals['colors']
+ * @version  1.3
  *
  * @param  string class
  * @param  string color
@@ -31,7 +29,7 @@
 		$atts['class'] = trim( 'wm-marker ' . trim( $atts['class'] ) );
 	//color
 		$atts['color'] = trim( $atts['color'] );
-		if ( $atts['color'] && in_array( $atts['color'], array_keys( $codes_globals['colors'] ) ) ) {
+		if ( $atts['color'] ) {
 			$atts['class'] .= ' color-' . $atts['color'];
 		}
 	//class

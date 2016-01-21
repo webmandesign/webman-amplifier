@@ -5,9 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
- *
- * @uses  $codes_globals['divider_appearance']
+ * @version  1.3
  *
  * @param  string class
  * @param  string space_after
@@ -52,7 +50,7 @@
 				$atts['type'] = $atts['appearance'];
 			}
 		$atts['type'] = trim( $atts['type'] );
-		if ( $atts['type'] && in_array( $atts['type'], array_keys( $codes_globals['divider_appearance'] ) ) ) {
+		if ( $atts['type'] ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
 	//class

@@ -5,9 +5,9 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3
  *
- * @uses  $codes_globals['colors'], $codes_globals['sizes']['values']
+ * @uses  $codes_globals['sizes']['values']
  *
  * @param  string button_class
  * @param  string button_color
@@ -48,7 +48,7 @@
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//button_color
 		$atts['button_color'] = trim( $atts['button_color'] );
-		if ( $atts['button_color'] && in_array( $atts['button_color'], array_keys( $codes_globals['colors'] ) ) ) {
+		if ( $atts['button_color'] ) {
 			$atts['button_class'] .= ' color-' . $atts['button_color'];
 			$atts['class']        .= ' cta-button-color-' . $atts['button_color'];
 		}
@@ -59,13 +59,15 @@
 		}
 	//button_size
 		$atts['button_size'] = trim( $atts['button_size'] );
-		if ( $atts['button_size'] && in_array( $atts['button_size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
-			$atts['button_class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['button_size'] ];
+		if ( $atts['button_size'] ) {
+			if ( in_array( $atts['button_size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
+				$atts['button_class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['button_size'] ];
+			} else {
+				$atts['button_class'] .= ' size-' . $atts['button_size'];
+			}
 		}
 	//button_text
 		$atts['button_text'] = trim( $atts['button_text'] );
-	//button_url
-		$atts['button_url'] = esc_url( $atts['button_url'] );
 	//caption
 		$atts['caption'] = trim( $atts['caption'] );
 		if ( $atts['caption'] ) {
@@ -74,7 +76,7 @@
 	//button_class
 		$atts['button_class'] = trim( 'wm-button ' . trim( $atts['button_class'] ) );
 	//button
-		$atts['button'] = ( $atts['button_text'] ) ? ( '<div class="wm-call-to-action-button wm-call-to-action-element"><a href="' . $atts['button_url'] . '" class="' . $atts['button_class'] . '"' . $atts['attributes'] . '>' . $atts['button_icon'] . $atts['button_text'] . '</a></div>' ) : ( '' );
+		$atts['button'] = ( $atts['button_text'] ) ? ( '<div class="wm-call-to-action-button wm-call-to-action-element"><a href="' . esc_url( $atts['button_url'] ) . '" class="' . esc_attr( $atts['button_class'] ) . '"' . $atts['attributes'] . '>' . $atts['button_icon'] . $atts['button_text'] . '</a></div>' ) : ( '' );
 	//class
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 

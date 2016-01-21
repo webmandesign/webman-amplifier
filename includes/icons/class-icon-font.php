@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.3
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -255,7 +255,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.2.9
+			 * @version  1.3
 			 *
 			 * @access   public
 			 */
@@ -323,7 +323,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 					// Title
 
-						$output .= get_screen_icon() . '<h1>' . __( 'Icon Font Setup', 'webman-amplifier' ) . '</h1>';
+						$output .= '<h1>' . __( 'Icon Font Setup', 'webman-amplifier' ) . '</h1>';
 
 					// Status messages
 

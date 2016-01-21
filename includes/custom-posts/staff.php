@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.9.1
+	 * @version  1.3
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -99,19 +99,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							),
 						'labels'              => array(
 							'name'                  => _x( 'Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Staff Member', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'singular_name'         => _x( 'Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'add_new'               => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Member', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'add_new_item'          => _x( 'Add Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'new_item'              => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Member', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View Member', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Members', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No member found', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No members found in trash', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'featured_image'        => _x( 'Staff photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'set_featured_image'    => _x( 'Set staff photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'remove_featured_image' => _x( 'Remove staff photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'use_featured_image'    => _x( 'Use as staff photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'edit_item'             => _x( 'Edit Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'search_items'          => _x( 'Search Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'not_found_in_trash'    => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'featured_image'        => _x( 'Person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'set_featured_image'    => _x( 'Set person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'remove_featured_image' => _x( 'Remove person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'use_featured_image'    => _x( 'Use as person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'filter_items_list'     => _x( 'Filter staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Staff list navigation', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),

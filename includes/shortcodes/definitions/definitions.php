@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3
  */
 
 /**
@@ -51,6 +51,17 @@
 
 		$empty = array( '' => '' );
 
+	// HTML heading tags
+
+		$heading_tags = array(
+				''   => esc_html_x( 'Default', 'Default heading tag value.', 'webman-amplifier' ),
+				'h2' => 'H2',
+				'h3' => 'H3',
+				'h4' => 'H4',
+				'h5' => 'H5',
+				'h6' => 'H6',
+			);
+
 	// Social icons array
 
 		$wm_social_icons_array = self::$codes_globals['social_icons'];
@@ -89,11 +100,11 @@ $shortcode_definitions = array(
 
 
 	/**
-   * Accordions / toggles + Tabs + Item
+   * Accordions + Tabs + Item
    */
 
 		/**
-		 * Accordion / toggles wrapper
+		 * Accordion
 		 *
 		 * @since  1.0
 		 */
@@ -101,7 +112,7 @@ $shortcode_definitions = array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'generator'  => array(
-						'name'  => __( 'Accordion / Toggle', 'webman-amplifier' ),
+						'name'  => __( 'Accordion', 'webman-amplifier' ),
 						'code'  => '[PREFIX_accordion active="0" mode="accordion/toggle" filter="0/1" class=""]<br />[PREFIX_item title="' . __( 'Section 1', 'webman-amplifier' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]<br />[PREFIX_item title="' . __( 'Section 2', 'webman-amplifier' ) . '" tags="" icon="" heading_tag=""][/PREFIX_item]<br />[/PREFIX_accordion]',
 						'short' => false,
 					),
@@ -198,12 +209,25 @@ $shortcode_definitions = array(
 												), // /filter
 
 												'active' => array(
-													'type' => 'text',
+													'type' => 'select',
 													//description
-													'label' => __( 'Active section', 'webman-amplifier' ),
-													'help'  => __( 'Set section order number, "0" for all sections closed', 'webman-amplifier' ),
+													'label' => __( 'Active section number', 'webman-amplifier' ),
 													//default
 													'default' => 1,
+													//type specific
+													'options' => array(
+														'0' => esc_attr__( 'All accordion sections closed', 'webman-amplifier' ),
+														1   => 1,
+														2   => 2,
+														3   => 3,
+														4   => 4,
+														5   => 5,
+														6   => 6,
+														7   => 7,
+														8   => 8,
+														9   => 9,
+														10  => 10,
+													),
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /active
@@ -312,11 +336,12 @@ $shortcode_definitions = array(
 													), // /tags
 
 													'heading_tag' => array(
-														'type' => 'text',
+														'type' => 'select',
 														//description
 														'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+														'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H3' ),
 														//type specific
-														'placeholder' => 'h3',
+														'options' => $heading_tags,
 														//preview
 														'preview' => array( 'type' => 'none' ),
 													), // /heading_tag
@@ -402,7 +427,7 @@ $shortcode_definitions = array(
 
 
 		/**
-		 * Tabs wrapper
+		 * Tabs
 		 *
 		 * @since  1.0
 		 */
@@ -507,12 +532,24 @@ $shortcode_definitions = array(
 												), // /tour
 
 												'active' => array(
-													'type' => 'text',
+													'type' => 'select',
 													//description
-													'label' => __( 'Active section', 'webman-amplifier' ),
-													'help'  => __( 'Enter the order number of the tab which should be open by default', 'webman-amplifier' ),
+													'label' => __( 'Active tab number', 'webman-amplifier' ),
 													//default
 													'default' => 1,
+													//type specific
+													'options' => array(
+														1   => 1,
+														2   => 2,
+														3   => 3,
+														4   => 4,
+														5   => 5,
+														6   => 6,
+														7   => 7,
+														8   => 8,
+														9   => 9,
+														10  => 10,
+													),
 													//preview
 													'preview' => array( 'type' => 'none' ),
 												), // /active
@@ -606,6 +643,25 @@ $shortcode_definitions = array(
 												), // /fields
 											), // /section
 
+											//Section
+											'other' => array(
+												'title'  => __( 'Other parameters', 'webman-amplifier' ),
+												'fields' => array(
+
+													'heading_tag' => array(
+														'type' => 'select',
+														//description
+														'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+														'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H3' ),
+														//type specific
+														'options' => $heading_tags,
+														//preview
+														'preview' => array( 'type' => 'none' ),
+													), // /heading_tag
+
+												), // /fields
+											), // /section
+
 										), // /sections
 									), // /tab
 
@@ -686,7 +742,7 @@ $shortcode_definitions = array(
 
 
 		/**
-		 * Item (can be accordion / toggles or tab item)
+		 * Item
 		 *
 		 * @since  1.0
 		 */
@@ -694,7 +750,7 @@ $shortcode_definitions = array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'generator'  => array(
-						'name'  => __( 'Item (accordion or tab section)', 'webman-amplifier' ),
+						'name'  => __( 'Item (Accordion or Tab Section)', 'webman-amplifier' ),
 						'code'  => '[PREFIX_item title="' . __( 'Title', 'webman-amplifier' ) . '" tags="" icon="" heading_tag=""]{{content}}[/PREFIX_item]',
 						'short' => false,
 					),
@@ -904,14 +960,6 @@ $shortcode_definitions = array(
 												'preview' => array( 'type' => 'none' ),
 											), // /size
 
-											'id' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Optional HTML ID', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /id
-
 										), // /fields
 									), // /section
 
@@ -1045,7 +1093,7 @@ $shortcode_definitions = array(
 
 
   /**
-	 * Call to action
+	 * Call to Action
 	 *
 	 * @since  1.0
 	 */
@@ -1053,12 +1101,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Call to action', 'webman-amplifier' ),
+					'name'  => __( 'Call to Action', 'webman-amplifier' ),
 					'code'  => '[PREFIX_call_to_action caption="" button_text="" button_url="#" button_color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" button_size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" button_icon="" class=""]{{content}}[/PREFIX_call_to_action]',
 					'short' => false,
 				),
 			'bb_plugin'  => array(
-					'name'   => __( 'Call to action', 'webman-amplifier' ),
+					'name'   => __( 'Call to Action', 'webman-amplifier' ),
 					'output' => '[PREFIX_call_to_action{{caption}}{{heading_tag}}{{button_text}}{{button_url}}{{target}}{{button_color}}{{button_size}}{{button_icon}}{{class}}]{{content}}[/PREFIX_call_to_action]',
 					'params' => array( 'caption', 'heading_tag', 'button_text', 'button_url', 'target', 'button_color', 'button_size', 'button_icon', 'class', 'content' ),
 					'form'   => array(
@@ -1087,11 +1135,12 @@ $shortcode_definitions = array(
 											), // /caption
 
 											'heading_tag' => array(
-												'type' => 'text',
+												'type' => 'select',
 												//description
 												'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
+												'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H2' ),
 												//type specific
-												'placeholder' => 'h2',
+												'options' => $heading_tags,
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /heading_tag
@@ -1216,7 +1265,7 @@ $shortcode_definitions = array(
 						),
 				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Call to action', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Call to Action', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'call_to_action',
 					'class'    => 'wm-shortcode-vc-call_to_action',
 					'icon'     => 'icon-wpb-call-to-action',
@@ -1333,7 +1382,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Countdown timer
+	 * Countdown Timer
 	 *
 	 * @since  1.0
 	 */
@@ -1341,59 +1390,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Countdown timer', 'webman-amplifier' ),
+					'name'  => __( 'Countdown Timer', 'webman-amplifier' ),
 					'code'  => '[PREFIX_countdown_timer time="' . date( get_option( 'date_format' ), strtotime( 'now' ) ) . '" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" class="" /]',
 					'short' => false,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Countdown timer', 'webman-amplifier' ),
-					'output' => '[PREFIX_countdown_timer{{time}}{{size}}{{class}} /]',
-					'params' => array( 'time', 'size', 'class' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'time' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Time', 'webman-amplifier' ),
-												//default
-												'default' => date( get_option( 'date_format' ), strtotime( 'now' ) ),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /content
-
-											'size' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Size', 'webman-amplifier' ),
-												//type specific
-												'options' => self::$codes_globals['sizes']['options'],
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /size
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Countdown timer', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Countdown Timer', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'countdown_timer',
 					'class'    => 'wm-shortcode-vc-countdown_timer',
 					'icon'     => 'vc_icon-vc-gitem-post-date',
@@ -1665,11 +1667,12 @@ $shortcode_definitions = array(
 											), // /image_size
 
 											'heading_tag' => array(
-												'type' => 'text',
+												'type' => 'select',
 												//description
 												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H2' ),
 												//type specific
-												'placeholder' => 'h3',
+												'options' => $heading_tags,
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /heading_tag
@@ -2001,156 +2004,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => true,
 			'generator'  => array(
-					'name'  => __( 'Icon (social icon)', 'webman-amplifier' ),
+					'name'  => __( 'Icon / Social Icon', 'webman-amplifier' ),
 					'code'  => '[PREFIX_icon class="icon-class" social="' . implode( '/', $wm_social_icons_array ) . '" url="" size="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['sizes']['options'] ) ) ) . '" /]',
 					'short' => true,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Icon (social icon)', 'webman-amplifier' ),
-					'output' => '[PREFIX_icon{{url}}{{target}}{{social}}{{size}}{{icon}}{{title}}{{rel}}{{id}}{{class}} /]',
-					'params' => array( 'url', 'target', 'social', 'size', 'icon', 'title', 'rel', 'id', 'class', 'content' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'size' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Size', 'webman-amplifier' ),
-												//type specific
-												'options' => self::$codes_globals['sizes']['options'],
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /size
-
-										), // /fields
-									), // /section
-
-									//Section
-									'icon' => array(
-										'title'  => __( 'Icon', 'webman-amplifier' ),
-										'fields' => array(
-
-											'icon' => array(
-												'type' => 'wm_radio',
-												//description
-												'label' => '',
-												//type specific
-												'options'    => self::$codes_globals['font_icons'],
-												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-												'filter'     => true,
-												'hide_radio' => true,
-												'inline'     => true,
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /icon
-
-										), // /fields
-									), // /section
-
-									//Section
-									'advanced' => array(
-										'title'  => __( 'Advanced', 'webman-amplifier' ),
-										'fields' => array(
-
-											'id' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Optional HTML ID', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /id
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-							//Tab
-							'social' => array(
-								//Title
-								'title'       => __( 'Social icon', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'social' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Social icon?', 'webman-amplifier' ),
-												//type specific
-												'options' => $wm_social_icons_array,
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /social
-
-											'url' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Social icon link URL', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /url
-
-											'target' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Target', 'webman-amplifier' ),
-												'help'  => __( 'Button link target', 'webman-amplifier' ),
-												//type specific
-												'options' => array(
-													''       => __( 'Open in same window', 'webman-amplifier' ),
-													'_blank' => __( 'Open in new window / tab', 'webman-amplifier' ),
-												),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /target
-
-											'title' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Social icon title', 'webman-amplifier' ),
-												'help'  => __( 'Will be displayed when mouse hovers over the icon', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /title
-
-											'rel' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Social icon relation', 'webman-amplifier' ),
-												'help'  => __( 'The HTML "rel" attribute', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /rel
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Icon (social icon)', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Icon / Social Icon', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'icon',
 					'class'    => 'wm-shortcode-vc-icon',
 					'icon'     => 'icon-wpb-vc_icon',
@@ -2254,7 +2113,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Icon list
+	 * Icon List
 	 *
 	 * @since  1.0
 	 */
@@ -2262,83 +2121,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Icons list', 'webman-amplifier' ),
+					'name'  => __( 'Icon List', 'webman-amplifier' ),
 					'code'  => '[PREFIX_list bullet="icon-class" class=""]<ul><li>{{content}}</li><li>' . __( 'List item', 'webman-amplifier' ) . '</li></ul>[/PREFIX_list]',
 					'short' => true,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Icons list', 'webman-amplifier' ),
-					'output' => '[PREFIX_list{{bullet}}{{class}}]{{content}}[/PREFIX_list]',
-					'params' => array( 'bullet', 'class', 'content' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'content' => array(
-										'title'       => __( 'List items', 'webman-amplifier' ),
-										'description' => __( 'Insert unordered list only', 'webman-amplifier' ),
-										'fields'      => array(
-
-											'content' => array(
-												'type' => 'editor',
-												//description
-												'label' => '',
-												//description
-												'default' => '<ul><li>TEXT</li><li>TEXT</li></ul>',
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /content
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-							//Tab
-							'icon' => array(
-								//Title
-								'title'       => __( 'Icon', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'icon' => array(
-										'title'  => __( 'Bullet icon', 'webman-amplifier' ),
-										'fields' => array(
-
-											'bullet' => array(
-												'type' => 'wm_radio',
-												//description
-												'label' => '',
-												//type specific
-												'options'    => self::$codes_globals['font_icons'],
-												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
-												'filter'     => true,
-												'hide_radio' => true,
-												'inline'     => true,
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /bullet
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Icons list', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Icon List', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'list',
 					'class'    => 'wm-shortcode-vc-list',
 					'icon'     => 'icon-wpb-vc_icon',
@@ -2381,7 +2169,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Last update time
+	 * Last Update Time
 	 *
 	 * @since  1.0
 	 */
@@ -2389,7 +2177,7 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => true,
 			'generator'  => array(
-					'name'  => __( 'Last update time', 'webman-amplifier' ),
+					'name'  => __( 'Last Update Time', 'webman-amplifier' ),
 					'code'  => '[PREFIX_last_update post_type="' . implode( '/', array_merge( array( 'post', 'page' ), get_post_types( array( '_builtin' => false ) ) ) ) . '" format="" class="" /]',
 					'short' => true,
 				),
@@ -2456,11 +2244,12 @@ $shortcode_definitions = array(
 											), // /title
 
 											'heading_tag' => array(
-												'type' => 'text',
+												'type' => 'select',
 												//description
 												'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
+												'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H3' ),
 												//type specific
-												'placeholder' => 'h3',
+												'options' => $heading_tags,
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /heading_tag
@@ -2650,12 +2439,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Posts (custom posts)', 'webman-amplifier' ),
+					'name'  => __( 'Posts / Custom Posts', 'webman-amplifier' ),
 					'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="-1" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
 					'short' => false,
 				),
 			'bb_plugin'  => array(
-					'name'   => __( 'Posts (custom posts)', 'webman-amplifier' ),
+					'name'   => __( 'Posts / Custom Posts', 'webman-amplifier' ),
 					'output' => '[PREFIX_posts{{post_type}}{{align}}{{columns}}{{count}}{{order}}{{taxonomy}}{{image_size}}{{filter}}{{scroll}}{{pagination}}{{related}}{{no_margin}}{{heading_tag}}{{class}}]{{content}}[/PREFIX_posts]',
 					'params' => array( 'post_type', 'align', 'columns', 'count', 'order', 'taxonomy', 'image_size', 'filter', 'scroll', 'pagination', 'related', 'no_margin', 'heading_tag', 'class', 'content' ),
 					'form'   => array(
@@ -2880,11 +2669,12 @@ $shortcode_definitions = array(
 											), // /image_size
 
 											'heading_tag' => array(
-												'type' => 'text',
+												'type' => 'select',
 												//description
 												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H2' ),
 												//type specific
-												'placeholder' => 'h2',
+												'options' => $heading_tags,
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /heading_tag
@@ -2898,7 +2688,7 @@ $shortcode_definitions = array(
 						),
 				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Posts (custom posts)', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Posts / Custom Posts', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'posts',
 					'class'    => 'wm-shortcode-vc-posts',
 					'icon'     => 'icon-wpb-vc_carousel',
@@ -3087,7 +2877,7 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => true,
 			'generator'  => array(
-					'name'  => __( 'Preformatted text', 'webman-amplifier' ),
+					'name'  => __( 'Preformatted Text', 'webman-amplifier' ),
 					'code'  => '[PREFIX_pre]{{content}}[/PREFIX_pre]',
 					'short' => true,
 				),
@@ -3096,11 +2886,11 @@ $shortcode_definitions = array(
 
 
 	/**
-   * Pricing table + Price
+   * Pricing Table + Price
    */
 
 		/**
-		 * Pricing table
+		 * Pricing Table
 		 *
 		 * @since  1.0
 		 */
@@ -3108,222 +2898,12 @@ $shortcode_definitions = array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'generator'  => array(
-						'name'  => __( 'Pricing table', 'webman-amplifier' ),
+						'name'  => __( 'Pricing Table', 'webman-amplifier' ),
 						'code'  => '[PREFIX_pricing_table no_margin="0/1" class=""]<br />[PREFIX_price caption="' . __( 'Price 1', 'webman-amplifier' ) . '" color="" color_text="" cost="" heading_tag="" appearance="NONE/featured/legend" class=""]{{content}}[/PREFIX_price]<br />[PREFIX_price caption="' . __( 'Price 2', 'webman-amplifier' ) . '" color="" color_text="" cost="" heading_tag="" appearance="NONE/featured/legend" class=""]' . __( 'Price 2 content goes here', 'webman-amplifier' ) . '[/PREFIX_price]<br />[/PREFIX_pricing_table]',
 						'short' => false,
 					),
-				'bb_plugin'  => array(
-						'name'            => __( 'Pricing table', 'webman-amplifier' ),
-						'output'          => '[PREFIX_pricing_table{{no_margin}}{{class}}]{{children}}[/PREFIX_pricing_table]',
-						'output_children' => '[PREFIX_price{{caption}}{{heading_tag}}{{cost}}{{color}}{{color_text}}{{appearance}}{{class}}]{{content}}[/PREFIX_price]',
-						'params'          => array( 'no_margin', 'class' ),
-						'params_children' => array( 'caption', 'heading_tag', 'cost', 'color', 'color_text', 'appearance', 'class', 'content' ),
-						'form'            => array(
-
-								//Tab
-								'general' => array(
-									//Title
-									'title'       => __( 'General', 'webman-amplifier' ),
-									'description' => '',
-									//Sections
-									'sections' => array(
-
-										//Section
-										'general' => array(
-											'title'  => '',
-											'fields' => array(
-
-												'no_margin' => array(
-													'type' => 'select',
-													//description
-													'label' => __( 'Remove margins between price columns?', 'webman-amplifier' ),
-													//type specific
-													'options' => array(
-														'' => __( 'No', 'webman-amplifier' ),
-														1  => __( 'Yes', 'webman-amplifier' ),
-													),
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /no_margin
-
-											), // /fields
-										), // /section
-
-										//Section
-										'sections' => array(
-											'title'  => __( 'Price columns', 'webman-amplifier' ),
-											'fields' => array(
-
-												'children' => array(
-													'type' => 'form',
-													//description
-													'label'       => '',
-													'description' => '',
-													'help'        => '',
-													//default
-													'default' => array( 'caption' => __( 'Caption', 'webman-amplifier' ) ), //This will be converted automatically
-													//type specific
-													'form'         => 'wm_children_form_' . 'pricing_table',
-													'preview_text' => 'caption', //DO NOT FORGET TO SET!
-													//multiple
-													'multiple' => true,
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /children
-
-											), // /fields
-										), // /section
-
-									), // /sections
-								), // /tab
-
-							),
-						'form_children'   => array(
-
-								//Title
-								'title' => __( 'Price', 'webman-amplifier' ),
-								//Tabs
-								'tabs' => array(
-
-									//Tab
-									'general' => array(
-										//Title
-										'title'       => __( 'General', 'webman-amplifier' ),
-										'description' => '',
-										//Sections
-										'sections' => array(
-
-											//Section
-											'title' => array(
-												'title'  => '',
-												'fields' => array(
-
-													'caption' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'Caption', 'webman-amplifier' ),
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /caption
-
-													'heading_tag' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'Caption HTML tag', 'webman-amplifier' ),
-														//type specific
-														'placeholder' => 'h3',
-														//preview
-														'preview' => array( 'type' => 'none' ),
-													), // /heading_tag
-
-													'cost' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'Cost', 'webman-amplifier' ),
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /cost
-
-												), // /fields
-											), // /section
-
-											//Section
-											'content' => array(
-												'title'       => __( 'Features list', 'webman-amplifier' ),
-												'description' => __( 'Insert an unordered list of features', 'webman-amplifier' ),
-												'fields'      => array(
-
-													'content' => array(
-														'type' => 'editor',
-														//description
-														'label' => '',
-														//default
-														'default' => '<ul><li>TEXT</li><li>TEXT</li></ul>',
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /content
-
-												), // /fields
-											), // /section
-
-										), // /sections
-									), // /tab
-
-									//Tab
-									'others' => array(
-										//Title
-										'title'       => __( 'Others', 'webman-amplifier' ),
-										'description' => '',
-										//Sections
-										'sections' => array(
-
-											//Section
-											'general' => array(
-												'title'  => __( 'Colors', 'webman-amplifier' ),
-												'fields' => array(
-
-													'color' => array(
-														'type' => 'color',
-														//description
-														'label' => __( 'Column color', 'webman-amplifier' ),
-														//type specific
-														'show_reset' => true,
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /color
-
-													'color_text' => array(
-														'type' => 'color',
-														//description
-														'label' => __( 'Column text color', 'webman-amplifier' ),
-														//type specific
-														'show_reset' => true,
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /color_text
-
-												), // /fields
-											), // /section
-
-											//Section
-											'styling' => array(
-												'title'  => __( 'Column style', 'webman-amplifier' ),
-												'fields' => array(
-
-													'appearance' => array(
-														'type' => 'select',
-														//description
-														'label' => __( 'Appearance', 'webman-amplifier' ),
-														//type specific
-														'options' => array(
-																''         => __( 'Default price column', 'webman-amplifier' ),
-																'featured' => __( 'Featured price column', 'webman-amplifier' ),
-																'legend'   => __( 'Pricing table legend', 'webman-amplifier' ),
-															),
-														//preview
-														'preview' => array( 'type' => 'refresh' ),
-													), // /appearance
-
-													'class' => array(
-														'type' => 'text',
-														//description
-														'label' => __( 'CSS class', 'webman-amplifier' ),
-														//preview
-														'preview' => array( 'type' => 'none' ),
-													), // /class
-
-												), // /fields
-											), // /section
-
-										), // /sections
-									), // /tab
-
-								), // /tabs
-
-							),
-					),
 				'vc_plugin'  => array(
-						'name'                    => $this->prefix_shortcode_name . __( 'Pricing table', 'webman-amplifier' ),
+						'name'                    => $this->prefix_shortcode_name . __( 'Pricing Table', 'webman-amplifier' ),
 						'base'                    => $this->prefix_shortcode . 'pricing_table',
 						'class'                   => 'wm-shortcode-vc-pricing_table wm-sections-mode',
 						'show_settings_on_create' => false,
@@ -3372,7 +2952,7 @@ $shortcode_definitions = array(
 
 
 		/**
-		 * Price (Prising table item)
+		 * Price
 		 *
 		 * @since  1.0
 		 */
@@ -3380,7 +2960,7 @@ $shortcode_definitions = array(
 				'since'      => '1.0',
 				'preprocess' => false,
 				'generator'  => array(
-						'name'  => __( 'Price (pricing table item)', 'webman-amplifier' ),
+						'name'  => __( 'Price', 'webman-amplifier' ),
 						'code'  => '[PREFIX_price caption="' . __( 'Title', 'webman-amplifier' ) . '" cost="99$" color="" color_text="" appearance="default/featured/legend" class=""]{{content}}[/PREFIX_price]',
 						'short' => false,
 					),
@@ -3463,7 +3043,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Progress bar
+	 * Progress Bar
 	 *
 	 * @since  1.0
 	 */
@@ -3471,76 +3051,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Progress bar', 'webman-amplifier' ),
+					'name'  => __( 'Progress Bar', 'webman-amplifier' ),
 					'code'  => '[PREFIX_progress color="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['colors'] ) ) ) . '" progress="75" class=""]{{content}}[/PREFIX_progress]',
 					'short' => false,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Progress bar', 'webman-amplifier' ),
-					'output' => '[PREFIX_progress{{color}}{{progress}}{{class}}]{{content}}[/PREFIX_progress]',
-					'params' => array( 'color', 'progress', 'class', 'content' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'progress' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Progress in %', 'webman-amplifier' ),
-												'help'  => __( 'Insert a number between 0 and 100', 'webman-amplifier' ),
-												//default
-												'default' => 75,
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /progress
-
-											'color' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Color', 'webman-amplifier' ),
-												//type specific
-												'options' => self::$codes_globals['colors'],
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /color
-
-											), // /fields
-										), // /section
-
-										//Section
-										'content' => array(
-											'title'  => __( 'Caption', 'webman-amplifier' ),
-											'fields' => array(
-
-												'content' => array(
-													'type' => 'editor',
-													//description
-													'label' => '',
-													//preview
-													'preview' => array( 'type' => 'refresh' ),
-												), // /content
-
-											), // /fields
-										), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Progress bar', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Progress Bar', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'progress',
 					'class'    => 'wm-shortcode-vc-progress',
 					'icon'     => 'icon-wpb-graph',
@@ -3605,7 +3121,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Search form
+	 * Search Form
 	 *
 	 * @since  1.0
 	 */
@@ -3613,7 +3129,7 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Search form', 'webman-amplifier' ),
+					'name'  => __( 'Search Form', 'webman-amplifier' ),
 					'code'  => '[PREFIX_search_form /]',
 					'short' => true,
 				),
@@ -3622,7 +3138,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Separator heading
+	 * Separator Heading
 	 *
 	 * @since  1.0
 	 */
@@ -3630,88 +3146,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => true,
 			'generator'  => array(
-					'name'  => __( 'Separator heading', 'webman-amplifier' ),
+					'name'  => __( 'Separator Heading', 'webman-amplifier' ),
 					'code'  => '[PREFIX_separator_heading align="' . implode( '/', array( 'left', 'center', 'right' ) ) . '" tag="' . implode( '/', array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) . '" class="" id=""]{{content}}[/PREFIX_separator_heading]',
 					'short' => true,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Separator heading', 'webman-amplifier' ),
-					'output' => '[PREFIX_separator_heading{{align}}{{tag}}{{id}}{{class}}]{{content}}[/PREFIX_separator_heading]',
-					'params' => array( 'align', 'tag', 'id', 'class', 'content' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'content' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Heading text', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /content
-
-											'tag' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Heading size', 'webman-amplifier' ),
-												//default
-												'default' => 'h2',
-												//type specific
-												'options' => array(
-														'h1' => 'H1',
-														'h2' => 'H2',
-														'h3' => 'H3',
-														'h4' => 'H4',
-														'h5' => 'H5',
-														'h6' => 'H6',
-													),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /tag
-
-											'align' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Text align', 'webman-amplifier' ),
-												//type specific
-												'options' => array(
-														'left'   => __( 'Left', 'webman-amplifier' ),
-														'center' => __( 'Center', 'webman-amplifier' ),
-														'right'  => __( 'Right', 'webman-amplifier' ),
-													),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /align
-
-											'id' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Optional HTML ID', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /id
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Separator heading', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Separator Heading', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'separator_heading',
 					'class'    => 'wm-shortcode-vc-separator_heading',
 					'icon'     => 'icon-wpb-ui-separator-label',
@@ -3731,15 +3171,7 @@ $shortcode_definitions = array(
 								'description' => '',
 								'type'        => 'dropdown',
 								'param_name'  => 'tag',
-								'value'       => array(
-										''   => '', // prevent forcing h1 as default
-										'H1' => 'h1',
-										'H2' => 'h2',
-										'H3' => 'h3',
-										'H4' => 'h4',
-										'H5' => 'h5',
-										'H6' => 'h6',
-									),
+								'value'       => array_flip( $heading_tags ),
 								'holder'      => 'hidden',
 								'class'       => '',
 							),
@@ -3791,75 +3223,6 @@ $shortcode_definitions = array(
 					'name'  => __( 'Slideshow', 'webman-amplifier' ),
 					'code'  => '[PREFIX_slideshow ids="" nav="none/thumbs/pagination" size="full/' . implode( '/', get_intermediate_image_sizes() ) . '" speed="3000" class="" /]',
 					'short' => false,
-				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Slideshow', 'webman-amplifier' ),
-					'output' => '[PREFIX_slideshow{{ids}}{{nav}}{{size}}{{speed}}{{class}} /]',
-					'params' => array( 'ids', 'nav', 'size', 'speed', 'class' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'ids' => array(
-												'type' => 'multiple-photos',
-												//description
-												'label' => __( 'Images', 'webman-amplifier' ),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /ids
-
-											'nav' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Navigation', 'webman-amplifier' ),
-												//type specific
-												'options' => array(
-														''           => __( 'Just Next/Prev button', 'webman-amplifier' ),
-														'thumbs'     => __( 'Thumbnails', 'webman-amplifier' ),
-														'pagination' => __( 'Pagination', 'webman-amplifier' ),
-													),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /nav
-
-											'image_size' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Image size', 'webman-amplifier' ),
-												//type specific
-												'options' => wma_asort( array_merge( array( '' => '' ), wma_get_image_sizes() ) ),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /image_size
-
-											'speed' => array(
-												'type' => 'text',
-												//description
-												'label' => __( 'Speed in miliseconds', 'webman-amplifier' ),
-												//default
-												'default' => apply_filters( 'wmhook_shortcode_' . 'slideshow_speed', 3000 ),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /speed
-
-										), // /fields
-									), // /section
-
-								), // /sections
-							), // /tab
-
-						),
 				),
 			'vc_plugin'  => array(
 					'name'     => $this->prefix_shortcode_name . __( 'Slideshow', 'webman-amplifier' ),
@@ -3922,7 +3285,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Table (CSV data)
+	 * Table
 	 *
 	 * @since  1.0
 	 */
@@ -3930,7 +3293,7 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Table (CSV data)', 'webman-amplifier' ),
+					'name'  => __( 'Table', 'webman-amplifier' ),
 					'code'  => '[PREFIX_table appearance="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['table_appearance'] ) ) ) . '" separator="," class=""]{{content}}[/PREFIX_table]',
 					'short' => false,
 				),
@@ -4000,7 +3363,7 @@ $shortcode_definitions = array(
 						),
 				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Table (CSV data)', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Table', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'table',
 					'class'    => 'wm-shortcode-vc-table',
 					'icon'     => 'vc_icon-vc-media-grid',
@@ -4256,11 +3619,12 @@ $shortcode_definitions = array(
 											), // /no_margin
 
 											'heading_tag' => array(
-												'type' => 'text',
+												'type' => 'select',
 												//description
 												'label' => __( 'Heading HTML tag', 'webman-amplifier' ),
+												'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H2' ),
 												//type specific
-												'placeholder' => 'h2',
+												'options' => $heading_tags,
 												//preview
 												'preview' => array( 'type' => 'none' ),
 											), // /heading_tag
@@ -4493,7 +3857,7 @@ $shortcode_definitions = array(
 
 
 	/**
-	 * Widgets area
+	 * Widgets Area
 	 *
 	 * @since  1.0
 	 */
@@ -4501,74 +3865,12 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => false,
 			'generator'  => array(
-					'name'  => __( 'Widgets area', 'webman-amplifier' ),
+					'name'  => __( 'Widgets Area', 'webman-amplifier' ),
 					'code'  => '[PREFIX_widget_area area="' . implode( '/', array_keys( wma_ksort( wma_widget_areas_array() ) ) ) . '" class="" max_widgets_count="0" /]',
 					'short' => true,
 				),
-			'bb_plugin'  => array(
-					'name'   => __( 'Widgets area', 'webman-amplifier' ),
-					'output' => '[PREFIX_widget_area{{area}}{{max_widgets_count}}{{class}} /]',
-					'params' => array( 'area', 'max_widgets_count', 'class' ),
-					'form'   => array(
-
-							//Tab
-							'general' => array(
-								//Title
-								'title'       => __( 'General', 'webman-amplifier' ),
-								'description' => '',
-								//Sections
-								'sections' => array(
-
-									//Section
-									'general' => array(
-										'title'  => '',
-										'fields' => array(
-
-											'area' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Widgets area', 'webman-amplifier' ),
-												//type specific
-												'options' => wma_widget_areas_array(),
-												//preview
-												'preview' => array( 'type' => 'refresh' ),
-											), // /area
-
-											'max_widgets_count' => array(
-												'type' => 'select',
-												//description
-												'label' => __( 'Maximum widgets count', 'webman-amplifier' ),
-												'help'  => __( 'Area will not be displayed when the number of widgets inserted in it is greater', 'webman-amplifier' ),
-												//type specific
-												'options' => array(
-														'-' => '',
-														1   => 1,
-														2   => 2,
-														3   => 3,
-														4   => 4,
-														5   => 5,
-														6   => 6,
-														7   => 7,
-														8   => 8,
-														9   => 9,
-														10  => 10,
-														11  => 11,
-														12  => 12,
-													),
-												//preview
-												'preview' => array( 'type' => 'none' ),
-											), // /max_widgets_count
-
-											), // /fields
-										), // /section
-
-								), // /sections
-							), // /tab
-
-						),
-				),
 			'vc_plugin'  => array(
-					'name'     => $this->prefix_shortcode_name . __( 'Widgets area', 'webman-amplifier' ),
+					'name'     => $this->prefix_shortcode_name . __( 'Widgets Area', 'webman-amplifier' ),
 					'base'     => $this->prefix_shortcode . 'widget_area',
 					'class'    => 'wm-shortcode-vc-widget_area',
 					'icon'     => 'icon-wpb-layout_sidebar',
@@ -4639,7 +3941,7 @@ $shortcode_definitions = array(
 	$shortcode_definitions['vc_row'] = array(
 			'since'     => '1.0',
 			'vc_plugin' => array(
-				'name'                    => __( 'Row / Section', 'webman-amplifier' ),
+				'name'                    => __( 'Row', 'webman-amplifier' ),
 				'base'                    => 'vc_row',
 				'class'                   => 'wm-shortcode-vc-row',
 				'icon'                    => 'icon-wpb-row',
@@ -4938,7 +4240,7 @@ $shortcode_definitions = array(
 	$shortcode_definitions['text_block'] = array(
 			'since'      => '1.0',
 			'vc_plugin'  => array(
-				'name'     => $this->prefix_shortcode_name . __( 'Text block', 'webman-amplifier' ),
+				'name'     => $this->prefix_shortcode_name . __( 'Text Block', 'webman-amplifier' ),
 				'base'     => $this->prefix_shortcode . 'text_block',
 				'class'    => 'wm-shortcode-vc-text_block',
 				'icon'     => 'icon-wpb-layer-shape-text',

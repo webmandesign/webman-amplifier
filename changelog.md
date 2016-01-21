@@ -1,5 +1,43 @@
 # WebMan Amplifier Changelog
 
+## 1.3
+
+* **Update**: Improved Testimonials shortcode accessibility (heading tag setup)
+* **Update**: License updated to GPLv3
+* **Fix**: Typos in readme files
+
+Beaver Builder 1.7 compatible (partial refresh activated for all modules), removing obsolete page builder modules, improved page builder modules setup, improved Tabs and Content Modules accessibility, improved flexibility of shortcodes, improved Staff post labels.
+
+#### Files changed:
+
+	webman-amplifier.php
+	includes/custom-posts/staff.php
+	includes/icons/class-icon-font.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_accordion.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_button.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_call_to_action.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_content_module.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_divider.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_message.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_posts.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_tabs.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_testimonials.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/divider.php
+	includes/shortcodes/renderers/dropcap.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/marker.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/progress.php
+	includes/shortcodes/renderers/table.php
+
+
 ## 1.2.9.2
 
 * **Update**: Improved Testimonials shortcode accessibility (heading tag setup)

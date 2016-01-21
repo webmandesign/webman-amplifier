@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -50,8 +50,12 @@
 		$atts['url'] = ( $atts['social'] ) ? ( esc_url( $atts['url'] ) ) : ( '' );
 	//size
 		$atts['size'] = trim( $atts['size'] );
-		if ( $atts['size'] && in_array( $atts['size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
-			$atts['class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['size'] ];
+		if ( $atts['size'] ) {
+			if ( in_array( $atts['size'], array_keys( $codes_globals['sizes']['values'] ) ) ) {
+				$atts['class'] .= ' size-' . $codes_globals['sizes']['values'][ $atts['size'] ];
+			} else {
+				$atts['class'] .= ' size-' . $atts['size'];
+			}
 		}
 	//style
 		if ( $atts['style'] ) {

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3
  *
  * @param  string align
  * @param  string class
@@ -36,7 +36,7 @@
 			'desc_column_size' => 3,
 			'filter'           => '',
 			'filter_layout'    => 'fitRows',
-			'heading_tag'      => 'h3',
+			'heading_tag'      => 'h2',
 			'image_size'       => '',
 			'layout'           => '',
 			'module'           => '',

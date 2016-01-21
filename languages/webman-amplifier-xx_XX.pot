@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WebMan Amplifier v1.2.9\n"
+"Project-Id-Version: WebMan Amplifier\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2015-12-17 18:30+0100\n"
+"POT-Creation-Date: 2016-01-21 19:08+0100\n"
 "PO-Revision-Date: 2015-04-21 12:38+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -20,26 +20,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-wm-amplifier.php:128 class-wm-amplifier.php:140
+#: class-wm-amplifier.php:127 class-wm-amplifier.php:139
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: class-wm-amplifier.php:243
+#: class-wm-amplifier.php:242
 msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr ""
 
-#: class-wm-amplifier.php:326
+#: class-wm-amplifier.php:325
 msgid "Isotope Licensing"
 msgstr ""
 
-#: class-wm-amplifier.php:326
+#: class-wm-amplifier.php:325
 msgid ""
 "You are using WebMan Amplifier plugin, which includes the <a href=\"http://"
 "isotope.metafizzy.co/\" target=\"_blank\">Isotope JavaScript filter</a>."
 msgstr ""
 
-#: class-wm-amplifier.php:326
+#: class-wm-amplifier.php:325
 msgid ""
 "If you use the plugin for commercial applications, you are required to <a "
 "href=\"http://isotope.metafizzy.co/license.html\" target=\"_blank\">purchase "
@@ -127,7 +127,7 @@ msgstr ""
 
 #: includes/custom-posts/logos.php:152 includes/custom-posts/projects.php:150
 #: includes/custom-posts/testimonials.php:149
-#: includes/shortcodes/definitions/definitions.php:4345
+#: includes/shortcodes/definitions/definitions.php:3710
 msgid "Category"
 msgstr ""
 
@@ -271,13 +271,12 @@ msgstr ""
 #: includes/custom-posts/logos.php:385 includes/custom-posts/modules.php:403
 #: includes/custom-posts/projects.php:434 includes/custom-posts/staff.php:538
 #: includes/custom-posts/testimonials.php:389
-#: includes/shortcodes/definitions/definitions.php:880
-#: includes/shortcodes/definitions/definitions.php:986
-#: includes/shortcodes/definitions/definitions.php:1161
-#: includes/shortcodes/definitions/definitions.php:1266
-#: includes/shortcodes/definitions/definitions.php:2119
-#: includes/shortcodes/definitions/definitions.php:2204
-#: includes/shortcodes/definitions/definitions.php:5008
+#: includes/shortcodes/definitions/definitions.php:937
+#: includes/shortcodes/definitions/definitions.php:1035
+#: includes/shortcodes/definitions/definitions.php:1211
+#: includes/shortcodes/definitions/definitions.php:1316
+#: includes/shortcodes/definitions/definitions.php:2064
+#: includes/shortcodes/definitions/definitions.php:4311
 msgid "Open in same window"
 msgstr ""
 
@@ -346,13 +345,13 @@ msgid "Content module"
 msgstr ""
 
 #: includes/custom-posts/modules.php:148 includes/custom-posts/projects.php:149
-#: includes/shortcodes/definitions/definitions.php:4979
+#: includes/shortcodes/definitions/definitions.php:4282
 msgid "Image"
 msgstr ""
 
 #: includes/custom-posts/modules.php:149
-#: includes/shortcodes/definitions/definitions.php:308
-#: includes/shortcodes/definitions/definitions.php:732
+#: includes/shortcodes/definitions/definitions.php:333
+#: includes/shortcodes/definitions/definitions.php:789
 msgid "Tags"
 msgstr ""
 
@@ -545,7 +544,7 @@ msgid "Project"
 msgstr ""
 
 #: includes/custom-posts/projects.php:151
-#: includes/shortcodes/definitions/definitions.php:1776
+#: includes/shortcodes/definitions/definitions.php:1780
 msgid "Tag"
 msgstr ""
 
@@ -716,7 +715,7 @@ msgstr ""
 
 #: includes/custom-posts/staff.php:102
 msgctxt "Custom post labels: Staff."
-msgid "Staff Member"
+msgid "Person"
 msgstr ""
 
 #: includes/custom-posts/staff.php:103 includes/custom-posts/staff.php:105
@@ -726,52 +725,47 @@ msgstr ""
 
 #: includes/custom-posts/staff.php:104
 msgctxt "Custom post labels: Staff."
-msgid "Add New Member"
+msgid "Add Person"
 msgstr ""
 
 #: includes/custom-posts/staff.php:106
 msgctxt "Custom post labels: Staff."
-msgid "Edit Member"
+msgid "Edit Person"
 msgstr ""
 
 #: includes/custom-posts/staff.php:107
 msgctxt "Custom post labels: Staff."
-msgid "View Member"
+msgid "View Person"
 msgstr ""
 
 #: includes/custom-posts/staff.php:108
 msgctxt "Custom post labels: Staff."
-msgid "Search Members"
+msgid "Search Staff"
 msgstr ""
 
-#: includes/custom-posts/staff.php:109
+#: includes/custom-posts/staff.php:109 includes/custom-posts/staff.php:110
 msgctxt "Custom post labels: Staff."
-msgid "No member found"
-msgstr ""
-
-#: includes/custom-posts/staff.php:110
-msgctxt "Custom post labels: Staff."
-msgid "No members found in trash"
+msgid "No person found"
 msgstr ""
 
 #: includes/custom-posts/staff.php:111
 msgctxt "Custom post labels: Staff."
-msgid "Staff photo"
+msgid "Person photo"
 msgstr ""
 
 #: includes/custom-posts/staff.php:112
 msgctxt "Custom post labels: Staff."
-msgid "Set staff photo"
+msgid "Set person photo"
 msgstr ""
 
 #: includes/custom-posts/staff.php:113
 msgctxt "Custom post labels: Staff."
-msgid "Remove staff photo"
+msgid "Remove person photo"
 msgstr ""
 
 #: includes/custom-posts/staff.php:114
 msgctxt "Custom post labels: Staff."
-msgid "Use as staff photo"
+msgid "Use as person photo"
 msgstr ""
 
 #: includes/custom-posts/staff.php:115
@@ -1015,28 +1009,26 @@ msgid "Contacts"
 msgstr ""
 
 #: includes/custom-posts/staff.php:561
-#: includes/shortcodes/definitions/definitions.php:280
-#: includes/shortcodes/definitions/definitions.php:589
-#: includes/shortcodes/definitions/definitions.php:720
-#: includes/shortcodes/definitions/definitions.php:924
-#: includes/shortcodes/definitions/definitions.php:931
-#: includes/shortcodes/definitions/definitions.php:1013
-#: includes/shortcodes/definitions/definitions.php:2042
-#: includes/shortcodes/definitions/definitions.php:2160
-#: includes/shortcodes/definitions/definitions.php:2308
-#: includes/shortcodes/definitions/definitions.php:2493
-#: includes/shortcodes/definitions/definitions.php:2500
-#: includes/shortcodes/definitions/definitions.php:2605
+#: includes/shortcodes/definitions/definitions.php:305
+#: includes/shortcodes/definitions/definitions.php:627
+#: includes/shortcodes/definitions/definitions.php:777
+#: includes/shortcodes/definitions/definitions.php:973
+#: includes/shortcodes/definitions/definitions.php:980
+#: includes/shortcodes/definitions/definitions.php:1062
+#: includes/shortcodes/definitions/definitions.php:2020
+#: includes/shortcodes/definitions/definitions.php:2283
+#: includes/shortcodes/definitions/definitions.php:2290
+#: includes/shortcodes/definitions/definitions.php:2395
 msgid "Icon"
 msgstr ""
 
 #: includes/custom-posts/staff.php:568
 #: includes/custom-posts/testimonials.php:147
-#: includes/shortcodes/definitions/definitions.php:241
-#: includes/shortcodes/definitions/definitions.php:550
-#: includes/shortcodes/definitions/definitions.php:698
-#: includes/shortcodes/definitions/definitions.php:712
-#: includes/shortcodes/definitions/definitions.php:3384
+#: includes/shortcodes/definitions/definitions.php:266
+#: includes/shortcodes/definitions/definitions.php:588
+#: includes/shortcodes/definitions/definitions.php:755
+#: includes/shortcodes/definitions/definitions.php:769
+#: includes/shortcodes/definitions/definitions.php:2965
 msgid "Title"
 msgstr ""
 
@@ -1382,7 +1374,7 @@ msgid "You do not have permissions to do this!"
 msgstr ""
 
 #: includes/metabox/fields/radio.php:113
-#: includes/shortcodes/class-shortcodes.php:1241
+#: includes/shortcodes/class-shortcodes.php:1236
 msgid "Filter: start typing..."
 msgstr ""
 
@@ -1418,1528 +1410,1449 @@ msgid "Staff"
 msgstr ""
 
 #: includes/shortcodes/class-shortcodes.php:169
-#: includes/shortcodes/definitions/definitions.php:1602
-#: includes/shortcodes/definitions/definitions.php:1813
-#: includes/shortcodes/definitions/definitions.php:2757
-#: includes/shortcodes/definitions/definitions.php:3035
-#: includes/shortcodes/definitions/definitions.php:3689
-#: includes/shortcodes/definitions/definitions.php:3752
-#: includes/shortcodes/definitions/definitions.php:4203
-#: includes/shortcodes/definitions/definitions.php:4382
-msgid "Left"
-msgstr ""
-
-#: includes/shortcodes/class-shortcodes.php:170
-#: includes/shortcodes/definitions/definitions.php:3690
-#: includes/shortcodes/definitions/definitions.php:3753
-msgid "Center"
-msgstr ""
-
-#: includes/shortcodes/class-shortcodes.php:171
-#: includes/shortcodes/definitions/definitions.php:1603
-#: includes/shortcodes/definitions/definitions.php:1814
-#: includes/shortcodes/definitions/definitions.php:2758
-#: includes/shortcodes/definitions/definitions.php:3036
-#: includes/shortcodes/definitions/definitions.php:3691
-#: includes/shortcodes/definitions/definitions.php:3754
-#: includes/shortcodes/definitions/definitions.php:4204
-#: includes/shortcodes/definitions/definitions.php:4383
-msgid "Right"
-msgstr ""
-
-#: includes/shortcodes/class-shortcodes.php:174
 msgid "Blue"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:175
+#: includes/shortcodes/class-shortcodes.php:170
 msgid "Gray"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:176
+#: includes/shortcodes/class-shortcodes.php:171
 msgid "Green"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:177
+#: includes/shortcodes/class-shortcodes.php:172
 msgid "Orange"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:178
+#: includes/shortcodes/class-shortcodes.php:173
 msgid "Red"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:182
+#: includes/shortcodes/class-shortcodes.php:177
 msgid "Line"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:183
+#: includes/shortcodes/class-shortcodes.php:178
 msgid "Dotted"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:184
+#: includes/shortcodes/class-shortcodes.php:179
 msgid "Dashed"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:185
+#: includes/shortcodes/class-shortcodes.php:180
 msgid "Double line"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:186
+#: includes/shortcodes/class-shortcodes.php:181
 msgid "Whitespace"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:189
+#: includes/shortcodes/class-shortcodes.php:184
 msgid "Circle"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:190
+#: includes/shortcodes/class-shortcodes.php:185
 msgid "Square"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:191
+#: includes/shortcodes/class-shortcodes.php:186
 msgid "Rounded square"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:192
+#: includes/shortcodes/class-shortcodes.php:187
 msgid "Leaf left"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:193
+#: includes/shortcodes/class-shortcodes.php:188
 msgid "Leaf right"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:194
+#: includes/shortcodes/class-shortcodes.php:189
 msgid "Half circle"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:201
+#: includes/shortcodes/class-shortcodes.php:196
 msgid "Small"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:202
+#: includes/shortcodes/class-shortcodes.php:197
 msgid "Medium"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:203
+#: includes/shortcodes/class-shortcodes.php:198
 msgid "Large"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:204
+#: includes/shortcodes/class-shortcodes.php:199
 msgid "Extra-large"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:216
+#: includes/shortcodes/class-shortcodes.php:211
 msgid "Basic"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:217
+#: includes/shortcodes/class-shortcodes.php:212
 msgid "Bordered"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:218
+#: includes/shortcodes/class-shortcodes.php:213
 msgid "Zebra striping"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:219
+#: includes/shortcodes/class-shortcodes.php:214
 msgid "Bordered zebra striping"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:104
-msgid "Accordion / Toggle"
+#: includes/shortcodes/definitions/definitions.php:57
+msgctxt "Default heading tag value."
+msgid "Default"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:105
-#: includes/shortcodes/definitions/definitions.php:352
-msgid "Section 1"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:105
-#: includes/shortcodes/definitions/definitions.php:353
-msgid "Section 2"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:109
-#: includes/shortcodes/definitions/definitions.php:335
-#: includes/shortcodes/definitions/definitions.php:343
+#: includes/shortcodes/definitions/definitions.php:116
+#: includes/shortcodes/definitions/definitions.php:121
+#: includes/shortcodes/definitions/definitions.php:361
+#: includes/shortcodes/definitions/definitions.php:369
 msgid "Accordion"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:119
-#: includes/shortcodes/definitions/definitions.php:228
-#: includes/shortcodes/definitions/definitions.php:428
-#: includes/shortcodes/definitions/definitions.php:537
-#: includes/shortcodes/definitions/definitions.php:843
-#: includes/shortcodes/definitions/definitions.php:1069
-#: includes/shortcodes/definitions/definitions.php:1357
-#: includes/shortcodes/definitions/definitions.php:1456
-#: includes/shortcodes/definitions/definitions.php:1891
-#: includes/shortcodes/definitions/definitions.php:2017
-#: includes/shortcodes/definitions/definitions.php:2278
-#: includes/shortcodes/definitions/definitions.php:2438
-#: includes/shortcodes/definitions/definitions.php:2666
-#: includes/shortcodes/definitions/definitions.php:3126
-#: includes/shortcodes/definitions/definitions.php:3191
-#: includes/shortcodes/definitions/definitions.php:3487
-#: includes/shortcodes/definitions/definitions.php:3646
-#: includes/shortcodes/definitions/definitions.php:3804
-#: includes/shortcodes/definitions/definitions.php:3946
-#: includes/shortcodes/definitions/definitions.php:4071
-#: includes/shortcodes/definitions/definitions.php:4517
+#: includes/shortcodes/definitions/definitions.php:117
+#: includes/shortcodes/definitions/definitions.php:378
+msgid "Section 1"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:117
+#: includes/shortcodes/definitions/definitions.php:379
+msgid "Section 2"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:131
+#: includes/shortcodes/definitions/definitions.php:253
+#: includes/shortcodes/definitions/definitions.php:454
+#: includes/shortcodes/definitions/definitions.php:575
+#: includes/shortcodes/definitions/definitions.php:900
+#: includes/shortcodes/definitions/definitions.php:1118
+#: includes/shortcodes/definitions/definitions.php:1459
+#: includes/shortcodes/definitions/definitions.php:1895
+#: includes/shortcodes/definitions/definitions.php:2227
+#: includes/shortcodes/definitions/definitions.php:2456
+#: includes/shortcodes/definitions/definitions.php:3310
+#: includes/shortcodes/definitions/definitions.php:3435
 msgid "General"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:132
-#: includes/shortcodes/definitions/definitions.php:367
+#: includes/shortcodes/definitions/definitions.php:144
+#: includes/shortcodes/definitions/definitions.php:393
 msgid "Mode"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:135
-#: includes/shortcodes/definitions/definitions.php:371
+#: includes/shortcodes/definitions/definitions.php:147
+#: includes/shortcodes/definitions/definitions.php:397
 msgid "Accordion (only one section open)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:136
-#: includes/shortcodes/definitions/definitions.php:372
+#: includes/shortcodes/definitions/definitions.php:148
+#: includes/shortcodes/definitions/definitions.php:398
 msgid "Toggle (multiple sections open)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:147
-#: includes/shortcodes/definitions/definitions.php:457
+#: includes/shortcodes/definitions/definitions.php:159
+#: includes/shortcodes/definitions/definitions.php:483
 msgid "Sections"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:157
-#: includes/shortcodes/definitions/definitions.php:221
-#: includes/shortcodes/definitions/definitions.php:243
-#: includes/shortcodes/definitions/definitions.php:348
-#: includes/shortcodes/definitions/definitions.php:467
-#: includes/shortcodes/definitions/definitions.php:530
-#: includes/shortcodes/definitions/definitions.php:552
+#: includes/shortcodes/definitions/definitions.php:169
+#: includes/shortcodes/definitions/definitions.php:246
+#: includes/shortcodes/definitions/definitions.php:268
+#: includes/shortcodes/definitions/definitions.php:374
+#: includes/shortcodes/definitions/definitions.php:493
+#: includes/shortcodes/definitions/definitions.php:568
+#: includes/shortcodes/definitions/definitions.php:590
 msgid "Section"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:176
-#: includes/shortcodes/definitions/definitions.php:273
-#: includes/shortcodes/definitions/definitions.php:486
-#: includes/shortcodes/definitions/definitions.php:582
-#: includes/shortcodes/definitions/definitions.php:1634
-#: includes/shortcodes/definitions/definitions.php:2526
-#: includes/shortcodes/definitions/definitions.php:2789
-#: includes/shortcodes/definitions/definitions.php:3255
-#: includes/shortcodes/definitions/definitions.php:4235
+#: includes/shortcodes/definitions/definitions.php:188
+#: includes/shortcodes/definitions/definitions.php:298
+#: includes/shortcodes/definitions/definitions.php:512
+#: includes/shortcodes/definitions/definitions.php:620
+#: includes/shortcodes/definitions/definitions.php:1637
+#: includes/shortcodes/definitions/definitions.php:2316
+#: includes/shortcodes/definitions/definitions.php:2579
+#: includes/shortcodes/definitions/definitions.php:3599
 msgid "Others"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:189
-#: includes/shortcodes/definitions/definitions.php:378
-#: includes/shortcodes/definitions/definitions.php:1533
+#: includes/shortcodes/definitions/definitions.php:201
+#: includes/shortcodes/definitions/definitions.php:404
+#: includes/shortcodes/definitions/definitions.php:1536
 msgid "Filtering"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:190
-#: includes/shortcodes/definitions/definitions.php:379
+#: includes/shortcodes/definitions/definitions.php:202
+#: includes/shortcodes/definitions/definitions.php:405
 msgid "Display the sections filter from sections tags?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:193
-#: includes/shortcodes/definitions/definitions.php:383
-#: includes/shortcodes/definitions/definitions.php:502
-#: includes/shortcodes/definitions/definitions.php:667
-#: includes/shortcodes/definitions/definitions.php:788
-#: includes/shortcodes/definitions/definitions.php:800
-#: includes/shortcodes/definitions/definitions.php:1537
-#: includes/shortcodes/definitions/definitions.php:1570
-#: includes/shortcodes/definitions/definitions.php:1650
-#: includes/shortcodes/definitions/definitions.php:1758
-#: includes/shortcodes/definitions/definitions.php:1791
-#: includes/shortcodes/definitions/definitions.php:1826
-#: includes/shortcodes/definitions/definitions.php:2805
-#: includes/shortcodes/definitions/definitions.php:2865
-#: includes/shortcodes/definitions/definitions.php:3013
-#: includes/shortcodes/definitions/definitions.php:3049
-#: includes/shortcodes/definitions/definitions.php:3142
-#: includes/shortcodes/definitions/definitions.php:3353
-#: includes/shortcodes/definitions/definitions.php:4171
-#: includes/shortcodes/definitions/definitions.php:4251
-#: includes/shortcodes/definitions/definitions.php:4360
-#: includes/shortcodes/definitions/definitions.php:4395
-#: includes/shortcodes/definitions/definitions.php:4462
-#: includes/shortcodes/definitions/definitions.php:4474
+#: includes/shortcodes/definitions/definitions.php:205
+#: includes/shortcodes/definitions/definitions.php:409
+#: includes/shortcodes/definitions/definitions.php:528
+#: includes/shortcodes/definitions/definitions.php:724
+#: includes/shortcodes/definitions/definitions.php:845
+#: includes/shortcodes/definitions/definitions.php:857
+#: includes/shortcodes/definitions/definitions.php:1540
+#: includes/shortcodes/definitions/definitions.php:1573
+#: includes/shortcodes/definitions/definitions.php:1653
+#: includes/shortcodes/definitions/definitions.php:1762
+#: includes/shortcodes/definitions/definitions.php:1795
+#: includes/shortcodes/definitions/definitions.php:1830
+#: includes/shortcodes/definitions/definitions.php:2595
+#: includes/shortcodes/definitions/definitions.php:2655
+#: includes/shortcodes/definitions/definitions.php:2804
+#: includes/shortcodes/definitions/definitions.php:2840
+#: includes/shortcodes/definitions/definitions.php:2934
+#: includes/shortcodes/definitions/definitions.php:3535
+#: includes/shortcodes/definitions/definitions.php:3615
+#: includes/shortcodes/definitions/definitions.php:3725
+#: includes/shortcodes/definitions/definitions.php:3760
+#: includes/shortcodes/definitions/definitions.php:3827
+#: includes/shortcodes/definitions/definitions.php:3839
 msgid "No"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:194
-#: includes/shortcodes/definitions/definitions.php:384
-#: includes/shortcodes/definitions/definitions.php:503
-#: includes/shortcodes/definitions/definitions.php:668
-#: includes/shortcodes/definitions/definitions.php:789
-#: includes/shortcodes/definitions/definitions.php:801
-#: includes/shortcodes/definitions/definitions.php:1538
-#: includes/shortcodes/definitions/definitions.php:1571
-#: includes/shortcodes/definitions/definitions.php:1651
-#: includes/shortcodes/definitions/definitions.php:1759
-#: includes/shortcodes/definitions/definitions.php:1792
-#: includes/shortcodes/definitions/definitions.php:1827
-#: includes/shortcodes/definitions/definitions.php:2806
-#: includes/shortcodes/definitions/definitions.php:2866
-#: includes/shortcodes/definitions/definitions.php:3014
-#: includes/shortcodes/definitions/definitions.php:3050
-#: includes/shortcodes/definitions/definitions.php:3143
-#: includes/shortcodes/definitions/definitions.php:3354
-#: includes/shortcodes/definitions/definitions.php:4172
-#: includes/shortcodes/definitions/definitions.php:4252
-#: includes/shortcodes/definitions/definitions.php:4361
-#: includes/shortcodes/definitions/definitions.php:4396
-#: includes/shortcodes/definitions/definitions.php:4463
-#: includes/shortcodes/definitions/definitions.php:4475
+#: includes/shortcodes/definitions/definitions.php:206
+#: includes/shortcodes/definitions/definitions.php:410
+#: includes/shortcodes/definitions/definitions.php:529
+#: includes/shortcodes/definitions/definitions.php:725
+#: includes/shortcodes/definitions/definitions.php:846
+#: includes/shortcodes/definitions/definitions.php:858
+#: includes/shortcodes/definitions/definitions.php:1541
+#: includes/shortcodes/definitions/definitions.php:1574
+#: includes/shortcodes/definitions/definitions.php:1654
+#: includes/shortcodes/definitions/definitions.php:1763
+#: includes/shortcodes/definitions/definitions.php:1796
+#: includes/shortcodes/definitions/definitions.php:1831
+#: includes/shortcodes/definitions/definitions.php:2596
+#: includes/shortcodes/definitions/definitions.php:2656
+#: includes/shortcodes/definitions/definitions.php:2805
+#: includes/shortcodes/definitions/definitions.php:2841
+#: includes/shortcodes/definitions/definitions.php:2935
+#: includes/shortcodes/definitions/definitions.php:3536
+#: includes/shortcodes/definitions/definitions.php:3616
+#: includes/shortcodes/definitions/definitions.php:3726
+#: includes/shortcodes/definitions/definitions.php:3761
+#: includes/shortcodes/definitions/definitions.php:3828
+#: includes/shortcodes/definitions/definitions.php:3840
 msgid "Yes"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:203
-#: includes/shortcodes/definitions/definitions.php:358
-#: includes/shortcodes/definitions/definitions.php:512
-msgid "Active section"
+#: includes/shortcodes/definitions/definitions.php:215
+msgid "Active section number"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:204
-#: includes/shortcodes/definitions/definitions.php:359
-msgid "Set section order number, \"0\" for all sections closed"
+#: includes/shortcodes/definitions/definitions.php:220
+msgid "All accordion sections closed"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:253
-#: includes/shortcodes/definitions/definitions.php:341
-#: includes/shortcodes/definitions/definitions.php:562
-#: includes/shortcodes/definitions/definitions.php:623
-#: includes/shortcodes/definitions/definitions.php:708
-#: includes/shortcodes/definitions/definitions.php:961
-#: includes/shortcodes/definitions/definitions.php:1104
-#: includes/shortcodes/definitions/definitions.php:1223
-#: includes/shortcodes/definitions/definitions.php:1400
-#: includes/shortcodes/definitions/definitions.php:1614
-#: includes/shortcodes/definitions/definitions.php:1699
-#: includes/shortcodes/definitions/definitions.php:1925
-#: includes/shortcodes/definitions/definitions.php:2157
-#: includes/shortcodes/definitions/definitions.php:2345
-#: includes/shortcodes/definitions/definitions.php:2473
-#: includes/shortcodes/definitions/definitions.php:2569
-#: includes/shortcodes/definitions/definitions.php:2580
-#: includes/shortcodes/definitions/definitions.php:2769
-#: includes/shortcodes/definitions/definitions.php:2905
-#: includes/shortcodes/definitions/definitions.php:3331
-#: includes/shortcodes/definitions/definitions.php:3392
-#: includes/shortcodes/definitions/definitions.php:3547
-#: includes/shortcodes/definitions/definitions.php:3718
-#: includes/shortcodes/definitions/definitions.php:4007
-#: includes/shortcodes/definitions/definitions.php:4215
-#: includes/shortcodes/definitions/definitions.php:4281
-#: includes/shortcodes/definitions/definitions.php:4575
-#: includes/shortcodes/definitions/definitions.php:4945
-#: includes/shortcodes/definitions/definitions.php:4948
+#: includes/shortcodes/definitions/definitions.php:278
+#: includes/shortcodes/definitions/definitions.php:367
+#: includes/shortcodes/definitions/definitions.php:600
+#: includes/shortcodes/definitions/definitions.php:680
+#: includes/shortcodes/definitions/definitions.php:765
+#: includes/shortcodes/definitions/definitions.php:1010
+#: includes/shortcodes/definitions/definitions.php:1154
+#: includes/shortcodes/definitions/definitions.php:1273
+#: includes/shortcodes/definitions/definitions.php:1403
+#: includes/shortcodes/definitions/definitions.php:1617
+#: includes/shortcodes/definitions/definitions.php:1703
+#: includes/shortcodes/definitions/definitions.php:1929
+#: includes/shortcodes/definitions/definitions.php:2017
+#: includes/shortcodes/definitions/definitions.php:2134
+#: includes/shortcodes/definitions/definitions.php:2263
+#: includes/shortcodes/definitions/definitions.php:2359
+#: includes/shortcodes/definitions/definitions.php:2370
+#: includes/shortcodes/definitions/definitions.php:2559
+#: includes/shortcodes/definitions/definitions.php:2696
+#: includes/shortcodes/definitions/definitions.php:2912
+#: includes/shortcodes/definitions/definitions.php:2973
+#: includes/shortcodes/definitions/definitions.php:3064
+#: includes/shortcodes/definitions/definitions.php:3159
+#: includes/shortcodes/definitions/definitions.php:3371
+#: includes/shortcodes/definitions/definitions.php:3579
+#: includes/shortcodes/definitions/definitions.php:3646
+#: includes/shortcodes/definitions/definitions.php:3878
+#: includes/shortcodes/definitions/definitions.php:4248
+#: includes/shortcodes/definitions/definitions.php:4251
 msgid "Content"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:302
+#: includes/shortcodes/definitions/definitions.php:327
+#: includes/shortcodes/definitions/definitions.php:649
 msgid "Other parameters"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:309
-#: includes/shortcodes/definitions/definitions.php:733
+#: includes/shortcodes/definitions/definitions.php:334
+#: includes/shortcodes/definitions/definitions.php:790
 msgid "Enter comma separated tags. These will be used to filter through items."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:317
-#: includes/shortcodes/definitions/definitions.php:741
-#: includes/shortcodes/definitions/definitions.php:1670
-#: includes/shortcodes/definitions/definitions.php:2885
-#: includes/shortcodes/definitions/definitions.php:4261
+#: includes/shortcodes/definitions/definitions.php:342
+#: includes/shortcodes/definitions/definitions.php:655
+#: includes/shortcodes/definitions/definitions.php:798
+#: includes/shortcodes/definitions/definitions.php:1673
+#: includes/shortcodes/definitions/definitions.php:2675
+#: includes/shortcodes/definitions/definitions.php:3625
 msgid "Heading HTML tag"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:348
+#: includes/shortcodes/definitions/definitions.php:343
+#: includes/shortcodes/definitions/definitions.php:656
+#: includes/shortcodes/definitions/definitions.php:1142
+#: includes/shortcodes/definitions/definitions.php:1674
+#: includes/shortcodes/definitions/definitions.php:2251
+#: includes/shortcodes/definitions/definitions.php:2676
+#: includes/shortcodes/definitions/definitions.php:3626
+#, php-format
+msgid "Default value: %s"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:374
 msgid "Accordion: Add new section"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:390
-#: includes/shortcodes/definitions/definitions.php:674
-#: includes/shortcodes/definitions/definitions.php:807
-#: includes/shortcodes/definitions/definitions.php:1025
-#: includes/shortcodes/definitions/definitions.php:1304
-#: includes/shortcodes/definitions/definitions.php:1419
-#: includes/shortcodes/definitions/definitions.php:1855
-#: includes/shortcodes/definitions/definitions.php:1955
-#: includes/shortcodes/definitions/definitions.php:2233
-#: includes/shortcodes/definitions/definitions.php:2369
-#: includes/shortcodes/definitions/definitions.php:2617
-#: includes/shortcodes/definitions/definitions.php:3067
-#: includes/shortcodes/definitions/definitions.php:3310
-#: includes/shortcodes/definitions/definitions.php:3360
-#: includes/shortcodes/definitions/definitions.php:3451
-#: includes/shortcodes/definitions/definitions.php:3576
-#: includes/shortcodes/definitions/definitions.php:3760
-#: includes/shortcodes/definitions/definitions.php:3910
-#: includes/shortcodes/definitions/definitions.php:4034
-#: includes/shortcodes/definitions/definitions.php:4404
-#: includes/shortcodes/definitions/definitions.php:4481
-#: includes/shortcodes/definitions/definitions.php:4610
-#: includes/shortcodes/definitions/definitions.php:4652
-#: includes/shortcodes/definitions/definitions.php:4759
-#: includes/shortcodes/definitions/definitions.php:4790
-#: includes/shortcodes/definitions/definitions.php:4870
-#: includes/shortcodes/definitions/definitions.php:4957
-#: includes/shortcodes/definitions/definitions.php:5019
+#: includes/shortcodes/definitions/definitions.php:384
+msgid "Active section"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:385
+msgid "Set section order number, \"0\" for all sections closed"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:416
+#: includes/shortcodes/definitions/definitions.php:731
+#: includes/shortcodes/definitions/definitions.php:864
+#: includes/shortcodes/definitions/definitions.php:1074
+#: includes/shortcodes/definitions/definitions.php:1354
+#: includes/shortcodes/definitions/definitions.php:1422
+#: includes/shortcodes/definitions/definitions.php:1859
+#: includes/shortcodes/definitions/definitions.php:1959
+#: includes/shortcodes/definitions/definitions.php:2093
+#: includes/shortcodes/definitions/definitions.php:2158
+#: includes/shortcodes/definitions/definitions.php:2407
+#: includes/shortcodes/definitions/definitions.php:2858
+#: includes/shortcodes/definitions/definitions.php:2941
+#: includes/shortcodes/definitions/definitions.php:3032
+#: includes/shortcodes/definitions/definitions.php:3093
+#: includes/shortcodes/definitions/definitions.php:3193
+#: includes/shortcodes/definitions/definitions.php:3274
+#: includes/shortcodes/definitions/definitions.php:3398
+#: includes/shortcodes/definitions/definitions.php:3769
+#: includes/shortcodes/definitions/definitions.php:3846
+#: includes/shortcodes/definitions/definitions.php:3913
+#: includes/shortcodes/definitions/definitions.php:3955
+#: includes/shortcodes/definitions/definitions.php:4062
+#: includes/shortcodes/definitions/definitions.php:4093
+#: includes/shortcodes/definitions/definitions.php:4173
+#: includes/shortcodes/definitions/definitions.php:4260
+#: includes/shortcodes/definitions/definitions.php:4322
 msgid "CSS class"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:391
-#: includes/shortcodes/definitions/definitions.php:675
-#: includes/shortcodes/definitions/definitions.php:808
-#: includes/shortcodes/definitions/definitions.php:1026
-#: includes/shortcodes/definitions/definitions.php:1305
-#: includes/shortcodes/definitions/definitions.php:1420
-#: includes/shortcodes/definitions/definitions.php:1856
-#: includes/shortcodes/definitions/definitions.php:1956
-#: includes/shortcodes/definitions/definitions.php:2234
-#: includes/shortcodes/definitions/definitions.php:2370
-#: includes/shortcodes/definitions/definitions.php:2618
-#: includes/shortcodes/definitions/definitions.php:3068
-#: includes/shortcodes/definitions/definitions.php:3361
-#: includes/shortcodes/definitions/definitions.php:3452
-#: includes/shortcodes/definitions/definitions.php:3577
-#: includes/shortcodes/definitions/definitions.php:3761
-#: includes/shortcodes/definitions/definitions.php:3911
-#: includes/shortcodes/definitions/definitions.php:4035
-#: includes/shortcodes/definitions/definitions.php:4405
-#: includes/shortcodes/definitions/definitions.php:4482
-#: includes/shortcodes/definitions/definitions.php:4611
-#: includes/shortcodes/definitions/definitions.php:4653
-#: includes/shortcodes/definitions/definitions.php:4760
-#: includes/shortcodes/definitions/definitions.php:4791
-#: includes/shortcodes/definitions/definitions.php:4871
-#: includes/shortcodes/definitions/definitions.php:4958
-#: includes/shortcodes/definitions/definitions.php:5020
+#: includes/shortcodes/definitions/definitions.php:417
+#: includes/shortcodes/definitions/definitions.php:732
+#: includes/shortcodes/definitions/definitions.php:865
+#: includes/shortcodes/definitions/definitions.php:1075
+#: includes/shortcodes/definitions/definitions.php:1355
+#: includes/shortcodes/definitions/definitions.php:1423
+#: includes/shortcodes/definitions/definitions.php:1860
+#: includes/shortcodes/definitions/definitions.php:1960
+#: includes/shortcodes/definitions/definitions.php:2094
+#: includes/shortcodes/definitions/definitions.php:2159
+#: includes/shortcodes/definitions/definitions.php:2408
+#: includes/shortcodes/definitions/definitions.php:2859
+#: includes/shortcodes/definitions/definitions.php:2942
+#: includes/shortcodes/definitions/definitions.php:3033
+#: includes/shortcodes/definitions/definitions.php:3094
+#: includes/shortcodes/definitions/definitions.php:3194
+#: includes/shortcodes/definitions/definitions.php:3275
+#: includes/shortcodes/definitions/definitions.php:3399
+#: includes/shortcodes/definitions/definitions.php:3770
+#: includes/shortcodes/definitions/definitions.php:3847
+#: includes/shortcodes/definitions/definitions.php:3914
+#: includes/shortcodes/definitions/definitions.php:3956
+#: includes/shortcodes/definitions/definitions.php:4063
+#: includes/shortcodes/definitions/definitions.php:4094
+#: includes/shortcodes/definitions/definitions.php:4174
+#: includes/shortcodes/definitions/definitions.php:4261
+#: includes/shortcodes/definitions/definitions.php:4323
 msgid "Optional CSS additional classes"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:413
-#: includes/shortcodes/definitions/definitions.php:418
-#: includes/shortcodes/definitions/definitions.php:617
-#: includes/shortcodes/definitions/definitions.php:625
+#: includes/shortcodes/definitions/definitions.php:439
+#: includes/shortcodes/definitions/definitions.php:444
+#: includes/shortcodes/definitions/definitions.php:674
+#: includes/shortcodes/definitions/definitions.php:682
 msgid "Tabs"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:414
-#: includes/shortcodes/definitions/definitions.php:634
+#: includes/shortcodes/definitions/definitions.php:440
+#: includes/shortcodes/definitions/definitions.php:691
 msgid "Tab 1"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:414
-#: includes/shortcodes/definitions/definitions.php:635
+#: includes/shortcodes/definitions/definitions.php:440
+#: includes/shortcodes/definitions/definitions.php:692
 msgid "Tab 2"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:441
-#: includes/shortcodes/definitions/definitions.php:649
-#: includes/shortcodes/definitions/definitions.php:1841
-#: includes/shortcodes/definitions/definitions.php:1851
-#: includes/shortcodes/definitions/definitions.php:3054
-#: includes/shortcodes/definitions/definitions.php:3063
+#: includes/shortcodes/definitions/definitions.php:467
+#: includes/shortcodes/definitions/definitions.php:706
+#: includes/shortcodes/definitions/definitions.php:1845
+#: includes/shortcodes/definitions/definitions.php:1855
+#: includes/shortcodes/definitions/definitions.php:2845
+#: includes/shortcodes/definitions/definitions.php:2854
 msgid "Layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:444
-#: includes/shortcodes/definitions/definitions.php:654
+#: includes/shortcodes/definitions/definitions.php:470
+#: includes/shortcodes/definitions/definitions.php:711
 msgid "Tabs on top"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:445
-#: includes/shortcodes/definitions/definitions.php:655
+#: includes/shortcodes/definitions/definitions.php:471
+#: includes/shortcodes/definitions/definitions.php:712
 msgid "Tabs on left"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:446
-#: includes/shortcodes/definitions/definitions.php:656
+#: includes/shortcodes/definitions/definitions.php:472
+#: includes/shortcodes/definitions/definitions.php:713
 msgid "Tabs on right"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:499
-#: includes/shortcodes/definitions/definitions.php:662
+#: includes/shortcodes/definitions/definitions.php:525
+#: includes/shortcodes/definitions/definitions.php:719
 msgid "Enable tour mode?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:513
-#: includes/shortcodes/definitions/definitions.php:641
-msgid "Enter the order number of the tab which should be open by default"
+#: includes/shortcodes/definitions/definitions.php:538
+msgid "Active tab number"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:630
+#: includes/shortcodes/definitions/definitions.php:687
 msgid "Tab"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:630
+#: includes/shortcodes/definitions/definitions.php:687
 msgid "Tabs: Add new tab"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:640
+#: includes/shortcodes/definitions/definitions.php:697
 msgid "Active tab"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:697
-msgid "Item (accordion or tab section)"
+#: includes/shortcodes/definitions/definitions.php:698
+msgid "Enter the order number of the tab which should be open by default"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:702
+#: includes/shortcodes/definitions/definitions.php:754
+msgid "Item (Accordion or Tab Section)"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:759
 msgid "Item (Accordion / Tab)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:763
-#: includes/shortcodes/definitions/definitions.php:768
+#: includes/shortcodes/definitions/definitions.php:820
+#: includes/shortcodes/definitions/definitions.php:825
 msgid "Audio"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:771
-#: includes/shortcodes/definitions/definitions.php:3869
-#: includes/shortcodes/definitions/definitions.php:4436
-#: includes/shortcodes/definitions/definitions.php:4983
-#: includes/shortcodes/definitions/definitions.php:5077
-#: includes/shortcodes/definitions/definitions.php:5108
+#: includes/shortcodes/definitions/definitions.php:828
+#: includes/shortcodes/definitions/definitions.php:3233
+#: includes/shortcodes/definitions/definitions.php:3801
+#: includes/shortcodes/definitions/definitions.php:4286
+#: includes/shortcodes/definitions/definitions.php:4380
+#: includes/shortcodes/definitions/definitions.php:4411
 msgid "Media"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:774
+#: includes/shortcodes/definitions/definitions.php:831
 msgid "Audio source"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:775
+#: includes/shortcodes/definitions/definitions.php:832
 msgid "Set the audio URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:783
+#: includes/shortcodes/definitions/definitions.php:840
 msgid "Autoplay the audio?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:795
+#: includes/shortcodes/definitions/definitions.php:852
 msgid "Loop the audio?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:830
-#: includes/shortcodes/definitions/definitions.php:835
-#: includes/shortcodes/definitions/definitions.php:957
-#: includes/shortcodes/definitions/definitions.php:1124
+#: includes/shortcodes/definitions/definitions.php:887
+#: includes/shortcodes/definitions/definitions.php:892
+#: includes/shortcodes/definitions/definitions.php:1006
+#: includes/shortcodes/definitions/definitions.php:1174
 msgid "Button"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:856
-#: includes/shortcodes/definitions/definitions.php:964
-#: includes/shortcodes/definitions/definitions.php:1137
-#: includes/shortcodes/definitions/definitions.php:1244
-#: includes/shortcodes/definitions/definitions.php:3342
-#: includes/shortcodes/definitions/definitions.php:3343
-#: includes/shortcodes/definitions/definitions.php:3416
+#: includes/shortcodes/definitions/definitions.php:913
+#: includes/shortcodes/definitions/definitions.php:1013
+#: includes/shortcodes/definitions/definitions.php:1187
+#: includes/shortcodes/definitions/definitions.php:1294
+#: includes/shortcodes/definitions/definitions.php:2923
+#: includes/shortcodes/definitions/definitions.php:2924
+#: includes/shortcodes/definitions/definitions.php:2997
 msgid "Button text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:858
-#: includes/shortcodes/definitions/definitions.php:967
+#: includes/shortcodes/definitions/definitions.php:915
+#: includes/shortcodes/definitions/definitions.php:1016
 msgid "Button Text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:866
-#: includes/shortcodes/definitions/definitions.php:1147
-#: includes/shortcodes/definitions/definitions.php:1253
+#: includes/shortcodes/definitions/definitions.php:923
+#: includes/shortcodes/definitions/definitions.php:1197
+#: includes/shortcodes/definitions/definitions.php:1303
 msgid "Button link URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:876
-#: includes/shortcodes/definitions/definitions.php:981
-#: includes/shortcodes/definitions/definitions.php:1157
-#: includes/shortcodes/definitions/definitions.php:2115
-#: includes/shortcodes/definitions/definitions.php:2199
-#: includes/shortcodes/definitions/definitions.php:5003
+#: includes/shortcodes/definitions/definitions.php:933
+#: includes/shortcodes/definitions/definitions.php:1030
+#: includes/shortcodes/definitions/definitions.php:1207
+#: includes/shortcodes/definitions/definitions.php:2059
+#: includes/shortcodes/definitions/definitions.php:4306
 msgid "Target"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:877
-#: includes/shortcodes/definitions/definitions.php:982
-#: includes/shortcodes/definitions/definitions.php:1158
-#: includes/shortcodes/definitions/definitions.php:1261
-#: includes/shortcodes/definitions/definitions.php:2116
+#: includes/shortcodes/definitions/definitions.php:934
+#: includes/shortcodes/definitions/definitions.php:1031
+#: includes/shortcodes/definitions/definitions.php:1208
+#: includes/shortcodes/definitions/definitions.php:1311
 msgid "Button link target"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:881
-#: includes/shortcodes/definitions/definitions.php:987
-#: includes/shortcodes/definitions/definitions.php:1162
-#: includes/shortcodes/definitions/definitions.php:1267
-#: includes/shortcodes/definitions/definitions.php:2120
-#: includes/shortcodes/definitions/definitions.php:2205
-#: includes/shortcodes/definitions/definitions.php:5009
+#: includes/shortcodes/definitions/definitions.php:938
+#: includes/shortcodes/definitions/definitions.php:1036
+#: includes/shortcodes/definitions/definitions.php:1212
+#: includes/shortcodes/definitions/definitions.php:1317
+#: includes/shortcodes/definitions/definitions.php:2065
+#: includes/shortcodes/definitions/definitions.php:4312
 msgid "Open in new window / tab"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:890
-#: includes/shortcodes/definitions/definitions.php:997
-#: includes/shortcodes/definitions/definitions.php:2539
-#: includes/shortcodes/definitions/definitions.php:2589
-#: includes/shortcodes/definitions/definitions.php:3511
-#: includes/shortcodes/definitions/definitions.php:3568
+#: includes/shortcodes/definitions/definitions.php:947
+#: includes/shortcodes/definitions/definitions.php:1046
+#: includes/shortcodes/definitions/definitions.php:2329
+#: includes/shortcodes/definitions/definitions.php:2379
+#: includes/shortcodes/definitions/definitions.php:3085
 msgid "Color"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:900
-#: includes/shortcodes/definitions/definitions.php:1005
-#: includes/shortcodes/definitions/definitions.php:1380
-#: includes/shortcodes/definitions/definitions.php:1411
-#: includes/shortcodes/definitions/definitions.php:2030
-#: includes/shortcodes/definitions/definitions.php:2172
-#: includes/shortcodes/definitions/definitions.php:2549
-#: includes/shortcodes/definitions/definitions.php:2597
+#: includes/shortcodes/definitions/definitions.php:957
+#: includes/shortcodes/definitions/definitions.php:1054
+#: includes/shortcodes/definitions/definitions.php:1414
+#: includes/shortcodes/definitions/definitions.php:2032
+#: includes/shortcodes/definitions/definitions.php:2339
+#: includes/shortcodes/definitions/definitions.php:2387
 msgid "Size"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:910
-#: includes/shortcodes/definitions/definitions.php:1034
-#: includes/shortcodes/definitions/definitions.php:2070
-#: includes/shortcodes/definitions/definitions.php:3700
-#: includes/shortcodes/definitions/definitions.php:3769
-#: includes/shortcodes/definitions/definitions.php:4661
-#: includes/shortcodes/definitions/definitions.php:4799
-#: includes/shortcodes/definitions/definitions.php:4879
-msgid "Optional HTML ID"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:972
+#: includes/shortcodes/definitions/definitions.php:1021
 msgid "Button URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:973
+#: includes/shortcodes/definitions/definitions.php:1022
 msgid "Set the button link URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1056
-#: includes/shortcodes/definitions/definitions.php:1061
-#: includes/shortcodes/definitions/definitions.php:1219
-msgid "Call to action"
+#: includes/shortcodes/definitions/definitions.php:1083
+#: includes/shortcodes/definitions/definitions.php:3202
+#: includes/shortcodes/definitions/definitions.php:3964
+#: includes/shortcodes/definitions/definitions.php:4102
+#: includes/shortcodes/definitions/definitions.php:4182
+msgid "Optional HTML ID"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1082
-#: includes/shortcodes/definitions/definitions.php:1226
-#: includes/shortcodes/definitions/definitions.php:2451
-#: includes/shortcodes/definitions/definitions.php:2572
-#: includes/shortcodes/definitions/definitions.php:3164
-#: includes/shortcodes/definitions/definitions.php:3204
-#: includes/shortcodes/definitions/definitions.php:3395
-#: includes/shortcodes/definitions/definitions.php:3523
-#: includes/shortcodes/definitions/definitions.php:3550
+#: includes/shortcodes/definitions/definitions.php:1105
+#: includes/shortcodes/definitions/definitions.php:1110
+#: includes/shortcodes/definitions/definitions.php:1269
+msgid "Call to Action"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1131
+#: includes/shortcodes/definitions/definitions.php:1276
+#: includes/shortcodes/definitions/definitions.php:2240
+#: includes/shortcodes/definitions/definitions.php:2362
+#: includes/shortcodes/definitions/definitions.php:2976
+#: includes/shortcodes/definitions/definitions.php:3067
 msgid "Caption"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1092
-#: includes/shortcodes/definitions/definitions.php:2461
-#: includes/shortcodes/definitions/definitions.php:3212
+#: includes/shortcodes/definitions/definitions.php:1141
+#: includes/shortcodes/definitions/definitions.php:2250
 msgid "Caption HTML tag"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1171
-#: includes/shortcodes/definitions/definitions.php:1273
+#: includes/shortcodes/definitions/definitions.php:1221
+#: includes/shortcodes/definitions/definitions.php:1323
 msgid "Button color"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1181
-#: includes/shortcodes/definitions/definitions.php:1282
+#: includes/shortcodes/definitions/definitions.php:1231
+#: includes/shortcodes/definitions/definitions.php:1332
 msgid "Button size"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1193
-#: includes/shortcodes/definitions/definitions.php:1291
+#: includes/shortcodes/definitions/definitions.php:1243
+#: includes/shortcodes/definitions/definitions.php:1341
 msgid "Button icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1235
+#: includes/shortcodes/definitions/definitions.php:1285
 msgid "Content text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1292
+#: includes/shortcodes/definitions/definitions.php:1342
 msgid "Choose one of available icons"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1327
-#: includes/shortcodes/definitions/definitions.php:4781
-#: includes/shortcodes/definitions/definitions.php:4861
+#: includes/shortcodes/definitions/definitions.php:1377
+#: includes/shortcodes/definitions/definitions.php:4084
+#: includes/shortcodes/definitions/definitions.php:4164
 msgid "Column"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1344
-#: includes/shortcodes/definitions/definitions.php:1349
-#: includes/shortcodes/definitions/definitions.php:1396
-msgid "Countdown timer"
+#: includes/shortcodes/definitions/definitions.php:1394
+#: includes/shortcodes/definitions/definitions.php:1399
+msgid "Countdown Timer"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1370
-#: includes/shortcodes/definitions/definitions.php:1403
+#: includes/shortcodes/definitions/definitions.php:1406
 msgid "Time"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1443
-#: includes/shortcodes/definitions/definitions.php:1448
-#: includes/shortcodes/definitions/definitions.php:1695
+#: includes/shortcodes/definitions/definitions.php:1446
+#: includes/shortcodes/definitions/definitions.php:1451
+#: includes/shortcodes/definitions/definitions.php:1699
 msgid "Content Module"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1463
+#: includes/shortcodes/definitions/definitions.php:1466
 msgid "Single module display"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1469
-#: includes/shortcodes/definitions/definitions.php:1702
+#: includes/shortcodes/definitions/definitions.php:1472
+#: includes/shortcodes/definitions/definitions.php:1706
 msgid "Single module"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1470
-#: includes/shortcodes/definitions/definitions.php:1703
+#: includes/shortcodes/definitions/definitions.php:1473
+#: includes/shortcodes/definitions/definitions.php:1707
 msgid "Leave empty to display multiple modules"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1482
-#: includes/shortcodes/definitions/definitions.php:4097
+#: includes/shortcodes/definitions/definitions.php:1485
+#: includes/shortcodes/definitions/definitions.php:3461
 msgid "Multiple modules display"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1488
-#: includes/shortcodes/definitions/definitions.php:1712
-#: includes/shortcodes/definitions/definitions.php:2690
-#: includes/shortcodes/definitions/definitions.php:2917
-#: includes/shortcodes/definitions/definitions.php:4103
-#: includes/shortcodes/definitions/definitions.php:4294
+#: includes/shortcodes/definitions/definitions.php:1491
+#: includes/shortcodes/definitions/definitions.php:1716
+#: includes/shortcodes/definitions/definitions.php:2480
+#: includes/shortcodes/definitions/definitions.php:2708
+#: includes/shortcodes/definitions/definitions.php:3467
+#: includes/shortcodes/definitions/definitions.php:3659
 msgid "Count"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1489
-#: includes/shortcodes/definitions/definitions.php:1713
-#: includes/shortcodes/definitions/definitions.php:2691
-#: includes/shortcodes/definitions/definitions.php:2918
-#: includes/shortcodes/definitions/definitions.php:4104
-#: includes/shortcodes/definitions/definitions.php:4295
+#: includes/shortcodes/definitions/definitions.php:1492
+#: includes/shortcodes/definitions/definitions.php:1717
+#: includes/shortcodes/definitions/definitions.php:2481
+#: includes/shortcodes/definitions/definitions.php:2709
+#: includes/shortcodes/definitions/definitions.php:3468
+#: includes/shortcodes/definitions/definitions.php:3660
 msgid "Number of items to display (use \"-1\" to display all)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1499
-#: includes/shortcodes/definitions/definitions.php:1722
-#: includes/shortcodes/definitions/definitions.php:2701
-#: includes/shortcodes/definitions/definitions.php:2926
-#: includes/shortcodes/definitions/definitions.php:4114
-#: includes/shortcodes/definitions/definitions.php:4304
+#: includes/shortcodes/definitions/definitions.php:1502
+#: includes/shortcodes/definitions/definitions.php:1726
+#: includes/shortcodes/definitions/definitions.php:2491
+#: includes/shortcodes/definitions/definitions.php:2717
+#: includes/shortcodes/definitions/definitions.php:3478
+#: includes/shortcodes/definitions/definitions.php:3669
 msgid "Columns"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:1518
-#: includes/shortcodes/definitions/definitions.php:1739
-#: includes/shortcodes/definitions/definitions.php:2720
-#: includes/shortcodes/definitions/definitions.php:2942
-#: includes/shortcodes/definitions/definitions.php:4133
-#: includes/shortcodes/definitions/definitions.php:4321
-msgid "Order"
 msgstr ""
 
 #: includes/shortcodes/definitions/definitions.php:1521
 #: includes/shortcodes/definitions/definitions.php:1743
-#: includes/shortcodes/definitions/definitions.php:2723
-#: includes/shortcodes/definitions/definitions.php:2946
-#: includes/shortcodes/definitions/definitions.php:4136
-#: includes/shortcodes/definitions/definitions.php:4325
-msgid "Newest first"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:1522
-#: includes/shortcodes/definitions/definitions.php:1744
-#: includes/shortcodes/definitions/definitions.php:2724
-#: includes/shortcodes/definitions/definitions.php:2947
-#: includes/shortcodes/definitions/definitions.php:4137
-#: includes/shortcodes/definitions/definitions.php:4326
-msgid "Oldest first"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:1523
-#: includes/shortcodes/definitions/definitions.php:1745
-#: includes/shortcodes/definitions/definitions.php:2725
-#: includes/shortcodes/definitions/definitions.php:2948
-#: includes/shortcodes/definitions/definitions.php:4138
-#: includes/shortcodes/definitions/definitions.php:4327
-msgid "By name"
+#: includes/shortcodes/definitions/definitions.php:2510
+#: includes/shortcodes/definitions/definitions.php:2733
+#: includes/shortcodes/definitions/definitions.php:3497
+#: includes/shortcodes/definitions/definitions.php:3686
+msgid "Order"
 msgstr ""
 
 #: includes/shortcodes/definitions/definitions.php:1524
-#: includes/shortcodes/definitions/definitions.php:1746
-#: includes/shortcodes/definitions/definitions.php:2726
-#: includes/shortcodes/definitions/definitions.php:2949
-#: includes/shortcodes/definitions/definitions.php:4139
-#: includes/shortcodes/definitions/definitions.php:4328
+#: includes/shortcodes/definitions/definitions.php:1747
+#: includes/shortcodes/definitions/definitions.php:2513
+#: includes/shortcodes/definitions/definitions.php:2737
+#: includes/shortcodes/definitions/definitions.php:3500
+#: includes/shortcodes/definitions/definitions.php:3690
+msgid "Newest first"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1525
+#: includes/shortcodes/definitions/definitions.php:1748
+#: includes/shortcodes/definitions/definitions.php:2514
+#: includes/shortcodes/definitions/definitions.php:2738
+#: includes/shortcodes/definitions/definitions.php:3501
+#: includes/shortcodes/definitions/definitions.php:3691
+msgid "Oldest first"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1526
+#: includes/shortcodes/definitions/definitions.php:1749
+#: includes/shortcodes/definitions/definitions.php:2515
+#: includes/shortcodes/definitions/definitions.php:2739
+#: includes/shortcodes/definitions/definitions.php:3502
+#: includes/shortcodes/definitions/definitions.php:3692
+msgid "By name"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1527
+#: includes/shortcodes/definitions/definitions.php:1750
+#: includes/shortcodes/definitions/definitions.php:2516
+#: includes/shortcodes/definitions/definitions.php:2740
+#: includes/shortcodes/definitions/definitions.php:3503
+#: includes/shortcodes/definitions/definitions.php:3693
 msgid "Randomly"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1534
+#: includes/shortcodes/definitions/definitions.php:1537
 msgid "Display the modules filter from module tags?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1547
-#: includes/shortcodes/definitions/definitions.php:1766
-#: includes/shortcodes/definitions/definitions.php:2842
-#: includes/shortcodes/definitions/definitions.php:2997
-#: includes/shortcodes/definitions/definitions.php:4148
-#: includes/shortcodes/definitions/definitions.php:4335
+#: includes/shortcodes/definitions/definitions.php:1550
+#: includes/shortcodes/definitions/definitions.php:1770
+#: includes/shortcodes/definitions/definitions.php:2632
+#: includes/shortcodes/definitions/definitions.php:2788
+#: includes/shortcodes/definitions/definitions.php:3512
+#: includes/shortcodes/definitions/definitions.php:3700
 msgid "Scrolling"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1548
-#: includes/shortcodes/definitions/definitions.php:1767
-#: includes/shortcodes/definitions/definitions.php:2843
-#: includes/shortcodes/definitions/definitions.php:2998
-#: includes/shortcodes/definitions/definitions.php:4149
-#: includes/shortcodes/definitions/definitions.php:4336
+#: includes/shortcodes/definitions/definitions.php:1551
+#: includes/shortcodes/definitions/definitions.php:1771
+#: includes/shortcodes/definitions/definitions.php:2633
+#: includes/shortcodes/definitions/definitions.php:2789
+#: includes/shortcodes/definitions/definitions.php:3513
+#: includes/shortcodes/definitions/definitions.php:3701
 msgid ""
 "Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value "
 "for automatic scrolling represents the time of a scroll in miliseconds. "
 "Leave empty to disable scrolling."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1556
+#: includes/shortcodes/definitions/definitions.php:1559
 msgid "Tagged as"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1557
-#: includes/shortcodes/definitions/definitions.php:1777
+#: includes/shortcodes/definitions/definitions.php:1560
+#: includes/shortcodes/definitions/definitions.php:1781
 msgid "Display specifically tagged items only"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1567
-#: includes/shortcodes/definitions/definitions.php:1786
-#: includes/shortcodes/definitions/definitions.php:2862
-#: includes/shortcodes/definitions/definitions.php:3008
-#: includes/shortcodes/definitions/definitions.php:4168
-#: includes/shortcodes/definitions/definitions.php:4355
+#: includes/shortcodes/definitions/definitions.php:1570
+#: includes/shortcodes/definitions/definitions.php:1790
+#: includes/shortcodes/definitions/definitions.php:2652
+#: includes/shortcodes/definitions/definitions.php:2799
+#: includes/shortcodes/definitions/definitions.php:3532
+#: includes/shortcodes/definitions/definitions.php:3720
 msgid "Display pagination?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1586
-#: includes/shortcodes/definitions/definitions.php:2741
-#: includes/shortcodes/definitions/definitions.php:3028
-#: includes/shortcodes/definitions/definitions.php:3040
-#: includes/shortcodes/definitions/definitions.php:4187
+#: includes/shortcodes/definitions/definitions.php:1589
+#: includes/shortcodes/definitions/definitions.php:2531
+#: includes/shortcodes/definitions/definitions.php:2819
+#: includes/shortcodes/definitions/definitions.php:2831
+#: includes/shortcodes/definitions/definitions.php:3551
 msgid "Description"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1599
-#: includes/shortcodes/definitions/definitions.php:1809
-#: includes/shortcodes/definitions/definitions.php:2754
-#: includes/shortcodes/definitions/definitions.php:3031
-#: includes/shortcodes/definitions/definitions.php:4200
-#: includes/shortcodes/definitions/definitions.php:4378
+#: includes/shortcodes/definitions/definitions.php:1602
+#: includes/shortcodes/definitions/definitions.php:1813
+#: includes/shortcodes/definitions/definitions.php:2544
+#: includes/shortcodes/definitions/definitions.php:2822
+#: includes/shortcodes/definitions/definitions.php:3564
+#: includes/shortcodes/definitions/definitions.php:3743
 msgid "Description alignment"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1647
-#: includes/shortcodes/definitions/definitions.php:1821
-#: includes/shortcodes/definitions/definitions.php:2802
-#: includes/shortcodes/definitions/definitions.php:3044
-#: includes/shortcodes/definitions/definitions.php:4248
-#: includes/shortcodes/definitions/definitions.php:4390
+#: includes/shortcodes/definitions/definitions.php:1605
+#: includes/shortcodes/definitions/definitions.php:1817
+#: includes/shortcodes/definitions/definitions.php:2547
+#: includes/shortcodes/definitions/definitions.php:2826
+#: includes/shortcodes/definitions/definitions.php:3185
+#: includes/shortcodes/definitions/definitions.php:3567
+#: includes/shortcodes/definitions/definitions.php:3747
+msgid "Left"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1606
+#: includes/shortcodes/definitions/definitions.php:1818
+#: includes/shortcodes/definitions/definitions.php:2548
+#: includes/shortcodes/definitions/definitions.php:2827
+#: includes/shortcodes/definitions/definitions.php:3187
+#: includes/shortcodes/definitions/definitions.php:3568
+#: includes/shortcodes/definitions/definitions.php:3748
+msgid "Right"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:1650
+#: includes/shortcodes/definitions/definitions.php:1825
+#: includes/shortcodes/definitions/definitions.php:2592
+#: includes/shortcodes/definitions/definitions.php:2835
+#: includes/shortcodes/definitions/definitions.php:3612
+#: includes/shortcodes/definitions/definitions.php:3755
 msgid "Remove gap between items?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1660
-#: includes/shortcodes/definitions/definitions.php:1835
-#: includes/shortcodes/definitions/definitions.php:2875
-#: includes/shortcodes/definitions/definitions.php:3057
-#: includes/shortcodes/definitions/definitions.php:3839
-#: includes/shortcodes/definitions/definitions.php:3893
+#: includes/shortcodes/definitions/definitions.php:1663
+#: includes/shortcodes/definitions/definitions.php:1839
+#: includes/shortcodes/definitions/definitions.php:2665
+#: includes/shortcodes/definitions/definitions.php:2848
+#: includes/shortcodes/definitions/definitions.php:3257
 msgid "Image size"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1680
-#: includes/shortcodes/definitions/definitions.php:1844
+#: includes/shortcodes/definitions/definitions.php:1684
+#: includes/shortcodes/definitions/definitions.php:1848
 msgid "Custom layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1681
-#: includes/shortcodes/definitions/definitions.php:1845
+#: includes/shortcodes/definitions/definitions.php:1685
+#: includes/shortcodes/definitions/definitions.php:1849
 #, php-format
 msgid ""
 "Set the custom layout of the output. Order the predefined items (%s) "
 "separated with comma (no spaces)."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1719
-#: includes/shortcodes/definitions/definitions.php:1736
-#: includes/shortcodes/definitions/definitions.php:1750
-#: includes/shortcodes/definitions/definitions.php:1763
-#: includes/shortcodes/definitions/definitions.php:1773
-#: includes/shortcodes/definitions/definitions.php:1783
-#: includes/shortcodes/definitions/definitions.php:1796
-#: includes/shortcodes/definitions/definitions.php:1806
-#: includes/shortcodes/definitions/definitions.php:1818
-#: includes/shortcodes/definitions/definitions.php:1831
-#: includes/shortcodes/definitions/definitions.php:4301
-#: includes/shortcodes/definitions/definitions.php:4318
-#: includes/shortcodes/definitions/definitions.php:4332
-#: includes/shortcodes/definitions/definitions.php:4342
-#: includes/shortcodes/definitions/definitions.php:4352
-#: includes/shortcodes/definitions/definitions.php:4365
-#: includes/shortcodes/definitions/definitions.php:4375
-#: includes/shortcodes/definitions/definitions.php:4387
-#: includes/shortcodes/definitions/definitions.php:4400
+#: includes/shortcodes/definitions/definitions.php:1723
+#: includes/shortcodes/definitions/definitions.php:1740
+#: includes/shortcodes/definitions/definitions.php:1754
+#: includes/shortcodes/definitions/definitions.php:1767
+#: includes/shortcodes/definitions/definitions.php:1777
+#: includes/shortcodes/definitions/definitions.php:1787
+#: includes/shortcodes/definitions/definitions.php:1800
+#: includes/shortcodes/definitions/definitions.php:1810
+#: includes/shortcodes/definitions/definitions.php:1822
+#: includes/shortcodes/definitions/definitions.php:1835
+#: includes/shortcodes/definitions/definitions.php:3666
+#: includes/shortcodes/definitions/definitions.php:3683
+#: includes/shortcodes/definitions/definitions.php:3697
+#: includes/shortcodes/definitions/definitions.php:3707
+#: includes/shortcodes/definitions/definitions.php:3717
+#: includes/shortcodes/definitions/definitions.php:3730
+#: includes/shortcodes/definitions/definitions.php:3740
+#: includes/shortcodes/definitions/definitions.php:3752
+#: includes/shortcodes/definitions/definitions.php:3765
 msgid "Multiple display"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1753
-#: includes/shortcodes/definitions/definitions.php:2977
+#: includes/shortcodes/definitions/definitions.php:1757
+#: includes/shortcodes/definitions/definitions.php:2768
 msgid "Filter"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1799
-#: includes/shortcodes/definitions/definitions.php:4368
+#: includes/shortcodes/definitions/definitions.php:1803
+#: includes/shortcodes/definitions/definitions.php:3733
 msgid "Description text (HTML)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1878
-#: includes/shortcodes/definitions/definitions.php:1883
-#: includes/shortcodes/definitions/definitions.php:1920
+#: includes/shortcodes/definitions/definitions.php:1882
+#: includes/shortcodes/definitions/definitions.php:1887
+#: includes/shortcodes/definitions/definitions.php:1924
 msgid "Divider / Gap"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1904
-#: includes/shortcodes/definitions/definitions.php:1928
-#: includes/shortcodes/definitions/definitions.php:3296
-#: includes/shortcodes/definitions/definitions.php:3438
-#: includes/shortcodes/definitions/definitions.php:3959
-#: includes/shortcodes/definitions/definitions.php:4026
+#: includes/shortcodes/definitions/definitions.php:1908
+#: includes/shortcodes/definitions/definitions.php:1932
+#: includes/shortcodes/definitions/definitions.php:3019
+#: includes/shortcodes/definitions/definitions.php:3323
+#: includes/shortcodes/definitions/definitions.php:3390
 msgid "Appearance"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1937
+#: includes/shortcodes/definitions/definitions.php:1941
 msgid "Space before divider"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1938
-#: includes/shortcodes/definitions/definitions.php:1947
+#: includes/shortcodes/definitions/definitions.php:1942
+#: includes/shortcodes/definitions/definitions.php:1951
 msgid "Insert a number (of pixels)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1946
+#: includes/shortcodes/definitions/definitions.php:1950
 msgid "Space after divider"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1964
-#: includes/shortcodes/definitions/definitions.php:2242
+#: includes/shortcodes/definitions/definitions.php:1968
+#: includes/shortcodes/definitions/definitions.php:2102
 msgid "CSS styles"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1965
-#: includes/shortcodes/definitions/definitions.php:2243
+#: includes/shortcodes/definitions/definitions.php:1969
+#: includes/shortcodes/definitions/definitions.php:2103
 msgid "Any custom CSS style inserted into style HTML attribute"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:1987
+#: includes/shortcodes/definitions/definitions.php:1991
 msgid "Dropcap"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2004
-#: includes/shortcodes/definitions/definitions.php:2009
-#: includes/shortcodes/definitions/definitions.php:2153
-msgid "Icon (social icon)"
+#: includes/shortcodes/definitions/definitions.php:2008
+#: includes/shortcodes/definitions/definitions.php:2013
+msgid "Icon / Social Icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2064
-msgid "Advanced"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:2084
-#: includes/shortcodes/definitions/definitions.php:2187
-#: includes/shortcodes/definitions/definitions.php:2196
-#: includes/shortcodes/definitions/definitions.php:2209
-#: includes/shortcodes/definitions/definitions.php:2219
-#: includes/shortcodes/definitions/definitions.php:2229
-msgid "Social icon"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:2097
-#: includes/shortcodes/definitions/definitions.php:2181
+#: includes/shortcodes/definitions/definitions.php:2041
 msgid "Social icon?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2107
-#: includes/shortcodes/definitions/definitions.php:2190
+#: includes/shortcodes/definitions/definitions.php:2047
+#: includes/shortcodes/definitions/definitions.php:2056
+#: includes/shortcodes/definitions/definitions.php:2069
+#: includes/shortcodes/definitions/definitions.php:2079
+#: includes/shortcodes/definitions/definitions.php:2089
+msgid "Social icon"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:2050
 msgid "Social icon link URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2129
-#: includes/shortcodes/definitions/definitions.php:2212
+#: includes/shortcodes/definitions/definitions.php:2072
 msgid "Social icon title"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2130
-#: includes/shortcodes/definitions/definitions.php:2213
+#: includes/shortcodes/definitions/definitions.php:2073
 msgid "Will be displayed when mouse hovers over the icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2138
-#: includes/shortcodes/definitions/definitions.php:2222
+#: includes/shortcodes/definitions/definitions.php:2082
 msgid "Social icon relation"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2139
-#: includes/shortcodes/definitions/definitions.php:2223
+#: includes/shortcodes/definitions/definitions.php:2083
 msgid "The HTML \"rel\" attribute"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2265
-#: includes/shortcodes/definitions/definitions.php:2270
-#: includes/shortcodes/definitions/definitions.php:2341
-msgid "Icons list"
+#: includes/shortcodes/definitions/definitions.php:2125
+#: includes/shortcodes/definitions/definitions.php:2130
+msgid "Icon List"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2266
+#: includes/shortcodes/definitions/definitions.php:2126
 msgid "List item"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2285
-msgid "List items"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:2286
-msgid "Insert unordered list only"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:2315
-#: includes/shortcodes/definitions/definitions.php:2357
-msgid "Bullet icon"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:2348
+#: includes/shortcodes/definitions/definitions.php:2137
 msgid "List items (insert unordered list only)"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2392
-msgid "Last update time"
+#: includes/shortcodes/definitions/definitions.php:2146
+msgid "Bullet icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2409
+#: includes/shortcodes/definitions/definitions.php:2181
+msgid "Last Update Time"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:2198
 msgid "Marker"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2426
-#: includes/shortcodes/definitions/definitions.php:2430
-#: includes/shortcodes/definitions/definitions.php:2565
+#: includes/shortcodes/definitions/definitions.php:2215
+#: includes/shortcodes/definitions/definitions.php:2219
+#: includes/shortcodes/definitions/definitions.php:2355
 msgid "Message"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2653
-#: includes/shortcodes/definitions/definitions.php:2658
-#: includes/shortcodes/definitions/definitions.php:2901
-msgid "Posts (custom posts)"
+#: includes/shortcodes/definitions/definitions.php:2443
+#: includes/shortcodes/definitions/definitions.php:2448
+#: includes/shortcodes/definitions/definitions.php:2692
+msgid "Posts / Custom Posts"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2679
-#: includes/shortcodes/definitions/definitions.php:2908
+#: includes/shortcodes/definitions/definitions.php:2469
+#: includes/shortcodes/definitions/definitions.php:2699
 msgid "Post type"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2680
-#: includes/shortcodes/definitions/definitions.php:2909
+#: includes/shortcodes/definitions/definitions.php:2470
+#: includes/shortcodes/definitions/definitions.php:2700
 msgid ""
 "This shortcode can display several post types. Choose the one you want to "
 "display."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2815
+#: includes/shortcodes/definitions/definitions.php:2605
 msgid "From taxonomy"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2816
-#: includes/shortcodes/definitions/definitions.php:2825
+#: includes/shortcodes/definitions/definitions.php:2606
+#: includes/shortcodes/definitions/definitions.php:2615
 msgid ""
 "Example: \"taxonomy_name\" or more specific \"taxonomy_name:taxonomy-slug\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2816
-#: includes/shortcodes/definitions/definitions.php:2825
-#: includes/shortcodes/definitions/definitions.php:2957
-#: includes/shortcodes/definitions/definitions.php:2967
-#: includes/shortcodes/definitions/definitions.php:2978
+#: includes/shortcodes/definitions/definitions.php:2606
+#: includes/shortcodes/definitions/definitions.php:2615
+#: includes/shortcodes/definitions/definitions.php:2748
+#: includes/shortcodes/definitions/definitions.php:2758
+#: includes/shortcodes/definitions/definitions.php:2769
 msgid "Available taxonomy names:"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2824
+#: includes/shortcodes/definitions/definitions.php:2614
 msgid "Filter by"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2833
-#: includes/shortcodes/definitions/definitions.php:2987
+#: includes/shortcodes/definitions/definitions.php:2623
+#: includes/shortcodes/definitions/definitions.php:2778
 msgid "Filter layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2834
-#: includes/shortcodes/definitions/definitions.php:2988
+#: includes/shortcodes/definitions/definitions.php:2624
+#: includes/shortcodes/definitions/definitions.php:2779
 #, php-format
 msgid "Use one of <a%s>Isotope</a> layouts."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2834
-#: includes/shortcodes/definitions/definitions.php:2988
+#: includes/shortcodes/definitions/definitions.php:2624
+#: includes/shortcodes/definitions/definitions.php:2779
 msgid "Default is set to <code>fitRows</code>."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2851
+#: includes/shortcodes/definitions/definitions.php:2641
 msgid "Related by"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2852
-#: includes/shortcodes/definitions/definitions.php:2967
+#: includes/shortcodes/definitions/definitions.php:2642
+#: includes/shortcodes/definitions/definitions.php:2758
 msgid ""
 "Use only on single post/custom post pages. Displays items related to "
 "recently displayed item through a specific taxonomy. Set a taxonomy name "
 "only."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2956
-#: includes/shortcodes/definitions/definitions.php:2963
-#: includes/shortcodes/definitions/definitions.php:2973
+#: includes/shortcodes/definitions/definitions.php:2747
+#: includes/shortcodes/definitions/definitions.php:2754
+#: includes/shortcodes/definitions/definitions.php:2764
 msgid "Taxonomy"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2957
+#: includes/shortcodes/definitions/definitions.php:2748
 msgid ""
 "Displays items only from a specific taxonomy. Set a taxonomy name and "
 "taxonomy slug separated with colon."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2957
+#: includes/shortcodes/definitions/definitions.php:2748
 msgid "For example: \"category:category-slug\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2966
+#: includes/shortcodes/definitions/definitions.php:2757
 msgid "Relation"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2967
+#: includes/shortcodes/definitions/definitions.php:2758
 msgid "For example: \"category\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2978
+#: includes/shortcodes/definitions/definitions.php:2769
 msgid ""
 "If set, the items will be filtered. Set a taxonomy name (and optional parent "
 "taxonomy slug separated with colon - filter will be created from sub-"
 "taxonomies) which will be used to filter the items."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2978
+#: includes/shortcodes/definitions/definitions.php:2769
 msgid "For example: \"category\" or \"category:parent-category-slug\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:2984
-#: includes/shortcodes/definitions/definitions.php:2994
-#: includes/shortcodes/definitions/definitions.php:3004
+#: includes/shortcodes/definitions/definitions.php:2775
+#: includes/shortcodes/definitions/definitions.php:2785
+#: includes/shortcodes/definitions/definitions.php:2795
 msgid "Filter / Scroll"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3021
+#: includes/shortcodes/definitions/definitions.php:2812
 msgid "Description text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3090
-msgid "Preformatted text"
+#: includes/shortcodes/definitions/definitions.php:2881
+msgid "Preformatted Text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3111
-#: includes/shortcodes/definitions/definitions.php:3116
-#: includes/shortcodes/definitions/definitions.php:3326
-#: includes/shortcodes/definitions/definitions.php:3333
-msgid "Pricing table"
+#: includes/shortcodes/definitions/definitions.php:2902
+#: includes/shortcodes/definitions/definitions.php:2907
+msgid "Pricing Table"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3112
-#: includes/shortcodes/definitions/definitions.php:3342
+#: includes/shortcodes/definitions/definitions.php:2903
+#: includes/shortcodes/definitions/definitions.php:2923
 msgid "Price 1"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3112
-#: includes/shortcodes/definitions/definitions.php:3343
+#: includes/shortcodes/definitions/definitions.php:2903
+#: includes/shortcodes/definitions/definitions.php:2924
 msgid "Price 2"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3112
+#: includes/shortcodes/definitions/definitions.php:2903
 msgid "Price 2 content goes here"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3139
-#: includes/shortcodes/definitions/definitions.php:3348
-msgid "Remove margins between price columns?"
+#: includes/shortcodes/definitions/definitions.php:2914
+msgid "Pricing table"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3154
-msgid "Price columns"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3184
-#: includes/shortcodes/definitions/definitions.php:3338
-#: includes/shortcodes/definitions/definitions.php:3388
+#: includes/shortcodes/definitions/definitions.php:2919
+#: includes/shortcodes/definitions/definitions.php:2964
+#: includes/shortcodes/definitions/definitions.php:2969
 msgid "Price"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3222
-#: includes/shortcodes/definitions/definitions.php:3404
-msgid "Cost"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3232
-#: includes/shortcodes/definitions/definitions.php:3412
-msgid "Features list"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3233
-#: includes/shortcodes/definitions/definitions.php:3413
-msgid "Insert an unordered list of features"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3262
-msgid "Colors"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3268
-#: includes/shortcodes/definitions/definitions.php:3421
-msgid "Column color"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3278
-#: includes/shortcodes/definitions/definitions.php:3430
-msgid "Column text color"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3290
-msgid "Column style"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3299
-#: includes/shortcodes/definitions/definitions.php:3443
-msgid "Default price column"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3300
-#: includes/shortcodes/definitions/definitions.php:3444
-msgid "Featured price column"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3301
-#: includes/shortcodes/definitions/definitions.php:3445
-msgid "Pricing table legend"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3338
+#: includes/shortcodes/definitions/definitions.php:2919
 msgid "Pricing table: Add new price"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3342
-#: includes/shortcodes/definitions/definitions.php:3343
-#: includes/shortcodes/definitions/definitions.php:3416
+#: includes/shortcodes/definitions/definitions.php:2923
+#: includes/shortcodes/definitions/definitions.php:2924
+#: includes/shortcodes/definitions/definitions.php:2997
 msgid "<ul><li>Price feature</li><li>Another price feature</li></ul>"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3383
-msgid "Price (pricing table item)"
+#: includes/shortcodes/definitions/definitions.php:2929
+msgid "Remove margins between price columns?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3474
-#: includes/shortcodes/definitions/definitions.php:3479
-#: includes/shortcodes/definitions/definitions.php:3543
-msgid "Progress bar"
+#: includes/shortcodes/definitions/definitions.php:2985
+msgid "Cost"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3500
-#: includes/shortcodes/definitions/definitions.php:3559
-msgid "Progress in %"
+#: includes/shortcodes/definitions/definitions.php:2993
+msgid "Features list"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3501
-#: includes/shortcodes/definitions/definitions.php:3560
-msgid "Insert a number between 0 and 100"
+#: includes/shortcodes/definitions/definitions.php:2994
+msgid "Insert an unordered list of features"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3554
+#: includes/shortcodes/definitions/definitions.php:3002
+msgid "Column color"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3011
+msgid "Column text color"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3024
+msgid "Default price column"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3025
+msgid "Featured price column"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3026
+msgid "Pricing table legend"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3055
+#: includes/shortcodes/definitions/definitions.php:3060
+msgid "Progress Bar"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3071
 msgid "Progress bar caption"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3599
-#: includes/shortcodes/definitions/definitions.php:4747
+#: includes/shortcodes/definitions/definitions.php:3076
+msgid "Progress in %"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3077
+msgid "Insert a number between 0 and 100"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3116
+#: includes/shortcodes/definitions/definitions.php:3945
+#: includes/shortcodes/definitions/definitions.php:4050
 msgid "Row"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3616
-msgid "Search form"
+#: includes/shortcodes/definitions/definitions.php:3133
+msgid "Search Form"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3633
-#: includes/shortcodes/definitions/definitions.php:3638
-#: includes/shortcodes/definitions/definitions.php:3714
-msgid "Separator heading"
+#: includes/shortcodes/definitions/definitions.php:3150
+#: includes/shortcodes/definitions/definitions.php:3155
+msgid "Separator Heading"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3659
-#: includes/shortcodes/definitions/definitions.php:3721
+#: includes/shortcodes/definitions/definitions.php:3162
 msgid "Heading text"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3667
-#: includes/shortcodes/definitions/definitions.php:3730
+#: includes/shortcodes/definitions/definitions.php:3171
 msgid "Heading size"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3686
-#: includes/shortcodes/definitions/definitions.php:3747
+#: includes/shortcodes/definitions/definitions.php:3180
 msgid "Text align"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3791
-#: includes/shortcodes/definitions/definitions.php:3796
-#: includes/shortcodes/definitions/definitions.php:3865
+#: includes/shortcodes/definitions/definitions.php:3186
+msgid "Center"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3224
+#: includes/shortcodes/definitions/definitions.php:3229
 msgid "Slideshow"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3817
-#: includes/shortcodes/definitions/definitions.php:3872
+#: includes/shortcodes/definitions/definitions.php:3236
 msgid "Images"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3825
-#: includes/shortcodes/definitions/definitions.php:3881
+#: includes/shortcodes/definitions/definitions.php:3245
 msgid "Navigation"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3828
-#: includes/shortcodes/definitions/definitions.php:3885
+#: includes/shortcodes/definitions/definitions.php:3249
 msgid "Just Next/Prev button"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3829
-#: includes/shortcodes/definitions/definitions.php:3886
+#: includes/shortcodes/definitions/definitions.php:3250
 msgid "Thumbnails"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3830
-#: includes/shortcodes/definitions/definitions.php:3887
+#: includes/shortcodes/definitions/definitions.php:3251
 msgid "Pagination"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3849
-#: includes/shortcodes/definitions/definitions.php:3901
+#: includes/shortcodes/definitions/definitions.php:3265
 msgid "Speed in miliseconds"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3933
-#: includes/shortcodes/definitions/definitions.php:4003
-msgid "Table (CSV data)"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:3938
+#: includes/shortcodes/definitions/definitions.php:3297
+#: includes/shortcodes/definitions/definitions.php:3302
+#: includes/shortcodes/definitions/definitions.php:3367
 msgid "Table"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3969
-#: includes/shortcodes/definitions/definitions.php:4018
+#: includes/shortcodes/definitions/definitions.php:3333
+#: includes/shortcodes/definitions/definitions.php:3382
 msgid "CSV data separator"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:3981
-#: includes/shortcodes/definitions/definitions.php:4010
+#: includes/shortcodes/definitions/definitions.php:3345
+#: includes/shortcodes/definitions/definitions.php:3374
 msgid "CSV data"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4058
-#: includes/shortcodes/definitions/definitions.php:4063
-#: includes/shortcodes/definitions/definitions.php:4277
+#: includes/shortcodes/definitions/definitions.php:3422
+#: includes/shortcodes/definitions/definitions.php:3427
+#: includes/shortcodes/definitions/definitions.php:3642
 msgid "Testimonials"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4078
+#: includes/shortcodes/definitions/definitions.php:3442
 msgid "Single testimonial display"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4084
-#: includes/shortcodes/definitions/definitions.php:4284
+#: includes/shortcodes/definitions/definitions.php:3448
+#: includes/shortcodes/definitions/definitions.php:3649
 msgid "Single testimonial"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4085
-#: includes/shortcodes/definitions/definitions.php:4285
+#: includes/shortcodes/definitions/definitions.php:3449
+#: includes/shortcodes/definitions/definitions.php:3650
 msgid "Leave empty to display multiple testimonials"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4157
+#: includes/shortcodes/definitions/definitions.php:3521
 msgid "From category"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4158
-#: includes/shortcodes/definitions/definitions.php:4346
+#: includes/shortcodes/definitions/definitions.php:3522
+#: includes/shortcodes/definitions/definitions.php:3711
 msgid "Displays items only from a specific category"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4427
-#: includes/shortcodes/definitions/definitions.php:4432
+#: includes/shortcodes/definitions/definitions.php:3792
+#: includes/shortcodes/definitions/definitions.php:3797
 msgid "Video"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4439
+#: includes/shortcodes/definitions/definitions.php:3804
 msgid "Video source"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4440
+#: includes/shortcodes/definitions/definitions.php:3805
 msgid "Set the video URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4448
+#: includes/shortcodes/definitions/definitions.php:3813
 msgid "Poster"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4449
+#: includes/shortcodes/definitions/definitions.php:3814
 msgid "Optional placeholder image"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4457
+#: includes/shortcodes/definitions/definitions.php:3822
 msgid "Autoplay the video?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4469
+#: includes/shortcodes/definitions/definitions.php:3834
 msgid "Loop the video?"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4504
-#: includes/shortcodes/definitions/definitions.php:4509
-#: includes/shortcodes/definitions/definitions.php:4530
-#: includes/shortcodes/definitions/definitions.php:4571
-#: includes/shortcodes/definitions/definitions.php:4578
+#: includes/shortcodes/definitions/definitions.php:3869
+#: includes/shortcodes/definitions/definitions.php:3874
+msgid "Widgets Area"
+msgstr ""
+
+#: includes/shortcodes/definitions/definitions.php:3881
 msgid "Widgets area"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4540
-#: includes/shortcodes/definitions/definitions.php:4587
+#: includes/shortcodes/definitions/definitions.php:3890
 msgid "Maximum widgets count"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4541
-#: includes/shortcodes/definitions/definitions.php:4588
+#: includes/shortcodes/definitions/definitions.php:3891
 msgid ""
 "Area will not be displayed when the number of widgets inserted in it is "
 "greater"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4642
-msgid "Row / Section"
-msgstr ""
-
-#: includes/shortcodes/definitions/definitions.php:4646
-#: includes/shortcodes/definitions/definitions.php:4751
-#: includes/shortcodes/definitions/definitions.php:4784
-#: includes/shortcodes/definitions/definitions.php:4864
+#: includes/shortcodes/definitions/definitions.php:3949
+#: includes/shortcodes/definitions/definitions.php:4054
+#: includes/shortcodes/definitions/definitions.php:4087
+#: includes/shortcodes/definitions/definitions.php:4167
 msgid "Structure"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4670
-#: includes/shortcodes/definitions/definitions.php:4808
-#: includes/shortcodes/definitions/definitions.php:4888
+#: includes/shortcodes/definitions/definitions.php:3973
+#: includes/shortcodes/definitions/definitions.php:4111
+#: includes/shortcodes/definitions/definitions.php:4191
 msgid "Background color"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4677
-#: includes/shortcodes/definitions/definitions.php:4687
-#: includes/shortcodes/definitions/definitions.php:4697
-#: includes/shortcodes/definitions/definitions.php:4711
-#: includes/shortcodes/definitions/definitions.php:4721
-#: includes/shortcodes/definitions/definitions.php:4731
-#: includes/shortcodes/definitions/definitions.php:4815
-#: includes/shortcodes/definitions/definitions.php:4825
-#: includes/shortcodes/definitions/definitions.php:4835
-#: includes/shortcodes/definitions/definitions.php:4845
-#: includes/shortcodes/definitions/definitions.php:4895
-#: includes/shortcodes/definitions/definitions.php:4905
-#: includes/shortcodes/definitions/definitions.php:4915
-#: includes/shortcodes/definitions/definitions.php:4925
-#: includes/shortcodes/definitions/definitions.php:5036
-#: includes/shortcodes/definitions/definitions.php:5046
-#: includes/shortcodes/definitions/definitions.php:5056
+#: includes/shortcodes/definitions/definitions.php:3980
+#: includes/shortcodes/definitions/definitions.php:3990
+#: includes/shortcodes/definitions/definitions.php:4000
+#: includes/shortcodes/definitions/definitions.php:4014
+#: includes/shortcodes/definitions/definitions.php:4024
+#: includes/shortcodes/definitions/definitions.php:4034
+#: includes/shortcodes/definitions/definitions.php:4118
+#: includes/shortcodes/definitions/definitions.php:4128
+#: includes/shortcodes/definitions/definitions.php:4138
+#: includes/shortcodes/definitions/definitions.php:4148
+#: includes/shortcodes/definitions/definitions.php:4198
+#: includes/shortcodes/definitions/definitions.php:4208
+#: includes/shortcodes/definitions/definitions.php:4218
+#: includes/shortcodes/definitions/definitions.php:4228
+#: includes/shortcodes/definitions/definitions.php:4339
+#: includes/shortcodes/definitions/definitions.php:4349
+#: includes/shortcodes/definitions/definitions.php:4359
 msgid "Styling"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4680
-#: includes/shortcodes/definitions/definitions.php:4818
-#: includes/shortcodes/definitions/definitions.php:4898
+#: includes/shortcodes/definitions/definitions.php:3983
+#: includes/shortcodes/definitions/definitions.php:4121
+#: includes/shortcodes/definitions/definitions.php:4201
 msgid "Text color"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4690
-#: includes/shortcodes/definitions/definitions.php:4828
-#: includes/shortcodes/definitions/definitions.php:4908
+#: includes/shortcodes/definitions/definitions.php:3993
+#: includes/shortcodes/definitions/definitions.php:4131
+#: includes/shortcodes/definitions/definitions.php:4211
 msgid "Background image"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4700
+#: includes/shortcodes/definitions/definitions.php:4003
 msgid "Parallax scroll speed"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4701
+#: includes/shortcodes/definitions/definitions.php:4004
 msgid ""
 "Set the inertia of parallax background moving. For example, value of "
 "<code>0.1</code> equals to tenth of normal scroll speed."
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4714
-#: includes/shortcodes/definitions/definitions.php:4838
-#: includes/shortcodes/definitions/definitions.php:4918
+#: includes/shortcodes/definitions/definitions.php:4017
+#: includes/shortcodes/definitions/definitions.php:4141
+#: includes/shortcodes/definitions/definitions.php:4221
 msgid "Padding"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4715
-#: includes/shortcodes/definitions/definitions.php:4725
-#: includes/shortcodes/definitions/definitions.php:4839
-#: includes/shortcodes/definitions/definitions.php:4919
-#: includes/shortcodes/definitions/definitions.php:5050
+#: includes/shortcodes/definitions/definitions.php:4018
+#: includes/shortcodes/definitions/definitions.php:4028
+#: includes/shortcodes/definitions/definitions.php:4142
+#: includes/shortcodes/definitions/definitions.php:4222
+#: includes/shortcodes/definitions/definitions.php:4353
 #, php-format
 msgid "Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4724
-#: includes/shortcodes/definitions/definitions.php:5049
+#: includes/shortcodes/definitions/definitions.php:4027
+#: includes/shortcodes/definitions/definitions.php:4352
 msgid "Margin"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4941
-msgid "Text block"
+#: includes/shortcodes/definitions/definitions.php:4244
+msgid "Text Block"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4986
+#: includes/shortcodes/definitions/definitions.php:4289
 msgid "Image to display"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:4995
+#: includes/shortcodes/definitions/definitions.php:4298
 msgid "Image link URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5029
+#: includes/shortcodes/definitions/definitions.php:4332
 msgid "Image width HTML attribute"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5039
+#: includes/shortcodes/definitions/definitions.php:4342
 msgid "Image height HTML attribute"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5073
+#: includes/shortcodes/definitions/definitions.php:4376
 msgid "Soliloquy Slider"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5080
+#: includes/shortcodes/definitions/definitions.php:4383
 msgid "Choose a Soliloquy slider"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5104
+#: includes/shortcodes/definitions/definitions.php:4407
 msgid "Master Slider"
 msgstr ""
 
-#: includes/shortcodes/definitions/definitions.php:5111
+#: includes/shortcodes/definitions/definitions.php:4414
 msgid "Choose a slider"
 msgstr ""
 
@@ -2965,23 +2878,23 @@ msgstr ""
 msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:44
+#: includes/shortcodes/renderers/countdown_timer.php:48
 msgid "Weeks"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:45
+#: includes/shortcodes/renderers/countdown_timer.php:49
 msgid "Days"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:46
+#: includes/shortcodes/renderers/countdown_timer.php:50
 msgid "Hours"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:47
+#: includes/shortcodes/renderers/countdown_timer.php:51
 msgid "Minutes"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:48
+#: includes/shortcodes/renderers/countdown_timer.php:52
 msgid "Seconds"
 msgstr ""
 
