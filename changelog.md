@@ -2,11 +2,13 @@
 
 ## 1.3
 
-* **Update**: Improved Testimonials shortcode accessibility (heading tag setup)
-* **Update**: License updated to GPLv3
-* **Fix**: Typos in readme files
-
-Beaver Builder 1.7 compatible (partial refresh activated for all modules), removing obsolete page builder modules, improved page builder modules setup, improved Tabs and Content Modules accessibility, improved flexibility of shortcodes, improved Staff post labels.
+* **Update**: Beaver Builder 1.7 compatible (partial refresh activated for all modules)
+* **Update**: Removing obsolete Beaver Builder page builder modules
+* **Update**: Improved Beaver Builder page builder modules setup
+* **Update**: Improved Tabs and Content Modules accessibility
+* **Update**: Improved flexibility of shortcodes
+* **Update**: Improved Staff post labels
+* **Fix**: Unified the page builder modules naming style
 
 #### Files changed:
 
