@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.9
+ * @version  1.3.1
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -1339,54 +1339,6 @@ function wma_shortcodes() {
 				return $output;
 
 		} // /wma_custom_field_wm_radio
-
-
-
-
-
-/**
- * Beaver Builder Lite Version multisite support
- *
- * Fixing the plugin's deactivation on a single sites in multisite environment.
- * Runs only during the Beaver Builder activation attempt.
- *
- * @uses  register_activation_hook()
- *
- * @todo  Remove when Beaver Builder Lite Version supports multisite.
- *
- * @since    1.1
- * @version  1.1
- */
-if ( is_multisite() && ! class_exists( 'FLBuilderMultisite' ) ) {
-
-	/**
-	 * Activating Beaver Builder
-	 *
-	 * Need to declare the missing `FLBuilderMultisite` class inside
-	 * the function to hook into plugin activation.
-	 * Otherwise, if Pro version of Beaver Builder plugin installed,
-	 * a duplicate class definition error might appear.
-	 */
-	function wma_bb_multisite() {
-		if ( defined( 'FL_BUILDER_LITE' ) && FL_BUILDER_LITE ) {
-
-			/**
-			 * Just a placeholder
-			 */
-			class FLBuilderMultisite {
-				static public function init() {}
-				static public function install() {}
-				static private function uninstall() {}
-			} // /FLBuilderMultisite
-
-			add_action( 'init', 'FLBuilderMultisite::init' );
-
-		}
-	} // /wma_bb_multisite
-
-	register_activation_hook( str_replace( array( 'webman-amplifier/', 'webman-amplifier\\' ), 'beaver-builder-lite-version\\', WMAMP_PLUGIN_DIR ) . '\\fl-builder.php', 'wma_bb_multisite' );
-
-} // /FLBuilderMultisite check
 
 
 

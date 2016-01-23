@@ -1,5 +1,15 @@
 # WebMan Amplifier Changelog
 
+## 1.3.1
+
+* **Update**: Removing Beaver Builder Lite Version WordPress multisite installation fix
+
+#### Files changed:
+
+	webman-amplifier.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.3
 
 * **Update**: Beaver Builder 1.7 compatible (partial refresh activated for all modules)
