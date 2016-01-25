@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2
+ * @version  1.3.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -64,10 +64,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		function __construct() {
 
 			//Helper variables
+
+				$theme = ( is_child_theme() ) ? ( wp_get_theme()->parent()->get_template() ) : ( null );
+
 				$atts = array();
 
 				$atts['id']          = 'wm-module-widget';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Content Module', 'Widget name.', 'webman-amplifier' );
+				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Content Module', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-module-widget',
 						'description' => _x( 'Displays specific Content Module post', 'Widget description.', 'webman-amplifier' )
@@ -195,7 +198,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$output .= $args['before_widget'];
 
 				if ( trim( $instance['title'] ) ) {
-					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base, $args ) . $args['after_title'];
 				}
 
 				$output .= do_shortcode( apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_shortcode', '[wm_content_module class="' . $instance['class'] . '" module="' . $instance['module'] . '" /]', $args, $instance ) );

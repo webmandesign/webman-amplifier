@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2
+ * @version  1.3.2
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -80,10 +80,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		function __construct() {
 
 			//Helper variables
+
+				$theme = ( is_child_theme() ) ? ( wp_get_theme()->parent()->get_template() ) : ( null );
+
 				$atts = array();
 
 				$atts['id']          = 'wm-tabbed-widgets';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'webman-amplifier' );
+				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-tabbed-widgets',
 						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'webman-amplifier' )

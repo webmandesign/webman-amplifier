@@ -1,5 +1,21 @@
 # WebMan Amplifier Changelog
 
+## 1.3.2
+
+* **Update**: Improved compatibility with child themes
+* **Update**: Passed attributes into widget title filter
+
+#### Files changed:
+
+	webman-amplifier.php
+	includes/widgets/w-contact.php
+	includes/widgets/w-module.php
+	includes/widgets/w-posts.php
+	includes/widgets/w-subnav.php
+	includes/widgets/w-tabbed-widgets.php
+	includes/widgets/w-twitter.php
+
+
 ## 1.3.1
 
 * **Update**: Removing Beaver Builder Lite Version WordPress multisite installation fix

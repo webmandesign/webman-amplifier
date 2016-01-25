@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.2.3
+ * @version  1.3.2
  *
  * Contents:
  *
@@ -58,18 +58,17 @@
 
 		/**
 		 * Constructor
-		 *
-		 * @since    1.0.9.9
-		 * @version  1.2.3
 		 */
 		function __construct() {
 
 			// Helper variables
 
+				$theme = ( is_child_theme() ) ? ( wp_get_theme()->parent()->get_template() ) : ( null );
+
 				$atts = array();
 
 				$atts['id']          = 'wm-contact-info';
-				$atts['name']        = wp_get_theme()->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'webman-amplifier' );
+				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
 						'classname'   => 'wm-contact-info',
 						'description' => _x( 'Contact information', 'Widget description.', 'webman-amplifier' )
@@ -223,7 +222,7 @@
 			// Processing
 
 				if ( trim( $instance['title'] ) ) {
-					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base, $args ) . $args['after_title'];
 				}
 
 				// Address
