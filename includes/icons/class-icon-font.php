@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.3.3
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -255,7 +255,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.3
+			 * @version  1.3.3
 			 *
 			 * @access   public
 			 */
@@ -272,7 +272,11 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 						$output .= '<h2>' . __( 'List of the recently used icons with their CSS classes:', 'webman-amplifier' ) . '</h2>';
 						$output .= '<ol class="wmamp-icons-classes-list">';
 						foreach ( $fonticons as $icon => $name ) {
-							$output .= '<li><i class="' . $icon . '"></i><input type="text" value="' . $icon . '" readonly="readonly" onfocus="this.select();" /></li>';
+							$output .= '<li>';
+							$output .= '<i class="' . $icon . '"></i>';
+							$output .= '<label><span>' . esc_html__( 'CSS class:', 'webman-amplifier' ) . '</span><input type="text" value="' . $icon . '" readonly="readonly" onfocus="this.select();" /></label>';
+							$output .= '<label><span>' . esc_html__( 'Instant HTML:', 'webman-amplifier' ) . '</span><input type="text" value="' . esc_attr( '<i class="' . $icon . '"></i>' ) . '" readonly="readonly" onfocus="this.select();" /></label>';
+							$output .= '</li>';
 						}
 						$output .= '</ol>';
 						$output .= '</div>';
@@ -431,7 +435,12 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 							$output .= '.wmamp-icons-classes-list:hover li { opacity: .33; }';
 							$output .= '.wmamp-icons-classes-list li:hover { border-color: #111; opacity: 1; z-index: 9999; }';
 							$output .= '.wmamp-icons-classes-list i { display: block; width: 54px; height: 54px; margin: 0 auto; line-height: 54px; font-size: 32px; color: #111; border-radius: 100px; }';
-							$output .= '.wmamp-icons-classes-list input { display: inline-block; width: auto; max-width: none; padding: 2px; margin-top: 10px; text-align: inherit; font-size: 10px; font-weight: 700; }';
+							$output .= '.wmamp-icons-classes-list label { margin-top: 10px; text-align: center; }';
+							$output .= '.wmamp-icons-classes-list label span { display: none; font-size: .81em; }';
+							$output .= '.wmamp-icons-classes-list label + label { display: none; }';
+							$output .= '.wmamp-icons-classes-list li:hover label + label { display: block; }';
+							$output .= '.wmamp-icons-classes-list li:hover label span { display: block; }';
+							$output .= '.wmamp-icons-classes-list input { display: inline-block; width: auto; max-width: none; padding: 2px; text-align: inherit; font-size: 10px; font-weight: 700; }';
 							$output .= '</style>';
 
 							$output .= $fonticons;

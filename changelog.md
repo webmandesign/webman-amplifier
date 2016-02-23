@@ -1,5 +1,19 @@
 # WebMan Amplifier Changelog
 
+## 1.3.3
+
+* **Update**: Improved icon font admin screen
+* **Update**: Removed Isotope admin pointer message
+* **Update**: Updated localization
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	webman-amplifier.php
+	webman-amplifier-setup.php
+	includes\icons\class-icon-font.php
+
+
 ## 1.3.2
 
 * **Update**: Improved compatibility with child themes

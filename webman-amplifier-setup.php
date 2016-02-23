@@ -15,7 +15,7 @@
  * @link  https://wordpress.org/plugins/webman-amplifier/
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.3.3
  *
  * Contents:
  *
@@ -154,7 +154,6 @@
 					 */
 
 					// 'disable-fonticons',
-					// 'disable-isotope-notice',
 					// 'disable-shortcodes',
 					// 'disable-visual-composer-support',
 				) );
