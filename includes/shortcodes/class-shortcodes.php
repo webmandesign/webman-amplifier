@@ -82,22 +82,25 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.0.8
+			 * @version  1.3.4
 			 * @access   public
 			 */
 			public function __construct() {
+
 				$this->setup_globals();
-				$this->assets_register();
 				$this->setup_filters();
 				$this->add_shortcodes();
 
-				//Beaver Builder plugin integration
+				// Beaver Builder plugin integration
+
 					$this->beaver_builder_support();
 
-				//Visual Composer plugin integration
+				// Visual Composer plugin integration
+
 					if ( wma_is_active_vc() ) {
 						$this->visual_composer_support();
 					}
+
 			} // /__construct
 
 
@@ -339,7 +342,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.2.9
+			 * @version  1.3.4
 			 *
 			 * @access   public
 			 */
@@ -366,19 +369,26 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 					// Scripts
 
-						wp_register_script( 'imagesloaded',            WMAMP_ASSETS_URL . 'js/plugins/imagesloaded.min.js',             array(),                              WMAMP_VERSION, true );
-						wp_register_script( 'isotope',                 WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),                              WMAMP_VERSION, true );
-						wp_register_script( 'jquery-bxslider',         WMAMP_ASSETS_URL . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'jquery-lwtCountdown',     WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'jquery-owl-carousel',     WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'jquery-parallax',         WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js',                  array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-ie',        WMAMP_ASSETS_URL . 'js/shortcodes-ie.js',                        array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-parallax',  WMAMP_ASSETS_URL . 'js/shortcode-parallax.js',                   array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts',     WMAMP_ASSETS_URL . 'js/shortcode-posts.js',                      array( 'jquery', 'imagesloaded' ),    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-slideshow', WMAMP_ASSETS_URL . 'js/shortcode-slideshow.js',                  array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-tabs',      WMAMP_ASSETS_URL . 'js/shortcode-tabs.js',                       array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-vc-addon',  WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js',                 (array) $vc_backend_dependencies,     WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js',  array( 'jquery' ),                    WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-ie',        WMAMP_ASSETS_URL . 'js/shortcodes-ie.js',        array( 'jquery' ),                    WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-parallax',  WMAMP_ASSETS_URL . 'js/shortcode-parallax.js',   array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts',     WMAMP_ASSETS_URL . 'js/shortcode-posts.js',      array( 'jquery', 'imagesloaded' ),    WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-slideshow', WMAMP_ASSETS_URL . 'js/shortcode-slideshow.js',  array( 'jquery' ),                    WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-tabs',      WMAMP_ASSETS_URL . 'js/shortcode-tabs.js',       array( 'jquery' ),                    WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-vc-addon',  WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies,     WMAMP_VERSION, true );
+
+						// 3rd party scripts
+
+							wp_register_script( 'imagesloaded',        WMAMP_ASSETS_URL . 'js/plugins/imagesloaded.min.js',             array(),           WMAMP_VERSION, true );
+							wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
+							wp_register_script( 'jquery-bxslider',     WMAMP_ASSETS_URL . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
+							wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
+							wp_register_script( 'jquery-owl-carousel', WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
+							wp_register_script( 'jquery-parallax',     WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
+
+					// Allow hooking for deregistering
+
+						do_action( 'wmhook_shortcode_' . 'assets_registered' );
 
 			} // /assets_register
 
@@ -388,29 +398,42 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue frontend styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.2.2
+			 * @version  1.3.4
 			 *
 			 * @access  public
 			 */
 			public function assets_frontend() {
-				//Helper variables
+
+				// Helper variables
+
 					global $is_IE;
 					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
-				//Styles
-					if ( $icon_font_url ) {
-						wp_enqueue_style( 'wm-fonticons' );
-					}
 
-					//Visual Composer - deregister frontend styles
-						if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
-							wp_deregister_style( 'js_composer_front' );
+				// Processing
+
+					// Styles
+
+						if ( $icon_font_url ) {
+							wp_enqueue_style( 'wm-fonticons' );
 						}
 
-				//Scripts
-					if ( $is_IE && apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_ie_script', true ) ) {
-						wp_enqueue_script( 'wm-shortcodes-ie' );
-					}
+						// Visual Composer - deregister frontend styles
+
+							if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
+								wp_deregister_style( 'js_composer_front' );
+							}
+
+					// Scripts
+
+						if ( $is_IE && apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_ie_script', true ) ) {
+							wp_enqueue_script( 'wm-shortcodes-ie' );
+						}
+
+					// Allow hooking for dequeuing
+
+						do_action( 'wmhook_shortcode_' . 'assets_frontend_enqueued' );
+
 			} // /assets_frontend
 
 
@@ -419,7 +442,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue backend (admin) styles and scripts for Visual Composer
 			 *
 			 * @since    1.2.9
-			 * @version  1.2.9
+			 * @version  1.3.4
 			 *
 			 * @access  public
 			 */
@@ -463,6 +486,10 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 						}
 
+					// Allow hooking for dequeuing
+
+						do_action( 'wmhook_shortcode_' . 'assets_backend_vc_enqueued' );
+
 			} // /assets_backend_vc
 
 
@@ -471,7 +498,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Setup filter hooks
 			 *
 			 * @since    1.0
-			 * @version  1.2.9
+			 * @version  1.3.4
 			 *
 			 * @access  private
 			 */
@@ -481,6 +508,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 					// Assets
 
+						add_action( 'wp_enqueue_scripts', array( $this, 'assets_register' ) );
 						add_action( 'wp_enqueue_scripts', array( $this, 'assets_frontend' ) );
 						add_action( 'vc_backend_editor_enqueue_js_css', array( $this, 'assets_backend_vc' ) );
 

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.3
+ * @version  1.3.4
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -178,41 +178,63 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Scripts and styles
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.3.4
 			 *
 			 * @access  public
 			 */
 			public function assets() {
-				//Helper variables
+
+				// Helper variables
+
 					global $current_screen;
 
 					$icon_font_url = apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
 
-				//Register
-					//Styles
-						wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
-						if ( $icon_font_url ) {
-							wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
+
+				// Processing
+
+					// Register
+
+						// Styles
+
+							wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+							wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
+							if ( $icon_font_url ) {
+								wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
+							}
+
+						// Scripts
+
+							wp_register_script( 'wm-metabox-scripts', WMAMP_ASSETS_URL . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
+
+						// Allow hooking for deregistering
+
+							do_action( 'wmhook_icons_' . 'assets_registered' );
+
+					// Enqueue (only on admin page)
+
+						if ( 'appearance_page_icon-font' == $current_screen->id ) {
+
+							// Styles
+
+								wp_enqueue_style( 'wm-fonticons' );
+								wp_enqueue_style( 'wm-metabox-styles' );
+								if ( is_rtl() ) {
+									wp_enqueue_style( 'wm-metabox-styles-rtl' );
+								}
+
+							// Scripts
+
+								wp_enqueue_script( 'media-upload' );
+								wp_enqueue_media();
+								wp_enqueue_script( 'wm-metabox-scripts' );
+
 						}
 
-					//Scripts
-						wp_register_script( 'wm-metabox-scripts', WMAMP_ASSETS_URL . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
+						// Allow hooking for dequeuing
 
-				//Enqueue (only on admin page)
-				if ( 'appearance_page_icon-font' == $current_screen->id ) {
-					//Styles
-						wp_enqueue_style( 'wm-fonticons' );
-						wp_enqueue_style( 'wm-metabox-styles' );
-						if ( is_rtl() ) {
-							wp_enqueue_style( 'wm-metabox-styles-rtl' );
-						}
+							do_action( 'wmhook_icons_' . 'assets_enqueued' );
 
-					//Scripts
-						wp_enqueue_script( 'media-upload' );
-						wp_enqueue_media();
-						wp_enqueue_script( 'wm-metabox-scripts' );
-				}
 			} // /assets
 
 
