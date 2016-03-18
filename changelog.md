@@ -1,5 +1,26 @@
 # WebMan Amplifier Changelog
 
+## 1.3.5
+
+* **Add**: Slick (v1.5.9) slider script support
+* **Update**: Improved compatibility with SSL
+* **Update**: Plugin info texts
+* **Update**: Removing localization files in favor of translate.wordpress.org
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	readme.md
+	readme.txt
+	webman-amplifier.php
+	assets/js/shortcode-posts.js
+	assets/js/plugins/slick.js
+	assets/js/plugins/slick.min.js
+	includes/icons/class-icon-font.php
+	includes/metabox/class-metabox.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.3.4
 
 * **Update**: Improved scripts registering and loading

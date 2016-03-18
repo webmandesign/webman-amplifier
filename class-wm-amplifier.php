@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.3.3
+ * @version	 1.3.5
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -701,6 +701,37 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 					deactivate_plugins( plugin_basename( WMAMP_PLUGIN_FILE ) );
 				}
 			} // /deactivate
+
+
+
+
+
+		/**
+		 * 100) Helpers
+		 */
+
+			/**
+			 * Fixing URLs in `is_ssl()` returns TRUE
+			 *
+			 * @since    1.3.5
+			 * @version  1.3.5
+			 *
+			 * @param  string $content
+			 */
+			static public function fix_ssl_urls( $content ) {
+
+				// Processing
+
+					if ( is_ssl() ) {
+						$content = str_ireplace( 'http:', 'https:', $content );
+					}
+
+
+				// Output
+
+					return $content;
+
+			} // /fix_ssl_urls
 
 	} // /WM_Amplifier
 

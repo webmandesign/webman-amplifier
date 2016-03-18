@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.3.5
  */
 
 
@@ -128,155 +128,217 @@ jQuery( function() {
 	 * Sliding posts
 	 */
 
-		if ( jQuery().owlCarousel ) {
+		// Slick
 
-			/**
-			 * Setting proper Owl Carousel items spacing
-			 */
-			function wmOwlCarouselItemPadding( el ) {
-
-				if ( el.hasClass( 'with-margin' ) ) {
-
-					var scrollableColumnMargin = ( el.outerWidth() / 104 * 2 ) + 'px';
-
-					el
-						.find( '.owl-item' )
-							.css( {
-								paddingLeft  : scrollableColumnMargin,
-								paddingRight : scrollableColumnMargin
-							} );
-
-				}
-
-			} // /wmOwlCarouselItemPadding
-
-			/**
-			 * RTL swap items
-			 * @link  http://owlgraphic.com/rtldemo/demos/rtl.html
-			 */
-			function wmOwlRTLSwapItems( el ) {
-
-				el
-					.children()
-						.each( function( i, e ) {
-
-							jQuery( e )
-								.parent()
-									.prepend( jQuery( e ) );
-
-						} );
-
-			} // /wmOwlRTLSwapItems
-
-
-
-			jQuery( '[class*="scrollable-"]' )
-				.each( function( item ) {
-
-					var $thisParent             = jQuery( this ),
-					    $this                   = $thisParent.find( '.wm-items-container' ),
-					    scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
-					    scrollableMobileColumns = Math.min( 2, scrollableColumns ),
-					    scrollableTabletColumns = Math.min( 3, scrollableColumns ),
-					    scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( true ) : ( false ),
-					    scrollableAuto          = ( $thisParent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
-
-					$this
-						.owlCarousel( {
-							items             : scrollableColumns,
-							autoPlay          : scrollableAuto,
-							stopOnHover       : true,
-							scrollPerPage     : scrollableStack,
-							navigation        : true,
-							navigationText    : [ '<', '>' ],
-							pagination        : false,
-							slideSpeed        : 800,
-							autoHeight        : $thisParent.hasClass( 'auto-height' ),
-							afterAction       : wmOwlCarouselItemPadding,
-							itemsCustom       : [
-									[0, 1],
-									[420, scrollableMobileColumns],
-									[768, scrollableTabletColumns],
-									[1020, scrollableColumns]
-								],
-							/**
-							 * RTL script version support
-							 */
-							itemsDesktopSmall : [1020, scrollableTabletColumns],
-							itemsTablet       : [768, scrollableMobileColumns],
-							itemsMobile       : [420, 1],
-							autoPlayDirection : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( 'rtl' ),
-							startPosition     : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( -1 ),
-							beforeInit        : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( wmOwlRTLSwapItems )
-						} );
-
-				} );
-
-
-
-		} // /owlCarousel
-
-		if ( jQuery().bxSlider ) {
-
-			function wmPostsCarousel() {
+			if ( jQuery().slick ) {
 
 				jQuery( '[class*="scrollable-"]' )
 					.each( function( item ) {
 
-						var $thisParent          = jQuery( this ),
-						    $this                = $thisParent.find( '.wm-items-container' ),
-						    itemScrollableWidth  = $this.children().eq( 0 ).outerWidth( true ),
-						    itemScrollableMargin = itemScrollableWidth - $this.children().eq( 0 ).outerWidth(),
-						    scrollableColumns    = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
-						    scrollableMove       = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
-						    scrollablePause      = ( $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( 4000 );
-
-						if ( 680 > WMbrowserWidth ) {
-
-							itemScrollableWidth  = $thisParent.outerWidth();
-							itemScrollableMargin = 0;
-							scrollableColumns    = scrollableMove = 1;
-
-							if ( $this.closest( '.wm-posts-wrap' ).hasClass( 'wm-posts-wm_logos' ) ) {
-								itemScrollableWidth = itemScrollableWidth / 3;
-								scrollableColumns   = scrollableMove = 3;
-							}
-
-						} else {
-
-							itemScrollableWidth = itemScrollableWidth - itemScrollableMargin;
-
-						}
+						var $thisParent             = jQuery( this ),
+						    $this                   = $thisParent.find( '.wm-items-container' ),
+						    scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+						    scrollableMobileColumns = Math.min( 2, scrollableColumns ),
+						    scrollableTabletColumns = Math.min( 3, scrollableColumns ),
+						    scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
+						    scrollableAuto          = ( $thisParent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
 
 						$this
-							.bxSlider( {
-								auto           : $this.closest( '.wm-posts-wrap' ).hasClass( 'scrollable-auto' ),
-								pause          : scrollablePause,
-								minSlides      : 1,
-								maxSlides      : scrollableColumns,
-								slideWidth     : parseInt( itemScrollableWidth ),
-								slideMargin    : parseInt( itemScrollableMargin ),
-								moveSlides     : scrollableMove,
-								pager          : false,
-								autoHover      : true,
+							.slick( {
 								adaptiveHeight : $thisParent.hasClass( 'auto-height' ),
-								useCSS         : false // This prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
+								autoplay       : scrollableAuto,
+								autoplaySpeed  : scrollableAuto,
+								responsive     : [
+										{
+											breakpoint: 880, // Starting tablet landscape
+											settings: {
+												slidesToShow: scrollableTabletColumns,
+												slidesToScroll: scrollableTabletColumns
+											}
+										},
+										{
+											breakpoint: 672, // Starting tablet portrait
+											settings: {
+												slidesToShow: scrollableMobileColumns,
+												slidesToScroll: scrollableMobileColumns
+											}
+										},
+										{
+											breakpoint: 448, // Starting mobile landscape
+											settings: {
+												slidesToShow: 1,
+												slidesToScroll: 1
+											}
+										}
+										// You can unslick at a given breakpoint now by adding:
+										// settings: "unslick"
+										// instead of a settings object
+									],
+								slidesToShow   : scrollableColumns,
+								slidesToScroll : scrollableStack,
+								speed          : 800,
+								rtl            : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( true )
 							} );
 
 					} );
 
-			} // /wmPostsCarousel
+			} // /slick
 
-			wmPostsCarousel();
 
-			jQuery( window )
-				.on( 'resize orientationchange', function() {
 
-					wmPostsCarousel();
+		// Owl Carousel
 
-				} );
+			if ( jQuery().owlCarousel ) {
 
-		} // /bxSlider
+				/**
+				 * Setting proper Owl Carousel items spacing
+				 */
+				function wmOwlCarouselItemPadding( el ) {
+
+					if ( el.hasClass( 'with-margin' ) ) {
+
+						var scrollableColumnMargin = ( el.outerWidth() / 104 * 2 ) + 'px';
+
+						el
+							.find( '.owl-item' )
+								.css( {
+									paddingLeft  : scrollableColumnMargin,
+									paddingRight : scrollableColumnMargin
+								} );
+
+					}
+
+				} // /wmOwlCarouselItemPadding
+
+				/**
+				 * RTL swap items
+				 * @link  http://owlgraphic.com/rtldemo/demos/rtl.html
+				 */
+				function wmOwlRTLSwapItems( el ) {
+
+					el
+						.children()
+							.each( function( i, e ) {
+
+								jQuery( e )
+									.parent()
+										.prepend( jQuery( e ) );
+
+							} );
+
+				} // /wmOwlRTLSwapItems
+
+
+
+				jQuery( '[class*="scrollable-"]' )
+					.each( function( item ) {
+
+						var $thisParent             = jQuery( this ),
+						    $this                   = $thisParent.find( '.wm-items-container' ),
+						    scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+						    scrollableMobileColumns = Math.min( 2, scrollableColumns ),
+						    scrollableTabletColumns = Math.min( 3, scrollableColumns ),
+						    scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( true ) : ( false ),
+						    scrollableAuto          = ( $thisParent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
+
+						$this
+							.owlCarousel( {
+								items             : scrollableColumns,
+								autoPlay          : scrollableAuto,
+								stopOnHover       : true,
+								scrollPerPage     : scrollableStack,
+								navigation        : true,
+								navigationText    : [ '<', '>' ],
+								pagination        : false,
+								slideSpeed        : 800,
+								autoHeight        : $thisParent.hasClass( 'auto-height' ),
+								afterAction       : wmOwlCarouselItemPadding,
+								itemsCustom       : [
+										[0, 1],
+										[420, scrollableMobileColumns],
+										[768, scrollableTabletColumns],
+										[1020, scrollableColumns]
+									],
+								/**
+								 * RTL script version support
+								 */
+								itemsDesktopSmall : [1020, scrollableTabletColumns],
+								itemsTablet       : [768, scrollableMobileColumns],
+								itemsMobile       : [420, 1],
+								autoPlayDirection : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( 'rtl' ),
+								startPosition     : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( -1 ),
+								beforeInit        : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( wmOwlRTLSwapItems )
+							} );
+
+					} );
+
+			} // /owlCarousel
+
+
+
+		// bxSlider
+
+			if ( jQuery().bxSlider ) {
+
+				function wmPostsCarousel() {
+
+					jQuery( '[class*="scrollable-"]' )
+						.each( function( item ) {
+
+							var $thisParent          = jQuery( this ),
+							    $this                = $thisParent.find( '.wm-items-container' ),
+							    itemScrollableWidth  = $this.children().eq( 0 ).outerWidth( true ),
+							    itemScrollableMargin = itemScrollableWidth - $this.children().eq( 0 ).outerWidth(),
+							    scrollableColumns    = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+							    scrollableMove       = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
+							    scrollablePause      = ( $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( 4000 );
+
+							if ( 680 > WMbrowserWidth ) {
+
+								itemScrollableWidth  = $thisParent.outerWidth();
+								itemScrollableMargin = 0;
+								scrollableColumns    = scrollableMove = 1;
+
+								if ( $this.closest( '.wm-posts-wrap' ).hasClass( 'wm-posts-wm_logos' ) ) {
+									itemScrollableWidth = itemScrollableWidth / 3;
+									scrollableColumns   = scrollableMove = 3;
+								}
+
+							} else {
+
+								itemScrollableWidth = itemScrollableWidth - itemScrollableMargin;
+
+							}
+
+							$this
+								.bxSlider( {
+									auto           : $this.closest( '.wm-posts-wrap' ).hasClass( 'scrollable-auto' ),
+									pause          : scrollablePause,
+									minSlides      : 1,
+									maxSlides      : scrollableColumns,
+									slideWidth     : parseInt( itemScrollableWidth ),
+									slideMargin    : parseInt( itemScrollableMargin ),
+									moveSlides     : scrollableMove,
+									pager          : false,
+									autoHover      : true,
+									adaptiveHeight : $thisParent.hasClass( 'auto-height' ),
+									useCSS         : false // This prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
+								} );
+
+						} );
+
+				} // /wmPostsCarousel
+
+				wmPostsCarousel();
+
+				jQuery( window )
+					.on( 'resize orientationchange', function() {
+
+						wmPostsCarousel();
+
+					} );
+
+			} // /bxSlider
 
 
 

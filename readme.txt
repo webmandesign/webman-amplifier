@@ -4,11 +4,11 @@ Donate link:       http://www.webmandesign.eu/
 Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.3
-Tested up to:      4.4.2
-Stable tag:        1.3.4
+Tested up to:      4.5
+Stable tag:        1.3.5
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, message, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, visual composer, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
+Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, message, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
 
 Amplifies functionality of WP themes. Provides custom post types, shortcodes, metaboxes, icons. Theme developer's best friend!
 
@@ -20,37 +20,39 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 >
 > *If you are a theme developer* and have any issue with the plugin, please, consider rising a ticket at [WebMan Support Forum](http://support.webmandesign.eu/) first, before you rate the plugin.
 
-**[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features! This is a premium plugin that you can get absolutely for free! The plugin was build to help with and simplify the WordPress theme development process, thus is suited for theme developers mostly.**
+**[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features for theme developers! The plugin was build to help with and simplify the WordPress theme development process.**
 
-This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well. The plugin adds several useful custom post types to your WordPress installation. It contains an advanced metabox generator that you can use to create a custom form fields for any custom post types or for WordPress native Posts and Pages. Besides, the WebMan Amplifier features a bunch of useful shortcodes and is completely compatible with popular Beaver Builder and premium Visual Composer page builder plugins. Using both these plugins you get complete visual control over the content of your website. And finally, the plugin allows you to use a custom icons (icon font from Fontello.com) that are high DPI screen (Retina) ready and contains bunch of useful widgets! WebMan Amplifier is also RTL languages ready and very customizable and extendable via actions and filters!
-
-Don't ever get tied to a theme! **Take all the premium functionality with you** no matter what theme you use!
+This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well if you declare a support for it in the theme.
 
 = Features =
 
-* A lot of useful and well thought shortcodes
-* Simple and fast Shortcode Generator
-* [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) and Visual Composer page builder integration
-* Projects custom post type to create your own portfolios
-* Logos custom post type to manage your clients and/or partners logo lists
-* Testimonials custom post type
-* Manage your team members via Staff custom post type
-* Use Content Modules custom post type to inject a special content or icon box anywhere on your website
-* Advanced metabox generator (with Advanced WebMan Metaboxes wrapped around the post visual editor)
+* Well thought shortcodes with simple and fast Shortcode Generator and integration with [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) page builder
+* Custom post types:
+  * **Projects** - to create your own portfolios
+  * **Logos** - to manage your clients and/or partners logo lists
+  * **Testimonials**
+  * **Staff** - to manage your team members
+  * **Content Modules** - to create an icon boxes or a content injection anywhere on your website
+* Custom widgets
+  * **Contact** - to display your contact information
+  * **Submenu** - to display a subpages of the current page
+  * **Twitter** - to display your tweets
+  * **Tabbed Widgets** - to display any widgets in tabbed interface
+  * **Posts** - to list posts or projects
+  * **Content Module** - to display any Content Module post
+* Advanced metabox generator
 * Fontello.com icon font uploader and simple integration
-* Widgets
 * RTL language support
 
 = Plugin Localization =
 
-Have a translation? Please post it on the [support forum](http://support.webmandesign.eu/ "WebMan Support Forum").
-
-Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
+Translate the plugin by clicking the "Translate WebMan Amplifier" button under the "Translations" section in sidebar of this page.
 
 = Additional Resources =
 
-* [Write a review](http://wordpress.org/support/view/plugin-reviews/webman-amplifier/#postform)
-* [Have a question?](http://support.webmandesign.eu/)
+* [Write a review](https://wordpress.org/support/view/plugin-reviews/webman-amplifier/#postform)
+* [Have a question?](https://wordpress.org/support/plugin/webman-amplifier/)
+* [Grab a free theme](https://profiles.wordpress.org/webmandesign/#content-themes)
 * [Follow @webmandesigneu](https://twitter.com/webmandesigneu)
 * [Visit WebMan Design](http://www.webmandesign.eu)
 
@@ -58,15 +60,13 @@ Please, find the instructions on how to localize the plugin in `webman-amplifier
 
 1. Unzip the plugin download file and upload `webman-amplifier` folder into the `/wp-content/plugins/` directory.
 2. Activate the plugin through the *"Plugins"* menu in WordPress.
-3. Check out the `webman-amplifier/webman-amplifier-setup.php` file for how to use the plugin with your theme ([New WebMan Themes](http://www.webmandesign.eu/ "Best WordPress themes!") supports the plugin already).
+3. Check out the `webman-amplifier/webman-amplifier-setup.php` file for how to use the plugin with your theme ([WebMan Design Themes](http://www.webmandesign.eu/ "Best WordPress themes!") supports the plugin by default).
 
 == Frequently Asked Questions ==
 
-**Please note that support is provided on [WebMan Support Forum](http://support.webmandesign.eu/forums/forum/webman-amplifier/ "WebMan Support Forum")**
-
 = How to enable plugin features? =
 
-You have to define the plugin support in your theme. Please see the `webman-amplifier/webman-amplifier-setup.php` file for instructions.
+You have to define the plugin support in your theme. Please see the `webman-amplifier/webman-amplifier-setup.php` file for instructions. There is only an icon font feature enabled by default (under **Appearance > Icon Font**).
 
 = How to upload custom icon font? =
 
@@ -74,7 +74,7 @@ The plugin supports icon font files from Fontello.com. Visit the website, select
 
 = How to translate (localize) the plugin? =
 
-Please, find the instructions on how to localize the plugin in `webman-amplifier/languages/readme.md` file.
+Translate the plugin by clicking the "Translate WebMan Amplifier" button under the "Translations" section in sidebar of this page.
 
 == Screenshots ==
 
@@ -95,6 +95,9 @@ Please note that the plugin integrates an Isotope JavaScript filter. This script
 Please see the [`changelog.md` file](https://github.com/webmandesign/webman-amplifier/blob/master/changelog.md) for details.
 
 == Upgrade Notice ==
+
+= 1.3.5 =
+Added Slick script, improved support for SSL, updated plugin info.
 
 = 1.3.4 =
 Improved scripts registering and loading, updated scripts versions (ImagesLoaded 4.1.0, Isotope 2.2.2).

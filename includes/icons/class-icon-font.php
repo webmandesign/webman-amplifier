@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.4
+ * @version  1.3.5
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -178,7 +178,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Scripts and styles
 			 *
 			 * @since    1.0
-			 * @version  1.3.4
+			 * @version  1.3.5
 			 *
 			 * @access  public
 			 */
@@ -188,7 +188,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 					global $current_screen;
 
-					$icon_font_url = apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
 
 
 				// Processing

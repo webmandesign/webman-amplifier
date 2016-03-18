@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.3.4
+ * @version  1.3.5
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -201,7 +201,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.4
+			 * @version  1.3.5
 			 *
 			 * @access  public
 			 */
@@ -209,7 +209,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				// Helper variables
 
-					$icon_font_url   = apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+					$icon_font_url   = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
 					$icon_font_posts = apply_filters( 'wmhook_metabox_' . 'iconfont_admin_screen_addon', array( 'edit-wm_modules' ) );
 
 
