@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.3.6
+
+* **Update**: Visual Composer 4.11+ compatible
+
+#### Files changed:
+
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.3.5
 
 * **Add**: Slick (v1.5.9) slider script support

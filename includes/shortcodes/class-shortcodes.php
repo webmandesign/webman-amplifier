@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.5
+ * @version  1.3.6
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -443,7 +443,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue backend (admin) styles and scripts for Visual Composer
 			 *
 			 * @since    1.2.9
-			 * @version  1.3.4
+			 * @version  1.3.6
 			 *
 			 * @access  public
 			 */
@@ -462,6 +462,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 					$admin_pages = array( 'post.php', 'post-new.php' );
 
+					$vc_backend_dependencies = ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.9', '<' ) ) ? ( array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views' ) ) : ( array( 'vc-backend-min-js' ) );
+
 
 				// Processing
 
@@ -478,12 +480,17 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 							// Styles
 
-								wp_enqueue_style( 'wm-shortcodes-vc-addon' );
-								wp_enqueue_style( 'wm-radio' );
+								wp_enqueue_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
+								wp_enqueue_style( 'wm-radio', WMAMP_ASSETS_URL . 'css/input-wm-radio.css', array(), WMAMP_VERSION, 'screen' );
 
 							// Scripts
 
-								wp_enqueue_script( 'wm-shortcodes-vc-addon' );
+								wp_enqueue_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
+
+							/**
+							 * Yes, we need to set the whole `wp_enqueue_style/script()` function as Visual Composer loads
+							 * assets strangely and those handles are not registered yet.
+							 */
 
 						}
 
