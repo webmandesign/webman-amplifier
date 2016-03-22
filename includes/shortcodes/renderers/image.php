@@ -7,7 +7,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.3.7
  *
  * @param  string class
  * @param  absint height
@@ -16,7 +16,7 @@
  * @param  string src
  * @param  string title
  * @param  absint width
- * @param  string ... You can actually set up a custom attributes for this shortcode. They will be outputed as HTML attributes if link is set.
+ * @param  string ... You can actually set up a custom attributes for this shortcode. They will be outputted as HTML attributes if link is set.
  */
 
 

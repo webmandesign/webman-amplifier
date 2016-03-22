@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.3
+ * @version  1.3.7
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -255,7 +255,7 @@
 	 * Module output
 	 *
 	 * @since    1.1
-	 * @version  1.2
+	 * @version  1.3.7
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -374,7 +374,7 @@
 					}
 
 				/**
-				 * Actual outputed shortcode
+				 * Actual outputted shortcode
 				 */
 
 					$shortcode_output = str_replace( array( '{{children}}', '{{items}}' ), $replace_children, $output['parent'] );

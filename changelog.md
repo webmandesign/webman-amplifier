@@ -1,5 +1,20 @@
 # WebMan Amplifier Changelog
 
+## 1.3.7
+
+* **Fix**: Typos
+* **Fix**: Duplicate button ID when set via Beaver Builder page builder
+
+#### Files changed:
+
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/image.php
+	includes/shortcodes/renderers/icon.php
+
+
 ## 1.3.6
 
 * **Update**: Visual Composer 4.11+ compatible

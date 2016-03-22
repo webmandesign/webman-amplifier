@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.3.7
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -18,7 +18,7 @@
  * @param  string caption
  * @param  string class
  * @param  string heading_tag (heading tag option for better accessibility setup)
- * @param  string ... You can actually set up a custom attributes for this shortcode. They will be outputed as HTML attributes for the button.
+ * @param  string ... You can actually set up a custom attributes for this shortcode. They will be outputted as HTML attributes for the button.
  */
 
 

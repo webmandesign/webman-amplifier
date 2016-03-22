@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.3.7
  */
 
 /**
@@ -889,8 +889,8 @@ $shortcode_definitions = array(
 				),
 			'bb_plugin'  => array(
 					'name'   => __( 'Button', 'webman-amplifier' ),
-					'output' => '[PREFIX_button{{url}}{{target}}{{color}}{{size}}{{icon}}{{id}}{{class}}]{{content}}[/PREFIX_button]',
-					'params' => array( 'url', 'target', 'color', 'size', 'icon', 'id', 'class', 'content' ),
+					'output' => '[PREFIX_button{{url}}{{target}}{{color}}{{size}}{{icon}}{{class}}]{{content}}[/PREFIX_button]',
+					'params' => array( 'url', 'target', 'color', 'size', 'icon', 'class', 'content' ),
 					'form'   => array(
 
 							//Tab
