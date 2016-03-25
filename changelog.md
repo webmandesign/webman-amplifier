@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.3.8
+
+* **Update**: Improved Slick slider functionality
+
+#### Files changed:
+
+	assets/js/shortcode-posts.js
+
+
 ## 1.3.7
 
 * **Fix**: Typos

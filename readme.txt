@@ -5,7 +5,7 @@ Author URI:        http://www.webmandesign.eu/
 Plugin URI:        http://www.webmandesign.eu/
 Requires at least: 4.3
 Tested up to:      4.5
-Stable tag:        1.3.7
+Stable tag:        1.3.8
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, message, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
@@ -28,19 +28,19 @@ This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu
 = Features =
 
 * Well thought shortcodes with simple and fast Shortcode Generator and integration with [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) page builder
-* Custom post types:
-  &bull; **Projects** - to create your own portfolios
-  &bull; **Logos** - to manage your clients and/or partners logo lists
-  &bull; **Testimonials**
-  &bull; **Staff** - to manage your team members
-  &bull; **Content Modules** - to create an icon boxes or a content injection anywhere on your website
-* Custom widgets
-  &bull; **Contact** - to display your contact information
-  &bull; **Submenu** - to display a subpages of the current page
-  &bull; **Twitter** - to display your tweets
-  &bull; **Tabbed Widgets** - to display any widgets in tabbed interface
-  &bull; **Posts** - to list posts or projects
-  &bull; **Content Module** - to display any Content Module post
+* Custom post types:<br>
+  &bull; **Projects** - to create your own portfolios<br>
+  &bull; **Logos** - to manage your clients and/or partners logo lists<br>
+  &bull; **Testimonials**<br>
+  &bull; **Staff** - to manage your team members<br>
+  &bull; **Content Modules** - to create an icon boxes or a content injection anywhere on your website<br>
+* Custom widgets<br>
+  &bull; **Contact** - to display your contact information<br>
+  &bull; **Submenu** - to display a subpages of the current page<br>
+  &bull; **Twitter** - to display your tweets<br>
+  &bull; **Tabbed Widgets** - to display any widgets in tabbed interface<br>
+  &bull; **Posts** - to list posts or projects<br>
+  &bull; **Content Module** - to display any Content Module post<br>
 * Advanced metabox generator
 * Fontello.com icon font uploader and simple integration
 * RTL language support
@@ -101,6 +101,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 
 == Upgrade Notice ==
+
+= 1.3.8 =
+Improved Slick slider functionality.
 
 = 1.3.7 =
 Fixing typos and duplicate button ID when set via Beaver Builder page builder issue.

@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.5
+ * @version  1.3.8
  */
 
 
@@ -133,6 +133,9 @@ jQuery( function() {
 			if ( jQuery().slick ) {
 
 				jQuery( '[class*="scrollable-"]' )
+					.find( '.wm-items-container .wm-column' )
+						.wrap( '<div class"wm-scrollable-item"></div>' )
+					.end()
 					.each( function( item ) {
 
 						var $thisParent             = jQuery( this ),
@@ -146,7 +149,7 @@ jQuery( function() {
 						$this
 							.slick( {
 								adaptiveHeight : $thisParent.hasClass( 'auto-height' ),
-								autoplay       : scrollableAuto,
+								autoplay       : Boolean( scrollableAuto ),
 								autoplaySpeed  : scrollableAuto,
 								responsive     : [
 										{
