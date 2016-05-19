@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.3.9
+
+* **Fix**: Icon font CSS styles conflict
+
+#### Files changed:
+
+	assets/font/fontello.css
+
+
 ## 1.3.8
 
 * **Update**: Improved Slick slider functionality
