@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3.10
  */
 
 
@@ -164,7 +164,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Render table columns
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.3.10
 	 */
 	if ( ! function_exists( 'wma_logos_cp_columns_render' ) ) {
 		function wma_logos_cp_columns_render( $column ) {
@@ -194,7 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					break;
 					case $prefix . 'thumb' . $suffix:
 
-						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'admin-thumbnail' );
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );

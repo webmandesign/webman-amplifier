@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.8
+ * @version  1.3.10
  */
 
 
@@ -112,11 +112,14 @@ jQuery( function() {
 			$WmampMasonryThis
 				.imagesLoaded( function() {
 
-					$WmampMasonryThis
-						.masonry( {
-							isRTL        : ( 'rtl' == jQuery( 'html' ).attr( 'dir' ) ), // Masonry 2 compatibility (pre WP v3.9)
-							isOriginLeft : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) // Masonry 3+
-						} );
+					// Processing
+
+						$WmampMasonryThis
+							.masonry( {
+								percentPosition : true,
+								isRTL           : ( 'rtl' == jQuery( 'html' ).attr( 'dir' ) ), // Masonry 2 compatibility (pre WP v3.9)
+								isOriginLeft    : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) // Masonry 3+
+							} );
 
 				} );
 

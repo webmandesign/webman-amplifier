@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.2
+ * @version  1.3.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -76,6 +76,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function __construct() {
 
@@ -88,8 +91,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['id']          = 'wm-tabbed-widgets';
 				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Tabbed Widgets', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
-						'classname'   => 'wm-tabbed-widgets',
-						'description' => _x( 'Multiple widgets in tabs', 'Widget description.', 'webman-amplifier' )
+						'classname'                   => 'wm-tabbed-widgets',
+						'description'                 => _x( 'Multiple widgets in tabs', 'Widget description.', 'webman-amplifier' ),
+						// 'customize_selective_refresh' => true,
 					);
 				$atts['control_ops'] = array();
 
@@ -98,7 +102,34 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			//Register widget attributes
 				parent::__construct( $atts['id'], $atts['name'], $atts['widget_ops'], $atts['control_ops'] );
 
+			// Enqueue style if widget is active (appears in a sidebar) or if in Customizer preview.
+
+				if (
+						is_active_widget( false, false, $this->id_base )
+						|| is_customize_preview()
+					) {
+
+					add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );
+
+				}
+
 		} // /__construct
+
+
+
+		/**
+		 * Enqueue assets
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
+		 */
+		public function assets() {
+
+			// Processing
+
+				wp_enqueue_script( 'wm-shortcodes-tabs' );
+
+		} // /assets
 
 
 
@@ -157,11 +188,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Widget HTML
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function widget( $args, $instance ) {
-
-			//Enqueue required scripts
-				wp_enqueue_script( 'wm-shortcodes-tabs' );
 
 			//Output
 				add_filter( 'dynamic_sidebar_params', array( &$this, 'wm_tabbed_widget_parameters' ), 99 );

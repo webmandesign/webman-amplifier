@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.2
+ * @version  1.3.10
  */
 
 
@@ -48,6 +48,9 @@ class WM_Subnav extends WP_Widget {
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function __construct() {
 
@@ -60,8 +63,9 @@ class WM_Subnav extends WP_Widget {
 				$atts['id']          = 'wm-subnav';
 				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Submenu', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
-						'classname'   => 'wm-subnav',
-						'description' => esc_html_x( 'List of subpages', 'Widget description.', 'webman-amplifier' )
+						'classname'                   => 'wm-subnav',
+						'description'                 => esc_html_x( 'List of subpages', 'Widget description.', 'webman-amplifier' ),
+						'customize_selective_refresh' => true,
 					);
 				$atts['control_ops'] = array();
 

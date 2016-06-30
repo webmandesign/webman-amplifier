@@ -1,5 +1,32 @@
 # WebMan Amplifier Changelog
 
+## 1.3.10
+
+* **Add**: Support for customizer selective refresh on widgets
+* **Update**: Removed custom `admin-thumbnail` image size
+* **Update**: Scripts: Isotope 3.0.1, Slick 1.6.0
+* **Update**: Setting Masonry script to use percent positioning
+* **Update**: Plugin PHPDoc DocBlock header
+
+#### Files changed:
+
+	class-wm-amplifier.php
+	webman-amplifier.php
+	assets/js/shortcode-posts.js
+	assets/scss/admin-addons.scss
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/widgets/w-contact.php
+	includes/widgets/w-module.php
+	includes/widgets/w-posts.php
+	includes/widgets/w-subnav.php
+	includes/widgets/w-tabbed-widgets.php
+	includes/widgets/w-twitter.php
+
+
 ## 1.3.9
 
 * **Fix**: Icon font CSS styles conflict

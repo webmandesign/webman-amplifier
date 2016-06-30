@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.2
+ * @version  1.3.10
  *
  * Contents:
  *
@@ -58,6 +58,9 @@
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function __construct() {
 
@@ -70,8 +73,9 @@
 				$atts['id']          = 'wm-contact-info';
 				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Contact', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
-						'classname'   => 'wm-contact-info',
-						'description' => _x( 'Contact information', 'Widget description.', 'webman-amplifier' )
+						'classname'                   => 'wm-contact-info',
+						'description'                 => _x( 'Contact information', 'Widget description.', 'webman-amplifier' ),
+						'customize_selective_refresh' => true,
 					);
 				$atts['control_ops'] = array();
 

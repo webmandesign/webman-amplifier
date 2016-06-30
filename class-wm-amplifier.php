@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.3.5
+ * @version	 1.3.10
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -208,17 +208,16 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup WordPress features
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.3.10
 			 *
 			 * @access  public
 			 */
 			public function setup_features() {
-				//Cropped squared image used in admin post tables
-					$admin_thumb_size = apply_filters( 'wmhook_wmamp_' . 'admin_thumb_size', array( 100, 100 ) );
-					add_image_size( 'admin-thumbnail', $admin_thumb_size[0], $admin_thumb_size[1], true );
 
-				//Load assets (JS and CSS)
+				// Load assets (JS and CSS)
+
 					add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
+
 			} // /setup_features
 
 

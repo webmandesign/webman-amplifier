@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.2
+ * @version  1.3.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -60,6 +60,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function __construct() {
 
@@ -72,8 +75,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['id']          = 'wm-module-widget';
 				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Content Module', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
-						'classname'   => 'wm-module-widget',
-						'description' => _x( 'Displays specific Content Module post', 'Widget description.', 'webman-amplifier' )
+						'classname'                   => 'wm-module-widget',
+						'description'                 => _x( 'Displays specific Content Module post', 'Widget description.', 'webman-amplifier' ),
+						'customize_selective_refresh' => true,
 					);
 				$atts['control_ops'] = array();
 

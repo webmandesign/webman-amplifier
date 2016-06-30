@@ -5,14 +5,17 @@
  * A set of additional features for WebMan themes (http://www.webmandesign.eu).
  *
  * @package    WebMan Amplifier
+ * @author     WebMan Design
  * @copyright  2015 WebMan - Oliver Juhas
+ * @license    GNU General Public License v3 *
  *
  * @link  http://www.webmandesign.eu
  *
+ * @wordpress-plugin
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         http://www.webmandesign.eu/
  * Description:        Pack of additional WordPress features. Contains additional custom post types, shortcodes, page builder integration, meta box generator and icon font management.
- * Version:            1.3.9
+ * Version:            1.3.10
  * Author:             WebMan - Oliver Juhas
  * Author URI:         http://www.webmandesign.eu/
  * Text Domain:        webman-amplifier
@@ -43,7 +46,7 @@
 
 		// Plugin version
 
-			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.3.9' );
+			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.3.10' );
 
 		// Paths
 

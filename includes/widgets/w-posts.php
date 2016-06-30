@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.2
+ * @version  1.3.10
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -60,6 +60,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Constructor
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.10
 		 */
 		function __construct() {
 
@@ -72,8 +75,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$atts['id']          = 'wm-posts-widget';
 				$atts['name']        = wp_get_theme( $theme )->get( 'Name' ) . ' ' . esc_html_x( 'Posts', 'Widget name.', 'webman-amplifier' );
 				$atts['widget_ops']  = array(
-						'classname'   => 'wm-posts-widget',
-						'description' => _x( 'Lists posts or projects', 'Widget description.', 'webman-amplifier' )
+						'classname'                   => 'wm-posts-widget',
+						'description'                 => _x( 'Lists posts or projects', 'Widget description.', 'webman-amplifier' ),
+						'customize_selective_refresh' => true,
 					);
 				$atts['control_ops'] = array();
 
@@ -218,6 +222,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Widget HTML
+		 *
+		 * @version  1.0.9.9
+		 * @version  1.3.10
 		 */
 		function widget( $args, $instance ) {
 
@@ -241,7 +248,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					$output .= $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base, $args ) . $args['after_title'];
 				}
 
-				$output .= do_shortcode( apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_shortcode', '[wm_posts class="' . $instance['class'] . '" columns="1" count="' . $instance['count'] . '" image_size="admin-thumbnail" layout="' . $instance['layout'][ $instance['post_type'] ] . '" order="' . $instance['order'] . '" post_type="' . $instance['post_type'] . '" taxonomy="' . $instance['taxonomy'] . '" /]', $args, $instance ) );
+				$output .= do_shortcode( apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_shortcode', '[wm_posts class="' . $instance['class'] . '" columns="1" count="' . $instance['count'] . '" image_size="thumbnail" layout="' . $instance['layout'][ $instance['post_type'] ] . '" order="' . $instance['order'] . '" post_type="' . $instance['post_type'] . '" taxonomy="' . $instance['taxonomy'] . '" /]', $args, $instance ) );
 
 				$output .= $args['after_widget'];
 
