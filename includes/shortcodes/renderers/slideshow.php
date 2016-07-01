@@ -7,7 +7,7 @@
  * You can use "Description" field of images to set the custom link on them.
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.3.11
  *
  * @param  string class
  * @param  string ids
@@ -95,10 +95,11 @@
 		$atts['class'] = trim( esc_attr( 'wm-slideshow clearfix auto-height ' . trim( $atts['class'] ) ) );
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Enqueue scripts
+// Enqueue scripts
+
 	$enqueue_scripts = array(
-			'jquery-owl-carousel',
-			'wm-shortcodes-slideshow'
+			'jquery-owlcarousel',
+			'wm-shortcodes-slideshow-owlcarousel'
 		);
 
 	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );

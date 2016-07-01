@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.6
+ * @version  1.3.11
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -342,7 +342,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.5
+			 * @version  1.3.11
 			 *
 			 * @access   public
 			 */
@@ -369,13 +369,16 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 					// Scripts
 
-						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js',  array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-ie',        WMAMP_ASSETS_URL . 'js/shortcodes-ie.js',        array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-parallax',  WMAMP_ASSETS_URL . 'js/shortcode-parallax.js',   array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts',     WMAMP_ASSETS_URL . 'js/shortcode-posts.js',      array( 'jquery', 'imagesloaded' ),    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-slideshow', WMAMP_ASSETS_URL . 'js/shortcode-slideshow.js',  array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-tabs',      WMAMP_ASSETS_URL . 'js/shortcode-tabs.js',       array( 'jquery' ),                    WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-vc-addon',  WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies,     WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js', array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-parallax', WMAMP_ASSETS_URL . 'js/shortcode-parallax.js', array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts-bxslider', WMAMP_ASSETS_URL . 'js/shortcode-posts-bxslider.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts-isotope', WMAMP_ASSETS_URL . 'js/shortcode-posts-isotope.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts-masonry', WMAMP_ASSETS_URL . 'js/shortcode-posts-masonry.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-posts-owlcarousel.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-posts-slick', WMAMP_ASSETS_URL . 'js/shortcode-posts-slick.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-slideshow-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-slideshow-owlcarousel.js', array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-tabs', WMAMP_ASSETS_URL . 'js/shortcode-tabs.js', array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
 
 						// 3rd party scripts
 
@@ -383,7 +386,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
 							wp_register_script( 'jquery-bxslider',     WMAMP_ASSETS_URL . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
-							wp_register_script( 'jquery-owl-carousel', WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
+							wp_register_script( 'jquery-owlcarousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-parallax',     WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'slick',               WMAMP_ASSETS_URL . 'js/plugins/slick.min.js',                    array( 'jquery' ), WMAMP_VERSION, true );
 
@@ -399,7 +402,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue frontend styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.4
+			 * @version  1.3.11
 			 *
 			 * @access  public
 			 */
@@ -424,12 +427,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 							if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
 								wp_deregister_style( 'js_composer_front' );
 							}
-
-					// Scripts
-
-						if ( $is_IE && apply_filters( 'wmhook_shortcode_' . 'enqueue_shortcode_ie_script', true ) ) {
-							wp_enqueue_script( 'wm-shortcodes-ie' );
-						}
 
 					// Allow hooking for dequeuing
 
@@ -1167,13 +1164,14 @@ function wma_shortcodes() {
  * WM_Shortcodes helper functions
  *
  * @since    1.0.9.8
- * @version  1.1
+ * @version  1.3.11
  */
 
 	/**
 	 * Shortcode enqueue scripts
 	 *
-	 * @since  1.0.9.8
+	 * @since    1.0.9.8
+	 * @version  1.3.11
 	 *
 	 * @param  string $shortcode
 	 * @param  array  $enqueue_scripts
@@ -1181,10 +1179,14 @@ function wma_shortcodes() {
 	 */
 	if ( ! function_exists( 'wma_shortcode_enqueue_scripts' ) ) {
 		function wma_shortcode_enqueue_scripts( $shortcode = '', $enqueue_scripts = array(), $atts = array() ) {
-			//Helper variables
+
+			// Helper variables
+
 				$enqueue_scripts = array_filter( (array) apply_filters( 'wmhook_shortcode_' . $shortcode . '_enqueue_scripts', $enqueue_scripts, $atts ) );
 
-			//Requirements check
+
+			// Requirements check
+
 				if (
 						! $shortcode
 						|| empty( $enqueue_scripts )
@@ -1192,16 +1194,32 @@ function wma_shortcodes() {
 					return;
 				}
 
-			//Process
-				foreach ( $enqueue_scripts as $script_name ) {
-					wp_enqueue_script( $script_name );
-				}
 
-			/**
-			 * Using this action hook will remove all the previously added shortcode scripts
-			 * @todo  Find out why this happens
-			 */
-			do_action( 'wmhook_shortcode_' . $shortcode . '_do_enqueue_scripts', $atts );
+			// Processing
+
+				// Fixing legacy theme compatibility (@todo Remove when themes are updated)
+
+					if ( in_array( 'slick', $enqueue_scripts ) ) {
+
+						$enqueue_scripts = array(
+								'slick',
+								'wm-shortcodes-posts-slick'
+							);
+
+					}
+
+				// Enqueue scripts
+
+					foreach ( $enqueue_scripts as $script_name ) {
+						wp_enqueue_script( $script_name );
+					}
+
+				/**
+				 * Using this action hook will remove all the previously added shortcode scripts
+				 * @todo  Find out why this happens
+				 */
+				do_action( 'wmhook_shortcode_' . $shortcode . '_do_enqueue_scripts', $atts );
+
 		}
 	} // /wma_shortcode_enqueue_scripts
 

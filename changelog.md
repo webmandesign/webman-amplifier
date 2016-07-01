@@ -1,5 +1,26 @@
 # WebMan Amplifier Changelog
 
+## 1.3.11
+
+* **Update**: Removing obsolete IE8 scripts
+* **Fix**: Fixing compatibility with Beaver Builder page builder plugin
+
+#### Files changed:
+
+	webman-amplifier.php
+	assets/js/shortcode-posts-bxslider.js
+	assets/js/shortcode-posts-isotope.js
+	assets/js/shortcode-posts-masonry.js
+	assets/js/shortcode-posts-owlcarousel.js
+	assets/js/shortcode-posts-slick.js
+	assets/js/shortcode-slideshow-owlcarousel.js
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/slideshow.php
+	includes/shortcodes/renderers/testimonials.php
+
+
 ## 1.3.10
 
 * **Add**: Support for customizer selective refresh on widgets

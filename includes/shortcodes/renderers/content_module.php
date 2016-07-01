@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.3.11
  *
  * @param  string align
  * @param  string class
@@ -435,23 +435,42 @@
 
 	$atts['content'] = $output;
 
-		//Enqueue scripts
+		// Enqueue scripts
+
 			$enqueue_scripts = array();
+
 			if ( $atts['scroll'] ) {
-				$enqueue_scripts = array(
-						'jquery-owl-carousel',
-						'wm-shortcodes-posts'
-					);
+
+				if ( version_compare( apply_filters( 'wmhook_shortcode_supported_version', WMAMP_VERSION ), '1.3', '<' ) ) {
+
+					$enqueue_scripts = array(
+							'jquery-owlcarousel',
+							'wm-shortcodes-posts-owlcarousel'
+						);
+
+				} else {
+
+					$enqueue_scripts = array(
+							'slick',
+							'wm-shortcodes-posts-slick'
+						);
+
+				}
+
 			} elseif ( $atts['filter'] ) {
+
 				$enqueue_scripts = array(
 						'isotope',
-						'wm-shortcodes-posts'
+						'wm-shortcodes-posts-isotope'
 					);
+
 			} elseif ( $masonry_layout ) {
+
 				$enqueue_scripts = array(
 						'jquery-masonry',
-						'wm-shortcodes-posts'
+						'wm-shortcodes-posts-masonry'
 					);
+
 			}
 
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
