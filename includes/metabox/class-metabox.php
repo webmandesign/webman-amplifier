@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.3.5
+ * @version  1.3.12
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -338,7 +338,9 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Display meta box
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.3.12
+			 *
 			 * @access  public
 			 *
 			 * @param   object $post WordPress post object
@@ -350,6 +352,10 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Execute fields function
 					$meta_fields = (array) call_user_func( $this->fields );
+
+					if ( empty( $meta_fields ) ) {
+						return;
+					}
 
 				//Setting up helper variables
 					$page_template = '';
@@ -413,7 +419,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Opening the meta box wrapping visual editor
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.3.12
 			 *
 			 * @access  public
 			 *
@@ -432,6 +438,10 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Execute fields function
 					$meta_fields = (array) call_user_func( $this->fields );
+
+					if ( empty( $meta_fields ) ) {
+						return;
+					}
 
 				//Setting up helper variables
 					$page_template = '';
@@ -495,7 +505,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Closing the meta box wrapping visual editor
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.3.12
 			 *
 			 * @access   public
 			 *
@@ -537,8 +547,13 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Setting up helper variables
 					$page_template = '';
+
 				//Execute fields function
 					$meta_fields = (array) call_user_func( $this->fields );
+
+					if ( empty( $meta_fields ) ) {
+						return;
+					}
 
 				//Set a page template if editing a page
 					if ( 'page' == $post->post_type ) {
@@ -592,7 +607,9 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Save metabox data
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.3.12
+			 *
 			 * @access  public
 			 *
 			 * @param   integer $post_id WordPress post ID
@@ -609,6 +626,11 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				//Execute fields function
 					$meta_fields = (array) call_user_func( $this->fields );
+
+					if ( empty( $meta_fields ) ) {
+						return $post_id;
+					}
+
 					if ( $this->meta_box['visual-wrapper-add'] ) {
 						$meta_fields = array_merge(
 							(array) call_user_func( $this->meta_box['visual-wrapper-add'] ),

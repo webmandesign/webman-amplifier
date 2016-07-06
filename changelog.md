@@ -1,5 +1,15 @@
 # WebMan Amplifier Changelog
 
+## 1.3.12
+
+* **Fix**: Don't output metabox if we have empty array of fields
+
+#### Files changed:
+
+	webman-amplifier.php
+	includes/metabox/class-metabox.php
+
+
 ## 1.3.11
 
 * **Update**: Removing obsolete IE8 scripts
