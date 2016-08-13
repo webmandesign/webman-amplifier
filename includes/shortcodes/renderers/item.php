@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.3.13
  *
  * @param  string icon
  * @param  string heading_tag (heading tag option for better accessibility setup)
@@ -68,7 +68,7 @@
 
 		$output  = "\r\n" . '<div class="' .  esc_attr( trim( $atts['class']['wrapper'] . ' ' . $atts['tags'] ) ) . '">';
 		$output .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="' . esc_attr( trim( $atts['class']['title'] . ' ' . $atts['tags'] ) ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-tag-names="' . esc_attr( implode( '|', $atts['tag_names'] ) ) . '">' . $atts['title'] . '</' . tag_escape( $atts['heading_tag'] ) . '>';
-		$output .= '<div class="' . esc_attr( trim( $atts['class']['content'] . ' ' . sanitize_html_class( strip_tags( $atts['title'] ) ) ) ) . '">' . $atts['content'] . '</div>';
+		$output .= '<div class="' . esc_attr( trim( $atts['class']['content'] . ' ' . sanitize_html_class( wp_strip_all_tags( $atts['title'] ) ) ) ) . '">' . $atts['content'] . '</div>';
 		$output .= '</div>' . "\r\n";
 
 	} elseif ( 'tabs' == $wm_shortcode_helper_variable ) {
@@ -76,7 +76,7 @@
 
 		$i = rand( 100, 999 );
 
-		$output  = "\r\n" . '<div class="' . esc_attr( trim( $atts['class']['wrapper'] . ' ' . sanitize_html_class( strip_tags( $atts['title'] ) ) . '_' . $i ) ) . '" id="' . sanitize_html_class( strip_tags( $atts['title'] ) ) . '_' . $i . '" data-title="' . sanitize_html_class( strip_tags( $atts['title'] ) ) . '_' . $i . '&&' . esc_attr( $atts['title'] ) . '">';
+		$output  = "\r\n" . '<div class="' . esc_attr( trim( $atts['class']['wrapper'] . ' ' . sanitize_html_class( wp_strip_all_tags( $atts['title'] ) ) . '_' . $i ) ) . '" id="' . sanitize_html_class( wp_strip_all_tags( $atts['title'] ) ) . '_' . $i . '" data-title="' . sanitize_html_class( wp_strip_all_tags( $atts['title'] ) ) . '_' . $i . '&&' . esc_attr( $atts['title'] ) . '">';
 		$output .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text ' . esc_attr( trim( $atts['class']['title'] ) ) . '">' . $atts['title'] . '</' . tag_escape( $atts['heading_tag'] ) . '>';
 		$output .= $atts['content'];
 		$output .= '</div>' . "\r\n";

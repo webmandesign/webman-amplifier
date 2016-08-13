@@ -6,7 +6,7 @@
  * Extension class naming rules: 'WPBakeryShortCode_' . $vc_plugin['base']
  *
  * @since       1.0
- * @version     1.2.9
+ * @version     1.3.13
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -23,7 +23,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.3.13
 	 */
 	class WPBakeryShortCode_wm_accordion extends WPBakeryShortCode {
 
@@ -60,7 +60,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			foreach ( $this->settings['params'] as $param ) {
 				$param_value = '';
-				$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+				$param_value = isset( $param['param_name'] ) ? $param['param_name'] : '';
 				if ( is_array( $param_value ) ) {
 					// Get first element from the array
 					reset( $param_value );
@@ -104,7 +104,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.3.13
 	 */
 	class WPBakeryShortCode_wm_tabs extends WPBakeryShortCode {
 
@@ -141,7 +141,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			foreach ( $this->settings['params'] as $param ) {
 				$param_value = '';
-				$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+				$param_value = isset( $param['param_name'] ) ? $param['param_name'] : '';
 				if ( is_array( $param_value ) ) {
 					// Get first element from the array
 					reset( $param_value );
@@ -185,7 +185,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.3.13
 	 */
 	class WPBakeryShortCode_wm_pricing_table extends WPBakeryShortCode {
 
@@ -222,7 +222,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
 
 			foreach ( $this->settings['params'] as $param ) {
 				$param_value = '';
-				$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+				$param_value = isset( $param['param_name'] ) ? $param['param_name'] : '';
 				if ( is_array( $param_value ) ) {
 					// Get first element from the array
 					reset( $param_value );
@@ -281,7 +281,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 	 * we can't use the class aliases available since PHP v5.3. So, have to create a new extension classes.
 	 *
 	 * @since    1.0
-	 * @version  1.0.9.5
+	 * @version  1.3.13
 	 */
 	class WPBakeryShortCode_wm_item extends WPBakeryShortCode_VC_Tab {
 
@@ -328,7 +328,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 				if ( isset( $this->settings['params'] ) ) {
 					$inner = '';
 					foreach ( $this->settings['params'] as $param ) {
-						$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+						$param_value = isset( $param['param_name'] ) ? $param['param_name'] : '';
 						if ( is_array( $param_value ) ) {
 							// Get first element from the array
 							reset( $param_value );
@@ -382,7 +382,7 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 				if ( isset( $this->settings['params'] ) ) {
 					$inner = '';
 					foreach ( $this->settings['params'] as $param ) {
-						$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+						$param_value = isset( $param['param_name'] ) ? $param['param_name'] : '';
 						if ( is_array( $param_value ) ) {
 							// Get first element from the array
 							reset( $param_value );
@@ -418,5 +418,3 @@ if ( class_exists( 'WPBakeryShortCode_VC_Tab' ) ) {
 	} // /WPBakeryShortCode_wm_item
 
 } // /class_exists( 'WPBakeryShortCode_VC_Tab' )
-
-?>

@@ -1,5 +1,27 @@
 # WebMan Amplifier Changelog
 
+## 1.3.13
+
+* **Update**: Removing arrow from Subnav widget title
+* **Update**: Improving security by using `wp_strip_all_tags` function
+* **Fix**: Visual Composer compatibility file PHP error
+* **Fix**: Typo in shortcodes definitions
+
+#### Files changed:
+
+	webman-amplifier.php
+	includes/functions.php
+	includes/metabox/fields/select.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/page-builder/visual-composer/visual-composer.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/slideshow.php
+	includes/widgets/w-subnav.php
+	includes/widgets/w-tabbed-widgets.php
+	includes/widgets/w-twitter.php
+	languages/webman-amplifier.pot
+
+
 ## 1.3.12
 
 * **Fix**: Don't output metabox if we have empty array of fields

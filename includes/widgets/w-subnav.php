@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.3.13
  */
 
 
@@ -90,7 +90,7 @@ class WM_Subnav extends WP_Widget {
 		 * Output HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.2.8
+		 * @version  1.3.13
 		 */
 		function widget( $args, $instance ) {
 
@@ -136,7 +136,7 @@ class WM_Subnav extends WP_Widget {
 					if ( ! trim( $instance['title'] ) ) {
 
 						if ( $grandparent ) {
-							$instance['title'] = '<a href="' . esc_url( get_permalink( $grandparent ) ) . '">&laquo; ' . get_the_title( $grandparent ) . '</a>';
+							$instance['title'] = '<a href="' . esc_url( get_permalink( $grandparent ) ) . '">' . get_the_title( $grandparent ) . '</a>';
 						} else {
 							$instance['title'] = '<a href="' . esc_url( get_permalink( $post->ID ) ) . '">' . get_the_title( $post->ID ) . '</a>';
 						}

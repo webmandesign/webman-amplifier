@@ -2488,7 +2488,7 @@ msgid "Description text"
 msgstr ""
 
 #: includes/shortcodes/definitions/definitions.php:2880
-msgid "Preformatted Text"
+msgid "Preformated Text"
 msgstr ""
 
 #: includes/shortcodes/definitions/definitions.php:2901

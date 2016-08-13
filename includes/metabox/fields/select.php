@@ -9,7 +9,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.3.13
  */
 
 
@@ -25,7 +25,7 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since    1.0
-	 * @version  1.1.6
+	 * @version  1.3.13
 	 */
 	if ( ! function_exists( 'wma_field_select' ) ) {
 		function wma_field_select( $field, $page_template = null ) {
@@ -95,7 +95,7 @@
 										} else {
 											$selected = ( in_array( $option_value, $value ) ) ? ( ' selected="selected"' ) : ( '' );
 										}
-										$output .= "\r\n\t\t\t\t" . '<option value="'. $option_value . '"' . $selected . '>' . strip_tags( $option ) . '</option>';
+										$output .= "\r\n\t\t\t\t" . '<option value="'. $option_value . '"' . $selected . '>' . wp_strip_all_tags( $option ) . '</option>';
 									} elseif ( 'OPTGROUP' === substr( $option_value, 1 ) ) {
 									//open option group
 										$output .= "\r\n\t\t\t" . '<optgroup label="' . esc_attr( $option ) . '">';

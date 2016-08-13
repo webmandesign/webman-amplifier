@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.3.13
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -190,13 +190,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Widget HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.3.10
+		 * @version  1.3.13
 		 */
 		function widget( $args, $instance ) {
 
 			//Output
 				add_filter( 'dynamic_sidebar_params', array( &$this, 'wm_tabbed_widget_parameters' ), 99 );
-				// add_filter( 'widget_title', 'strip_tags', 99 );
 
 				echo $args['before_widget'];
 
@@ -215,7 +214,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				echo $args['after_widget'];
 
 				remove_filter( 'dynamic_sidebar_params', array( &$this, 'wm_tabbed_widget_parameters' ), 99 );
-				// remove_filter( 'widget_title', 'strip_tags', 99 );
 
 		} // /widget
 

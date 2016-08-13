@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.7
+ * @version  1.3.13
  */
 
 /**
@@ -2877,7 +2877,7 @@ $shortcode_definitions = array(
 			'since'      => '1.0',
 			'preprocess' => true,
 			'generator'  => array(
-					'name'  => __( 'Preformatted Text', 'webman-amplifier' ),
+					'name'  => __( 'Preformated Text', 'webman-amplifier' ),
 					'code'  => '[PREFIX_pre]{{content}}[/PREFIX_pre]',
 					'short' => true,
 				),

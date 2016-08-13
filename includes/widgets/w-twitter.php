@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.3.13
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -208,6 +208,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Save the options
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.3.13
 		 */
 		function update( $new_instance, $old_instance ) {
 
@@ -225,7 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$instance['count']    = ( 0 < absint( $new_instance['count'] ) ) ? ( absint( $new_instance['count'] ) ) : ( 3 );
 				$instance['replies']  = $new_instance['replies'];
 				$instance['title']    = $new_instance['title'];
-				$instance['username'] = sanitize_title( trim( strip_tags( $new_instance['username'] ) ) );
+				$instance['username'] = sanitize_title( trim( wp_strip_all_tags( $new_instance['username'] ) ) );
 				$instance['userinfo'] = $new_instance['userinfo'];
 
 				// Twitter API 1.1
