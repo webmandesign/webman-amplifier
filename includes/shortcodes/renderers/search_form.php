@@ -11,5 +11,3 @@
 
 //Output
 	$output = get_search_form( false );
-
-?>

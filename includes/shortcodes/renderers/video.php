@@ -112,5 +112,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="media-container">' . $atts['content'] . '</div></div>';
-
-?>

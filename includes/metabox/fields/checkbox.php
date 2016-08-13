@@ -113,5 +113,3 @@
 	} // /wma_field_checkbox_validation
 
 	add_action( 'wmhook_metabox_' . 'saving_' . 'checkbox', 'wma_field_checkbox_validation', 10, 3 );
-
-?>

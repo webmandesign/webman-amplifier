@@ -137,5 +137,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '"' . implode( ' ', $atts['attributes'] ) . '>' . $atts['content'] . '</div>';
-
-?>

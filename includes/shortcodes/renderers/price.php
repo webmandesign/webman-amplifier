@@ -79,5 +79,3 @@
 
 //Output
 	$output = "\r\n" . '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['header'] . $atts['content'] . '</div>' . "\r\n";
-
-?>

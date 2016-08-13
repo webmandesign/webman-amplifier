@@ -477,5 +477,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
-
-?>

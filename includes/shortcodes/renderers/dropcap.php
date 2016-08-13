@@ -44,5 +44,3 @@
 
 //Output
 	$output = '<span class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</span>';
-
-?>

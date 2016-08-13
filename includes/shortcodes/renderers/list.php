@@ -39,5 +39,3 @@
 
 //Output
 	$output = $atts['content'];
-
-?>

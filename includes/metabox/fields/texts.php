@@ -291,5 +291,3 @@
 	} // /wma_field_textarea_validation
 
 	add_action( 'wmhook_metabox_' . 'saving_' . 'textarea', 'wma_field_textarea_validation', 10, 3 );
-
-?>

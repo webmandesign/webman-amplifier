@@ -19,5 +19,3 @@
 
 //Output
 	$output = '<pre>' . $atts['content'] . '</pre>';
-
-?>

@@ -146,5 +146,3 @@
 	} // /wma_field_select_validation
 
 	add_action( 'wmhook_metabox_' . 'saving_' . 'select', 'wma_field_select_validation', 10, 3 );
-
-?>

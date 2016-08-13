@@ -480,5 +480,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'title' => __( 'Project settings', 'webman-amplifier' ),
 			) );
 	}
-
-?>

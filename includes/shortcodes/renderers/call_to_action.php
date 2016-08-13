@@ -83,4 +83,3 @@
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="wm-call-to-action-content wm-call-to-action-element">' . $atts['caption'] . $atts['content'] . '</div>' . $atts['button'] . '</div>';
 
-?>

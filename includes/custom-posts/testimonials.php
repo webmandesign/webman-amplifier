@@ -434,5 +434,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'title' => __( 'Testimonial settings', 'webman-amplifier' ),
 			) );
 	}
-
-?>

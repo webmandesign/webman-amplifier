@@ -36,5 +36,3 @@
 				'sidebar'           => trim( $atts['area'] ),
 			) );
 	}
-
-?>

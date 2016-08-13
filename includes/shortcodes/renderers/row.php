@@ -194,5 +194,3 @@
 			'{content}'    => $atts['content'],
 		), $atts );
 	$output = strtr( $atts['html'][ $atts['mode'] ], $replacements );
-
-?>

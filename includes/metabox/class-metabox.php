@@ -827,5 +827,3 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 		} // /wma_add_meta_box
 
 } // /class WM_Metabox check
-
-?>

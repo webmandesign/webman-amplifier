@@ -258,5 +258,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		} // /widget
 
 	} // /WM_Posts_Widget
-
-?>

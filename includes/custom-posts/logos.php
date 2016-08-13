@@ -433,5 +433,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'visual-wrapper' => false,
 			) );
 	}
-
-?>

@@ -69,5 +69,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['title'] . $atts['content'] . '</div>';
-
-?>

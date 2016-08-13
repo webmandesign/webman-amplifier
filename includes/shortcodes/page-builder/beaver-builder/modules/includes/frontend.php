@@ -19,5 +19,3 @@
 
 
 do_action( 'wmhook_shortcode_' . 'bb_module_output', $module, $settings );
-
-?>

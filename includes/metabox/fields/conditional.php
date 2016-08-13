@@ -131,5 +131,3 @@
 	} // /wma_conditional_show
 
 	add_action( 'wmhook_metabox_' . 'conditional', 'wma_conditional_show', 10, 2 );
-
-?>

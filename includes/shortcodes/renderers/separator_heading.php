@@ -54,5 +54,3 @@
 
 //Output
 	$output = '<' . tag_escape( $atts['tag'] ) . $atts['id'] . ' class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</' . tag_escape( $atts['tag'] ) . '>';
-
-?>

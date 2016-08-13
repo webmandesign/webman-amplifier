@@ -745,5 +745,3 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
  */
 
 	require_once( 'includes/functions.php' );
-
-?>

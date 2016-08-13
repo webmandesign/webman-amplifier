@@ -236,5 +236,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		} // /wm_tabbed_widget_parameters
 
 	} // /WM_Tabbed_Widgets
-
-?>

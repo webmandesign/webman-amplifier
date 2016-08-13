@@ -430,5 +430,3 @@
 				return substr( basename( $file, '.php' ), 3 );
 		}
 	} // /wma_bb_get_custom_module_slug
-
-?>

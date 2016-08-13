@@ -37,5 +37,3 @@
 	if ( $atts['field'] ) {
 		$output = ( ! $atts['custom'] ) ? ( wma_meta_option( $atts['field'], $atts['post_id'] ) ) : ( get_post_meta( $atts['post_id'], $atts['field'], true ) );
 	}
-
-?>

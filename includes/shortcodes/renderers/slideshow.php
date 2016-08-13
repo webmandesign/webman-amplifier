@@ -108,5 +108,3 @@
 	if ( $atts['content'] ) {
 		$output = '<div class="' . esc_attr( $atts['class'] ) . '" data-speed="' . esc_attr( $atts['speed'] ) . '" data-nav="' . esc_attr( $atts['nav'] ) . '">' . $atts['content'] . '</div>';
 	}
-
-?>

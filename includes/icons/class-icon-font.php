@@ -815,5 +815,3 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 	} // /WM_Icons
 
 } // /class WM_Icons check
-
-?>

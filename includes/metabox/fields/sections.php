@@ -225,5 +225,3 @@
 	} // /wma_field_sub_section_close
 
 	add_action( 'wmhook_metabox_' . 'render_' . 'sub-section-close', 'wma_field_sub_section_close', 10, 2 );
-
-?>

@@ -315,5 +315,3 @@
 	} // /wma_field_gallery_AJAX
 
 	add_action( 'wp_ajax_wm-gallery-preview-refresh', 'wma_field_gallery_AJAX' );
-
-?>

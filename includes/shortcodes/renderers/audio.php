@@ -47,5 +47,3 @@
 
 //Output
 	$output = do_shortcode( '<div class="' . esc_attr( $atts['class'] ) . '"><div class="media-container">' . $atts['content'] . '</div></div>' );
-
-?>

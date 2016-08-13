@@ -58,5 +58,3 @@
 
 //Output
 	$output = '<hr class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . ' />';
-
-?>

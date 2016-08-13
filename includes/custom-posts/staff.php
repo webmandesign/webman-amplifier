@@ -623,5 +623,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'title' => __( 'Staff settings', 'webman-amplifier' ),
 			) );
 	}
-
-?>

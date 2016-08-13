@@ -73,5 +73,3 @@
 	} // /wma_field_hidden_validation
 
 	add_action( 'wmhook_metabox_' . 'saving_' . 'hidden', 'wma_field_hidden_validation', 10, 3 );
-
-?>

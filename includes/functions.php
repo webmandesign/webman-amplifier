@@ -1483,5 +1483,3 @@
 					return apply_filters( 'wmhook_wmamp_' . 'wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
 			}
 		} // /wma_is_active_vc
-
-?>

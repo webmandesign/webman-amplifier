@@ -118,5 +118,3 @@
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 	} // /if $atts['time']
-
-?>

@@ -215,5 +215,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		} // /widget
 
 	} // /WM_Module_Widget
-
-?>

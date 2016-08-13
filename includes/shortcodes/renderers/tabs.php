@@ -81,5 +81,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '" data-active="' . esc_attr( $atts['active'] ) . '">' . $atts['content'] . '</div>';
-
-?>

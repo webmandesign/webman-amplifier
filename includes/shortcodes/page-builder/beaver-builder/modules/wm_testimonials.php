@@ -74,5 +74,3 @@
 	if ( ! empty( $module_form_children ) && is_array( $module_form_children ) ) {
 		FLBuilder::register_settings_form( 'wm_children_form_' . $module, $module_form_children );
 	}
-
-?>

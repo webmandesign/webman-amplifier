@@ -64,5 +64,3 @@
 
 //Output
 	$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( $atts['class'] ) . '"' . $atts['attributes'] . '>' . $atts['icon'] . $atts['content'] . '</a>';
-
-?>

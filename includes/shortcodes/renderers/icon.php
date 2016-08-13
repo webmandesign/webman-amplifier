@@ -70,5 +70,3 @@
 	} else {
 		$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( str_replace( 'wm-icon', 'wm-social-icon', $atts['class'] ) . $atts['social'] ) . '"' . $atts['attributes'] . '><i class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . '></i></a>';
 	}
-
-?>

@@ -523,5 +523,3 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'title' => __( 'Module settings', 'webman-amplifier' ),
 			) );
 	}
-
-?>

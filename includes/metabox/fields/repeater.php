@@ -119,5 +119,3 @@
 	} // /wma_field_repeater
 
 	add_action( 'wmhook_metabox_' . 'render_' . 'repeater', 'wma_field_repeater', 10, 2 );
-
-?>

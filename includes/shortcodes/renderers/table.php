@@ -78,5 +78,3 @@
 	if ( $atts['content'] ) {
 		$output = '<table class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</table>';
 	}
-
-?>

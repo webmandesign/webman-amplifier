@@ -49,5 +49,3 @@
 
 //Output
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '" title="' . esc_attr( $atts['progress'] ) . '%" data-progress="' . esc_attr( $atts['progress'] ) . '">' . $atts['content'] . '<div class="' . esc_attr( $atts['class_bar'] ) . '" style="width:' . esc_attr( $atts['progress'] ) . '%;"></div></div>';
-
-?>

@@ -87,5 +87,3 @@
 	} // /wma_field_html
 
 	add_action( 'wmhook_metabox_' . 'render_' . 'html', 'wma_field_html', 10, 2 );
-
-?>
