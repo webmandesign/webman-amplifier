@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.11
+ * @version  1.3.14
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -342,11 +342,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.11
+			 * @version  1.3.14
 			 *
 			 * @access   public
 			 */
-			public function assets_register() {
+			public static function assets_register() {
 
 				// Helper variables
 
@@ -371,7 +371,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js', array( 'jquery' ), WMAMP_VERSION, true );
 						wp_register_script( 'wm-shortcodes-parallax', WMAMP_ASSETS_URL . 'js/shortcode-parallax.js', array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts-bxslider', WMAMP_ASSETS_URL . 'js/shortcode-posts-bxslider.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
 						wp_register_script( 'wm-shortcodes-posts-isotope', WMAMP_ASSETS_URL . 'js/shortcode-posts-isotope.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
 						wp_register_script( 'wm-shortcodes-posts-masonry', WMAMP_ASSETS_URL . 'js/shortcode-posts-masonry.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
 						wp_register_script( 'wm-shortcodes-posts-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-posts-owlcarousel.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
@@ -384,7 +383,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 							wp_register_script( 'imagesloaded',        WMAMP_ASSETS_URL . 'js/plugins/imagesloaded.min.js',             array(),           WMAMP_VERSION, true );
 							wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
-							wp_register_script( 'jquery-bxslider',     WMAMP_ASSETS_URL . 'js/plugins/jquery.bxslider.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-owlcarousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-parallax',     WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
@@ -402,11 +400,11 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Enqueue frontend styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.11
+			 * @version  1.3.14
 			 *
 			 * @access  public
 			 */
-			public function assets_frontend() {
+			public static function assets_frontend() {
 
 				// Helper variables
 
@@ -503,7 +501,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Setup filter hooks
 			 *
 			 * @since    1.0
-			 * @version  1.3.4
+			 * @version  1.3.14
 			 *
 			 * @access  private
 			 */
@@ -513,8 +511,8 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 					// Assets
 
-						add_action( 'wp_enqueue_scripts', array( $this, 'assets_register' ) );
-						add_action( 'wp_enqueue_scripts', array( $this, 'assets_frontend' ) );
+						add_action( 'init', __CLASS__ . '::assets_register', 998 ); // Has to be hooked early for shortcodes to use the registered script  @todo  Use full enqueue script syntax in shortcodes script enqueuing.
+						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_frontend' );
 						add_action( 'vc_backend_editor_enqueue_js_css', array( $this, 'assets_backend_vc' ) );
 
 					// Shortcodes in text widget

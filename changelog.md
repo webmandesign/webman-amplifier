@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.3.14
+
+* **Update**: Removing closing PHP tag from end of files
+* **Update**: Removed bxSlider script
+* **Fix**: Enqueuing of shortcode scripts (need to register scripts earlier)
+
+#### Files changed:
+
+	*.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.3.13
 
 * **Update**: Removing arrow from Subnav widget title
