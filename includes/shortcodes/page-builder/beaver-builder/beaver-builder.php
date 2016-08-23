@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.3.7
+ * @version  1.3.15
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -43,7 +43,7 @@
 
 		add_action( 'fl_builder_control_' . 'wm_radio', 'wma_bb_custom_field_wm_radio', 10, 3 );
 
-		add_action( 'wmhook_shortcode_' . 'bb_module_output', 'wma_bb_custom_module_output', 10, 2 );
+		add_action( 'wmhook_shortcode_bb_module_frontend', 'wma_bb_custom_module_output', 10, 2 );
 
 
 
@@ -385,6 +385,98 @@
 				echo $shortcode_output;
 		}
 	} // /wma_bb_custom_module_output
+
+
+
+	/**
+	 * Module specific frontend JS
+	 *
+	 * @since    1.3.15
+	 * @version  1.3.15
+	 *
+	 * @param  obj    $module   Page builder's current module object
+	 * @param  array  $settings Settings passed from page builder form
+	 */
+	function wma_bb_custom_module_frontent_js( $module, $settings = array() ) {
+
+		// Requirements check
+
+			if (
+					! class_exists( 'FLBuilderModel' )
+					|| ! FLBuilderModel::is_builder_active()
+					|| ! is_object( $module )
+					|| ! isset( $module->slug )
+					|| ! isset( $module->node )
+				) {
+				return;
+			}
+
+
+		// Helper variables
+
+			$output = '';
+
+			$id       = $module->node;
+			$settings = (array) $settings;
+
+			/**
+			 * Removing 'wm_' (string length = 3) from the beginning
+			 * of the custom module file name slug.
+			 */
+			$module = substr( $module->slug, 3 );
+
+
+		// Processing
+
+			switch ( $module ) {
+
+				case 'accordion':
+						$output = "WmampAccordion( '.fl-node-{{id}} .wm-accordion' );";
+					break;
+
+				case 'content_module':
+				case 'posts':
+				case 'testimonials':
+
+					// Isotope
+
+						if ( isset( $settings['filter'] ) && $settings['filter'] ) {
+							$output = "WmampIsotope( '.fl-node-{{id}} .filter-this' );";
+						}
+
+					// Masonry
+
+						if ( isset( $settings['class'] ) && false !== strpos( $settings['class'], 'masonry' ) ) {
+							$output = "WmampMasonry( '.fl-node-{{id}} .masonry-this' );";
+						}
+
+					// Slick
+
+						if ( isset( $settings['scroll'] ) && $settings['scroll'] ) {
+							$output = "WmampSlick( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+						}
+
+					break;
+
+				case 'tabs':
+						$output = "WmampTabs( '.fl-node-{{id}} .wm-tabs' );";
+					break;
+
+				default:
+					break;
+
+			} // /switch
+
+
+		// Output
+
+			if ( trim( $output ) ) {
+				echo 'jQuery( function() { ' . str_replace( '{{id}}', $id, $output ) . ' } );';
+			}
+
+	} // /wma_bb_custom_module_frontent_js
+
+	add_action( 'wmhook_shortcode_bb_module_frontend_js', 'wma_bb_custom_module_frontent_js', 10, 2 );
 
 
 

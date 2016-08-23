@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.14
+ * @version  1.3.15
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -342,7 +342,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 			 * Register styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.14
+			 * @version  1.3.15
 			 *
 			 * @access   public
 			 */
@@ -381,7 +381,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
 						// 3rd party scripts
 
-							wp_register_script( 'imagesloaded',        WMAMP_ASSETS_URL . 'js/plugins/imagesloaded.min.js',             array(),           WMAMP_VERSION, true );
 							wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
 							wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
 							wp_register_script( 'jquery-owlcarousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );

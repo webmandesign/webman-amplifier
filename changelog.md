@@ -1,5 +1,26 @@
 # WebMan Amplifier Changelog
 
+## 1.3.15
+
+* **Update**: Improved support with Beaver Builder plugin
+* **Update**: Adding `is-active` CSS classes on active elements controlled with JavaScript
+* **Fix**: Shortcode JavaScript update when editing with Beaver Builder
+
+#### Files changed:
+
+	webman-amplifier.php
+	assets/js/shortcode-accordion.js
+	assets/js/shortcode-posts-isotope.js
+	assets/js/shortcode-posts-masonry.js
+	assets/js/shortcode-posts-slick.js
+	assets/js/shortcode-tabs.js
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/page-builder/beaver-builder/modules/includes/frontend.css.php
+	includes/shortcodes/page-builder/beaver-builder/modules/includes/frontend.js.php
+	includes/shortcodes/page-builder/beaver-builder/modules/includes/frontend.php
+
+
 ## 1.3.14
 
 * **Update**: Removing closing PHP tag from end of files

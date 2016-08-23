@@ -7,57 +7,68 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.11
+ * @version  1.3.15
  */
 
 
 
 
 
-jQuery( function() {
+/**
+ * Functionality wrapper
+ *
+ * @since    1.3.15
+ * @version  1.3.15
+ *
+ * @param  string $selector
+ */
+function WmampSlick( $selector = '[class*="scrollable-"]' ) {
 
-	if ( jQuery().slick ) {
+	// Requirements check
+
+		if ( ! jQuery().slick ) {
+			return;
+		}
 
 
+	// Processing
 
-
-
-		jQuery( '[class*="scrollable-"]' )
+		jQuery( $selector )
 			.find( '.wm-items-container .wm-column' )
 				.wrap( '<div class"wm-scrollable-item"></div>' )
 			.end()
 			.each( function( item ) {
 
-				var $thisParent             = jQuery( this ),
-				    $this                   = $thisParent.find( '.wm-items-container' ),
-				    scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
-				    scrollableMobileColumns = Math.min( 2, scrollableColumns ),
-				    scrollableTabletColumns = Math.min( 3, scrollableColumns ),
-				    scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
-				    scrollableAuto          = ( $thisParent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
+				var $parent                  = jQuery( this ),
+				    $this                    = $parent.find( '.wm-items-container' ),
+				    $scrollableColumns       = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
+				    $scrollableMobileColumns = Math.min( 2, $scrollableColumns ),
+				    $scrollableTabletColumns = Math.min( 3, $scrollableColumns ),
+				    $scrollableStack         = ( $this.hasClass( 'stack' ) ) ? ( $scrollableColumns ) : ( 1 ),
+				    $scrollableAuto          = ( $parent.hasClass( 'scrollable-auto' ) && $this.data( 'time' ) && 999 < $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( false );
 
 				$this
 					.slick( {
-						adaptiveHeight : $thisParent.hasClass( 'auto-height' ),
-						autoplay       : Boolean( scrollableAuto ),
-						autoplaySpeed  : scrollableAuto,
+						adaptiveHeight : $parent.hasClass( 'auto-height' ),
+						autoplay       : Boolean( $scrollableAuto ),
+						autoplaySpeed  : $scrollableAuto,
 						responsive     : [
 								{
-									breakpoint: 880, // Starting tablet landscape
+									breakpoint: 1280,
 									settings: {
-										slidesToShow: scrollableTabletColumns,
-										slidesToScroll: scrollableTabletColumns
+										slidesToShow: $scrollableTabletColumns,
+										slidesToScroll: $scrollableTabletColumns
 									}
 								},
 								{
-									breakpoint: 672, // Starting tablet portrait
+									breakpoint: 880,
 									settings: {
-										slidesToShow: scrollableMobileColumns,
-										slidesToScroll: scrollableMobileColumns
+										slidesToShow: $scrollableMobileColumns,
+										slidesToScroll: $scrollableMobileColumns
 									}
 								},
 								{
-									breakpoint: 448, // Starting mobile landscape
+									breakpoint: 672,
 									settings: {
 										slidesToShow: 1,
 										slidesToScroll: 1
@@ -67,18 +78,26 @@ jQuery( function() {
 								// settings: "unslick"
 								// instead of a settings object
 							],
-						slidesToShow   : scrollableColumns,
-						slidesToScroll : scrollableStack,
+						slidesToShow   : $scrollableColumns,
+						slidesToScroll : $scrollableStack,
 						speed          : 800,
 						rtl            : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ) ? ( false ) : ( true )
 					} );
 
 			} );
 
+} // /WmampSlick
 
 
 
+jQuery( function() {
 
-	} // /slick
+	/**
+	 * Only init on front-end if the Beaver Builder isn't active.
+	 * If the Beaver Builder is active, it will load the scripts itself.
+	 */
+	if ( 0 === jQuery( '.fl-builder-edit' ).length ) {
+		WmampSlick();
+	}
 
 } );

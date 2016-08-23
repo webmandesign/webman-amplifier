@@ -5,168 +5,184 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.3.15
  */
 
 
 
 
 
-jQuery( function() {
+/**
+ * Functionality wrapper
+ *
+ * @since    1.3.15
+ * @version  1.3.15
+ *
+ * @param  string $selector
+ */
+function WmampAccordion( $selector = '.wm-accordion' ) {
+
+	// Helper variables
+
+		var $accordions = jQuery( $selector + '[data-mode="accordion"]' ),
+		    $toggles    = jQuery( $selector + '[data-mode="toggle"]' ),
+		    $filtered   = jQuery( $selector + '.filterable-simple .wm-filter' );
 
 
+	// Processing
 
+		/**
+		 * Accordions
+		 */
 
+			$accordions
+				.find( '.wm-item-content' )
+					.hide();
 
-	/**
-	 * Accordions
-	 */
+			$accordions
+				.each( function() {
 
-		var $WmampAccordions = jQuery( 'div[data-mode="accordion"]' );
+					var $this  = jQuery( this ),
+					    $count = $this.find( '.wm-item' ).length;
 
-		$WmampAccordions
-			.find( '.wm-item-content' )
-				.hide();
+					if ( 0 < $this.data( 'active' ) && $count >= $this.data( 'active' ) ) {
 
-		$WmampAccordions
-			.each( function() {
+						$this
+							.find( '.wm-item' )
+							.eq( $this.data( 'active' ) - 1 )
+								.toggleClass( 'active is-active' );
 
-				var $this         = jQuery( this ),
-				    countingItems = $this.find( '.wm-item' ).length;
-
-				if ( 0 < $this.data( 'active' ) && countingItems >= $this.data( 'active' ) ) {
-
-					$this
-						.find( '.wm-item' )
-						.eq( $this.data( 'active' ) - 1 )
-							.toggleClass( 'active' );
-
-					$this
-						.find( '.wm-item-content' )
-						.eq( $this.data( 'active' ) - 1 )
-							.show();
-
-				}
-
-			} );
-
-		$WmampAccordions
-			.on( 'click', '.wm-item-title', function( e ) {
-
-				var $this = jQuery( this );
-
-				$this
-					.parent( '.wm-item' )
-						.toggleClass( 'active' )
-						.siblings()
-							.removeClass( 'active' )
+						$this
 							.find( '.wm-item-content' )
-								.slideUp();
-
-				$this
-					.next( '.wm-item-content' )
-						.slideToggle();
-
-			} );
-
-
-
-	/**
-	 * Toggles
-	 */
-
-		var $WmampToggles = jQuery( 'div[data-mode="toggle"]' );
-
-		$WmampToggles
-			.find( '.wm-item-content' )
-				.hide();
-
-		$WmampToggles
-			.each( function() {
-
-				var $this         = jQuery( this ),
-				    countingItems = $this.find( '.wm-item' ).length;
-
-				if ( 0 < $this.data( 'active' ) && countingItems >= $this.data( 'active' ) ) {
-
-					$this
-						.find( '.wm-item' )
-						.eq( $this.data( 'active' ) - 1 )
-							.toggleClass( 'active' );
-
-					$this
-						.find( '.wm-item-content' )
-						.eq( $this.data( 'active' ) - 1 )
-							.show();
-
-				}
-
-			} );
-
-		$WmampToggles
-			.on( 'click', '.wm-item-title', function( e ) {
-
-				var $this = jQuery( this );
-
-				$this
-					.parent( '.wm-item' )
-						.toggleClass( 'active' );
-
-				$this
-					.next( '.wm-item-content' )
-						.slideToggle();
-
-			} );
-
-
-
-	/**
-	 * Simple filter
-	 */
-
-		var $WmampSimpleFilterWrap = jQuery( '.filterable-simple' ),
-		    $WmampSimpleFilter     = jQuery( '.filterable-simple .wm-filter' );
-
-		$WmampSimpleFilter
-			.on( 'click', 'a', function( e ) {
-
-				e.preventDefault();
-
-				var $this         = jQuery( this ),
-				    $imtesWrapper = $this.closest( '.wm-filter' ).next( '.wm-filter-this-simple' );
-
-				if ( ! $this.parent().hasClass( 'active' ) ) {
-
-					$this
-						.parent()
-							.addClass( 'active' )
-							.siblings()
-								.removeClass( 'active' );
-
-					if ( '*' == $this.data( 'filter' ) ) {
-
-						$imtesWrapper
-							.children( '.wm-item' )
-								.slideDown();
-
-					} else {
-
-						$imtesWrapper
-							.children( '.wm-item' + $this.data( 'filter' ) )
-								.slideDown();
-
-						$imtesWrapper
-							.children( '.wm-item' )
-							.not( $this.data( 'filter' ) )
-								.slideUp();
+							.eq( $this.data( 'active' ) - 1 )
+								.show();
 
 					}
-				}
 
-			} );
+				} );
+
+			$accordions
+				.on( 'click', '.wm-item-title', function( e ) {
+
+					var $this = jQuery( this );
+
+					$this
+						.parent( '.wm-item' )
+							.toggleClass( 'active is-active' )
+							.siblings()
+								.removeClass( 'active is-active' )
+								.find( '.wm-item-content' )
+									.slideUp();
+
+					$this
+						.next( '.wm-item-content' )
+							.slideToggle();
+
+				} );
 
 
 
+		/**
+		 * Toggles
+		 */
 
+			$toggles
+				.find( '.wm-item-content' )
+					.hide();
+
+			$toggles
+				.each( function() {
+
+					var $this  = jQuery( this ),
+					    $count = $this.find( '.wm-item' ).length;
+
+					if ( 0 < $this.data( 'active' ) && $count >= $this.data( 'active' ) ) {
+
+						$this
+							.find( '.wm-item' )
+							.eq( $this.data( 'active' ) - 1 )
+								.toggleClass( 'active is-active' );
+
+						$this
+							.find( '.wm-item-content' )
+							.eq( $this.data( 'active' ) - 1 )
+								.show();
+
+					}
+
+				} );
+
+			$toggles
+				.on( 'click', '.wm-item-title', function( e ) {
+
+					var $this = jQuery( this );
+
+					$this
+						.parent( '.wm-item' )
+							.toggleClass( 'active is-active' );
+
+					$this
+						.next( '.wm-item-content' )
+							.slideToggle();
+
+				} );
+
+
+
+		/**
+		 * Simple filter
+		 */
+
+			$filtered
+				.on( 'click', 'a', function( e ) {
+
+					e.preventDefault();
+
+					var $this    = jQuery( this ),
+					    $wrapper = $this.closest( '.wm-filter' ).next( '.wm-filter-this-simple' );
+
+					if ( ! $this.parent().hasClass( 'is-active' ) ) {
+
+						$this
+							.parent()
+								.addClass( 'active is-active' )
+								.siblings()
+									.removeClass( 'active is-active' );
+
+						if ( '*' == $this.data( 'filter' ) ) {
+
+							$wrapper
+								.children( '.wm-item' )
+									.slideDown();
+
+						} else {
+
+							$wrapper
+								.children( '.wm-item' + $this.data( 'filter' ) )
+									.slideDown();
+
+							$wrapper
+								.children( '.wm-item' )
+								.not( $this.data( 'filter' ) )
+									.slideUp();
+
+						}
+					}
+
+				} );
+
+} // /WmampAccordion
+
+
+
+jQuery( function() {
+
+	/**
+	 * Only init on front-end if the Beaver Builder isn't active.
+	 * If the Beaver Builder is active, it will load the scripts itself.
+	 */
+	if ( 0 === jQuery( '.fl-builder-edit' ).length ) {
+		WmampAccordion();
+	}
 
 } );

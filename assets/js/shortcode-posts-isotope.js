@@ -7,29 +7,40 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.11
+ * @version  1.3.15
  */
 
 
 
 
 
-jQuery( function() {
+/**
+ * Functionality wrapper
+ *
+ * @since    1.3.15
+ * @version  1.3.15
+ *
+ * @param  string $selector
+ */
+function WmampIsotope( $selector = '.filter-this' ) {
 
-	if ( jQuery().isotope ) {
+	// Requirements check
+
+		if ( ! jQuery().isotope ) {
+			return;
+		}
 
 
+	// Helper variables
+
+		var $isotoped = jQuery( $selector );
 
 
+	// Processing
 
-		var $WmampFilteredContent = jQuery( '.filter-this' );
+		// Run Isotope
 
-		/**
-		 * Function to run Isotope on each filerable items list
-		 */
-		function runIsotope() {
-
-			$WmampFilteredContent
+			$isotoped
 				.each( function( e ) {
 
 					var $this = jQuery( this );
@@ -43,51 +54,60 @@ jQuery( function() {
 
 				} );
 
-		} // /runIsotope
+		// Filter items when filter link is clicked
 
-		/**
-		 * Filter items when filter link is clicked
-		 */
-		$WmampFilteredContent
-			.prev( '.wm-filter' )
-				.on( 'click', 'a', function( e ) {
+			$isotoped
+				.prev( '.wm-filter' )
+					.on( 'click', 'a', function( e ) {
 
-					e.preventDefault();
+						e.preventDefault();
 
-					var $this    = jQuery( this ),
-					    selector = $this.data( 'filter' );
+						var $this   = jQuery( this ),
+						    $filter = $this.data( 'filter' );
 
-					$this
-						.closest( '.wm-posts-wrap' )
-							.find( '.filter-this' )
-								.isotope( {
-									filter            : selector,
-									isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
-									transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
-								} );
+						$this
+							.closest( '.wm-posts-wrap' )
+								.find( '.filter-this' )
+									.isotope( {
+										filter            : $filter,
+										isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
+										transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
+									} );
 
-					$this
-						.parent( 'li' )
-							.addClass( 'active' )
-							.siblings( 'li' )
-								.removeClass( 'active' );
+						$this
+							.parent( 'li' )
+								.addClass( 'active' )
+								.siblings( 'li' )
+									.removeClass( 'active' );
+
+					} );
+
+
+		// Re-layout after images have been loaded
+
+			$isotoped
+				.imagesLoaded()
+				.progress( function() {
+
+					// Processing
+
+						$isotoped
+							.isotope( 'layout' );
 
 				} );
 
-
-		// Apply Isotope after the images have been loaded
-
-			$WmampFilteredContent
-				.imagesLoaded( function() {
-
-					runIsotope();
-
-				} );
+} // /WmampIsotope
 
 
 
+jQuery( function() {
 
-
-	} // /isotope
+	/**
+	 * Only init on front-end if the Beaver Builder isn't active.
+	 * If the Beaver Builder is active, it will load the scripts itself.
+	 */
+	if ( 0 === jQuery( '.fl-builder-edit' ).length ) {
+		WmampIsotope();
+	}
 
 } );
