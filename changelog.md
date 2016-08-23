@@ -1,5 +1,16 @@
 # WebMan Amplifier Changelog
 
+## 1.3.16
+
+* **Update**: Removing obsolete scripts
+
+#### Files changed:
+
+	webman-amplifier.php
+	assets/js/plugins/imagesloaded.min.js
+	includes/shortcodes/page-builder/beaver-builder/modules/css/settings.css
+
+
 ## 1.3.15
 
 * **Update**: Improved support with Beaver Builder plugin
