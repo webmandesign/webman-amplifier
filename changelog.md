@@ -1,5 +1,16 @@
 # WebMan Amplifier Changelog
 
+## 1.3.17
+
+* **Fix**: Compatibility issue with OwlCarousel script
+
+#### Files changed:
+
+	webman-amplifier.php
+	assets/js/shortcode-posts-owlcarousel.js:
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:
+
+
 ## 1.3.16
 
 * **Update**: Removing obsolete scripts

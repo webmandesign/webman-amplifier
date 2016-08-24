@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.3.15
+ * @version  1.3.17
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -392,7 +392,7 @@
 	 * Module specific frontend JS
 	 *
 	 * @since    1.3.15
-	 * @version  1.3.15
+	 * @version  1.3.17
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -453,7 +453,11 @@
 					// Slick
 
 						if ( isset( $settings['scroll'] ) && $settings['scroll'] ) {
-							$output = "WmampSlick( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+							if ( version_compare( apply_filters( 'wmhook_shortcode_supported_version', WMAMP_VERSION ), '1.3', '<' ) ) {
+								$output = "WmampOwl( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+							} else {
+								$output = "WmampSlick( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+							}
 						}
 
 					break;
