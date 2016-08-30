@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.3.17
+ * @version  1.3.18
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -392,7 +392,7 @@
 	 * Module specific frontend JS
 	 *
 	 * @since    1.3.15
-	 * @version  1.3.17
+	 * @version  1.3.18
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -441,29 +441,29 @@
 					// Isotope
 
 						if ( isset( $settings['filter'] ) && $settings['filter'] ) {
-							$output = "WmampIsotope( '.fl-node-{{id}} .filter-this' );";
+							$output = "if ( typeof WmampIsotope == 'function' ) { WmampIsotope( '.fl-node-{{id}} .filter-this' ); }";
 						}
 
 					// Masonry
 
 						if ( isset( $settings['class'] ) && false !== strpos( $settings['class'], 'masonry' ) ) {
-							$output = "WmampMasonry( '.fl-node-{{id}} .masonry-this' );";
+							$output = "if ( typeof WmampMasonry == 'function' ) { WmampMasonry( '.fl-node-{{id}} .masonry-this' ); }";
 						}
 
 					// Slick
 
 						if ( isset( $settings['scroll'] ) && $settings['scroll'] ) {
 							if ( version_compare( apply_filters( 'wmhook_shortcode_supported_version', WMAMP_VERSION ), '1.3', '<' ) ) {
-								$output = "WmampOwl( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+								$output = "if ( typeof WmampOwl == 'function' ) { WmampOwl( '.fl-node-{{id}} [class*=\"scrollable-\"]' ); }";
 							} else {
-								$output = "WmampSlick( '.fl-node-{{id}} [class*=\"scrollable-\"]' );";
+								$output = "if ( typeof WmampSlick == 'function' ) { WmampSlick( '.fl-node-{{id}} [class*=\"scrollable-\"]' ); }";
 							}
 						}
 
 					break;
 
 				case 'tabs':
-						$output = "WmampTabs( '.fl-node-{{id}} .wm-tabs' );";
+						$output = "if ( typeof WmampTabs == 'function' ) { WmampTabs( '.fl-node-{{id}} .wm-tabs' ); }";
 					break;
 
 				default:
