@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.10
+ * @version  1.3.19
  */
 
 
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.10
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_modules_cp_columns_render' ) ) {
 		function wma_modules_cp_columns_render( $column ) {
@@ -211,7 +211,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						$styleContainer = ( $iconBgColor ) ? ( ' style="background-color: ' . $iconBgColor . '"' ) : ( '' );
 
 						if ( $fontIcon ) {
-							$image = '<i class="' . $fontIcon . '"' . $styleIcon . '></i>';
+							$image = '<span class="' . $fontIcon . '"' . $styleIcon . ' aria-hidden="true"></span>';
 						}
 
 						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
@@ -245,7 +245,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9.1
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_modules_cp_taxonomies' ) ) {
 		function wma_modules_cp_taxonomies() {
@@ -268,17 +268,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'slug' => ( isset( $permalinks['module_tag'] ) && $permalinks['module_tag'] ) ? ( $permalinks['module_tag'] ) : ( 'module-tag' )
 							),
 						'labels'            => array(
-							'name'                  => _x( 'Module Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Module Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'all_items'             => _x( 'All Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'no_terms'              => _x( 'No Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'update_item'           => _x( 'Update Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'new_item_name'         => _x( 'New Tag Title', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Module Tags list navigation', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Module Tags list', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'name'                       => _x( 'Module Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'singular_name'              => _x( 'Module Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'search_items'               => _x( 'Search Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'popular_items'              => _x( 'Popular Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'all_items'                  => _x( 'All Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'edit_item'                  => _x( 'Edit Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'view_item'                  => _x( 'View Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'update_item'                => _x( 'Update Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'add_new_item'               => _x( 'Add New Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'new_item_name'              => _x( 'New Tag Title', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'separate_items_with_commas' => _x( 'Separate tags with commas', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'add_or_remove_items'        => _x( 'Add or remove tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'choose_from_most_used'      => _x( 'Choose from the most used tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'not_found'                  => _x( 'No tags found', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'no_terms'                   => _x( 'No tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'items_list_navigation'      => _x( 'Module Tags list navigation', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
+							'items_list'                 => _x( 'Module Tags list', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -362,7 +368,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register metabox fields
 	 *
 	 * @since    1.0
-	 * @version  1.2.2
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_modules_cp_metafields' ) ) {
 		function wma_modules_cp_metafields() {
@@ -436,7 +442,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 											'options'     => $fonticons,
 											'inline'      => true,
 											'filter'      => true,
-											'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+											'custom'      => '<span class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;" aria-hidden="true"></span>',
 											'hide-radio'  => true,
 										);
 

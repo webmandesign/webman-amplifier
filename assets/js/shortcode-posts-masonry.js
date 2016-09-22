@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.15
+ * @version  1.3.19
  */
 
 
@@ -18,11 +18,11 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.15
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampMasonry( $selector = '.masonry-this' ) {
+function WmampMasonry( $selector ) {
 
 	// Requirements check
 
@@ -33,7 +33,8 @@ function WmampMasonry( $selector = '.masonry-this' ) {
 
 	// Helper variables
 
-		var $masonried = jQuery( $selector );
+		var $selector  = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '.masonry-this' ),
+		    $masonried = jQuery( $selector );
 
 
 	// Processing

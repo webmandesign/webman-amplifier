@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.3.19
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -37,7 +37,7 @@
 	//content
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
-		$iconated = ( 0 === strpos( $atts['content'], '<i class="icon-' ) ) ? ( ' iconated' ) : ( '' );
+		$iconated = ( 0 === strpos( $atts['content'], '<i class="icon-' ) || 0 === strpos( $atts['content'], '<span class="icon-' ) ) ? ( ' iconated' ) : ( '' );
 		$atts['content'] = '<div class="wm-message-content wm-message-element' . esc_attr( $iconated ) . '">' . $atts['content'] . '</div>';
 	//color
 		$atts['color'] = trim( $atts['color'] );

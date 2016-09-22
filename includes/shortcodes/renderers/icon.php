@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3.7
+ * @version  1.3.19
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -66,7 +66,7 @@
 
 //Output
 	if ( ! $atts['social'] ) {
-		$output = '<i class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . $atts['attributes'] . '></i>';
+		$output = '<span class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . $atts['attributes'] . ' aria-hidden="true"></span>';
 	} else {
-		$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( str_replace( 'wm-icon', 'wm-social-icon', $atts['class'] ) . $atts['social'] ) . '"' . $atts['attributes'] . '><i class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . '></i></a>';
+		$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( str_replace( 'wm-icon', 'wm-social-icon', $atts['class'] ) . $atts['social'] ) . '"' . $atts['attributes'] . '><span class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . ' aria-hidden="true"></span></a>';
 	}

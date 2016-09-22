@@ -44,7 +44,7 @@
 									'fa fa-camera' => 'fa fa-camera',
 									'fa fa-pencil' => 'fa fa-pencil',
 								),
-							'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+							'custom'     => '<span class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;" aria-hidden="true"></span>',
 							'hide_radio' => true,
 							'inline'     => true,
 							//preview

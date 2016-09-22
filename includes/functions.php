@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.3.13
+ * @version  1.3.19
  */
 
 
@@ -1473,13 +1473,23 @@
 		 * Supports both 4.2+ plugin versions and older too.
 		 *
 		 * @since    1.1
-		 * @version  1.1
+		 * @version  1.3.19
 		 *
 		 * @return  boolean
 		 */
 		if ( ! function_exists( 'wma_is_active_vc' ) ) {
 			function wma_is_active_vc() {
-				//Output
-					return apply_filters( 'wmhook_wmamp_' . 'wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+
+				// Requirements check
+
+					if ( wma_supports_subfeature( 'disable-visual-composer-support' ) ) {
+						return false;
+					}
+
+
+				// Output
+
+					return apply_filters( 'wmhook_wmamp_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+
 			}
 		} // /wma_is_active_vc

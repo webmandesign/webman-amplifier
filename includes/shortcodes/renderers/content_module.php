@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3.11
+ * @version  1.3.19
  *
  * @param  string align
  * @param  string class
@@ -312,7 +312,7 @@
 							'image'    => '',
 							'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . '>' . sprintf( apply_filters( 'wmhook_shortcode_' . 'read_more_text', __( 'Read more <span class="screen-reader-text">about "%s"</span>&raquo;', 'webman-amplifier' ), $shortcode, $post_id, $atts ), get_the_title() ) . '</a></div>' ) : ( '' ),
 							'tag'      => '',
-							'title'    => ( $helpers['link'] ) ? ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></header>' ) : ( '<header class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></header>' ),
+							'title'    => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></div>' ) : ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></div>' ),
 						);
 
 					//image layout element

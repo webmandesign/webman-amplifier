@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.15
+ * @version  1.3.19
  */
 
 
@@ -16,15 +16,16 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.15
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampAccordion( $selector = '.wm-accordion' ) {
+function WmampAccordion( $selector ) {
 
 	// Helper variables
 
-		var $accordions = jQuery( $selector + '[data-mode="accordion"]' ),
+		var $selector   = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '.wm-accordion' ),
+		    $accordions = jQuery( $selector + '[data-mode="accordion"]' ),
 		    $toggles    = jQuery( $selector + '[data-mode="toggle"]' ),
 		    $filtered   = jQuery( $selector + '.filterable-simple .wm-filter' );
 

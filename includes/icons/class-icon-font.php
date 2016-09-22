@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.5
+ * @version  1.3.19
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -277,7 +277,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.3.3
+			 * @version  1.3.19
 			 *
 			 * @access   public
 			 */
@@ -295,9 +295,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 						$output .= '<ol class="wmamp-icons-classes-list">';
 						foreach ( $fonticons as $icon => $name ) {
 							$output .= '<li>';
-							$output .= '<i class="' . $icon . '"></i>';
+							$output .= '<span class="' . $icon . '" aria-hidden="true"></span>';
 							$output .= '<label><span>' . esc_html__( 'CSS class:', 'webman-amplifier' ) . '</span><input type="text" value="' . $icon . '" readonly="readonly" onfocus="this.select();" /></label>';
-							$output .= '<label><span>' . esc_html__( 'Instant HTML:', 'webman-amplifier' ) . '</span><input type="text" value="' . esc_attr( '<i class="' . $icon . '"></i>' ) . '" readonly="readonly" onfocus="this.select();" /></label>';
+							$output .= '<label><span>' . esc_html__( 'Instant HTML:', 'webman-amplifier' ) . '</span><input type="text" value="' . esc_attr( '<span class="' . $icon . '" aria-hidden="true"></span>' ) . '" readonly="readonly" onfocus="this.select();" /></label>';
 							$output .= '</li>';
 						}
 						$output .= '</ol>';

@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.13
+ * @version  1.3.19
  */
 
 /**
@@ -310,7 +310,7 @@ $shortcode_definitions = array(
 														'label' => '',
 														//type specific
 														'options'    => self::$codes_globals['font_icons'],
-														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 														'filter'     => true,
 														'hide_radio' => true,
 														'inline'     => true,
@@ -632,7 +632,7 @@ $shortcode_definitions = array(
 														'label' => '',
 														//type specific
 														'options'    => self::$codes_globals['font_icons'],
-														'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+														'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 														'filter'     => true,
 														'hide_radio' => true,
 														'inline'     => true,
@@ -777,7 +777,7 @@ $shortcode_definitions = array(
 									'type'        => 'wm_radio',
 									'param_name'  => 'icon',
 									'value'       => self::$codes_globals['font_icons'],
-									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'custom'      => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 									'filter'      => true,
 									'hide_radio'  => true,
 									'inline'      => true,
@@ -985,7 +985,7 @@ $shortcode_definitions = array(
 												'label' => '',
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
-												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
@@ -1062,7 +1062,7 @@ $shortcode_definitions = array(
 								'type'        => 'wm_radio',
 								'param_name'  => 'icon',
 								'value'       => self::$codes_globals['font_icons'],
-								'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'custom'      => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 								'filter'      => true,
 								'hide_radio'  => true,
 								'inline'      => true,
@@ -1248,7 +1248,7 @@ $shortcode_definitions = array(
 												'label' => '',
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
-												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
@@ -1342,7 +1342,7 @@ $shortcode_definitions = array(
 									'type'        => 'wm_radio',
 									'param_name'  => 'button_icon',
 									'value'       => self::$codes_globals['font_icons'],
-									'custom'      => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+									'custom'      => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 									'filter'      => true,
 									'hide_radio'  => true,
 									'inline'      => true,
@@ -2020,7 +2020,7 @@ $shortcode_definitions = array(
 								'type'       => 'wm_radio',
 								'param_name' => 'icon',
 								'value'      => self::$codes_globals['font_icons'],
-								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,
@@ -2146,7 +2146,7 @@ $shortcode_definitions = array(
 								'type'       => 'wm_radio',
 								'param_name' => 'bullet',
 								'value'      => self::$codes_globals['font_icons'],
-								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,
@@ -2295,7 +2295,7 @@ $shortcode_definitions = array(
 												'label' => '',
 												//type specific
 												'options'    => self::$codes_globals['font_icons'],
-												'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+												'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 												'filter'     => true,
 												'hide_radio' => true,
 												'inline'     => true,
@@ -2395,7 +2395,7 @@ $shortcode_definitions = array(
 								'type'       => 'wm_radio',
 								'param_name' => 'icon',
 								'value'      => self::$codes_globals['font_icons'],
-								'custom'     => '<i class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></i>',
+								'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 								'filter'     => true,
 								'hide_radio' => true,
 								'inline'     => true,

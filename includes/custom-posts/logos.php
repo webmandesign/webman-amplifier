@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.10
+ * @version  1.3.19
  */
 
 
@@ -229,7 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9.1
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_logos_cp_taxonomies' ) ) {
 		function wma_logos_cp_taxonomies() {
@@ -256,12 +256,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'singular_name'         => _x( 'Logo Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
-							'no_terms'              => _x( 'No Categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'parent_item_colon'     => _x( 'Parent Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ) . ':',
 							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'add_new_item'          => _x( 'Add New Category', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'new_item_name'         => _x( 'New Category Title', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No categories found', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No categories', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Logo Categories list navigation', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Logo Categories list', 'Custom taxonomy labels: Logos categories.', 'webman-amplifier' ),
 						)

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.10
+ * @version  1.3.19
  */
 
 
@@ -283,7 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9.1
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_staff_cp_taxonomies' ) ) {
 		function wma_staff_cp_taxonomies() {
@@ -298,24 +298,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff departments
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_department', array(
-						'hierarchical'      => true,
-						'show_in_nav_menus' => false,
-						'show_ui'           => true,
-						'query_var'         => 'staff-department',
-						'rewrite'           => array(
+						'hierarchical' => true,
+						'show_ui'      => true,
+						'query_var'    => 'staff-department',
+						'rewrite'      => array(
 								'slug' => ( isset( $permalinks['staff_department'] ) && $permalinks['staff_department'] ) ? ( $permalinks['staff_department'] ) : ( 'staff-department' )
 							),
-						'labels'            => array(
+						'labels'       => array(
 							'name'                  => _x( 'Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'singular_name'         => _x( 'Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
-							'no_terms'              => _x( 'No Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
+							'parent_item_colon'     => _x( 'Parent Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ) . ':',
 							'edit_item'             => _x( 'Edit Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'add_new_item'          => _x( 'Add New Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'new_item_name'         => _x( 'New Department Title', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No departments found', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Departments list navigation', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Departments list', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 						)
@@ -326,25 +328,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff positions
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_position', array(
-						'hierarchical'      => false,
-						'show_in_nav_menus' => false,
-						'show_ui'           => true,
-						'query_var'         => 'staff-position',
-						'rewrite'           => array(
+						'hierarchical' => false,
+						'show_ui'      => true,
+						'query_var'    => 'staff-position',
+						'rewrite'      => array(
 								'slug' => ( isset( $permalinks['staff_position'] ) && $permalinks['staff_position'] ) ? ( $permalinks['staff_position'] ) : ( 'staff-position' )
 							),
-						'labels'            => array(
-							'name'                  => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'all_items'             => _x( 'All Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'no_terms'              => _x( 'No Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'update_item'           => _x( 'Update Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'new_item_name'         => _x( 'New Position Title', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Positions list navigation', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Positions list', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+						'labels'       => array(
+							'name'                       => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'singular_name'              => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'search_items'               => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'popular_items'              => _x( 'Popular Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'all_items'                  => _x( 'All Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'edit_item'                  => _x( 'Edit Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'view_item'                  => _x( 'View Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'update_item'                => _x( 'Update Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'add_new_item'               => _x( 'Add New Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'new_item_name'              => _x( 'New Position Title', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'separate_items_with_commas' => _x( 'Separate positions with commas', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'add_or_remove_items'        => _x( 'Add or remove positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'choose_from_most_used'      => _x( 'Choose from the most used positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'not_found'                  => _x( 'No positions found', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'no_terms'                   => _x( 'No positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'items_list_navigation'      => _x( 'Positions list navigation', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
+							'items_list'                 => _x( 'Positions list', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -353,25 +360,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff specialty
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_specialty', array(
-						'hierarchical'      => false,
-						'show_in_nav_menus' => false,
-						'show_ui'           => true,
-						'query_var'         => 'staff-specialty',
-						'rewrite'           => array(
+						'hierarchical' => false,
+						'show_ui'      => true,
+						'query_var'    => 'staff-specialty',
+						'rewrite'      => array(
 								'slug' => ( isset( $permalinks['staff_specialty'] ) && $permalinks['staff_specialty'] ) ? ( $permalinks['staff_specialty'] ) : ( 'staff-specialty' )
 							),
-						'labels'            => array(
-							'name'                  => _x( 'Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'all_items'             => _x( 'All Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'no_terms'              => _x( 'No Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'update_item'           => _x( 'Update Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'new_item_name'         => _x( 'New Specialty Title', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Specialties list navigation', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Specialties list', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+						'labels'       => array(
+							'name'                       => _x( 'Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'singular_name'              => _x( 'Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'search_items'               => _x( 'Search Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'popular_items'              => _x( 'Popular Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'all_items'                  => _x( 'All Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'edit_item'                  => _x( 'Edit Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'view_item'                  => _x( 'View Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'update_item'                => _x( 'Update Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'add_new_item'               => _x( 'Add New Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'new_item_name'              => _x( 'New Specialty Title', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'separate_items_with_commas' => _x( 'Separate specialties with commas', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'add_or_remove_items'        => _x( 'Add or remove specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'choose_from_most_used'      => _x( 'Choose from the most used specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'not_found'                  => _x( 'No specialties found', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'no_terms'                   => _x( 'No specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'items_list_navigation'      => _x( 'Specialties list navigation', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
+							'items_list'                 => _x( 'Specialties list', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
 						)
 					) );
 

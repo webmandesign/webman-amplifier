@@ -1,5 +1,40 @@
 # WebMan Amplifier Changelog
 
+## 1.3.19
+
+* **Update**: Improving accessibility: changing <i> icons to <span> with aria-hidden attribute
+* **Update**: Improving custom post types by allowing archive pages
+* **Update**: Improving taxonomies visibility in navigational menus and updating label texts
+* **Update**: Improved disabling of Visual Composer support
+* **Update**: Removed <header> tag from Content Modules
+* **Fix**: JavaScript errors in Safari browser
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/css/admin-addons.css
+	assets/js/shortcode-accordion.js
+	assets/js/shortcode-posts-isotope.js
+	assets/js/shortcode-posts-masonry.js
+	assets/js/shortcode-posts-owlcarousel.js
+	assets/js/shortcode-posts-slick.js
+	assets/js/shortcode-tabs.js
+	assets/scss/admin-addons.scss
+	includes/functions.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/icons/class-icon-font.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/message.php
+
+
 ## 1.3.18
 
 * **Fix**: JavaScript errors in Beaver Builder page builder editor

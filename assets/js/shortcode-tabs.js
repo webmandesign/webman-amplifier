@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.15
+ * @version  1.3.19
  */
 
 
@@ -16,16 +16,17 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.15
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampTabs( $selector = '.wm-tabs' ) {
+function WmampTabs( $selector ) {
 
 	// Helper variables
 
-		var $tabs = jQuery( $selector ),
-		    $tour = jQuery( $selector + '.tour-tabs' );
+		var $selector = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '.wm-tabs' ),
+		    $tabs     = jQuery( $selector ),
+		    $tour     = jQuery( $selector + '.tour-tabs' );
 
 
 	// Processing

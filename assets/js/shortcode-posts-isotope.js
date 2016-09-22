@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.15
+ * @version  1.3.19
  */
 
 
@@ -18,11 +18,11 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.15
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampIsotope( $selector = '.filter-this' ) {
+function WmampIsotope( $selector ) {
 
 	// Requirements check
 
@@ -33,7 +33,8 @@ function WmampIsotope( $selector = '.filter-this' ) {
 
 	// Helper variables
 
-		var $isotoped = jQuery( $selector );
+		var $selector = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '.filter-this' ),
+		    $isotoped = jQuery( $selector );
 
 
 	// Processing

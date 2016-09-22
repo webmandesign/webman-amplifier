@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.15
+ * @version  1.3.19
  */
 
 
@@ -18,17 +18,22 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.15
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampSlick( $selector = '[class*="scrollable-"]' ) {
+function WmampSlick( $selector ) {
 
 	// Requirements check
 
 		if ( ! jQuery().slick ) {
 			return;
 		}
+
+
+	// Helper variables
+
+		var $selector = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '[class*="scrollable-"]' );
 
 
 	// Processing

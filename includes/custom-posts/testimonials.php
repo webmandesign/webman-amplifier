@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.10
+ * @version  1.3.19
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,
-						'show_in_nav_menus'   => false,
+						'has_archive'         => true,
 						'hierarchical'        => false,
 						'rewrite'             => array(
 								'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' )
@@ -225,7 +225,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.2.9.1
+	 * @version  1.3.19
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_taxonomies' ) ) {
 		function wma_testimonials_cp_taxonomies() {
@@ -240,24 +240,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Testimonial categories
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'testimonial_category', array(
-						'hierarchical'      => true,
-						'show_in_nav_menus' => false,
-						'show_ui'           => true,
-						'query_var'         => 'testimonial-category',
-						'rewrite'           => array(
+						'hierarchical' => true,
+						'show_ui'      => true,
+						'query_var'    => 'testimonial-category',
+						'rewrite'      => array(
 								'slug' => ( isset( $permalinks['testimonial_category'] ) && $permalinks['testimonial_category'] ) ? ( $permalinks['testimonial_category'] ) : ( 'testimonial-category' )
 							),
-						'labels'            => array(
+						'labels'       => array(
 							'name'                  => _x( 'Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'singular_name'         => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'all_items'             => _x( 'All Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
-							'no_terms '             => _x( 'No Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'parent_item'           => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'parent_item_colon'     => _x( 'Parent Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ) . ':',
 							'edit_item'             => _x( 'Edit Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'view_item'             => _x( 'View Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'update_item'           => _x( 'Update Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'add_new_item'          => _x( 'Add New Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'new_item_name'         => _x( 'New Category Title', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'not_found'             => _x( 'No categories found', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
+							'no_terms'              => _x( 'No categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Testimonials Categories list navigation', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Testimonials Categories list', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 						)

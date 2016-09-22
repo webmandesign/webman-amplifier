@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.17
- * @version  1.3.17
+ * @version  1.3.19
  */
 
 
@@ -18,17 +18,22 @@
  * Functionality wrapper
  *
  * @since    1.3.17
- * @version  1.3.17
+ * @version  1.3.19
  *
  * @param  string $selector
  */
-function WmampOwl( $selector = '[class*="scrollable-"]' ) {
+function WmampOwl( $selector ) {
 
 	// Requirements check
 
 		if ( ! jQuery().owlCarousel ) {
 			return;
 		}
+
+
+	// Helper variables
+
+		var $selector = ( 'undefined' !== typeof $selector ) ? ( $selector ) : ( '[class*="scrollable-"]' );
 
 
 	// Processing
