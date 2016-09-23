@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.3.20
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -277,7 +277,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.3.19
+			 * @version  1.3.20
 			 *
 			 * @access   public
 			 */
@@ -456,7 +456,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 							$output .= '.wmamp-icons-classes-list li::before { content: counter(wmamp-icons-classes-list); position: absolute; left: 0; top: 0; font-size: 20px; font-weight: 300; color: rgba(0,0,0, .33); }';
 							$output .= '.wmamp-icons-classes-list:hover li { opacity: .33; }';
 							$output .= '.wmamp-icons-classes-list li:hover { border-color: #111; opacity: 1; z-index: 9999; }';
-							$output .= '.wmamp-icons-classes-list i { display: block; width: 54px; height: 54px; margin: 0 auto; line-height: 54px; font-size: 32px; color: #111; border-radius: 100px; }';
+							$output .= '.wmamp-icons-classes-list [class*="icon-"] { display: block; width: 54px; height: 54px; margin: 0 auto; line-height: 54px; font-size: 32px; color: #111; border-radius: 100px; }';
 							$output .= '.wmamp-icons-classes-list label { margin-top: 10px; text-align: center; }';
 							$output .= '.wmamp-icons-classes-list label span { display: none; font-size: .81em; }';
 							$output .= '.wmamp-icons-classes-list label + label { display: none; }';

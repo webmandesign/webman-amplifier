@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.3.20
+
+* **Fix**: Styling issue in icons list in WordPress dashboard
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/icons/class-icon-font.php
+
+
 ## 1.3.19
 
 * **Update**: Improving accessibility: changing <i> icons to <span> with aria-hidden attribute
