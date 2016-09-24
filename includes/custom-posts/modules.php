@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.3.21
  */
 
 
@@ -34,8 +34,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			add_action( 'manage_wm_modules_posts_custom_column', 'wma_modules_cp_columns_render' );
 		//Registering taxonomies
 			add_action( 'wmhook_wmamp_' . 'register_post_types', 'wma_modules_cp_taxonomies', 10 );
-		//Permanlinks settings
-			add_action( 'admin_init', 'wma_modules_cp_permalinks' );
 
 		/**
 		 * The init action occurs after the theme's functions file has been included.
@@ -64,31 +62,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.2.9
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_modules_cp_register' ) ) {
 		function wma_modules_cp_register() {
-
-			// Helper variables
-
-				$permalinks = get_option( 'wmamp-permalinks' );
-
 
 			// Processing
 
 				// Custom post registration arguments
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_modules', array(
-						'query_var'           => 'modules',
+						'query_var'           => 'module',
 						'capability_type'     => 'page',
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,
 						'show_in_nav_menus'   => false,
 						'hierarchical'        => false,
-						'rewrite'             => array(
-								'slug' => ( isset( $permalinks['module'] ) && $permalinks['module'] ) ? ( $permalinks['module'] ) : ( 'module' )
-							),
+						'rewrite'             => false,
 						'menu_position'       => 45,
 						'menu_icon'           => 'dashicons-format-aside',
 						'supports'            => array(
@@ -163,16 +154,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.19
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_modules_cp_columns_render' ) ) {
 		function wma_modules_cp_columns_render( $column ) {
-			//Helper variables
+
+			// Helper variables
+
 				global $post;
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_modules';
 
-			//Columns renderers
+
+			// Processing
+
 				switch ( $column ) {
 					case $prefix . 'link' . $suffix:
 
@@ -221,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						if ( get_edit_post_link() ) {
 							edit_post_link( $image );
 						} else {
-							echo '<a href="' . get_permalink() . '">' . $image . '</a>';
+							echo $image;
 						}
 
 						echo '</span>';
@@ -230,6 +226,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					default:
 					break;
 				} // /switch
+
 		}
 	} // /wma_modules_cp_columns_render
 
@@ -245,15 +242,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.3.19
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_modules_cp_taxonomies' ) ) {
 		function wma_modules_cp_taxonomies() {
-
-			// Helper variables
-
-				$permalinks = get_option( 'wmamp-permalinks' );
-
 
 			// Processing
 
@@ -264,9 +256,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'show_in_nav_menus' => false,
 						'show_ui'           => true,
 						'query_var'         => 'module-tag',
-						'rewrite'           => array(
-								'slug' => ( isset( $permalinks['module_tag'] ) && $permalinks['module_tag'] ) ? ( $permalinks['module_tag'] ) : ( 'module-tag' )
-							),
+						'rewrite'           => false,
 						'labels'            => array(
 							'name'                       => _x( 'Module Tags', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
 							'singular_name'              => _x( 'Module Tag', 'Custom taxonomy labels: Content Modules tags.', 'webman-amplifier' ),
@@ -292,69 +282,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		}
 	} // /wma_modules_cp_taxonomies
-
-
-
-
-
-/**
- * PERMALINKS SETTINGS
- */
-
-	/**
-	 * Create permalinks settings fields in WordPress admin
-	 *
-	 * @since  1.0
-	 */
-	if ( ! function_exists( 'wma_modules_cp_permalinks' ) ) {
-		function wma_modules_cp_permalinks() {
-			//Adding sections
-				add_settings_section(
-						'wmamp-' . 'wm_modules' . '-permalinks',
-						__( 'Content Modules Custom Post Permalinks', 'webman-amplifier' ),
-						'wma_modules_cp_permalinks_render_section',
-						'permalink'
-					);
-
-			//Adding settings fields
-				add_settings_field(
-						'module',
-						__( 'Single module permalink', 'webman-amplifier' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_modules' . '-permalinks',
-						array(
-								'name'        => 'module',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'module', 'module' )
-							)
-					);
-				add_settings_field(
-						'module_tag',
-						__( 'Module tag base', 'webman-amplifier' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_modules' . '-permalinks',
-						array(
-								'name'        => 'module_tag',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'module_tag', 'module-tag' )
-							)
-					);
-		}
-	} // /wma_modules_cp_permalinks
-
-
-
-	/**
-	 * Create permalinks settings section WordPress admin
-	 *
-	 * @since  1.0
-	 */
-	if ( ! function_exists( 'wma_modules_cp_permalinks_render_section' ) ) {
-		function wma_modules_cp_permalinks_render_section() {
-			//Settings section description
-				echo apply_filters( 'wmhook_wmamp_' . 'wma_modules_cp_permalinks_render_section' . '_output', '<p>' . __( 'You can change the Content Modules custom post type permalinks here.', 'webman-amplifier' ) . '</p>' );
-		}
-	} // /wma_modules_cp_permalinks_render_section
 
 
 

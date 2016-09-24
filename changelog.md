@@ -1,5 +1,27 @@
 # WebMan Amplifier Changelog
 
+## 1.3.21
+
+* **Update**: Cleaning and improving custom post types permalinks setup
+* **Update**: Improving metaboxes and icons font admin screen styles
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/css/admin-icons.css
+	assets/scss/admin-icons.scss
+	assets/scss/metabox/_tabs.scss
+	assets/scss/metabox/_base.scss
+	includes/icons/class-icon-font.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+
+
 ## 1.3.20
 
 * **Fix**: Styling issue in icons list in WordPress dashboard

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.3.21
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3.19
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -79,15 +79,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Custom post registration arguments
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_register_' . 'wm_testimonials', array(
-						'query_var'           => 'testimonials',
+						'query_var'           => 'testimonial',
 						'capability_type'     => 'page',
 						'public'              => true,
 						'show_ui'             => true,
 						'exclude_from_search' => true,
-						'has_archive'         => true,
+						'has_archive'         => ( isset( $permalinks['testimonials'] ) && $permalinks['testimonials'] ) ? ( $permalinks['testimonials'] ) : ( 'testimonials' ),
 						'hierarchical'        => false,
 						'rewrite'             => array(
-								'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' )
+								'slug' => ( isset( $permalinks['testimonial'] ) && $permalinks['testimonial'] ) ? ( $permalinks['testimonial'] ) : ( 'testimonial' ),
 							),
 						'menu_position'       => 39,
 						'menu_icon'           => 'dashicons-testimonial',
@@ -281,41 +281,69 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	/**
 	 * Create permalinks settings fields in WordPress admin
 	 *
-	 * @since  1.0
+	 * @since    1.0
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_permalinks' ) ) {
 		function wma_testimonials_cp_permalinks() {
-			//Adding sections
-				add_settings_section(
-						'wmamp-' . 'wm_testimonials' . '-permalinks',
-						__( 'Testimonials Custom Post Permalinks', 'webman-amplifier' ),
-						'wma_testimonials_cp_permalinks_render_section',
-						'permalink'
-					);
 
-			//Adding settings fields
-				add_settings_field(
-						'testimonial',
-						__( 'Single testimonial permalink', 'webman-amplifier' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_testimonials' . '-permalinks',
-						array(
-								'name'        => 'testimonial',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial', 'testimonial' )
-							)
-					);
-				add_settings_field(
-						'testimonial_category',
-						__( 'Testimonial category base', 'webman-amplifier' ),
-						'wma_permalinks_render_field',
-						'permalink',
-						'wmamp-' . 'wm_testimonials' . '-permalinks',
-						array(
-								'name'        => 'testimonial_category',
-								'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial_category', 'testimonial-category' )
-							)
-					);
+			// Requirements check
+
+				$obj = get_post_type_object( 'wm_testimonials' );
+
+				if ( ! $obj->has_archive ) {
+					return;
+				}
+
+
+			// Processing
+
+				// Adding sections
+
+					add_settings_section(
+							'wmamp-' . 'wm_testimonials' . '-permalinks',
+							__( 'Testimonials Custom Post Permalinks', 'webman-amplifier' ),
+							'wma_testimonials_cp_permalinks_render_section',
+							'permalink'
+						);
+
+				// Adding settings fields
+
+					add_settings_field(
+							'testimonials',
+							__( 'Testimonials archive permalink', 'webman-amplifier' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_testimonials' . '-permalinks',
+							array(
+									'name'        => 'testimonials',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonials', 'testimonials' )
+								)
+						);
+
+					add_settings_field(
+							'testimonial',
+							__( 'Single testimonial permalink', 'webman-amplifier' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_testimonials' . '-permalinks',
+							array(
+									'name'        => 'testimonial',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial', 'testimonial' )
+								)
+						);
+
+					add_settings_field(
+							'testimonial_category',
+							__( 'Testimonial category base', 'webman-amplifier' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_testimonials' . '-permalinks',
+							array(
+									'name'        => 'testimonial_category',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'testimonial_category', 'testimonial-category' )
+								)
+						);
 		}
 	} // /wma_testimonials_cp_permalinks
 

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.3.21
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -83,11 +83,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'capability_type'     => 'page',
 						'public'              => true,
 						'show_ui'             => true,
-						'exclude_from_search' => true,
-						'show_in_nav_menus'   => false,
+						'has_archive'         => ( isset( $permalinks['people'] ) && $permalinks['people'] ) ? ( $permalinks['people'] ) : ( 'people' ),
+						'exclude_from_search' => false,
 						'hierarchical'        => false,
 						'rewrite'             => array(
-								'slug' => ( isset( $permalinks['staff'] ) && $permalinks['staff'] ) ? ( $permalinks['staff'] ) : ( 'staff' )
+								'slug' => ( isset( $permalinks['person'] ) && $permalinks['person'] ) ? ( $permalinks['person'] ) : ( 'person' ),
 							),
 						'menu_position'       => 42,
 						'menu_icon'           => 'dashicons-businessman',
@@ -404,10 +404,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Create permalinks settings fields in WordPress admin
 	 *
 	 * @since    1.0
-	 * @version  1.2.5
+	 * @version  1.3.21
 	 */
 	if ( ! function_exists( 'wma_staff_cp_permalinks' ) ) {
 		function wma_staff_cp_permalinks() {
+
+			// Requirements check
+
+				$obj = get_post_type_object( 'wm_staff' );
+
+				if ( ! $obj->has_archive ) {
+					return;
+				}
+
 
 			// Processing
 
@@ -423,14 +432,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Adding settings fields
 
 					add_settings_field(
-							'staff',
-							__( 'Single staff permalink', 'webman-amplifier' ),
+							'people',
+							__( 'Staff archive permalink', 'webman-amplifier' ),
 							'wma_permalinks_render_field',
 							'permalink',
 							'wmamp-' . 'wm_staff' . '-permalinks',
 							array(
-									'name'        => 'staff',
-									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'staff', 'staff' )
+									'name'        => 'people',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'people', 'people' )
+								)
+						);
+
+					add_settings_field(
+							'person',
+							__( 'Single person permalink', 'webman-amplifier' ),
+							'wma_permalinks_render_field',
+							'permalink',
+							'wmamp-' . 'wm_staff' . '-permalinks',
+							array(
+									'name'        => 'person',
+									'placeholder' => apply_filters( 'wmhook_wmamp_' . 'cp_permalink_' . 'person', 'person' )
 								)
 						);
 

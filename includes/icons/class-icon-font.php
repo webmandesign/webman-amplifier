@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.20
+ * @version  1.3.21
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -178,7 +178,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Scripts and styles
 			 *
 			 * @since    1.0
-			 * @version  1.3.5
+			 * @version  1.3.21
 			 *
 			 * @access  public
 			 */
@@ -197,6 +197,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 						// Styles
 
+							wp_register_style( 'wm-admin-icons',        WMAMP_ASSETS_URL . 'css/admin-icons.css', false, WMAMP_VERSION, 'screen' );
 							wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
 							wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
 							if ( $icon_font_url ) {
@@ -218,6 +219,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 							// Styles
 
 								wp_enqueue_style( 'wm-fonticons' );
+								wp_enqueue_style( 'wm-admin-icons' );
 								wp_enqueue_style( 'wm-metabox-styles' );
 								if ( is_rtl() ) {
 									wp_enqueue_style( 'wm-metabox-styles-rtl' );
@@ -277,7 +279,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Render admin form to upload font ZIP file
 			 *
 			 * @since    1.0
-			 * @version  1.3.20
+			 * @version  1.3.21
 			 *
 			 * @access   public
 			 */
@@ -448,22 +450,6 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 						$output .= '</form>';
 
 						// Available icon classes
-
-							$output .= '<style>';
-							$output .= '.wmamp-icons-classes-list-container h2 { margin: 0 0 1.62em; font-size: 1.62em; font-weight: 300; }';
-							$output .= '.wmamp-icons-classes-list { display: flex; flex-wrap: wrap; margin: 20px 0; list-style: none; counter-reset: wmamp-icons-classes-list; }';
-							$output .= '.wmamp-icons-classes-list li { position: relative; display: inline-block; flex-grow: 1; padding: 10px; margin: -1px -1px 0 0; text-align: center; border: 1px dashed rgba(0,0,0, .1); vertical-align: top; overflow: hidden; counter-increment: wmamp-icons-classes-list; }';
-							$output .= '.wmamp-icons-classes-list li::before { content: counter(wmamp-icons-classes-list); position: absolute; left: 0; top: 0; font-size: 20px; font-weight: 300; color: rgba(0,0,0, .33); }';
-							$output .= '.wmamp-icons-classes-list:hover li { opacity: .33; }';
-							$output .= '.wmamp-icons-classes-list li:hover { border-color: #111; opacity: 1; z-index: 9999; }';
-							$output .= '.wmamp-icons-classes-list [class*="icon-"] { display: block; width: 54px; height: 54px; margin: 0 auto; line-height: 54px; font-size: 32px; color: #111; border-radius: 100px; }';
-							$output .= '.wmamp-icons-classes-list label { margin-top: 10px; text-align: center; }';
-							$output .= '.wmamp-icons-classes-list label span { display: none; font-size: .81em; }';
-							$output .= '.wmamp-icons-classes-list label + label { display: none; }';
-							$output .= '.wmamp-icons-classes-list li:hover label + label { display: block; }';
-							$output .= '.wmamp-icons-classes-list li:hover label span { display: block; }';
-							$output .= '.wmamp-icons-classes-list input { display: inline-block; width: auto; max-width: none; padding: 2px; text-align: inherit; font-size: 10px; font-weight: 700; }';
-							$output .= '</style>';
 
 							$output .= $fonticons;
 

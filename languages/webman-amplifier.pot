@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WebMan Amplifier\n"
 "Report-Msgid-Bugs-To: http://support.webmandesign.eu\n"
-"POT-Creation-Date: 2016-09-22 10:15+0200\n"
+"POT-Creation-Date: 2016-09-24 10:59+0200\n"
 "PO-Revision-Date: 2015-04-21 12:38+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -29,241 +29,225 @@ msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/custom-posts/logos.php:100 includes/custom-posts/logos.php:101
+#: includes/custom-posts/logos.php:91 includes/custom-posts/logos.php:92
 msgctxt "Custom post labels: Logos."
 msgid "Logos"
 msgstr ""
 
-#: includes/custom-posts/logos.php:102 includes/custom-posts/logos.php:103
-#: includes/custom-posts/logos.php:104
+#: includes/custom-posts/logos.php:93 includes/custom-posts/logos.php:94
+#: includes/custom-posts/logos.php:95
 msgctxt "Custom post labels: Logos."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/logos.php:105
+#: includes/custom-posts/logos.php:96
 msgctxt "Custom post labels: Logos."
 msgid "Edit"
 msgstr ""
 
-#: includes/custom-posts/logos.php:106
+#: includes/custom-posts/logos.php:97
 msgctxt "Custom post labels: Logos."
 msgid "View"
 msgstr ""
 
-#: includes/custom-posts/logos.php:107
+#: includes/custom-posts/logos.php:98
 msgctxt "Custom post labels: Logos."
 msgid "Search"
 msgstr ""
 
-#: includes/custom-posts/logos.php:108
+#: includes/custom-posts/logos.php:99
 msgctxt "Custom post labels: Logos."
 msgid "No item found"
 msgstr ""
 
-#: includes/custom-posts/logos.php:109
+#: includes/custom-posts/logos.php:100
 msgctxt "Custom post labels: Logos."
 msgid "No item found in trash"
 msgstr ""
 
-#: includes/custom-posts/logos.php:110
+#: includes/custom-posts/logos.php:101
 msgctxt "Custom post labels: Logos."
 msgid "Logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:111
+#: includes/custom-posts/logos.php:102
 msgctxt "Custom post labels: Logos."
 msgid "Set logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:112
+#: includes/custom-posts/logos.php:103
 msgctxt "Custom post labels: Logos."
 msgid "Remove logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:113
+#: includes/custom-posts/logos.php:104
 msgctxt "Custom post labels: Logos."
 msgid "Use as logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:114
+#: includes/custom-posts/logos.php:105
 msgctxt "Custom post labels: Logos."
 msgid "Filter logos list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:115
+#: includes/custom-posts/logos.php:106
 msgctxt "Custom post labels: Logos."
 msgid "Logos list navigation"
 msgstr ""
 
-#: includes/custom-posts/logos.php:116
+#: includes/custom-posts/logos.php:107
 msgctxt "Custom post labels: Logos."
 msgid "Logos list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:150 includes/custom-posts/staff.php:155
+#: includes/custom-posts/logos.php:141 includes/custom-posts/staff.php:155
 msgid "Name"
 msgstr ""
 
-#: includes/custom-posts/logos.php:151
+#: includes/custom-posts/logos.php:142
 msgid "Logo"
 msgstr ""
 
-#: includes/custom-posts/logos.php:152 includes/custom-posts/projects.php:151
+#: includes/custom-posts/logos.php:143 includes/custom-posts/projects.php:151
 #: includes/custom-posts/testimonials.php:149
 #: includes/shortcodes/definitions/definitions.php:3709
 msgid "Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:153 includes/custom-posts/modules.php:150
+#: includes/custom-posts/logos.php:144 includes/custom-posts/modules.php:141
 #: includes/custom-posts/projects.php:153
 msgid "Custom link"
 msgstr ""
 
-#: includes/custom-posts/logos.php:154 includes/custom-posts/modules.php:152
+#: includes/custom-posts/logos.php:145 includes/custom-posts/modules.php:143
 #: includes/custom-posts/projects.php:154 includes/custom-posts/staff.php:160
 #: includes/custom-posts/testimonials.php:151
 msgid "Date"
 msgstr ""
 
-#: includes/custom-posts/logos.php:155 includes/custom-posts/modules.php:153
+#: includes/custom-posts/logos.php:146 includes/custom-posts/modules.php:144
 #: includes/custom-posts/projects.php:155 includes/custom-posts/staff.php:161
 #: includes/custom-posts/testimonials.php:152
 msgid "Author"
 msgstr ""
 
-#: includes/custom-posts/logos.php:255
+#: includes/custom-posts/logos.php:246
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:256
+#: includes/custom-posts/logos.php:247
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:257
+#: includes/custom-posts/logos.php:248
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Search Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:258
+#: includes/custom-posts/logos.php:249
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "All Categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:259 includes/custom-posts/logos.php:260
+#: includes/custom-posts/logos.php:250 includes/custom-posts/logos.php:251
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Parent Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:261
+#: includes/custom-posts/logos.php:252
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Edit Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:262
+#: includes/custom-posts/logos.php:253
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "View Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:263
+#: includes/custom-posts/logos.php:254
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Update Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:264
+#: includes/custom-posts/logos.php:255
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Add New Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:265
+#: includes/custom-posts/logos.php:256
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "New Category Title"
 msgstr ""
 
-#: includes/custom-posts/logos.php:266
+#: includes/custom-posts/logos.php:257
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "No categories found"
 msgstr ""
 
-#: includes/custom-posts/logos.php:267
+#: includes/custom-posts/logos.php:258
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "No categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:268
+#: includes/custom-posts/logos.php:259
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories list navigation"
 msgstr ""
 
-#: includes/custom-posts/logos.php:269
+#: includes/custom-posts/logos.php:260
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:296
-msgid "Logos Custom Post Permalinks"
-msgstr ""
-
-#: includes/custom-posts/logos.php:304
-msgid "Single logo permalink"
-msgstr ""
-
-#: includes/custom-posts/logos.php:315
-msgid "Logo category base"
-msgstr ""
-
-#: includes/custom-posts/logos.php:337
-msgid "You can change the Logos custom post type permalinks here."
-msgstr ""
-
-#: includes/custom-posts/logos.php:363 includes/custom-posts/logos.php:433
+#: includes/custom-posts/logos.php:291 includes/custom-posts/logos.php:361
 msgid "Logo settings"
 msgstr ""
 
-#: includes/custom-posts/logos.php:369 includes/custom-posts/modules.php:432
-#: includes/custom-posts/testimonials.php:364
+#: includes/custom-posts/logos.php:297 includes/custom-posts/modules.php:359
+#: includes/custom-posts/testimonials.php:392
 msgid "Set featured image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:369
+#: includes/custom-posts/logos.php:297
 msgid "Set the logo image as the featured image of the post"
 msgstr ""
 
-#: includes/custom-posts/logos.php:376 includes/custom-posts/modules.php:397
-#: includes/custom-posts/projects.php:425 includes/custom-posts/staff.php:528
-#: includes/custom-posts/testimonials.php:379
+#: includes/custom-posts/logos.php:304 includes/custom-posts/modules.php:324
+#: includes/custom-posts/projects.php:455 includes/custom-posts/staff.php:549
+#: includes/custom-posts/testimonials.php:407
 msgid "Custom link URL"
 msgstr ""
 
-#: includes/custom-posts/logos.php:377 includes/custom-posts/modules.php:398
-#: includes/custom-posts/projects.php:426 includes/custom-posts/staff.php:529
-#: includes/custom-posts/staff.php:538
-#: includes/custom-posts/testimonials.php:380
+#: includes/custom-posts/logos.php:305 includes/custom-posts/modules.php:325
+#: includes/custom-posts/projects.php:456 includes/custom-posts/staff.php:550
+#: includes/custom-posts/staff.php:559
+#: includes/custom-posts/testimonials.php:408
 msgid "No link will be displayed / applied when left blank"
 msgstr ""
 
-#: includes/custom-posts/logos.php:385 includes/custom-posts/modules.php:406
-#: includes/custom-posts/projects.php:433 includes/custom-posts/staff.php:546
-#: includes/custom-posts/testimonials.php:388
+#: includes/custom-posts/logos.php:313 includes/custom-posts/modules.php:333
+#: includes/custom-posts/projects.php:463 includes/custom-posts/staff.php:567
+#: includes/custom-posts/testimonials.php:416
 msgid "Custom link action"
 msgstr ""
 
-#: includes/custom-posts/logos.php:386 includes/custom-posts/modules.php:407
-#: includes/custom-posts/projects.php:434 includes/custom-posts/staff.php:547
-#: includes/custom-posts/testimonials.php:389
+#: includes/custom-posts/logos.php:314 includes/custom-posts/modules.php:334
+#: includes/custom-posts/projects.php:464 includes/custom-posts/staff.php:568
+#: includes/custom-posts/testimonials.php:417
 msgid "Choose how to display / apply the link set above"
 msgstr ""
 
-#: includes/custom-posts/logos.php:388 includes/custom-posts/modules.php:409
-#: includes/custom-posts/projects.php:442 includes/custom-posts/staff.php:549
-#: includes/custom-posts/testimonials.php:391
+#: includes/custom-posts/logos.php:316 includes/custom-posts/modules.php:336
+#: includes/custom-posts/projects.php:472 includes/custom-posts/staff.php:570
+#: includes/custom-posts/testimonials.php:419
 msgid "Open in new tab / window"
 msgstr ""
 
-#: includes/custom-posts/logos.php:389 includes/custom-posts/modules.php:410
-#: includes/custom-posts/projects.php:443 includes/custom-posts/staff.php:550
-#: includes/custom-posts/testimonials.php:392
+#: includes/custom-posts/logos.php:317 includes/custom-posts/modules.php:337
+#: includes/custom-posts/projects.php:473 includes/custom-posts/staff.php:571
+#: includes/custom-posts/testimonials.php:420
 #: includes/shortcodes/definitions/definitions.php:936
 #: includes/shortcodes/definitions/definitions.php:1034
 #: includes/shortcodes/definitions/definitions.php:1210
@@ -273,231 +257,215 @@ msgstr ""
 msgid "Open in same window"
 msgstr ""
 
-#: includes/custom-posts/modules.php:101
+#: includes/custom-posts/modules.php:92
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules"
 msgstr ""
 
-#: includes/custom-posts/modules.php:102
+#: includes/custom-posts/modules.php:93
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:103 includes/custom-posts/modules.php:105
+#: includes/custom-posts/modules.php:94 includes/custom-posts/modules.php:96
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/modules.php:104
+#: includes/custom-posts/modules.php:95
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:106
+#: includes/custom-posts/modules.php:97
 msgctxt "Custom post labels: Content Modules."
 msgid "Edit Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:107
+#: includes/custom-posts/modules.php:98
 msgctxt "Custom post labels: Content Modules."
 msgid "View Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:108
+#: includes/custom-posts/modules.php:99
 msgctxt "Custom post labels: Content Modules."
 msgid "Search Modules"
 msgstr ""
 
-#: includes/custom-posts/modules.php:109
+#: includes/custom-posts/modules.php:100
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found"
 msgstr ""
 
-#: includes/custom-posts/modules.php:110
+#: includes/custom-posts/modules.php:101
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found in trash"
 msgstr ""
 
-#: includes/custom-posts/modules.php:111
+#: includes/custom-posts/modules.php:102
 msgctxt "Custom post labels: Content Modules."
 msgid "Filter content modules list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:112
+#: includes/custom-posts/modules.php:103
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules list navigation"
 msgstr ""
 
-#: includes/custom-posts/modules.php:113
+#: includes/custom-posts/modules.php:104
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:147
+#: includes/custom-posts/modules.php:138
 msgid "Content module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:148 includes/custom-posts/projects.php:150
+#: includes/custom-posts/modules.php:139 includes/custom-posts/projects.php:150
 #: includes/shortcodes/definitions/definitions.php:4281
 msgid "Image"
 msgstr ""
 
-#: includes/custom-posts/modules.php:149
+#: includes/custom-posts/modules.php:140
 #: includes/shortcodes/definitions/definitions.php:332
 #: includes/shortcodes/definitions/definitions.php:788
 msgid "Tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:151
+#: includes/custom-posts/modules.php:142
 #: includes/custom-posts/testimonials.php:150
 msgid "Slug"
 msgstr ""
 
-#: includes/custom-posts/modules.php:271
+#: includes/custom-posts/modules.php:261
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:272
+#: includes/custom-posts/modules.php:262
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tag"
 msgstr ""
 
-#: includes/custom-posts/modules.php:273
+#: includes/custom-posts/modules.php:263
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Search Tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:274
+#: includes/custom-posts/modules.php:264
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Popular Tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:275
+#: includes/custom-posts/modules.php:265
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "All Tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:276
+#: includes/custom-posts/modules.php:266
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Edit Tag"
 msgstr ""
 
-#: includes/custom-posts/modules.php:277
+#: includes/custom-posts/modules.php:267
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "View Tag"
 msgstr ""
 
-#: includes/custom-posts/modules.php:278
+#: includes/custom-posts/modules.php:268
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Update Tag"
 msgstr ""
 
-#: includes/custom-posts/modules.php:279
+#: includes/custom-posts/modules.php:269
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Add New Tag"
 msgstr ""
 
-#: includes/custom-posts/modules.php:280
+#: includes/custom-posts/modules.php:270
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "New Tag Title"
 msgstr ""
 
-#: includes/custom-posts/modules.php:281
+#: includes/custom-posts/modules.php:271
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Separate tags with commas"
 msgstr ""
 
-#: includes/custom-posts/modules.php:282
+#: includes/custom-posts/modules.php:272
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Add or remove tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:283
+#: includes/custom-posts/modules.php:273
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Choose from the most used tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:284
+#: includes/custom-posts/modules.php:274
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "No tags found"
 msgstr ""
 
-#: includes/custom-posts/modules.php:285
+#: includes/custom-posts/modules.php:275
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "No tags"
 msgstr ""
 
-#: includes/custom-posts/modules.php:286
+#: includes/custom-posts/modules.php:276
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tags list navigation"
 msgstr ""
 
-#: includes/custom-posts/modules.php:287
+#: includes/custom-posts/modules.php:277
 msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tags list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:314
-msgid "Content Modules Custom Post Permalinks"
-msgstr ""
-
-#: includes/custom-posts/modules.php:322
-msgid "Single module permalink"
-msgstr ""
-
-#: includes/custom-posts/modules.php:333
-msgid "Module tag base"
-msgstr ""
-
-#: includes/custom-posts/modules.php:355
-msgid "You can change the Content Modules custom post type permalinks here."
-msgstr ""
-
-#: includes/custom-posts/modules.php:390
+#: includes/custom-posts/modules.php:317
 msgctxt "Metabox section title."
 msgid "Settings"
 msgstr ""
 
-#: includes/custom-posts/modules.php:419
+#: includes/custom-posts/modules.php:346
 msgid "Use as icon box"
 msgstr ""
 
-#: includes/custom-posts/modules.php:420
+#: includes/custom-posts/modules.php:347
 msgid "Creates an icon box"
 msgstr ""
 
-#: includes/custom-posts/modules.php:432
+#: includes/custom-posts/modules.php:359
 msgid ""
 "Set the icon as featured image of the post. If the font icon is used "
 "instead, it will be prioritized."
 msgstr ""
 
-#: includes/custom-posts/modules.php:440
+#: includes/custom-posts/modules.php:367
 msgid "...or choose a font icon"
 msgstr ""
 
-#: includes/custom-posts/modules.php:441
+#: includes/custom-posts/modules.php:368
 msgid "Select from predefined font icons"
 msgstr ""
 
-#: includes/custom-posts/modules.php:453
+#: includes/custom-posts/modules.php:380
 msgid "Font icon color"
 msgstr ""
 
-#: includes/custom-posts/modules.php:454
+#: includes/custom-posts/modules.php:381
 msgid "Set the color of the icon font"
 msgstr ""
 
-#: includes/custom-posts/modules.php:471
+#: includes/custom-posts/modules.php:398
 msgid "Icon background color"
 msgstr ""
 
-#: includes/custom-posts/modules.php:472
+#: includes/custom-posts/modules.php:399
 msgid "Set the color of the icon background"
 msgstr ""
 
-#: includes/custom-posts/modules.php:529
+#: includes/custom-posts/modules.php:456
 msgid "Module settings"
 msgstr ""
 
@@ -727,48 +695,52 @@ msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tags list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:340
+#: includes/custom-posts/projects.php:354
 msgid "Projects Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/projects.php:348
+#: includes/custom-posts/projects.php:363
+msgid "Projects archive permalink"
+msgstr ""
+
+#: includes/custom-posts/projects.php:375
 msgid "Single project permalink"
 msgstr ""
 
-#: includes/custom-posts/projects.php:359
+#: includes/custom-posts/projects.php:387
 msgid "Project category base"
 msgstr ""
 
-#: includes/custom-posts/projects.php:370
+#: includes/custom-posts/projects.php:399
 msgid "Project tag base"
 msgstr ""
 
-#: includes/custom-posts/projects.php:392
+#: includes/custom-posts/projects.php:422
 msgid "You can change the Projects custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/projects.php:418
+#: includes/custom-posts/projects.php:448
 msgctxt "Metabox section title."
 msgid "Attributes"
 msgstr ""
 
-#: includes/custom-posts/projects.php:437
+#: includes/custom-posts/projects.php:467
 msgid "Project page"
 msgstr ""
 
-#: includes/custom-posts/projects.php:438
+#: includes/custom-posts/projects.php:468
 msgid "Display link on project page"
 msgstr ""
 
-#: includes/custom-posts/projects.php:440
+#: includes/custom-posts/projects.php:470
 msgid "Apply directly in projects list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:441
+#: includes/custom-posts/projects.php:471
 msgid "Open in popup window (videos and images only)"
 msgstr ""
 
-#: includes/custom-posts/projects.php:488
+#: includes/custom-posts/projects.php:518
 msgid "Project settings"
 msgstr ""
 
@@ -1104,45 +1076,49 @@ msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Specialties list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:418
+#: includes/custom-posts/staff.php:427
 msgid "Staff Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/staff.php:427
-msgid "Single staff permalink"
+#: includes/custom-posts/staff.php:436
+msgid "Staff archive permalink"
 msgstr ""
 
-#: includes/custom-posts/staff.php:439
+#: includes/custom-posts/staff.php:448
+msgid "Single person permalink"
+msgstr ""
+
+#: includes/custom-posts/staff.php:460
 msgid "Staff department base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:451
+#: includes/custom-posts/staff.php:472
 msgid "Staff positions base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:463
+#: includes/custom-posts/staff.php:484
 msgid "Staff specialty base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:486
+#: includes/custom-posts/staff.php:507
 msgid "You can change the Staff custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/staff.php:521
+#: includes/custom-posts/staff.php:542
 msgctxt "Metabox section title."
 msgid "Info"
 msgstr ""
 
-#: includes/custom-posts/staff.php:537
+#: includes/custom-posts/staff.php:558
 msgid "...or link to a page"
 msgstr ""
 
-#: includes/custom-posts/staff.php:564
+#: includes/custom-posts/staff.php:585
 msgctxt "Metabox section title."
 msgid "Contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:573
+#: includes/custom-posts/staff.php:594
 #: includes/shortcodes/definitions/definitions.php:304
 #: includes/shortcodes/definitions/definitions.php:626
 #: includes/shortcodes/definitions/definitions.php:776
@@ -1156,7 +1132,7 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: includes/custom-posts/staff.php:580
+#: includes/custom-posts/staff.php:601
 #: includes/custom-posts/testimonials.php:147
 #: includes/shortcodes/definitions/definitions.php:265
 #: includes/shortcodes/definitions/definitions.php:587
@@ -1166,15 +1142,15 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:585
+#: includes/custom-posts/staff.php:606
 msgid "HTML content"
 msgstr ""
 
-#: includes/custom-posts/staff.php:591
+#: includes/custom-posts/staff.php:612
 msgid "Staff contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:635
+#: includes/custom-posts/staff.php:656
 msgid "Staff settings"
 msgstr ""
 
@@ -1310,40 +1286,44 @@ msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Testimonials Categories list"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:291
+#: includes/custom-posts/testimonials.php:305
 msgid "Testimonials Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:299
+#: includes/custom-posts/testimonials.php:314
+msgid "Testimonials archive permalink"
+msgstr ""
+
+#: includes/custom-posts/testimonials.php:326
 msgid "Single testimonial permalink"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:310
+#: includes/custom-posts/testimonials.php:338
 msgid "Testimonial category base"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:332
+#: includes/custom-posts/testimonials.php:360
 msgid "You can change the Testimonials custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:358
+#: includes/custom-posts/testimonials.php:386
 msgctxt "Metabox section title."
 msgid "Author"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:364
+#: includes/custom-posts/testimonials.php:392
 msgid "You can set the testimonial author photo or logo as post featured image"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:371
+#: includes/custom-posts/testimonials.php:399
 msgid "Testimonial author"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:372
+#: includes/custom-posts/testimonials.php:400
 msgid "Set the testimonial author name here"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:436
+#: includes/custom-posts/testimonials.php:464
 msgid "Testimonial settings"
 msgstr ""
 
@@ -1377,45 +1357,45 @@ msgctxt "WordPress image size actions."
 msgid "cropped"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:258
+#: includes/icons/class-icon-font.php:260
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:266
+#: includes/icons/class-icon-font.php:268
 msgctxt "Admin page title."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:267
+#: includes/icons/class-icon-font.php:269
 msgctxt "Admin menu title."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:294
+#: includes/icons/class-icon-font.php:296
 msgid "List of the recently used icons with their CSS classes:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:299
+#: includes/icons/class-icon-font.php:301
 msgid "CSS class:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:300
+#: includes/icons/class-icon-font.php:302
 msgid "Instant HTML:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:316
+#: includes/icons/class-icon-font.php:318
 msgid "Fontello ZIP package file"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:317
+#: includes/icons/class-icon-font.php:319
 msgid "Set the file"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:318
+#: includes/icons/class-icon-font.php:320
 msgid "Fontello ZIP package file URL"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:319
+#: includes/icons/class-icon-font.php:321
 #, php-format
 msgid ""
 "Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br /"
@@ -1426,11 +1406,11 @@ msgid ""
 "generated.</strong>"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:352
+#: includes/icons/class-icon-font.php:354
 msgid "Icon Font Setup"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:359
+#: includes/icons/class-icon-font.php:361
 #, php-format
 msgid ""
 "<strong>You are currently on a WordPress multisite installation and ZIP file "
@@ -1439,38 +1419,38 @@ msgid ""
 "types\"</em>."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:361
+#: includes/icons/class-icon-font.php:363
 msgid "The ZIP file was processed successfully and new icon font was set up."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:363
+#: includes/icons/class-icon-font.php:365
 msgid "<strong>Error during processing of your ZIP file.</strong>"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:365
+#: includes/icons/class-icon-font.php:367
 msgid ""
 "<strong>Using this feature is reserved for administrators. You don't have "
 "the necessary permissions.</strong>"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:367
+#: includes/icons/class-icon-font.php:369
 msgid "Default icon font file was restored."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:386
+#: includes/icons/class-icon-font.php:388
 msgid "Icon Font File Setup"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:400
+#: includes/icons/class-icon-font.php:402
 msgid "Save changes"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:412
+#: includes/icons/class-icon-font.php:414
 #, php-format
 msgid "To display the icon font, please, use this CSS file: %s"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:441
+#: includes/icons/class-icon-font.php:443
 msgid "Use default"
 msgstr ""
 
