@@ -2,6 +2,20 @@
 
 ## 1.3.21
 
+* **Add**: Integration with WooSidebars plugin
+
+#### Files changed:
+
+	changelog.md
+	class-wm-amplifier.php
+	readme.txt
+	webman-amplifier.php
+	includes/integration/integration.php
+	includes/integration/woosidebars/class-woosidebars.php
+
+
+## 1.3.21
+
 * **Update**: Cleaning and improving custom post types permalinks setup
 * **Update**: Improving metaboxes and icons font admin screen styles
 

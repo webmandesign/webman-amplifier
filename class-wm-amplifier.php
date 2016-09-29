@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.3.10
+ * @version	 1.3.22
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -735,13 +735,3 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 	} // /WM_Amplifier
 
 } // /class WM_Amplifier check
-
-
-
-
-
-/**
- * HELPER GLOBAL FUNCTIONS
- */
-
-	require_once( 'includes/functions.php' );
