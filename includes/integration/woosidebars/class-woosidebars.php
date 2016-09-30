@@ -11,7 +11,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.3.22
- * @version  1.3.22
+ * @version  1.4
  *
  * Contents:
  *
@@ -28,6 +28,8 @@ class WM_Amplifier_WooSidebars {
 	 * 0) Init
 	 */
 
+		private static $unsupported;
+
 		private static $post_types;
 
 		private static $taxonomies;
@@ -40,7 +42,7 @@ class WM_Amplifier_WooSidebars {
 		 * Constructor
 		 *
 		 * @since    1.3.22
-		 * @version  1.3.22
+		 * @version  1.4
 		 */
 		private function __construct() {
 
@@ -57,6 +59,17 @@ class WM_Amplifier_WooSidebars {
 						'staff_department',
 						'staff_position',
 						'staff_specialty',
+					) );
+
+				self::$unsupported = (array) apply_filters( 'wmhook_amplifier_woosidebars_unsupported', array(
+						'post_types' => array(
+								'wm_logos',
+								'wm_modules',
+							),
+						'taxonomies' => array(
+								'logo_category',
+								'module_tag',
+							),
 					) );
 
 
@@ -184,7 +197,7 @@ class WM_Amplifier_WooSidebars {
 		 * Register the integration's conditions reference for the meta box
 		 *
 		 * @since    1.3.22
-		 * @version  1.3.22
+		 * @version  1.4
 		 *
 		 * @param  array $conditions  The existing array of conditions.
 		 */
@@ -196,6 +209,23 @@ class WM_Amplifier_WooSidebars {
 
 
 			// Processing
+
+				// Removing unsupported post types
+
+					if ( isset( self::$unsupported['post_types'] ) ) {
+						foreach ( (array) self::$unsupported['post_types'] as $post_type ) {
+							unset( $conditions['post_types'][ 'post-type-' . $post_type ] );
+						}
+					}
+
+				// Removing unsupported taxonomies
+
+					if ( isset( self::$unsupported['taxonomies'] ) ) {
+						foreach ( (array) self::$unsupported['taxonomies'] as $taxonomy ) {
+							unset( $conditions['taxonomies'][ 'archive-' . $taxonomy ] );
+							unset( $conditions[ 'taxonomy-' . $taxonomy ] );
+						}
+					}
 
 				// Setup each individual taxonomy's terms
 
