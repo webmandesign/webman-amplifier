@@ -1,5 +1,35 @@
 # WebMan Amplifier Changelog
 
+## 1.4
+
+* **Add**:
+* **Update**:
+* **Fix**:
+
+#### Files changed:
+
+	changelog.md
+	class-wm-amplifier.php
+	readme.txt
+	webman-amplifier.php
+	assets/font/config.php
+	assets/font/fontello.css
+	assets/font/fontello.dev.css
+	assets/scss/metabox.scss
+	assets/scss/shortcodes-generator.scss
+	assets/scss/shortcodes-vc-addons.scss
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/icons/class-icon-font.php
+	includes/metabox/class-metabox.php
+	includes/shortcodes/class-shortcodes.php
+	includes/visual-editor/visual-editor.php
+	includes/widgets/w-subnav.php
+
+
 ## 1.3.21
 
 * **Add**: Integration with WooSidebars plugin

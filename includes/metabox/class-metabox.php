@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.3.12
+ * @version  1.4
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
