@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version	 1.3.22
+ * @version	 1.4
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -151,7 +151,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.3.3
+			 * @version  1.4
 			 *
 			 * @access  public
 			 */
@@ -160,17 +160,17 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				// Helper variables
 
 					$actions = array(
-						'load_textdomain'               => 'plugins_loaded',    //Load textdomain
-						'register_metaboxes'            => 'plugins_loaded',    //Register metaboxes
-						'register_widgets'              => 'init|-10',          //Register widgets
-						'save_permalinks'               => 'init',              //Save custom permalinks
-						'register_post_types'           => 'init|0',            //Register post types - before `widgets_init` fires (@link  https://codex.wordpress.org/Plugin_API/Action_Reference)
-						'custom_taxonomies'             => 'init|98',           //Register additional custom taxonomies
-						'register_shortcodes'           => 'init',              //Register shortcodes
-						'register_visual_editor_addons' => 'init',              //Register Visual Editor addons
-						'register_icons'                => 'init',              //Register icon font
-						'admin_notices'                 => 'admin_notices',     //Display admin notices
-						'deactivate'                    => 'switch_theme|10|2', //Deactivate plugin when theme changed
+						'load_textdomain'               => 'plugins_loaded',    // Load textdomain
+						'register_metaboxes'            => 'plugins_loaded',    // Register metaboxes
+						'register_widgets'              => 'init|-10',          // Register widgets
+						'save_permalinks'               => 'init',              // Save custom permalinks
+						'register_post_types'           => 'init|0',            // Register post types - before `widgets_init` fires (@link  https://codex.wordpress.org/Plugin_API/Action_Reference)
+						'custom_taxonomies'             => 'init|98',           // Register additional custom taxonomies
+						'register_shortcodes'           => 'init|5',            // Register shortcodes (shortcodes contain an init hook with priority as early as 7, so we need to use lower one here)
+						'register_visual_editor_addons' => 'init',              // Register Visual Editor addons
+						'register_icons'                => 'init',              // Register icon font
+						'admin_notices'                 => 'admin_notices',     // Display admin notices
+						'deactivate'                    => 'switch_theme|10|2', // Deactivate plugin when theme changed
 					);
 
 

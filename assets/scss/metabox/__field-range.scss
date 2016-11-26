@@ -1,7 +1,4 @@
 // Range field (numeric slider)
-//
-// @since    1.2.2
-// @version  1.2.3
 
 .wm-meta-wrap {
 
@@ -23,7 +20,7 @@
 				width: 100%;
 				height: 2px;
 				margin: 10px 0;
-				text-align: left;
+				text-align: $left; // {{RTL}}
 				background: #fff;
 				border: 2px solid #bbb;
 				border-radius: 10px;

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.15
+ * @version  1.4
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -890,8 +890,6 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 *
 				 * @link  texthttp://vc.wpbakery.com/
 				 *
-				 * @todo  Support for Frontend Editor (VC4+)
-				 *
 				 * @since    1.0
 				 * @version  1.2.3
 				 *
@@ -1399,42 +1397,9 @@ function wma_shortcodes() {
  * Additional Visual Composer requirements
  *
  * @since    1.0
- * @version  1.1.7
+ * @version  1.4
  */
 if ( wma_is_active_vc() ) {
-
-	/**
-	 * Removing Visual Composer 4.4 "Grid Elements" custom post type
-	 *
-	 * @since    1.1
-	 * @version  1.1.7
-	 *
-	 * @access  public
-	 */
-	if ( ! function_exists( 'wma_vc_custom_post_removal' ) ) {
-		function wma_vc_custom_post_removal() {
-			global $wp_post_types, $vc_teaser_box;
-
-			if ( isset( $wp_post_types['vc_grid_item'] ) ) {
-
-				unset( $wp_post_types['vc_grid_item'] );
-				// remove_menu_page( 'edit.php?post_type=vc_grid_item' );
-
-				if ( function_exists( 'vc_menu_page_build' ) ) {
-					remove_action( 'vc_menu_page_build', 'vc_gitem_add_submenu_page' );
-				}
-
-				if ( isset( $vc_teaser_box ) && is_object( $vc_teaser_box ) ) {
-					remove_action( 'admin_init', array( $vc_teaser_box, 'jsComposerEditPage' ), 6 );
-				}
-
-			}
-		}
-	} // /wma_vc_custom_post_removal
-
-	add_action( 'init', 'wma_vc_custom_post_removal', 999 );
-
-
 
 	/**
 	 * Customize vc_row shortcode output

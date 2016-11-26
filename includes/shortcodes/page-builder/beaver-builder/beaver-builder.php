@@ -10,12 +10,6 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @todo  Shortcode generator button in page builder.
- * @todo  Load on page builder pages only - needed Beaver Builder update to do so.
- * @todo  Beaver Builder contains a bug: you can not set up a form field ID to `type`.
- *        Reported this bug already. Applied a workaround with a new shortcode parameter
- *        named `type_bb` (specifically in Divider, Price and Table shortcode).
- *
  * CONTENT:
  * -  10) Actions and filters
  * -  20) Helpers

@@ -1,7 +1,7 @@
 // Metabox wrapper
 
 	.wm-meta-wrap {
-		direction: ltr;
+		direction: $language_direction;
 		min-width: 180px;
 		max-width: 100%;
 		padding: 0;
@@ -83,7 +83,7 @@
 
 			label {
 				display: block;
-				text-align: left;
+				text-align: $left; // {{RTL}}
 				font-weight: 600;
 			}
 
@@ -95,7 +95,7 @@
 				display: block;
 				width: 1em;
 				height: 1em;
-				right: 20px;
+				#{$right}: 20px; // {{RTL}}
 				top: 20px;
 				line-height: 1em;
 				text-align: center;
@@ -120,7 +120,7 @@
 					display: block;
 					width: 0;
 					height: 0;
-					left: 20px;
+					#{$left}: 20px; // {{RTL}}
 					top: 20px;
 					overflow: hidden;
 				}
@@ -128,7 +128,7 @@
 			}
 
 			.repeater-cell .button-default-value {
-				right: 10px;
+				#{$right}: 10px; // {{RTL}}
 			}
 
 		// Form table
@@ -137,7 +137,7 @@
 				margin: 0;
 
 				th {
-					text-align: left;
+					text-align: $left; // {{RTL}}
 				}
 
 				caption {
@@ -172,12 +172,14 @@
 			.option {
 
 				> th {
-					padding: 20px 10px 20px 20px;
+					padding: 20px 10px;
+					padding-#{$left}: 20px; // {{RTL}}
 				}
 
 				> td {
 					position: relative;
-					padding: 20px 50px 20px 10px;
+					padding: 20px 50px;
+					padding-#{$left}: 10px; // {{RTL}}
 					vertical-align: top;
 				}
 
@@ -192,16 +194,17 @@
 
 						th,
 						td {
-							padding: 1em 10px 1em 20px;
+							padding: 1em 10px;
+							padding-#{$left}: 20px; // {{RTL}}
 							background: #e6e6e6;
 							cursor: help;
 						}
 
 						&.toggle {
-							border-left: 2px solid #999;
+							border-#{$left}: 2px solid #999; // {{RTL}}
 
 							&:hover {
-								border-left: 6px solid #999;
+								border-#{$left}: 6px solid #999; // {{RTL}}
 
 								th,
 								td {

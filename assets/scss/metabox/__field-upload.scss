@@ -6,7 +6,7 @@
 		.zip-wrap input.fieldtype-zip {
 			width: 75%;
 			max-width: 46em;
-			margin-right: 10px;
+			margin-#{$right}: 10px; // {{RTL}}
 		}
 
 		.zip-wrap {
@@ -23,7 +23,8 @@
 			display: inline-block;
 			max-width: 100px;
 			padding: 4px;
-			margin: 4px 4px 0 0;
+			margin: 4px 4px 0;
+			margin-#{$left}: 0; // {{RTL}}
 			background: #fff;
 			border: 1px solid #ddd;
 			border-radius: 3px;

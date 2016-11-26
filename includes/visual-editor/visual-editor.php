@@ -15,7 +15,7 @@
  * @subpackage  Visual Editor
  *
  * @since    1.1
- * @version  1.2.2
+ * @version  1.4
  *
  * Contents:
  *
@@ -43,7 +43,7 @@
 	 * Enqueuing required assets
 	 *
 	 * @since    1.1
-	 * @version  1.2.2
+	 * @version  1.4
 	 */
 	function wma_ve_assets() {
 
@@ -92,17 +92,11 @@
 							'screen'
 						);
 
-					if ( is_rtl() ) {
-
-						wp_enqueue_style(
-								'wm-shortcodes-generator-rtl',
-								WMAMP_ASSETS_URL . 'css/rtl-shortcodes-generator.css',
-								array(),
-								WMAMP_VERSION,
-								'screen'
-							);
-
-					}
+					wp_style_add_data(
+							'wm-shortcodes-generator',
+							'rtl',
+							'replace'
+						);
 
 				// Scripts: inline
 

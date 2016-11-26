@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.2.2
- * @version  1.2.9
+ * @version  1.4
  */
 
 
@@ -16,6 +16,4 @@
 
 // Imports
 
-	@import "vc-addons/shortcodes";
-
-	@import "vc-addons/shortcodes-generator";
+	@import 'vc-addons/vc-addons';

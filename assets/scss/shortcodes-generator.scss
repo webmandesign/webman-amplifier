@@ -4,9 +4,25 @@
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  *
- * @since     1.2.2
- * @verstion  1.2.2
+ * @since    1.2.2
+ * @version  1.4
  */
+
+
+
+
+
+// RTL support
+
+	$language_direction: ltr !default;
+
+	@if rtl == $language_direction {
+		$left: right;
+		$right: left;
+	} @else {
+		$left: left;
+		$right: right;
+	}
 
 
 
@@ -33,7 +49,9 @@
 		}
 
 		.mceText {
-			padding: 0 20px 0 10px !important;
+			padding: 0 20px !important;
+			padding-#{$left}: 10px !important; // {{RTL}}
+			text-align: $left !important; // {{RTL}}
 		}
 
 	}
@@ -43,4 +61,16 @@
 	div[id*="_wm_shortcodes_list_menu_co"] {
 		max-height: 200px;
 		overflow-y: scroll;
+	}
+
+	@if rtl == $language_direction { // {{RTL}}
+
+		div[id*="_wm_shortcodes_list_menu"] {
+			margin-left: -164px;
+		}
+
+		div[id*="_wm_shortcodes_list_short_menu"] {
+			margin-left: -95px;
+		}
+
 	}

@@ -12,8 +12,9 @@
 		border-bottom: 1px solid #dfdfdf;
 
 		li {
-			float: left;
-			margin: 0 6px 0 0;
+			float: $left; // {{RTL}}
+			margin: 0 6px;
+			margin-#{$left}: 0; // {{RTL}}
 
 			a {
 				display: block;
@@ -33,7 +34,8 @@
 				}
 
 				img {
-					margin: 0 .25em -.25em -5px;
+					margin: 0 .25em -.25em;
+					margin-#{$left}: -5px; // {{RTL}}
 					vertical-align: baseline;
 				}
 

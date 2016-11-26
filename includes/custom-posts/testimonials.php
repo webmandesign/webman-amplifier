@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.21
+ * @version  1.4
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -111,6 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'filter_items_list'     => _x( 'Filter testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Testimonials list navigation', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'attributes'            => _x( 'Testimonial Attributes', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -133,26 +134,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.2.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_columns_register' ) ) {
 		function wma_testimonials_cp_columns_register( $columns ) {
-			//Helper variables
+
+			// Helper variables
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_testimonials';
 
-			//Register table columns
+				$labels_category = get_taxonomy_labels( get_taxonomy( 'testimonial_category' ) );
+
+
+			// Processing
+
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_testimonials', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Title', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix    => __( 'Photo', 'webman-amplifier' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
-					$prefix . 'slug' . $suffix     => __( 'Slug', 'webman-amplifier' ),
-					'date'                         => __( 'Date', 'webman-amplifier' ),
-					'author'                       => __( 'Author', 'webman-amplifier' )
+					'title'                        => esc_html__( 'Title', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => esc_html__( 'Photo', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => $labels_category->singular_name,
+					$prefix . 'slug' . $suffix     => esc_html__( 'Slug', 'webman-amplifier' ),
+					'date'                         => esc_html__( 'Date', 'webman-amplifier' ),
+					'author'                       => esc_html__( 'Author', 'webman-amplifier' )
 				) );
 
-			return apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_columns_register' . '_output', $columns );
+
+			// Output
+
+				return apply_filters( 'wmhook_wmamp_' . 'wma_testimonials_cp_columns_register' . '_output', $columns );
+
 		}
 	} // /wma_testimonials_cp_columns_register
 

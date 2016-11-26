@@ -201,7 +201,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.3.5
+			 * @version  1.4
 			 *
 			 * @access  public
 			 */
@@ -219,8 +219,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 						// Styles
 
-							wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-							wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
+							wp_register_style( 'wm-metabox-styles', WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+
 							if ( $icon_font_url ) {
 								wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 							}
@@ -241,9 +241,12 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 								wp_enqueue_style( 'wp-color-picker' );
 								wp_enqueue_style( 'wm-metabox-styles' );
-								if ( is_rtl() ) {
-									wp_enqueue_style( 'wm-metabox-styles-rtl' );
-								}
+
+								wp_style_add_data(
+										'wm-metabox-styles',
+										'rtl',
+										'replace'
+									);
 
 							// Scripts
 

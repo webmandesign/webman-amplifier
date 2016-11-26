@@ -16,8 +16,8 @@
 		.inline-ol {
 
 			li {
-				float: left;
-				margin-right: 1.5em;
+				float: $left; // {{RTL}}
+				margin-#{$right}: 1.5em; // {{RTL}}
 			}
 
 			code {
@@ -39,7 +39,7 @@
 		&.red,
 		&.yellow {
 			border-style: solid;
-			box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .15);
+			box-shadow: 0 1px 5px 0 rgba( #000, .15 );
 		}
 
 		&.blue {

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.3.21
+ * @version  1.4
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -178,7 +178,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Scripts and styles
 			 *
 			 * @since    1.0
-			 * @version  1.3.21
+			 * @version  1.4
 			 *
 			 * @access  public
 			 */
@@ -197,9 +197,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 						// Styles
 
-							wp_register_style( 'wm-admin-icons',        WMAMP_ASSETS_URL . 'css/admin-icons.css', false, WMAMP_VERSION, 'screen' );
-							wp_register_style( 'wm-metabox-styles',     WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-							wp_register_style( 'wm-metabox-styles-rtl', WMAMP_ASSETS_URL . 'css/rtl-metabox.css', false, WMAMP_VERSION, 'screen' );
+							wp_register_style( 'wm-admin-icons',    WMAMP_ASSETS_URL . 'css/admin-icons.css', false, WMAMP_VERSION, 'screen' );
+							wp_register_style( 'wm-metabox-styles', WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
+
 							if ( $icon_font_url ) {
 								wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
 							}
@@ -221,9 +221,12 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 								wp_enqueue_style( 'wm-fonticons' );
 								wp_enqueue_style( 'wm-admin-icons' );
 								wp_enqueue_style( 'wm-metabox-styles' );
-								if ( is_rtl() ) {
-									wp_enqueue_style( 'wm-metabox-styles-rtl' );
-								}
+
+								wp_style_add_data(
+										'wm-metabox-styles',
+										'rtl',
+										'replace'
+									);
 
 							// Scripts
 
@@ -550,7 +553,9 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 * Extracts the ZIP file to a flat folder and removes obsolete files
 			 * And replaces the font file URLs in "fontello.css" file
 			 *
-			 * @since   1.0
+			 * @since    1.0
+			 * @version  1.4
+			 *
 			 * @access  private
 			 * @uses    PHP ZipArchive class
 			 *
@@ -610,17 +615,57 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 									while ( ! feof( $source_file ) ) {
 										$new_content = fread( $source_file, 8192 );
 
-										//Replace font paths in "fontello.css" file
+										// Process "fontello.css" file content
+
 											if ( 'fontello.css' == basename( $entry ) ) {
-												$new_content = str_replace( array(
-														'../font/',
-														'margin-right: .2em;',
-														'margin-left: .2em;'
-													), array(
-														'',
-														'/* margin-right: .2em; */',
-														'/* margin-left: .2em; */'
-													), $new_content );
+
+												// Replace font paths
+
+													$new_content = str_replace(
+															array(
+																'../font/',
+																'margin-right: .2em;',
+																'margin-left: .2em;'
+															),
+															array(
+																'',
+																'/* margin-right: .2em; */',
+																'/* margin-left: .2em; */'
+															),
+															$new_content
+														);
+
+												// Remove query string from URLs (to improve caching)
+
+													$new_content = preg_replace(
+															'/\?[\d]+/',
+															'',
+															$new_content
+														);
+
+												// Minify the file content
+
+													// Remove CSS comments
+
+														$new_content = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $new_content );
+
+													// Remove tabs, spaces, line breaks, etc.
+
+														$new_content = str_replace( array( "\r\n", "\r", "\n", "\t" ), '', $new_content );
+														$new_content = str_replace( array( '  ', '   ', '    ', '     ' ), ' ', $new_content );
+														$new_content = str_replace( array( ' { ', ': ', '; }' ), array( '{', ':', '}' ), $new_content );
+
+												// Now we are ready to remove the EOT font format URLs
+
+													$new_content = str_replace(
+															array(
+																" src:url('fontello.eot');",
+																"url('fontello.eot#iefix') format('embedded-opentype'), ",
+															),
+															'',
+															$new_content
+														);
+
 											}
 
 										fwrite( $target_file, $new_content );
@@ -647,8 +692,6 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			 *
 			 * @since   1.0
 			 * @access  private
-			 *
-			 * @todo    Maybe make it work with SVG files for wider compatibility (not just with Fontello). UPDATE: Though, Fontello added option to import your own SVG font file, so it will generate the rest...
 			 */
 			private function create_config() {
 				//Find the JSON config file

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.21
+ * @version  1.4
  */
 
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -105,6 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'filter_items_list'     => _x( 'Filter logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Logos list navigation', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'attributes'            => _x( 'Logo Attributes', 'Custom post labels: Logos.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -127,26 +128,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.2.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_logos_cp_columns_register' ) ) {
 		function wma_logos_cp_columns_register( $columns ) {
-			//Helper variables
+
+			// Helper variables
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_logos';
 
-			//Register table columns
+				$labels_category = get_taxonomy_labels( get_taxonomy( 'logo_category' ) );
+
+
+			// Processing
+
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_logos', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Name', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix    => __( 'Logo', 'webman-amplifier' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
-					$prefix . 'link' . $suffix     => __( 'Custom link', 'webman-amplifier' ),
-					'date'                         => __( 'Date', 'webman-amplifier' ),
-					'author'                       => __( 'Author', 'webman-amplifier' )
+					'title'                        => esc_html__( 'Title', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => esc_html__( 'Logo', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => $labels_category->singular_name,
+					$prefix . 'link' . $suffix     => esc_html__( 'Custom link', 'webman-amplifier' ),
+					'date'                         => esc_html__( 'Date', 'webman-amplifier' ),
+					'author'                       => esc_html__( 'Author', 'webman-amplifier' )
 				) );
 
-			return apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_columns_register' . '_output', $columns );
+
+			// Output
+
+				return apply_filters( 'wmhook_wmamp_' . 'wma_logos_cp_columns_register' . '_output', $columns );
+
 		}
 	} // /wma_logos_cp_columns_register
 

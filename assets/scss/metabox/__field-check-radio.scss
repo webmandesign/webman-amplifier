@@ -7,7 +7,7 @@
 		position: absolute;
 		width: 16px;
 		height: 16px;
-		left: 240px;
+		#{$left}: 240px; // {{RTL}}
 		vertical-align: middle;
 		background: #fff;
 		color: #666;
@@ -17,7 +17,7 @@
 
 	input[type="radio"] {
 		position: relative;
-		left: auto;
+		#{$left}: auto; // {{RTL}}
 	}
 
 	.checkbox-wrap,
@@ -26,7 +26,7 @@
 		label {
 			display: inline-block;
 			position: relative;
-			margin-right: 1em;
+			margin-#{$right}: 1em; // {{RTL}}
 		}
 
 	}
@@ -39,10 +39,10 @@
 		}
 
 		label {
-			float: left;
+			float: $left; // {{RTL}}
 			width: 200px;
-			padding-right: 80px;
-			margin-right: 0;
+			padding-#{$right}: 80px; // {{RTL}}
+			margin-#{$right}: 0; // {{RTL}}
 		}
 
 		input {
@@ -58,7 +58,7 @@
 					position: absolute;
 					width: 48px;
 					height: 2em;
-					left: 220px;
+					#{$left}: 220px; // {{RTL}}
 					margin: -.19em 0 0;
 					line-height: 2em;
 					text-align: center;
@@ -67,8 +67,8 @@
 					background: #eaecee;
 					color: #aaacae;
 					border: 1px solid;
-					border-right-width: 24px;
-					border-color: rgba(0, 0, 0, .1);
+					border-#{$right}-width: 24px; // {{RTL}}
+					border-color: rgba( #000, .1 );
 					border-radius: 24px;
 					vertical-align: middle;
 					transition: all .2s;
@@ -82,8 +82,8 @@
 					content: '\2713';
 					background: #4a9c4e;
 					color: #fafcfe;
-					border-left-width: 24px;
-					border-right-width: 1px;
+					border-#{$left}-width: 24px; // {{RTL}}
+					border-#{$right}-width: 1px; // {{RTL}}
 				}
 
 			}
@@ -91,7 +91,7 @@
 		}
 
 		.description {
-			float: left;
+			float: $left; // {{RTL}}
 			margin: 0;
 		}
 
@@ -104,7 +104,8 @@
 			.inline-radio {
 				display: inline-block;
 				padding: .5em;
-				margin: 0 .5em .5em 0;
+				margin: 0 .5em .5em;
+				margin-#{$left}: 0; // {{RTL}}
 				text-align: center;
 				background: #fff;
 				border: 1px solid #e6e6e6;
@@ -113,7 +114,7 @@
 				&:hover,
 				&.active {
 					z-index: 1;
-					box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+					box-shadow: 0 2px 10px rgba( #000, .25 );
 					transform: scale( 1.5 );
 				}
 

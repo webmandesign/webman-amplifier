@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/** WebMan Visual Composer 4.3+ plugin admin styles Requires Visual Composer v4.3+ @package     WebMan Amplifier @subpackage  Shortcodes @since    1.2.2 @version  1.2.9 */
+/** WebMan Visual Composer 4.3+ plugin admin styles Requires Visual Composer v4.3+ @package     WebMan Amplifier @subpackage  Shortcodes @since    1.2.2 @version  1.4 */
 #wpb_visual_composer .wpb_content_element.wm-shortcode-vc-price { margin-bottom: 2px; }
 
 #wpb_visual_composer .wpb_content_element.wm-shortcode-vc-price .vc_element-icon { display: none; }

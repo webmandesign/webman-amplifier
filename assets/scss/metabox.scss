@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since    1.2.2
- * @version  1.2.5
+ * @version  1.4
  */
 
 
@@ -14,24 +14,4 @@
 
 // Imports
 
-	@import "metabox/base";
-
-	@import "metabox/tabs";
-
-	@import "metabox/message";
-
-	@import "metabox/_field-text";
-
-	@import "metabox/_field-check-radio";
-
-	@import "metabox/_field-color";
-
-	@import "metabox/_field-range";
-
-	@import "metabox/_field-upload";
-
-	@import "metabox/_field-repeater";
-
-	@import "metabox/modal";
-
-	@import "metabox/page-builders";
+	@import 'metabox/metabox';

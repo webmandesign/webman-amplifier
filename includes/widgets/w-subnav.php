@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.13
+ * @version  1.4
  */
 
 
@@ -28,7 +28,7 @@
  * Widget class
  *
  * @since    1.0.9.9
- * @version  1.2.8
+ * @version  1.4
  *
  * Contents:
  *
@@ -90,7 +90,7 @@ class WM_Subnav extends WP_Widget {
 		 * Output HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.3.13
+		 * @version  1.4
 		 */
 		function widget( $args, $instance ) {
 
@@ -113,6 +113,7 @@ class WM_Subnav extends WP_Widget {
 				$output = '';
 
 				$instance = wp_parse_args( $instance, array(
+						'depth'  => 3,
 						'order'  => 'menu_order',
 						'parent' => '',
 						'title'  => '',
@@ -151,7 +152,7 @@ class WM_Subnav extends WP_Widget {
 					$args_children = array(
 							'post_type'   => get_post_type( $post ),
 							'title_li'    => '',
-							'depth'       => 3,
+							'depth'       => absint( $instance['depth'] ),
 							'sort_column' => $instance['order'],
 							'echo'        => false,
 							'child_of'    => $post->ID,
@@ -208,13 +209,14 @@ class WM_Subnav extends WP_Widget {
 		 * Options form
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.2.8
+		 * @version  1.4
 		 */
 		function form( $instance ) {
 
 			// Helper variables
 
 				$instance = wp_parse_args( $instance, array(
+						'depth'  => 3,
 						'order'  => 'menu_order',
 						'parent' => '',
 						'title'  => '',
@@ -226,7 +228,7 @@ class WM_Subnav extends WP_Widget {
 				?>
 
 				<p class="wm-desc">
-					<?php echo esc_html_x( 'Displays a hierarchical list of subpages and sibling pages for the current page (page submenu).', 'Widget description.', 'webman-amplifier' ) ?>
+					<?php echo esc_html_x( 'Displays a hierarchical list of child and sibling pages for the current page.', 'Widget description.', 'webman-amplifier' ) ?>
 				</p>
 
 				<p>
@@ -240,9 +242,24 @@ class WM_Subnav extends WP_Widget {
 				</p>
 
 				<p>
+					<label for="<?php echo $this->get_field_id( 'depth' ); ?>">
+						<?php esc_html_e( 'Child pages depth level:', 'webman-amplifier' ); ?>
+					</label>
+					<select name="<?php echo $this->get_field_name( 'depth' ); ?>" id="<?php echo $this->get_field_id( 'depth' ); ?>" class="widefat">
+						<?php
+
+						for ( $i = 1; $i < 10; $i++ ) {
+							echo '<option value="' . esc_attr( $i ) . '" ' . selected( esc_attr( $instance['depth'] ), esc_attr( $i ), false ) . '>' . esc_html( $i ) . '</option>';
+						} // /foreach
+
+						?>
+					</select>
+				</p>
+
+				<p>
 					<input type="checkbox" name="<?php echo $this->get_field_name( 'parent' ); ?>" id="<?php echo $this->get_field_id( 'parent' ); ?>" <?php checked( $instance['parent'], 'on' ); ?>/>
 					<label for="<?php echo $this->get_field_id( 'parent' ); ?>">
-						<?php esc_html_e( 'Direct parent and children only', 'webman-amplifier' ); ?>
+						<?php esc_html_e( 'Direct parent and its child pages only', 'webman-amplifier' ); ?>
 					</label>
 				</p>
 
@@ -251,7 +268,6 @@ class WM_Subnav extends WP_Widget {
 						<?php esc_html_e( 'List order:', 'webman-amplifier' ); ?>
 					</label>
 					<select name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>" class="widefat">
-
 						<?php
 
 						$options = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_form' . '_order', array(
@@ -261,13 +277,10 @@ class WM_Subnav extends WP_Widget {
 							) );
 
 						foreach ( $options as $value => $name ) {
-
 							echo '<option value="' . esc_attr( $value ) . '" ' . selected( esc_attr( $instance['order'] ), $value, false ) . '>' . esc_html( $name ) . '</option>';
-
 						} // /foreach
 
 						?>
-
 					</select>
 				</p>
 
@@ -283,7 +296,7 @@ class WM_Subnav extends WP_Widget {
 		 * Save the options
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.2.8
+		 * @version  1.4
 		 */
 		function update( $new_instance, $old_instance ) {
 
@@ -294,9 +307,10 @@ class WM_Subnav extends WP_Widget {
 
 			// Processing
 
-				$instance['title']  = $new_instance['title'];
+				$instance['depth']  = $new_instance['depth'];
 				$instance['order']  = $new_instance['order'];
 				$instance['parent'] = $new_instance['parent'];
+				$instance['title']  = $new_instance['title'];
 
 
 			// Output

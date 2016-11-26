@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.21
+ * @version  1.4
  */
 
 
@@ -52,6 +52,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		//CP list table columns
 			add_filter( 'manage_edit-wm_staff_columns', 'wma_staff_cp_columns_register' );
 
+		// Title text
+
+			add_filter( 'enter_title_here', 'wma_staff_cp_title_text' );
+
 
 
 
@@ -64,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -115,6 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'filter_items_list'     => _x( 'Filter staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Staff list navigation', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'attributes'            => _x( 'Staff Attributes', 'Custom post labels: Staff.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -124,6 +129,35 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		}
 	} // /wma_staff_cp_register
+
+
+
+	/**
+	 * Admin post title text
+	 *
+	 * @since  1.4
+	 */
+	if ( ! function_exists( 'wma_staff_cp_title_text' ) ) {
+		function wma_staff_cp_title_text( $title ) {
+
+			// Helper variables
+
+				$screen = get_current_screen();
+
+
+			// Processing
+
+				if ( 'wm_staff' == $screen->post_type ) {
+					$title = esc_html__( 'Enter person name here', 'webman-amplifier' );
+				}
+
+
+			// Output
+
+				return $title;
+
+		}
+	} // /wma_staff_cp_title_text
 
 
 
@@ -137,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.2.5
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_staff_cp_columns_register' ) ) {
 		function wma_staff_cp_columns_register( $columns ) {
@@ -147,18 +181,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$prefix = 'wmamp-';
 				$suffix = '-wm_staff';
 
+				$labels_position   = get_taxonomy_labels( get_taxonomy( 'staff_position' ) );
+				$labels_department = get_taxonomy_labels( get_taxonomy( 'staff_department' ) );
+				$labels_specialty  = get_taxonomy_labels( get_taxonomy( 'staff_specialty' ) );
+
 
 			// Processing
 
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_staff', array(
 					'cb'                             => '<input type="checkbox" />',
-					'title'                          => __( 'Name', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix      => __( 'Photo', 'webman-amplifier' ),
-					$prefix . 'position' . $suffix   => __( 'Position', 'webman-amplifier' ),
-					$prefix . 'department' . $suffix => __( 'Department', 'webman-amplifier' ),
-					$prefix . 'specialty' . $suffix  => __( 'Specialty', 'webman-amplifier' ),
-					'date'                           => __( 'Date', 'webman-amplifier' ),
-					'author'                         => __( 'Author', 'webman-amplifier' )
+					'title'                          => esc_html__( 'Name', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix      => esc_html__( 'Photo', 'webman-amplifier' ),
+					$prefix . 'position' . $suffix   => $labels_position->singular_name,
+					$prefix . 'department' . $suffix => $labels_department->singular_name,
+					$prefix . 'specialty' . $suffix  => $labels_specialty->singular_name,
+					'date'                           => esc_html__( 'Date', 'webman-amplifier' ),
+					'author'                         => esc_html__( 'Author', 'webman-amplifier' )
 				) );
 
 

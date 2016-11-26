@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.3.21
+ * @version  1.4
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_projects_cp_register' ) ) {
 		function wma_projects_cp_register() {
@@ -113,6 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'filter_items_list'     => _x( 'Filter projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Projects list navigation', 'Custom post labels: Projects.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'attributes'            => _x( 'Project Attributes', 'Custom post labels: Projects.', 'webman-amplifier' ),
 						)
 					) );
 
@@ -135,27 +136,38 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.2.3
+	 * @version  1.4
 	 */
 	if ( ! function_exists( 'wma_projects_cp_columns_register' ) ) {
 		function wma_projects_cp_columns_register( $columns ) {
-			//Helper variables
+
+			// Helper variables
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_projects';
 
-			//Register table columns
+				$labels_category = get_taxonomy_labels( get_taxonomy( 'project_category' ) );
+				$labels_tag      = get_taxonomy_labels( get_taxonomy( 'project_tag' ) );
+
+
+			// Processing
+
 				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_projects', array(
 					'cb'                           => '<input type="checkbox" />',
-					'title'                        => __( 'Project', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix    => __( 'Image', 'webman-amplifier' ),
-					$prefix . 'category' . $suffix => __( 'Category', 'webman-amplifier' ),
-					$prefix . 'tag' . $suffix      => __( 'Tag', 'webman-amplifier' ),
-					$prefix . 'link' . $suffix     => __( 'Custom link', 'webman-amplifier' ),
-					'date'                         => __( 'Date', 'webman-amplifier' ),
-					'author'                       => __( 'Author', 'webman-amplifier' )
+					'title'                        => esc_html__( 'Title', 'webman-amplifier' ),
+					$prefix . 'thumb' . $suffix    => esc_html__( 'Image', 'webman-amplifier' ),
+					$prefix . 'category' . $suffix => $labels_category->singular_name,
+					$prefix . 'tag' . $suffix      => $labels_tag->singular_name,
+					$prefix . 'link' . $suffix     => esc_html__( 'Custom link', 'webman-amplifier' ),
+					'date'                         => esc_html__( 'Date', 'webman-amplifier' ),
+					'author'                       => esc_html__( 'Author', 'webman-amplifier' )
 				) );
 
-			return apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_columns_register' . '_output', $columns );
+
+			// Output
+
+				return apply_filters( 'wmhook_wmamp_' . 'wma_projects_cp_columns_register' . '_output', $columns );
+
 		}
 	} // /wma_projects_cp_columns_register
 

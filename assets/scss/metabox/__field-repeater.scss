@@ -23,7 +23,7 @@
 		&-controls {
 			display: none;
 			position: absolute;
-			right: 0;
+			#{$right}: 0; // {{RTL}}
 			z-index: 9;
 
 			th {
@@ -34,8 +34,8 @@
 
 			.button {
 				position: relative;
-				float: right;
-				margin-left: 4px;
+				float: $right; // {{RTL}}
+				margin-#{$left}: 4px; // {{RTL}}
 			}
 
 		}
@@ -56,7 +56,8 @@
 			}
 
 			> td {
-				padding: 10px 60px 10px 10px;
+				padding: 10px 60px;
+				padding-#{$left}: 10px; // {{RTL}}
 			}
 
 		}
@@ -74,7 +75,7 @@
 					+ label {
 
 						&::before {
-							left: 160px;
+							#{$left}: 160px; // {{RTL}}
 							margin-top: 0;
 						}
 
@@ -96,8 +97,8 @@
 	}
 
 	.button-add-cell {
+		float: $right; // {{RTL}}
 		margin-top: 20px;
-		float: right;
 	}
 
 	// jQuery UI Sortable
@@ -107,7 +108,7 @@
 			margin-top: 1em !important;
 			margin-bottom: 1em !important;
 			border: 1px dashed #b4b9be;
-			border-color: rgba( 0, 0, 0, .3 );
+			border-color: rgba( #000, .3 );
 		}
 
 }
