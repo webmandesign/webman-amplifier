@@ -9,15 +9,15 @@
  * @copyright  2015 WebMan - Oliver Juhas
  * @license    GNU General Public License v3 *
  *
- * @link  http://www.webmandesign.eu
+ * @link  https://www.webmandesign.eu
  *
  * @wordpress-plugin
  * Plugin Name:        WebMan Amplifier
- * Plugin URI:         http://www.webmandesign.eu/
+ * Plugin URI:         https://github.com/webmandesign/webman-amplifier
  * Description:        Pack of additional WordPress features. Contains additional custom post types, shortcodes, page builder integration, meta box generator and icon font management.
  * Version:            1.4
  * Author:             WebMan - Oliver Juhas
- * Author URI:         http://www.webmandesign.eu/
+ * Author URI:         https://www.webmandesign.eu
  * Text Domain:        webman-amplifier
  * Domain Path:        /languages
  * License:            GNU General Public License v3

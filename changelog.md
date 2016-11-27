@@ -2,9 +2,15 @@
 
 ## 1.4
 
-* **Add**:
-* **Update**:
-* **Fix**:
+* **Add**: Compatibility with WordPress 4.7
+* **Update**: Removing obsolete `wma_vc_custom_post_removal()` function
+* **Update**: Improved RTL stylesheets
+* **Update**: Subnav widget improved
+* **Update**: Renamed "Enter title here" text for Staff custom post type
+* **Update**: Improved icon font processor (removing query string from URLs, minifying CSS file)
+* **Update**: Font Awesome 4.7
+* **Update**: Localization
+* **Fix**: Taxonomy name in column heading of custom post types admin table
 
 #### Files changed:
 

@@ -1,8 +1,8 @@
 === WebMan Amplifier ===
 Contributors:      webmandesign
-Donate link:       http://www.webmandesign.eu/
-Author URI:        http://www.webmandesign.eu/
-Plugin URI:        http://www.webmandesign.eu/
+Donate link:       https://www.webmandesign.eu
+Author URI:        https://www.webmandesign.eu
+Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
 Tested up to:      4.7
 Stable tag:        1.4
@@ -101,6 +101,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 
 == Upgrade Notice ==
+
+= 1.4 =
+Added WordPress 4.7 support, improved RTL support, improved Subnav widget, improved custom post types, improved icon font manager, updating Font Awesome icons to version 4.7.
 
 = 1.3.22 =
 Added integration with WooSidebars plugin.
