@@ -1,0 +1,34 @@
+<!-- Footer -->
+<footer id="footer">
+
+	<ul class="icons">
+		{% for socloc in site.social %}
+		{% if socloc[1] %}
+		<li>
+			<a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }}">
+				<span class="label">{{ socloc[0] }}</span>
+			</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+
+	<ul class="copyright">
+		<li>
+			&copy;
+			{% if site.owner %}{{ site.owner }}{% else %}{{ site.title }}{% endif %}
+		</li>
+		<li>
+			Jekyll theme by <a href="http://html5up.net" target="_blank">HTML5 UP</a>
+		</li>
+	</ul>
+
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="{{ "/js/jquery.scrollex.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/jquery.scrolly.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/skel.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/util.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
