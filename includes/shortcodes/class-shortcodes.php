@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -891,7 +891,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * @link  texthttp://vc.wpbakery.com/
 				 *
 				 * @since    1.0
-				 * @version  1.2.3
+				 * @version  1.4.1
 				 *
 				 * @access  public
 				 */
@@ -917,7 +917,7 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 						}
 
 					//VC extending shortcode parameters
-						add_shortcode_param( 'wm_radio',  array( $this, 'visual_composer_custom_field_wm_radio' ) );
+						vc_add_shortcode_param( 'wm_radio',  array( $this, 'visual_composer_custom_field_wm_radio' ) );
 
 					//Remove default VC elements (only if current theme supports this)
 						if (

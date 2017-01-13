@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -105,6 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'edit_item'             => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'new_item'              => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'view_item'             => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'view_items'            => _x( 'View Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'not_found'             => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 							'not_found_in_trash'    => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
@@ -134,7 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_columns_register' ) ) {
 		function wma_testimonials_cp_columns_register( $columns ) {
@@ -144,20 +145,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$prefix = 'wmamp-';
 				$suffix = '-wm_testimonials';
 
-				$labels_category = get_taxonomy_labels( get_taxonomy( 'testimonial_category' ) );
-
 
 			// Processing
 
-				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_testimonials', array(
-					'cb'                           => '<input type="checkbox" />',
-					'title'                        => esc_html__( 'Title', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix    => esc_html__( 'Photo', 'webman-amplifier' ),
-					$prefix . 'category' . $suffix => $labels_category->singular_name,
-					$prefix . 'slug' . $suffix     => esc_html__( 'Slug', 'webman-amplifier' ),
-					'date'                         => esc_html__( 'Date', 'webman-amplifier' ),
-					'author'                       => esc_html__( 'Author', 'webman-amplifier' )
-				) );
+				$columns[ $prefix . 'thumb' . $suffix ] = esc_html__( 'Photo', 'webman-amplifier' );
 
 
 			// Output
@@ -173,35 +164,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.10
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_columns_render' ) ) {
 		function wma_testimonials_cp_columns_render( $column ) {
-			//Helper variables
+
+			// Helper variables
+
 				global $post;
+
 				$prefix = 'wmamp-';
 				$suffix = '-wm_testimonials';
 
-			//Columns renderers
+
+			// Processing
+
 				switch ( $column ) {
-					case $prefix . 'category' . $suffix:
 
-						$terms = get_the_terms( $post->ID , 'testimonial_category' );
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-								echo '<strong class="testimonial-category">' . $termName . '</strong><br />';
-							}
-						}
-
-					break;
-					case $prefix . 'slug' . $suffix:
-
-						echo $post->post_name;
-
-					break;
 					case $prefix . 'thumb' . $suffix:
-
 						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
@@ -216,11 +196,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						}
 
 						echo '</span>';
-
 					break;
+
 					default:
 					break;
+
 				} // /switch
+
 		}
 	} // /wma_testimonials_cp_columns_render
 
@@ -236,7 +218,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.3.19
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_taxonomies' ) ) {
 		function wma_testimonials_cp_taxonomies() {
@@ -251,13 +233,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Testimonial categories
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'testimonial_category', array(
-						'hierarchical' => true,
-						'show_ui'      => true,
-						'query_var'    => 'testimonial-category',
-						'rewrite'      => array(
+						'hierarchical'      => true,
+						'show_ui'           => true,
+						'show_admin_column' => true,
+						'query_var'         => 'testimonial-category',
+						'rewrite'           => array(
 								'slug' => ( isset( $permalinks['testimonial_category'] ) && $permalinks['testimonial_category'] ) ? ( $permalinks['testimonial_category'] ) : ( 'testimonial-category' )
 							),
-						'labels'       => array(
+						'labels'            => array(
 							'name'                  => _x( 'Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'singular_name'         => _x( 'Category', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Categories', 'Custom taxonomy labels: Testimonials categories.', 'webman-amplifier' ),

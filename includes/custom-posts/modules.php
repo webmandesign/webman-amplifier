@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_register' ) ) {
 		function wma_modules_cp_register() {
@@ -96,6 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'new_item'              => _x( 'Add New', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 							'view_item'             => _x( 'View Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'view_items'            => _x( 'View Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 							'not_found'             => _x( 'No module found', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 							'not_found_in_trash'    => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
@@ -125,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_columns_register' ) ) {
 		function wma_modules_cp_columns_register( $columns ) {
@@ -135,21 +136,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$prefix = 'wmamp-';
 				$suffix = '-wm_modules';
 
-				$labels_tag = get_taxonomy_labels( get_taxonomy( 'module_tag' ) );
-
 
 			// Processing
 
-				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_modules', array(
-					'cb'                        => '<input type="checkbox" />',
-					'title'                     => esc_html__( 'Title', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix => esc_html__( 'Image', 'webman-amplifier' ),
-					$prefix . 'tag' . $suffix   => $labels_tag->singular_name,
-					$prefix . 'link' . $suffix  => esc_html__( 'Custom link', 'webman-amplifier' ),
-					$prefix . 'slug' . $suffix  => esc_html__( 'Slug', 'webman-amplifier' ),
-					'date'                      => esc_html__( 'Date', 'webman-amplifier' ),
-					'author'                    => esc_html__( 'Author', 'webman-amplifier' )
-				) );
+				$columns[ $prefix . 'thumb' . $suffix ] = esc_html__( 'Image', 'webman-amplifier' );
 
 
 			// Output
@@ -165,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_columns_render' ) ) {
 		function wma_modules_cp_columns_render( $column ) {
@@ -181,32 +171,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			// Processing
 
 				switch ( $column ) {
-					case $prefix . 'link' . $suffix:
 
+					case $prefix . 'link' . $suffix:
 						$link = esc_url( stripslashes( wma_meta_option( 'link' ) ) );
 						echo '<a href="' . $link . '" target="_blank">' . $link . '</a>';
-
 					break;
-					case $prefix . 'slug' . $suffix:
 
-						echo $post->post_name;
-
-					break;
-					case $prefix . 'tag' . $suffix:
-
-						$separator = '';
-						$terms     = get_the_terms( $post->ID , 'module_tag' );
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-								echo $separator . $termName;
-								$separator = ', ';
-							}
-						}
-
-					break;
 					case $prefix . 'thumb' . $suffix:
-
 						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
@@ -232,10 +203,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						}
 
 						echo '</span>';
-
 					break;
+
 					default:
 					break;
+
 				} // /switch
 
 		}
@@ -253,7 +225,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_modules_cp_taxonomies' ) ) {
 		function wma_modules_cp_taxonomies() {
@@ -266,6 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'hierarchical'      => false,
 						'show_in_nav_menus' => false,
 						'show_ui'           => true,
+						'show_admin_column' => true,
 						'query_var'         => 'module-tag',
 						'rewrite'           => false,
 						'labels'            => array(

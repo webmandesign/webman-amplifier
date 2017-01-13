@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.4.1
  *
  * @param  string align
  * @param  string class
@@ -475,5 +475,10 @@
 
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
-//Output
-	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
+// Output
+
+	if ( ! empty( $atts['content'] ) ) {
+		$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
+	} else {
+		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
+	}

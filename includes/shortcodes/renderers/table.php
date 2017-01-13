@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.4.1
  *
  * @param  string class
  * @param  string separator
@@ -74,7 +74,10 @@
 	//class
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Output
-	if ( $atts['content'] ) {
+// Output
+
+	if ( ! empty( $atts['content'] ) ) {
 		$output = '<table class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</table>';
+	} else {
+		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
 	}

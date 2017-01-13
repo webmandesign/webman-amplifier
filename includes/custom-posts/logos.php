@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -95,6 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'new_item'              => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'view_item'             => _x( 'View', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'view_items'            => _x( 'View Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'not_found'             => _x( 'No item found', 'Custom post labels: Logos.', 'webman-amplifier' ),
 							'not_found_in_trash'    => _x( 'No item found in trash', 'Custom post labels: Logos.', 'webman-amplifier' ),
@@ -128,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_columns_register' ) ) {
 		function wma_logos_cp_columns_register( $columns ) {
@@ -138,20 +139,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$prefix = 'wmamp-';
 				$suffix = '-wm_logos';
 
-				$labels_category = get_taxonomy_labels( get_taxonomy( 'logo_category' ) );
-
 
 			// Processing
 
-				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_logos', array(
-					'cb'                           => '<input type="checkbox" />',
-					'title'                        => esc_html__( 'Title', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix    => esc_html__( 'Logo', 'webman-amplifier' ),
-					$prefix . 'category' . $suffix => $labels_category->singular_name,
-					$prefix . 'link' . $suffix     => esc_html__( 'Custom link', 'webman-amplifier' ),
-					'date'                         => esc_html__( 'Date', 'webman-amplifier' ),
-					'author'                       => esc_html__( 'Author', 'webman-amplifier' )
-				) );
+				$columns[ $prefix . 'thumb' . $suffix ] = esc_html__( 'Logo', 'webman-amplifier' );
+				$columns[ $prefix . 'link' . $suffix ] = esc_html__( 'Custom link', 'webman-amplifier' );
 
 
 			// Output
@@ -167,7 +159,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_columns_render' ) ) {
 		function wma_logos_cp_columns_render( $column ) {
@@ -183,25 +175,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			// Processing
 
 				switch ( $column ) {
-					case $prefix . 'category' . $suffix:
 
-						$terms = get_the_terms( $post->ID , 'logo_category' );
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-								echo '<strong class="logo-category">' . $termName . '</strong><br />';
-							}
-						}
-
-					break;
 					case $prefix . 'link' . $suffix:
-
 						$link = esc_url( stripslashes( wma_meta_option( 'link' ) ) );
 						echo '<a href="' . $link . '" target="_blank">' . $link . '</a>';
-
 					break;
-					case $prefix . 'thumb' . $suffix:
 
+					case $prefix . 'thumb' . $suffix:
 						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
 						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
@@ -216,8 +196,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						}
 
 						echo '</span>';
-
 					break;
+
 					default:
 					break;
 
@@ -238,7 +218,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.3.21
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_logos_cp_taxonomies' ) ) {
 		function wma_logos_cp_taxonomies() {
@@ -251,6 +231,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 						'hierarchical'      => true,
 						'show_in_nav_menus' => false,
 						'show_ui'           => true,
+						'show_admin_column' => true,
 						'query_var'         => 'logo-category',
 						'rewrite'           => false,
 						'labels'            => array(

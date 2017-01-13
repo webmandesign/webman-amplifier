@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3.7
+ * @version  1.4.1
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -80,6 +80,12 @@
 	//class
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Output
-	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="wm-call-to-action-content wm-call-to-action-element">' . $atts['caption'] . $atts['content'] . '</div>' . $atts['button'] . '</div>';
+
+// Output
+
+	if ( ! empty( $atts['caption'] . $atts['content'] ) ) {
+		$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="wm-call-to-action-content wm-call-to-action-element">' . $atts['caption'] . $atts['content'] . '</div>' . $atts['button'] . '</div>';
+	} else {
+		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
+	}
 

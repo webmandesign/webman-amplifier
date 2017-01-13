@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -103,14 +103,16 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.1
+			 * @version  1.4.1
 			 *
 			 * @access  public
 			 *
 			 * @param  array $meta_box Definition of the metabox
 			 */
 			public function __construct( $meta_box ) {
-				//If we are not in admin, exit
+
+				// Requirements check
+
 					if (
 							! is_admin()
 							|| ! isset( $meta_box['fields'] )
@@ -118,6 +120,13 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						) {
 						return;
 					}
+
+					$meta_fields = (array) call_user_func( $meta_box['fields'] );
+
+					if ( empty( $meta_fields ) ) {
+						return;
+					}
+
 
 				//Form field definition files ( 'field_file_name' => 'optional_file_path' )
 					$field_files = array(

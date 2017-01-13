@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.3.11
+ * @version  1.4.1
  *
  * @uses  $codes_globals['post_types']
  *
@@ -524,5 +524,11 @@
 
 			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
-//Output
-	$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
+
+// Output
+
+	if ( ! empty( $atts['content'] ) ) {
+		$output = '<div class="' . esc_attr( $atts['class'] ) . '">' . $atts['content'] . '</div>';
+	} else {
+		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
+	}

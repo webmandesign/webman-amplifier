@@ -1,5 +1,36 @@
 # WebMan Amplifier Changelog
 
+## 1.4.1
+
+* **Add**: Notification text of empty shortcode/page builder module output
+* **Update**: Improved custom post types and their compatibility with WordPress admin tables
+* **Update**: Localization
+* **Fix**: Compatibility with Visual Composer plugin
+* **Fix**: Do not display empty metaboxes
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/metabox/class-metabox.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/renderers/accordion.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/table.php
+	includes/shortcodes/renderers/tabs.php
+	includes/shortcodes/renderers/testimonials.php
+
+
 ## 1.4
 
 * **Add**: Compatibility with WordPress 4.7

@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.4.1
  */
 
 
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -109,6 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'new_item'              => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'edit_item'             => _x( 'Edit Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'view_item'             => _x( 'View Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'view_items'            => _x( 'View Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'not_found'             => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
 							'not_found_in_trash'    => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
@@ -171,7 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register table columns
 	 *
 	 * @since    1.0
-	 * @version  1.4
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_staff_cp_columns_register' ) ) {
 		function wma_staff_cp_columns_register( $columns ) {
@@ -181,23 +182,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				$prefix = 'wmamp-';
 				$suffix = '-wm_staff';
 
-				$labels_position   = get_taxonomy_labels( get_taxonomy( 'staff_position' ) );
-				$labels_department = get_taxonomy_labels( get_taxonomy( 'staff_department' ) );
-				$labels_specialty  = get_taxonomy_labels( get_taxonomy( 'staff_specialty' ) );
-
 
 			// Processing
 
-				$columns = apply_filters( 'wmhook_wmamp_' . 'cp_columns_' . 'wm_staff', array(
-					'cb'                             => '<input type="checkbox" />',
-					'title'                          => esc_html__( 'Name', 'webman-amplifier' ),
-					$prefix . 'thumb' . $suffix      => esc_html__( 'Photo', 'webman-amplifier' ),
-					$prefix . 'position' . $suffix   => $labels_position->singular_name,
-					$prefix . 'department' . $suffix => $labels_department->singular_name,
-					$prefix . 'specialty' . $suffix  => $labels_specialty->singular_name,
-					'date'                           => esc_html__( 'Date', 'webman-amplifier' ),
-					'author'                         => esc_html__( 'Author', 'webman-amplifier' )
-				) );
+				$columns[ $prefix . 'thumb' . $suffix ] = esc_html__( 'Photo', 'webman-amplifier' );
 
 
 			// Output
@@ -213,7 +201,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Render table columns
 	 *
 	 * @since    1.0
-	 * @version  1.3.10
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_staff_cp_columns_render' ) ) {
 		function wma_staff_cp_columns_render( $column ) {
@@ -228,83 +216,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			// Processing
 
-				// Columns renderers
+				switch ( $column ) {
 
-					switch ( $column ) {
+					case $prefix . 'thumb' . $suffix:
+						$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
+						$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
 
-						case $prefix . 'department' . $suffix:
+						$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
 
-							$terms = get_the_terms( $post->ID , 'staff_department' );
+						echo '<span class="wm-image-container' . $hasThumb . '">';
 
-							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-								foreach ( $terms as $term ) {
+						if ( get_edit_post_link() ) {
+							edit_post_link( $image );
+						} else {
+							echo '<a href="' . get_permalink() . '">' . $image . '</a>';
+						}
 
-									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
+						echo '</span>';
+					break;
 
-									echo '<strong class="staff-department">' . $termName . '</strong><br />';
+					default:
+					break;
 
-								} // /foreach
-							}
-
-						break;
-						case $prefix . 'position' . $suffix:
-
-							$separator = '';
-							$terms     = get_the_terms( $post->ID , 'staff_position' );
-
-							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-								foreach ( $terms as $term ) {
-
-									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-
-									echo $separator . $termName;
-
-									$separator = ', ';
-
-								} // /foreach
-							}
-
-						break;
-						case $prefix . 'specialty' . $suffix:
-
-							$separator = '';
-							$terms     = get_the_terms( $post->ID , 'staff_specialty' );
-
-							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-								foreach ( $terms as $term ) {
-
-									$termName = ( isset( $term->name ) ) ? ( $term->name ) : ( null );
-
-									echo $separator . $termName;
-
-									$separator = ', ';
-
-								} // /foreach
-							}
-
-						break;
-						case $prefix . 'thumb' . $suffix:
-
-							$size  = apply_filters( 'wmhook_wmamp_' . 'cp_admin_thumb_size', 'thumbnail' );
-							$image = ( has_post_thumbnail() ) ? ( get_the_post_thumbnail( null, $size ) ) : ( '' );
-
-							$hasThumb = ( $image ) ? ( ' has-thumb' ) : ( ' no-thumb' );
-
-							echo '<span class="wm-image-container' . $hasThumb . '">';
-
-							if ( get_edit_post_link() ) {
-								edit_post_link( $image );
-							} else {
-								echo '<a href="' . get_permalink() . '">' . $image . '</a>';
-							}
-
-							echo '</span>';
-
-						break;
-						default:
-						break;
-
-					} // /switch
+				} // /switch
 
 		}
 	} // /wma_staff_cp_columns_render
@@ -321,7 +255,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.3.19
+	 * @version  1.4.1
 	 */
 	if ( ! function_exists( 'wma_staff_cp_taxonomies' ) ) {
 		function wma_staff_cp_taxonomies() {
@@ -336,13 +270,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff departments
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_department', array(
-						'hierarchical' => true,
-						'show_ui'      => true,
-						'query_var'    => 'staff-department',
-						'rewrite'      => array(
+						'hierarchical'      => true,
+						'show_ui'           => true,
+						'show_admin_column' => true,
+						'query_var'         => 'staff-department',
+						'rewrite'           => array(
 								'slug' => ( isset( $permalinks['staff_department'] ) && $permalinks['staff_department'] ) ? ( $permalinks['staff_department'] ) : ( 'staff-department' )
 							),
-						'labels'       => array(
+						'labels'            => array(
 							'name'                  => _x( 'Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'singular_name'         => _x( 'Department', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'search_items'          => _x( 'Search Departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
@@ -366,13 +301,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff positions
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_position', array(
-						'hierarchical' => false,
-						'show_ui'      => true,
-						'query_var'    => 'staff-position',
-						'rewrite'      => array(
+						'hierarchical'      => false,
+						'show_ui'           => true,
+						'show_admin_column' => true,
+						'query_var'         => 'staff-position',
+						'rewrite'           => array(
 								'slug' => ( isset( $permalinks['staff_position'] ) && $permalinks['staff_position'] ) ? ( $permalinks['staff_position'] ) : ( 'staff-position' )
 							),
-						'labels'       => array(
+						'labels'            => array(
 							'name'                       => _x( 'Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
 							'singular_name'              => _x( 'Position', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
 							'search_items'               => _x( 'Search Positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
@@ -398,13 +334,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				// Staff specialty
 
 					$args = apply_filters( 'wmhook_wmamp_' . 'cp_taxonomy_' . 'staff_specialty', array(
-						'hierarchical' => false,
-						'show_ui'      => true,
-						'query_var'    => 'staff-specialty',
-						'rewrite'      => array(
+						'hierarchical'      => false,
+						'show_ui'           => true,
+						'show_admin_column' => true,
+						'query_var'         => 'staff-specialty',
+						'rewrite'           => array(
 								'slug' => ( isset( $permalinks['staff_specialty'] ) && $permalinks['staff_specialty'] ) ? ( $permalinks['staff_specialty'] ) : ( 'staff-specialty' )
 							),
-						'labels'       => array(
+						'labels'            => array(
 							'name'                       => _x( 'Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
 							'singular_name'              => _x( 'Specialty', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
 							'search_items'               => _x( 'Search Specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
