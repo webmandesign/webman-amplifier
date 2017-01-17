@@ -1,5 +1,19 @@
 # WebMan Amplifier Changelog
 
+## 1.4.2
+
+* **Fix**: Make `empty()` work with old PHP versions
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/message.php
+
+
 ## 1.4.1
 
 * **Add**: Notification text of empty shortcode/page builder module output

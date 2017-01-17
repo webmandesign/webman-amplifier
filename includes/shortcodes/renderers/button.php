@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.4.2
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -65,8 +65,10 @@
 
 // Output
 
-	if ( ! empty( $atts['icon'] . $atts['content'] ) ) {
-		$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( $atts['class'] ) . '"' . $atts['attributes'] . '>' . $atts['icon'] . $atts['content'] . '</a>';
+	$shortcode_output = $atts['icon'] . $atts['content'];
+
+	if ( ! empty( $shortcode_output ) ) {
+		$output = '<a href="' . esc_url( $atts['url'] ) . '" class="' . esc_attr( $atts['class'] ) . '"' . $atts['attributes'] . '>' . $shortcode_output . '</a>';
 	} else {
 		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
 	}
