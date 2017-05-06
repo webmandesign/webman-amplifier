@@ -1,5 +1,34 @@
 # WebMan Amplifier Changelog
 
+## 1.4.3
+
+* **Add**: Option to sort all posts shortcodes output by menu order
+* **Add**: Compatibility for Jeptack Sitemaps for Projects, Staff and Testimonials custom post types
+* **Update**: Default posts count shortcode attribute set to specific number instead of `-1`
+* **Update**: Localization instructions
+* **Update**: Improving accessibility: changing all remaining <i> icons to <span> with aria-hidden attribute
+* **Fix**: Subnav widget title displaying HTML tags
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/testimonials.php
+	includes/widgets/w-module.php
+	includes/widgets/w-subnav.php
+	languages/*.*
+
+
 ## 1.4.2
 
 * **Fix**: Make `empty()` work with old PHP versions

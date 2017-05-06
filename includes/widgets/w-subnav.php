@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.4
+ * @version  1.4.3
  */
 
 
@@ -90,7 +90,7 @@ class WM_Subnav extends WP_Widget {
 		 * Output HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.4
+		 * @version  1.4.3
 		 */
 		function widget( $args, $instance ) {
 
@@ -137,9 +137,13 @@ class WM_Subnav extends WP_Widget {
 					if ( ! trim( $instance['title'] ) ) {
 
 						if ( $grandparent ) {
-							$instance['title'] = '<a href="' . esc_url( get_permalink( $grandparent ) ) . '">' . get_the_title( $grandparent ) . '</a>';
+							$args['before_title'] = $args['before_title'] . '<a href="' . esc_url( get_permalink( $grandparent ) ) . '">';
+							$instance['title']    = get_the_title( $grandparent );
+							$args['after_title']  = '</a>' . $args['after_title'];
 						} else {
-							$instance['title'] = '<a href="' . esc_url( get_permalink( $post->ID ) ) . '">' . get_the_title( $post->ID ) . '</a>';
+							$args['before_title'] = $args['before_title'] . '<a href="' . esc_url( get_permalink( $post->ID ) ) . '">';
+							$instance['title']    = get_the_title( $post->ID );
+							$args['after_title']  = '</a>' . $args['after_title'];
 						}
 
 						$instance['title'] = apply_filters( 'wmhook_widgets_' . 'wm_subnav' . '_title_auto', $instance['title'], $args, $instance );

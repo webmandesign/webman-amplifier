@@ -8,7 +8,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.4.3
  */
 
 /**
@@ -1443,7 +1443,7 @@ $shortcode_definitions = array(
 			'preprocess'         => false,
 			'generator'          => array(
 					'name'  => __( 'Content Module', 'webman-amplifier' ),
-					'code'  => '[PREFIX_content_module module="module-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" tag="" image_size="" filter="0/1" scroll="0" pagination="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_content_module]',
+					'code'  => '[PREFIX_content_module module="module-slug" align="left/right" columns="4" count="8" order="new/old/name/random" tag="" image_size="" filter="0/1" scroll="0" pagination="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_content_module]',
 					'short' => false,
 				),
 			'bb_plugin'          => array(
@@ -1488,7 +1488,7 @@ $shortcode_definitions = array(
 												'type' => 'text',
 												//description
 												'label' => __( 'Count', 'webman-amplifier' ),
-												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+												'help'  => __( 'Number of items to display', 'webman-amplifier' ),
 												//default
 												'default' => 3,
 												//preview
@@ -1520,10 +1520,12 @@ $shortcode_definitions = array(
 												'label' => __( 'Order', 'webman-amplifier' ),
 												//type specific
 												'options' => array(
-														'new'    => __( 'Newest first', 'webman-amplifier' ),
-														'old'    => __( 'Oldest first', 'webman-amplifier' ),
-														'name'   => __( 'By name', 'webman-amplifier' ),
-														'random' => __( 'Randomly', 'webman-amplifier' ),
+														'new'      => __( 'Newest first', 'webman-amplifier' ),
+														'old'      => __( 'Oldest first', 'webman-amplifier' ),
+														'name'     => __( 'By name', 'webman-amplifier' ),
+														'random'   => __( 'Randomly', 'webman-amplifier' ),
+														'menuasc'  => __( 'Custom, ascending', 'webman-amplifier' ),
+														'menudesc' => __( 'Custom, descending', 'webman-amplifier' ),
 													),
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
@@ -1713,7 +1715,7 @@ $shortcode_definitions = array(
 
 							20 => array(
 								'heading'     => __( 'Count', 'webman-amplifier' ),
-								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+								'description' => __( 'Number of items to display', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
 								'value'       => 3,
@@ -1743,10 +1745,12 @@ $shortcode_definitions = array(
 								'type'       => 'dropdown',
 								'param_name' => 'order',
 								'value'      => array(
-										__( 'Newest first', 'webman-amplifier' ) => 'new', // default
-										__( 'Oldest first', 'webman-amplifier' ) => 'old',
-										__( 'By name', 'webman-amplifier' )      => 'name',
-										__( 'Randomly', 'webman-amplifier' )     => 'random',
+										__( 'Newest first', 'webman-amplifier' )       => 'new', // default
+										__( 'Oldest first', 'webman-amplifier' )       => 'old',
+										__( 'By name', 'webman-amplifier' )            => 'name',
+										__( 'Randomly', 'webman-amplifier' )           => 'random',
+										__( 'Custom, ascending', 'webman-amplifier' )  => 'menuasc',
+										__( 'Custom, descending', 'webman-amplifier' ) => 'menudesc',
 									),
 								'holder'     => 'hidden',
 								'class'      => '',
@@ -2440,7 +2444,7 @@ $shortcode_definitions = array(
 			'preprocess' => false,
 			'generator'  => array(
 					'name'  => __( 'Posts / Custom Posts', 'webman-amplifier' ),
-					'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="-1" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
+					'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( self::$codes_globals['post_types'] ) ) ) . '" align="left/right" columns="4" count="8" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
 					'short' => false,
 				),
 			'bb_plugin'  => array(
@@ -2477,7 +2481,7 @@ $shortcode_definitions = array(
 												'type' => 'text',
 												//description
 												'label' => __( 'Count', 'webman-amplifier' ),
-												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+												'help'  => __( 'Number of items to display', 'webman-amplifier' ),
 												//default
 												'default' => 3,
 												//preview
@@ -2509,10 +2513,12 @@ $shortcode_definitions = array(
 												'label' => __( 'Order', 'webman-amplifier' ),
 												//type specific
 												'options' => array(
-														'new'    => __( 'Newest first', 'webman-amplifier' ),
-														'old'    => __( 'Oldest first', 'webman-amplifier' ),
-														'name'   => __( 'By name', 'webman-amplifier' ),
-														'random' => __( 'Randomly', 'webman-amplifier' ),
+														'new'      => __( 'Newest first', 'webman-amplifier' ),
+														'old'      => __( 'Oldest first', 'webman-amplifier' ),
+														'name'     => __( 'By name', 'webman-amplifier' ),
+														'random'   => __( 'Randomly', 'webman-amplifier' ),
+														'menuasc'  => __( 'Custom, ascending', 'webman-amplifier' ),
+														'menudesc' => __( 'Custom, descending', 'webman-amplifier' ),
 													),
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
@@ -2705,7 +2711,7 @@ $shortcode_definitions = array(
 							),
 							20 => array(
 								'heading'     => __( 'Count', 'webman-amplifier' ),
-								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+								'description' => __( 'Number of items to display', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
 								'value'       => 3,
@@ -2733,10 +2739,12 @@ $shortcode_definitions = array(
 								'type'       => 'dropdown',
 								'param_name' => 'order',
 								'value'      => array(
-										__( 'Newest first', 'webman-amplifier' ) => 'new', // default
-										__( 'Oldest first', 'webman-amplifier' ) => 'old',
-										__( 'By name', 'webman-amplifier' )      => 'name',
-										__( 'Randomly', 'webman-amplifier' )     => 'random',
+										__( 'Newest first', 'webman-amplifier' )       => 'new', // default
+										__( 'Oldest first', 'webman-amplifier' )       => 'old',
+										__( 'By name', 'webman-amplifier' )            => 'name',
+										__( 'Randomly', 'webman-amplifier' )           => 'random',
+										__( 'Custom, ascending', 'webman-amplifier' )  => 'menuasc',
+										__( 'Custom, descending', 'webman-amplifier' ) => 'menudesc',
 									),
 								'holder'     => 'hidden',
 								'class'      => '',
@@ -3419,7 +3427,7 @@ $shortcode_definitions = array(
 			'preprocess'         => false,
 			'generator'          => array(
 					'name'  => __( 'Testimonials', 'webman-amplifier' ),
-					'code'  => '[PREFIX_testimonials testimonial="testimonial-slug" align="left/right" columns="4" count="-1" order="new/old/name/random" category="optional-category-slug" scroll="0" pagination="0/1" no_margin="0/1" class=""]{{content}}[/PREFIX_testimonials]',
+					'code'  => '[PREFIX_testimonials testimonial="testimonial-slug" align="left/right" columns="4" count="8" order="new/old/name/random" category="optional-category-slug" scroll="0" pagination="0/1" no_margin="0/1" class=""]{{content}}[/PREFIX_testimonials]',
 					'short' => false,
 				),
 			'bb_plugin'          => array(
@@ -3464,7 +3472,7 @@ $shortcode_definitions = array(
 												'type' => 'text',
 												//description
 												'label' => __( 'Count', 'webman-amplifier' ),
-												'help'  => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+												'help'  => __( 'Number of items to display', 'webman-amplifier' ),
 												//default
 												'default' => 3,
 												//preview
@@ -3496,10 +3504,12 @@ $shortcode_definitions = array(
 												'label' => __( 'Order', 'webman-amplifier' ),
 												//type specific
 												'options' => array(
-														'new'    => __( 'Newest first', 'webman-amplifier' ),
-														'old'    => __( 'Oldest first', 'webman-amplifier' ),
-														'name'   => __( 'By name', 'webman-amplifier' ),
-														'random' => __( 'Randomly', 'webman-amplifier' ),
+														'new'      => __( 'Newest first', 'webman-amplifier' ),
+														'old'      => __( 'Oldest first', 'webman-amplifier' ),
+														'name'     => __( 'By name', 'webman-amplifier' ),
+														'random'   => __( 'Randomly', 'webman-amplifier' ),
+														'menuasc'  => __( 'Custom, ascending', 'webman-amplifier' ),
+														'menudesc' => __( 'Custom, descending', 'webman-amplifier' ),
 													),
 												//preview
 												'preview' => array( 'type' => 'refresh' ),
@@ -3656,7 +3666,7 @@ $shortcode_definitions = array(
 
 							20 => array(
 								'heading'     => __( 'Count', 'webman-amplifier' ),
-								'description' => __( 'Number of items to display (use "-1" to display all)', 'webman-amplifier' ),
+								'description' => __( 'Number of items to display', 'webman-amplifier' ),
 								'type'        => 'textfield',
 								'param_name'  => 'count',
 								'value'       => 3,
@@ -3686,10 +3696,12 @@ $shortcode_definitions = array(
 								'type'       => 'dropdown',
 								'param_name' => 'order',
 								'value'      => array(
-										__( 'Newest first', 'webman-amplifier' ) => 'new', // default
-										__( 'Oldest first', 'webman-amplifier' ) => 'old',
-										__( 'By name', 'webman-amplifier' )      => 'name',
-										__( 'Randomly', 'webman-amplifier' )     => 'random',
+										__( 'Newest first', 'webman-amplifier' )       => 'new', // default
+										__( 'Oldest first', 'webman-amplifier' )       => 'old',
+										__( 'By name', 'webman-amplifier' )            => 'name',
+										__( 'Randomly', 'webman-amplifier' )           => 'random',
+										__( 'Custom, ascending', 'webman-amplifier' )  => 'menuasc',
+										__( 'Custom, descending', 'webman-amplifier' ) => 'menudesc',
 									),
 								'holder'     => 'hidden',
 								'class'      => '',

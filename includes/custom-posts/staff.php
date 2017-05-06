@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.4.3
  */
 
 
@@ -631,3 +631,37 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				'title' => __( 'Staff settings', 'webman-amplifier' ),
 			) );
 	}
+
+
+
+
+
+/**
+ * OTHERS
+ */
+
+	/**
+	 * Adding post type to Jetpack Sitemaps
+	 *
+	 * @link  https://jetpack.com/support/sitemaps/
+	 * @link  https://developer.jetpack.com/hooks/jetpack_sitemap_post_types/
+	 *
+	 * @since    1.4.3
+	 * @version  1.4.3
+	 */
+	if ( ! function_exists( 'wma_staff_cp_jetpack_sitemaps' ) ) {
+		function wma_staff_cp_jetpack_sitemaps( $post_types = array() ) {
+
+			// Processing
+
+				$post_types[] = 'wm_staff';
+				array_unique( $post_types );
+
+			// Output
+
+				return $post_types;
+
+		}
+	}
+
+add_filter( 'jetpack_sitemap_post_types', 'wma_staff_cp_jetpack_sitemaps' );

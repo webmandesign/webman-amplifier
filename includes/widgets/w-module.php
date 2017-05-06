@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.4.3
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -92,6 +92,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Options form
+		 *
+		 * @since    1.0.9.9
+		 * @version  1.4.3
 		 */
 		function form( $instance ) {
 
@@ -114,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p>
 					<?php
 					$posts = get_posts( apply_filters( 'wmhook_widgets_' . 'wm_module_widget' . '_form' . '_get_posts', array(
-							'posts_per_page' => -1,
+							'posts_per_page' => 40,
 							'orderby'        => 'title',
 							'order'          => 'ASC',
 							'post_type'      => 'wm_modules',

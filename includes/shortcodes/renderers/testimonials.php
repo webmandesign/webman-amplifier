@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.4.3
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -77,10 +77,13 @@
 	//order
 		$atts['order'] = trim( $atts['order'] );
 		$order_method = array(
-				'new'    => array( 'date', 'DESC' ),
-				'old'    => array( 'date', 'ASC' ),
-				'name'   => array( 'title', 'ASC' ),
-				'random' => array( 'rand', '' )
+				'custom'   => array( 'menu_order', 'ASC' ),
+				'menuasc'  => array( 'menu_order', 'ASC' ),
+				'menudesc' => array( 'menu_order', 'DESC' ),
+				'new'      => array( 'date', 'DESC' ),
+				'old'      => array( 'date', 'ASC' ),
+				'name'     => array( 'title', 'ASC' ),
+				'random'   => array( 'rand', '' )
 			);
 		$atts['order'] = ( in_array( $atts['order'], array_keys( $order_method ) ) ) ? ( $order_method[ $atts['order'] ] ) : ( $order_method['new'] );
 	//testimonial
