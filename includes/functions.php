@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.3.19
+ * @version  1.4.4
  */
 
 
@@ -186,7 +186,7 @@
 	 * Get post meta option
 	 *
 	 * @since    1.0
-	 * @version  1.1.1
+	 * @version  1.4.4
 	 *
 	 * @param    string  $name    Meta option name.
 	 * @param    integer $post_id Specific post ID.
@@ -210,7 +210,7 @@
 
 				//Premature output
 					if ( $output ) {
-						return apply_filters( 'wmhook_wmamp_' . 'wma_meta_option' . '_output', $output, $name, $post_id );
+						return $output;
 					}
 
 				$meta_array_name = apply_filters( 'wmhook_wmamp_' . 'wma_meta_option' . '_meta_array_name', WM_METABOX_SERIALIZED_NAME, $name, $post_id );

@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.4.4
+
+* **Fix**: `wma_meta_option()` function premature output filter
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes\functions.php
+
+
 ## 1.4.3
 
 * **Add**: Option to sort all posts shortcodes output by menu order
