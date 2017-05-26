@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.4.5
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -855,14 +855,35 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * @see  `$this->page_builder_dir . beaver-builder/beaver-builder.php` action hooks
 				 *
 				 * @since    1.1
-				 * @version  1.1
+				 * @version  1.4.5
 				 *
 				 * @access  public
 				 */
 				public function beaver_builder_support() {
-					if ( class_exists( 'FLBuilder' ) && ! is_admin() ) {
+
+					// Requirements check
+
+						if (
+								! class_exists( 'FLBuilder' )
+								|| (
+										is_admin()
+										&& (
+											! isset( $_REQUEST['page'] )
+											|| 'fl-builder-settings' !== $_REQUEST['page']
+											// @todo
+											// This is also used in BB in `classes/class-fl-builder-admin-settings.php`.
+											// However, I think we can do better if we try harder.
+										)
+									)
+							) {
+							return;
+						}
+
+
+					// Processing
+
 						add_action( 'init', array( $this, 'init_beaver_builder_support' ), 7 );
-					}
+
 				} // /beaver_builder_support
 
 
