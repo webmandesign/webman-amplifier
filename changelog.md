@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.4.6
+
+* **Fix**: Beaver Builder Agency super-admin screen integration
+
+#### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.4.5
 
 * **Fix**: Beaver Builder admin screen integration
