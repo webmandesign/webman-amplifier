@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.4.7
  *
  * @param  string align
  * @param  string class
@@ -333,8 +333,9 @@
 						$style_container = ( $icon['color-background'] ) ? ( ' style="background-color: ' . esc_attr( $icon['color-background'] ) . '"' ) : ( '' );
 
 						if ( $icon['box'] && $icon['font'] ) {
-							$image       = '<span class="' . esc_attr( $icon['font'] ) . '" aria-hidden="true"' . $style_icon . '></span>';
-							$image_class = ' font-icon';
+							$image        = '<span class="' . esc_attr( $icon['font'] ) . '" aria-hidden="true"' . $style_icon . '></span>';
+							$image       .= '<span class="screen-reader-text">' . get_the_title() . '</span>'; // Accessibility: preventing empty link.
+							$image_class  = ' font-icon';
 						}
 						if ( $image && $helpers['link'] ) {
 							$image = '<a' .  $helpers['link'] . '>' . $image . '</a>';

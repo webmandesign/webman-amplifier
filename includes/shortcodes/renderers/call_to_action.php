@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.4.7
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -55,7 +55,7 @@
 	//button_icon
 		$atts['button_icon'] = trim( $atts['button_icon'] );
 		if ( $atts['button_icon'] ) {
-			$atts['button_icon'] = '<span class="' . esc_attr( $atts['button_icon'] ) . '" aria-hidden="true"></span> ';
+			$atts['button_icon'] = '<span class="' . esc_attr( $atts['button_icon'] ) . '" aria-hidden="true"> </span>';
 		}
 	//button_size
 		$atts['button_size'] = trim( $atts['button_size'] );

@@ -1,10 +1,25 @@
 # WebMan Amplifier Changelog
 
+## 1.4.7
+
+* **Update**: Improving accessibility
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/item.php
+
+
 ## 1.4.6
 
 * **Fix**: Beaver Builder Agency super-admin screen integration
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -16,7 +31,7 @@
 
 * **Fix**: Beaver Builder admin screen integration
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -28,12 +43,12 @@
 
 * **Fix**: `wma_meta_option()` function premature output filter
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
 	webman-amplifier.php
-	includes\functions.php
+	includes/functions.php
 
 
 ## 1.4.3
@@ -45,7 +60,7 @@
 * **Update**: Improving accessibility: changing all remaining <i> icons to <span> with aria-hidden attribute
 * **Fix**: Subnav widget title displaying HTML tags
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -69,7 +84,7 @@
 
 * **Fix**: Make `empty()` work with old PHP versions
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -87,7 +102,7 @@
 * **Fix**: Compatibility with Visual Composer plugin
 * **Fix**: Do not display empty metaboxes
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -122,7 +137,7 @@
 * **Update**: Localization
 * **Fix**: Taxonomy name in column heading of custom post types admin table
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	class-wm-amplifier.php
@@ -150,7 +165,7 @@
 
 * **Add**: Integration with WooSidebars plugin
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	class-wm-amplifier.php
@@ -165,7 +180,7 @@
 * **Update**: Cleaning and improving custom post types permalinks setup
 * **Update**: Improving metaboxes and icons font admin screen styles
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -186,7 +201,7 @@
 
 * **Fix**: Styling issue in icons list in WordPress dashboard
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -203,7 +218,7 @@
 * **Update**: Removed <header> tag from Content Modules
 * **Fix**: JavaScript errors in Safari browser
 
-#### Files changed:
+### Files changed:
 
 	changelog.md
 	readme.txt
@@ -233,7 +248,7 @@
 
 * **Fix**: JavaScript errors in Beaver Builder page builder editor
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
@@ -243,7 +258,7 @@
 
 * **Fix**: Compatibility issue with OwlCarousel script
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	assets/js/shortcode-posts-owlcarousel.js
@@ -254,7 +269,7 @@
 
 * **Update**: Removing obsolete scripts
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	assets/js/plugins/imagesloaded.min.js
@@ -267,7 +282,7 @@
 * **Update**: Adding `is-active` CSS classes on active elements controlled with JavaScript
 * **Fix**: Shortcode JavaScript update when editing with Beaver Builder
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	assets/js/shortcode-accordion.js
@@ -288,7 +303,7 @@
 * **Update**: Removed bxSlider script
 * **Fix**: Enqueuing of shortcode scripts (need to register scripts earlier)
 
-#### Files changed:
+### Files changed:
 
 	*.php
 	includes/shortcodes/class-shortcodes.php
@@ -301,7 +316,7 @@
 * **Fix**: Visual Composer compatibility file PHP error
 * **Fix**: Typo in shortcodes definitions
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/functions.php
@@ -320,7 +335,7 @@
 
 * **Fix**: Don't output metabox if we have empty array of fields
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/metabox/class-metabox.php
@@ -331,7 +346,7 @@
 * **Update**: Removing obsolete IE8 scripts
 * **Fix**: Fixing compatibility with Beaver Builder page builder plugin
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	assets/js/shortcode-posts-bxslider.js
@@ -355,7 +370,7 @@
 * **Update**: Setting Masonry script to use percent positioning
 * **Update**: Plugin PHPDoc DocBlock header
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	webman-amplifier.php
@@ -378,7 +393,7 @@
 
 * **Fix**: Icon font CSS styles conflict
 
-#### Files changed:
+### Files changed:
 
 	assets/font/fontello.css
 
@@ -387,7 +402,7 @@
 
 * **Update**: Improved Slick slider functionality
 
-#### Files changed:
+### Files changed:
 
 	assets/js/shortcode-posts.js
 
@@ -397,7 +412,7 @@
 * **Fix**: Typos
 * **Fix**: Duplicate button ID when set via Beaver Builder page builder
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/definitions/definitions.php
 	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
@@ -411,7 +426,7 @@
 
 * **Update**: Visual Composer 4.11+ compatible
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/class-shortcodes.php
 
@@ -423,7 +438,7 @@
 * **Update**: Plugin info texts
 * **Update**: Removing localization files in favor of translate.wordpress.org
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	readme.md
@@ -442,7 +457,7 @@
 * **Update**: Improved scripts registering and loading
 * **Update**: Updated scripts versions (ImagesLoaded 4.1.0, Isotope 2.2.2)
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	assets/js/plugins/imagesloaded.min.js
@@ -458,7 +473,7 @@
 * **Update**: Removed Isotope admin pointer message
 * **Update**: Updated localization
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	webman-amplifier.php
@@ -471,7 +486,7 @@
 * **Update**: Improved compatibility with child themes
 * **Update**: Passed attributes into widget title filter
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/widgets/w-contact.php
@@ -486,7 +501,7 @@
 
 * **Update**: Removing Beaver Builder Lite Version WordPress multisite installation fix
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/shortcodes/class-shortcodes.php
@@ -502,7 +517,7 @@
 * **Update**: Improved Staff post labels
 * **Fix**: Unified the page builder modules naming style
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/custom-posts/staff.php
@@ -538,7 +553,7 @@
 * **Update**: License updated to GPLv3
 * **Fix**: Typos in readme files
 
-#### Files changed:
+### Files changed:
 
 	license.txt
 	readme.txt
@@ -555,7 +570,7 @@
 * **Update**: Shortcodes accessibility (heading tag setup)
 * **Update**: Localization
 
-#### Files changed:
+### Files changed:
 
 	readme.txt
 	webman-amplifier.php
@@ -596,7 +611,7 @@
 * **Update**: Using specific number of posts in `WP_Query` objects in shortcodes
 * **Update**: Localization texts (updated also translation text domain) and files
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	readme.txt
@@ -625,7 +640,7 @@
 
 * **Fix**: Reverting back the custom post types custom capabilities in favour of WordPress native ones
 
-#### Files changed:
+### Files changed:
 
 	includes/custom-posts/logos.php
 	includes/custom-posts/modules.php
@@ -641,7 +656,7 @@
 * **Update**: Improved Submenu widget
 * **Fix**: Visual Composer icon selector not keeping the selected icon
 
-#### Files changed:
+### Files changed:
 
 	assets/css/shortcodes-vc-addons.css
 	assets/js/shortcodes-vc-addons.js
@@ -678,7 +693,7 @@
 
 * **Fix**: Issue of loading icon font files on each admin page (now they load on post edit screen only and only for specific post types to prevent issues with other plugins, such as Caldera Forms)
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/class-shortcodes.php
 
@@ -687,7 +702,7 @@
 
 * **Fix**: Improved PHP versions (mainly 7, but applies for others too) compatibility
 
-#### Files changed:
+### Files changed:
 
 	includes/functions.php
 
@@ -703,7 +718,7 @@
 * **Update**: Hooking custom posts registration on `init` action with priority `0` instead of `10` (before `widgets_init`)
 * **Update**: Localization
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	assets/css/metabox.css
@@ -725,7 +740,7 @@
 * **Update**: Testimonials headings updated to H2 tag
 * **Fix**: Visual Composer shortcodes layout issue (for Posts, Testimonials and Content Modules)
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/renderers/content_module.php
 	includes/shortcodes/renderers/posts.php
@@ -742,7 +757,7 @@
 * **Update**: Added headings into Contact widget sections
 * **Fix**: Visual Composer custom shortcode mapping via dashboard not working
 
-#### Files changed:
+### Files changed:
 
 	assets/css/admin-addons.css
 	assets/css/metabox.css
@@ -776,7 +791,7 @@
 * **Update**: Improved and optimized code
 * **Update**: Localization
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	webman-amplifier-setup.php
@@ -824,7 +839,7 @@
 * **Update**: Font Awesome 4.3
 * **Fix**: Hashtag links in Twitter widget
 
-#### Files changed:
+### Files changed:
 
 	assets/font/*.*
 	includes/widgets/w-twitter.php
@@ -841,7 +856,7 @@
 * **Update**: Beaver Builder affiliate link updated
 * **Fix**: Filter hook names for Beaver Builder page builder integration
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	includes/functions.php
@@ -879,7 +894,7 @@
 
 * **Update**: Contact Widget anti-spam protection
 
-#### Files changed:
+### Files changed:
 
 	includes/widgets/w-contact.php
 
@@ -888,7 +903,7 @@
 
 * **Update**: Compatibility with Visual Composer 4.5
 
-#### Files changed:
+### Files changed:
 
 	assets/css/shortcodes-vc-addons.css
 	assets/css/dev/shortcodes-vc-addons.dev.css
@@ -906,7 +921,7 @@
 * **Update**: Localization
 * **Update**: Update scripts: Isotope v2.2.0, BxSlider v4.2.3
 
-#### Files changed:
+### Files changed:
 
 	includes/functions.php
 	includes/metabox/fields/checkbox.php
@@ -957,7 +972,7 @@
 
 * **Update**: Improved support with Beaver Builder (unfortunatelly, not backwards compatible as custom modules file names have been renamed)
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
 	includes/shortcodes/page-builder/beaver-builder/modules/wm_accordion.php
@@ -984,7 +999,7 @@
 
 * **Fix**: Custom posts issue introduced in update 1.1.3
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 
@@ -998,7 +1013,7 @@
 * **Fix**: Scripts and conditions for including Shortcode Generator button
 * **Fix**: Localization texts
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	assets/font/config.php
@@ -1017,7 +1032,7 @@
 * **Update**: Example setup file
 * **Fix**: Removing Visual Composer front end styles
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier-setup.php
 	includes/functions.php
@@ -1031,7 +1046,7 @@
 * **Update**: Hook names
 * **Fix**: PHP error when using the Beaver Builder plugin
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	includes/functions.php
@@ -1054,7 +1069,7 @@
 * **Fix**: Fixed hook names
 * **Fix**: Vertical tabs min tab content height
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	uninstall.php
@@ -1145,7 +1160,7 @@
 * **Update**: WebMan Amplifier setup file
 * **Fix**: Function name for 'WMAMP_LATE_LOAD' feature
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	webman-amplifier.php
@@ -1160,7 +1175,7 @@
 
 * **Update**: Allow disabling shortcodes, icon font and metaboxes classes
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 
@@ -1169,7 +1184,7 @@
 
 * **Update**: Posts shortcode filter name
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/renderers/posts.php
 
@@ -1178,7 +1193,7 @@
 
 * **Update**: Updated Twitter OAuth library
 
-#### Files changed:
+### Files changed:
 
 	includes/twitter-api/OAuth.php
 	includes/twitter-api/twitteroauth.php
@@ -1189,7 +1204,7 @@
 * **Update**: Optimized code
 * **Update**: Including Twitter OAuth library conditionally to prevent issues with other plugins
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	includes/functions.php
@@ -1204,7 +1219,7 @@
 * **Fix**: Post thumbnails size in WordPress admin
 * **Fix**: Visual Composer Accordions and Tabs shortcode issue
 
-#### Files changed:
+### Files changed:
 
 	assets/css/admin-addons.css
 	assets/css/rtl-shortcodes-vc-addons.css
@@ -1243,7 +1258,7 @@
 	includes/widgets/w-tabbed-widgets.php
 	includes/widgets/w-twitter.php
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	webman-amplifier.php
@@ -1261,7 +1276,7 @@
 * **Fix**: Shortcode Generator shortcode attributes
 * **Fix**: Improved shortcodes scripts enqueuing
 
-#### Files changed:
+### Files changed:
 
 	assets/css/shortcodes-vc-addons.css
 	assets/css/dev/shortcodes-vc-addons.dev.css
@@ -1282,7 +1297,7 @@
 * **Update**: WordPress 4.0 support
 * **Update**: Improved shortcodes scripts enqueuing
 
-#### Files changed:
+### Files changed:
 
 	assets/metabox.css
 	assets/dev/metabox.dev.css
@@ -1300,7 +1315,7 @@
 
 * **Add**: Additional arguments for `do_action()` for better flexibility.
 
-#### Files changed:
+### Files changed:
 
 	includes/shortcodes/class-shortcodes.php
 	includes/shortcodes/renderers/accordion.php
@@ -1317,7 +1332,7 @@
 
 * **Add**: Compatibility with Visual Composer 4.3+
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier-setup.php
 	assets/css/shortcodes-vc-addons.css
@@ -1339,7 +1354,7 @@
 * **Update**: Setup actions updated
 * **Fix**: Applying `active` class on active tab content
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 	assets/css/shortcodes-vc-addons.css
@@ -1354,7 +1369,7 @@
 
 * **Fix**: Non-admin user lockout
 
-#### Files changed:
+### Files changed:
 
 	includes/class-icon-font.php
 
@@ -1363,7 +1378,7 @@
 
 * **Fix**: The Shortcode Generator issue in Firefox browser
 
-#### Files changed:
+### Files changed:
 
 	assets/js/dev/shortcodes-button.dev.js
 	assets/js/shortcodes-button.js
@@ -1373,7 +1388,7 @@
 
 * **Fix**: The issue with admin notice
 
-#### Files changed:
+### Files changed:
 
 	class-wm-amplifier.php
 
@@ -1390,7 +1405,7 @@
 * **Update**: Visual Composer Image shortcode styling options added
 * **Update**: Localization texts changed
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	webman-amplifier-setup.php
@@ -1412,7 +1427,7 @@
 * **Add**: Support for Visual Composer v4.2
 * **Update**: Sample setup file
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier-setup.php
 	includes/functions.php
@@ -1427,7 +1442,7 @@
 * **Update**: Metabox class improved (not to throw out PHP warning)
 * **Update**: Metabox function name fixed in `webman-amplifier-setup.php`
 
-#### Files changed:
+### Files changed:
 
 	includes/metabox/class-metabox.php
 	webman-amplifier-setup.php
@@ -1438,7 +1453,7 @@
 * **Update**: Sorting font icons preview alphabetically
 * **Fix**: Isotope filter fixed for RTL languages
 
-#### Files changed:
+### Files changed:
 
 	includes/class-icon-font.php
 	assets/js/dev/shortcode-posts.dev.js
@@ -1452,7 +1467,7 @@
 * **Update**: Sorting outputs of `wma_pages_array()` and `wma_taxonomy_array()` functions
 * **Update**: Filter names fixed in `wma_posts_array()`, `wma_pages_array()` and `wma_widget_areas_array()` functions
 
-#### Files changed:
+### Files changed:
 
 	webman-amplifier.php
 	includes/functions.php

@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.4.7
  *
  * @param  string icon
  * @param  string heading_tag (heading tag option for better accessibility setup)
@@ -37,7 +37,7 @@
 	//icon
 		$atts['icon'] = trim( $atts['icon'] );
 		if ( $atts['icon'] ) {
-			$atts['title'] = '<span class="' . esc_attr( $atts['icon'] ) . '" aria-hidden="true"></span>' . $atts['title'];
+			$atts['title'] = '<span class="' . esc_attr( $atts['icon'] ) . '" aria-hidden="true"> </span>' . $atts['title'];
 		}
 	//tags
 		$atts['tag_names'] = array();

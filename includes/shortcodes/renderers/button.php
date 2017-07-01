@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.4.7
  *
  * @uses  $codes_globals['sizes']['values']
  *
@@ -57,7 +57,7 @@
 	//icon
 		$atts['icon'] = trim( $atts['icon'] );
 		if ( $atts['icon'] ) {
-			$atts['icon'] = '<span class="' . esc_attr( $atts['icon'] ) . '" aria-hidden="true"></span> ';
+			$atts['icon'] = '<span class="' . esc_attr( $atts['icon'] ) . '" aria-hidden="true"> </span>';
 		}
 	//class
 		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
