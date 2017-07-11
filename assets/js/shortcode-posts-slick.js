@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.19
+ * @version  1.4.8
  */
 
 
@@ -18,7 +18,7 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.19
+ * @version  1.4.8
  *
  * @param  string $selector
  */
@@ -40,7 +40,7 @@ function WmampSlick( $selector ) {
 
 		jQuery( $selector )
 			.find( '.wm-items-container .wm-column' )
-				.wrap( '<div class"wm-scrollable-item"></div>' )
+				.wrap( '<div class="wm-scrollable-item"></div>' )
 			.end()
 			.each( function( item ) {
 

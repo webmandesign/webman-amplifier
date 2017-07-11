@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.4.8
+
+* **Fix**: Carousel item wrapper custom class not applying
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/js/shortcode-posts-slick.js
+
+
 ## 1.4.7
 
 * **Update**: Improving accessibility
