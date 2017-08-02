@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.4.6
+ * @version  1.4.9
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -1048,10 +1048,10 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				/**
 				 * Visual Composer custom shortcode parameter - radio buttons
 				 *
-				 * @link    http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
+				 * @link  http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
 				 *
 				 * @since    1.0
-				 * @version  1.1
+				 * @version  1.4.9
 				 *
 				 * @access  public
 				 *
@@ -1059,17 +1059,18 @@ if ( ! class_exists( 'WM_Shortcodes' ) ) {
 				 * @param  string $value
 				 */
 				public function visual_composer_custom_field_wm_radio( $settings, $value ) {
-					//Helper variables
-						$name = $settings['param_name'];
+
+					// Helper variables
 
 						$field = $settings;
 
 						$field['options'] = $field['value'];
 
-						$dependency = vc_generate_dependencies_attributes( $settings );
 
-					//Output
-						return apply_filters( 'wmhook_shortcode_' . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
+					// Output
+
+						return apply_filters( 'wmhook_shortcode_' . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $settings['param_name'], $value, $field ), $name, $value, $field );
+
 				} // /visual_composer_custom_field_wm_radio
 
 

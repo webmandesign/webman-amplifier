@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.4.9
+
+* **Fix**: Visual Composer compatibility
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.4.8
 
 * **Fix**: Carousel item wrapper custom class not applying
