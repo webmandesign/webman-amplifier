@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.4.10
+
+* **Fix**: Issue introduced in version 1.4.9
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.4.9
 
 * **Fix**: Visual Composer compatibility
