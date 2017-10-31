@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.4.10
+ * @version  1.4.11
  */
 if ( ! class_exists( 'WM_Shortcodes' ) ) {
 
@@ -1182,14 +1182,14 @@ function wma_shortcodes() {
  * WM_Shortcodes helper functions
  *
  * @since    1.0.9.8
- * @version  1.3.11
+ * @version  1.4.11
  */
 
 	/**
 	 * Shortcode enqueue scripts
 	 *
 	 * @since    1.0.9.8
-	 * @version  1.3.11
+	 * @version  1.4.11
 	 *
 	 * @param  string $shortcode
 	 * @param  array  $enqueue_scripts
@@ -1218,12 +1218,9 @@ function wma_shortcodes() {
 				// Fixing legacy theme compatibility (@todo Remove when themes are updated)
 
 					if ( in_array( 'slick', $enqueue_scripts ) ) {
-
-						$enqueue_scripts = array(
-								'slick',
-								'wm-shortcodes-posts-slick'
-							);
-
+						$enqueue_scripts = array_merge( $enqueue_scripts, array(
+							'wm-shortcodes-posts-slick'
+						) );
 					}
 
 				// Enqueue scripts
