@@ -3,13 +3,32 @@
 ## 1.5.0
 
 * **Update**: Making custom Beaver Builder elements translatable with WPML plugin
+* **Update**: Improving code and its organization
 * **Update**: Plugin information
 
 ### Files changed:
 
 	changelog.md
+	class-wm-amplifier.php
 	readme.txt
 	webman-amplifier.php
+	includes/compatibility/compatibility.php
+	includes/compatibility/wpml/*.*
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/*.*
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/renderers/accordion.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/price.php
+	includes/shortcodes/renderers/row.php
+	includes/shortcodes/renderers/slideshow.php
+	includes/shortcodes/renderers/tabs.php
+	includes/shortcodes/renderers/testimonials.php
+	includes/visual-editor/visual-editor.php
 
 
 ## 1.4.11
