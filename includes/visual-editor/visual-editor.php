@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Visual Editor addons
  *
@@ -7,29 +7,22 @@
  * Supports page builder plugins.
  *
  * This file is being included in the `init` hook, so we can use
- * wma_shortcodes()->get_definitions()['generator'] already.
+ * WM_Shortcodes::get_definitions_processed() already.
  *
- * @uses  wma_shortcodes()->get_definitions()['generator']
+ * @uses  WM_Shortcodes::get_definitions_processed()
  *
  * @package     WebMan Amplifier
  * @subpackage  Visual Editor
+ * @copyright   WebMan Design, Oliver Juhas
  *
- * @since    1.1
- * @version  1.4
+ * @since    1.1.0
+ * @version  1.5.0
  *
  * Contents:
  *
  * 10) Assets
  * 20) Visual editor addons
  */
-
-
-
-
-
-// Exit if accessed directly
-
-	if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 
@@ -42,94 +35,103 @@
 	/**
 	 * Enqueuing required assets
 	 *
-	 * @since    1.1
-	 * @version  1.4
+	 * @since    1.1.0
+	 * @version  1.5.0
 	 */
 	function wma_ve_assets() {
+
+		// Requirements check
+
+			if ( ! is_callable( 'WM_Shortcodes::get_definitions_processed' ) ) {
+				return;
+			}
+
 
 		// Helper variables
 
 			global $pagenow;
 
-			$codes = ( is_callable( 'wma_shortcodes' ) ) ? ( wma_shortcodes()->get_definitions() ) : ( array( 'generator' => null ) );
+			$codes_default = (array) WM_Shortcodes::get_definitions_processed( 'generator' );
+			$codes_short   = (array) WM_Shortcodes::get_definitions_processed( 'generator_short' );
 
-			$admin_pages = apply_filters( 'wmhook_wmamp_' . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
+			$admin_pages = (array) apply_filters( 'wmhook_wmamp_generator_admin_pages', array(
+				'post.php',
+				'post-new.php',
+			) );
 
 			// Requirements check
 
 				if (
-						empty( $codes['generator'] )
-						// Page builders check:
-						|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-						|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
-					) {
+					empty( $codes_default )
+					// Page builders check:
+					|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
+					|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
+				) {
 					return;
 				}
 
 			$post_type = get_post_type();
 
 			$supported_post_types = array(
-					'beaver-builder'  => ( get_option( '_fl_builder_post_types' ) ) ? ( (array) get_option( '_fl_builder_post_types' ) ) : ( array( 'page' ) ),
-					'visual-composer' => ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) ),
-				);
+				'beaver-builder'  => ( get_option( '_fl_builder_post_types' ) ) ? ( (array) get_option( '_fl_builder_post_types' ) ) : ( array( 'page' ) ),
+				'visual-composer' => ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) ),
+			);
+
+			ksort( $codes_default );
+			ksort( $codes_short );
 
 
-		/**
-		 * Enqueue
-		 */
+		// Processing
 
-			/**
-			 * Shortcode generator: standard
-			 */
+			// Full size shortcode generator
 
 				// Styles
 
 					wp_enqueue_style(
-							'wm-shortcodes-generator',
-							WMAMP_ASSETS_URL . 'css/shortcodes-generator.css',
-							array(),
-							WMAMP_VERSION,
-							'screen'
-						);
+						'wm-shortcodes-generator',
+						WMAMP_ASSETS_URL . 'css/shortcodes-generator.css',
+						array(),
+						WMAMP_VERSION,
+						'screen'
+					);
 
 					wp_style_add_data(
-							'wm-shortcodes-generator',
-							'rtl',
-							'replace'
-						);
+						'wm-shortcodes-generator',
+						'rtl',
+						'replace'
+					);
 
 				// Scripts: inline
 
 					wp_localize_script(
-							'jquery',
-							'wmShortcodesArray',
-							array_values( wma_ksort( (array) $codes['generator'] ) )
-						);
+						'jquery',
+						'wmShortcodesArray',
+						array_values( $codes_default )
+					);
 
 
-			/**
-			 * Shortcode generator: short
-			 *
-			 * Supported in page builders.
-			 */
+			// Short version of shortcode generator for page builders
 
 				if (
-						! empty( $codes['generator_short'] )
-						&& (
-							// Beaver Builder
-							( ! is_admin() && in_array( $post_type, $supported_post_types['beaver-builder'] ) )
-							// Visual Composer
-							|| ( wma_is_active_vc() && in_array( $post_type, $supported_post_types['visual-composer'] ) )
+					! empty( $codes_short )
+					&& (
+						(
+							! is_admin()
+							&& in_array( $post_type, $supported_post_types['beaver-builder'] )
+						) || (
+							wma_is_active_vc()
+							&& in_array( $post_type, $supported_post_types['visual-composer'] )
 						)
-					) {
+					)
+				) {
 
 					// Scripts: inline
 
 						wp_localize_script(
-								'jquery',
-								'wmShortcodesArrayShort',
-								array_values( wma_ksort( (array) $codes['generator_short'] ) )
-							);
+							'jquery',
+							'wmShortcodesArrayShort',
+							array_values( $codes_short )
+						);
 
 				}
 
@@ -149,30 +151,40 @@
 	/**
 	 * Visual Editor custom plugin
 	 *
-	 * @since    1.0
-	 * @version  1.2.2
+	 * @since    1.0.0
+	 * @version  1.5.0
 	 *
 	 * @param  array $plugins_array
 	 */
 	function wma_ve_custom_mce_plugin( $plugins_array = array() ) {
 
+		// Requirements check
+
+			if ( ! is_callable( 'WM_Shortcodes::get_definitions_processed' ) ) {
+				return;
+			}
+
+
 		// Helper variables
 
 			global $pagenow;
 
-			$codes = ( is_callable( 'wma_shortcodes' ) ) ? ( wma_shortcodes()->get_definitions() ) : ( array( 'generator' => null ) );
+			$codes_default = (array) WM_Shortcodes::get_definitions_processed( 'generator' );
 
-			$admin_pages = apply_filters( 'wmhook_wmamp_' . 'generator_admin_pages', array( 'post.php', 'post-new.php' ) );
+			$admin_pages = (array) apply_filters( 'wmhook_wmamp_generator_admin_pages', array(
+				'post.php',
+				'post-new.php',
+			) );
 
 
 		// Requirements check
 
 			if (
-					empty( $codes['generator'] )
-					// Page builders check
-					|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-					|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
-				) {
+				empty( $codes_default )
+				// Page builders check:
+				|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
+				|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
+			) {
 				return $plugins_array;
 			}
 
@@ -197,7 +209,7 @@
 	 *
 	 * First row.
 	 *
-	 * @since    1.0
+	 * @since    1.0.0
 	 * @version  1.2.2
 	 *
 	 * @param  array $buttons

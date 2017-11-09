@@ -1,14 +1,14 @@
 === WebMan Amplifier ===
 Contributors:      webmandesign
-Donate link:       https://www.webmandesign.eu
+Donate link:       https://www.paypal.me/webmandesign/20
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
 Tested up to:      4.9
-Stable tag:        1.4.11
+Stable tag:        1.5.0
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-Tags:              webman, accordion, audio, button, call to action, column, row, section, content, module, countdown, timer, divider, dropcap, icon, list, marker, message, box, posts, related, price, pricing table, progress, skillbar, pullquote, separator, heading, slideshow, slider, table, tabs, toggles, testimonials, video, widget area, sidebar, responsive, shortcode, shortcodes, custom post types, projects, portfolio, staff, logos, modules, beaver builder, page builder, metabox, meta, generator, fonticons, fontello, widgets, twitter, contact, sub navigation, tabbed widgets
+Tags:              accordion, beaver builder, box, button, call to action, content modules, custom post types, divider, fontello, generator, icons, logos, message, meta, metabox, page builder, portfolio, posts, projects, shortcodes, staff, tabs, testimonials, toggles, webman design, wpml
 
 Amplifies functionality of WP themes. Provides custom post types, shortcodes, metaboxes, icons. Theme developer's best friend!
 
@@ -19,43 +19,35 @@ Amplifies functionality of WP themes. Provides custom post types, shortcodes, me
 >
 > Please note that the plugin was created **for WordPress theme developers**. *If you are a normal, non-tech-savvy WordPress user*, this plugin will be disappointing for you and you don't need to install it as it was created for different purpose.
 >
-> *If you are a theme developer* and have any issue with the plugin, please, consider rising a ticket at [WebMan Support Forum](http://support.webmandesign.eu/) first, before you rate the plugin.
+> *If you are a theme developer* and experience any issue with the plugin, please submit a support ticket.
 
-**[WebMan Amplifier](http://www.webmandesign.eu/ "WebMan Design") is WordPress plugin that provides mega pack of features for theme developers! The plugin was build to help with and simplify the WordPress theme development process.**
+**WebMan Amplifier is WordPress plugin that provides pack of features for theme developers. The plugin was build to help with, and simplify the WordPress theme development process.**
 
-This plugin was created primarily for [WebMan Themes](http://www.webmandesign.eu/ "WebMan Themes"), but it works with any other theme as well if you declare a support for it in the theme.
+This plugin was created primarily for [WebMan Design themes](https://www.webmandesign.eu/), but it works with any other theme as well  if you declare a support for it in the theme's code.
 
 = Features =
 
-* Well thought shortcodes with simple and fast Shortcode Generator and integration with [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) page builder
+* Well thought shortcodes with simple and fast Shortcode Generator and integration with [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/) page builder (with support for [WPML](https://wpml.org) multilingual plugin)
 * Custom post types:<br>
   &bull; **Projects** - to create your own portfolios<br>
-  &bull; **Logos** - to manage your clients and/or partners logo lists<br>
-  &bull; **Testimonials**<br>
+  &bull; **Testimonials** - to manage your customers or partners testimonies<br>
   &bull; **Staff** - to manage your team members<br>
-  &bull; **Content Modules** - to create an icon boxes or a content injection anywhere on your website<br>
+  &bull; **Content Modules** - to create an icon boxes, services boxes or a content injection anywhere on your website<br>
+  &bull; **Logos** - to manage your clients and/or partners logos list<br>
 * Custom widgets<br>
   &bull; **Contact** - to display your contact information<br>
   &bull; **Submenu** - to display a subpages of the current page<br>
-  &bull; **Twitter** - to display your tweets<br>
   &bull; **Tabbed Widgets** - to display any widgets in tabbed interface<br>
-  &bull; **Posts** - to list posts or projects<br>
+  &bull; **Posts** - to list posts or portfolio projects<br>
   &bull; **Content Module** - to display any Content Module post<br>
-* Advanced metabox generator
+* Metabox generator
 * Fontello.com icon font uploader and simple integration
-* RTL language support
-
-= Plugin Localization =
-
-Translate the plugin by clicking the "Translate WebMan Amplifier" button under the "Translations" section in sidebar of this page.
 
 = Additional Resources =
 
-* [Write a review](https://wordpress.org/support/view/plugin-reviews/webman-amplifier/#postform)
 * [Have a question?](https://wordpress.org/support/plugin/webman-amplifier/)
 * [Grab a free theme](https://profiles.wordpress.org/webmandesign/#content-themes)
-* [Follow @webmandesigneu](https://twitter.com/webmandesigneu)
-* [Visit WebMan Design](http://www.webmandesign.eu)
+* [Visit WebMan Design](https://www.webmandesign.eu)
 
 
 == Installation ==
@@ -73,11 +65,15 @@ You have to define the plugin support in your theme. Please see the `webman-ampl
 
 = How to upload custom icon font? =
 
-The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plugin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to *"Appearance > Icon Font"* and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
+The plugin supports icon font files from Fontello.com. Visit the website, select your icons and download the font. Please note that you should **not use the custom font file name** as the plugin only supports the default "fontello" font name (no need to type it in on Fontello.com website as this is predefined). After the font is downloaded, navigate to **Appearance > Icon Font** and upload your Fontello ZIP package file. Save the settings and new icons will be loaded.
 
 = How to translate (localize) the plugin? =
 
-Translate the plugin by clicking the "Translate WebMan Amplifier" button under the "Translations" section in sidebar of this page.
+Translate the plugin by clicking the "Translate WebMan Amplifier into your language." link under "Development" section here on WordPress.org plugin repository page.
+
+= Is it compatible with WPML? =
+
+Yes! The plugin's custom Beaver Builder page builder elements/modules are compatible with [WPML multilingual plugin](https://wpml.org).
 
 
 == Screenshots ==
@@ -101,6 +97,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+Making custom Beaver Builder elements translatable with WPML plugin.
 
 = 1.4.11 =
 Fixing shortcode related scripts enqueuing function.

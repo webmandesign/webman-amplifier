@@ -6,7 +6,7 @@
  *
  * @package    WebMan Amplifier
  * @author     WebMan Design
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  * @license    GNU General Public License v3
  *
  * @link  https://www.webmandesign.eu
@@ -15,8 +15,8 @@
  * Plugin Name:        WebMan Amplifier
  * Plugin URI:         https://github.com/webmandesign/webman-amplifier
  * Description:        Pack of additional WordPress features. Contains additional custom post types, shortcodes, page builder integration, meta box generator and icon font management.
- * Version:            1.4.11
- * Author:             WebMan - Oliver Juhas
+ * Version:            1.5.0
+ * Author:             WebMan Design, Oliver Juhas
  * Author URI:         https://www.webmandesign.eu
  * Text Domain:        webman-amplifier
  * Domain Path:        /languages
@@ -46,7 +46,7 @@
 
 		// Plugin version
 
-			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.4.10' );
+			if ( ! defined( 'WMAMP_VERSION' ) ) define( 'WMAMP_VERSION', '1.5.0' );
 
 		// Paths
 
@@ -84,9 +84,9 @@
 
 		require_once WMAMP_INCLUDES_DIR . 'functions.php';
 
-	// Load 3rd party plugins integrations
+	// Load 3rd party plugins compatibility
 
-		require_once WMAMP_INCLUDES_DIR . 'integration/integration.php';
+		require_once WMAMP_INCLUDES_DIR . 'compatibility/compatibility.php';
 
 
 

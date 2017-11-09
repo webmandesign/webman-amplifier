@@ -1,30 +1,15 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
- * WebMan Amplifier
+ * WebMan Amplifier class
+ *
+ * Contains and loads the main plugin functionality.
  *
  * @package    WebMan Amplifier
- * @copyright  2015 WebMan - Oliver Juhas
+ * @copyright  WebMan Design, Oliver Juhas
  *
- * @link  http://www.webmandesign.eu
- */
-
-
-
-//Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-
-
-/**
- * Main WM Apmlifier Class
- *
- * Contains the main functions for WebMan Amplifier.
- *
- * @package	 WebMan Amplifier
- * @author   WebMan
- *
- * @since    1.0
- * @version  1.4
+ * @since    1.0.0
+ * @version  1.5.0
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -484,21 +469,21 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			/**
 			 * Register shortcodes
 			 *
-			 * @since    1.0
-			 * @version  1.1
-			 *
-			 * @access  public
-			 *
-			 * @uses  WM_Shortcodes
+			 * @since    1.0.0
+			 * @version  1.5.0
 			 */
 			public function register_shortcodes() {
-				if (
-						apply_filters( 'wmhook_wmamp_' . 'enable_shortcodes', true )
+
+				// Processing
+
+					if (
+						apply_filters( 'wmhook_wmamp_enable_shortcodes', true )
 						&& ! wma_supports_subfeature( 'disable-shortcodes' )
 					) {
-					require( WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php' );
-					return wma_shortcodes();
-				}
+						require_once( WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php' );
+						return WM_Shortcodes::init();
+					}
+
 			} // /register_shortcodes
 
 

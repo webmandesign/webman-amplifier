@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.7
+ * @version  1.5.0
  *
  * @param  string icon
  * @param  string heading_tag (heading tag option for better accessibility setup)
@@ -33,7 +33,7 @@
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
 		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
 	//title
-		$atts['title'] = strip_tags( trim( $atts['title'] ), $this->inline_tags );
+		$atts['title'] = wp_kses( trim( $atts['title'] ), WM_Shortcodes::get_inline_tags() );
 	//icon
 		$atts['icon'] = trim( $atts['icon'] );
 		if ( $atts['icon'] ) {

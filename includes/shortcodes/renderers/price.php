@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2.9.1
+ * @version  1.5.0
  *
  * @param  string caption
  * @param  string class
@@ -46,7 +46,7 @@
 			$atts['type'] = 'default';
 		}
 	//caption
-		$atts['caption'] = '<' . tag_escape( $atts['heading_tag'] ) . ' class="wm-price-caption wm-price-element">' . strip_tags( trim( $atts['caption'] ), $this->inline_tags ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
+		$atts['caption'] = '<' . tag_escape( $atts['heading_tag'] ) . ' class="wm-price-caption wm-price-element">' . wp_kses( trim( $atts['caption'] ), WM_Shortcodes::get_inline_tags() ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
 	//color
 		$atts['color']      = strtolower( preg_replace( '/[^a-fA-F0-9]/', '', $atts['color'] ) );
 		$atts['color_text'] = strtolower( preg_replace( '/[^a-fA-F0-9]/', '', $atts['color_text'] ) );

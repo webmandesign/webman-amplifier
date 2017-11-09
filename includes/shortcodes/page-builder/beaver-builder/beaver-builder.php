@@ -5,7 +5,7 @@
  * @link  https://www.wpbeaverbuilder.com/
  *
  * @since    1.1
- * @version  1.3.18
+ * @version  1.5.0
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
@@ -81,7 +81,7 @@
 	 * Get Beaver Builder shortcode definitions
 	 *
 	 * @since    1.1
-	 * @version  1.3
+	 * @version  1.5.0
 	 *
 	 * @param  string $shortcode
 	 * @param  string $property
@@ -93,13 +93,12 @@
 
 				$output = '';
 
-				$def = wma_shortcodes()->get_definitions();
-				$def = $def['bb_plugin'];
+				$def = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
 
 				$custom_modules_category = apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_custom_name', _x( 'Theme Modules', 'Page builder modules category name.', 'webman-amplifier' ) );
 
 				if ( apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_category_advanced', false, $shortcode ) ) {
-					$custom_modules_category = __( 'Advanced Modules', 'fl-builder' ); // Taking translation from Beaver Builder plugin
+					$custom_modules_category = __( 'Advanced Modules', 'webman-amplifier' );
 				}
 
 
@@ -112,38 +111,48 @@
 				} elseif ( isset( $def[ $shortcode ] ) ) {
 
 					$output = wp_parse_args( $def[ $shortcode ], array(
-							'name'            => '-',
-							'description'     => '',
-							'category'        => $custom_modules_category,
-							'enabled'         => true,
-							'editor_export'   => true, // Export content to WP editor after BB plugin uninstall?
-							'dir'             => trailingslashit( WMAMP_INCLUDES_DIR ) . 'shortcodes/page-builder/beaver-builder/modules/',
-							'url'             => trailingslashit( WMAMP_INCLUDES_URL ) . 'shortcodes/page-builder/beaver-builder/modules/',
-							'partial_refresh' => true,
-							'output'          => '',
-							'output_children' => '',
-							'params'          => array(),
-							'params_children' => array(),
-							'form'            => array(),
-							'form_children'   => array(),
-						) );
+						'name'            => '-',
+						'description'     => '',
+						'category'        => $custom_modules_category,
+						'enabled'         => true,
+						'editor_export'   => true, // Export content to WP editor after BB plugin uninstall?
+						'dir'             => trailingslashit( WMAMP_INCLUDES_DIR ) . 'shortcodes/page-builder/beaver-builder/modules/',
+						'url'             => trailingslashit( WMAMP_INCLUDES_URL ) . 'shortcodes/page-builder/beaver-builder/modules/',
+						'partial_refresh' => true,
+						'output'          => '',
+						'output_children' => '',
+						'params'          => array(),
+						'params_children' => array(),
+						'form'            => array(),
+						'form_children'   => array(),
+					) );
 
 					// Allow filtering
 
 						$output = apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_output', $output, $shortcode );
 
+					// Apply prefix on BB module name
+
+						if ( apply_filters( 'wmhook_shortcode_wma_bb_shortcode_def_force_name_prefix', true ) ) {
+							$output['name'] = WM_Shortcodes::$prefix_shortcode_name . str_replace(
+								WM_Shortcodes::$prefix_shortcode_name,
+								'',
+								$output['name']
+							);
+						}
+
 					// Put all BB module registration values into a single array
 
 						$output['register'] = array(
-								'name'            => $output['name'],
-								'description'     => $output['description'],
-								'category'        => $output['category'],
-								'enabled'         => $output['enabled'],
-								'editor_export'   => $output['editor_export'],
-								'dir'             => $output['dir'],
-								'url'             => $output['url'],
-								'partial_refresh' => $output['partial_refresh'],
-							);
+							'name'            => $output['name'],
+							'description'     => $output['description'],
+							'category'        => $output['category'],
+							'enabled'         => $output['enabled'],
+							'editor_export'   => $output['editor_export'],
+							'dir'             => $output['dir'],
+							'url'             => $output['url'],
+							'partial_refresh' => $output['partial_refresh'],
+						);
 
 					if ( $property && isset( $output[ $property ] ) ) {
 						$output = $output[ $property ];
@@ -197,22 +206,32 @@
 	 * Add custom modules
 	 *
 	 * @since    1.1
-	 * @version  1.1
+	 * @version  1.5.0
 	 */
 	if ( ! function_exists( 'wma_bb_custom_modules' ) ) {
 		function wma_bb_custom_modules() {
-			//Helper variables
+
+			// Helper variables
+
 				$defs = wma_bb_shortcode_def( 'all' );
 
-			//Include files
+
+			// Processing
+
 				if ( ! empty( $defs ) ) {
 					foreach ( $defs as $module => $def ) {
-						$module_file_path = trailingslashit( WMAMP_INCLUDES_DIR ) .'shortcodes/page-builder/beaver-builder/modules/wm_' . $module . '.php';
+
+						$module_file_path = trailingslashit( WMAMP_INCLUDES_DIR )
+						                   .'shortcodes/page-builder/beaver-builder/modules/'
+						                   . WM_Shortcodes::$prefix_shortcode . $module . '.php';
+
 						if ( file_exists( $module_file_path ) ) {
 							require_once( $module_file_path );
 						}
+
 					}
 				}
+
 		}
 	} // /wma_bb_custom_modules
 
@@ -249,38 +268,39 @@
 	 * Module output
 	 *
 	 * @since    1.1
-	 * @version  1.3.7
+	 * @version  1.5.0
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
 	 */
 	if ( ! function_exists( 'wma_bb_custom_module_output' ) ) {
 		function wma_bb_custom_module_output( $module, $settings = array() ) {
-			//Requirements check
+
+			// Requirements check
+
 				if ( ! is_object( $module ) || ! isset( $module->slug ) ) {
 					return;
 				}
 
-			//Helper variables
+
+			// Helper variables
+
 				$shortcode_output = $replace_children = '';
 
-				/**
-				 * Removing 'wm_' (string length = 3) from the beginning
-				 * of the custom module file name slug.
-				 */
-				$module = substr( $module->slug, 3 );
+				$module = substr( $module->slug, strlen( WM_Shortcodes::$prefix_shortcode ) );
 
-				$output   = array(
-						'parent' => (string) wma_bb_shortcode_def( $module, 'output' ),
-						'child'  => (string) wma_bb_shortcode_def( $module, 'output_children' )
-					);
-				$params   = array(
-						'parent' => (array) wma_bb_shortcode_def( $module, 'params' ),
-						'child'  => (array) wma_bb_shortcode_def( $module, 'params_children' )
-					);
+				$output = array(
+					'parent' => (string) wma_bb_shortcode_def( $module, 'output' ),
+					'child'  => (string) wma_bb_shortcode_def( $module, 'output_children' )
+				);
+				$params = array(
+					'parent' => (array) wma_bb_shortcode_def( $module, 'params' ),
+					'child'  => (array) wma_bb_shortcode_def( $module, 'params_children' )
+				);
 				$children = ( isset( $settings->children ) ) ? ( array_filter( $settings->children ) ) : ( false );
 
-			//Preparing output
+
+			// Processing
 
 				/**
 				 * Basic form output (parent)
@@ -292,14 +312,12 @@
 						$param   = trim( $param );
 
 						if ( $param ) {
-							if (
-									isset( $settings->$param )
-									&& ! empty( $settings->$param )
-								) {
+							if ( isset( $settings->$param ) && ! empty( $settings->$param ) ) {
 
 								$value = $settings->$param;
 
-								//Convert the array shortcode parameter to string
+								// Convert the array shortcode parameter to string
+
 									if ( is_array( $value ) ) {
 										$value = implode( ',', $value );
 									}
@@ -326,7 +344,8 @@
 
 						foreach ( $children as $child ) {
 
-							//Requirements check
+							// Requirements check
+
 								if ( ! is_object( $child ) || empty( $child ) ) {
 									continue;
 								}
@@ -339,14 +358,12 @@
 								$param   = trim( $param );
 
 								if ( $param ) {
-									if (
-											isset( $child->$param )
-											&& ! empty( $child->$param )
-										) {
+									if ( isset( $child->$param ) && ! empty( $child->$param ) ) {
 
 										$value = $child->$param;
 
-										//Convert the array shortcode parameter to string
+										// Convert the array shortcode parameter to string
+
 											if ( is_array( $value ) ) {
 												$value = implode( ',', $value );
 											}
@@ -375,8 +392,11 @@
 
 					$shortcode_output = apply_filters( 'wmhook_shortcode_wma_bb_custom_module_output', $shortcode_output, $module, $settings );
 
-			//Output
+
+			// Output
+
 				echo $shortcode_output;
+
 		}
 	} // /wma_bb_custom_module_output
 
@@ -386,7 +406,7 @@
 	 * Module specific frontend JS
 	 *
 	 * @since    1.3.15
-	 * @version  1.3.18
+	 * @version  1.5.0
 	 *
 	 * @param  obj    $module   Page builder's current module object
 	 * @param  array  $settings Settings passed from page builder form
@@ -412,12 +432,7 @@
 
 			$id       = $module->node;
 			$settings = (array) $settings;
-
-			/**
-			 * Removing 'wm_' (string length = 3) from the beginning
-			 * of the custom module file name slug.
-			 */
-			$module = substr( $module->slug, 3 );
+			$module   = substr( $module->slug, strlen( WM_Shortcodes::$prefix_shortcode ) );
 
 
 		// Processing
@@ -506,17 +521,17 @@
 	/**
 	 * Get custom module slug
 	 *
-	 * Removing 'wm_' (string length = 3) from the beginning
-	 * of the custom module file name slug.
-	 *
 	 * @since    1.1.5
-	 * @version  1.1.5
+	 * @version  1.5.0
 	 *
 	 * @param  path $file
 	 */
 	if ( ! function_exists( 'wma_bb_get_custom_module_slug' ) ) {
 		function wma_bb_get_custom_module_slug( $file = __FILE__ ) {
-			//Output
-				return substr( basename( $file, '.php' ), 3 );
+
+			// Output
+
+				return substr( basename( $file, '.php' ), strlen( WM_Shortcodes::$prefix_shortcode ) );
+
 		}
 	} // /wma_bb_get_custom_module_slug

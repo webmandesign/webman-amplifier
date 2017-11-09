@@ -1,1178 +1,1498 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
- * WebMan Shortcodes
+ * WebMan Shortcodes class
  *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
- */
-
-
-
-//Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-
-
-/**
- * WebMan Shortcodes Class
+ * @copyright   WebMan Design, Oliver Juhas
  *
- * @package     WebMan Amplifier
- * @subpackage  Shortcodes
+ * @since    1.0.0
+ * @version  1.5.0
  *
- * @since    1.0
- * @version  1.4.11
+ * Contents:
+ *
+ *   0) Init
+ *  10) Setup
+ * 100) Getters
  */
-if ( ! class_exists( 'WM_Shortcodes' ) ) {
-
-	class WM_Shortcodes {
-
-		/**
-		 * VARIABLES DEFINITION
-		 */
-
-			/**
-			 * @var  array
-			 */
-			private static $codes = array();
-
-			/**
-			 * @var  array Various attribute defaults used across multiple shortcodes
-			 */
-			private static $codes_globals = array();
-
-			/**
-			 * @var  string Allowed inline HTML tags (in Accordion title for example)
-			 */
-			private $inline_tags = '';
-
-			/**
-			 * @var  string Path to shortcode renderers
-			 */
-			private $renderers_dir = '';
-
-			/**
-			 * @var  string Shortcode name prefix (if required, for example inside Visual Composer plugin)
-			 */
-			private $prefix_shortcode_name = '';
-
-			/**
-			 * @var  string Shortcode code prefix
-			 */
-			private $prefix_shortcode = 'wm_';
-
-			/**
-			 * @var  string Editor user capability
-			 */
-			private $editor_capability = '';
-
-			/**
-			 * @var  object
-			 */
-			protected static $instance;
+class WM_Shortcodes {
 
 
+
+
+
+	/**
+	 * 0) Init
+	 */
+
+		private static $instance;
+
+		public static $definitions = array();
+
+		public static $prefix_shortcode = 'wm_';
+		public static $prefix_shortcode_name = 'WM ';
 
 
 
 		/**
-		 * INITIALIZATION FUNCTIONS
+		 * Constructor
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
 		 */
+		private function __construct() {
 
-			/**
-			 * Constructor
-			 *
-			 * @since    1.0
-			 * @version  1.3.4
-			 * @access   public
-			 */
-			public function __construct() {
+			// Processing
 
-				$this->setup_globals();
-				$this->setup_filters();
-				$this->add_shortcodes();
+				// Setup
 
+					// Cache shortcode definitions array
+
+						self::$definitions = self::get_definitions_from_file();
+
+				// Hooks
+
+				self::setup_filters();
+
+				self::add_shortcodes();
+
+				/**
+				 * @todo  This should go into `includes/compatibility/` folder!
+				 */
 				// Beaver Builder plugin integration
 
-					$this->beaver_builder_support();
+					self::beaver_builder_support();
 
 				// Visual Composer plugin integration
 
 					if ( wma_is_active_vc() ) {
-						$this->visual_composer_support();
+						self::visual_composer_support();
 					}
 
-			} // /__construct
+		} // /__construct
 
 
 
-			/**
-			 * Return an instance of the class
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @return  object A single instance of this class.
-			 */
-			public static function instance() {
-				if ( ! isset( self::$instance ) ) {
-					self::$instance = new WM_Shortcodes;
+		/**
+		 * Initialization (get instance)
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function init() {
+
+			// Processing
+
+				if ( null === self::$instance ) {
+					self::$instance = new self;
 				}
+
+
+			// Output
+
 				return self::$instance;
-			} // /instance
+
+		} // /init
 
 
 
-			/**
-			 * Shortcodes globals setup
-			 *
-			 * @since    1.0
-			 * @version  1.2.2
-			 *
-			 * @access  private
-			 */
-			private function setup_globals() {
-				//Helper variables
-					$postTypes = get_post_types(); //get all post types to check if the shortcode should be added
-					$fonticons = get_option( 'wmamp-icons' );
-					if ( isset( $fonticons['icons_select'] ) ) {
-						$fonticons = array_merge( array( '' => '' ), $fonticons['icons_select'] );
-					} else {
-						$fonticons = array();
-					}
-					$post_types = array( 'post' => __( 'Posts', 'webman-amplifier' ) );
-					if ( in_array( 'wm_logos', $postTypes ) ) {
-						$post_types['wm_logos'] = __( 'Logos', 'webman-amplifier' );
-					}
-					if ( in_array( 'wm_projects', $postTypes ) ) {
-						$post_types['wm_projects'] = __( 'Projects', 'webman-amplifier' );
-					}
-					if ( in_array( 'wm_staff', $postTypes ) ) {
-						$post_types['wm_staff'] = __( 'Staff', 'webman-amplifier' );
-					}
-					$post_types = apply_filters( 'wmhook_shortcode_' . 'post_types', $post_types );
-					asort( $post_types );
 
-				//Editor user capability
-					$this->editor_capability = apply_filters( 'wmhook_wmamp_' . 'editor_capability', 'edit_posts' );
 
-				//Paths and URLs
-					$this->definitions_dir  = apply_filters( 'wmhook_shortcode_' . 'definitions_dir', trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/definitions' ) );
-					$this->renderers_dir    = apply_filters( 'wmhook_shortcode_' . 'renderers_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
-					$this->page_builder_dir = apply_filters( 'wmhook_shortcode_' . 'vc_addons_dir',   trailingslashit( WMAMP_INCLUDES_DIR . 'shortcodes/page-builder' ) );
+	/**
+	 * 10) Setup
+	 */
 
-				//Visual Composer integration
-					if ( ! ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) ) {
-						$this->prefix_shortcode_name = apply_filters( 'wmhook_shortcode_' . 'prefix_name', 'WM ' );
+		/**
+		 * Register styles and scripts
+		 *
+		 * @since    1.0.0
+		 * @version  1.3.15
+		 */
+		public static function assets_register() {
+
+			// Helper variables
+
+				$icon_font_url = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
+				$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
+
+				$vc_backend_dependencies = ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.9', '<' ) ) ? ( array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views' ) ) : ( array( 'vc-backend-min-js' ) );
+
+
+			// Processing
+
+				// Styles
+
+					wp_register_style( 'wm-radio',               WMAMP_ASSETS_URL . 'css/input-wm-radio.css',       array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-bb-addon', WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css', array(), WMAMP_VERSION, 'screen' );
+					wp_register_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
+					if ( $icon_font_url ) {
+						wp_register_style( 'wm-fonticons', $icon_font_url, array(), WMAMP_VERSION, 'screen' );
 					}
 
-				//Shortcodes globals (variables used across multiple shortcodes)
-					$this->inline_tags   = apply_filters( 'wmhook_shortcode_' . 'inline_tags',   '<a><abbr><b><br><code><em><i><img><mark><small><span><strong><u>' );
-					self::$codes_globals = apply_filters( 'wmhook_shortcode_' . 'codes_globals', array(
-							'colors' => array(
-									'blue'   => __( 'Blue', 'webman-amplifier' ),
-									'gray'   => __( 'Gray', 'webman-amplifier' ),
-									'green'  => __( 'Green', 'webman-amplifier' ),
-									'orange' => __( 'Orange', 'webman-amplifier' ),
-									'red'    => __( 'Red', 'webman-amplifier' ),
-								),
-							'column_widths' => array( '1/2', '1/3', '2/3', '1/4', '3/4', '1/5', '2/5', '3/5', '4/5' ),
-							'divider_appearance'  => array(
-									'line'        => __( 'Line', 'webman-amplifier' ),
-									'dotted'      => __( 'Dotted', 'webman-amplifier' ),
-									'dashed'      => __( 'Dashed', 'webman-amplifier' ),
-									'double-line' => __( 'Double line', 'webman-amplifier' ),
-									'whitespace'  => __( 'Whitespace', 'webman-amplifier' ),
-								),
-							'dropcap_shapes' => array(
-									'circle'         => __( 'Circle', 'webman-amplifier' ),
-									'square'         => __( 'Square', 'webman-amplifier' ),
-									'rounded-square' => __( 'Rounded square', 'webman-amplifier' ),
-									'leaf-left'      => __( 'Leaf left', 'webman-amplifier' ),
-									'leaf-right'     => __( 'Leaf right', 'webman-amplifier' ),
-									'half-circle'    => __( 'Half circle', 'webman-amplifier' ),
-								),
-							'font_icons' => $fonticons,
-							'post_types' => $post_types,
-							'sizes' => array(
-								//Actual sizes options used in select form field
-									'options' => array(
-										's'  => __( 'Small', 'webman-amplifier' ),
-										'm'  => __( 'Medium', 'webman-amplifier' ),
-										'l'  => __( 'Large', 'webman-amplifier' ),
-										'xl' => __( 'Extra-large', 'webman-amplifier' ),
-									),
-								//Parameter value to CSS class translation
-									'values' =>	array(
-										's'  => 'small',
-										'm'  => 'medium',
-										'l'  => 'large',
-										'xl' => 'extra-large',
-									),
-								),
-							'social_icons' => array( 'Behance', 'Blogger', 'Delicious', 'DeviantART', 'Digg', 'Dribbble', 'Facebook', 'Flickr', 'Forrst', 'Github', 'Google+', 'Instagram', 'LinkedIn', 'MySpace', 'Pinterest', 'Reddit', 'RSS', 'Skype', 'SoundCloud', 'StumbleUpon', 'Tumblr', 'Twitter', 'Vimeo', 'WordPress', 'YouTube' ),
-							'table_appearance' => array(
-									'basic'            => __( 'Basic', 'webman-amplifier' ),
-									'bordered'         => __( 'Bordered', 'webman-amplifier' ),
-									'striped'          => __( 'Zebra striping', 'webman-amplifier' ),
-									'bordered-striped' => __( 'Bordered zebra striping', 'webman-amplifier' ),
-								),
-						), $post_types, $fonticons );
+				// Scripts
 
-				//Get shortcodes definitions array
-					$definitions_file_path = apply_filters( 'wmhook_shortcode_' . 'definitions_path', $this->definitions_dir . 'definitions.php' );
-					if ( file_exists( $definitions_file_path ) ) {
-						include_once( $definitions_file_path );
+					wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js', array( 'jquery' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-parallax', WMAMP_ASSETS_URL . 'js/shortcode-parallax.js', array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-posts-isotope', WMAMP_ASSETS_URL . 'js/shortcode-posts-isotope.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-posts-masonry', WMAMP_ASSETS_URL . 'js/shortcode-posts-masonry.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-posts-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-posts-owlcarousel.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-posts-slick', WMAMP_ASSETS_URL . 'js/shortcode-posts-slick.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-slideshow-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-slideshow-owlcarousel.js', array( 'jquery' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-tabs', WMAMP_ASSETS_URL . 'js/shortcode-tabs.js', array( 'jquery' ), WMAMP_VERSION, true );
+					wp_register_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
+
+					// 3rd party scripts
+
+						wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
+						wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'jquery-owlcarousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'jquery-parallax',     WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
+						wp_register_script( 'slick',               WMAMP_ASSETS_URL . 'js/plugins/slick.min.js',                    array( 'jquery' ), WMAMP_VERSION, true );
+
+				// Allow hooking for deregistering
+
+					do_action( 'wmhook_shortcode_' . 'assets_registered' );
+
+		} // /assets_register
+
+
+
+		/**
+		 * Enqueue frontend styles and scripts
+		 *
+		 * @since    1.0
+		 * @version  1.3.14
+		 */
+		public static function assets_frontend() {
+
+			// Helper variables
+
+				global $is_IE;
+				$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+
+
+			// Processing
+
+				// Styles
+
+					if ( $icon_font_url ) {
+						wp_enqueue_style( 'wm-fonticons' );
 					}
 
-				//Define the shortcodes
-					$codes = apply_filters( 'wmhook_shortcode_' . 'definitions', $shortcode_definitions );
+					// Visual Composer - deregister frontend styles
 
-				//Empty self::$codes variable before processing
-					self::$codes = array(
-							'generator'       => array(),
-							'global'          => array(),
-							'preprocess'      => array(),
-							'renderer'        => array(),
-							'styles'          => array(),
-							'generator_short' => array(),
-							'bb_plugin'       => array(),
-							'vc_plugin'       => array(),
-						);
-
-				//Separate shortcodes into groups
-					foreach ( (array) $codes as $code => $definition ) {
-
-						$prefix_shortcode = $this->prefix_shortcode;
-
-						//Skip the shortcode if the required post type is not supported in the theme
-							if ( isset( $definition['post_type_required'] ) && trim( $definition['post_type_required'] ) && ! in_array( $definition['post_type_required'], $postTypes ) ) {
-								continue;
-							}
-
-						//Check if shortcode supported by the theme
-							if (
-									isset( $definition['since'] )
-									&& $definition['since']
-									&& version_compare( apply_filters( 'wmhook_shortcode_' . 'supported_version', WMAMP_VERSION ), $definition['since'], '<' )
-								) {
-								continue;
-							}
-
-						//All shortcodes will be processed globally (except [pre] and [raw])
-							if ( ! in_array( $code, array( 'pre', 'raw' ) ) ) {
-								if (
-										array_key_exists( 'custom_prefix', $definition )
-										&& isset( $definition['custom_prefix'] )
-									) {
-									self::$codes['global'][] = array(
-											'name'          => $code,
-											'custom_prefix' => $definition['custom_prefix'],
-										);
-									$prefix_shortcode = $definition['custom_prefix'];
-								} else {
-									self::$codes['global'][] = $code;
-								}
-							}
-
-						//Select only shortcodes that need preprocessing
-							if ( isset( $definition['preprocess'] ) && $definition['preprocess'] ) {
-								self::$codes['preprocess'][] = $code;
-							}
-
-						//Rendering overrides
-							if ( isset( $definition['renderer'] ) && $definition['renderer'] ) {
-								self::$codes['renderer'][ $code ] = $definition['renderer'];
-
-								if (
-										array_key_exists( 'custom_prefix', $definition )
-										&& isset( $definition['custom_prefix'] )
-									) {
-									self::$codes['renderer'][ $code ]['custom_prefix'] = $definition['custom_prefix'];
-								}
-							}
-
-						//Setting Shortcode Generator setup
-							if (
-									isset( $definition['generator'] ) && $definition['generator']
-									&& isset( $definition['generator']['name'] )
-									&& isset( $definition['generator']['code'] )
-								) {
-								$definition['generator']['class'] = 'generator_item_' . $code;
-								$definition['generator']['code']  = str_replace( 'PREFIX_', $prefix_shortcode, $definition['generator']['code'] );
-								self::$codes['generator'][$code]  = $definition['generator'];
-								//Shortcodes in Shortcode Generator displayed in Visual Composer plugin
-								if ( isset( $definition['generator']['short'] ) && $definition['generator']['short'] ) {
-									self::$codes['generator_short'][$code] = $definition['generator'];
-								}
-							}
-
-						//Beaver Builder integration
-							if (
-									isset( $definition['bb_plugin'] )
-									&& is_array( $definition['bb_plugin'] ) && ! empty( $definition['bb_plugin'] )
-								) {
-								$definition['bb_plugin']['output'] = str_replace( 'PREFIX_', $prefix_shortcode, $definition['bb_plugin']['output'] );
-								if ( isset( $definition['bb_plugin']['output_children'] ) ) {
-									$definition['bb_plugin']['output_children'] = str_replace( 'PREFIX_', $prefix_shortcode, $definition['bb_plugin']['output_children'] );
-								}
-
-								self::$codes['bb_plugin'][$code] = $definition['bb_plugin'];
-							}
-
-						//Visual Composer plugin integration
-							if (
-									wma_is_active_vc()
-									&& isset( $definition['vc_plugin'] )
-									&& is_array( $definition['vc_plugin'] ) && ! empty( $definition['vc_plugin'] )
-									&& isset( $definition['vc_plugin']['name'] ) && trim( $definition['vc_plugin']['name'] ) //"name" is required parameter by the Visual Composer plugin
-									&& isset( $definition['vc_plugin']['base'] ) && trim( $definition['vc_plugin']['base'] ) //"base" is required parameter by the Visual Composer plugin
-								) {
-								self::$codes['vc_plugin'][$code] = $definition['vc_plugin'];
-							}
-
-					} // /foreach
-
-				//Postprocess filters
-					self::$codes = apply_filters( 'wmhook_shortcode_' . 'definitions_processed', self::$codes );
-			} // /setup_globals
-
-
-
-			/**
-			 * Register styles and scripts
-			 *
-			 * @since    1.0
-			 * @version  1.3.15
-			 *
-			 * @access   public
-			 */
-			public static function assets_register() {
-
-				// Helper variables
-
-					$icon_font_url = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
-					$rtl           = ( is_rtl() ) ? ( '.rtl' ) : ( '' );
-
-					$vc_backend_dependencies = ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.9', '<' ) ) ? ( array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views' ) ) : ( array( 'vc-backend-min-js' ) );
-
-
-				// Processing
-
-					// Styles
-
-						wp_register_style( 'wm-radio',               WMAMP_ASSETS_URL . 'css/input-wm-radio.css',       array(), WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wm-shortcodes-bb-addon', WMAMP_ASSETS_URL . 'css/shortcodes-bb-addons.css', array(), WMAMP_VERSION, 'screen' );
-						wp_register_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
-						if ( $icon_font_url ) {
-							wp_register_style( 'wm-fonticons', $icon_font_url, array(), WMAMP_VERSION, 'screen' );
+						if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
+							wp_deregister_style( 'js_composer_front' );
 						}
 
-					// Scripts
+				// Allow hooking for dequeuing
 
-						wp_register_script( 'wm-shortcodes-accordion', WMAMP_ASSETS_URL . 'js/shortcode-accordion.js', array( 'jquery' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-parallax', WMAMP_ASSETS_URL . 'js/shortcode-parallax.js', array( 'jquery', 'jquery-parallax' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts-isotope', WMAMP_ASSETS_URL . 'js/shortcode-posts-isotope.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts-masonry', WMAMP_ASSETS_URL . 'js/shortcode-posts-masonry.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-posts-owlcarousel.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-posts-slick', WMAMP_ASSETS_URL . 'js/shortcode-posts-slick.js', array( 'jquery', 'imagesloaded' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-slideshow-owlcarousel', WMAMP_ASSETS_URL . 'js/shortcode-slideshow-owlcarousel.js', array( 'jquery' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-tabs', WMAMP_ASSETS_URL . 'js/shortcode-tabs.js', array( 'jquery' ), WMAMP_VERSION, true );
-						wp_register_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
+					do_action( 'wmhook_shortcode_' . 'assets_frontend_enqueued' );
 
-						// 3rd party scripts
-
-							wp_register_script( 'isotope',             WMAMP_ASSETS_URL . 'js/plugins/isotope.pkgd.min.js',             array(),           WMAMP_VERSION, true );
-							wp_register_script( 'jquery-lwtCountdown', WMAMP_ASSETS_URL . 'js/plugins/jquery.lwtCountdown.min.js',      array( 'jquery' ), WMAMP_VERSION, true );
-							wp_register_script( 'jquery-owlcarousel',  WMAMP_ASSETS_URL . 'js/plugins/owl.carousel' . $rtl . '.min.js', array( 'jquery' ), WMAMP_VERSION, true );
-							wp_register_script( 'jquery-parallax',     WMAMP_ASSETS_URL . 'js/plugins/jquery.parallax.min.js',          array( 'jquery' ), WMAMP_VERSION, true );
-							wp_register_script( 'slick',               WMAMP_ASSETS_URL . 'js/plugins/slick.min.js',                    array( 'jquery' ), WMAMP_VERSION, true );
-
-					// Allow hooking for deregistering
-
-						do_action( 'wmhook_shortcode_' . 'assets_registered' );
-
-			} // /assets_register
+		} // /assets_frontend
 
 
 
-			/**
-			 * Enqueue frontend styles and scripts
-			 *
-			 * @since    1.0
-			 * @version  1.3.14
-			 *
-			 * @access  public
-			 */
-			public static function assets_frontend() {
+		/**
+		 * Enqueue backend (admin) styles and scripts for Visual Composer
+		 *
+		 * @since    1.2.9
+		 * @version  1.5.0
+		 */
+		public static function assets_backend_vc() {
 
-				// Helper variables
+			// Requirements check
 
-					global $is_IE;
-					$icon_font_url = apply_filters( 'wmhook_shortcode_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) );
+				if ( ! current_user_can( apply_filters( 'wmhook_wmamp_editor_capability', 'edit_posts' ) ) ) {
+					return;
+				}
 
 
-				// Processing
+			// Helper variables
 
-					// Styles
+				global $pagenow, $post_type;
 
-						if ( $icon_font_url ) {
-							wp_enqueue_style( 'wm-fonticons' );
+				$admin_pages = array( 'post.php', 'post-new.php' );
+
+				$vc_backend_dependencies = ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.9', '<' ) ) ? ( array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views' ) ) : ( array( 'vc-backend-min-js' ) );
+
+
+			// Processing
+
+				// Visual Composer plugin integration
+
+					$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
+
+					if (
+						in_array( $pagenow, apply_filters( 'wmhook_shortcode_' . 'vc_admin_pages', $admin_pages ) )
+						&& wma_is_active_vc()
+						&& in_array( $post_type, $vc_supported_post_types )
+						&& defined( 'WPB_VC_VERSION' )
+					) {
+
+						// Styles
+
+							wp_enqueue_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
+							wp_enqueue_style( 'wm-radio', WMAMP_ASSETS_URL . 'css/input-wm-radio.css', array(), WMAMP_VERSION, 'screen' );
+
+						// Scripts
+
+							wp_enqueue_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
+
+						/**
+						 * Yes, we need to set the whole `wp_enqueue_style/script()` function as Visual Composer loads
+						 * assets strangely and those handles are not registered yet.
+						 */
+
+					}
+
+				// Allow hooking for dequeuing
+
+					do_action( 'wmhook_shortcode_' . 'assets_backend_vc_enqueued' );
+
+		} // /assets_backend_vc
+
+
+
+		/**
+		 * Setup filter hooks
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 */
+		public static function setup_filters() {
+
+			// Processing
+
+				// Assets
+
+					add_action( 'init', __CLASS__ . '::assets_register', 998 ); // Has to be hooked early for shortcodes to use the registered script  @todo  Use full enqueue script syntax in shortcodes script enqueuing.
+					add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_frontend' );
+					add_action( 'vc_backend_editor_enqueue_js_css', __CLASS__ . '::assets_backend_vc' );
+
+				// Shortcodes in preprocess
+
+					add_filter( 'wmhook_shortcode_preprocess_shortcodes_output', 'do_shortcode' );
+
+				// Preprocess certain shortcodes
+
+					add_filter( 'the_content',            __CLASS__ . '::preprocess_shortcodes', 7 );
+					add_filter( 'wmhook_content_filters', __CLASS__ . '::preprocess_shortcodes', 7 );
+					add_filter( 'widget_text',            __CLASS__ . '::preprocess_shortcodes', 7 );
+
+				// Fixes HTML issues created by wpautop
+
+					add_filter( 'the_content', __CLASS__ . '::fix_shortcodes' );
+
+				// Process shortcodes `$content`
+
+					add_filter( 'wmhook_shortcode__content', __CLASS__ . '::process_content', 20, 2 );
+
+					// [pre]
+					add_filter( 'wmhook_shortcode_' . 'pre' . '_content', __CLASS__ . '::process_content_pre', 10 );
+
+					// [list]
+					add_filter( 'wmhook_shortcode_' . 'list' . '_content', 'shortcode_unautop', 10 );
+
+					// [widget_area]
+					add_filter( 'wmhook_shortcode_' . 'widget_area' . '_output', 'wma_minify_html', 10 );
+
+		} // /setup_filters
+
+
+
+		/**
+		 * Register shortcodes
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  array $shortcodes
+		 */
+		public static function add_shortcodes( $shortcodes = array() ) {
+
+			// Helper variables
+
+				$shortcodes = (array) $shortcodes;
+
+				// Fall back to global shortcodes
+
+					if ( empty( $shortcodes ) ) {
+						$shortcodes = (array) self::get_definitions_processed( 'global' );
+					}
+
+
+			// Requirements check
+
+				if ( empty( $shortcodes ) ) {
+					return;
+				}
+
+
+			// Processing
+
+				foreach ( $shortcodes as $shortcode ) {
+
+					// Shortcode prefix may change for each shortcode down the way...
+
+						$prefix_shortcode = self::$prefix_shortcode;
+
+					// Modifying $prefix_shortcode if set
+
+						if (
+							is_array( $shortcode )
+							&& isset( $shortcode['custom_prefix'] )
+						) {
+							$prefix_shortcode = $shortcode['custom_prefix'];
 						}
 
-						// Visual Composer - deregister frontend styles
+					// Get shortcode name
 
-							if ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) ) {
-								wp_deregister_style( 'js_composer_front' );
-							}
+						if (
+							is_array( $shortcode )
+							&& isset( $shortcode['name'] )
+						) {
+							$shortcode = $shortcode['name'];
+						}
 
-					// Allow hooking for dequeuing
+						$shortcode = $prefix_shortcode . $shortcode;
 
-						do_action( 'wmhook_shortcode_' . 'assets_frontend_enqueued' );
+					// Add the shortcode now
 
-			} // /assets_frontend
+						add_shortcode( $shortcode, __CLASS__ . '::shortcode_render' );
+
+				}
+
+		} // /add_shortcodes
 
 
+
+
+
+	/**
+	 * SHORTCODES OUTPUT MANIPULATION (FIXES)
+	 */
+
+		/**
+		 * Content fixes for shortcodes
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $content Post/page content.
+		 */
+		public static function fix_shortcodes( $content = '' ) {
+			$fix = array(
+				'<p>['    => '[',
+				']</p>'   => ']',
+				']<br />' => ']',
+				']<br>'   => ']'
+			);
+			$content = strtr( $content, $fix );
+
+			return apply_filters( 'wmhook_shortcode_' . 'fix_shortcodes' . '_output', $content );
+		} // /fix_shortcodes
+
+
+
+		/**
+		 * Preprocess shortcodes to prevent HTML mismatch
+		 *
+		 * Preprocessing shortcodes that use inline HTML tags prevent mess
+		 * with <p> tags openings and closings.
+		 * These shortcodes will be processed also normally (outside preprocessing)
+		 * to retain compatibility with do_shortcode() (in sliders for example).
+		 * Surely, if the shortcode was applied in preprocess, it shouldn't appear
+		 * again in the content when processing shortcodes normally.
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $content
+		 */
+		public static function preprocess_shortcodes( $content = '' ) {
+
+			// Helper variables
+
+				$codes = (array) self::get_definitions_processed( 'preprocess' );
+
+
+			// Requirements check
+
+				if ( empty( $codes ) ) {
+					return $content;
+				}
+
+
+			// Processing
+
+				global $shortcode_tags;
+
+				// Backup current registered shortcodes and clear them all out
+
+					$shortcode_tags_backup = $shortcode_tags;
+					remove_all_shortcodes();
+
+				// Register shortcodes in preprocessing
+
+					self::add_shortcodes( $codes );
+
+				// Do the preprocess shortcodes prematurely (in WordPress standards)
+
+					$content = (string) apply_filters( 'wmhook_shortcode_preprocess_shortcodes_output', $content, $codes );
+
+				// Put the original shortcodes back
+
+					$shortcode_tags = $shortcode_tags_backup;
+
+
+			// Output
+
+				return $content;
+
+		} // /preprocess_shortcodes
+
+
+
+
+
+	/**
+	 * SHORTCODES' $content VARIABLE PROCESSING
+	 */
+
+		/**
+		 * Shortcode content processing: Generic
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $content
+		 * @param  string $shortcode
+		 */
+		public static function process_content( $content = '', $shortcode = '' ) {
+
+			// Requirements check
+
+				if ( empty( $content ) || empty( $shortcode ) ) {
+					return '';
+				}
+
+
+			// Helper variables
+
+				$run = apply_filters( 'wmhook_shortcode_process_content_run', array(
+					'do_shortcode' => array(
+						'accordion',
+						'button',
+						'call_to_action',
+						'column',
+						'content_module',
+						'item',
+						'list',
+						'marker',
+						'message',
+						'posts',
+						'price',
+						'pricing_table',
+						'progress',
+						'pullquote',
+						'row',
+						'separator_heading',
+						'tabs',
+						// Visual Composer support
+						'vc_row',
+						'vc_row_inner',
+						'vc_column',
+						'vc_column_inner',
+					),
+					'inline_tags_only' => array(
+						'progress',
+					),
+					'wpautop_no_br' => array(
+						'item',
+					),
+					'wpautop_shortcodes' => array(
+						'text_block',
+					),
+				) );
+
+
+			// Processing
+
+				if (
+					isset( $run['do_shortcode'] )
+					&& in_array( $shortcode, (array) $run['do_shortcode'] )
+				) {
+					$content = do_shortcode( $content );
+				}
+
+				if (
+					isset( $run['inline_tags_only'] )
+					&& in_array( $shortcode, (array) $run['inline_tags_only'] )
+				) {
+					$content = wp_kses( $content, self::get_inline_tags() );
+				}
+
+				if (
+					isset( $run['wpautop_no_br'] )
+					&& in_array( $shortcode, (array) $run['wpautop_no_br'] )
+				) {
+					$content = wpautop( $content, false );
+				}
+
+				if (
+					isset( $run['wpautop_shortcodes'] )
+					&& in_array( $shortcode, (array) $run['wpautop_shortcodes'] )
+				) {
+					$content = wpautop( preg_replace( '/<\/?p\>/', "\r\n", $content ) . "\r\n" );
+					$content = do_shortcode( shortcode_unautop( $content ) );
+				}
+
+
+			// Output
+
+				return $content;
+
+		} // /process_content
+
+
+
+		/**
+		 * Shortcode content processing: [pre]
+		 *
+		 * @todo  Remove this shortcode.
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $content
+		 */
+		public static function process_content_pre( $content = '' ) {
+
+			// Requirements check
+
+				if ( empty( $content ) ) {
+					return $content;
+				}
+
+
+			// Processing
+
+					$content = str_replace(
+						'[',
+						'&#91;',
+						$content
+					);
+					$content = str_replace(
+						array( '<p>', '</p>', '<br />' ),
+						'',
+						$content
+					);
+					$content = esc_html( shortcode_unautop( $content ) );
+
+
+			// Output
+
+				return $content;
+
+		} // /process_content_pre
+
+
+
+
+
+	/**
+	 * PLUGINS INTEGRATION
+	 *
+	 * @todo  This should go into `includes/compatibility/` folder!
+	 */
+
+
+		/**
+		 * BEAVER BUILDER PLUGIN
+		 */
 
 			/**
-			 * Enqueue backend (admin) styles and scripts for Visual Composer
+			 * Add Beaver Builder plugin support
 			 *
-			 * @since    1.2.9
-			 * @version  1.3.6
+			 * @link  https://www.wpbeaverbuilder.com/
 			 *
-			 * @access  public
+			 * Using 7, 8 and 9 position to hook the Beaver Builder support.
+			 * If you intend to change these positions, change the numbers
+			 * but keep the order.
+			 *
+			 * @since    1.1.0
+			 * @version  1.5.0
 			 */
-			public function assets_backend_vc() {
+			public static function beaver_builder_support() {
 
 				// Requirements check
 
-					if ( ! current_user_can( $this->editor_capability ) ) {
+					if (
+						! class_exists( 'FLBuilder' )
+						|| (
+							is_admin()
+							&& (
+								! isset( $_REQUEST['page'] )
+								|| ! in_array( $_REQUEST['page'], array( 'fl-builder-settings', 'fl-builder-multisite-settings' ) )
+								// @todo
+								// This is also used in BB in `classes/class-fl-builder-admin-settings.php`.
+								// However, I think we can do better if we try harder.
+							)
+						)
+					) {
 						return;
 					}
 
 
-				// Helper variables
+				// Processing
 
-					global $pagenow, $post_type;
+					add_action( 'init', __CLASS__ . '::init_beaver_builder_support', 7 );
 
-					$admin_pages = array( 'post.php', 'post-new.php' );
+			} // /beaver_builder_support
 
-					$vc_backend_dependencies = ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.9', '<' ) ) ? ( array( 'wpb_js_composer_js_atts', 'wpb_js_composer_js_custom_views' ) ) : ( array( 'vc-backend-min-js' ) );
 
+
+			/**
+			 * Add Beaver Builder plugin support init
+			 *
+			 * @since    1.1.0
+			 * @version  1.5.0
+			 */
+			public static function init_beaver_builder_support() {
 
 				// Processing
 
-					// Visual Composer plugin integration
+					require_once WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/beaver-builder/beaver-builder.php';
 
-						$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
-
-						if (
-								in_array( $pagenow, apply_filters( 'wmhook_shortcode_' . 'vc_admin_pages', $admin_pages ) )
-								&& wma_is_active_vc()
-								&& in_array( $post_type, $vc_supported_post_types )
-								&& defined( 'WPB_VC_VERSION' )
-							) {
-
-							// Styles
-
-								wp_enqueue_style( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'css/shortcodes-vc-addons.css', array(), WMAMP_VERSION, 'screen' );
-								wp_enqueue_style( 'wm-radio', WMAMP_ASSETS_URL . 'css/input-wm-radio.css', array(), WMAMP_VERSION, 'screen' );
-
-							// Scripts
-
-								wp_enqueue_script( 'wm-shortcodes-vc-addon', WMAMP_ASSETS_URL . 'js/shortcodes-vc-addons.js', (array) $vc_backend_dependencies, WMAMP_VERSION, true );
-
-							/**
-							 * Yes, we need to set the whole `wp_enqueue_style/script()` function as Visual Composer loads
-							 * assets strangely and those handles are not registered yet.
-							 */
-
-						}
-
-					// Allow hooking for dequeuing
-
-						do_action( 'wmhook_shortcode_' . 'assets_backend_vc_enqueued' );
-
-			} // /assets_backend_vc
+			} // /init_beaver_builder_support
 
 
+
+		/**
+		 * VISUAL COMPOSER PLUGIN
+		 */
 
 			/**
-			 * Setup filter hooks
+			 * Add Visual Composer plugin support
 			 *
-			 * @since    1.0
-			 * @version  1.3.14
+			 * @link  http://vc.wpbakery.com/
 			 *
-			 * @access  private
+			 * @since    1.0.0
+			 * @version  1.5.0
 			 */
-			public function setup_filters() {
-
-				// Processing
-
-					// Assets
-
-						add_action( 'init', __CLASS__ . '::assets_register', 998 ); // Has to be hooked early for shortcodes to use the registered script  @todo  Use full enqueue script syntax in shortcodes script enqueuing.
-						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_frontend' );
-						add_action( 'vc_backend_editor_enqueue_js_css', array( $this, 'assets_backend_vc' ) );
-
-					// Shortcodes in text widget
-
-						add_filter( 'widget_text', 'do_shortcode' );
-
-					// Preprocess certain shortcodes
-
-						add_filter( 'the_content',            array( $this, 'preprocess_shortcodes' ), 7 );
-						add_filter( 'wmhook_content_filters', array( $this, 'preprocess_shortcodes' ), 7 );
-						add_filter( 'widget_text',            array( $this, 'preprocess_shortcodes' ), 7 );
-
-					// Fixes HTML issues created by wpautop
-
-						add_filter( 'the_content', array( $this, 'fix_shortcodes' ) );
-
-					// Shortcodes' $content variable filtering
-
-						add_filter( 'wmhook_shortcode_' . '_content',          array( $this, 'shortcodes_content' ),     20, 2 );
-						add_filter( 'wmhook_shortcode_' . 'pre' . '_content',  array( $this, 'shortcodes_content_pre' ), 10    );
-						add_filter( 'wmhook_shortcode_' . 'list' . '_content', 'shortcode_unautop',                      10    );
-
-					// Shortcodes' output filtering
-
-						add_filter( 'wmhook_shortcode_' . 'widget_area' . '_output', 'wma_minify_html', 10 );
-
-			} // /setup_filters
-
-
-
-			/**
-			 * Register shortcodes
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   array $shortcodes
-			 */
-			public function add_shortcodes( $shortcodes = array() ) {
-				//If no shortcodes array set, use global shortcodes only
-					if ( empty( $shortcodes ) ) {
-						$shortcodes = (array) self::$codes['global'];
+			public static function visual_composer_support() {
+				//VC 4+ disabling Frontend Editor
+					if ( function_exists( 'vc_disable_frontend' ) ) {
+						vc_disable_frontend();
 					}
 
-				//If still no shortcodes to register, don't run the add_shortcode() function
-					if ( ! empty( $shortcodes ) ) {
-						foreach ( $shortcodes as $shortcode ) {
-							//Helper variables
-								$prefix_shortcode = $this->prefix_shortcode;
+				//VC additional shortcodes admin interface
+					$vc_shortcodes_admin_tweaks = apply_filters( 'wmhook_shortcode_' . 'vc_shortcodes_admin_tweaks_file',
+					require_once WMAMP_INCLUDES_DIR . 'shortcodes/page-builder/visual-composer/visual-composer.php' );
+					require_once( $vc_shortcodes_admin_tweaks );
 
-							//Modifying $prefix_shortcode if set
-								if (
-										is_array( $shortcode )
-										&& array_key_exists( 'custom_prefix', $shortcode )
-										&& isset( $shortcode['custom_prefix'] )
-									) {
-									$prefix_shortcode = $shortcode['custom_prefix'];
-								}
+				//VC setup screen modifications
+					add_filter( 'vc_settings_tabs', __CLASS__ . '::visual_composer_setup' );
+					delete_option( 'wpb_js_use_custom' );
 
-							//Setting shortcode name
-								if (
-										is_array( $shortcode )
-										&& array_key_exists( 'name', $shortcode )
-										&& isset( $shortcode['name'] )
-									) {
-									$shortcode = $shortcode['name'];
-								}
-
-							add_shortcode( $prefix_shortcode . $shortcode, array( $this, 'shortcode_render' ) );
+				//Disable VC Guide Tour
+					if ( function_exists( 'vc_editor_post_types' ) ) {
+						foreach ( vc_editor_post_types() as $post_type ) {
+							add_filter( 'vc_ui-pointers-' . $post_type, '__return_empty_array', 999 );
 						}
 					}
-			} // /add_shortcodes
 
+				//VC extending shortcode parameters
+					vc_add_shortcode_param( 'wm_radio', __CLASS__ . '::visual_composer_custom_field_wm_radio' );
 
-
-
-
-		/**
-		 * VARIABLES ACCESS
-		 */
-
-			/**
-			 * Get definitions array
-			 *
-			 * @since    1.1
-			 * @version  1.1
-			 *
-			 * @access  public
-			 */
-			public function get_definitions() {
-				return apply_filters( 'wmhook_shortcode_' . 'get_definitions', self::$codes );
-			} // /get_definitions
-
-
-
-			/**
-			 * Get globals array
-			 *
-			 * @since    1.1
-			 * @version  1.1
-			 *
-			 * @access  public
-			 */
-			public function get_globals() {
-				return apply_filters( 'wmhook_shortcode_' . 'get_globals', self::$codes_globals );
-			} // /get_definitions
-
-
-
-
-
-		/**
-		 * SHORTCODES OUTPUT MANIPULATION (FIXES)
-		 */
-
-			/**
-			 * Content fixes for shortcodes
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   string $content Post/page content.
-			 */
-			public function fix_shortcodes( $content = '' ) {
-				$fix = array(
-					'<p>['    => '[',
-					']</p>'   => ']',
-					']<br />' => ']',
-					']<br>'   => ']'
-				);
-				$content = strtr( $content, $fix );
-
-				return apply_filters( 'wmhook_shortcode_' . 'fix_shortcodes' . '_output', $content );
-			} // /fix_shortcodes
-
-
-
-			/**
-			 * Preprocess shortcodes to prevent HTML mismatch
-			 *
-			 * Preprocessing shortcodes that use inline HTML tags prevent mess
-			 * with <p> tags openings and closings.
-			 * These shortcodes will be processed also normally (outside preprocessing)
-			 * to retain compatibility with do_shortcode() (in sliders for example).
-			 * Surely, if the shortcode was applied in preprocess, it shouldn't appear
-			 * again in the content when processing shortcodes normally.
-			 *
-			 * @since    1.0
-			 * @version  1.0.9.6
-			 * @access   public
-			 *
-			 * @param   string $content Post/page content.
-			 */
-			public function preprocess_shortcodes( $content = '' ) {
-				//Helper variables
-					$codes = (array) apply_filters( 'wmhook_shortcode_' . 'preprocess_shortcodes_array', self::$codes['preprocess'] );
-
-				//If there is no shortcode to preprocess, do nothing
-					if ( empty( $codes ) ) {
-						return $content;
-					}
-
-				//Variables
-					global $shortcode_tags;
-
-				//Backup current registered shortcodes and clear them all out
-					$shortcodesBackup = $shortcode_tags;
-					remove_all_shortcodes();
-
-				//Register shortcodes in preprocessing
-					call_user_func_array( array( $this, 'add_shortcodes' ), array( $codes ) );
-
-					do_action( 'wmhook_shortcode_' . 'preprocess_shortcodes', $codes, $content );
-
-				//Do the preprocess shortcodes prematurely (in WordPress standards)
-					$content = do_shortcode( $content );
-
-				//Put the original shortcodes back
-					$shortcode_tags = $shortcodesBackup;
-
-				//Output
-					return apply_filters( 'wmhook_shortcode_' . 'preprocess_shortcodes' . '_output', $content );
-			} // /preprocess_shortcodes
-
-
-
-
-
-		/**
-		 * SHORTCODES' $content VARIABLE PROCESSING
-		 */
-
-			/**
-			 * General processing
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   string $content
-			 * @param   string $shortcode
-			 */
-			public function shortcodes_content( $content = '', $shortcode = '' ) {
-				//Requirements check
+				//Remove default VC elements (only if current theme supports this)
 					if (
-							empty( $content )
-							|| empty( $shortcode )
+							function_exists( 'vc_remove_element' )
+							&& ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) )
+							&& class_exists( 'WPBMap' )
 						) {
-						return $content;
-					}
 
-				//Helper variables
-					$codes = apply_filters( 'wmhook_shortcode_' . 'shortcodes_content_codes', array(
-							'do_shortcode'       => array(
-									'accordion',
-									'button',
-									'call_to_action',
-									'column',
-									'content_module',
-									'item',
-									'list',
-									'marker',
-									'message',
-									'posts',
-									'price',
-									'pricing_table',
-									'progress',
-									'pullquote',
-									'row',
-									'separator_heading',
-									'tabs',
-									//Visual Composer support
+						$vc_shortcodes_all  = array_keys( WPBMap::getShortCodes() );
+						$vc_shortcodes_keep = array(
+								//rows
 									'vc_row',
 									'vc_row_inner',
+								//columns
 									'vc_column',
 									'vc_column_inner',
-								),
-							'strip_tags_inline'  => array(
-									'progress',
-								),
-							'wpautop_no_br'      => array(
-									'item',
-								),
-							'wpautop_shortcodes' => array(
-									'text_block',
-								),
-						) );
+								//others
+									'vc_raw_html',
+									'vc_raw_js',
+								//3rd party plugins support (check http://vc.wpbakery.com/features/content-elements/)
+									'contact-form-7',
+									'gravityform',
+									'layerslider_vc',
+									'rev_slider_vc',
+							);
 
-				//Preparing output
-					//do_shortcode()
-						if (
-								isset( $codes['do_shortcode'] )
-								&& is_array( $codes['do_shortcode'] )
-								&& ! empty( $codes['do_shortcode'] )
-								&& in_array( $shortcode, $codes['do_shortcode'] )
-							) {
-							$content = do_shortcode( $content );
-						}
+						// Do not remove custom mapped shortcodes via WP admin
 
-					//strip_tags() (allow inline tags)
-						if (
-								isset( $codes['strip_tags_inline'] )
-								&& is_array( $codes['strip_tags_inline'] )
-								&& ! empty( $codes['strip_tags_inline'] )
-								&& in_array( $shortcode, $codes['strip_tags_inline'] )
-							) {
-							$content = strip_tags( $content, $this->inline_tags );
-						}
+							if (
+									class_exists( 'Vc_Automap_Model' )
+									&& is_callable( 'Vc_Automap_Model::findAll' )
+								) {
 
-					//wpautop() (no <br /> tags)
-						if (
-								isset( $codes['wpautop_no_br'] )
-								&& is_array( $codes['wpautop_no_br'] )
-								&& ! empty( $codes['wpautop_no_br'] )
-								&& in_array( $shortcode, $codes['wpautop_no_br'] )
-							) {
-							$content = wpautop( $content, false );
-						}
+								$vc_shortcodes_custom = Vc_Automap_Model::findAll();
 
-					//correct shortcodes in wpautop()
-						if (
-								isset( $codes['wpautop_shortcodes'] )
-								&& is_array( $codes['wpautop_shortcodes'] )
-								&& ! empty( $codes['wpautop_shortcodes'] )
-								&& in_array( $shortcode, $codes['wpautop_shortcodes'] )
-							) {
-							$content = wpautop( preg_replace( '/<\/?p\>/', "\r\n", $content ) . "\r\n" );
-							$content = do_shortcode( shortcode_unautop( $content ) );
-						}
+								foreach ( $vc_shortcodes_custom as $shortcode ) {
+									$vc_shortcodes_keep[] = $shortcode->tag;
+								}
 
-				//Output
-					return $content;
-			} // /shortcodes_content
+							}
 
+						$vc_shortcodes_keep   = apply_filters( 'wmhook_shortcode_' . 'vc_keep', $vc_shortcodes_keep );
+						$vc_shortcodes_remove = apply_filters( 'wmhook_shortcode_' . 'vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
 
+						//Array check required due to filter applied above
+							if ( is_array( $vc_shortcodes_remove ) && ! empty( $vc_shortcodes_remove ) ) {
+								foreach ( $vc_shortcodes_remove as $shortcode ) {
+									vc_remove_element( $shortcode );
+								}
+							}
 
-			/**
-			 * [pre] shortcode
-			 *
-			 * @since   1.0
-			 * @access  public
-			 *
-			 * @param   string $content
-			 */
-			public function shortcodes_content_pre( $content = '' ) {
-				//Requirements check
-					if ( empty( $content ) ) {
-						return $content;
 					}
 
-				//Preparing output
-						$content = str_replace( '[', '&#91;', $content );
-						$content = str_replace( array( '<p>', '</p>', '<br />' ), '', $content );
-						$content = esc_html( shortcode_unautop( $content ) );
-
-				//Output
-					return $content;
-			} // /shortcodes_content_pre
-
-
-
-
-
-		/**
-		 * PLUGINS INTEGRATION
-		 */
-
-
-			/**
-			 * BEAVER BUILDER PLUGIN
-			 */
-
-				/**
-				 * Add Beaver Builder plugin support
-				 *
-				 * @link  https://www.wpbeaverbuilder.com/
-				 *
-				 * Using 7, 8 and 9 position to hook the Beaver Builder support.
-				 * If you intend to change these positions, change the numbers
-				 * but keep the order.
-				 *
-				 * @see  `$this->page_builder_dir . beaver-builder/beaver-builder.php` action hooks
-				 *
-				 * @since    1.1
-				 * @version  1.4.6
-				 *
-				 * @access  public
-				 */
-				public function beaver_builder_support() {
-
-					// Requirements check
-
-						if (
-								! class_exists( 'FLBuilder' )
-								|| (
-										is_admin()
-										&& (
-											! isset( $_REQUEST['page'] )
-											|| ! in_array( $_REQUEST['page'], array( 'fl-builder-settings', 'fl-builder-multisite-settings' ) )
-											// @todo
-											// This is also used in BB in `classes/class-fl-builder-admin-settings.php`.
-											// However, I think we can do better if we try harder.
-										)
-									)
-							) {
-							return;
-						}
-
-
-					// Processing
-
-						add_action( 'init', array( $this, 'init_beaver_builder_support' ), 7 );
-
-				} // /beaver_builder_support
-
-
-
-				/**
-				 * Add Beaver Builder plugin support init
-				 *
-				 * @since    1.1
-				 * @version  1.1
-				 *
-				 * @access  public
-				 */
-				public function init_beaver_builder_support() {
-					require_once( $this->page_builder_dir . 'beaver-builder/beaver-builder.php' );
-				} // /init_beaver_builder_support
-
-
-
-			/**
-			 * VISUAL COMPOSER PLUGIN
-			 */
-
-				/**
-				 * Add Visual Composer plugin support
-				 *
-				 * @link  texthttp://vc.wpbakery.com/
-				 *
-				 * @since    1.0
-				 * @version  1.4.1
-				 *
-				 * @access  public
-				 */
-				public function visual_composer_support() {
-					//VC 4+ disabling Frontend Editor
-						if ( function_exists( 'vc_disable_frontend' ) ) {
-							vc_disable_frontend();
-						}
-
-					//VC additional shortcodes admin interface
-						$vc_shortcodes_admin_tweaks = apply_filters( 'wmhook_shortcode_' . 'vc_shortcodes_admin_tweaks_file', $this->page_builder_dir . 'visual-composer/visual-composer.php' );
-						require_once( $vc_shortcodes_admin_tweaks );
-
-					//VC setup screen modifications
-						add_filter( 'vc_settings_tabs', array( $this, 'visual_composer_setup' ) );
-						delete_option( 'wpb_js_use_custom' );
-
-					//Disable VC Guide Tour
-						if ( function_exists( 'vc_editor_post_types' ) ) {
-							foreach ( vc_editor_post_types() as $post_type ) {
-								add_filter( 'vc_ui-pointers-' . $post_type, '__return_empty_array', 999 );
-							}
-						}
-
-					//VC extending shortcode parameters
-						vc_add_shortcode_param( 'wm_radio',  array( $this, 'visual_composer_custom_field_wm_radio' ) );
-
-					//Remove default VC elements (only if current theme supports this)
-						if (
-								function_exists( 'vc_remove_element' )
-								&& ( wma_supports_subfeature( 'remove_vc_shortcodes' ) || wma_supports_subfeature( 'remove-vc-shortcodes' ) )
-								&& class_exists( 'WPBMap' )
-							) {
-
-							$vc_shortcodes_all  = array_keys( WPBMap::getShortCodes() );
-							$vc_shortcodes_keep = array(
-									//rows
-										'vc_row',
-										'vc_row_inner',
-									//columns
-										'vc_column',
-										'vc_column_inner',
-									//others
-										'vc_raw_html',
-										'vc_raw_js',
-									//3rd party plugins support (check http://vc.wpbakery.com/features/content-elements/)
-										'contact-form-7',
-										'gravityform',
-										'layerslider_vc',
-										'rev_slider_vc',
-								);
-
-							// Do not remove custom mapped shortcodes via WP admin
-
-								if (
-										class_exists( 'Vc_Automap_Model' )
-										&& is_callable( 'Vc_Automap_Model::findAll' )
-									) {
-
-									$vc_shortcodes_custom = Vc_Automap_Model::findAll();
-
-									foreach ( $vc_shortcodes_custom as $shortcode ) {
-										$vc_shortcodes_keep[] = $shortcode->tag;
-									}
-
+				//Add custom VC elements
+					$vc_shortcodes = self::get_definitions_processed( 'vc_plugin' );
+					if (
+							function_exists( 'vc_map' )
+							&& ! empty( $vc_shortcodes )
+						) {
+						ksort( $vc_shortcodes );
+						foreach ( $vc_shortcodes as $shortcode ) {
+							//simple validation (as of http://kb.wpbakery.com/index.php?title=Vc_map, the below 2 parameters are required)
+								if ( ! isset( $shortcode['name'] ) || ! isset( $shortcode['base'] ) ) {
+									continue;
+								}
+							//sort shortcode parameters array
+								if ( isset( $shortcode['params'] ) ) {
+									ksort( $shortcode['params'] );
 								}
 
-							$vc_shortcodes_keep   = apply_filters( 'wmhook_shortcode_' . 'vc_keep', $vc_shortcodes_keep );
-							$vc_shortcodes_remove = apply_filters( 'wmhook_shortcode_' . 'vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
+							// Fix required for Visual Composer 4.5.2+
 
-							//Array check required due to filter applied above
-								if ( is_array( $vc_shortcodes_remove ) && ! empty( $vc_shortcodes_remove ) ) {
-									foreach ( $vc_shortcodes_remove as $shortcode ) {
-										vc_remove_element( $shortcode );
-									}
-								}
+								$shortcode['params'] = array_values( $shortcode['params'] );
 
+							vc_map( $shortcode );
 						}
-
-					//Add custom VC elements
-						if (
-								function_exists( 'vc_map' )
-								&& ! empty( self::$codes['vc_plugin'] )
-							) {
-							ksort( self::$codes['vc_plugin'] );
-							foreach ( self::$codes['vc_plugin'] as $shortcode ) {
-								//simple validation (as of http://kb.wpbakery.com/index.php?title=Vc_map, the below 2 parameters are required)
-									if ( ! isset( $shortcode['name'] ) || ! isset( $shortcode['base'] ) ) {
-										continue;
-									}
-								//sort shortcode parameters array
-									if ( isset( $shortcode['params'] ) ) {
-										ksort( $shortcode['params'] );
-									}
-
-								// Fix required for Visual Composer 4.5.2+
-
-									$shortcode['params'] = array_values( $shortcode['params'] );
-
-								vc_map( $shortcode );
-							}
-						}
-				} // /visual_composer_support
+					}
+			} // /visual_composer_support
 
 
-
-				/**
-				 * Modify Visual Composer plugin settings page
-				 *
-				 * http://vc.wpbakery.com/
-				 *
-				 * @since    1.0
-				 * @version  1.1.7
-				 *
-				 * @access  public
-				 *
-				 * @param  array $tabs
-				 */
-				public function visual_composer_setup( $tabs = array() ) {
-					$tabs_original = $tabs;
-
-					unset( $tabs['color'] );
-					unset( $tabs['vc-color'] );
-					unset( $tabs['element_css'] );
-					unset( $tabs['custom_css'] );
-					unset( $tabs['vc-custom_css'] );
-
-					return apply_filters( 'wmhook_shortcode_' . 'vc_setup' . '_output', $tabs, $tabs_original );
-				} // /visual_composer_setup
-
-
-
-				/**
-				 * Visual Composer custom shortcode parameter - radio buttons
-				 *
-				 * @link  http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
-				 *
-				 * @since    1.0
-				 * @version  1.4.10
-				 *
-				 * @access  public
-				 *
-				 * @param  array  $settings Array of settings parameters
-				 * @param  string $value
-				 */
-				public function visual_composer_custom_field_wm_radio( $settings, $value ) {
-
-					// Helper variables
-
-						$name  = $settings['param_name'];
-						$field = $settings;
-
-						$field['options'] = $field['value'];
-
-
-					// Output
-
-						return apply_filters( 'wmhook_shortcode_' . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
-
-				} // /visual_composer_custom_field_wm_radio
-
-
-
-
-
-		/**
-		 * SHORTCODES RENDERER
-		 */
 
 			/**
-			 * Shortcode renderer method
+			 * Modify Visual Composer plugin settings page
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * http://vc.wpbakery.com/
 			 *
-			 * @param   array  $atts      Shortcode attributes.
-			 * @param   string $content   Content of the shortcode.
-			 * @param   string $shortcode WordPress passes also the name of the shortcode here.
+			 * @since    1.0.0
+			 * @version  1.5.0
 			 *
-			 * @return  string HTML output of the shortcode.
+			 * @param  array $tabs
 			 */
-			public function shortcode_render( $atts = array(), $content = '', $shortcode = '' ) {
-				$prefix_shortcode = $this->prefix_shortcode;
+			public static function visual_composer_setup( $tabs = array() ) {
+				$tabs_original = $tabs;
 
-				$shortcode = trim( str_replace( $prefix_shortcode, '', $shortcode ) );
-				if ( ! $shortcode ) {
+				unset( $tabs['color'] );
+				unset( $tabs['vc-color'] );
+				unset( $tabs['element_css'] );
+				unset( $tabs['custom_css'] );
+				unset( $tabs['vc-custom_css'] );
+
+				return apply_filters( 'wmhook_shortcode_' . 'vc_setup' . '_output', $tabs, $tabs_original );
+			} // /visual_composer_setup
+
+
+
+			/**
+			 * Visual Composer custom shortcode parameter - radio buttons
+			 *
+			 * @link  http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
+			 *
+			 * @since    1.0.0
+			 * @version  1.5.0
+			 *
+			 * @param  array  $settings Array of settings parameters
+			 * @param  string $value
+			 */
+			public static function visual_composer_custom_field_wm_radio( $settings, $value ) {
+
+				// Helper variables
+
+					$name  = $settings['param_name'];
+					$field = $settings;
+
+					$field['options'] = $field['value'];
+
+
+				// Output
+
+					return apply_filters( 'wmhook_shortcode_' . 'vc_custom_field_' . 'wm_radio' . '_output', wma_custom_field_wm_radio( $name, $value, $field ), $name, $value, $field );
+
+			} // /visual_composer_custom_field_wm_radio
+
+
+
+
+
+	/**
+	 * SHORTCODES RENDERER
+	 */
+
+		/**
+		 * Render the shortcode
+		 *
+		 * Outputs string of shortcode HTML.
+		 *
+		 * @since    1.0.0
+		 * @version  1.5.0
+		 *
+		 * @param  array  $atts       Shortcode attributes.
+		 * @param  string $content    Content of the shortcode.
+		 * @param  string $shortcode  WordPress passes also the name of the shortcode here.
+		 */
+		public static function shortcode_render( $atts = array(), $content = '', $shortcode = '' ) {
+
+			// Requirements check
+
+				$prefix_shortcode = self::$prefix_shortcode;
+				$shortcode        = trim( str_replace( $prefix_shortcode, '', $shortcode ) );
+
+				if ( empty( $shortcode ) ) {
 					return;
 				}
 
-				//Allow plugins/themes to override the default shortcode template
-					$codes_globals = self::$codes_globals;
-					$output        = apply_filters( 'wmhook_shortcode_' . $shortcode, '', $atts, $content, $codes_globals );
+
+			// Helper variables
+
+				$codes_globals = self::get_codes_globals();
+
+				$output = (string) apply_filters( 'wmhook_shortcode_' . $shortcode, '', $atts, $content, $codes_globals );
+
+
+			// Processing
+
+				// Premature output
+
 					if ( $output ) {
 						return $output;
 					}
 
-				//Render the shortcode
-					//Renderer overrides (can be used for shortcode aliases -> see definitions.php)
-						$renderer_file_path = $this->renderers_dir . $shortcode . '.php';
+				// Is this alias shortcode (with custom renderer file)?
 
-						if (
-								isset( self::$codes['renderer'][ $shortcode ] )
-								&& self::$codes['renderer'][ $shortcode ]
+					$custom_render_shortcodes = self::get_definitions_processed( 'renderer' );
+
+					$path_folder = self::get_path_renderers();
+					$path_file   = $path_folder . $shortcode . '.php';
+
+					if ( isset( $custom_render_shortcodes[ $shortcode ] ) ) {
+						$custom_render_code = $custom_render_shortcodes[ $shortcode ];
+
+						// Use default alias renderer file
+
+							if (
+								isset( $custom_render_code['alias'] )
+								&& $custom_render_code['alias']
 							) {
+								$path_file = $path_folder . trim( $custom_render_code['alias'] ) . '.php';
+							}
 
-							//Setting alias shortcode renderer
-								if (
-									isset( self::$codes['renderer'][ $shortcode ]['alias'] )
-									&& self::$codes['renderer'][ $shortcode ]['alias']
-								) {
-									$renderer_file_path = $this->renderers_dir . trim( self::$codes['renderer'][ $shortcode ]['alias'] ) . '.php';
-								}
+						// Use custom renderer file instead
 
-							//Setting custom renderer file
-								if (
-									isset( self::$codes['renderer'][ $shortcode ]['path'] )
-									&& self::$codes['renderer'][ $shortcode ]['path']
-								) {
-									$renderer_file_path = trim( self::$codes['renderer'][ $shortcode ]['path'] );
-								}
+							if (
+								isset( $custom_render_code['path'] )
+								&& $custom_render_code['path']
+							) {
+								$path_file = trim( $custom_render_code['path'] );
+							}
 
-							//Setting custom shortcode prefix
-								if (
-										array_key_exists( 'custom_prefix', self::$codes['renderer'][ $shortcode ] )
-										&& isset( self::$codes['renderer'][ $shortcode ]['custom_prefix'] )
-									) {
-									$prefix_shortcode = trim( self::$codes['renderer'][ $shortcode ]['custom_prefix'] );
-								}
-						}
+						// Use custom shortcode prefix (even empty)
 
-					$renderer_file_path = apply_filters( 'wmhook_shortcode_' . 'renderer_path', $renderer_file_path, $shortcode );
+							if ( isset( $custom_render_code['custom_prefix'] ) ) {
+								$prefix_shortcode = trim( $custom_render_code['custom_prefix'] );
+							}
 
-					if ( file_exists( $renderer_file_path ) ) {
-						include( $renderer_file_path );
 					}
 
-				//Output
-					//filter to process the output of shortcodes
-					$output = apply_filters( 'wmhook_shortcode_' . 'output', $output, $shortcode, $atts );
-					//filter to process the specific shortcode output ($atts are validated already)
-					return apply_filters( 'wmhook_shortcode_' . $shortcode . '_output', $output, $atts );
-			} // /shortcode_render
+					$path_file = apply_filters( 'wmhook_shortcode_renderer_path', $path_file, $shortcode );
 
-	} // /WM_Shortcodes
+				// The shortcode file contains `$output` variable
 
-} // /class WM_Shortcodes check
+					/**
+					 * @todo  Use PHP buffer instead.
+					 * @todo  But keep `include()` below as we are passing some variables.
+					 */
+					if ( file_exists( $path_file ) ) {
+						include( $path_file );
+					}
+
+					$output = apply_filters( 'wmhook_shortcode_output', $output, $shortcode, $atts );
+
+
+			// Output
+
+				return apply_filters( 'wmhook_shortcode_' . $shortcode . '_output', $output, $atts );
+
+		} // /shortcode_render
 
 
 
-/**
- * Shortcodes instance
- *
- * @since    1.1
- * @version  1.1
- *
- * @return  WM_Shortcodes instance
- */
-function wma_shortcodes() {
-	return WM_Shortcodes::instance();
-} // /wma_shortcodes
+
+
+	/**
+	 * 100) Getters
+	 */
+
+		/**
+		 * Get shortcodes definitions array from file
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_definitions_from_file() {
+
+			// Helper variables
+
+				$shortcode_definitions = array();
+
+				$file = apply_filters( 'wmhook_shortcode_definitions_path', WMAMP_INCLUDES_DIR . 'shortcodes/definitions/definitions.php' );
+
+
+			// Processing
+
+				if ( file_exists( $file ) ) {
+					/**
+					 * This file has to contain a `$shortcode_definitions` defined
+					 * so we can override the above default with actual shortcodes
+					 * definitions array.
+					 */
+					include_once( $file );
+				}
+
+
+			// Output
+
+				return (array) $shortcode_definitions;
+
+		} // /get_definitions_from_file
+
+
+
+		/**
+		 * Get filtered shortcodes definitions array
+		 *
+		 * @since    1.1.0
+		 * @version  1.5.0
+		 */
+		public static function get_definitions() {
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_shortcode_definitions', self::$definitions );
+
+		} // /get_definitions
+
+
+
+		/**
+		 * Shortcodes globals setup
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $scope  White processed shortcodes definitions to get.
+		 */
+		public static function get_definitions_processed( $scope = '' ) {
+
+			// Helper variables
+
+				$definitions = (array) self::get_definitions();
+				$output      = array(
+					'bb_plugin'       => array(),
+					'generator'       => array(),
+					'generator_short' => array(),
+					'global'          => array(),
+					'preprocess'      => array(),
+					'renderer'        => array(),
+					'styles'          => array(),
+					'vc_plugin'       => array(),
+				);
+
+
+			// Processing
+
+				foreach ( $definitions as $code => $definition ) {
+
+					// Shortcode prefix may change for each shortcode down the way...
+
+						$prefix_shortcode = self::$prefix_shortcode;
+
+					// Skip this shortcode definition processing?
+
+						// Shortcode requires a specific post type?
+
+							if (
+								isset( $definition['post_type_required'] )
+								&& ! in_array( $definition['post_type_required'], get_post_types() )
+							) {
+								continue;
+							}
+
+						// Shortcode version supported by the theme?
+
+							if (
+								isset( $definition['since'] )
+								&& version_compare(
+									apply_filters( 'wmhook_shortcode_supported_version', WMAMP_VERSION ),
+									$definition['since'],
+									'<'
+								)
+							) {
+								continue;
+							}
+
+					// For global processing (all except [pre] and [raw])
+
+						if ( ! in_array( $code, array( 'pre', 'raw' ) ) ) {
+
+							if ( isset( $definition['custom_prefix'] ) ) {
+
+								$output['global'][] = array(
+									'name'          => $code,
+									'custom_prefix' => $definition['custom_prefix'],
+								);
+								$prefix_shortcode = $definition['custom_prefix'];
+
+							} else {
+
+								$output['global'][] = $code;
+
+							}
+
+						}
+
+					// Preprocessing needed?
+
+						if (
+							isset( $definition['preprocess'] )
+							&& $definition['preprocess']
+						) {
+							$output['preprocess'][] = $code;
+						}
+
+					// Is this an alias (rendering override)?
+
+						if (
+							isset( $definition['renderer'] )
+							&& $definition['renderer']
+						) {
+
+							$output['renderer'][ $code ] = $definition['renderer'];
+
+							if ( isset( $definition['custom_prefix'] ) ) {
+								$output['renderer'][ $code ]['custom_prefix'] = $definition['custom_prefix'];
+							}
+
+						}
+
+					// For Shortcode Generator
+
+						if (
+							isset( $definition['generator'] )
+							&& $definition['generator']
+							&& isset( $definition['generator']['name'] )
+							&& isset( $definition['generator']['code'] )
+						) {
+
+							$definition['generator']['class'] = 'generator_item_' . $code;
+							$definition['generator']['code']  = str_replace(
+								'PREFIX_',
+								$prefix_shortcode,
+								$definition['generator']['code']
+							);
+
+							$output['generator'][$code] = $definition['generator'];
+
+							// Display in short, simplified Shortcode Generator?
+
+								if (
+									isset( $definition['generator']['short'] )
+									&& $definition['generator']['short']
+								) {
+									$output['generator_short'][$code] = $definition['generator'];
+								}
+
+						}
+
+					// For Beaver Builder
+
+						if (
+							isset( $definition['bb_plugin'] )
+							&& ! empty( $definition['bb_plugin'] )
+						) {
+
+							$definition['bb_plugin']['output'] = str_replace(
+								'PREFIX_',
+								$prefix_shortcode,
+								$definition['bb_plugin']['output']
+							);
+
+							if ( isset( $definition['bb_plugin']['output_children'] ) ) {
+								$definition['bb_plugin']['output_children'] = str_replace(
+									'PREFIX_',
+									$prefix_shortcode,
+									$definition['bb_plugin']['output_children']
+								);
+							}
+
+							$output['bb_plugin'][$code] = $definition['bb_plugin'];
+
+						}
+
+					// For Visual Composer
+
+						if (
+								wma_is_active_vc()
+								&& isset( $definition['vc_plugin'] )
+								&& ! empty( $definition['vc_plugin'] )
+								&& isset( $definition['vc_plugin']['name'] ) //Required parameter by the Visual Composer plugin
+								&& isset( $definition['vc_plugin']['base'] ) //Required parameter by the Visual Composer plugin
+							) {
+							$output['vc_plugin'][$code] = $definition['vc_plugin'];
+						}
+
+				} // /foreach
+
+				$output = (array) apply_filters( 'wmhook_shortcode_definitions_processed', $output );
+
+
+			// Output
+
+				if ( ! empty( $scope ) ) {
+					if ( isset( $output[ $scope ] ) ) {
+						return $output[ $scope ];
+					} else {
+						return array();
+					}
+				} else {
+					return $output;
+				}
+
+		} // /get_definitions_processed
+
+
+
+		/**
+		 * Get globals array
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_codes_globals() {
+
+			// Helper variables
+
+				$post_types = self::get_post_types();
+				$icons      = self::get_icons();
+
+
+			// Processing
+
+				$codes_globals = array(
+
+					'colors' => array(
+						'blue'   => esc_html__( 'Blue', 'webman-amplifier' ),
+						'gray'   => esc_html__( 'Gray', 'webman-amplifier' ),
+						'green'  => esc_html__( 'Green', 'webman-amplifier' ),
+						'orange' => esc_html__( 'Orange', 'webman-amplifier' ),
+						'red'    => esc_html__( 'Red', 'webman-amplifier' ),
+					),
+
+					'column_widths' => array(
+						'1/2',
+						'1/3',
+						'2/3',
+						'1/4',
+						'3/4',
+						'1/5',
+						'2/5',
+						'3/5',
+						'4/5',
+					),
+
+					'divider_appearance'  => array(
+						'line'        => esc_html__( 'Line', 'webman-amplifier' ),
+						'dotted'      => esc_html__( 'Dotted', 'webman-amplifier' ),
+						'dashed'      => esc_html__( 'Dashed', 'webman-amplifier' ),
+						'double-line' => esc_html__( 'Double line', 'webman-amplifier' ),
+						'whitespace'  => esc_html__( 'Whitespace', 'webman-amplifier' ),
+					),
+
+					'dropcap_shapes' => array(
+						'circle'         => esc_html__( 'Circle', 'webman-amplifier' ),
+						'square'         => esc_html__( 'Square', 'webman-amplifier' ),
+						'rounded-square' => esc_html__( 'Rounded square', 'webman-amplifier' ),
+						'leaf-left'      => esc_html__( 'Leaf left', 'webman-amplifier' ),
+						'leaf-right'     => esc_html__( 'Leaf right', 'webman-amplifier' ),
+						'half-circle'    => esc_html__( 'Half circle', 'webman-amplifier' ),
+					),
+
+					'font_icons' => $icons,
+
+					'post_types' => $post_types,
+
+					'sizes' => array(
+
+						// Readable (for select dropdown, for example)
+
+							'options' => array(
+								's'  => esc_html__( 'Small', 'webman-amplifier' ),
+								'm'  => esc_html__( 'Medium', 'webman-amplifier' ),
+								'l'  => esc_html__( 'Large', 'webman-amplifier' ),
+								'xl' => esc_html__( 'Extra-large', 'webman-amplifier' ),
+							),
+
+						// Value to CSS class translator
+
+							'values' =>	array(
+								's'  => 'small',
+								'm'  => 'medium',
+								'l'  => 'large',
+								'xl' => 'extra-large',
+							),
+
+						),
+
+					'social_icons' => array(
+						'Behance',
+						'Blogger',
+						'Delicious',
+						'DeviantART',
+						'Digg',
+						'Dribbble',
+						'Facebook',
+						'Flickr',
+						'Forrst',
+						'Github',
+						'Google+',
+						'Instagram',
+						'LinkedIn',
+						'MySpace',
+						'Pinterest',
+						'Reddit',
+						'RSS',
+						'Skype',
+						'SoundCloud',
+						'StumbleUpon',
+						'Tumblr',
+						'Twitter',
+						'Vimeo',
+						'WordPress',
+						'YouTube',
+					),
+
+					'table_appearance' => array(
+						'basic'            => esc_html__( 'Basic', 'webman-amplifier' ),
+						'bordered'         => esc_html__( 'Bordered', 'webman-amplifier' ),
+						'striped'          => esc_html__( 'Zebra striping', 'webman-amplifier' ),
+						'bordered-striped' => esc_html__( 'Bordered zebra striping', 'webman-amplifier' ),
+					),
+
+				);
+
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_shortcode_codes_globals', $codes_globals, $post_types, $icons );
+
+		} // /get_codes_globals
+
+
+
+		/**
+		 * Get supported post types array
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_post_types() {
+
+			// Helper variables
+
+				$registered_post_types = get_post_types( array(), 'objects' );
+
+				$post_types = array_intersect( array(
+					'post',
+					'wm_logos',
+					'wm_projects',
+					'wm_staff',
+				), array_keys( $registered_post_types ) );
+
+
+			// Processing
+
+				foreach ( $post_types as $key => $post_type ) {
+					$labels = get_post_type_labels( $registered_post_types[ $post_type ] );
+					$post_types[ $post_type ] = $labels->name;
+					unset( $post_types[ $key ] );
+				}
+
+				asort( $post_types );
+
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_shortcode_post_types', $post_types );
+
+		} // /get_post_types
+
+
+
+		/**
+		 * Get array of font icons
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_icons() {
+
+			// Helper variables
+
+				$icons = get_option( 'wmamp-icons' );
+
+
+			// Processing
+
+				if ( isset( $icons['icons_select'] ) ) {
+					$icons = array_merge(
+						array( '' => '' ),
+						$icons['icons_select']
+					);
+				} else {
+					$icons = array();
+				}
+
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_shortcode_icons', $icons );
+
+		} // /get_icons
+
+
+
+		/**
+		 * Get path: To shortcode render files
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_path_renderers() {
+
+			// Output
+
+				return trailingslashit( apply_filters( 'wmhook_shortcode_renderers_dir', WMAMP_INCLUDES_DIR . 'shortcodes/renderers' ) );
+
+		} // /get_path_renderers
+
+
+
+		/**
+		 * Get allowed inline HTML tags
+		 *
+		 * Outputs array of allowed tags and their attributes for `wp_kses()` use.
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 */
+		public static function get_inline_tags() {
+
+			// Helper variables
+
+				$tags = array(
+
+					'a' => array(
+						'class' => array(),
+						'href'  => array(),
+						'rel'   => array(),
+						'title' => array(),
+					),
+
+					'abbr' => array(
+						'title' => array(),
+					),
+
+					'b' => array(),
+
+					'br' => array(
+						'class' => array(),
+					),
+
+					'code' => array(),
+
+					'del' => array(
+						'datetime' => array(),
+						'title' => array(),
+					),
+
+					'em' => array(),
+
+					'i' => array(),
+
+					'img' => array(
+						'alt'    => array(),
+						'class'  => array(),
+						'height' => array(),
+						'src'    => array(),
+						'width'  => array(),
+					),
+
+					'mark' => array(
+						'class' => array(),
+					),
+
+					'q' => array(
+						'cite' => array(),
+						'title' => array(),
+					),
+
+					'small' => array(
+						'class' => array(),
+					),
+
+					'span' => array(
+						'class' => array(),
+						'title' => array(),
+						'style' => array(),
+					),
+
+					'strike' => array(),
+
+					'strong' => array(),
+
+					'u' => array(),
+
+				);
+
+
+			// Output
+
+				return (array) apply_filters( 'wmhook_shortcode_inline_tags', $tags );
+
+		} // /get_inline_tags
+
+
+
+
+
+} // /WM_Shortcodes
 
 
 
@@ -1415,6 +1735,8 @@ function wma_shortcodes() {
 
 /**
  * Additional Visual Composer requirements
+ *
+ * @todo  This should go into `includes/compatibility/` folder!
  *
  * @since    1.0
  * @version  1.4

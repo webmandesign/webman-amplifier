@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.5.0
+
+* **Update**: Making custom Beaver Builder elements translatable with WPML plugin
+* **Update**: Plugin information
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+
+
 ## 1.4.11
 
 * **Fix**: Do not override shortcodes scripts enqueuing when `slick` is in array
