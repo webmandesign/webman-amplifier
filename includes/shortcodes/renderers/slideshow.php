@@ -7,7 +7,7 @@
  * You can use "Description" field of images to set the custom link on them.
  *
  * @since    1.0
- * @version  1.3.13
+ * @version  1.5.0
  *
  * @param  string class
  * @param  string ids
@@ -102,7 +102,7 @@
 			'wm-shortcodes-slideshow-owlcarousel'
 		);
 
-	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
+	WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
 	if ( $atts['content'] ) {

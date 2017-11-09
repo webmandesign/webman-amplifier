@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.5.0
  *
  * @uses  $codes_globals['post_types']
  *
@@ -525,7 +525,7 @@
 
 			}
 
-			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
+			WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 
 // Output

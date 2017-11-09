@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.7
+ * @version  1.5.0
  *
  * @param  string align
  * @param  string class
@@ -477,7 +477,7 @@
 
 			}
 
-			wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
+			WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 // Output
 

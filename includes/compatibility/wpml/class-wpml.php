@@ -91,7 +91,7 @@ class WM_Amplifier_WPML {
 		 * 		array(
 		 * 			'field'       => 'option_field_id',
 		 * 			'type'        => 'Localized option field label text',
-		 * 			'editor_type' => 'LINK/VISUAL/AREA', // @see  WPML_TM_Page_Builders()
+		 * 			'editor_type' => 'LINE/LINK/VISUAL/AREA', // @see  WPML_TM_Page_Builders()
 		 * 		),
 		 * 	),
 		 *
@@ -99,8 +99,8 @@ class WM_Amplifier_WPML {
 		 * will get prefixed by Beaver Builder module (shortcode) name for better reference.
 		 *
 		 * For parent shortcodes (the ones containing some children items, such as [accordion])
-		 * we need to create a PHP class file (in the same directory as this file, basically) of
-		 * `WMAMP_INCLUDES_DIR . 'compatibility/wpml/class-wpml-bb-NO-PREFIX-MODULE.php`
+		 * we need to create a PHP class file (in the subdirectory of this file, basically) of
+		 * `WMAMP_INCLUDES_DIR . 'compatibility/wpml/modules/class-wpml-bb-NO-PREFIX-MODULE.php`
 		 * where we declare a `WM_Amplifier_WPML_Beaver_Builder_No_Prefix_Module` PHP class.
 		 * @example
 		 * 	@see  WPML_Beaver_Builder_Accordion()
@@ -125,37 +125,56 @@ class WM_Amplifier_WPML {
 			// Helper variables
 
 				$custom_translatable_modules = array();
+				$custom_modules              = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
+				$modules_with_children       = (array) apply_filters( 'wmhook_amplifier_shortcodes_with_children', array(
+					'accordion',
+					'tabs',
+				) );
 
-				$custom_modules = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
-
-				$path = WMAMP_INCLUDES_DIR . 'compatibility/wpml/';
+				$path = WMAMP_INCLUDES_DIR . 'compatibility/wpml/modules/';
 
 
 			// Processing
 
-				foreach ( $custom_modules as $module => $args ) {
+				foreach ( $custom_modules as $module_id => $args ) {
 					if (
 						isset( $args['wpml_fields'] )
 						&& is_array( $args['wpml_fields'] )
 					) {
 
-						$module_prefixed = WM_Shortcodes::$prefix_shortcode . $module;
+						// Prefixing
+
+							$module_id_prefixed   = WM_Shortcodes::$prefix_shortcode . $module_id;
+							$module_name_prefixed = WM_Shortcodes::$prefix_shortcode_name . $args['name'];
 
 						// Set module type
 
-							$custom_translatable_modules[ $module_prefixed ]['conditions'] = array( 'type' => $module_prefixed );
+							$custom_translatable_modules[ $module_id_prefixed ]['conditions'] = array( 'type' => $module_id_prefixed );
+
+						// Set module fields
+
+							foreach ( $args['wpml_fields'] as $key => $field ) {
+								$args['wpml_fields'][ $key ]['type'] = $module_name_prefixed . ': "' . $field['type'] . '"';
+							}
+
+							$custom_translatable_modules[ $module_id_prefixed ]['fields'] = $args['wpml_fields'];
 
 						// Set parent modules PHP classes
 
-							$class_file = $path . 'class-wpml-bb-' . $module . '.php';
+							$file_context = $module_id;
+							if ( in_array( $module_id, $modules_with_children ) ) {
+								$file_context = 'children';
+							}
+
+							$class_file = $path . 'class-wpml-bb-' . $file_context . '.php';
 
 							if ( file_exists( $class_file ) ) {
-								$integration_class = str_replace( '-', ' ', $module );
+								$integration_class = str_replace( '-', ' ', $file_context );
 								$integration_class = ucwords( $integration_class );
 								$integration_class = str_replace( ' ', '_', $integration_class );
 								$integration_class = 'WM_Amplifier_WPML_Beaver_Builder_' . $integration_class;
 
-								// $custom_translatable_modules[ $module ]['integration-class'] = $integration_class;
+								$custom_translatable_modules[ $module_id_prefixed ]['integration-class'] = $integration_class;
 
 								/**
 								 * Not ideal solution loading files here, but not harmful either.
@@ -163,16 +182,6 @@ class WM_Amplifier_WPML {
 								 */
 								require_once $class_file;
 							}
-
-						// Set module fields
-
-							foreach ( $args['wpml_fields'] as $key => $field ) {
-								// Prefix translation field name (no idea why it is called `type` in WPML...)
-								$module_name = WM_Shortcodes::$prefix_shortcode_name . $args['name'];
-								$args['wpml_fields'][ $key ]['type'] = $module_name . ': "' . $field['type'] . '"';
-							}
-
-							$custom_translatable_modules[ $module_prefixed ]['fields'] = $args['wpml_fields'];
 
 					}
 				}

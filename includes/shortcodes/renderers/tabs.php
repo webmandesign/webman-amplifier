@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.5.0
  *
  * @param  integer active
  * @param  string class
@@ -77,7 +77,7 @@
 			'wm-shortcodes-tabs'
 		);
 
-	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
+	WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 
 // Output

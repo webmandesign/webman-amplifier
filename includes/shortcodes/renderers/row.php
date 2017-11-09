@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.2
+ * @version  1.5.0
  *
  * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
@@ -185,7 +185,7 @@
 			);
 	}
 
-	wma_shortcode_enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
+	WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
 //Output
 	$replacements = apply_filters( 'wmhook_shortcode_' . $shortcode . '_output_replacements', array(

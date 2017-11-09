@@ -481,7 +481,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						&& ! wma_supports_subfeature( 'disable-shortcodes' )
 					) {
 						require_once( WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php' );
-						return WM_Shortcodes::init();
 					}
 
 			} // /register_shortcodes
