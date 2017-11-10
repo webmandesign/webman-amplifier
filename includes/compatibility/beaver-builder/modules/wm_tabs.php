@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Call to Action
+ * Tabs
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -10,7 +10,7 @@
  * @since    1.1.0
  * @version  1.6.0
  */
-class WM_Amplifier_Beaver_Builder_Module_Call_To_Action extends WM_Amplifier_Beaver_Builder_Register_Module {
+class WM_Amplifier_Beaver_Builder_Module_Tabs extends WM_Amplifier_Beaver_Builder_Register_Module {
 
 
 
@@ -34,6 +34,6 @@ class WM_Amplifier_Beaver_Builder_Module_Call_To_Action extends WM_Amplifier_Bea
 
 
 
-} // /WM_Amplifier_Beaver_Builder_Module_Call_To_Action
+} // /WM_Amplifier_Beaver_Builder_Module_Tabs
 
-WM_Amplifier_Beaver_Builder_Module_Call_To_Action::register();
+WM_Amplifier_Beaver_Builder_Module_Tabs::register( __FILE__ );

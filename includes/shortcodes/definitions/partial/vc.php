@@ -504,7 +504,7 @@ if ( function_exists( 'get_masterslider_names' ) ) {
 /**
  * Aliases: Render certain VC shortcodes even when the plugin is disabled
  */
-if ( ! WM_Amplifier_JS_Composer::is_active() ) {
+if ( is_callable( 'WM_Amplifier_JS_Composer::is_active' ) && ! WM_Amplifier_JS_Composer::is_active() ) {
 
 	/**
 	 * vc_row

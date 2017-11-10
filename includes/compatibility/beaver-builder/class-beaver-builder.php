@@ -160,7 +160,7 @@ class WM_Amplifier_Beaver_Builder {
 				 * Now load each module registration.
 				 */
 				foreach ( $definitions as $module => $args ) {
-					$file = $file_path . $module . '.php';
+					$file = $file_path . WM_Shortcodes::$prefix_shortcode . $module . '.php';
 
 					if ( file_exists( $file ) ) {
 						require_once $file;

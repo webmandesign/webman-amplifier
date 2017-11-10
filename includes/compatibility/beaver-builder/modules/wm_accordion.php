@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Message
+ * Accordion
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -10,7 +10,7 @@
  * @since    1.1.0
  * @version  1.6.0
  */
-class WM_Amplifier_Beaver_Builder_Module_Message extends WM_Amplifier_Beaver_Builder_Register_Module {
+class WM_Amplifier_Beaver_Builder_Module_Accordion extends WM_Amplifier_Beaver_Builder_Register_Module {
 
 
 
@@ -34,6 +34,6 @@ class WM_Amplifier_Beaver_Builder_Module_Message extends WM_Amplifier_Beaver_Bui
 
 
 
-} // /WM_Amplifier_Beaver_Builder_Module_Message
+} // /WM_Amplifier_Beaver_Builder_Module_Accordion
 
-WM_Amplifier_Beaver_Builder_Module_Message::register();
+WM_Amplifier_Beaver_Builder_Module_Accordion::register( __FILE__ );

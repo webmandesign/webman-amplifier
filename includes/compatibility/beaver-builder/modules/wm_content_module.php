@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Button
+ * Content Module
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -10,7 +10,7 @@
  * @since    1.1.0
  * @version  1.6.0
  */
-class WM_Amplifier_Beaver_Builder_Module_Button extends WM_Amplifier_Beaver_Builder_Register_Module {
+class WM_Amplifier_Beaver_Builder_Module_Content_Module extends WM_Amplifier_Beaver_Builder_Register_Module {
 
 
 
@@ -34,6 +34,6 @@ class WM_Amplifier_Beaver_Builder_Module_Button extends WM_Amplifier_Beaver_Buil
 
 
 
-} // /WM_Amplifier_Beaver_Builder_Module_Button
+} // /WM_Amplifier_Beaver_Builder_Module_Content_Module
 
-WM_Amplifier_Beaver_Builder_Module_Button::register();
+WM_Amplifier_Beaver_Builder_Module_Content_Module::register( __FILE__ );

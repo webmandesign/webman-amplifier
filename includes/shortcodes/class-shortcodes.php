@@ -591,12 +591,22 @@ class WM_Shortcodes {
 		 */
 		public static function assets_enqueue() {
 
+			// Helper variables
+
+				$icon_font_url = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
+
+
 			// Processing
 
 				// Styles
 
-					if ( apply_filters( 'wmhook_shortcode_iconfont_url', get_option( 'wmamp-icon-font' ) ) ) {
-						wp_enqueue_style( 'wm-fonticons' );
+					if ( $icon_font_url ) {
+						wp_enqueue_style(
+							'wm-fonticons',
+							$icon_font_url,
+							array(),
+							WMAMP_VERSION
+						);
 					}
 
 				// Allow hooking for dequeuing

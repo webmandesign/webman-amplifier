@@ -3,8 +3,17 @@
 /**
  * Helper class to register Beaver Builder module
  *
- * All the modules are registered the same way, so there is no need
- * to copy the same code over and over.
+ * All modules are registered the same way, so there is no need to copy
+ * the same code over and over.
+ *
+ * INITIALIZE:
+ * You need to initialize this class within a module registration file calling
+ * `WM_Amplifier_Beaver_Builder_Register_Module::register( __FILE__ )`.
+ *
+ * IMPORTANT:
+ * The module registration filename is used in Beaver Builder as module ID,
+ * so it has to be unique! And that's why we need to prefix those files
+ * with WM_Shortcodes::$prefix_shortcode.
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -23,6 +32,8 @@ class WM_Amplifier_Beaver_Builder_Register_Module extends FLBuilderModule {
 
 	private static $args;
 
+	private static $class;
+
 
 
 
@@ -32,24 +43,8 @@ class WM_Amplifier_Beaver_Builder_Register_Module extends FLBuilderModule {
 	 *
 	 * @since    1.6.0
 	 * @version  1.6.0
-	 *
-	 * @param  string $module  Module ID.
 	 */
-	public function __construct( $module = '' ) {
-
-		// Helper variables
-
-			if ( empty( $module ) ) {
-				$module = str_replace(
-					WM_Shortcodes::$prefix_shortcode,
-					'',
-					basename( __FILE__, '.php' )
-				);
-			}
-
-			self::$module = $module;
-			self::$args   = (array) WM_Amplifier_Beaver_Builder::get_definitions( $module );
-
+	public function __construct() {
 
 		// Processing
 
@@ -62,10 +57,36 @@ class WM_Amplifier_Beaver_Builder_Register_Module extends FLBuilderModule {
 	/**
 	 * Run all required registrations
 	 *
+	 * Module registration file (path) is required for this to run properly.
+	 * Module ID will be determined from the file name, so your module registration
+	 * file names should actually match the shortcode/module ID (+ prefix).
+	 *
 	 * @since    1.6.0
 	 * @version  1.6.0
+	 *
+	 * @param  string $module_file  Filename, usually just pass the __FILE__ as value.
 	 */
-	public static function register()) {
+	public static function register( $module_file = '' ) {
+
+		// Requirements check
+
+			if ( empty( $module_file ) ) {
+				return;
+			}
+
+
+		// Helper variables
+
+			$module_file = str_replace(
+				WM_Shortcodes::$prefix_shortcode,
+				'',
+				basename( $module_file, '.php' )
+			);
+
+			self::$module = $module_file;
+			self::$args   = (array) WM_Amplifier_Beaver_Builder::get_definitions( $module_file );
+			self::$class  = get_called_class();
+
 
 		// Processing
 
@@ -96,7 +117,7 @@ class WM_Amplifier_Beaver_Builder_Register_Module extends FLBuilderModule {
 				 * @param  array  $form   The module's settings form data.
 				 */
 				FLBuilder::register_module(
-					__CLASS__,
+					self::$class,
 					self::$args['form']
 				);
 

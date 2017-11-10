@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Divider
+ * Posts
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -10,7 +10,7 @@
  * @since    1.1.0
  * @version  1.6.0
  */
-class WM_Amplifier_Beaver_Builder_Module_Divider extends WM_Amplifier_Beaver_Builder_Register_Module {
+class WM_Amplifier_Beaver_Builder_Module_Posts extends WM_Amplifier_Beaver_Builder_Register_Module {
 
 
 
@@ -34,6 +34,6 @@ class WM_Amplifier_Beaver_Builder_Module_Divider extends WM_Amplifier_Beaver_Bui
 
 
 
-} // /WM_Amplifier_Beaver_Builder_Module_Divider
+} // /WM_Amplifier_Beaver_Builder_Module_Posts
 
-WM_Amplifier_Beaver_Builder_Module_Divider::register();
+WM_Amplifier_Beaver_Builder_Module_Posts::register( __FILE__ );

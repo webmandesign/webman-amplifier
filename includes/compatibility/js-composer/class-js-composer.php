@@ -124,7 +124,7 @@ class WM_Amplifier_JS_Composer {
 
 			// Requirements check
 
-				if ( ! self::is_active()() ) {
+				if ( ! self::is_active() ) {
 					return;
 				}
 

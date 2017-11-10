@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Testimonials
+ * Call to Action
  *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
@@ -10,7 +10,7 @@
  * @since    1.1.0
  * @version  1.6.0
  */
-class WM_Amplifier_Beaver_Builder_Module_Testimonials extends WM_Amplifier_Beaver_Builder_Register_Module {
+class WM_Amplifier_Beaver_Builder_Module_Call_To_Action extends WM_Amplifier_Beaver_Builder_Register_Module {
 
 
 
@@ -34,6 +34,6 @@ class WM_Amplifier_Beaver_Builder_Module_Testimonials extends WM_Amplifier_Beave
 
 
 
-} // /WM_Amplifier_Beaver_Builder_Module_Testimonials
+} // /WM_Amplifier_Beaver_Builder_Module_Call_To_Action
 
-WM_Amplifier_Beaver_Builder_Module_Testimonials::register();
+WM_Amplifier_Beaver_Builder_Module_Call_To_Action::register( __FILE__ );
