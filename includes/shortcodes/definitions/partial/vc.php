@@ -3,12 +3,14 @@
 /**
  * Shortcode definitions array partial: Visual Composer related
  *
+ * @todo  Page builder plugin!
+ *
  * @package     WebMan Amplifier
  * @subpackage  Shortcodes
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 
@@ -502,7 +504,7 @@ if ( function_exists( 'get_masterslider_names' ) ) {
 /**
  * Aliases: Render certain VC shortcodes even when the plugin is disabled
  */
-if ( ! wma_is_active_vc() ) {
+if ( ! WM_Amplifier_JS_Composer::is_active() ) {
 
 	/**
 	 * vc_row
@@ -550,4 +552,4 @@ if ( ! wma_is_active_vc() ) {
 			),
 		);
 
-} // /! wma_is_active_vc()
+} // /! WM_Amplifier_JS_Composer::is_active()

@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.6.0
+
+* **Update**: Improving code and its organization
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+
+
 ## 1.5.0
 
 * **Update**: Making custom Beaver Builder elements translatable with WPML plugin

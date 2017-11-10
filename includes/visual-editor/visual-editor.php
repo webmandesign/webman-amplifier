@@ -3,9 +3,7 @@
 /**
  * Visual Editor addons
  *
- * Does not add Format button, nor registers styles for the Format button.
- * Adds Shortcode Generator (and Short Shortcode Generator) button only.
- * Supports page builder plugins.
+ * Adds Shortcode Generator (and short, simplified version of it).
  *
  * This file is being included in the `init` hook, so we can use
  * WM_Shortcodes::get_definitions_processed() already.
@@ -17,7 +15,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.1.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * Contents:
  *
@@ -37,7 +35,7 @@
 	 * Enqueuing required assets
 	 *
 	 * @since    1.1.0
-	 * @version  1.5.0
+	 * @version  1.6.0
 	 */
 	function wma_ve_assets() {
 
@@ -64,19 +62,11 @@
 
 				if (
 					empty( $codes_default )
-					// Page builders check:
 					|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-					|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
+					|| apply_filters( 'wmhook_wmamp_generator_assets_disable', ! is_admin() )
 				) {
 					return;
 				}
-
-			$post_type = get_post_type();
-
-			$supported_post_types = array(
-				'beaver-builder'  => ( get_option( '_fl_builder_post_types' ) ) ? ( (array) get_option( '_fl_builder_post_types' ) ) : ( array( 'page' ) ),
-				'visual-composer' => ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) ),
-			);
 
 			ksort( $codes_default );
 			ksort( $codes_short );
@@ -95,12 +85,7 @@
 						WMAMP_VERSION,
 						'screen'
 					);
-
-					wp_style_add_data(
-						'wm-shortcodes-generator',
-						'rtl',
-						'replace'
-					);
+					wp_style_add_data( 'wm-shortcodes-generator', 'rtl', 'replace' );
 
 				// Scripts: inline
 
@@ -111,19 +96,12 @@
 					);
 
 
-			// Short version of shortcode generator for page builders
+			// Short, simplified version of shortcode generator (for page builders, for example)
 
 				if (
 					! empty( $codes_short )
-					&& (
-						(
-							! is_admin()
-							&& in_array( $post_type, $supported_post_types['beaver-builder'] )
-						) || (
-							wma_is_active_vc()
-							&& in_array( $post_type, $supported_post_types['visual-composer'] )
-						)
-					)
+					// This is disabled by default as we usually load full generator only.
+					&& apply_filters( 'wmhook_wmamp_generator_short_enable', false )
 				) {
 
 					// Scripts: inline
@@ -153,7 +131,7 @@
 	 * Visual Editor custom plugin
 	 *
 	 * @since    1.0.0
-	 * @version  1.5.0
+	 * @version  1.6.0
 	 *
 	 * @param  array $plugins_array
 	 */
@@ -182,9 +160,8 @@
 
 			if (
 				empty( $codes_default )
-				// Page builders check:
 				|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-				|| ( ! is_admin() && ( ! class_exists( 'FLBuilderModel' ) || ! FLBuilderModel::is_builder_active() ) )
+				|| apply_filters( 'wmhook_wmamp_generator_assets_disable', ! is_admin() )
 			) {
 				return $plugins_array;
 			}
@@ -201,7 +178,8 @@
 
 	} // /wma_ve_custom_mce_plugin
 
-	add_filter( 'mce_external_plugins', 'wma_ve_custom_mce_plugin', 19998 ); //-> 9999 in Beaver Builder
+	// Must load after Beaver Builder (9999) to keep compatibility.
+	add_filter( 'mce_external_plugins', 'wma_ve_custom_mce_plugin', 10010 );
 
 
 

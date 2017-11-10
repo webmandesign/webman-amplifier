@@ -33,12 +33,6 @@
  * 			'path'  => (string), // Custom render functionality file path
  * 		),
  *
- * 		// Plugin compatibility: Beaver Builder
- * 		'bb_plugin' => array(), // @todo  Documentation needed.
- *
- * 		// Plugin compatibility: Visual Composer
- * 		'vc_plugin' => array(), // @todo  Documentation needed.
- *
  *   ),
  *
  * @package     WebMan Amplifier
@@ -46,7 +40,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 

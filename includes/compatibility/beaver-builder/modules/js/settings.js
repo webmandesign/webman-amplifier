@@ -4,22 +4,34 @@
  * This works as a global `settings.js` file for all custom modules.
  *
  * @package     WebMan Amplifier
- * @subpackage  Shortcodes
+ * @subpackage  Compatibility
+ * @copyright   WebMan Design, Oliver Juhas
  *
- * @since    1.1
- * @version  1.1
+ * @since    1.1.0
+ * @version  1.6.0
+ *
+ * Contents:
+ *
+ * 10) Required fields
  */
 
 
 
-jQuery( function() {
+
+
+( function( $ ) {
+
+
 
 
 
 	/**
-	 * Required fields
+	 * 10) Required fields
 	 */
 
+ 	/**
+ 	 * @todo  Test these!
+ 	 */
 		FLBuilder.registerModuleHelper( 'button', {
 			rules : {
 				content : {
@@ -36,6 +48,17 @@ jQuery( function() {
 			}
 		} );
 
+		FLBuilder.registerModuleHelper( 'message', {
+			rules : {
+				content : {
+					required : true
+				}
+			}
+		} );
+
+ 	/**
+ 	 * @todo  Why are these here?!
+ 	 */
 		FLBuilder.registerModuleHelper( 'countdown_timer', {
 			rules : {
 				time : {
@@ -53,14 +76,6 @@ jQuery( function() {
 		} );
 
 		FLBuilder.registerModuleHelper( 'list', {
-			rules : {
-				content : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'message', {
 			rules : {
 				content : {
 					required : true
@@ -116,4 +131,6 @@ jQuery( function() {
 
 
 
-} );
+
+
+} )( jQuery );

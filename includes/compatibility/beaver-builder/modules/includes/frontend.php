@@ -1,4 +1,5 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Custom Beaver Builder module frontend output
  *
@@ -7,15 +8,13 @@
  * into the action hook below.
  *
  * @package     WebMan Amplifier
- * @subpackage  Shortcodes
+ * @subpackage  Compatibility
+ * @copyright   WebMan Design, Oliver Juhas
  *
- * @uses  obj $module   FLBuilderModule extension class
- * @uses  obj $settings Module settings object
- *
- * @since    1.1
- * @version  1.3.15
+ * @since    1.1.0
+ * @version  1.6.0
  */
 
 
 
-do_action( 'wmhook_shortcode_bb_module_frontend', $module, $settings );
+do_action( 'wmhook_amplifier_beaver_builder_module_frontend', $module, $settings );

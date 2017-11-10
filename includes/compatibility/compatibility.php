@@ -4,11 +4,11 @@
  * 3rd party plugins compatibility
  *
  * @package     WebMan Amplifier
- * @subpackage  Integration
+ * @subpackage  Compatibility
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.3.22
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 

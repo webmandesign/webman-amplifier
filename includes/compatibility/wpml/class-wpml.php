@@ -6,11 +6,11 @@
  * Making custom Beaver Builder elements/modules/shortcodes translatable with WPML.
  *
  * @package     WebMan Amplifier
- * @subpackage  Integration
+ * @subpackage  Compatibility
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * Contents:
  *
