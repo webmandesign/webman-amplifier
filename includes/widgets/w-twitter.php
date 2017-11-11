@@ -8,7 +8,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.13
+ * @version  1.6.0
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -119,6 +119,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Options form
+		 *
+		 * @version  1.6.0
 		 */
 		function form( $instance ) {
 
@@ -147,17 +149,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p class="wm-desc"><?php _ex( 'Displays recent tweets from specific Twitter account. Also displays Twitter account details. Tweets are being cached to optimize the page loading speeds.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'username' ); ?>"><?php _e( 'Twitter username:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'username' ); ?>"><?php _e( 'Twitter username:', 'webman-amplifier' ) ?></label><br>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'username' ); ?>" name="<?php echo $this->get_field_name( 'username' ); ?>" type="text" value="<?php echo esc_attr( $instance['username'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of tweets to display:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of tweets to display:', 'webman-amplifier' ) ?></label><br>
 					<input class="text-center" type="number" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo absint( $instance['count'] ); ?>" size="5" maxlength="2" min="1" max="10" />
 				</p>
 
@@ -174,27 +176,27 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<!-- Twitter API -->
 
 					<p class="wm-desc-separator">
-						<strong><?php _e( 'Twitter API settings', 'webman-amplifier' ) ?></strong><br />
+						<strong><?php _e( 'Twitter API settings', 'webman-amplifier' ) ?></strong><br>
 						<?php _e( 'To set the fields below you need to <a href="https://dev.twitter.com/apps" target="_blank">create a Twitter Application</a>. See theme user manual for more info.', 'webman-amplifier' ) ?>
 					</p>
 
 					<p>
-						<label for="<?php echo $this->get_field_id( 'consumer_key' ); ?>"><?php _e( 'Consumer key:', 'webman-amplifier' ) ?></label><br />
+						<label for="<?php echo $this->get_field_id( 'consumer_key' ); ?>"><?php _e( 'Consumer key:', 'webman-amplifier' ) ?></label><br>
 						<input class="widefat" id="<?php echo $this->get_field_id( 'consumer_key' ); ?>" name="<?php echo $this->get_field_name( 'consumer_key' ); ?>" type="text" value="<?php echo esc_attr( $consumer_key ); ?>" />
 					</p>
 
 					<p>
-						<label for="<?php echo $this->get_field_id( 'consumer_secret' ); ?>"><?php _e( 'Consumer secret:', 'webman-amplifier' ) ?></label><br />
+						<label for="<?php echo $this->get_field_id( 'consumer_secret' ); ?>"><?php _e( 'Consumer secret:', 'webman-amplifier' ) ?></label><br>
 						<input class="widefat" id="<?php echo $this->get_field_id( 'consumer_secret' ); ?>" name="<?php echo $this->get_field_name( 'consumer_secret' ); ?>" type="text" value="<?php echo esc_attr( $consumer_secret ); ?>" />
 					</p>
 
 					<p>
-						<label for="<?php echo $this->get_field_id( 'access_token' ); ?>"><?php _e( 'Access token:', 'webman-amplifier' ) ?></label><br />
+						<label for="<?php echo $this->get_field_id( 'access_token' ); ?>"><?php _e( 'Access token:', 'webman-amplifier' ) ?></label><br>
 						<input class="widefat" id="<?php echo $this->get_field_id( 'access_token' ); ?>" name="<?php echo $this->get_field_name( 'access_token' ); ?>" type="text" value="<?php echo esc_attr( $access_token ); ?>" />
 					</p>
 
 					<p>
-						<label for="<?php echo $this->get_field_id( 'access_token_secret' ); ?>"><?php _e( 'Access token secret:', 'webman-amplifier' ) ?></label><br />
+						<label for="<?php echo $this->get_field_id( 'access_token_secret' ); ?>"><?php _e( 'Access token secret:', 'webman-amplifier' ) ?></label><br>
 						<input class="widefat" id="<?php echo $this->get_field_id( 'access_token_secret' ); ?>" name="<?php echo $this->get_field_name( 'access_token_secret' ); ?>" type="text" value="<?php echo esc_attr( $access_token_secret ); ?>" />
 					</p>
 

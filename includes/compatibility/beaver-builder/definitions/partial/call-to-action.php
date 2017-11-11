@@ -35,156 +35,122 @@ $definitions['call_to_action']['bb_plugin'] = array(
 	'params' => $params,
 	'form'   => array(
 
-		//Tab
+		// Tab
 		'general' => array(
-			//Title
 			'title'       => esc_html__( 'General', 'webman-amplifier' ),
 			'description' => '',
-			//Sections
-			'sections' => array(
+			'sections'    => array(
 
-				//Section
 				'general' => array(
 					'title'  => '',
 					'fields' => array(
 
 						'caption' => array(
-							'type' => 'text',
-							//description
-							'label' => esc_html__( 'Caption', 'webman-amplifier' ),
-							//default
+							'type'    => 'text',
+							'label'   => esc_html__( 'Caption', 'webman-amplifier' ),
 							'default' => '',
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /caption
+						),
 
 						'heading_tag' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Caption HTML tag', 'webman-amplifier' ),
+							'type'        => 'select',
+							'label'       => esc_html__( 'Caption HTML tag', 'webman-amplifier' ),
 							'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H2' ),
-							//type specific
-							'options' => $helpers['heading_tags'],
-							//preview
-							'preview' => array( 'type' => 'none' ),
-						), // /heading_tag
+							'options'     => $helpers['heading_tags'],
+							'preview'     => array( 'type' => 'none' ),
+						),
 
-						), // /fields
-					), // /section
+					),
+				),
 
-				//Section
 				'content' => array(
 					'title'  => esc_html__( 'Content', 'webman-amplifier' ),
 					'fields' => array(
 
 						'content' => array(
-							'type' => 'editor',
-							//description
-							'label' => '',
-							//preview
+							'type'    => 'editor',
+							'label'   => '',
 							'preview' => array( 'type' => 'none' ),
-						), // /content
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-			), // /sections
-		), // /tab
+			),
+		),
 
-		//Tab
+		// Tab
 		'button' => array(
-			//Title
 			'title'       => esc_html__( 'Button', 'webman-amplifier' ),
 			'description' => '',
-			//Sections
-			'sections' => array(
+			'sections'    => array(
 
-				//Section
 				'general' => array(
 					'title'  => '',
 					'fields' => array(
 
 						'button_text' => array(
-							'type' => 'text',
-							//description
-							'label' => esc_html__( 'Button text', 'webman-amplifier' ),
-							//default
+							'type'    => 'text',
+							'label'   => esc_html__( 'Button text', 'webman-amplifier' ),
 							'default' => '',
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /button_text
+						),
 
 						'button_url' => array(
-							'type' => 'text',
-							//description
-							'label' => esc_html__( 'Button link URL', 'webman-amplifier' ),
-							//default
+							'type'    => 'text',
+							'label'   => esc_html__( 'Button link URL', 'webman-amplifier' ),
 							'default' => '',
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /button_url
+						),
 
 						'target' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Target', 'webman-amplifier' ),
-							'help'  => esc_html__( 'Button link target', 'webman-amplifier' ),
-							//type specific
+							'type'    => 'select',
+							'label'   => esc_html__( 'Target', 'webman-amplifier' ),
+							'help'    => esc_html__( 'Button link target', 'webman-amplifier' ),
 							'options' => array(
 								''       => esc_html__( 'Open in same window', 'webman-amplifier' ),
 								'_blank' => esc_html__( 'Open in new window / tab', 'webman-amplifier' ),
 							),
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /target
+						),
 
 						'button_color' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Button color', 'webman-amplifier' ),
-							//type specific
+							'type'    => 'select',
+							'label'   => esc_html__( 'Button color', 'webman-amplifier' ),
 							'options' => $helpers['colors'],
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /button_color
+						),
 
 						'button_size' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Button size', 'webman-amplifier' ),
-							//type specific
+							'type'    => 'select',
+							'label'   => esc_html__( 'Button size', 'webman-amplifier' ),
 							'options' => $helpers['sizes']['options'],
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /button_size
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-				//Section
 				'icon' => array(
 					'title'  => esc_html__( 'Button icon', 'webman-amplifier' ),
 					'fields' => array(
 
 						'button_icon' => array(
-							'type' => 'wm_radio',
-							//description
-							'label' => '',
-							//type specific
+							'type'       => 'wm_radio',
+							'label'      => '',
 							'options'    => $helpers['font_icons'],
 							'custom'     => '<span aria-hidden="true" class="{{value}}" title="{{value}}" style="display: inline-block; width: 20px; height: 20px; line-height: 1em; font-size: 20px; vertical-align: top; color: #444;"></span>',
 							'filter'     => true,
 							'hide_radio' => true,
 							'inline'     => true,
-							//preview
-							'preview' => array( 'type' => 'none' ),
-						), // /button_icon
+							'preview'    => array( 'type' => 'none' ),
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-			), // /sections
-		), // /tab
+			),
+		),
 
 	),
 	'compatibility/wpml' => array(

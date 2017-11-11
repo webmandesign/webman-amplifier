@@ -98,6 +98,8 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 	/**
 	 * Child element option field labels
 	 *
+	 * @uses  WM_Shortcodes::get_definitions_processed()
+	 *
 	 * @since    1.5.0
 	 * @version  1.6.0
 	 */

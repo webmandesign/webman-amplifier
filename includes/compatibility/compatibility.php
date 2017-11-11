@@ -24,9 +24,6 @@
 
 	// Beaver Builder
 
-		/**
-		 * @todo  Definition files.
-		 */
 		if ( class_exists( 'FLBuilder' ) ) {
 			require_once WMAMP_INCLUDES_DIR . 'compatibility/beaver-builder/class-beaver-builder.php';
 			$has_page_builder = true;
@@ -41,10 +38,9 @@
 	// WPBakery Page Builder (Visual Composer)
 
 		/**
-		 * @todo  Set condition.
-		 * @todo  Definition files.
+		 * @todo  Go through all definition files.
 		 */
-		if ( false ) {
+		if ( class_exists( 'Vc_Manager' ) ) {
 			require_once WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer.php';
 			$has_page_builder = true;
 		}
@@ -55,8 +51,9 @@
 			require_once WMAMP_INCLUDES_DIR . 'compatibility/wpml/class-wpml.php';
 		}
 
-	// Load page builder helper class
-
-		if ( $has_page_builder ) {
-			require_once WMAMP_INCLUDES_DIR . 'compatibility/page-builder/class-page-builder.php';
-		}
+	/**
+	 * Finally, we also check if we should load the page builder helper class
+	 */
+	if ( $has_page_builder ) {
+		require_once WMAMP_INCLUDES_DIR . 'compatibility/page-builder/class-page-builder.php';
+	}

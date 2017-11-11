@@ -8,8 +8,6 @@
  * This file is being included in the `init` hook, so we can use
  * WM_Shortcodes::get_definitions_processed() already.
  *
- * @uses  WM_Shortcodes::get_definitions_processed()
- *
  * @package     WebMan Amplifier
  * @subpackage  Visual Editor
  * @copyright   WebMan Design, Oliver Juhas
@@ -33,6 +31,8 @@
 
 	/**
 	 * Enqueuing required assets
+	 *
+	 * @uses  WM_Shortcodes::get_definitions_processed()
 	 *
 	 * @since    1.1.0
 	 * @version  1.6.0
@@ -125,6 +125,8 @@
 
 	/**
 	 * Visual Editor custom plugin
+	 *
+	 * @uses  WM_Shortcodes::get_definitions_processed()
 	 *
 	 * @since    1.0.0
 	 * @version  1.6.0

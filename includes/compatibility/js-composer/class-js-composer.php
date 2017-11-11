@@ -64,6 +64,13 @@ class WM_Amplifier_JS_Composer {
 		 */
 		private function __construct() {
 
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return;
+				}
+
+
 			// Processing
 
 				// Hooks
@@ -75,13 +82,13 @@ class WM_Amplifier_JS_Composer {
 						 *
 						 * Using priority of `WM_Shortcodes(5) < WPBakeryVisualComposer` to hook the plugin compatibility setup.
 						 */
-						add_action( 'init', __CLASS__ . '::remove_native_elements', 8 );
-						add_action( 'init', __CLASS__ . '::register_elements', 8 );
-						add_action( 'init', __CLASS__ . '::disable_frontend_editor', 8 );
 						add_action( 'init', __CLASS__ . '::form_field_radio_custom_add', 8 );
 						add_action( 'init', __CLASS__ . '::form_interface', 8 );
-						add_action( 'init', __CLASS__ . '::shortcode_render_override', 8 );
+						add_action( 'init', __CLASS__ . '::remove_native_elements', 8 );
+						add_action( 'init', __CLASS__ . '::register_elements', 8 );
 						add_action( 'init', __CLASS__ . '::options', 8 );
+						add_action( 'init', __CLASS__ . '::disable_frontend_editor', 8 );
+						add_action( 'init', __CLASS__ . '::shortcode_render_override', 8 );
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_enqueue' );
 
@@ -94,7 +101,7 @@ class WM_Amplifier_JS_Composer {
 
 						add_filter( 'wmhook_shortcode_definitions_processed_code', __CLASS__ . '::set_definitions_processed', 10, 4 );
 
-						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short' );
+						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short_enable' );
 
 						add_filter( 'wmhook_shortcode_process_content_run', __CLASS__ . '::process_content' );
 
@@ -134,6 +141,8 @@ class WM_Amplifier_JS_Composer {
 		/**
 		 * Register shortcodes as WPBakery Page Builder elements
 		 *
+		 * @uses  WM_Shortcodes::get_definitions_processed()
+		 *
 		 * @since    1.0.0
 		 * @version  1.6.0
 		 */
@@ -141,10 +150,7 @@ class WM_Amplifier_JS_Composer {
 
 			// Requirements check
 
-				if (
-					! function_exists( 'vc_map' )
-					|| ! self::is_active()
-				) {
+				if ( ! function_exists( 'vc_map' ) ) {
 					return;
 				}
 
@@ -179,32 +185,6 @@ class WM_Amplifier_JS_Composer {
 
 
 		/**
-		 * Disable WPBakery Page Builder's frontend editor
-		 *
-		 * @since    1.0.0
-		 * @version  1.6.0
-		 */
-		public static function disable_frontend_editor() {
-
-			// Requirements check
-
-				if (
-					! self::is_active()
-					|| ! function_exists( 'vc_disable_frontend' )
-				) {
-					return;
-				}
-
-
-			// Processing
-
-				vc_disable_frontend();
-
-		} // /disable_frontend_editor
-
-
-
-		/**
 		 * Remove WPBakery Page Builder's native elements
 		 *
 		 * The theme has to declare support for this functionality!
@@ -217,8 +197,7 @@ class WM_Amplifier_JS_Composer {
 			// Requirements check
 
 				if (
-					! self::is_active()
-					|| ! function_exists( 'vc_remove_element' )
+					! function_exists( 'vc_remove_element' )
 					|| ! class_exists( 'WPBMap' )
 					|| ! (
 						wma_supports_subfeature( 'remove_vc_shortcodes' )
@@ -262,6 +241,29 @@ class WM_Amplifier_JS_Composer {
 
 
 		/**
+		 * Disable WPBakery Page Builder's frontend editor
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function disable_frontend_editor() {
+
+			// Requirements check
+
+				if ( ! function_exists( 'vc_disable_frontend' ) ) {
+					return;
+				}
+
+
+			// Processing
+
+				vc_disable_frontend();
+
+		} // /disable_frontend_editor
+
+
+
+		/**
 		 * Shortcodes definitions processing
 		 *
 		 * @see  WM_Shortcodes::get_definitions_processed()
@@ -275,13 +277,6 @@ class WM_Amplifier_JS_Composer {
 		 * @param  string $prefix_shortcode
 		 */
 		public static function set_definitions_processed( $output = array(), $code = '', $definition = array(), $prefix_shortcode = '' ) {
-
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return $output;
-				}
-
 
 			// Helper variables
 
@@ -327,18 +322,9 @@ class WM_Amplifier_JS_Composer {
 		 */
 		public static function options() {
 
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return;
-				}
-
-
 			// Processing
-
-				// Options modifications
-
-					delete_option( 'wpb_js_use_custom' );
+return;
+				delete_option( 'wpb_js_use_custom' );
 
 		} // /options
 
@@ -456,13 +442,6 @@ class WM_Amplifier_JS_Composer {
 		 */
 		public static function shortcode_render_override() {
 
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return;
-				}
-
-
 			// Processing
 
 				require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/functions-js-composer-render.php' );
@@ -514,13 +493,6 @@ class WM_Amplifier_JS_Composer {
 		 */
 		public static function form_field_radio_custom_add() {
 
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return;
-				}
-
-
 			// Processing
 
 				vc_add_shortcode_param(
@@ -541,13 +513,6 @@ class WM_Amplifier_JS_Composer {
 		 * @version  1.6.0
 		 */
 		public static function form_interface() {
-
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return;
-				}
-
 
 			// Processing
 
@@ -571,14 +536,7 @@ class WM_Amplifier_JS_Composer {
 		 *
 		 * @param  boolean $enable
 		 */
-		public static function shortcode_generator_short( $enable ) {
-
-			// Requirements check
-
-				if ( ! self::is_active() ) {
-					return $enable;
-				}
-
+		public static function shortcode_generator_short_enable( $enable ) {
 
 			// Helper variables
 
@@ -602,7 +560,7 @@ class WM_Amplifier_JS_Composer {
 
 				return $enable;
 
-		} // /shortcode_generator_short
+		} // /shortcode_generator_short_enable
 
 
 
@@ -726,8 +684,6 @@ class WM_Amplifier_JS_Composer {
 		/**
 		 * Check if page builder is active
 		 *
-		 * Supports both 4.2+ plugin versions and older too.
-		 *
 		 * @since    1.6.0
 		 * @version  1.6.0
 		 */
@@ -742,7 +698,7 @@ class WM_Amplifier_JS_Composer {
 
 			// Output
 
-				return (bool) apply_filters( 'wmhook_amplifier_js_composer_is_active', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+				return (bool) apply_filters( 'wmhook_amplifier_js_composer_is_active', class_exists( 'Vc_Manager' ) );
 
 		} // /is_active
 

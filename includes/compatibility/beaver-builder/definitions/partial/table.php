@@ -29,62 +29,49 @@ $definitions['table']['bb_plugin'] = array(
 	'params' => $params,
 	'form'   => array(
 
-		//Tab
+		// Tab
 		'general' => array(
-			//Title
 			'title'       => esc_html__( 'General', 'webman-amplifier' ),
 			'description' => '',
-			//Sections
-			'sections' => array(
+			'sections'    => array(
 
-				//Section
 				'general' => array(
 					'title'  => '',
 					'fields' => array(
 
 						'appearance' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Appearance', 'webman-amplifier' ),
-							//type specific
+							'type'    => 'select',
+							'label'   => esc_html__( 'Appearance', 'webman-amplifier' ),
 							'options' => $helpers['table_appearance'],
-							//preview
 							'preview' => array( 'type' => 'refresh' ),
-						), // /appearance
+						),
 
 						'separator' => array(
-							'type' => 'text',
-							//description
-							'label' => esc_html__( 'CSV data separator', 'webman-amplifier' ),
-							//default
+							'type'    => 'text',
+							'label'   => esc_html__( 'CSV data separator', 'webman-amplifier' ),
 							'default' => ',',
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /separator
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-				//Section
 				'content' => array(
 					'title'  => esc_html__( 'CSV data', 'webman-amplifier' ),
 					'fields' => array(
 
 						'content' => array(
-							'type' => 'editor',
-							//description
-							'label' => '',
-							//default
+							'type'    => 'editor',
+							'label'   => '',
 							'default' => "Column 1, Colum 2, Column 3\r\nValue 1, Value 2, Value 3",
-							//preview
 							'preview' => array( 'type' => 'none' ),
-						), // /content
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-			), // /sections
-		), // /tab
+			),
+		),
 
 	),
 	'compatibility/wpml' => array(

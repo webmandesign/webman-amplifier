@@ -80,7 +80,7 @@ $definitions['posts']['vc_plugin'] = array(
 
 		50 => array(
 			'heading'     => esc_html__( 'Taxonomy', 'webman-amplifier' ),
-			'description' => esc_html__( 'Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon.', 'webman-amplifier' ) . '<br />' . esc_html__( 'For example: "category:category-slug".', 'webman-amplifier' ) . '<br />' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
+			'description' => esc_html__( 'Displays items only from a specific taxonomy. Set a taxonomy name and taxonomy slug separated with colon.', 'webman-amplifier' ) . '<br>' . esc_html__( 'For example: "category:category-slug".', 'webman-amplifier' ) . '<br>' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
 			'type'        => 'textfield',
 			'param_name'  => 'taxonomy',
 			'value'       => '',
@@ -90,7 +90,7 @@ $definitions['posts']['vc_plugin'] = array(
 		),
 		60 => array(
 			'heading'     => esc_html__( 'Relation', 'webman-amplifier' ),
-			'description' => esc_html__( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'webman-amplifier' ) . ' ' . esc_html__( 'For example: "category".', 'webman-amplifier' ) . '<br />' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
+			'description' => esc_html__( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'webman-amplifier' ) . ' ' . esc_html__( 'For example: "category".', 'webman-amplifier' ) . '<br>' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
 			'type'        => 'textfield',
 			'param_name'  => 'related',
 			'value'       => '',
@@ -101,7 +101,7 @@ $definitions['posts']['vc_plugin'] = array(
 
 		70 => array(
 			'heading'     => esc_html__( 'Filter', 'webman-amplifier' ),
-			'description' => esc_html__( 'If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'webman-amplifier' ) . '<br />' . esc_html__( 'For example: "category" or "category:parent-category-slug".', 'webman-amplifier' ) . '<br />' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
+			'description' => esc_html__( 'If set, the items will be filtered. Set a taxonomy name (and optional parent taxonomy slug separated with colon - filter will be created from sub-taxonomies) which will be used to filter the items.', 'webman-amplifier' ) . '<br>' . esc_html__( 'For example: "category" or "category:parent-category-slug".', 'webman-amplifier' ) . '<br>' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
 			'type'        => 'textfield',
 			'param_name'  => 'filter',
 			'value'       => '',

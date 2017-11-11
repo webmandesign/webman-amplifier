@@ -105,6 +105,8 @@ class WM_Amplifier_WPML {
 		 * @example
 		 * 	@see  WPML_Beaver_Builder_Accordion()
 		 *
+		 * @uses  WM_Shortcodes::get_definitions_processed()
+		 *
 		 * @since    1.5.0
 		 * @version  1.6.0
 		 *

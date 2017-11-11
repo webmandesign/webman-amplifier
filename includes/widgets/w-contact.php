@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.6.0
  *
  * Contents:
  *
@@ -94,7 +94,7 @@
 		 * Options form
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.2.3
+		 * @version  1.6.0
 		 */
 		function form( $instance ) {
 
@@ -129,14 +129,14 @@
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php esc_html_e( 'Address:', 'webman-amplifier' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'address' ); ?>"><?php esc_html_e( 'Address:', 'webman-amplifier' ); ?></label><br>
 					<textarea cols="50" rows="5" id="<?php echo $this->get_field_id( 'address' ); ?>" name="<?php echo $this->get_field_name( 'address' ); ?>"><?php echo esc_textarea( $instance['address'] ); ?></textarea>
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php esc_html_e( 'Business hours:', 'webman-amplifier' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'hours' ); ?>"><?php esc_html_e( 'Business hours:', 'webman-amplifier' ); ?></label><br>
 					<textarea cols="50" rows="3" id="<?php echo $this->get_field_id( 'hours' ); ?>" name="<?php echo $this->get_field_name( 'hours' ); ?>"><?php echo esc_textarea( $instance['hours'] ); ?></textarea>
-					<small><?php _e( 'Use comma to separate days and times<br />(such as "Friday, 9:00 - 17:00")', 'webman-amplifier' ) ?></small>
+					<small><?php _e( 'Use comma to separate days and times<br>(such as "Friday, 9:00 - 17:00")', 'webman-amplifier' ) ?></small>
 				</p>
 
 				<p>
@@ -193,7 +193,7 @@
 		 * Widget HTML
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.2.3
+		 * @version  1.6.0
 		 */
 		function widget( $args, $instance ) {
 
@@ -235,8 +235,8 @@
 
 						$address[10] = '<div class="address contact-info"' . wma_schema_org( 'itemprop="address"' ) . '>'
 						               . '<' . tag_escape( $heading_tag ) . $heading_atts . '>' . esc_html__( 'Address:', 'webman-amplifier' ) . '</' . tag_escape( $heading_tag ) . '>'
-						               . '<strong' . wma_schema_org( 'itemprop="name"' ) . '>' . $instance['name'] . '</strong><br />'
-						               . str_replace( "\r\n", '<br />', $instance['address'] )
+						               . '<strong' . wma_schema_org( 'itemprop="name"' ) . '>' . $instance['name'] . '</strong><br>'
+						               . str_replace( "\r\n", '<br>', $instance['address'] )
 						               . '</div>';
 
 					}

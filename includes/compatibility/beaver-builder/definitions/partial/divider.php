@@ -27,34 +27,28 @@ $definitions['divider']['bb_plugin'] = array(
 	'params' => $params,
 	'form'   => array(
 
-		//Tab
+		// Tab
 		'general' => array(
-			//Title
 			'title'       => esc_html__( 'General', 'webman-amplifier' ),
 			'description' => '',
-			//Sections
-			'sections' => array(
+			'sections'    => array(
 
-				//Section
 				'general' => array(
 					'title'  => '',
 					'fields' => array(
 
 						'appearance' => array(
-							'type' => 'select',
-							//description
-							'label' => esc_html__( 'Appearance', 'webman-amplifier' ),
-							//type specific
+							'type'    => 'select',
+							'label'   => esc_html__( 'Appearance', 'webman-amplifier' ),
 							'options' => $helpers['divider_appearance'],
-							//preview
 							'preview' => array( 'type' => 'refresh' ),
-						), // /appearance
+						),
 
-					), // /fields
-				), // /section
+					),
+				),
 
-			), // /sections
-		), // /tab
+			),
+		),
 
 	),
 );

@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.3.10
+ * @version  1.6.0
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -92,6 +92,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Options form
+		 *
+		 * @version  1.6.0
 		 */
 		function form( $instance ) {
 
@@ -110,12 +112,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p class="wm-desc"><?php _ex( 'Displays list of Posts or Projects.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type:', 'webman-amplifier' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type:', 'webman-amplifier' ); ?></label><br>
 					<select class="widefat" name="<?php echo $this->get_field_name( 'post_type' ); ?>" id="<?php echo $this->get_field_id( 'post_type' ); ?>">
 						<?php
 						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_post_type', array( 'post' => __( 'Posts', 'webman-amplifier' ) ) );
@@ -128,12 +130,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Posts count:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Posts count:', 'webman-amplifier' ) ?></label><br>
 					<input class="text-center" type="number" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo absint( $instance['count'] ); ?>" size="5" maxlength="2" />
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Ordering:', 'webman-amplifier' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Ordering:', 'webman-amplifier' ); ?></label><br>
 					<select class="widefat" name="<?php echo $this->get_field_name( 'order' ); ?>" id="<?php echo $this->get_field_id( 'order' ); ?>">
 						<?php
 						$options = apply_filters( 'wmhook_widgets_' . 'wm_posts_widget' . '_form' . '_order', array(
@@ -150,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Optional posts taxonomy:', 'webman-amplifier' ); ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Optional posts taxonomy:', 'webman-amplifier' ); ?></label><br>
 					<select class="widefat" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
 						<?php
 						if ( function_exists( 'wma_taxonomy_array' ) ) {
@@ -186,7 +188,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'webman-amplifier' ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'webman-amplifier' ) ?></label><br>
 					<input class="widefat" id="<?php echo $this->get_field_id( 'class' ); ?>" name="<?php echo $this->get_field_name( 'class' ); ?>" type="text" value="<?php echo esc_attr( $instance['class'] ); ?>" />
 				</p>
 				<?php

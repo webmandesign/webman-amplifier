@@ -96,9 +96,9 @@ class WM_Amplifier_Beaver_Builder {
 
 						add_filter( 'wmhook_shortcode_definitions_processed_code', __CLASS__ . '::set_definitions_processed', 10, 4 );
 
-						add_filter( 'wmhook_wmamp_generator_enable', __CLASS__ . '::shortcode_generator' );
+						add_filter( 'wmhook_wmamp_generator_enable', __CLASS__ . '::shortcode_generator_enable' );
 
-						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short' );
+						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short_enable' );
 
 						add_filter( 'fl_builder_upgrade_url', __CLASS__ . '::upgrade_url' );
 
@@ -149,7 +149,7 @@ class WM_Amplifier_Beaver_Builder {
 
 			// Helper variables
 
-				$definitions = (array) self::get_definitions( 'all' );
+				$definitions = (array) self::get_definitions_processed( 'all' );
 				$file_path   = WMAMP_INCLUDES_DIR . 'compatibility/beaver-builder/modules/';
 
 
@@ -198,7 +198,7 @@ class WM_Amplifier_Beaver_Builder {
 				$output = $replace_children = '';
 
 				$module = substr( $module->slug, strlen( WM_Shortcodes::$prefix_shortcode ) );
-				$args   = self::get_definitions( $module );
+				$args   = self::get_definitions_processed( $module );
 
 				$output_partial = array(
 					'parent' => (string) $args['output'],
@@ -308,7 +308,7 @@ class WM_Amplifier_Beaver_Builder {
 
 			// Output
 
-				echo apply_filters( 'wmhook_shortcode_wma_bb_custom_module_output', $output, $module, $settings );
+				echo apply_filters( 'wmhook_amplifier_beaver_builder_render_module_output', $output, $module, $settings );
 
 		} // /render_module
 
@@ -327,7 +327,7 @@ class WM_Amplifier_Beaver_Builder {
 
 			// Helper variables
 
-				$definitions = array_keys( (array) self::get_definitions( 'all' ) );
+				$definitions = array_keys( (array) self::get_definitions_processed( 'all' ) );
 
 
 			// Processing
@@ -469,7 +469,7 @@ class WM_Amplifier_Beaver_Builder {
 		 *
 		 * @param  boolean $enable
 		 */
-		public static function shortcode_generator( $enable ) {
+		public static function shortcode_generator_enable( $enable ) {
 
 			// Processing
 
@@ -485,7 +485,7 @@ class WM_Amplifier_Beaver_Builder {
 
 				return $enable;
 
-		} // /shortcode_generator
+		} // /shortcode_generator_enable
 
 
 
@@ -497,7 +497,7 @@ class WM_Amplifier_Beaver_Builder {
 		 *
 		 * @param  boolean $enable
 		 */
-		public static function shortcode_generator_short( $enable ) {
+		public static function shortcode_generator_short_enable( $enable ) {
 
 			// Helper variables
 
@@ -522,7 +522,7 @@ class WM_Amplifier_Beaver_Builder {
 
 				return $enable;
 
-		} // /shortcode_generator_short
+		} // /shortcode_generator_short_enable
 
 
 
@@ -716,7 +716,9 @@ class WM_Amplifier_Beaver_Builder {
 
 
 		/**
-		 * Get shortcode definitions
+		 * Get shortcode definitions processed
+		 *
+		 * @uses  WM_Shortcodes::get_definitions_processed()
 		 *
 		 * @since    1.1.0
 		 * @version  1.6.0
@@ -724,7 +726,7 @@ class WM_Amplifier_Beaver_Builder {
 		 * @param  string $shortcode
 		 * @param  string $property
 		 */
-		public static function get_definitions( $shortcode = 'all', $property = '' ) {
+		public static function get_definitions_processed( $shortcode = 'all', $property = '' ) {
 
 			// Requirements check
 
@@ -813,7 +815,7 @@ class WM_Amplifier_Beaver_Builder {
 				 */
 				return apply_filters( 'wmhook_amplifier_beaver_builder_get_definitions', $output, $shortcode, $property );
 
-		} // /get_definitions
+		} // /get_definitions_processed
 
 
 

@@ -84,7 +84,7 @@ class WM_Amplifier_Beaver_Builder_Register_Module extends FLBuilderModule {
 			);
 
 			self::$module = $module_file;
-			self::$args   = (array) WM_Amplifier_Beaver_Builder::get_definitions( $module_file );
+			self::$args   = (array) WM_Amplifier_Beaver_Builder::get_definitions_processed( $module_file );
 			self::$class  = get_called_class();
 
 

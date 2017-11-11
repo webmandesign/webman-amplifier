@@ -392,7 +392,7 @@ class WM_Shortcodes {
 		 * @todo  Remove this shortcode entirely.
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 *
 		 * @param  string $content
 		 */
@@ -413,7 +413,7 @@ class WM_Shortcodes {
 						$content
 					);
 					$content = str_replace(
-						array( '<p>', '</p>', '<br />' ),
+						array( '<p>', '</p>', '<br>', '<br />' ),
 						'',
 						$content
 					);
@@ -434,7 +434,7 @@ class WM_Shortcodes {
 		 * Fixes HTML issues created by wpautop.
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 *
 		 * @param  string $content
 		 */
@@ -445,8 +445,8 @@ class WM_Shortcodes {
 				$fix = array(
 					'<p>['    => '[',
 					']</p>'   => ']',
+					']<br>'   => ']',
 					']<br />' => ']',
-					']<br>'   => ']'
 				);
 
 
