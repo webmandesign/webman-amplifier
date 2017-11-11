@@ -8,9 +8,11 @@
  * 	'shortcode-name' => array(
  *
  * 		// Plugin version when the shortcode was added
+ * 		// @required
  * 		'since' => '1.0.0',
  *
  * 		// Shortcode generator setup
+ * 		// @optional  Do not set if empty!
  * 		'generator' => array(
  * 			'name'  => (string),
  * 			'code'  => (string),
@@ -18,16 +20,15 @@
  * 		),
  *
  * 		// Preprocessing needed?
+ * 		// @optional  Do not set if empty!
  * 		'preprocess' => (boolean),
  *
- * 		// Post type required for the shortcode
- * 		'post_type_required' => (string),
- *
  * 		// Overrides the default shortcode prefix when registering shortcode with WordPress.
- * 		// IMPORTANT: Set this only when really required!
+ * 		// @optional  Do not set if empty!
  * 		'custom_prefix' => (mixed: boolean/string),
  *
  * 		// Alias: overrides shortcode default rendering functionality
+ * 		// @optional  Do not set if empty!
  *   	'renderer' => array(
  * 			'alias' => (string),
  * 			'path'  => (string), // Custom render functionality file path
@@ -52,13 +53,6 @@
 	// Global code helpers and values
 
 		$helpers = WM_Shortcodes::get_codes_globals();
-
-	// Prefixes
-
-		$prefix = array(
-			'code' => WM_Shortcodes::$prefix_shortcode,
-			'name' => WM_Shortcodes::$prefix_shortcode_name,
-		);
 
 	// Partial files to load
 
@@ -91,7 +85,6 @@
 			'table',
 			'tabs',
 			'testimonials',
-			'vc',
 			'video',
 			'widget-area',
 		);

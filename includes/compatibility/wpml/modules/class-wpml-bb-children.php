@@ -98,16 +98,14 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 	/**
 	 * Child element option field labels
 	 *
-	 * @todo  Prefix field names with shortcode name.
-	 *
 	 * @since    1.5.0
-	 * @version  1.5.0
+	 * @version  1.6.0
 	 */
 	protected function get_title( $field ) {
 
 		// Helper variables
 
-			$custom_modules       = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
+			$custom_modules       = (array) WM_Shortcodes::get_definitions_processed( 'compatibility/beaver-builder' );
 			$module_name_prefixed = WM_Shortcodes::$prefix_shortcode_name . $custom_modules[ self::$module_id ]['name'];
 
 

@@ -16,10 +16,9 @@
  *
  *   0) Init
  *  10) Integration
- *  20) Shortcode output modifications
- *  30) Forms
- *  40) Shortcodes generator
- *  50) Assets
+ *  20) Forms
+ *  30) Shortcodes generator
+ *  40) Assets
  * 100) Getters
  */
 class WM_Amplifier_Beaver_Builder {
@@ -33,6 +32,8 @@ class WM_Amplifier_Beaver_Builder {
 	 */
 
 		private static $instance;
+
+		public static $definitions = array();
 
 
 
@@ -74,9 +75,9 @@ class WM_Amplifier_Beaver_Builder {
 					// Actions
 
 						/**
-						 * Using 8 and 9 position to hook the Beaver Builder support.
-						 * If you intend to change these positions, change the numbers
-						 * but keep the order.
+						 * @todo  Document plugin priority.
+						 *
+						 * Using priority of `WM_Shortcodes(5) < FLBuilder` to hook the plugin compatibility setup.
 						 */
 						add_action( 'init', __CLASS__ . '::register_modules', 8 );
 
@@ -86,19 +87,22 @@ class WM_Amplifier_Beaver_Builder {
 
 						add_action( 'wmhook_amplifier_beaver_builder_module_frontend_js', __CLASS__ . '::module_frontend_js', 10, 2 );
 
-						add_action( 'fl_builder_control_' . 'wm_radio', __CLASS__ . '::form_field_radio_custom', 10, 3 );
+						add_action( 'fl_builder_control_' . 'wm_radio', __CLASS__ . '::form_field_radio_custom_render', 10, 3 );
 
 					// Filters
+
+						// Low priority to allow later modifications (even with default filter priority, which is 10)
+						add_filter( 'wmhook_shortcode_definitions', __CLASS__ . '::get_definitions_beaver_builder', 0 );
+
+						add_filter( 'wmhook_shortcode_definitions_processed_code', __CLASS__ . '::set_definitions_processed', 10, 4 );
+
+						add_filter( 'wmhook_wmamp_generator_enable', __CLASS__ . '::shortcode_generator' );
+
+						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short' );
 
 						add_filter( 'fl_builder_upgrade_url', __CLASS__ . '::upgrade_url' );
 
 						add_filter( 'fl_builder_module_custom_class', __CLASS__ . '::wrapper_css_class', 10, 2 );
-
-						add_filter( 'wmhook_shortcode_definitions_processed', __CLASS__ . '::set_definitions_processed', 10, 4 );
-
-						add_filter( 'wmhook_wmamp_generator_assets_disable', __CLASS__ . '::shortcode_generator' );
-
-						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short' );
 
 		} // /__construct
 
@@ -342,7 +346,7 @@ class WM_Amplifier_Beaver_Builder {
 
 
 		/**
-		 * Shortcodes globals setup
+		 * Shortcodes definitions processing
 		 *
 		 * @see  WM_Shortcodes::get_definitions_processed()
 		 *
@@ -356,27 +360,41 @@ class WM_Amplifier_Beaver_Builder {
 		 */
 		public static function set_definitions_processed( $output = array(), $code = '', $definition = array(), $prefix_shortcode = '' ) {
 
+			// Helper variables
+
+				// Backwards compatibility
+
+					if (
+						! isset( $definition['compatibility/beaver-builder'] )
+						&& isset( $definition['bb_plugin'] )
+					) {
+						$definition['compatibility/beaver-builder'] = $definition['bb_plugin'];
+					}
+
+
 			// Processing
 
-				if ( isset( $definition['bb_plugin'] ) && ! empty( $definition['bb_plugin'] ) ) {
+				if ( isset( $definition['compatibility/beaver-builder'] ) && ! empty( $definition['compatibility/beaver-builder'] ) ) {
 
-					if ( isset( $definition['bb_plugin']['output'] ) ) {
-						$definition['bb_plugin']['output'] = str_replace(
-							'PREFIX_',
-							$prefix_shortcode,
-							$definition['bb_plugin']['output']
-						);
-					}
+					// Apply shortcode prefix on module output
 
-					if ( isset( $definition['bb_plugin']['output_children'] ) ) {
-						$definition['bb_plugin']['output_children'] = str_replace(
-							'PREFIX_',
-							$prefix_shortcode,
-							$definition['bb_plugin']['output_children']
-						);
-					}
+						if ( isset( $definition['compatibility/beaver-builder']['output'] ) ) {
+							$definition['compatibility/beaver-builder']['output'] = str_replace(
+								'PREFIX_',
+								$prefix_shortcode,
+								$definition['compatibility/beaver-builder']['output']
+							);
+						}
 
-					$output['bb_plugin'][$code] = $definition['bb_plugin'];
+						if ( isset( $definition['compatibility/beaver-builder']['output_children'] ) ) {
+							$definition['compatibility/beaver-builder']['output_children'] = str_replace(
+								'PREFIX_',
+								$prefix_shortcode,
+								$definition['compatibility/beaver-builder']['output_children']
+							);
+						}
+
+					$output['compatibility/beaver-builder'][ $code ] = $definition['compatibility/beaver-builder'];
 
 				}
 
@@ -410,11 +428,11 @@ class WM_Amplifier_Beaver_Builder {
 
 
 	/**
-	 * 30) Forms
+	 * 20) Forms
 	 */
 
 		/**
-		 * Custom page builder input field: `wm_radio`
+		 * Render custom page builder input field: `wm_radio`
 		 *
 		 * @since    1.6.0
 		 * @version  1.6.0
@@ -423,48 +441,49 @@ class WM_Amplifier_Beaver_Builder {
 		 * @param  string $value
 		 * @param  array  $field
 		 */
-		public static function form_field_radio_custom( $name, $value, $field ) {
+		public static function form_field_radio_custom_render( $name, $value, $field ) {
 
 			// Output
 
-				echo WM_Amplifier_Page_Builder::form_field_radio_custom( $name, $value, $field, 'bb' );
+				echo WM_Amplifier_Page_Builder::form_field_radio_custom_render( $name, $value, $field, 'beaver-builder' );
 
-		} // /form_field_radio_custom
+		} // /form_field_radio_custom_render
 
 
 
 
 
 	/**
-	 * 40) Shortcodes generator
+	 * 30) Shortcodes generator
 	 */
 
 		/**
-		 * Disable full shortcode generator?
+		 * Enable full shortcode generator?
+		 *
+		 * By default the shortcode generator is only added on admin pages, as that's
+		 * where TinyMCE is loaded, anyway. But we need to load the shortcode generator
+		 * in Beaver Builder editor, which is on frontend.
 		 *
 		 * @since    1.6.0
 		 * @version  1.6.0
 		 *
-		 * @param  boolean $disable
+		 * @param  boolean $enable
 		 */
-		public static function shortcode_generator( $disable ) {
+		public static function shortcode_generator( $enable ) {
 
 			// Processing
 
 				if (
 					! is_admin()
-					&& (
-						! is_callable( 'FLBuilderModel::is_builder_active' )
-						|| ! FLBuilderModel::is_builder_active()
-					)
+					&& self::is_active()
 				) {
-					$disable = true;
+					$enable = true;
 				}
 
 
 			// Output
 
-				return $disable;
+				return $enable;
 
 		} // /shortcode_generator
 
@@ -510,7 +529,7 @@ class WM_Amplifier_Beaver_Builder {
 
 
 	/**
-	 * 50) Assets
+	 * 40) Assets
 	 */
 
 		/**
@@ -665,6 +684,38 @@ class WM_Amplifier_Beaver_Builder {
 
 
 		/**
+		 * Get Beaver Builder module definitions from file
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 *
+		 * @param  array $definitions
+		 */
+		public static function get_definitions_beaver_builder( $definitions = array() ) {
+
+			// Helper variables
+
+				$file = (string) apply_filters( 'wmhook_amplifier_beaver_builder_definitions_path', WMAMP_INCLUDES_DIR . 'compatibility/beaver-builder/definitions/definitions.php' );
+
+			// Processing
+
+				if ( file_exists( $file ) ) {
+					/**
+					 * This file has to contain a `$definitions` defined.
+					 */
+					include_once( $file );
+				}
+
+
+			// Output
+
+				return (array) $definitions;
+
+		} // /get_definitions_beaver_builder
+
+
+
+		/**
 		 * Get shortcode definitions
 		 *
 		 * @since    1.1.0
@@ -684,21 +735,21 @@ class WM_Amplifier_Beaver_Builder {
 
 			// Helper variables
 
-				/**
-				 * @todo  Cache this.
-				 */
-				$definitions = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
+				if ( empty( self::$definitions ) ) {
+					// Cache Beaver Builder module definitions array
+					self::$definitions = (array) WM_Shortcodes::get_definitions_processed( 'compatibility/beaver-builder' );
+				}
 
 
 			// Processing
 
 				if ( 'all' === $shortcode ) {
 
-					$output = $definitions;
+					$output = self::$definitions;
 
-				} elseif ( isset( $definitions[ $shortcode ] ) ) {
+				} elseif ( isset( self::$definitions[ $shortcode ] ) ) {
 
-					$output = wp_parse_args( $definitions[ $shortcode ], array(
+					$output = wp_parse_args( self::$definitions[ $shortcode ], array(
 						'name'            => '-',
 						'description'     => '',
 						'category'        => esc_html_x( 'Theme Modules', 'Page builder modules category name.', 'webman-amplifier' ),
@@ -770,4 +821,5 @@ class WM_Amplifier_Beaver_Builder {
 
 } // /WM_Amplifier_Beaver_Builder
 
-add_action( 'init', 'WM_Amplifier_Beaver_Builder::init', 6 ); // Just after WM_Shortcodes()
+// Load just after WM_Shortcodes()
+add_action( 'init', 'WM_Amplifier_Beaver_Builder::init', 6 );

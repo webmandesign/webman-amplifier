@@ -34,9 +34,10 @@
  *
  *   0) Init
  *  10) Integration
- *  20) Shortcode output modifications
+ *  20) Shortcode output
  *  30) Forms
- *  40) Assets
+ *  40) Shortcodes generator
+ *  50) Assets
  * 100) Getters
  */
 class WM_Amplifier_JS_Composer {
@@ -51,6 +52,8 @@ class WM_Amplifier_JS_Composer {
 
 		private static $instance;
 
+		public static $definitions = array();
+
 
 
 		/**
@@ -63,21 +66,35 @@ class WM_Amplifier_JS_Composer {
 
 			// Processing
 
-				// Setup
-
-					self::setup();
-
 				// Hooks
 
 					// Actions
 
-						add_action( 'vc_backend_editor_enqueue_js_css', __CLASS__ . '::assets_enqueue_vc' );
+						/**
+						 * @todo  Document plugin priority.
+						 *
+						 * Using priority of `WM_Shortcodes(5) < WPBakeryVisualComposer` to hook the plugin compatibility setup.
+						 */
+						add_action( 'init', __CLASS__ . '::remove_native_elements', 8 );
+						add_action( 'init', __CLASS__ . '::register_elements', 8 );
+						add_action( 'init', __CLASS__ . '::disable_frontend_editor', 8 );
+						add_action( 'init', __CLASS__ . '::form_field_radio_custom_add', 8 );
+						add_action( 'init', __CLASS__ . '::form_interface', 8 );
+						add_action( 'init', __CLASS__ . '::shortcode_render_override', 8 );
+						add_action( 'init', __CLASS__ . '::options', 8 );
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_enqueue' );
 
+						add_action( 'vc_backend_editor_enqueue_js_css', __CLASS__ . '::assets_enqueue_vc' );
+
 					// Filters
 
-						add_filter( 'wmhook_shortcode_definitions_processed', __CLASS__ . '::set_definitions_processed', 10, 4 );
+						// Low priority to allow later modifications (even with default filter priority, which is 10)
+						add_filter( 'wmhook_shortcode_definitions', __CLASS__ . '::get_definitions_js_composer', 0 );
+
+						add_filter( 'wmhook_shortcode_definitions_processed_code', __CLASS__ . '::set_definitions_processed', 10, 4 );
+
+						add_filter( 'wmhook_wmamp_generator_short_enable', __CLASS__ . '::shortcode_generator_short' );
 
 						add_filter( 'wmhook_shortcode_process_content_run', __CLASS__ . '::process_content' );
 
@@ -115,118 +132,137 @@ class WM_Amplifier_JS_Composer {
 	 */
 
 		/**
-		 * Plugin setup
+		 * Register shortcodes as WPBakery Page Builder elements
 		 *
 		 * @since    1.0.0
 		 * @version  1.6.0
 		 */
-		public static function setup() {
+		public static function register_elements() {
 
 			// Requirements check
 
-				if ( ! self::is_active() ) {
+				if (
+					! function_exists( 'vc_map' )
+					|| ! self::is_active()
+				) {
+					return;
+				}
+
+
+			// Helper variables
+
+				if ( empty( self::$definitions ) ) {
+					// Cache WPBakery Page Builder element definitions array
+					self::$definitions = (array) WM_Shortcodes::get_definitions_processed( 'compatibility/js-composer' );
+				}
+
+				ksort( self::$definitions );
+
+
+			// Processing
+
+				foreach ( self::$definitions as $shortcode ) {
+
+					if ( isset( $shortcode['params'] ) ) {
+						ksort( $shortcode['params'] ); // Yes, you can sort nested arrays
+					}
+
+					// Fix required for Visual Composer 4.5.2+
+					$shortcode['params'] = array_values( $shortcode['params'] );
+
+					vc_map( $shortcode );
+
+				}
+
+		} // /register_elements
+
+
+
+		/**
+		 * Disable WPBakery Page Builder's frontend editor
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function disable_frontend_editor() {
+
+			// Requirements check
+
+				if (
+					! self::is_active()
+					|| ! function_exists( 'vc_disable_frontend' )
+				) {
 					return;
 				}
 
 
 			// Processing
 
-				// Options modifications
+				vc_disable_frontend();
 
-					delete_option( 'wpb_js_use_custom' );
-
-				// Disable Frontend Editor
-
-					if (
-						function_exists( 'vc_disable_frontend' )
-						&& apply_filters( 'wmhook_amplifier_js_composer_disable_frontend', true )
-					) {
-						vc_disable_frontend();
-					}
-
-				// Remove default VC shortcodes if the theme supports this functionality
-
-					if (
-						function_exists( 'vc_remove_element' )
-						&& class_exists( 'WPBMap' )
-						&& (
-							wma_supports_subfeature( 'remove_vc_shortcodes' )
-							|| wma_supports_subfeature( 'remove-vc-shortcodes' )
-						)
-					) {
-
-						$vc_shortcodes_all  = array_keys( WPBMap::getShortCodes() );
-						$vc_shortcodes_keep = array(
-							// Rows
-							'vc_row',
-							'vc_row_inner',
-							// Columns
-							'vc_column',
-							'vc_column_inner',
-						);
-
-						if ( is_callable( 'Vc_Automap_Model::findAll' ) ) {
-							foreach ( Vc_Automap_Model::findAll() as $shortcode ) {
-								// Do not remove custom mapped shortcodes
-								$vc_shortcodes_keep[] = $shortcode->tag;
-							}
-						}
-
-						$vc_shortcodes_keep   = (array) apply_filters( 'wmhook_shortcode_vc_keep', $vc_shortcodes_keep );
-						$vc_shortcodes_remove = (array) apply_filters( 'wmhook_shortcode_vc_remove', array_diff( $vc_shortcodes_all, $vc_shortcodes_keep ) );
-
-						foreach ( $vc_shortcodes_remove as $shortcode ) {
-							vc_remove_element( $shortcode );
-						}
-
-					}
-
-				// Register custom shortcodes
-
-					$vc_shortcodes = WM_Shortcodes::get_definitions_processed( 'vc_plugin' );
-
-					if (
-						function_exists( 'vc_map' )
-						&& ! empty( $vc_shortcodes )
-					) {
-						ksort( $vc_shortcodes );
-
-						foreach ( $vc_shortcodes as $shortcode ) {
-
-							if ( isset( $shortcode['params'] ) ) {
-								ksort( $shortcode['params'] ); // Yes, you can sort nested arrays
-							}
-
-							// Fix required for Visual Composer 4.5.2+
-							$shortcode['params'] = array_values( $shortcode['params'] );
-
-							vc_map( $shortcode );
-
-						}
-					}
-
-				// Custom shortcode admin interface
-
-					/**
-					 * @todo  Does this still work?
-					 */
-					require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer-extend.php' );
-
-					vc_add_shortcode_param(
-						'wm_radio',
-						__CLASS__ . '::form_field_radio_custom'
-					);
-
-				// Custom shortcode render
-
-					require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/functions-js-composer-render.php' );
-
-		} // /setup
+		} // /disable_frontend_editor
 
 
 
 		/**
-		 * Shortcodes globals setup
+		 * Remove WPBakery Page Builder's native elements
+		 *
+		 * The theme has to declare support for this functionality!
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function remove_native_elements() {
+
+			// Requirements check
+
+				if (
+					! self::is_active()
+					|| ! function_exists( 'vc_remove_element' )
+					|| ! class_exists( 'WPBMap' )
+					|| ! (
+						wma_supports_subfeature( 'remove_vc_shortcodes' )
+						|| wma_supports_subfeature( 'remove-vc-shortcodes' )
+					)
+				) {
+					return;
+				}
+
+
+			// Helper variables
+
+				$elements_all = array_keys( (array) WPBMap::getShortCodes() );
+
+				$elements_keep = array(
+					// Rows
+					'vc_row',
+					'vc_row_inner',
+					// Columns
+					'vc_column',
+					'vc_column_inner',
+				);
+				if ( is_callable( 'Vc_Automap_Model::findAll' ) ) {
+					foreach ( Vc_Automap_Model::findAll() as $shortcode ) {
+						// Do not remove custom mapped shortcodes
+						$elements_keep[] = $shortcode->tag;
+					}
+				}
+
+				$elements_remove = array_diff( $elements_all, $elements_keep );
+
+
+			// Processing
+
+				foreach ( $elements_remove as $shortcode ) {
+					vc_remove_element( $shortcode );
+				}
+
+		} // /remove_native_elements
+
+
+
+		/**
+		 * Shortcodes definitions processing
 		 *
 		 * @see  WM_Shortcodes::get_definitions_processed()
 		 *
@@ -247,15 +283,29 @@ class WM_Amplifier_JS_Composer {
 				}
 
 
+			// Helper variables
+
+				// Backwards compatibility
+
+					if (
+						! isset( $definition['compatibility/js-composer'] )
+						&& isset( $definition['vc_plugin'] )
+					) {
+						$definition['compatibility/js-composer'] = $definition['vc_plugin'];
+					}
+
+
 			// Processing
 
 				if (
-					isset( $definition['vc_plugin'] ) && ! empty( $definition['vc_plugin'] )
+					isset( $definition['compatibility/js-composer'] ) && ! empty( $definition['compatibility/js-composer'] )
 					// Check for VC required parameters
-					&& isset( $definition['vc_plugin']['name'] )
-					&& isset( $definition['vc_plugin']['base'] )
+					&& isset( $definition['compatibility/js-composer']['name'] )
+					&& isset( $definition['compatibility/js-composer']['base'] )
 				) {
-					$output['vc_plugin'][$code] = $definition['vc_plugin'];
+
+					$output['compatibility/js-composer'][ $code ] = $definition['compatibility/js-composer'];
+
 				}
 
 
@@ -267,10 +317,37 @@ class WM_Amplifier_JS_Composer {
 
 
 
+		/**
+		 * Modify WPBakery Page Builder options
+		 *
+		 * @todo  Is this really required? Test this!
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function options() {
+
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return;
+				}
+
+
+			// Processing
+
+				// Options modifications
+
+					delete_option( 'wpb_js_use_custom' );
+
+		} // /options
+
+
+
 
 
 	/**
-	 * 20) Shortcode output modifications
+	 * 20) Shortcode output
 	 */
 
 		/**
@@ -371,6 +448,29 @@ class WM_Amplifier_JS_Composer {
 
 
 
+		/**
+		 * Custom shortcode render overrides
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function shortcode_render_override() {
+
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return;
+				}
+
+
+			// Processing
+
+				require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/functions-js-composer-render.php' );
+
+		} // /shortcode_render_override
+
+
+
 
 
 	/**
@@ -378,7 +478,7 @@ class WM_Amplifier_JS_Composer {
 	 */
 
 		/**
-		 * Custom page builder input field: `wm_radio`
+		 * Render custom page builder input field: `wm_radio`
 		 *
 		 * @link  http://kb.wpbakery.com/index.php?title=Visual_Composer_Tutorial_Create_New_Param
 		 *
@@ -388,7 +488,7 @@ class WM_Amplifier_JS_Composer {
 		 * @param  array  $settings
 		 * @param  string $value
 		 */
-		public static function form_field_radio_custom( $settings, $value ) {
+		public static function form_field_radio_custom_render( $settings, $value ) {
 
 			// Processing
 
@@ -400,16 +500,116 @@ class WM_Amplifier_JS_Composer {
 
 			// Output
 
-				return WM_Amplifier_Page_Builder::form_field_radio_custom( $name, $value, $field, 'vc' );
+				return WM_Amplifier_Page_Builder::form_field_radio_custom_render( $name, $value, $field, 'js-composer' );
 
-		} // /form_field_radio_custom
+		} // /form_field_radio_custom_render
+
+
+
+		/**
+		 * Add custom page builder input field: `wm_radio`
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function form_field_radio_custom_add() {
+
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return;
+				}
+
+
+			// Processing
+
+				vc_add_shortcode_param(
+					'wm_radio',
+					__CLASS__ . '::form_field_radio_custom_render'
+				);
+
+		} // /form_field_radio_custom_add
+
+
+
+		/**
+		 * Custom form interface
+		 *
+		 * @todo  Does this still work?
+		 *
+		 * @since    1.0.0
+		 * @version  1.6.0
+		 */
+		public static function form_interface() {
+
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return;
+				}
+
+
+			// Processing
+
+				require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer-extend.php' );
+
+		} // /form_interface
 
 
 
 
 
 	/**
-	 * 40) Assets
+	 * 40) Shortcodes generator
+	 */
+
+		/**
+		 * Enable short, simplified shortcode generator?
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 *
+		 * @param  boolean $enable
+		 */
+		public static function shortcode_generator_short( $enable ) {
+
+			// Requirements check
+
+				if ( ! self::is_active() ) {
+					return $enable;
+				}
+
+
+			// Helper variables
+
+				$supported_post_types = (array) get_option( 'wpb_js_content_types' );
+				if ( empty( $supported_post_types ) ) {
+					$supported_post_types = array( 'page' );
+				}
+
+
+			// Processing
+
+				if (
+					is_admin()
+					&& in_array( get_post_type(), $supported_post_types )
+				) {
+					$enable = true;
+				}
+
+
+			// Output
+
+				return $enable;
+
+		} // /shortcode_generator_short
+
+
+
+
+
+	/**
+	 * 50) Assets
 	 */
 
 		/**
@@ -548,8 +748,41 @@ class WM_Amplifier_JS_Composer {
 
 
 
+		/**
+		 * Get WPBakery Page Builder element definitions from file
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 *
+		 * @param  array $definitions
+		 */
+		public static function get_definitions_js_composer( $definitions = array() ) {
+
+			// Helper variables
+
+				$file = (string) apply_filters( 'wmhook_amplifier_js_composer_definitions_path', WMAMP_INCLUDES_DIR . 'compatibility/js-composer/definitions/definitions.php' );
+
+			// Processing
+
+				if ( file_exists( $file ) ) {
+					/**
+					 * This file has to contain a `$definitions` defined.
+					 */
+					include_once( $file );
+				}
+
+
+			// Output
+
+				return (array) $definitions;
+
+		} // /get_definitions_js_composer
+
+
+
 
 
 } // /WM_Amplifier_JS_Composer
 
-add_action( 'init', 'WM_Amplifier_JS_Composer::init', 6 ); // Just after WM_Shortcodes()
+// Load just after WM_Shortcodes()
+add_action( 'init', 'WM_Amplifier_JS_Composer::init', 6 );

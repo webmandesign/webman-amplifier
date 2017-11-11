@@ -8,7 +8,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 
@@ -16,11 +16,14 @@
 
 
 $definitions['pre'] = array(
-	'since' => '1.0',
-	'preprocess' => true,
+	'since'     => '1.0.0',
 	'generator' => array(
 		'name'  => esc_html__( 'Preformated Text', 'webman-amplifier' ),
-		'code'  => '[PREFIX_pre]{{content}}[/PREFIX_pre]',
+		'code'  =>
+			'[PREFIX_pre]'
+				. '{{content}}'
+			. '[/PREFIX_pre]',
 		'short' => true,
 	),
+	'preprocess' => true,
 );

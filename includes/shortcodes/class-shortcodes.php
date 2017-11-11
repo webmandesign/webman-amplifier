@@ -33,7 +33,7 @@ class WM_Shortcodes {
 
 		public static $definitions = array();
 
-		public static $prefix_shortcode = 'wm_';
+		public static $prefix_shortcode      = 'wm_';
 		public static $prefix_shortcode_name = 'WM ';
 
 
@@ -47,11 +47,6 @@ class WM_Shortcodes {
 		private function __construct() {
 
 			// Processing
-
-				// Setup
-
-					// Cache shortcode definitions array
-					self::$definitions = self::get_definitions_from_file();
 
 				// Hooks
 
@@ -130,7 +125,7 @@ class WM_Shortcodes {
 		 * Register shortcodes
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 *
 		 * @param  array $shortcodes
 		 */
@@ -164,10 +159,7 @@ class WM_Shortcodes {
 
 					// Modifying $prefix_shortcode if set
 
-						if (
-							is_array( $shortcode )
-							&& isset( $shortcode['custom_prefix'] )
-						) {
+						if ( isset( $shortcode['custom_prefix'] ) ) {
 							$prefix_shortcode = $shortcode['custom_prefix'];
 						}
 
@@ -702,9 +694,8 @@ class WM_Shortcodes {
 
 				if ( file_exists( $file ) ) {
 					/**
-					 * This file has to contain a `$definitions` defined
-					 * so we can override the above default with actual shortcodes
-					 * definitions array.
+					 * This file has to contain a `$definitions` defined so we can override
+					 * the above default with actual shortcodes definitions array.
 					 */
 					include_once( $file );
 				}
@@ -726,6 +717,14 @@ class WM_Shortcodes {
 		 */
 		public static function get_definitions_filtered() {
 
+			// Helper variables
+
+				if ( empty( self::$definitions ) ) {
+					// Cache shortcode definitions array
+					self::$definitions = (array) self::get_definitions_from_file();
+				}
+
+
 			// Output
 
 				return (array) apply_filters( 'wmhook_shortcode_definitions', self::$definitions );
@@ -735,7 +734,7 @@ class WM_Shortcodes {
 
 
 		/**
-		 * Shortcodes globals setup
+		 * Shortcodes definitions processing
 		 *
 		 * @since    1.5.0
 		 * @version  1.6.0
@@ -776,15 +775,6 @@ class WM_Shortcodes {
 
 					// Skip this shortcode definition processing?
 
-						// Shortcode requires a specific post type?
-
-							if (
-								isset( $definition['post_type_required'] )
-								&& ! in_array( $definition['post_type_required'], get_post_types() )
-							) {
-								continue;
-							}
-
 						// Shortcode version supported by the theme?
 
 							if (
@@ -801,7 +791,6 @@ class WM_Shortcodes {
 					// For global processing (all except [pre] and [raw])
 
 						if ( ! in_array( $code, array( 'pre', 'raw' ) ) ) {
-
 							if ( isset( $definition['custom_prefix'] ) ) {
 
 								$output['global'][] = array(
@@ -815,24 +804,17 @@ class WM_Shortcodes {
 								$output['global'][] = $code;
 
 							}
-
 						}
 
 					// Preprocessing needed?
 
-						if (
-							isset( $definition['preprocess'] )
-							&& $definition['preprocess']
-						) {
+						if ( isset( $definition['preprocess'] ) ) {
 							$output['preprocess'][] = $code;
 						}
 
 					// Is this an alias (rendering override)?
 
-						if (
-							isset( $definition['renderer'] )
-							&& $definition['renderer']
-						) {
+						if ( isset( $definition['renderer'] ) ) {
 
 							$output['renderer'][ $code ] = $definition['renderer'];
 
@@ -846,7 +828,6 @@ class WM_Shortcodes {
 
 						if (
 							isset( $definition['generator'] )
-							&& $definition['generator']
 							&& isset( $definition['generator']['name'] )
 							&& isset( $definition['generator']['code'] )
 						) {
@@ -858,7 +839,7 @@ class WM_Shortcodes {
 								$definition['generator']['code']
 							);
 
-							$output['generator'][$code] = $definition['generator'];
+							$output['generator'][ $code ] = $definition['generator'];
 
 							// Display in short, simplified Shortcode Generator?
 
@@ -866,14 +847,14 @@ class WM_Shortcodes {
 									isset( $definition['generator']['short'] )
 									&& $definition['generator']['short']
 								) {
-									$output['generator_short'][$code] = $definition['generator'];
+									$output['generator_short'][ $code ] = $definition['generator'];
 								}
 
 						}
 
 					// Allow adding custom scopes (processed per shortcode)
 
-						$output = (array) apply_filters( 'wmhook_shortcode_definitions_processed', $output, $code, $definition, $prefix_shortcode );
+						$output = (array) apply_filters( 'wmhook_shortcode_definitions_processed_code', $output, $code, $definition, $prefix_shortcode );
 
 				} // /foreach
 
@@ -897,10 +878,10 @@ class WM_Shortcodes {
 
 
 		/**
-		 * Get globals array
+		 * Get global helpers array
 		 *
 		 * @since    1.5.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 */
 		public static function get_codes_globals() {
 

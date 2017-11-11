@@ -1,10 +1,10 @@
 <?php
 /**
- * Visual Composer plugin extensions
+ * WPBakery Page Builder plugin extensions
  *
  * IMPORTANT:
  * Do not change the class names below. Visual composer needs exact class names!
- * Class naming rules: 'WPBakeryShortCode_' . $definition['vc_plugin']['base']
+ * Class naming rules: 'WPBakeryShortCode_' . $definition['compatibility/js-composer']['base']
  *
  * @see  WM_Amplifier_JS_Composer::setup()
  *

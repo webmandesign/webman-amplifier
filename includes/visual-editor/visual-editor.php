@@ -53,66 +53,62 @@
 			$codes_default = (array) WM_Shortcodes::get_definitions_processed( 'generator' );
 			$codes_short   = (array) WM_Shortcodes::get_definitions_processed( 'generator_short' );
 
+			ksort( $codes_default );
+			ksort( $codes_short );
+
 			$admin_pages = (array) apply_filters( 'wmhook_wmamp_generator_admin_pages', array(
 				'post.php',
 				'post-new.php',
 			) );
 
-			// Requirements check
-
-				if (
-					empty( $codes_default )
-					|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-					|| apply_filters( 'wmhook_wmamp_generator_assets_disable', ! is_admin() )
-				) {
-					return;
-				}
-
-			ksort( $codes_default );
-			ksort( $codes_short );
-
 
 		// Processing
 
-			// Full size shortcode generator
+			if (
+				! empty( $codes_default )
+				&& apply_filters( 'wmhook_wmamp_generator_enable', ( is_admin() && in_array( $pagenow, $admin_pages ) ) )
+			) {
 
-				// Styles
+				// Full size shortcode generator
 
-					wp_enqueue_style(
-						'wm-shortcodes-generator',
-						WMAMP_ASSETS_URL . 'css/shortcodes-generator.css',
-						array(),
-						WMAMP_VERSION,
-						'screen'
-					);
-					wp_style_add_data( 'wm-shortcodes-generator', 'rtl', 'replace' );
+					// Styles
 
-				// Scripts: inline
-
-					wp_localize_script(
-						'jquery',
-						'wmShortcodesArray',
-						array_values( $codes_default )
-					);
-
-
-			// Short, simplified version of shortcode generator (for page builders, for example)
-
-				if (
-					! empty( $codes_short )
-					// This is disabled by default as we usually load full generator only.
-					&& apply_filters( 'wmhook_wmamp_generator_short_enable', false )
-				) {
+						wp_enqueue_style(
+							'wm-shortcodes-generator',
+							WMAMP_ASSETS_URL . 'css/shortcodes-generator.css',
+							array(),
+							WMAMP_VERSION,
+							'screen'
+						);
+						wp_style_add_data( 'wm-shortcodes-generator', 'rtl', 'replace' );
 
 					// Scripts: inline
 
 						wp_localize_script(
 							'jquery',
-							'wmShortcodesArrayShort',
-							array_values( $codes_short )
+							'$wmShortcodesArray',
+							array_values( $codes_default )
 						);
 
-				}
+				// Short, simplified version of shortcode generator (for page builders, for example)
+
+					if (
+						! empty( $codes_short )
+						// This is disabled by default as we usually load full generator only.
+						&& apply_filters( 'wmhook_wmamp_generator_short_enable', false )
+					) {
+
+						// Scripts: inline
+
+							wp_localize_script(
+								'jquery',
+								'$wmShortcodesArrayShort',
+								array_values( $codes_short )
+							);
+
+					}
+
+			}
 
 	} // /wma_ve_assets
 
@@ -156,20 +152,14 @@
 			) );
 
 
-		// Requirements check
-
-			if (
-				empty( $codes_default )
-				|| ( is_admin() && ! in_array( $pagenow, $admin_pages ) )
-				|| apply_filters( 'wmhook_wmamp_generator_assets_disable', ! is_admin() )
-			) {
-				return $plugins_array;
-			}
-
-
 		// Processing
 
-			$plugins_array['wmShortcodes'] = WMAMP_ASSETS_URL . 'js/shortcodes-button.js';
+			if (
+				! empty( $codes_default )
+				&& apply_filters( 'wmhook_wmamp_generator_enable', ( is_admin() && in_array( $pagenow, $admin_pages ) ) )
+			) {
+				$plugins_array['wmShortcodes'] = WMAMP_ASSETS_URL . 'js/shortcodes-button.js';
+			}
 
 
 		// Output

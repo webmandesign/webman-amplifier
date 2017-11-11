@@ -15,17 +15,27 @@
 
 
 
-/**
- * @todo  Page builder plugin!
- */
-$js_composer_is_active = ( is_callable( 'WM_Amplifier_JS_Composer::is_active' ) ) ? ( WM_Amplifier_JS_Composer::is_active() ) : ( false );
-
 $definitions['row'] = array(
-	'since' => '1.0',
-	'preprocess' => false,
+	'since'     => '1.0.0',
 	'generator' => array(
 		'name'  => esc_html__( 'Row', 'webman-amplifier' ),
-		'code'  => ( $js_composer_is_active ) ? ( '[vc_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/vc_row]' ) : ( '[PREFIX_row bg_attachment="" bg_color="" bg_image="" bg_position="" bg_repeat="" bg_size="" class="" font_color="" id="" margin="" padding="" parallax=""]{{content}}[/PREFIX_row]' ),
+		'code'  =>
+			'[PREFIX_row'
+				. ' bg_attachment=""'
+				. ' bg_color=""'
+				. ' bg_image=""'
+				. ' bg_position=""'
+				. ' bg_repeat=""'
+				. ' bg_size=""'
+				. ' class=""'
+				. ' font_color=""'
+				. ' id=""'
+				. ' margin=""'
+				. ' padding=""'
+				. ' parallax=""'
+			. ']'
+				. '{{content}}'
+			. '[/PREFIX_row]',
 		'short' => false,
 	),
 );

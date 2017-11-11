@@ -1,15 +1,14 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Shortcode definitions array partial: Visual Composer related
- *
- * @todo  Page builder plugin!
+ * WPBakery Page Builder element definitions array partial: Visual Composer related
  *
  * @package     WebMan Amplifier
+ * @subpackage  Compatibility
  * @subpackage  Shortcodes
  * @copyright   WebMan Design, Oliver Juhas
  *
- * @since    1.5.0
+ * @since    1.6.0
  * @version  1.6.0
  */
 

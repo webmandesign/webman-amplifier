@@ -52,11 +52,11 @@ class WM_Amplifier_Page_Builder {
 		 * @param  array  $field
 		 * @param  string $context
 		 */
-		public static function form_field_radio_custom( $name = '', $value = '', $field = array(), $context = '' ) {
+		public static function form_field_radio_custom_render( $name = '', $value = '', $field = array(), $context = '' ) {
 
 			// Pre
 
-				$pre = apply_filters( 'wmhook_amplifier_page_builder_form_field_radio_custom_pre', false, $name, $value, $field, $context );
+				$pre = apply_filters( 'wmhook_amplifier_page_builder_form_field_radio_custom_render_pre', false, $name, $value, $field, $context );
 
 				if ( false !== $pre ) {
 					return $pre;
@@ -229,9 +229,9 @@ class WM_Amplifier_Page_Builder {
 
 			// Output
 
-				return (string) apply_filters( 'wmhook_page_builder_form_field_radio_custom_output', $output, $context, $name, $value, $field );
+				return (string) apply_filters( 'wmhook_page_builder_form_field_radio_custom_render_output', $output, $context, $name, $value, $field );
 
-		} // /form_field_radio_custom
+		} // /form_field_radio_custom_render
 
 
 
