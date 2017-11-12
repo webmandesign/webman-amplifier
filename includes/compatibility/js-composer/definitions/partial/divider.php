@@ -16,7 +16,7 @@
 
 
 
-$definitions['divider']['vc_plugin'] = array(
+$definitions['divider'][ $key ] = array(
 	'name'                    => $prefix['name'] . esc_html__( 'Divider / Gap', 'webman-amplifier' ),
 	'base'                    => $prefix['code'] . 'divider',
 	'class'                   => 'wm-shortcode-vc-divider',
@@ -24,6 +24,7 @@ $definitions['divider']['vc_plugin'] = array(
 	'show_settings_on_create' => false,
 	'category'                => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'                  => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Appearance', 'webman-amplifier' ),
 			'description' => '',
@@ -33,6 +34,7 @@ $definitions['divider']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Space before divider', 'webman-amplifier' ),
 			'description' => esc_html__( 'Insert a number (of pixels)', 'webman-amplifier' ),
@@ -42,6 +44,7 @@ $definitions['divider']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Space after divider', 'webman-amplifier' ),
 			'description' => esc_html__( 'Insert a number (of pixels)', 'webman-amplifier' ),
@@ -51,6 +54,7 @@ $definitions['divider']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -60,6 +64,7 @@ $definitions['divider']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'CSS styles', 'webman-amplifier' ),
 			'description' => esc_html__( 'Any custom CSS style inserted into style HTML attribute', 'webman-amplifier' ),
@@ -69,5 +74,6 @@ $definitions['divider']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

@@ -16,13 +16,14 @@
 
 
 
-$definitions['button']['vc_plugin'] = array(
+$definitions['button'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Button', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'button',
 	'class'    => 'wm-shortcode-vc-button',
 	'icon'     => 'icon-wpb-ui-button',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'Button text', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -31,6 +32,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'     => 'div',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Button URL', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set the button link URL', 'webman-amplifier' ),
@@ -40,6 +42,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Target', 'webman-amplifier' ),
 			'description' => esc_html__( 'Button link target', 'webman-amplifier' ),
@@ -56,6 +59,7 @@ $definitions['button']['vc_plugin'] = array(
 				'not_empty' => true
 			),
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Color', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -64,6 +68,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		50 => array(
 			'heading'    => esc_html__( 'Size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -72,6 +77,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'Icon', 'webman-amplifier' ),
 			'type'        => 'wm_radio',
@@ -84,6 +90,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		70 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -93,6 +100,7 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		80 => array(
 			'heading'     => esc_html__( 'Optional HTML ID', 'webman-amplifier' ),
 			'type'        => 'textfield',
@@ -101,5 +109,6 @@ $definitions['button']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

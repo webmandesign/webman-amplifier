@@ -16,7 +16,7 @@
 
 
 
-$definitions['accordion']['vc_plugin'] = array(
+$definitions['accordion'][ $key ] = array(
 	'name'                    => $prefix['name'] . esc_html__( 'Accordion', 'webman-amplifier' ),
 	'base'                    => $prefix['code'] . 'accordion',
 	'class'                   => 'wm-shortcode-vc-accordion wm-sections-mode',
@@ -33,12 +33,13 @@ $definitions['accordion']['vc_plugin'] = array(
 			<button data-item="' . $prefix['code'] . 'item" data-item-title="' . esc_html__( 'Section', 'webman-amplifier' ) . '" class="add_tab" title="' . esc_html__( 'Accordion: Add new section', 'webman-amplifier' ) . '">' . esc_html__( 'Accordion: Add new section', 'webman-amplifier' ) . '</button>
 		</div>
 	',
-	'default_content'         => '
+	'default_content' => '
 		[' . $prefix['code'] . 'item title="' . esc_html__( 'Section 1', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
 		[' . $prefix['code'] . 'item title="' . esc_html__( 'Section 2', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
 	',
-	'js_view'                 => 'VcCustomAccordionView',
-	'params'                  => array(
+	'js_view' => 'VcCustomAccordionView',
+	'params'  => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Active section', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set section order number, "0" for all sections closed', 'webman-amplifier' ),
@@ -48,6 +49,7 @@ $definitions['accordion']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Mode', 'webman-amplifier' ),
 			'type'        => 'dropdown',
@@ -59,6 +61,7 @@ $definitions['accordion']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Filtering', 'webman-amplifier' ),
 			'description' => esc_html__( 'Display the sections filter from sections tags?', 'webman-amplifier' ),
@@ -71,6 +74,7 @@ $definitions['accordion']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -80,5 +84,6 @@ $definitions['accordion']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

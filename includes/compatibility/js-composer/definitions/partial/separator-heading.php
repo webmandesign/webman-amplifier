@@ -16,13 +16,14 @@
 
 
 
-$definitions['separator_heading']['vc_plugin'] = array(
+$definitions['separator_heading'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Separator Heading', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'separator_heading',
 	'class'    => 'wm-shortcode-vc-separator_heading',
 	'icon'     => 'icon-wpb-ui-separator-label',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Heading text', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['separator_heading']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Heading size', 'webman-amplifier' ),
 			'description' => '',
@@ -41,6 +43,7 @@ $definitions['separator_heading']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Text align', 'webman-amplifier' ),
 			'description' => '',
@@ -54,6 +57,7 @@ $definitions['separator_heading']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -63,6 +67,7 @@ $definitions['separator_heading']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'Optional HTML ID', 'webman-amplifier' ),
 			'type'        => 'textfield',
@@ -71,5 +76,6 @@ $definitions['separator_heading']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

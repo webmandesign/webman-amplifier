@@ -29,7 +29,7 @@ $params = array(
 	'target',
 );
 
-$definitions['call_to_action']['bb_plugin'] = array(
+$definitions['call_to_action'][ $key ] = array(
 	'name'   => esc_html__( 'Call to Action', 'webman-amplifier' ),
 	'output' => '[PREFIX_call_to_action{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_call_to_action]',
 	'params' => $params,

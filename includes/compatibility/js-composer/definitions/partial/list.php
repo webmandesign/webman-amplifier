@@ -16,13 +16,14 @@
 
 
 
-$definitions['list']['vc_plugin'] = array(
+$definitions['list'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Icon List', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'list',
 	'class'    => 'wm-shortcode-vc-list',
 	'icon'     => 'icon-wpb-vc_icon',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'List items (insert unordered list only)', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['list']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'    => esc_html__( 'Bullet icon', 'webman-amplifier' ),
 			'type'       => 'wm_radio',
@@ -44,6 +46,7 @@ $definitions['list']['vc_plugin'] = array(
 			'holder'     => 'div',
 			'class'      => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -53,5 +56,6 @@ $definitions['list']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

@@ -16,7 +16,7 @@
 
 
 
-$definitions['item']['vc_plugin'] = array(
+$definitions['item'][ $key ] = array(
 	'name'                      => $prefix['name'] . esc_html__( 'Item (Accordion / Tab)', 'webman-amplifier' ),
 	'base'                      => $prefix['code'] . 'item',
 	'class'                     => 'wm-shortcode-vc-item wm-sections-mode-section wpb_vc_accordion_tab',
@@ -26,6 +26,7 @@ $definitions['item']['vc_plugin'] = array(
 	'category'                  => esc_html__( 'Content', 'webman-amplifier' ),
 	'js_view'                   => 'VcCustomAccordionTabView',
 	'params'                    => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'Title', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -34,6 +35,7 @@ $definitions['item']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Icon', 'webman-amplifier' ),
 			'type'        => 'wm_radio',
@@ -46,6 +48,7 @@ $definitions['item']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Tags', 'webman-amplifier' ),
 			'description' => esc_html__( 'Enter comma separated tags. These will be used to filter through items.', 'webman-amplifier' ),
@@ -55,6 +58,7 @@ $definitions['item']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'Heading HTML tag', 'webman-amplifier' ),
 			'type'        => 'textfield',
@@ -63,5 +67,6 @@ $definitions['item']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

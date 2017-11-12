@@ -128,31 +128,38 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					}
 
 
-				//Form field definition files ( 'field_file_name' => 'optional_file_path' )
-					$field_files = array(
-							'checkbox'    => '',
-							'conditional' => '',
-							'hidden'      => '',
-							'html'        => '',
-							'images'      => '',
-							'radio'       => '',
-							'repeater'    => '',
-							'sections'    => '',
-							'select'      => '',
-							'slider'      => '',
-							'texts'       => '',
-						);
+				// Helper variables
 
-				//Set up class globals
-					$this->prefix          = WM_METABOX_FIELD_PREFIX;
-					$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
-					$this->meta_box        = (array) $meta_box;
-					$this->fields          = (string) $meta_box['fields'];
-					$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', $field_files );
+					// Form field definition files ( 'field_file_name' => 'optional_file_path' )
 
-				//Adding missing metabox options
-					$this->meta_box = wp_parse_args( $this->meta_box, array(
-							//DEFAULTS:
+						$field_files = array(
+								'checkbox'    => '',
+								'conditional' => '',
+								'hidden'      => '',
+								'html'        => '',
+								'images'      => '',
+								'radio'       => '',
+								'repeater'    => '',
+								'sections'    => '',
+								'select'      => '',
+								'slider'      => '',
+								'texts'       => '',
+							);
+
+
+				// Processing
+
+					// Set up class globals
+
+						$this->prefix          = WM_METABOX_FIELD_PREFIX;
+						$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
+						$this->meta_box        = (array) $meta_box;
+						$this->fields          = (string) $meta_box['fields'];
+						$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', $field_files );
+
+					// Adding missing metabox options
+
+						$this->meta_box = wp_parse_args( $this->meta_box, array(
 							'context'            => 'normal',
 							'fields'             => '',
 							'id'                 => '',
@@ -164,51 +171,56 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							'visual-wrapper-add' => '',
 						) );
 
-				//Manage metabox title and ID
-					$this->meta_box['title'] = trim( $this->meta_box['title'] );
-					if ( ! $this->meta_box['title'] ) {
-						return;
-					}
-					if ( ! trim( $this->meta_box['id'] ) ) {
-						$this->meta_box['id'] = 'wm-' . sanitize_html_class( $this->meta_box['title'] );
-					}
-					if ( 'normal' != $this->meta_box['context'] ) {
-						$this->meta_box['visual-wrapper'] = false;
-					}
+					// Manage metabox title and ID
 
-				//Required files
-				//Field definitions (renderers)
-					foreach ( $this->field_files as $file_name => $file_path ) {
-						$file_path = (string) $file_path;
+						$this->meta_box['title'] = trim( $this->meta_box['title'] );
 
-						if ( empty( $file_path ) || $file_name === $file_path ) {
-							require_once( WMAMP_INCLUDES_DIR . 'metabox/fields/' . $file_name . '.php' );
-						} elseif ( file_exists( $file_path ) ) {
-							require_once( $file_path );
+						if ( ! $this->meta_box['title'] ) {
+							return;
 						}
-					}
 
-				//Add metaboxes
-					if ( $this->meta_box['visual-wrapper'] ) {
-						add_action( 'edit_form_after_title',  array( $this, 'metabox_start' ), 1000 );
-						add_action( 'edit_form_after_editor', array( $this, 'metabox_end' ),   1    );
-					} else {
-						add_action( 'add_meta_boxes', array( $this, 'add' ) );
-					}
-					add_action( 'save_post', array( $this, 'save' ) );
+						if ( ! trim( $this->meta_box['id'] ) ) {
+							$this->meta_box['id'] = 'wm-' . sanitize_html_class( $this->meta_box['title'] );
+						}
+						if ( 'normal' != $this->meta_box['context'] ) {
+							$this->meta_box['visual-wrapper'] = false;
+						}
 
-				//Load assets (JS and CSS)
-					add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
-					/**
-					 * @todo  Use normal approach when you remove Visual Composer compatibility!
-					 * @todo  Page builder compatibility!
-					 *
-					 * Need to use `admin_print_scripts` hook due to Visual Composer plugin using it,
-					 * and so we need to make sure our scripts are loaded after Visual Composer ones.
-					 * What a pain...
-					 */
-					add_action( 'admin_print_scripts-post.php',     array( $this, 'assets_late' ), 998 );
-					add_action( 'admin_print_scripts-post-new.php', array( $this, 'assets_late' ), 998 );
+					// Load files
+
+						// Field definitions (renderers)
+
+							foreach ( $this->field_files as $file_name => $file_path ) {
+								$file_path = (string) $file_path;
+
+								if ( empty( $file_path ) || $file_name === $file_path ) {
+									require_once WMAMP_INCLUDES_DIR . 'metabox/fields/' . $file_name . '.php';
+								} elseif ( file_exists( $file_path ) ) {
+									require_once $file_path;
+								}
+							}
+
+					// Add metaboxes
+
+						if ( $this->meta_box['visual-wrapper'] ) {
+							add_action( 'edit_form_after_title',  array( $this, 'metabox_start' ), 1000 );
+							add_action( 'edit_form_after_editor', array( $this, 'metabox_end' ),   1    );
+						} else {
+							add_action( 'add_meta_boxes', array( $this, 'add' ) );
+						}
+
+					// Save metaboxes
+
+						add_action( 'save_post', array( $this, 'save' ) );
+
+					// Assets
+
+						add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
+
+					// Allow for additional actions
+
+						do_action( 'wmhook_metabox_loaded' );
+
 			} // /__construct
 
 
@@ -216,8 +228,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Register (and include) styles and scripts
 			 *
-			 * @since    1.0
-			 * @version  1.4
+			 * @since    1.0.0
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 */
@@ -251,7 +263,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 					// Enqueue (only on admin edit pages)
 
-						if ( $this->is_edit_page() ) {
+						if ( self::is_edit_page() ) {
 
 							// Styles
 
@@ -281,7 +293,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 						// Load icon font CSS also on Content Module posts table
 
-							if ( $this->is_edit_page( $icon_font_posts ) && $icon_font_url ) {
+							if ( self::is_edit_page( $icon_font_posts ) && $icon_font_url ) {
 								wp_enqueue_style( 'wm-fonticons' );
 							}
 
@@ -290,32 +302,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							do_action( 'wmhook_metabox_' . 'assets_enqueued' );
 
 			} // /assets
-
-
-
-			/**
-			 * Enqueue JavaScripts
-			 *
-			 * @todo  Remove when you remove Visual Composer compatibility!
-			 * @todo  Page builder compatibility!
-			 *
-			 * We need this function for Visual Composer plugin compatibility as it prints
-			 * scripts at the end of HTML instead of properly loading with WordPress enqueue
-			 * functions. And we need our script to be loaded after Visual Composer ones.
-			 * What a pain...
-			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
-			 */
-			public function assets_late() {
-
-				// Processing
-
-					if ( $this->is_edit_page() ) {
-						wp_enqueue_script( 'wm-metabox-scripts' );
-					}
-
-			} // /assets_late
 
 
 
@@ -769,21 +755,27 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Check if current page is edit page
 			 *
-			 * @since   1.0
-			 * @access  public
+			 * @since    1.0.0
+			 * @version  1.6.0
 			 *
-			 * @param   array $addon Additional $current_screen IDs to include
+			 * @param  array $addon  Additional $current_screen IDs to include
 			 */
-			public function is_edit_page( $addon = array() ) {
-				global $current_screen;
+			public static function is_edit_page( $addon = array() ) {
 
-				$pages = (array) $this->meta_box['pages'];
+				// Helper variables
 
-				if ( $addon ) {
-					$pages = array_merge( $pages, $addon );
-				}
+					global $current_screen;
 
-				return in_array( $current_screen->id, $pages );
+					$pages = (array) $this->meta_box['pages'];
+					if ( $addon ) {
+						$pages = array_merge( $pages, $addon );
+					}
+
+
+				// Output
+
+					return in_array( $current_screen->id, $pages );
+
 			} // /is_edit_page
 
 

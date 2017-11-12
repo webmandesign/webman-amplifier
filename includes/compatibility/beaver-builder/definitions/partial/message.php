@@ -26,7 +26,7 @@ $params = array(
 	'title',
 );
 
-$definitions['message']['bb_plugin'] = array(
+$definitions['message'][ $key ] = array(
 	'name'   => esc_html__( 'Message', 'webman-amplifier' ),
 	'output' => '[PREFIX_message{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_message]',
 	'params' => $params,

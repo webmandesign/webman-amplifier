@@ -16,13 +16,14 @@
 
 
 
-$definitions['progress']['vc_plugin'] = array(
+$definitions['progress'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Progress Bar', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'progress',
 	'class'    => 'wm-shortcode-vc-progress',
 	'icon'     => 'icon-wpb-graph',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Caption', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['progress']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Progress in %', 'webman-amplifier' ),
 			'description' => esc_html__( 'Insert a number between 0 and 100', 'webman-amplifier' ),
@@ -41,6 +43,7 @@ $definitions['progress']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Color', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -49,6 +52,7 @@ $definitions['progress']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -58,5 +62,6 @@ $definitions['progress']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

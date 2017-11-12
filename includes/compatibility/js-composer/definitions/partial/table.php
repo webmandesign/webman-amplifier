@@ -16,13 +16,14 @@
 
 
 
-$definitions['table']['vc_plugin'] = array(
+$definitions['table'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Table', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'table',
 	'class'    => 'wm-shortcode-vc-table',
 	'icon'     => 'vc_icon-vc-media-grid',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'CSV data', 'webman-amplifier' ),
 			'type'       => 'textarea_html',
@@ -31,6 +32,7 @@ $definitions['table']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'    => esc_html__( 'CSV data separator', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -39,6 +41,7 @@ $definitions['table']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Appearance', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -47,6 +50,7 @@ $definitions['table']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -56,5 +60,6 @@ $definitions['table']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

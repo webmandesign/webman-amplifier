@@ -42,7 +42,7 @@ $content_module_tags  = wma_taxonomy_array( array(
 	'tax_name'      => 'module_tag'
 ) );
 
-$definitions['content_module']['bb_plugin'] = array(
+$definitions['content_module'][ $key ] = array(
 	'name'   => esc_html__( 'Content Module', 'webman-amplifier' ),
 	'output' => '[PREFIX_content_module{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_content_module]',
 	'params' => $params,

@@ -16,7 +16,7 @@
 
 
 
-$definitions['tabs']['vc_plugin'] = array(
+$definitions['tabs'][ $key ] = array(
 	'name'                    => $prefix['name'] . esc_html__( 'Tabs', 'webman-amplifier' ),
 	'base'                    => $prefix['code'] . 'tabs',
 	'class'                   => 'wm-shortcode-vc-tabs wm-sections-mode',
@@ -33,12 +33,13 @@ $definitions['tabs']['vc_plugin'] = array(
 			<button data-item="' . $prefix['code'] . 'item" data-item-title="' . esc_html__( 'Tab', 'webman-amplifier' ) . '" class="add_tab" title="' . esc_html__( 'Tabs: Add new tab', 'webman-amplifier' ) . '">' . esc_html__( 'Tabs: Add new tab', 'webman-amplifier' ) . '</button>
 		</div>
 	',
-	'default_content'         => '
+	'default_content' => '
 		[' . $prefix['code'] . 'item title="' . esc_html__( 'Tab 1', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
 		[' . $prefix['code'] . 'item title="' . esc_html__( 'Tab 2', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
 	',
-	'js_view'                 => 'VcCustomAccordionView',
-	'params'                  => array(
+	'js_view' => 'VcCustomAccordionView',
+	'params'  => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Active tab', 'webman-amplifier' ),
 			'description' => esc_html__( 'Enter the order number of the tab which should be open by default', 'webman-amplifier' ),
@@ -48,6 +49,7 @@ $definitions['tabs']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Layout', 'webman-amplifier' ),
 			'description' => '',
@@ -61,6 +63,7 @@ $definitions['tabs']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Enable tour mode?', 'webman-amplifier' ),
 			'description' => '',
@@ -73,6 +76,7 @@ $definitions['tabs']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -82,5 +86,6 @@ $definitions['tabs']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

@@ -39,7 +39,7 @@ $testimonials_cats  = wma_taxonomy_array( array(
 	'tax_name'      => 'testimonial_category'
 ) );
 
-$definitions['testimonials']['bb_plugin'] = array(
+$definitions['testimonials'][ $key ] = array(
 	'name'   => esc_html__( 'Testimonials', 'webman-amplifier' ),
 	'output' => '[PREFIX_testimonials{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_testimonials]',
 	'params' => $params,

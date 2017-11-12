@@ -29,10 +29,7 @@
 	 * 10) Required fields
 	 */
 
- 	/**
- 	 * @todo  Test these!
- 	 */
-		FLBuilder.registerModuleHelper( 'button', {
+		FLBuilder.registerModuleHelper( 'wm_button', {
 			rules : {
 				content : {
 					required : true
@@ -40,90 +37,12 @@
 			}
 		} );
 
-		FLBuilder.registerModuleHelper( 'call_to_action', {
-			rules : {
-				content : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'message', {
-			rules : {
-				content : {
-					required : true
-				}
-			}
-		} );
-
- 	/**
- 	 * @todo  Why are these here?!
- 	 */
-		FLBuilder.registerModuleHelper( 'countdown_timer', {
-			rules : {
-				time : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'icon', {
-			rules : {
-				icon : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'list', {
-			rules : {
-				content : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'progress', {
-			rules : {
-				content : {
-					required : true
-				},
-				progress : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'separator_heading', {
-			rules : {
-				content : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'slideshow', {
-			rules : {
-				ids : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'table', {
+		FLBuilder.registerModuleHelper( 'wm_table', {
 			rules : {
 				content : {
 					required : true
 				},
 				separator : {
-					required : true
-				}
-			}
-		} );
-
-		FLBuilder.registerModuleHelper( 'widget_area', {
-			rules : {
-				area : {
 					required : true
 				}
 			}

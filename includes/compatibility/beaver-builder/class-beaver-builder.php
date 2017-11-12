@@ -35,6 +35,11 @@ class WM_Amplifier_Beaver_Builder {
 
 		public static $definitions = array();
 
+		/**
+		 * @todo  When themes are updated, rename 'bb_plugin' to 'compatibility/beaver-builder'
+		 */
+		public static $definition_array_key = 'bb_plugin';
+
 
 
 		/**
@@ -74,12 +79,7 @@ class WM_Amplifier_Beaver_Builder {
 
 					// Actions
 
-						/**
-						 * @todo  Document plugin priority.
-						 *
-						 * Using priority of `WM_Shortcodes(5) < FLBuilder` to hook the plugin compatibility setup.
-						 */
-						add_action( 'init', __CLASS__ . '::register_modules', 8 );
+						add_action( 'init', __CLASS__ . '::register_modules' );
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_enqueue' );
 
@@ -823,5 +823,5 @@ class WM_Amplifier_Beaver_Builder {
 
 } // /WM_Amplifier_Beaver_Builder
 
-// Load just after WM_Shortcodes()
-add_action( 'init', 'WM_Amplifier_Beaver_Builder::init', 6 );
+// We need to load this AFTER WM_Shortcodes()!
+add_action( 'init', 'WM_Amplifier_Beaver_Builder::init', 7 );

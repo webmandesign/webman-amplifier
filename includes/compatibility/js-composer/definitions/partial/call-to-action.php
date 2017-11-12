@@ -16,13 +16,14 @@
 
 
 
-$definitions['call_to_action']['vc_plugin'] = array(
+$definitions['call_to_action'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Call to Action', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'call_to_action',
 	'class'    => 'wm-shortcode-vc-call_to_action',
 	'icon'     => 'icon-wpb-call-to-action',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Caption', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Content text', 'webman-amplifier' ),
 			'description' => '',
@@ -41,6 +43,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Button text', 'webman-amplifier' ),
 			'description' => '',
@@ -50,6 +53,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 			40 => array(
 				'heading'    => esc_html__( 'Button link URL', 'webman-amplifier' ),
 				'type'       => 'textfield',
@@ -58,6 +62,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 				'holder'     => 'hidden',
 				'class'      => '',
 			),
+
 			50 => array(
 				'heading'     => esc_html__( 'Button link target', 'webman-amplifier' ),
 				'description' => '',
@@ -70,6 +75,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 				'holder'      => 'hidden',
 				'class'       => '',
 			),
+
 			60 => array(
 				'heading'     => esc_html__( 'Button color', 'webman-amplifier' ),
 				'description' => '',
@@ -79,6 +85,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 				'holder'      => 'hidden',
 				'class'       => '',
 			),
+
 			70 => array(
 				'heading'     => esc_html__( 'Button size', 'webman-amplifier' ),
 				'description' => '',
@@ -88,6 +95,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 				'holder'      => 'hidden',
 				'class'       => '',
 			),
+
 			80 => array(
 				'heading'     => esc_html__( 'Button icon', 'webman-amplifier' ),
 				'description' => esc_html__( 'Choose one of available icons', 'webman-amplifier' ),
@@ -101,6 +109,7 @@ $definitions['call_to_action']['vc_plugin'] = array(
 				'holder'      => 'hidden',
 				'class'       => '',
 			),
+
 		90 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -110,5 +119,6 @@ $definitions['call_to_action']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

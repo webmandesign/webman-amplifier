@@ -26,7 +26,7 @@ $params = array(
 	'url',
 );
 
-$definitions['button']['bb_plugin'] = array(
+$definitions['button'][ $key ] = array(
 	'name'   => esc_html__( 'Button', 'webman-amplifier' ),
 	'output' => '[PREFIX_button{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_button]',
 	'params' => $params,

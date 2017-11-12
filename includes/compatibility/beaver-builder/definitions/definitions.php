@@ -3,8 +3,6 @@
 /**
  * Beaver Builder module definitions array
  *
- * @todo  When themes are updated, rename 'bb_plugin' to 'compatibility/beaver-builder'
- *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
  * @subpackage  Shortcodes
@@ -19,6 +17,8 @@
 
 
 // Helper variables
+
+	$key = WM_Amplifier_Beaver_Builder::$definition_array_key;
 
 	// Global code helpers and values
 
@@ -45,7 +45,7 @@
 	/**
 	 * Partial files must contain specific Beaver Builder module definition array added to `(array) $definitions`.
 	 * @example
-	 * $definitions['shortcode_name']['bb_plugin'] = array(...);
+	 * $definitions['shortcode_name'][ $key ] = array(...);
 	 */
 	foreach ( $partial_files as $partial_file ) {
 		$partial_file = WMAMP_INCLUDES_DIR . 'compatibility/beaver-builder/definitions/partial/' . $partial_file . '.php';

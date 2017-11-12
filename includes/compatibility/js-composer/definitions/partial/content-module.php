@@ -24,13 +24,14 @@ $content_module_tags  = wma_taxonomy_array( array(
 	'tax_name'      => 'module_tag'
 ) );
 
-$definitions['content_module']['vc_plugin'] = array(
+$definitions['content_module'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Content Module', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'content_module',
 	'class'    => 'wm-shortcode-vc-content_module',
 	'icon'     => 'icon-wpb-toggle-small-expand',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Single module', 'webman-amplifier' ),
 			'description' => esc_html__( 'Leave empty to display multiple modules', 'webman-amplifier' ),
@@ -51,6 +52,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Columns', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -68,6 +70,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Order', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -84,6 +87,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'Filter', 'webman-amplifier' ),
 			'description' => '',
@@ -97,6 +101,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'Scrolling', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'webman-amplifier' ),
@@ -107,6 +112,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		70 => array(
 			'heading'     => esc_html__( 'Tag', 'webman-amplifier' ),
 			'description' => esc_html__( 'Display specifically tagged items only', 'webman-amplifier' ),
@@ -117,6 +123,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		80 => array(
 			'heading'     => esc_html__( 'Display pagination?', 'webman-amplifier' ),
 			'description' => '',
@@ -130,6 +137,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		90 => array(
 			'heading'     => esc_html__( 'Description text (HTML)', 'webman-amplifier' ),
 			'description' => '',
@@ -140,6 +148,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		100 => array(
 			'heading'     => esc_html__( 'Description alignment', 'webman-amplifier' ),
 			'type'        => 'dropdown',
@@ -152,6 +161,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		110 => array(
 			'heading'     => esc_html__( 'Remove gap between items?', 'webman-amplifier' ),
 			'description' => '',
@@ -175,6 +185,7 @@ $definitions['content_module']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Layout', 'webman-amplifier' ),
 		),
+
 		130 => array(
 			'heading'     => esc_html__( 'Custom layout', 'webman-amplifier' ),
 			'description' => sprintf( esc_html__( 'Set the custom layout of the output. Order the predefined items (%s) separated with comma (no spaces).', 'webman-amplifier' ), '<code>content,image,morelink,tag,title</code>' ),
@@ -195,5 +206,6 @@ $definitions['content_module']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

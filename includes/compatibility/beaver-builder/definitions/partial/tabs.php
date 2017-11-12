@@ -29,7 +29,7 @@ $params_children = array(
 	'title',
 );
 
-$definitions['tabs']['bb_plugin'] = array(
+$definitions['tabs'][ $key ] = array(
 	'name'            => esc_html__( 'Tabs', 'webman-amplifier' ),
 	'output'          => '[PREFIX_tabs{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{children}}[/PREFIX_tabs]',
 	'output_children' => '[PREFIX_item{{' . implode( '}}{{', array_diff( $params_children, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_item]',

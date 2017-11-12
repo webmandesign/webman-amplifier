@@ -16,14 +16,15 @@
 
 
 
-$definitions['price']['vc_plugin'] = array(
+$definitions['price'][ $key ] = array(
 	'name'            => $prefix['name'] . esc_html__( 'Price', 'webman-amplifier' ),
 	'base'            => $prefix['code'] . 'price',
 	'class'           => 'wm-shortcode-vc-price',
 	'content_element' => false,
 	'category'        => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'          => array(
-		array(
+
+		10 => array(
 			'heading'     => esc_html__( 'Caption', 'webman-amplifier' ),
 			'description' => '',
 			'type'        => 'textfield',
@@ -32,7 +33,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
-		array(
+
+		20 => array(
 			'heading'    => esc_html__( 'Cost', 'webman-amplifier' ),
 			'type'       => 'textarea',
 			'param_name' => 'cost',
@@ -40,7 +42,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
-		array(
+
+		30 => array(
 			'heading'     => esc_html__( 'Features list', 'webman-amplifier' ),
 			'description' => esc_html__( 'Insert an unordered list of features', 'webman-amplifier' ),
 			'type'        => 'textarea_html',
@@ -49,7 +52,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
-		array(
+
+		40 => array(
 			'heading'     => esc_html__( 'Column color', 'webman-amplifier' ),
 			'description' => '',
 			'type'        => 'colorpicker',
@@ -58,7 +62,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
-		array(
+
+		50 => array(
 			'heading'     => esc_html__( 'Column text color', 'webman-amplifier' ),
 			'type'        => 'colorpicker',
 			'param_name'  => 'color_text',
@@ -66,7 +71,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
-		array(
+
+		60 => array(
 			'heading'     => esc_html__( 'Appearance', 'webman-amplifier' ),
 			'description' => '',
 			'type'        => 'dropdown',
@@ -79,7 +85,8 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
-		array(
+
+		70 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
 			'type'        => 'textfield',
@@ -88,5 +95,6 @@ $definitions['price']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

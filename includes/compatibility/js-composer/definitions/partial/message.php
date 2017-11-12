@@ -16,13 +16,14 @@
 
 
 
-$definitions['message']['vc_plugin'] = array(
+$definitions['message'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Message', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'message',
 	'class'    => 'wm-shortcode-vc-message',
 	'icon'     => 'icon-wpb-information-white',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'Caption', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -31,6 +32,7 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Content', 'webman-amplifier' ),
 			'description' => '',
@@ -40,6 +42,7 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Color', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -48,6 +51,7 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'     => 'div',
 			'class'      => '',
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -56,6 +60,7 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		50 => array(
 			'heading'    => esc_html__( 'Icon', 'webman-amplifier' ),
 			'type'       => 'wm_radio',
@@ -68,6 +73,7 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -77,5 +83,6 @@ $definitions['message']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

@@ -29,13 +29,14 @@ $social_icons = array_combine(
 	$social_icons // values
 );
 
-$definitions['icon']['vc_plugin'] = array(
+$definitions['icon'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Icon / Social Icon', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'icon',
 	'class'    => 'wm-shortcode-vc-icon',
 	'icon'     => 'icon-wpb-vc_icon',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'Icon', 'webman-amplifier' ),
 			'type'       => 'wm_radio',
@@ -48,6 +49,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'holder'     => 'div',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'    => esc_html__( 'Size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -66,6 +68,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Social icon', 'webman-amplifier' ),
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Social icon link URL', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -75,6 +78,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Social icon', 'webman-amplifier' ),
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'Target', 'webman-amplifier' ),
 			'description' => '',
@@ -88,6 +92,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Social icon', 'webman-amplifier' ),
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'Social icon title', 'webman-amplifier' ),
 			'description' => esc_html__( 'Will be displayed when mouse hovers over the icon', 'webman-amplifier' ),
@@ -98,6 +103,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Social icon', 'webman-amplifier' ),
 		),
+
 		70 => array(
 			'heading'     => esc_html__( 'Social icon relation', 'webman-amplifier' ),
 			'description' => esc_html__( 'The HTML "rel" attribute', 'webman-amplifier' ),
@@ -118,6 +124,7 @@ $definitions['icon']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		90 => array(
 			'heading'     => esc_html__( 'CSS styles', 'webman-amplifier' ),
 			'description' => esc_html__( 'Any custom CSS style inserted into style HTML attribute', 'webman-amplifier' ),
@@ -127,5 +134,6 @@ $definitions['icon']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

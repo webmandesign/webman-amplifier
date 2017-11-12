@@ -30,6 +30,9 @@
  * @since    1.6.0
  * @version  1.6.0
  *
+ * @todo  Check how metaboxes work with this page builder.
+ * @todo  Icons font is not loaded for UI of this page builder.
+ *
  * Contents:
  *
  *   0) Init
@@ -54,6 +57,11 @@ class WM_Amplifier_JS_Composer {
 
 		public static $definitions = array();
 
+		/**
+		 * @todo  When themes are updated, rename 'vc_plugin' to 'compatibility/js-composer'
+		 */
+		public static $definition_array_key = 'vc_plugin';
+
 
 
 		/**
@@ -77,22 +85,17 @@ class WM_Amplifier_JS_Composer {
 
 					// Actions
 
-						/**
-						 * @todo  Document plugin priority.
-						 *
-						 * Using priority of `WM_Shortcodes(5) < WPBakeryVisualComposer` to hook the plugin compatibility setup.
-						 */
-						add_action( 'init', __CLASS__ . '::form_field_radio_custom_add', 8 );
-						add_action( 'init', __CLASS__ . '::form_interface', 8 );
-						add_action( 'init', __CLASS__ . '::remove_native_elements', 8 );
-						add_action( 'init', __CLASS__ . '::register_elements', 8 );
-						add_action( 'init', __CLASS__ . '::options', 8 );
-						add_action( 'init', __CLASS__ . '::disable_frontend_editor', 8 );
-						add_action( 'init', __CLASS__ . '::shortcode_render_override', 8 );
+						add_action( 'init', __CLASS__ . '::form_field_radio_custom_add' );
+						add_action( 'init', __CLASS__ . '::form_interface' );
+						add_action( 'init', __CLASS__ . '::remove_native_elements' );
+						add_action( 'init', __CLASS__ . '::register_elements' );
+						add_action( 'init', __CLASS__ . '::disable_frontend_editor' );
+						add_action( 'init', __CLASS__ . '::shortcode_render_override' );
+						add_action( 'init', __CLASS__ . '::metabox_script_late_init' );
 
 						add_action( 'wp_enqueue_scripts', __CLASS__ . '::assets_enqueue' );
 
-						add_action( 'vc_backend_editor_enqueue_js_css', __CLASS__ . '::assets_enqueue_vc' );
+						add_action( 'vc_backend_editor_enqueue_js_css', __CLASS__ . '::assets_enqueue_editor' );
 
 					// Filters
 
@@ -294,7 +297,7 @@ class WM_Amplifier_JS_Composer {
 
 				if (
 					isset( $definition['compatibility/js-composer'] ) && ! empty( $definition['compatibility/js-composer'] )
-					// Check for VC required parameters
+					// Check for required parameters
 					&& isset( $definition['compatibility/js-composer']['name'] )
 					&& isset( $definition['compatibility/js-composer']['base'] )
 				) {
@@ -309,24 +312,6 @@ class WM_Amplifier_JS_Composer {
 				return $output;
 
 		} // /set_definitions_processed
-
-
-
-		/**
-		 * Modify WPBakery Page Builder options
-		 *
-		 * @todo  Is this really required? Test this!
-		 *
-		 * @since    1.0.0
-		 * @version  1.6.0
-		 */
-		public static function options() {
-
-			// Processing
-return;
-				delete_option( 'wpb_js_use_custom' );
-
-		} // /options
 
 
 
@@ -419,8 +404,8 @@ return;
 					 * @todo  Use PHP buffer instead?
 					 * @todo  But maybe still keep `include()` below as we are passing some variables (see above).
 					 */
-					if ( file_exists( $renderer_file_path ) ) {
-						include( $renderer_file_path );
+					if ( file_exists( $path_file ) ) {
+						include( $path_file );
 					}
 
 					$output = apply_filters( 'wmhook_shortcode_output', $output, $shortcode, $atts );
@@ -506,8 +491,6 @@ return;
 
 		/**
 		 * Custom form interface
-		 *
-		 * @todo  Does this still work?
 		 *
 		 * @since    1.0.0
 		 * @version  1.6.0
@@ -605,7 +588,7 @@ return;
 		 * @since    1.2.9
 		 * @version  1.6.0
 		 */
-		public static function assets_enqueue_vc() {
+		public static function assets_enqueue_editor() {
 
 			// Requirements check
 
@@ -628,13 +611,12 @@ return;
 
 			// Processing
 
-				$vc_supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
+				$supported_post_types = ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) );
 
 				if (
 					in_array( $pagenow, $admin_pages )
 					&& WM_Amplifier_JS_Composer::is_active()
-					&& in_array( $post_type, $vc_supported_post_types )
-					&& defined( 'WPB_VC_VERSION' )
+					&& in_array( $post_type, $supported_post_types )
 				) {
 
 					// Styles
@@ -671,7 +653,53 @@ return;
 
 					do_action( 'wmhook_shortcode_assets_enqueued_vc' );
 
-		} // /assets_enqueue_vc
+		} // /assets_enqueue_editor
+
+
+
+		/**
+		 * Enqueue Metabox scripts
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 */
+		public static function metabox_script_late_enqueue() {
+
+			// Requirements check
+
+				if ( ! is_callable( 'WM_Metabox::is_edit_page' ) ) {
+					return;
+				}
+
+
+			// Processing
+
+				if ( WM_Metabox::is_edit_page() ) {
+					wp_enqueue_script( 'wm-metabox-scripts' );
+				}
+
+		} // /metabox_script_late_enqueue
+
+
+
+		/**
+		 * Make sure we enqueue Metabox scripts late
+		 *
+		 * This page builder plugin prints scripts at the end of HTML instead of properly
+		 * loading with WordPress enqueue functions. And we need our script to be loaded
+		 * after the page builder's ones. What a pain...
+		 *
+		 * @todo  Use normal approach when you remove Visual Composer compatibility!
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 */
+		public static function metabox_script_late_init() {
+
+			add_action( 'admin_print_scripts-post.php',     __CLASS__ . '::metabox_script_late_enqueue', 998 );
+			add_action( 'admin_print_scripts-post-new.php', __CLASS__ . '::metabox_script_late_enqueue', 998 );
+
+		} // /metabox_script_late_init
 
 
 
@@ -718,6 +746,7 @@ return;
 
 				$file = (string) apply_filters( 'wmhook_amplifier_js_composer_definitions_path', WMAMP_INCLUDES_DIR . 'compatibility/js-composer/definitions/definitions.php' );
 
+
 			// Processing
 
 				if ( file_exists( $file ) ) {
@@ -740,5 +769,16 @@ return;
 
 } // /WM_Amplifier_JS_Composer
 
-// Load just after WM_Shortcodes()
-add_action( 'init', 'WM_Amplifier_JS_Composer::init', 6 );
+// We need to load this AFTER WM_Shortcodes()!
+add_action( 'init', 'WM_Amplifier_JS_Composer::init', 7 );
+
+/**
+ * No idea why we have to add this filter outside the class.
+ * Tried all possible hooks variations but with no luck, no logic at all, complete brain damage...
+ * So, for all frontend page builder compatible shortcodes to be registered, we need to hook this
+ * filter outside the PHP class.
+ * Visual Composer, what a pain...
+ */
+if ( ! is_admin() ) {
+	add_filter( 'wmhook_shortcode_definitions', 'WM_Amplifier_JS_Composer::get_definitions_js_composer', 0 );
+}

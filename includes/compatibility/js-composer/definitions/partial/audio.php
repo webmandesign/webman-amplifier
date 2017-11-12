@@ -16,12 +16,13 @@
 
 
 
-$definitions['audio']['vc_plugin'] = array(
+$definitions['audio'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Audio', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'audio',
 	'class'    => 'wm-shortcode-vc-audio',
 	'category' => esc_html__( 'Media', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Audio source', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set the audio URL', 'webman-amplifier' ),
@@ -31,6 +32,7 @@ $definitions['audio']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Autoplay the audio?', 'webman-amplifier' ),
 			'description' => '',
@@ -43,6 +45,7 @@ $definitions['audio']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Loop the audio?', 'webman-amplifier' ),
 			'description' => '',
@@ -55,6 +58,7 @@ $definitions['audio']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -64,5 +68,6 @@ $definitions['audio']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

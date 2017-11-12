@@ -16,13 +16,14 @@
 
 
 
-$definitions['slideshow']['vc_plugin'] = array(
+$definitions['slideshow'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Slideshow', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'slideshow',
 	'class'    => 'wm-shortcode-vc-slideshow',
 	'icon'     => 'icon-wpb-images-carousel',
 	'category' => esc_html__( 'Media', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Images', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['slideshow']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'    => esc_html__( 'Navigation', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -44,6 +46,7 @@ $definitions['slideshow']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Image size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -52,6 +55,7 @@ $definitions['slideshow']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'Speed in miliseconds', 'webman-amplifier' ),
 			'description' => '',
@@ -61,6 +65,7 @@ $definitions['slideshow']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -70,5 +75,6 @@ $definitions['slideshow']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

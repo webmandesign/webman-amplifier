@@ -37,9 +37,6 @@
 
 	// WPBakery Page Builder (Visual Composer)
 
-		/**
-		 * @todo  Go through all definition files.
-		 */
 		if ( class_exists( 'Vc_Manager' ) ) {
 			require_once WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer.php';
 			$has_page_builder = true;

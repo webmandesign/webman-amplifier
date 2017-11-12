@@ -16,13 +16,14 @@
 
 
 
-$definitions['video'][]'vc_plugin'] = array(
+$definitions['video'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Video', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'video',
 	'class'    => 'wm-shortcode-vc-video',
 	'icon'     => 'icon-wpb-film-youtube',
 	'category' => esc_html__( 'Media', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Video source', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set the video URL', 'webman-amplifier' ),
@@ -32,6 +33,7 @@ $definitions['video'][]'vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Poster', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional placeholder image', 'webman-amplifier' ),
@@ -41,6 +43,7 @@ $definitions['video'][]'vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'Autoplay the video?', 'webman-amplifier' ),
 			'description' => '',
@@ -53,6 +56,7 @@ $definitions['video'][]'vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		40 => array(
 			'heading'     => esc_html__( 'Loop the video?', 'webman-amplifier' ),
 			'description' => '',
@@ -65,6 +69,7 @@ $definitions['video'][]'vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -74,5 +79,6 @@ $definitions['video'][]'vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

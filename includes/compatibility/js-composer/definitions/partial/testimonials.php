@@ -24,13 +24,14 @@ $testimonials_cats  = wma_taxonomy_array( array(
 	'tax_name'      => 'testimonial_category'
 ) );
 
-$definitions['testimonials']['vc_plugin'] = array(
+$definitions['testimonials'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Testimonials', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'testimonials',
 	'class'    => 'wm-shortcode-vc-testimonials',
 	'icon'     => 'vc_icon-vc-gitem-post-title',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Single testimonial', 'webman-amplifier' ),
 			'description' => esc_html__( 'Leave empty to display multiple testimonials', 'webman-amplifier' ),
@@ -51,6 +52,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Columns', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -68,6 +70,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Order', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -84,6 +87,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		50 => array(
 			'heading'     => esc_html__( 'Scrolling', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'webman-amplifier' ),
@@ -94,6 +98,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'Category', 'webman-amplifier' ),
 			'description' => esc_html__( 'Displays items only from a specific category', 'webman-amplifier' ),
@@ -104,6 +109,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		70 => array(
 			'heading'     => esc_html__( 'Display pagination?', 'webman-amplifier' ),
 			'description' => '',
@@ -117,6 +123,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		80 => array(
 			'heading'     => esc_html__( 'Description text (HTML)', 'webman-amplifier' ),
 			'description' => '',
@@ -127,6 +134,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		90 => array(
 			'heading'    => esc_html__( 'Description alignment', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -139,6 +147,7 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'class'      => '',
 			'group'      => esc_html__( 'Multiple display', 'webman-amplifier' ),
 		),
+
 		100 => array(
 			'heading'     => esc_html__( 'Remove gap between items?', 'webman-amplifier' ),
 			'description' => '',
@@ -162,5 +171,6 @@ $definitions['testimonials']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

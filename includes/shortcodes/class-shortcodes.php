@@ -165,10 +165,7 @@ class WM_Shortcodes {
 
 					// Get shortcode name
 
-						if (
-							is_array( $shortcode )
-							&& isset( $shortcode['name'] )
-						) {
+						if ( isset( $shortcode['name'] ) ) {
 							$shortcode = $shortcode['name'];
 						}
 
@@ -616,7 +613,7 @@ class WM_Shortcodes {
 		 * The scripts are being enqueued only when shortcode is displayed.
 		 *
 		 * @since    1.0.9.8
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 *
 		 * @param  string $shortcode
 		 * @param  array  $scripts
@@ -642,7 +639,7 @@ class WM_Shortcodes {
 			// Processing
 
 				/**
-				 * @todo Remove when all themes are updated.
+				 * @todo  Remove this when themes are updated.
 				 */
 				// Fixing legacy theme compatibility
 

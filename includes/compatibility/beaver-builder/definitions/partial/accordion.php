@@ -30,10 +30,10 @@ $params_children = array(
 	'title',
 );
 
-$definitions['accordion']['bb_plugin'] = array(
+$definitions['accordion'][ $key ] = array(
 	'name'            => esc_html__( 'Accordion', 'webman-amplifier' ),
 	'output'          => '[PREFIX_accordion{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{children}}[/PREFIX_accordion]',
-	'output_children' => '[PREFIX_item{{' . implode( '}}{{', array_diff( $params_children, array( 'content' ) ) ) . '}}[/PREFIX_item]',
+	'output_children' => '[PREFIX_item{{' . implode( '}}{{', array_diff( $params_children, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_item]',
 	'params'          => $params,
 	'params_children' => $params_children,
 	'form'            => array(
@@ -134,7 +134,7 @@ $definitions['accordion']['bb_plugin'] = array(
 		),
 
 	),
-	'form_children'   => array(
+	'form_children' => array(
 
 		'title' => esc_html__( 'Section', 'webman-amplifier' ),
 

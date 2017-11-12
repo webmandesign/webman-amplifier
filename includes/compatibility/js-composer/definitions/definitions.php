@@ -3,8 +3,6 @@
 /**
  * WPBakery Page Builder element definitions array
  *
- * @todo  When themes are updated, rename 'vc_plugin' to 'compatibility/js-composer'
- *
  * @package     WebMan Amplifier
  * @subpackage  Compatibility
  * @subpackage  Shortcodes
@@ -19,6 +17,8 @@
 
 
 // Helper variables
+
+	$key = WM_Amplifier_JS_Composer::$definition_array_key;
 
 	// Global code helpers and values
 
@@ -43,6 +43,7 @@
 			'countdown-timer',
 			'divider',
 			'icon',
+			'image',
 			'item',
 			'list',
 			'message',
@@ -56,7 +57,12 @@
 			'table',
 			'tabs',
 			'testimonials',
-			'vc',
+			'text_block',
+			'vc_alias',
+			'vc_column',
+			'vc_column_inner',
+			'vc_row',
+			'vc_row_inner',
 			'video',
 			'widget-area',
 		);
@@ -67,7 +73,7 @@
 	/**
 	 * Partial files must contain specific WPBakery Page Builder element definition array added to `(array) $definitions`.
 	 * @example
-	 * $definitions['shortcode_name']['vc_plugin'] = array(...);
+	 * $definitions['shortcode_name'][ $key ] = array(...);
 	 */
 	foreach ( $partial_files as $partial_file ) {
 		$partial_file = WMAMP_INCLUDES_DIR . 'compatibility/js-composer/definitions/partial/' . $partial_file . '.php';

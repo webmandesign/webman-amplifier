@@ -151,8 +151,8 @@ class WM_Amplifier {
 					'register_post_types'           => 'init|0',            // Register post types - before `widgets_init` fires (@link  https://codex.wordpress.org/Plugin_API/Action_Reference)
 					'custom_taxonomies'             => 'init|98',           // Register additional custom taxonomies
 					'register_shortcodes'           => 'init|5',            // Register shortcodes (shortcodes contain an init hook with priority as early as 7, so we need to use lower one here)
-					'register_visual_editor_addons' => 'init',              // Register Visual Editor addons
-					'register_icons'                => 'init',              // Register icon font
+					'register_visual_editor_addons' => 'init|20',              // Register Visual Editor addons
+					'register_icons'                => 'init|20',              // Register icon font
 					'admin_notices'                 => 'admin_notices',     // Display admin notices
 					'deactivate'                    => 'switch_theme|10|2', // Deactivate plugin when theme changed
 				);
@@ -724,6 +724,6 @@ add_action( 'plugins_loaded', 'WM_Amplifier::instance', 100 );
 
 
 /**
- * @todo  Remove this after themes are updated.
+ * @todo  Remove this when themes are updated.
  */
 function wma_amplifier() {}

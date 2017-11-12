@@ -16,7 +16,7 @@
 
 
 
-$definitions['pricing_table']['vc_plugin'] = array(
+$definitions['pricing_table'][ $key ] = array(
 	'name'                    => $prefix['name'] . esc_html__( 'Pricing Table', 'webman-amplifier' ),
 	'base'                    => $prefix['code'] . 'pricing_table',
 	'class'                   => 'wm-shortcode-vc-pricing_table wm-sections-mode',
@@ -32,12 +32,13 @@ $definitions['pricing_table']['vc_plugin'] = array(
 			<button data-item="' . $prefix['code'] . 'price" data-item-title="' . esc_html__( 'Price', 'webman-amplifier' ) . '" class="add_tab" title="' . esc_html__( 'Pricing table: Add new price', 'webman-amplifier' ) . '">' . esc_html__( 'Pricing table: Add new price', 'webman-amplifier' ) . '</button>
 		</div>
 	',
-	'default_content'         => '
+	'default_content' => '
 		[' . $prefix['code'] . 'price caption="' . esc_html__( 'Price 1', 'webman-amplifier' ).'"]' . esc_html__( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'webman-amplifier' ) . '[' . $prefix['code'] . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( $helpers['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( $helpers['sizes']['options'] ) ) ) . '" icon="" class=""]' . esc_html__( 'Button text', 'webman-amplifier' ) .'[/' . $prefix['code'] . 'button][/' . $prefix['code'] . 'price]
 		[' . $prefix['code'] . 'price caption="' . esc_html__( 'Price 2', 'webman-amplifier' ).'"]' . esc_html__( '<ul><li>Price feature</li><li>Another price feature</li></ul>', 'webman-amplifier' ) . '[' . $prefix['code'] . 'button url="#" color="' . implode( '/', array_keys( wma_ksort( $helpers['colors'] ) ) ) . '" size="' . implode( '/', array_keys( wma_ksort( $helpers['sizes']['options'] ) ) ) . '" icon="" class=""]' . esc_html__( 'Button text', 'webman-amplifier' ) .'[/' . $prefix['code'] . 'button][/' . $prefix['code'] . 'price]
 	',
-	'js_view'                 => 'VcCustomPricingTableView',
-	'params'                  => array(
+	'js_view' => 'VcCustomPricingTableView',
+	'params'  => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Remove margins between price columns?', 'webman-amplifier' ),
 			'description' => '',
@@ -50,6 +51,7 @@ $definitions['pricing_table']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -59,5 +61,6 @@ $definitions['pricing_table']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

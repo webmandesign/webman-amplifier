@@ -16,13 +16,14 @@
 
 
 
-$definitions['widget_area']['vc_plugin'] = array(
+$definitions['widget_area'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Widgets Area', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'widget_area',
 	'class'    => 'wm-shortcode-vc-widget_area',
 	'icon'     => 'icon-wpb-layout_sidebar',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Widgets area', 'webman-amplifier' ),
 			'description' => '',
@@ -32,6 +33,7 @@ $definitions['widget_area']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Maximum widgets count', 'webman-amplifier' ),
 			'description' => esc_html__( 'Area will not be displayed when the number of widgets inserted in it is greater', 'webman-amplifier' ),
@@ -55,6 +57,7 @@ $definitions['widget_area']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -64,5 +67,6 @@ $definitions['widget_area']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

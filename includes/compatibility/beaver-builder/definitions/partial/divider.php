@@ -21,7 +21,7 @@ $params = array(
 	'class',
 );
 
-$definitions['divider']['bb_plugin'] = array(
+$definitions['divider'][ $key ] = array(
 	'name'   => esc_html__( 'Divider / Gap', 'webman-amplifier' ),
 	'output' => '[PREFIX_divider{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}} /]',
 	'params' => $params,

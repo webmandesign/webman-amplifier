@@ -16,13 +16,14 @@
 
 
 
-$definitions['countdown_timer']['vc_plugin'] = array(
+$definitions['countdown_timer'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Countdown Timer', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'countdown_timer',
 	'class'    => 'wm-shortcode-vc-countdown_timer',
 	'icon'     => 'vc_icon-vc-gitem-post-date',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'    => esc_html__( 'Time', 'webman-amplifier' ),
 			'type'       => 'textfield',
@@ -31,6 +32,7 @@ $definitions['countdown_timer']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		20 => array(
 			'heading'    => esc_html__( 'Size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -39,6 +41,7 @@ $definitions['countdown_timer']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		30 => array(
 			'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
 			'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
@@ -48,5 +51,6 @@ $definitions['countdown_timer']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

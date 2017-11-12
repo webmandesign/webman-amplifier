@@ -4,8 +4,8 @@
  *
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
- * @since    1.0
- * @version  1.5.0
+ * @since    1.0.0
+ * @version  1.6.0
  *
  * @param  integer active
  * @param  string behaviour  Synonym for "mode" attribute.
@@ -48,15 +48,24 @@
 		if ( $atts['filter'] ) {
 			//Prepare filter output
 				$tags = array();
-				preg_match_all( '/(data-tag-names)=("[^"]*")/i', $content, $tags );
+				preg_match_all( '/(data-tag-names)=("[^"]*")/i', $content, $tags ); // Get tags from processed shortcode, actual HTML within $content.
+
 				if (
-						is_array( $tags )
-						&& ! empty( $tags )
-						&& isset( $tags[2] )
-					) {
+					empty( $tags )
+					|| ! isset( $tags[2] )
+					|| empty( $tags[2] )
+				) {
+					preg_match_all( '/(tags)=("[^"]*")/i', $content, $tags ); // Maybe there is still a shortcode in the $content? (Happens with Visual Composer...)
+				}
+
+				if (
+					! empty( $tags )
+					&& isset( $tags[2] )
+					&& ! empty( $tags[2] )
+				) {
 					$tags = $tags[2];
 					$tags = implode( '|', $tags );
-					$tags = str_replace( '"', '', $tags );
+					$tags = str_replace( array( ', ', ',', '"' ), array( '|', '|', '' ), $tags );
 					$tags = explode( '|', $tags );
 					$tags = array_unique( $tags );
 					asort( $tags );
@@ -68,6 +77,8 @@
 							$atts['filter'] .= '<li class="wm-filter-items-' . $tag_class . '"><a href="#" data-filter=".' . $tag_class . '">' . html_entity_decode( $tag ) . '</a></li>';
 						}
 						$atts['filter'] = '<div class="wm-filter"><ul>' . $atts['filter'] . '</ul></div>';
+				} else {
+					$atts['filter'] = '';
 				}
 			//Implement filter output
 				$atts['content'] = $atts['filter'] . '<div class="wm-filter-this-simple">' . $content . '</div>';

@@ -21,13 +21,14 @@ unset( $taxonomies['nav_menu'] );
 unset( $taxonomies['link_category'] );
 asort( $taxonomies );
 
-$definitions['posts']['vc_plugin'] = array(
+$definitions['posts'][ $key ] = array(
 	'name'     => $prefix['name'] . esc_html__( 'Posts / Custom Posts', 'webman-amplifier' ),
 	'base'     => $prefix['code'] . 'posts',
 	'class'    => 'wm-shortcode-vc-posts',
 	'icon'     => 'icon-wpb-vc_carousel',
 	'category' => esc_html__( 'Content', 'webman-amplifier' ),
 	'params'   => array(
+
 		10 => array(
 			'heading'     => esc_html__( 'Post type', 'webman-amplifier' ),
 			'description' => esc_html__( 'This shortcode can display several post types. Choose the one you want to display.', 'webman-amplifier' ),
@@ -37,6 +38,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'holder'      => 'div',
 			'class'       => '',
 		),
+
 		20 => array(
 			'heading'     => esc_html__( 'Count', 'webman-amplifier' ),
 			'description' => esc_html__( 'Number of items to display', 'webman-amplifier' ),
@@ -46,6 +48,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 		30 => array(
 			'heading'    => esc_html__( 'Columns', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -62,6 +65,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'holder'     => 'hidden',
 			'class'      => '',
 		),
+
 		40 => array(
 			'heading'    => esc_html__( 'Order', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -88,6 +92,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Taxonomy', 'webman-amplifier' ),
 		),
+
 		60 => array(
 			'heading'     => esc_html__( 'Relation', 'webman-amplifier' ),
 			'description' => esc_html__( 'Use only on single post/custom post pages. Displays items related to recently displayed item through a specific taxonomy. Set a taxonomy name only.', 'webman-amplifier' ) . ' ' . esc_html__( 'For example: "category".', 'webman-amplifier' ) . '<br>' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( '</code>, <code>', $taxonomies ) . '</code>',
@@ -109,6 +114,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Filter / Scroll', 'webman-amplifier' ),
 		),
+
 		80 => array(
 			'heading'     => esc_html__( 'Filter layout', 'webman-amplifier' ),
 			'description' => sprintf( esc_html__( 'Use one of <a%s>Isotope</a> layouts.', 'webman-amplifier' ), ' href="http://isotope.metafizzy.co/layout-modes.html" target="_blank"' ) . ' ' . esc_html__( 'Default is set to <code>fitRows</code>.', 'webman-amplifier' ),
@@ -119,6 +125,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Filter / Scroll', 'webman-amplifier' ),
 		),
+
 		90 => array(
 			'heading'     => esc_html__( 'Scrolling', 'webman-amplifier' ),
 			'description' => esc_html__( 'Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value for automatic scrolling represents the time of a scroll in miliseconds. Leave empty to disable scrolling.', 'webman-amplifier' ),
@@ -153,6 +160,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Description', 'webman-amplifier' ),
 		),
+
 		120 => array(
 			'heading'     => esc_html__( 'Description alignment', 'webman-amplifier' ),
 			'type'        => 'dropdown',
@@ -179,6 +187,7 @@ $definitions['posts']['vc_plugin'] = array(
 			'class'       => '',
 			'group'       => esc_html__( 'Layout', 'webman-amplifier' ),
 		),
+
 		140 => array(
 			'heading'    => esc_html__( 'Image size', 'webman-amplifier' ),
 			'type'       => 'dropdown',
@@ -198,5 +207,6 @@ $definitions['posts']['vc_plugin'] = array(
 			'holder'      => 'hidden',
 			'class'       => '',
 		),
+
 	),
 );

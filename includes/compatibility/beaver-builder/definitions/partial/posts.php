@@ -39,7 +39,7 @@ unset( $taxonomies['nav_menu'] );
 unset( $taxonomies['link_category'] );
 asort( $taxonomies );
 
-$definitions['posts']['bb_plugin'] = array(
+$definitions['posts'][ $key ] = array(
 	'name'   => esc_html__( 'Posts / Custom Posts', 'webman-amplifier' ),
 	'output' => '[PREFIX_posts{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_posts]',
 	'params' => $params,

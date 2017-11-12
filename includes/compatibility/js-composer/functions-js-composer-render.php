@@ -40,7 +40,8 @@ function vc_theme_vc_row( $atts = array(), $content = '' ) {
 
 	// Output
 
-		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'vc_row' );
+		// What WebMan Amplifier shortcode should we render?
+		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'row' );
 
 } // /vc_theme_vc_row
 
@@ -58,7 +59,8 @@ function vc_theme_vc_row_inner( $atts = array(), $content = '' ) {
 
 	// Output
 
-		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'vc_row_inner' );
+		// What WebMan Amplifier shortcode should we render?
+		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'row' );
 
 } // /vc_theme_vc_row_inner
 
@@ -76,7 +78,8 @@ function vc_theme_vc_column( $atts = array(), $content = '' ) {
 
 	// Output
 
-		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'vc_column' );
+		// What WebMan Amplifier shortcode should we render?
+		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'column' );
 
 } // /vc_theme_vc_column
 
@@ -94,6 +97,7 @@ function vc_theme_vc_column_inner( $atts = array(), $content = '' ) {
 
 	// Output
 
-		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'vc_column_inner' );
+		// What WebMan Amplifier shortcode should we render?
+		return WM_Amplifier_JS_Composer::shortcode_render( $atts, $content, 'column' );
 
 } // /vc_theme_vc_column_inner

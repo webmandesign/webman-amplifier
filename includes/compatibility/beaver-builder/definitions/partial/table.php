@@ -23,7 +23,7 @@ $params = array(
 	'separator',
 );
 
-$definitions['table']['bb_plugin'] = array(
+$definitions['table'][ $key ] = array(
 	'name'   => esc_html__( 'Table', 'webman-amplifier' ),
 	'output' => '[PREFIX_table{{' . implode( '}}{{', array_diff( $params, array( 'content' ) ) ) . '}}]{{content}}[/PREFIX_table]',
 	'params' => $params,
