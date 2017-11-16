@@ -265,7 +265,7 @@ class WM_Shortcodes {
 					 * @todo  But maybe still keep `include()` below as we are passing some variables (see above).
 					 */
 					if ( file_exists( $path_file ) ) {
-						include( $path_file );
+						include $path_file;
 					}
 
 					$output = apply_filters( 'wmhook_shortcode_output', $output, $shortcode, $atts );
@@ -676,7 +676,7 @@ class WM_Shortcodes {
 		 * Get shortcodes definitions array from file
 		 *
 		 * @since    1.5.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 */
 		public static function get_definitions_from_file() {
 
@@ -694,7 +694,7 @@ class WM_Shortcodes {
 					 * This file has to contain a `$definitions` defined so we can override
 					 * the above default with actual shortcodes definitions array.
 					 */
-					include_once( $file );
+					include_once $file;
 				}
 
 

@@ -703,7 +703,7 @@ class WM_Amplifier_Beaver_Builder {
 					/**
 					 * This file has to contain a `$definitions` defined.
 					 */
-					include_once( $file );
+					include_once $file;
 				}
 
 

@@ -130,8 +130,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Setup default icons
 			 *
-			 * @since   1.0
-			 * @access  private
+			 * @since    1.0.0
+			 * @version  1.6.0
 			 */
 			private function setup_icons() {
 				//Get recent icons array from database
@@ -141,7 +141,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					if ( empty( $icons ) ) {
 						//Include the default icons config file which contains $icons array definition
 							$default_fonticons_config_file = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_path', WMAMP_ASSETS_DIR . 'font/config.php' );
-							include_once( $default_fonticons_config_file );
+							include_once $default_fonticons_config_file;
 
 						//Assign the $icons array to $font_config variable
 							$this->font_config = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_array', $icons );

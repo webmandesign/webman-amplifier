@@ -50,6 +50,6 @@
 	foreach ( $partial_files as $partial_file ) {
 		$partial_file = WMAMP_INCLUDES_DIR . 'compatibility/beaver-builder/definitions/partial/' . $partial_file . '.php';
 		if ( file_exists( $partial_file ) ) {
-			include_once( $partial_file );
+			include_once $partial_file;
 		}
 	}

@@ -268,6 +268,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Widget HTML
+		 *
+		 * @version  1.6.0
 		 */
 		function widget( $args, $instance ) {
 
@@ -328,7 +330,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							// Load the helper class
 
 								if ( ! class_exists( 'TwitterOAuth' ) ) {
-									require_once( WMAMP_INCLUDES_DIR . '/twitteroauth/twitteroauth.php' );
+									require_once WMAMP_INCLUDES_DIR . '/twitteroauth/twitteroauth.php';
 								}
 
 							// Set the connection

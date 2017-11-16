@@ -405,7 +405,7 @@ class WM_Amplifier_JS_Composer {
 					 * @todo  But maybe still keep `include()` below as we are passing some variables (see above).
 					 */
 					if ( file_exists( $path_file ) ) {
-						include( $path_file );
+						include $path_file;
 					}
 
 					$output = apply_filters( 'wmhook_shortcode_output', $output, $shortcode, $atts );
@@ -429,7 +429,7 @@ class WM_Amplifier_JS_Composer {
 
 			// Processing
 
-				require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/functions-js-composer-render.php' );
+				require_once WMAMP_INCLUDES_DIR . 'compatibility/js-composer/functions-js-composer-render.php';
 
 		} // /shortcode_render_override
 
@@ -499,7 +499,7 @@ class WM_Amplifier_JS_Composer {
 
 			// Processing
 
-				require_once( WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer-extend.php' );
+				require_once WMAMP_INCLUDES_DIR . 'compatibility/js-composer/class-js-composer-extend.php';
 
 		} // /form_interface
 
@@ -753,7 +753,7 @@ class WM_Amplifier_JS_Composer {
 					/**
 					 * This file has to contain a `$definitions` defined.
 					 */
-					include_once( $file );
+					include_once $file;
 				}
 
 

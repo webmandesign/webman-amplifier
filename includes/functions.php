@@ -1204,7 +1204,8 @@
 	/**
 	 * Get template part (for shortcode templates)
 	 *
-	 * @since   1.0
+	 * @since    1.0.0
+	 * @version  1.6.0
 	 *
 	 * @param   mixed  $slug
 	 * @param   string $name
@@ -1264,7 +1265,7 @@
 							extract( $wp_query->query_vars, EXTR_SKIP );
 						}
 
-						include( $template );
+						include $template;
 
 					}
 				}

@@ -305,39 +305,49 @@ class WM_Amplifier {
 		/**
 		 * Setup the post types
 		 *
-		 * @since    1.0
-		 * @version  1.1.4
+		 * @since    1.0.0
+		 * @version  1.6.0
 		 *
 		 * @access  public
 		 */
 		public function register_post_types() {
-			//Content Modules
-				if ( wma_supports_subfeature( 'cp-modules' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'custom-posts/modules.php' );
-				}
 
-			//Logos
-				if ( wma_supports_subfeature( 'cp-logos' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'custom-posts/logos.php' );
-				}
+			// Processing
 
-			//Projects
-				if ( wma_supports_subfeature( 'cp-projects' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'custom-posts/projects.php' );
-				}
+				// Content Modules
 
-			//Staff
-				if ( wma_supports_subfeature( 'cp-staff' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'custom-posts/staff.php' );
-				}
+					if ( wma_supports_subfeature( 'cp-modules' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'custom-posts/modules.php';
+					}
 
-			//Testimonials
-				if ( wma_supports_subfeature( 'cp-testimonials' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'custom-posts/testimonials.php' );
-				}
+				// Logos
 
-			//Plugin register custom posts action
-				do_action( 'wmhook_wmamp_' . 'register_post_types' );
+					if ( wma_supports_subfeature( 'cp-logos' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'custom-posts/logos.php';
+					}
+
+				// Projects
+
+					if ( wma_supports_subfeature( 'cp-projects' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'custom-posts/projects.php';
+					}
+
+				// Staff
+
+					if ( wma_supports_subfeature( 'cp-staff' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'custom-posts/staff.php';
+					}
+
+				// Testimonials
+
+					if ( wma_supports_subfeature( 'cp-testimonials' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'custom-posts/testimonials.php';
+					}
+
+				// Plugin register custom posts action
+
+					do_action( 'wmhook_wmamp_' . 'register_post_types' );
+
 		} // /register_post_types
 
 
@@ -450,17 +460,21 @@ class WM_Amplifier {
 		/**
 		 * Register metaboxes
 		 *
-		 * @since    1.0
-		 * @version  1.1
+		 * @since    1.0.0
+		 * @version  1.6.0
 		 *
 		 * @access  public
 		 *
 		 * @uses  WM_Metabox
 		 */
 		public function register_metaboxes() {
-			if ( is_admin() ) {
-				require( WMAMP_INCLUDES_DIR . 'metabox/class-metabox.php' );
-			}
+
+			// Processing
+
+				if ( is_admin() ) {
+					require WMAMP_INCLUDES_DIR . 'metabox/class-metabox.php';
+				}
+
 		} // /register_metaboxes
 
 
@@ -469,7 +483,7 @@ class WM_Amplifier {
 		 * Register shortcodes
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  1.6.0
 		 */
 		public function register_shortcodes() {
 
@@ -479,7 +493,7 @@ class WM_Amplifier {
 					apply_filters( 'wmhook_wmamp_enable_shortcodes', true )
 					&& ! wma_supports_subfeature( 'disable-shortcodes' )
 				) {
-					require_once( WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php' );
+					require_once WMAMP_INCLUDES_DIR . 'shortcodes/class-shortcodes.php';
 				}
 
 		} // /register_shortcodes
@@ -489,20 +503,24 @@ class WM_Amplifier {
 		/**
 		 * Register Visual Editor addons
 		 *
-		 * @since    1.1
-		 * @version  1.1
+		 * @since    1.1.0
+		 * @version  1.6.0
 		 *
 		 * @access  public
 		 *
 		 * @uses  Visual Editor addons
 		 */
 		public function register_visual_editor_addons() {
-			if (
+
+			// Processing
+
+				if (
 					apply_filters( 'wmhook_wmamp_' . 'enable_visual_editor_addons', true )
 					&& ! wma_supports_subfeature( 'disable-visual-editor-addons' )
 				) {
-				require( WMAMP_INCLUDES_DIR . 'visual-editor/visual-editor.php' );
-			}
+					require WMAMP_INCLUDES_DIR . 'visual-editor/visual-editor.php';
+				}
+
 		} // /register_visual_editor_addons
 
 
@@ -510,8 +528,8 @@ class WM_Amplifier {
 		/**
 		 * Register icon font file
 		 *
-		 * @since    1.0
-		 * @version  1.2.2
+		 * @since    1.0.0
+		 * @version  1.6.0
 		 *
 		 * @access  public
 		 *
@@ -519,13 +537,13 @@ class WM_Amplifier {
 		 */
 		public function register_icons() {
 
-			// Output
+			// Processing
 
 				if (
-						apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
-						&& ! wma_supports_subfeature( 'disable-fonticons' )
-					) {
-					require( WMAMP_INCLUDES_DIR . 'icons/class-icon-font.php' );
+					apply_filters( 'wmhook_wmamp_' . 'enable_iconfont', true )
+					&& ! wma_supports_subfeature( 'disable-fonticons' )
+				) {
+					require WMAMP_INCLUDES_DIR . 'icons/class-icon-font.php';
 					return WM_Icons::instance();
 				}
 
@@ -536,41 +554,51 @@ class WM_Amplifier {
 		/**
 		 * Register widgets
 		 *
-		 * @since    1.0
-		 * @version  1.1.3
+		 * @since    1.0.0
+		 * @version  1.6.0
 		 *
 		 * @access  public
 		 */
 		public function register_widgets() {
-			//Contact widget
-				if ( wma_supports_subfeature( 'widget-contact' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-contact.php' );
-				}
 
-			//Content Module widget
-				if ( wma_supports_subfeature( 'widget-module' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-module.php' );
-				}
+			// Processing
 
-			//Posts widget
-				if ( wma_supports_subfeature( 'widget-posts' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-posts.php' );
-				}
+				// Contact widget
 
-			//Sub navigation widget
-				if ( wma_supports_subfeature( 'widget-subnav' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-subnav.php' );
-				}
+					if ( wma_supports_subfeature( 'widget-contact' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-contact.php';
+					}
 
-			//Tabbed widgets widget
-				if ( wma_supports_subfeature( 'widget-tabbed-widgets' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-tabbed-widgets.php' );
-				}
+				// Content Module widget
 
-			//Twitter widget
-				if ( wma_supports_subfeature( 'widget-twitter' ) ) {
-					include_once( WMAMP_INCLUDES_DIR . 'widgets/w-twitter.php' );
-				}
+					if ( wma_supports_subfeature( 'widget-module' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-module.php';
+					}
+
+				// Posts widget
+
+					if ( wma_supports_subfeature( 'widget-posts' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-posts.php';
+					}
+
+				// Sub navigation widget
+
+					if ( wma_supports_subfeature( 'widget-subnav' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-subnav.php';
+					}
+
+				// Tabbed widgets widget
+
+					if ( wma_supports_subfeature( 'widget-tabbed-widgets' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-tabbed-widgets.php';
+					}
+
+				// Twitter widget
+
+					if ( wma_supports_subfeature( 'widget-twitter' ) ) {
+						include_once WMAMP_INCLUDES_DIR . 'widgets/w-twitter.php';
+					}
+
 		} // /register_widgets
 
 
