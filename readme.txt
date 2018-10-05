@@ -4,7 +4,7 @@ Donate link:       https://www.paypal.me/webmandesign/20
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
-Tested up to:      4.9
+Tested up to:      4.9.8
 Stable tag:        1.6.0
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
@@ -100,6 +100,18 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 = 1.6.0 =
 Improving code and its organization. Improving localization.
+
+= 1.5.4 =
+Fixing compatibility with WooSidebars plugin.
+
+= 1.5.3 =
+Fixing compatibility with WPBakery Page Builder (Visual Composer).
+
+= 1.5.2 =
+Fixing compatibility with most Beaver Builder 2.0.4
+
+= 1.5.1 =
+Fixing PHP error when loading Visual Composer compatible file.
 
 = 1.5.0 =
 Making custom Beaver Builder elements translatable with WPML plugin.

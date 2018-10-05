@@ -12,6 +12,55 @@
 	webman-amplifier.php
 
 
+## 1.5.4
+
+* **Fix**: Compatibility with WooSidebars
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/compatibility/compatibility.php
+
+
+## 1.5.3
+
+* **Fix**: Compatibility with WPBakery Page Builder (Visual Composer)
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/definitions/definitions.php
+
+
+## 1.5.2
+
+* **Fix**: Compatibility with most Beaver Builder 2.0.4
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/definitions/partial/accordion.php
+	includes/shortcodes/definitions/partial/tabs.php
+
+
+## 1.5.1
+
+* **Fix**: PHP error when loading Visual Composer compatibility file
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/shortcodes/class-shortcodes.php
+
+
 ## 1.5.0
 
 * **Update**: Making custom Beaver Builder elements translatable with WPML plugin

@@ -67,13 +67,7 @@ $definitions['accordion'][ $key ] = array(
 
 						'children' => array(
 							'type'        => 'form',
-							'label'       => '',
-							'description' => '',
-							'help'        => '',
-							'default'     => array(
-								// This will be converted automatically
-								'title' => esc_html__( 'Section', 'webman-amplifier' ),
-							),
+							'label'       => esc_html__( 'Section', 'webman-amplifier' ),
 							'form'         => 'wm_children_form_' . 'accordion',
 							'preview_text' => 'title',
 							'multiple'     => true,
