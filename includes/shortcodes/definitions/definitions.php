@@ -8,11 +8,9 @@
  * 	'shortcode-name' => array(
  *
  * 		// Plugin version when the shortcode was added
- * 		// @required
  * 		'since' => '1.0.0',
  *
  * 		// Shortcode generator setup
- * 		// @optional  Do not set if empty!
  * 		'generator' => array(
  * 			'name'  => (string),
  * 			'code'  => (string),
@@ -20,19 +18,26 @@
  * 		),
  *
  * 		// Preprocessing needed?
- * 		// @optional  Do not set if empty!
  * 		'preprocess' => (boolean),
  *
+ * 		// Post type required for the shortcode
+ * 		'post_type_required' => (string),
+ *
  * 		// Overrides the default shortcode prefix when registering shortcode with WordPress.
- * 		// @optional  Do not set if empty!
+ * 		// IMPORTANT: Set this only when really required!
  * 		'custom_prefix' => (mixed: boolean/string),
  *
  * 		// Alias: overrides shortcode default rendering functionality
- * 		// @optional  Do not set if empty!
  *   	'renderer' => array(
  * 			'alias' => (string),
  * 			'path'  => (string), // Custom render functionality file path
  * 		),
+ *
+ * 		// Plugin compatibility: Beaver Builder
+ * 		'bb_plugin' => array(), // @todo  Documentation needed.
+ *
+ * 		// Plugin compatibility: Visual Composer
+ * 		'vc_plugin' => array(), // @todo  Documentation needed.
  *
  *   ),
  *
@@ -41,7 +46,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.6.0
+ * @version  1.5.3
  */
 
 
@@ -53,6 +58,13 @@
 	// Global code helpers and values
 
 		$helpers = WM_Shortcodes::get_codes_globals();
+
+	// Prefixes
+
+		$prefix = array(
+			'code' => WM_Shortcodes::$prefix_shortcode,
+			'name' => WM_Shortcodes::$prefix_shortcode_name,
+		);
 
 	// Partial files to load
 
@@ -89,6 +101,10 @@
 			'widget-area',
 		);
 
+		if ( wma_is_active_vc() ) {
+			$partial_files[] = 'vc';
+		}
+
 
 // Processing
 
@@ -100,6 +116,6 @@
 	foreach ( $partial_files as $partial_file ) {
 		$partial_file = WMAMP_INCLUDES_DIR . 'shortcodes/definitions/partial/' . $partial_file . '.php';
 		if ( file_exists( $partial_file ) ) {
-			include_once $partial_file;
+			include_once( $partial_file );
 		}
 	}

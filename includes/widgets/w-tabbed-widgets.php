@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.6.0
+ * @version  1.3.13
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -135,8 +135,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		/**
 		 * Options form
-		 *
-		 * @version  1.6.0
 		 */
 		function form( $instance ) {
 
@@ -150,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p class="wm-desc"><?php _ex( 'Displays widgets from selected widget area in tabbed interface.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widgets area displayed', 'webman-amplifier' ); ?></label><br>
+					<label for="<?php echo $this->get_field_id( 'sidebar' ); ?>"><?php _e( 'Widgets area displayed', 'webman-amplifier' ); ?></label><br />
 					<select class="widefat" name="<?php echo $this->get_field_name( 'sidebar' ); ?>" id="<?php echo $this->get_field_id( 'sidebar' ); ?>">
 						<?php
 						if ( function_exists( 'wma_widget_areas_array' ) ) {

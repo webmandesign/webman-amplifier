@@ -7,11 +7,11 @@
  * plugin sidebar settings.
  *
  * @package     WebMan Amplifier
- * @subpackage  Compatibility
+ * @subpackage  Integration
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.3.22
- * @version  1.6.0
+ * @version  1.4
  *
  * Contents:
  *

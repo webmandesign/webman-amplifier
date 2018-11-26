@@ -6,7 +6,7 @@
  * @subpackage  Widgets
  *
  * @since    1.0.9.9
- * @version  1.6.0
+ * @version  1.4.3
  *
  * CONTENT:
  * - 10) Actions and filters
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Options form
 		 *
 		 * @since    1.0.9.9
-		 * @version  1.6.0
+		 * @version  1.4.3
 		 */
 		function form( $instance ) {
 
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<p class="wm-desc"><?php _ex( 'Displays content of the specific Content Module custom post. Please choose the Content Module below.', 'Widget description.', 'webman-amplifier' ) ?></p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'webman-amplifier' ) ?></label><br />
 					<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 				</p>
 
@@ -125,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 					if ( ! empty( $posts ) ) {
 						?>
-						<label for="<?php echo $this->get_field_id( 'module' ); ?>"><?php _e( 'Content Module to display:', 'webman-amplifier' ) ?></label><br>
+						<label for="<?php echo $this->get_field_id( 'module' ); ?>"><?php _e( 'Content Module to display:', 'webman-amplifier' ) ?></label><br />
 						<select class="widefat" id="<?php echo $this->get_field_id( 'module' ); ?>" name="<?php echo $this->get_field_name( 'module' ); ?>">
 							<option value="" <?php selected( $instance['module'], '' ); ?>><?php _e( '- Select Content Module -', 'webman-amplifier' ); ?></option>
 						<?php
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'webman-amplifier' ) ?></label><br>
+					<label for="<?php echo $this->get_field_id( 'class' ); ?>"><?php _e( 'Optional CSS class:', 'webman-amplifier' ) ?></label><br />
 					<input class="widefat" id="<?php echo $this->get_field_id( 'class' ); ?>" name="<?php echo $this->get_field_name( 'class' ); ?>" type="text" value="<?php echo esc_attr( $instance['class'] ); ?>" />
 				</p>
 				<?php

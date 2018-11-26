@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
  *
- * @since    1.0.0
- * @version  1.6.0
+ * @since    1.0
+ * @version  1.4
  */
 if ( ! class_exists( 'WM_Icons' ) ) {
 
@@ -130,8 +130,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Setup default icons
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since   1.0
+			 * @access  private
 			 */
 			private function setup_icons() {
 				//Get recent icons array from database
@@ -141,7 +141,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 					if ( empty( $icons ) ) {
 						//Include the default icons config file which contains $icons array definition
 							$default_fonticons_config_file = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_path', WMAMP_ASSETS_DIR . 'font/config.php' );
-							include_once $default_fonticons_config_file;
+							include_once( $default_fonticons_config_file );
 
 						//Assign the $icons array to $font_config variable
 							$this->font_config = apply_filters( 'wmhook_icons_' . 'default_iconfont_config_array', $icons );
@@ -281,8 +281,8 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 			/**
 			 * Render admin form to upload font ZIP file
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since    1.0
+			 * @version  1.3.21
 			 *
 			 * @access   public
 			 */
@@ -321,7 +321,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 								'label'       => __( 'Fontello ZIP package file', 'webman-amplifier' ),
 								'button'      => __( 'Set the file', 'webman-amplifier' ),
 								'placeholder' => __( 'Fontello ZIP package file URL', 'webman-amplifier' ),
-								'description' => sprintf( __( 'Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br>Use the default button on right to empty the input field and set the default icon font file.<br><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use "fontello" as font name. Otherwise the font icons will not be generated.</strong>', 'webman-amplifier' ), ' href="http://fontello.com/" target="_blank"'),
+								'description' => sprintf( __( 'Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br />Use the default button on right to empty the input field and set the default icon font file.<br /><strong>IMPORTANT: Please do not use custom font name when creating your Fontello.com selection. Leave the field blank or use "fontello" as font name. Otherwise the font icons will not be generated.</strong>', 'webman-amplifier' ), ' href="http://fontello.com/" target="_blank"'),
 								'default'     => '',
 							) );
 
@@ -414,7 +414,7 @@ if ( ! class_exists( 'WM_Icons' ) ) {
 
 									if ( $options['wmamp-icon-font'] ) {
 										$output .= '<tr class="option padding-20"><td colspan="2">';
-											$output .= '<div class="box blue">' . sprintf( __( 'To display the icon font, please, use this CSS file: %s', 'webman-amplifier' ), '<br><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
+											$output .= '<div class="box blue">' . sprintf( __( 'To display the icon font, please, use this CSS file: %s', 'webman-amplifier' ), '<br /><code><a href="' . $options['wmamp-icon-font'] . '" target="_blank">' . $options['wmamp-icon-font'] . '</a></code>' ) . '</div>';
 										$output .= '</td></tr>';
 									}
 

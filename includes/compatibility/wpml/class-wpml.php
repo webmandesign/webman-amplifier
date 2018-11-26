@@ -6,11 +6,11 @@
  * Making custom Beaver Builder elements/modules/shortcodes translatable with WPML.
  *
  * @package     WebMan Amplifier
- * @subpackage  Compatibility
+ * @subpackage  Integration
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.6.0
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -83,11 +83,11 @@ class WM_Amplifier_WPML {
 		/**
 		 * Register custom Beaver Builder modules to translate with WPML
 		 *
-		 * The `compatibility/wpml` array should consist of fields destined for translation setup only.
-		 * Format of the array within `compatibility/beaver-builder` definition array is as follows:
+		 * The `wpml_fields` array should consist of fields destined for translation setup only.
+		 * Format of the array within shortcode `bb_plugin` definition array is as follows:
 		 * @example
 		 * 	@see  WPML_Beaver_Builder_Translatable_Nodes::initialize_nodes_to_translate()
-		 * 	'compatibility/wpml' => array(
+		 * 	'wpml_fields' => array(
 		 * 		array(
 		 * 			'field'       => 'option_field_id',
 		 * 			'type'        => 'Localized option field label text',
@@ -105,10 +105,8 @@ class WM_Amplifier_WPML {
 		 * @example
 		 * 	@see  WPML_Beaver_Builder_Accordion()
 		 *
-		 * @uses  WM_Shortcodes::get_definitions_processed()
-		 *
 		 * @since    1.5.0
-		 * @version  1.6.0
+		 * @version  1.5.0
 		 *
 		 * @param  array $nodes
 		 */
@@ -127,7 +125,7 @@ class WM_Amplifier_WPML {
 			// Helper variables
 
 				$custom_translatable_modules = array();
-				$custom_modules              = (array) WM_Shortcodes::get_definitions_processed( 'compatibility/beaver-builder' );
+				$custom_modules              = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
 				$modules_with_children       = (array) apply_filters( 'wmhook_amplifier_shortcodes_with_children', array(
 					'accordion',
 					'tabs',
@@ -140,8 +138,8 @@ class WM_Amplifier_WPML {
 
 				foreach ( $custom_modules as $module_id => $args ) {
 					if (
-						isset( $args['compatibility/wpml'] )
-						&& is_array( $args['compatibility/wpml'] )
+						isset( $args['wpml_fields'] )
+						&& is_array( $args['wpml_fields'] )
 					) {
 
 						// Prefixing
@@ -155,11 +153,11 @@ class WM_Amplifier_WPML {
 
 						// Set module fields
 
-							foreach ( $args['compatibility/wpml'] as $key => $field ) {
-								$args['compatibility/wpml'][ $key ]['type'] = $module_name_prefixed . ': "' . $field['type'] . '"';
+							foreach ( $args['wpml_fields'] as $key => $field ) {
+								$args['wpml_fields'][ $key ]['type'] = $module_name_prefixed . ': "' . $field['type'] . '"';
 							}
 
-							$custom_translatable_modules[ $module_id_prefixed ]['fields'] = $args['compatibility/wpml'];
+							$custom_translatable_modules[ $module_id_prefixed ]['fields'] = $args['wpml_fields'];
 
 						// Set parent modules PHP classes
 

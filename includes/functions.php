@@ -4,8 +4,8 @@
  *
  * @package  WebMan Amplifier
  *
- * @since    1.0.0
- * @version  1.6.0
+ * @since    1.0
+ * @version  1.4.4
  */
 
 
@@ -1204,8 +1204,7 @@
 	/**
 	 * Get template part (for shortcode templates)
 	 *
-	 * @since    1.0.0
-	 * @version  1.6.0
+	 * @since   1.0
 	 *
 	 * @param   mixed  $slug
 	 * @param   string $name
@@ -1265,7 +1264,7 @@
 							extract( $wp_query->query_vars, EXTR_SKIP );
 						}
 
-						include $template;
+						include( $template );
 
 					}
 				}
@@ -1419,17 +1418,78 @@
 
 
 	/**
-	 * @todo  Remove this when themes are updated.
+	 * Check if page builder plugin is active
 	 *
-	 * @since    1.1.0
-	 * @version  1.6.0
+	 * @since    1.1
+	 * @version  1.1
+	 *
+	 * @return  boolean
 	 */
-	if ( ! function_exists( 'wma_is_active_vc' ) ) {
-		function wma_is_active_vc() {
-
-			// Output
-
-				return ( is_callable( 'WM_Amplifier_JS_Composer::is_active' ) ) ? ( WM_Amplifier_JS_Composer::is_active() ) : ( false );
-
+	if ( ! function_exists( 'wma_is_active_page_builder' ) ) {
+		function wma_is_active_page_builder() {
+			//Output
+				return apply_filters( 'wmhook_wmamp_' . 'wma_is_active_page_builder_output', ( wma_is_active_vc() || ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_enabled() ) ) );
 		}
-	} // /wma_is_active_vc
+	} // /wma_is_active_page_builder
+
+
+
+		/**
+		 * Check if Beaver Builder plugin is active
+		 *
+		 * Using loop functions, so needs to be hooked in `wp` rather then `init`.
+		 *
+		 * @since    1.1
+		 * @version  1.1.6
+		 *
+		 * @return  boolean
+		 */
+		if ( ! function_exists( 'wma_is_active_bb' ) ) {
+			function wma_is_active_bb() {
+				//Helper variables
+					$supported_post_types = get_option( '_fl_builder_post_types' );
+
+				//Output
+					if (
+							class_exists( 'FLBuilder' )
+							&& ! is_admin()
+							&& ! empty( $supported_post_types )
+							&& is_singular( (array) $supported_post_types )
+							&& class_exists( 'FLBuilderModel' )
+							&& FLBuilderModel::is_builder_active()
+						) {
+						return true;
+					}
+
+					return false;
+			}
+		} // /wma_is_active_bb
+
+
+
+		/**
+		 * Check if Visual Composer plugin is active
+		 *
+		 * Supports both 4.2+ plugin versions and older too.
+		 *
+		 * @since    1.1
+		 * @version  1.3.19
+		 *
+		 * @return  boolean
+		 */
+		if ( ! function_exists( 'wma_is_active_vc' ) ) {
+			function wma_is_active_vc() {
+
+				// Requirements check
+
+					if ( wma_supports_subfeature( 'disable-visual-composer-support' ) ) {
+						return false;
+					}
+
+
+				// Output
+
+					return apply_filters( 'wmhook_wmamp_wma_is_active_vc_output', ( class_exists( 'Vc_Manager' ) || class_exists( 'WPBakeryVisualComposer' ) ) );
+
+			}
+		} // /wma_is_active_vc

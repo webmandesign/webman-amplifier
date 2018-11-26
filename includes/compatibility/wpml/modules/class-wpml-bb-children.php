@@ -10,11 +10,11 @@
  * @see  WM_Amplifier_WPML::beaver_builder_modules_to_translate()
  *
  * @package     WebMan Amplifier
- * @subpackage  Compatibility
+ * @subpackage  Integration
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.6.0
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -98,16 +98,16 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 	/**
 	 * Child element option field labels
 	 *
-	 * @uses  WM_Shortcodes::get_definitions_processed()
+	 * @todo  Prefix field names with shortcode name.
 	 *
 	 * @since    1.5.0
-	 * @version  1.6.0
+	 * @version  1.5.0
 	 */
 	protected function get_title( $field ) {
 
 		// Helper variables
 
-			$custom_modules       = (array) WM_Shortcodes::get_definitions_processed( 'compatibility/beaver-builder' );
+			$custom_modules       = (array) WM_Shortcodes::get_definitions_processed( 'bb_plugin' );
 			$module_name_prefixed = WM_Shortcodes::$prefix_shortcode_name . $custom_modules[ self::$module_id ]['name'];
 
 

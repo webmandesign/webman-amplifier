@@ -55,8 +55,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @package	 WebMan Amplifier
  * @author   WebMan
  *
- * @since    1.0.0
- * @version  1.6.0
+ * @since    1.0
+ * @version  1.5.5
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -102,8 +102,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Constructor
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since    1.0
+			 * @version  1.5.5
 			 *
 			 * @access  public
 			 *
@@ -128,38 +128,31 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					}
 
 
-				// Helper variables
+				//Form field definition files ( 'field_file_name' => 'optional_file_path' )
+					$field_files = array(
+							'checkbox'    => '',
+							'conditional' => '',
+							'hidden'      => '',
+							'html'        => '',
+							'images'      => '',
+							'radio'       => '',
+							'repeater'    => '',
+							'sections'    => '',
+							'select'      => '',
+							'slider'      => '',
+							'texts'       => '',
+						);
 
-					// Form field definition files ( 'field_file_name' => 'optional_file_path' )
+				//Set up class globals
+					$this->prefix          = WM_METABOX_FIELD_PREFIX;
+					$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
+					$this->meta_box        = (array) $meta_box;
+					$this->fields          = (string) $meta_box['fields'];
+					$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', $field_files );
 
-						$field_files = array(
-								'checkbox'    => '',
-								'conditional' => '',
-								'hidden'      => '',
-								'html'        => '',
-								'images'      => '',
-								'radio'       => '',
-								'repeater'    => '',
-								'sections'    => '',
-								'select'      => '',
-								'slider'      => '',
-								'texts'       => '',
-							);
-
-
-				// Processing
-
-					// Set up class globals
-
-						$this->prefix          = WM_METABOX_FIELD_PREFIX;
-						$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
-						$this->meta_box        = (array) $meta_box;
-						$this->fields          = (string) $meta_box['fields'];
-						$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', $field_files );
-
-					// Adding missing metabox options
-
-						$this->meta_box = wp_parse_args( $this->meta_box, array(
+				//Adding missing metabox options
+					$this->meta_box = wp_parse_args( $this->meta_box, array(
+							//DEFAULTS:
 							'context'            => 'normal',
 							'fields'             => '',
 							'id'                 => '',
@@ -167,60 +160,48 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							'priority'           => 'high',
 							'tabs'               => true,
 							'title'              => '',
-							'visual-wrapper'     => apply_filters( 'wmhook_metabox_' . 'visual_wrapper_toggle', false ),
+							'visual-wrapper'     => ( function_exists( 'has_blocks' ) ) ? ( false ) : ( apply_filters( 'wmhook_metabox_visual_wrapper_toggle', false ) ),
 							'visual-wrapper-add' => '',
 						) );
 
-					// Manage metabox title and ID
+				//Manage metabox title and ID
+					$this->meta_box['title'] = trim( $this->meta_box['title'] );
+					if ( ! $this->meta_box['title'] ) {
+						return;
+					}
+					if ( ! trim( $this->meta_box['id'] ) ) {
+						$this->meta_box['id'] = 'wm-' . sanitize_html_class( $this->meta_box['title'] );
+					}
+					if ( 'normal' != $this->meta_box['context'] ) {
+						$this->meta_box['visual-wrapper'] = false;
+					}
 
-						$this->meta_box['title'] = trim( $this->meta_box['title'] );
+				//Required files
+				//Field definitions (renderers)
+					foreach ( $this->field_files as $file_name => $file_path ) {
+						$file_path = (string) $file_path;
 
-						if ( ! $this->meta_box['title'] ) {
-							return;
+						if ( empty( $file_path ) || $file_name === $file_path ) {
+							require_once( WMAMP_INCLUDES_DIR . 'metabox/fields/' . $file_name . '.php' );
+						} elseif ( file_exists( $file_path ) ) {
+							require_once( $file_path );
 						}
+					}
 
-						if ( ! trim( $this->meta_box['id'] ) ) {
-							$this->meta_box['id'] = 'wm-' . sanitize_html_class( $this->meta_box['title'] );
-						}
-						if ( 'normal' != $this->meta_box['context'] ) {
-							$this->meta_box['visual-wrapper'] = false;
-						}
+				//Add metaboxes
+					if ( $this->meta_box['visual-wrapper'] ) {
+						add_action( 'edit_form_after_title',  array( $this, 'metabox_start' ), 1000 );
+						add_action( 'edit_form_after_editor', array( $this, 'metabox_end' ),   1    );
+					} else {
+						add_action( 'add_meta_boxes', array( $this, 'add' ) );
+					}
+					add_action( 'save_post', array( $this, 'save' ) );
 
-					// Load files
-
-						// Field definitions (renderers)
-
-							foreach ( $this->field_files as $file_name => $file_path ) {
-								$file_path = (string) $file_path;
-
-								if ( empty( $file_path ) || $file_name === $file_path ) {
-									require_once WMAMP_INCLUDES_DIR . 'metabox/fields/' . $file_name . '.php';
-								} elseif ( file_exists( $file_path ) ) {
-									require_once $file_path;
-								}
-							}
-
-					// Add metaboxes
-
-						if ( $this->meta_box['visual-wrapper'] ) {
-							add_action( 'edit_form_after_title',  array( $this, 'metabox_start' ), 1000 );
-							add_action( 'edit_form_after_editor', array( $this, 'metabox_end' ),   1    );
-						} else {
-							add_action( 'add_meta_boxes', array( $this, 'add' ) );
-						}
-
-					// Save metaboxes
-
-						add_action( 'save_post', array( $this, 'save' ) );
-
-					// Assets
-
-						add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
-
-					// Allow for additional actions
-
-						do_action( 'wmhook_metabox_loaded' );
-
+				//Load assets (JS and CSS)
+					add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
+					//need to use admin_print_scripts due to Visual Composer plugin using it and to make sure our scripts are loaded after VC ones
+					add_action( 'admin_print_scripts-post.php',     array( $this, 'assets_late' ), 998 );
+					add_action( 'admin_print_scripts-post-new.php', array( $this, 'assets_late' ), 998 );
 			} // /__construct
 
 
@@ -228,8 +209,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Register (and include) styles and scripts
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since    1.0
+			 * @version  1.4
 			 *
 			 * @access  public
 			 */
@@ -263,7 +244,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 					// Enqueue (only on admin edit pages)
 
-						if ( self::is_edit_page() ) {
+						if ( $this->is_edit_page() ) {
 
 							// Styles
 
@@ -293,7 +274,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 						// Load icon font CSS also on Content Module posts table
 
-							if ( self::is_edit_page( $icon_font_posts ) && $icon_font_url ) {
+							if ( $this->is_edit_page( $icon_font_posts ) && $icon_font_url ) {
 								wp_enqueue_style( 'wm-fonticons' );
 							}
 
@@ -302,6 +283,26 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							do_action( 'wmhook_metabox_' . 'assets_enqueued' );
 
 			} // /assets
+
+
+
+			/**
+			 * Enqueue JavaScripts
+			 *
+			 * Need this function cause of Visual Composer plugin
+			 * compatibility as it prints scripts at the end of HTML
+			 * and we need our script to be loaded after VC ones.
+			 *
+			 * @since   1.0
+			 * @access  public
+			 */
+			public function assets_late() {
+				//Enqueue (only on admin edit pages)
+					if ( $this->is_edit_page() ) {
+						//Scripts
+							wp_enqueue_script( 'wm-metabox-scripts' );
+					}
+			} // /assets_late
 
 
 
@@ -515,105 +516,96 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Closing the meta box wrapping visual editor
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since    1.0
+			 * @version  1.3.12
 			 *
-			 * @param  object $post
+			 * @access   public
+			 *
+			 * @param    object $post WordPress post object
 			 */
 			public function metabox_end( $post ) {
+				if ( ! $post ) {
+					global $post;
+				}
 
-				// Requirements check
-
-					$post_type = get_post_type();
+				//Add the metabox only if the current post type is supported
+					global $post_type;
 					if ( ! in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
 						return;
 					}
 
-
-				// Helper variables
-
-					if ( ! $post ) {
-						global $post;
-					}
-
-					$page_template = '';
-
-
-				// Processing
-
-					// Do we have additional fields?
-
-						if ( $this->meta_box['visual-wrapper-add'] ) {
-							$this->meta_box['visual-wrapper-add'] = array_merge(
+				//Execute additional fields function
+					if ( $this->meta_box['visual-wrapper-add'] ) {
+						$additional_table_start = array(
 								array(
-									array(
-										'type'    => 'html',
-										'content' => '<table class="form-table"><tbody>'
-									),
-								),
-								(array) call_user_func( $this->meta_box['visual-wrapper-add'] ),
-								array(
-									array(
-										'type'    => 'html',
-										'content' => '</tbody></table>'
-									),
+									'type'    => 'html',
+									'content' => '<table class="form-table"><tbody>'
 								)
 							);
-						} else {
-							$this->meta_box['visual-wrapper-add'] = array();
-						}
-
-					// Execute fields function
-
-						$meta_fields = (array) call_user_func( $this->fields );
-
-						if ( empty( $meta_fields ) ) {
-							return;
-						}
-
-					// Set a page template if editing a page
-
-						if ( 'page' === $post_type ) {
-							$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-							if ( $post->ID === get_option( 'page_for_posts' ) ) {
-								$page_template = 'blog-page';
-							}
-						}
-
-						$meta_fields = array_merge(
-							$this->meta_box['visual-wrapper-add'],
-							array(
+						$additional_table_end = array(
 								array(
-									'type'     => 'section-close', //closing visual editor wrapper
-									'no-table' => true
-								),
+									'type'    => 'html',
+									'content' => '</tbody></table>'
+								)
+							);
+						$this->meta_box['visual-wrapper-add'] = array_merge(
+								$additional_table_start,
+								(array) call_user_func( $this->meta_box['visual-wrapper-add'] ),
+								$additional_table_end
+							);
+					} else {
+						$this->meta_box['visual-wrapper-add'] = array();
+					}
+
+				//Setting up helper variables
+					$page_template = '';
+
+				//Execute fields function
+					$meta_fields = (array) call_user_func( $this->fields );
+
+					if ( empty( $meta_fields ) ) {
+						return;
+					}
+
+				//Set a page template if editing a page
+					if ( 'page' == $post->post_type ) {
+						$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+						if ( $post->ID == get_option( 'page_for_posts' ) )
+							$page_template = 'blog-page';
+					}
+
+					$meta_fields = array_merge(
+						$this->meta_box['visual-wrapper-add'],
+						array(
+							array(
+								'type'      => 'html',
+								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'webman-amplifier' ) . '</div>',
+								'condition' => wma_is_active_page_builder()
 							),
-							$meta_fields
-						);
+							array(
+								'type'     => 'section-close', //closing visual editor wrapper
+								'no-table' => true
+							)
+						),
+						$meta_fields
+					);
 
-					// Content
-
+				//Content
 						foreach ( $meta_fields as $field ) {
 							if ( isset( $field['type'] ) ) {
-								do_action( 'wmhook_metabox_render_' . $field['type'], $field, $page_template );
+								//Display form fields using action hook (echo the function return)
+									do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
 							}
 						}
 
-						echo "\r\n\r\n\t"
-						     . '<div class="modal-box">'
-						     	. '<a class="button-primary" data-action="stay">'
-						     		. esc_html__( 'Wait, I need to save my changes first!', 'webman-amplifier' )
-						     	. '</a>'
-						     	. '<a class="button" data-action="leave">'
-						     		. esc_html__( 'OK, leave without saving...', 'webman-amplifier' )
-						     	. '</a>'
-						     . '</div>'
-						     . "\r\n"
-						     . '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
+						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'webman-amplifier' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'webman-amplifier' ) . '</a></div>' . "\r\n";
+					$output .= '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
 
-						do_action( 'wmhook_metabox_after' );
-						do_action( 'wmhook_metabox_after_' . $this->meta_box['id'] );
+					echo $output;
 
+				//Action hooks
+					do_action( 'wmhook_metabox_' . 'after' );
+					do_action( 'wmhook_metabox_' . 'after_' . $this->meta_box['id'] );
 			} // /metabox_end
 
 
@@ -755,27 +747,21 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Check if current page is edit page
 			 *
-			 * @since    1.0.0
-			 * @version  1.6.0
+			 * @since   1.0
+			 * @access  public
 			 *
-			 * @param  array $addon  Additional $current_screen IDs to include
+			 * @param   array $addon Additional $current_screen IDs to include
 			 */
-			public static function is_edit_page( $addon = array() ) {
+			public function is_edit_page( $addon = array() ) {
+				global $current_screen;
 
-				// Helper variables
+				$pages = (array) $this->meta_box['pages'];
 
-					global $current_screen;
+				if ( $addon ) {
+					$pages = array_merge( $pages, $addon );
+				}
 
-					$pages = (array) $this->meta_box['pages'];
-					if ( $addon ) {
-						$pages = array_merge( $pages, $addon );
-					}
-
-
-				// Output
-
-					return in_array( $current_screen->id, $pages );
-
+				return in_array( $current_screen->id, $pages );
 			} // /is_edit_page
 
 

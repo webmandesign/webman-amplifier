@@ -1,15 +1,17 @@
 # WebMan Amplifier Changelog
 
-## 1.6.0
+## 1.5.5
 
-* **Update**: Improving code and its organization
-* **Update**: Localization
+* **Fix**: Compatibility with WordPress 5.0
 
 ### Files changed:
 
 	changelog.md
+	class-wm-amplifier.php
 	readme.txt
 	webman-amplifier.php
+	includes/metabox/class-metabox.php
+	includes/visual-editor/visual-editor.php
 
 
 ## 1.5.4
