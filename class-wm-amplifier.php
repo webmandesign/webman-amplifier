@@ -68,66 +68,6 @@ class WM_Amplifier {
 
 
 	/**
-	 * MAGIC METHODS (more in http://php.net/manual/en/language.oop5.magic.php)
-	 */
-
-		/**
-		 * Constructor
-		 *
-		 * A dummy constructor to prevent class from being loaded more than once.
-		 *
-		 * @since   1.0
-		 * @access  private
-		 */
-		private function __construct() {
-			/* Do nothing here */
-		} // /__construct
-
-
-
-		/**
-		 * Magic method to prevent notices and errors from invalid method calls
-		 *
-		 * @since   1.0
-		 * @access  public
-		 *
-		 * @param   string $name
-		 * @param   array  $args
-		 */
-		public function __call( $name = '', $args = array() ) {
-			unset( $name, $args );
-			return null;
-		} // /__call
-
-
-
-		/**
-		 * A dummy magic method to prevent class from being cloned
-		 *
-		 * @since   1.0
-		 * @access  public
-		 */
-		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'webman-amplifier' ), '2.1' );
-		} // /__clone
-
-
-
-		/**
-		 * A dummy magic method to prevent class from being unserialized
-		 *
-		 * @since   1.0
-		 * @access  public
-		 */
-		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'webman-amplifier' ), '2.1' );
-		} // /__wakeup
-
-
-
-
-
-	/**
 	 * SETUP METHODS
 	 */
 

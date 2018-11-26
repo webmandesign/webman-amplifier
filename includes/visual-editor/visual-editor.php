@@ -138,7 +138,7 @@
 		// Requirements check
 
 			if ( ! is_callable( 'WM_Shortcodes::get_definitions_processed' ) ) {
-				return;
+				return $plugins_array;
 			}
 
 

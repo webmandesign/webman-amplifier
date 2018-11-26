@@ -167,7 +167,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							'priority'           => 'high',
 							'tabs'               => true,
 							'title'              => '',
-							'visual-wrapper'     => apply_filters( 'wmhook_metabox_' . 'visual_wrapper_toggle', false ),
+							'visual-wrapper'     => ( function_exists( 'has_blocks' ) ) ? ( false ) : ( apply_filters( 'wmhook_metabox_visual_wrapper_toggle', false ) ),
 							'visual-wrapper-add' => '',
 						) );
 
