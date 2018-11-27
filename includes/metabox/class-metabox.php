@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.5.5
+ * @version  1.5.6
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -103,7 +103,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.5.5
+			 * @version  1.5.6
 			 *
 			 * @access  public
 			 *
@@ -195,7 +195,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					} else {
 						add_action( 'add_meta_boxes', array( $this, 'add' ) );
 					}
-					add_action( 'save_post', array( $this, 'save' ) );
+					add_action( 'save_post', array( $this, 'save' ), 10, 2 );
 
 				//Load assets (JS and CSS)
 					add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
@@ -617,27 +617,26 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 		 */
 
 			/**
-			 * Save metabox data
+			 * Save metabox data.
+			 *
+			 * @todo  Gutenberg fix is required: https://github.com/WordPress/gutenberg/issues/7176
 			 *
 			 * @since    1.0
-			 * @version  1.3.12
+			 * @version  1.5.6
 			 *
 			 * @access  public
 			 *
-			 * @param   integer $post_id WordPress post ID
+			 * @param	 int     $post_id  Post ID
+			 * @param	 WP_POST $post     Post object.
 			 */
-			public function save( $post_id ) {
-				global $post, $post_type;
+			public function save( $post_id, $post ) {
 
-				if ( ! $post_id ) {
-					$post_id = $post->ID;
-				}
+				// Variables
 
-				//Get current post type
-					$postTypeObject = get_post_type_object( $post_type );
-
-				//Execute fields function
-					$meta_fields = (array) call_user_func( $this->fields );
+					$meta_options     = array();
+					$post_type        = get_post_type( $post );
+					$post_type_object = get_post_type_object( $post_type );
+					$meta_fields      = (array) call_user_func( $this->fields );
 
 					if ( empty( $meta_fields ) ) {
 						return $post_id;
@@ -650,90 +649,95 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						);
 					}
 
-				//Check whether to fire meta saving procedure
+
+				// Requirements check
+
 					if (
-							empty( $_POST )
-							|| ! is_object( $post )
-							//check post type
-							|| ( ! in_array( $post_type, $this->meta_box['pages'] ) )
-							//check revision
-							|| ( ! isset( $_POST['post_ID'] ) || $post_id != $_POST['post_ID'] )
-							//check autosave
-							|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-							//check nonce - security
-							|| ( ! check_admin_referer( $this->prefix . $post_type . '-metabox-nonce', $post_type . '-metabox-nonce' ) )
-							//check permission
-							|| ( ! current_user_can( $postTypeObject->cap->edit_post, $post_id ) )
-							//check if form fields are set
-							|| ( ! is_array( $meta_fields ) || empty( $meta_fields ) )
-						)
+						empty( $_POST )
+						|| ( ! in_array( $post_type, $this->meta_box['pages'] ) )
+						|| ( ! isset( $_POST['post_ID'] ) || $post_id !== intval( $_POST['post_ID'] ) )
+						|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+						|| ( ! check_admin_referer( $this->prefix . $post_type . '-metabox-nonce', $post_type . '-metabox-nonce' ) )
+						|| ( ! current_user_can( $post_type_object->cap->edit_post, $post_id ) )
+						|| ( ! is_array( $meta_fields ) || empty( $meta_fields ) )
+					) {
 						return $post_id;
+					}
 
-				//Validating and saving meta fields in serialized array
-					//Prepare array to be saved in database
-						$meta_options = array();
 
-					//Get old serialized meta
-						$old = get_post_meta( $post_id, $this->serialized_name, true );
+				// Processing
 
-					//If old meta, use it
-						if ( is_array( $old ) && ! empty( $old ) ) {
-							$meta_options = $old;
-						}
+					// Get old serialized meta.
+					$old = get_post_meta( $post_id, $this->serialized_name, true );
 
-					//Go through all the meta fields
-						foreach ( $meta_fields as $field ) {
-							if (
-									isset( $field['id'] )
-									&& isset( $field['type'] )
-									&& ! in_array( $field['type'], array( 'section-open', 'sub-section-open' ) )
-								) {
-								//Set the correct form field ID
-									$field['id'] = $this->prefix . $field['id'];
+					// If we have old meta, use them.
+					if ( ! empty( $old ) ) {
+						$meta_options = (array) $old;
+					}
 
-								//Get new meta field value and run it through saving (validation) process filter
-									$new = ( isset( $_POST[$field['id']] ) ) ? ( $_POST[$field['id']] ) : ( null );
-									if ( isset( $field['type'] ) ) {
-										$new = apply_filters( 'wmhook_metabox_' . 'saving_' . $field['type'], $new, $field, $post_id );
+					// Parse meta fields.
+					foreach ( $meta_fields as $field ) {
+						if (
+							isset( $field['id'] )
+							&& isset( $field['type'] )
+							&& ! in_array( $field['type'], array( 'section-open', 'sub-section-open' ) )
+						) {
+
+							// Set the correct form field ID.
+							$field['id'] = $this->prefix . $field['id'];
+
+							// Get new meta field value and run it through saving (validation) process filter.
+							$new = ( isset( $_POST[ $field['id'] ] ) ) ? ( $_POST[ $field['id'] ] ) : ( null );
+							if ( isset( $field['type'] ) ) {
+								$new = apply_filters( 'wmhook_metabox_saving_' . $field['type'], $new, $field, $post_id );
+							}
+
+							// Append/overwrite the meta value in `$meta_options` variable.
+							if ( isset( $_POST[$field['id']] ) ) {
+								// Basic validation (complex one should be applied via the above filter).
+								if ( isset( $field['validate'] ) ) {
+									switch ( $field['validate'] ) {
+
+										case 'url':
+											$new = esc_url( $new );
+											break;
+
+										case 'absint':
+											$new = absint( $new );
+											break;
+
+										case 'int':
+											$new = intval( $new );
+											break;
+
+										case 'email':
+											$new = ( is_email( $new ) ) ? ( $new ) : ( '' );
+											break;
+
+										case 'color':
+											$new = preg_replace( '/[^a-fA-F0-9\#]/', '', $new );
+											break;
+
+										default:
+											break;
+
 									}
+								}
+								$meta_options[ $field['id'] ] = $new;
+							} else {
+								$meta_options[ $field['id'] ] = null;
+							}
 
-								//Append/overwrite the meta value in $meta_options helper variable
-									if ( isset( $_POST[$field['id']] ) ) {
-										//Basic validation (complex one should be applied via the above filter)
-											if ( isset( $field['validate'] ) ) {
-												switch ( $field['validate'] ) {
-													case 'url':
-														$new = esc_url( $new );
-														break;
-													case 'absint':
-														$new = absint( $new );
-														break;
-													case 'int':
-														$new = intval( $new );
-														break;
-													case 'email':
-														$new = ( is_email( $new ) ) ? ( $new ) : ( '' );
-														break;
-													case 'color':
-														$new = preg_replace( '/[^a-fA-F0-9\#]/', '', $new );
-														break;
-													default:
-														break;
-												}
-											}
-										$meta_options[$field['id']] = $new;
-									} else {
-										$meta_options[$field['id']] = null;
-									}
-							} //if field ID set
-						} // /foreach field
-
-					//Store serialized meta in database
-						if ( $meta_options ) {
-							update_post_meta( $post_id, $this->serialized_name, $meta_options );
-						} else {
-							delete_post_meta( $post_id, $this->serialized_name );
 						}
+					}
+
+					// Store serialized meta.
+					if ( $meta_options ) {
+						update_post_meta( $post_id, $this->serialized_name, $meta_options );
+					} else {
+						delete_post_meta( $post_id, $this->serialized_name );
+					}
+
 			} // /save
 
 
