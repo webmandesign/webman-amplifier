@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.5.6
  */
 
 
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_staff_cp_register' ) ) {
 		function wma_staff_cp_register() {
@@ -102,26 +102,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'                  => _x( 'Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'add_new'               => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'new_item'              => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'view_items'            => _x( 'View Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'featured_image'        => _x( 'Person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'set_featured_image'    => _x( 'Set person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'remove_featured_image' => _x( 'Remove person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'use_featured_image'    => _x( 'Use as person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'filter_items_list'     => _x( 'Filter staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Staff list navigation', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
-							'attributes'            => _x( 'Staff Attributes', 'Custom post labels: Staff.', 'webman-amplifier' ),
-						)
+							'name'                     => _x( 'Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'singular_name'            => _x( 'Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'add_new'                  => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'add_new_item'             => _x( 'Add Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'new_item'                 => _x( 'Add New', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'edit_item'                => _x( 'Edit Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'view_item'                => _x( 'View Person', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'view_items'               => _x( 'View Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'search_items'             => _x( 'Search Staff', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'not_found'                => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'not_found_in_trash'       => _x( 'No person found', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'featured_image'           => _x( 'Person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'set_featured_image'       => _x( 'Set person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'remove_featured_image'    => _x( 'Remove person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'use_featured_image'       => _x( 'Use as person photo', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'filter_items_list'        => _x( 'Filter staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'items_list_navigation'    => _x( 'Staff list navigation', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'items_list'               => _x( 'Staff list', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'attributes'               => _x( 'Staff Attributes', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'item_published'           => _x( 'Staff published.', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'item_published_privately' => _x( 'Staff published privately.', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'item_reverted_to_draft'   => _x( 'Staff reverted to draft.', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'item_scheduled'           => _x( 'Staff scheduled.', 'Custom post labels: Staff.', 'webman-amplifier' ),
+							'item_updated'             => _x( 'Staff updated.', 'Custom post labels: Staff.', 'webman-amplifier' ),
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 				// Register custom post type
@@ -293,7 +299,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'no_terms'              => _x( 'No departments', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Departments list navigation', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Departments list', 'Custom taxonomy labels: Staff departments.', 'webman-amplifier' ),
-						)
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 					register_taxonomy( 'staff_department', 'wm_staff', $args );
@@ -326,7 +333,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'no_terms'                   => _x( 'No positions', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
 							'items_list_navigation'      => _x( 'Positions list navigation', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
 							'items_list'                 => _x( 'Positions list', 'Custom taxonomy labels: Staff positions.', 'webman-amplifier' ),
-						)
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 					register_taxonomy( 'staff_position', 'wm_staff', $args );
@@ -359,7 +367,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'no_terms'                   => _x( 'No specialties', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
 							'items_list_navigation'      => _x( 'Specialties list navigation', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
 							'items_list'                 => _x( 'Specialties list', 'Custom taxonomy labels: Staff specialties.', 'webman-amplifier' ),
-						)
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 					register_taxonomy( 'staff_specialty', 'wm_staff', $args );

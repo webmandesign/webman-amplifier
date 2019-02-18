@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.5.0
+ * @version  1.5.6
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -42,11 +42,11 @@
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
 //Helper variables
-	global $page, $paged;
-	if ( ! isset( $paged ) ) {
+	$paged = max( get_query_var( 'page' ), get_query_var( 'paged' ) );
+	if ( ! $paged ) {
 		$paged = 1;
 	}
-	$paged                 = max( $page, $paged );
+
 	$output                = '';
 	$image_size            = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'thumbnail', $atts );
 	$posts_container_class = 'wm-testimonials-container wm-items-container';

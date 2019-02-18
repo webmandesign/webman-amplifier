@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.5.6
  */
 
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_modules_cp_register' ) ) {
 		function wma_modules_cp_register() {
@@ -89,21 +89,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'                  => _x( 'Content Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Content Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'add_new'               => _x( 'Add New', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'new_item'              => _x( 'Add New', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'view_items'            => _x( 'View Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No module found', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'filter_items_list'     => _x( 'Filter content modules list', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Content Modules list navigation', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Content Modules list', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
-							'attributes'            => _x( 'Content Module Attributes', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'name'                     => _x( 'Content Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'singular_name'            => _x( 'Content Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'add_new'                  => _x( 'Add New', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'add_new_item'             => _x( 'Add New module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'new_item'                 => _x( 'Add New', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'edit_item'                => _x( 'Edit Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'view_item'                => _x( 'View Module', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'view_items'               => _x( 'View Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'search_items'             => _x( 'Search Modules', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'not_found'                => _x( 'No module found', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'not_found_in_trash'       => _x( 'No module found in trash', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'filter_items_list'        => _x( 'Filter content modules list', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'items_list_navigation'    => _x( 'Content Modules list navigation', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'items_list'               => _x( 'Content Modules list', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'attributes'               => _x( 'Content Module Attributes', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'item_published'           => _x( 'Content Module published.', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'item_published_privately' => _x( 'Content Module published privately.', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'item_reverted_to_draft'   => _x( 'Content Module reverted to draft.', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'item_scheduled'           => _x( 'Content Module scheduled.', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
+							'item_updated'             => _x( 'Content Module updated.', 'Custom post labels: Content Modules.', 'webman-amplifier' ),
 						)
 					) );
 

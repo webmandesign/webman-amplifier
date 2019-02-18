@@ -1,5 +1,14 @@
 # WebMan Amplifier Changelog
 
+## 1.5.6
+
+* **Update**: Improving compatibility with WordPress 5.0 (Gutenberg editor)
+
+### Files changed:
+
+	changelog.md
+
+
 ## 1.5.5
 
 * **Fix**: Compatibility with WordPress 5.0

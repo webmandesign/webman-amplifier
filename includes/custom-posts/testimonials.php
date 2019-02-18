@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.5.6
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_register' ) ) {
 		function wma_testimonials_cp_register() {
@@ -98,21 +98,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'                  => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'add_new'               => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'new_item'              => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'view_items'            => _x( 'View Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'filter_items_list'     => _x( 'Filter testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Testimonials list navigation', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
-							'attributes'            => _x( 'Testimonial Attributes', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'name'                     => _x( 'Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'singular_name'            => _x( 'Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'add_new'                  => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'add_new_item'             => _x( 'Add New Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'edit_item'                => _x( 'Edit Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'new_item'                 => _x( 'Add New', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'view_item'                => _x( 'View Testimonial', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'view_items'               => _x( 'View Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'search_items'             => _x( 'Search Testimonials', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'not_found'                => _x( 'No testimonial found', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'not_found_in_trash'       => _x( 'No testimonials found in trash', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'filter_items_list'        => _x( 'Filter testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'items_list_navigation'    => _x( 'Testimonials list navigation', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'items_list'               => _x( 'Testimonials list', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'attributes'               => _x( 'Testimonial Attributes', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'item_published'           => _x( 'Testimonial published.', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'item_published_privately' => _x( 'Testimonial published privately.', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'item_reverted_to_draft'   => _x( 'Testimonial reverted to draft.', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'item_scheduled'           => _x( 'Testimonial scheduled.', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
+							'item_updated'             => _x( 'Testimonial updated.', 'Custom post labels: Testimonials.', 'webman-amplifier' ),
 						)
 					) );
 

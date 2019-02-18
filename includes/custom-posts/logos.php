@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.5.6
  */
 
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_logos_cp_register' ) ) {
 		function wma_logos_cp_register() {
@@ -88,25 +88,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'                  => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'add_new'               => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'new_item'              => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'view_items'            => _x( 'View Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No item found', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No item found in trash', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'featured_image'        => _x( 'Logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'set_featured_image'    => _x( 'Set logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'remove_featured_image' => _x( 'Remove logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'use_featured_image'    => _x( 'Use as logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'filter_items_list'     => _x( 'Filter logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Logos list navigation', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
-							'attributes'            => _x( 'Logo Attributes', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'name'                     => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'singular_name'            => _x( 'Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'add_new'                  => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'add_new_item'             => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'new_item'                 => _x( 'Add New', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'edit_item'                => _x( 'Edit', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'view_item'                => _x( 'View', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'view_items'               => _x( 'View Logos', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'search_items'             => _x( 'Search', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'not_found'                => _x( 'No item found', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'not_found_in_trash'       => _x( 'No item found in trash', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'featured_image'           => _x( 'Logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'set_featured_image'       => _x( 'Set logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'remove_featured_image'    => _x( 'Remove logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'use_featured_image'       => _x( 'Use as logo image', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'filter_items_list'        => _x( 'Filter logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'items_list_navigation'    => _x( 'Logos list navigation', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'items_list'               => _x( 'Logos list', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'attributes'               => _x( 'Logo Attributes', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'item_published'           => _x( 'Logo published.', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'item_published_privately' => _x( 'Logo published privately.', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'item_reverted_to_draft'   => _x( 'Logo reverted to draft.', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'item_scheduled'           => _x( 'Logo scheduled.', 'Custom post labels: Logos.', 'webman-amplifier' ),
+							'item_updated'             => _x( 'Logo updated.', 'Custom post labels: Logos.', 'webman-amplifier' ),
 						)
 					) );
 
