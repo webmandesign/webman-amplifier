@@ -9,7 +9,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.5.6
  */
 
 
@@ -21,104 +21,149 @@
 	/**
 	 * Section open
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since       1.0
+	 * @version     1.5.6
 	 */
 	if ( ! function_exists( 'wma_field_section_open' ) ) {
 		function wma_field_section_open( $field, $page_template = null ) {
-			//Field definition array
-				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'type'     => 'section-open',  //Field type name *
-						'id'       => 'id',            //Field ID (form field name) *
-						'no-table' => false,           //Whether to output a table wrapper
-						'title'    => 'Title',         //Field title *
-						'page'     => array(
-								'templates' => array(),    //Array of page templates
-								'operand'   => 'IS'        //Whether to display IS or IS_NOT page templates set above
-							)
-					) );
 
-			//Section ID setup
-				$field['id'] = WM_METABOX_FIELD_PREFIX . 'section-' . $field['id'];
+			// Set default value for page template.
+			if ( empty( $page_template ) ) {
+				$page_template = 'default';
+			}
 
-			//Check whether to display for particular page template
-				$classes = $output_script = '';
-				if (
-						isset( $field['page']['templates'] )
-						&& is_array( $field['page']['templates'] )
-						&& ! empty( $field['page']['templates'] )
-					) {
-					//Set default operand
-						if ( ! isset( $field['page']['operand'] ) ) {
-							$field['page']['operand'] = 'IS';
-						}
-					//Check if page template is in the array
-						$template_check = in_array( $page_template, $field['page']['templates'] );
-					//Depending on operand, set the classes
-						if ( 'IS_NOT' !== $field['page']['operand'] ) {
-							//Only if page template is in the array
-								$classes .= ( $template_check ) ? ( '' ) : ( ' hide' );
-						} else {
-							//Only if the page template is NOT in the array
-								$classes .= ( $template_check ) ? ( ' hide' ) : ( '' );
-						}
-					//Set the script to be outputted
-						$output_script = true;
+			// Field definition array.
+			$field = wp_parse_args( (array) $field, array(
+				//DEFAULTS:
+				//* = Required setting
+				'type'     => 'section-open',  //Field type name *
+				'id'       => 'id',            //Field ID (form field name) *
+				'no-table' => false,           //Whether to output a table wrapper
+				'title'    => 'Title',         //Field title *
+				'page'     => array(
+						'templates' => array(),    //Array of page templates
+						'operand'   => 'IS'        //Whether to display IS or IS_NOT page templates set above
+					)
+			) );
+
+			// Section ID setup.
+			$field['id'] = WM_METABOX_FIELD_PREFIX . 'section-' . $field['id'];
+
+			// Check whether to display for particular page template.
+			$classes = $output_script = '';
+			if (
+				isset( $field['page']['templates'] )
+				&& is_array( $field['page']['templates'] )
+				&& ! empty( $field['page']['templates'] )
+			) {
+
+				// Set default operand.
+				if ( ! isset( $field['page']['operand'] ) ) {
+					$field['page']['operand'] = 'IS';
 				}
 
-			//Output
+				// Check if page template is in the array.
+				$template_check = in_array( $page_template, $field['page']['templates'] );
+
+				// Depending on operand, set the classes.
+				if ( 'IS_NOT' !== $field['page']['operand'] ) {
+					// Only if page template is in the array.
+					$classes .= ( $template_check ) ? ( '' ) : ( ' hide' );
+				} else {
+					// Only if the page template is NOT in the array.
+					$classes .= ( $template_check ) ? ( ' hide' ) : ( '' );
+				}
+
+				// Set the script to be outputted.
+				$output_script = true;
+			}
+
+
+			// Output
+
 				$no_table = ( $field['no-table'] ) ? ( ' no-table' ) : ( '' );
 				$classes .= $no_table;
+
 				echo "\r\n" . '<!-- SECTION -->' . "\r\n" . '<div id="' . $field['id'] . '" class="tab-content' . $classes . '">' . "\r\n";
 
-				//Page templates conditional display
-					if ( $output_script ) {
-						//Helper variables
-							$js_array  = '["' . implode( '", "', $field['page']['templates'] ) . '"]';
-							$suffix    = ucfirst( str_replace( '-', '', sanitize_html_class( $field['id'] ) ) );
-							$condition = 'jQuery.inArray( conditionalValue' . $suffix . ', conditionArray' . $suffix . ' )';
+				// Page templates conditional display.
 
-						//Setting condition upon operand
-							if ( 'IS_NOT' !== $field['page']['operand'] ) {
-								//Only if page template is in the array
-									$condition = '-1 !== ' . $condition;
-							} else {
-								//Only if the page template is NOT in the array
-									$condition = '-1 === ' . $condition;
-							}
+					if ( $output_script ) {
+						$js_array  = '["' . implode( '", "', $field['page']['templates'] ) . '"]';
+						$suffix    = ucfirst( str_replace( '-', '', sanitize_html_class( $field['id'] ) ) );
+						$condition = '$.inArray( conditionalValue' . $suffix . ', conditionArray' . $suffix . ' )';
+
+						// Setting condition from operand.
+						if ( 'IS_NOT' !== $field['page']['operand'] ) {
+							// Only if page template is in the array.
+							$condition = '-1 !== ' . $condition;
+						} else {
+							// Only if the page template is NOT in the array.
+							$condition = '-1 === ' . $condition;
+						}
+
 						?>
 						<script><!--
-							jQuery( function() {
-								jQuery( 'select[name="page_template"]' ).on( 'change', function() {
-									var conditionalValue<?php echo $suffix; ?> = jQuery( this ).val(),
-									    conditionArray<?php echo $suffix; ?>   = <?php echo $js_array; ?>;
+							( function( $ ) {
 
-									if ( <?php echo $condition; ?> ) {
-										jQuery( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).removeClass( 'hide' );
-									} else {
-										jQuery( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).addClass( 'hide' );
+								function <?php echo $suffix; ?>() {
+									var
+										templateDropdownSelector = 'select[name="page_template"], .editor-page-attributes__template select';
+
+									function setTabs<?php echo $suffix; ?>( e ) {
+										var
+											conditionalValue<?php echo $suffix; ?> = ( 'string' === typeof e ) ? ( e ) : ( $( e.target ).val() || 'default' ),
+											conditionArray<?php echo $suffix; ?>   = <?php echo $js_array; ?>;
+
+										if ( <?php echo $condition; ?> ) {
+											$( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).removeClass( 'hide' );
+										} else {
+											$( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).addClass( 'hide' );
+										}
+
+										var
+											firstTabActive = $( '.wm-meta-wrap .tabs li:not(.hide)' ).first().index();
+
+										if ( $().tabs ) {
+											$( '.wm-meta-wrap.jquery-ui-tabs' )
+												.tabs( {
+													active : firstTabActive
+												} );
+										}
 									}
 
-									var firstTabActive = jQuery( '.wm-meta-wrap .tabs li:not(.hide)' ).first().index();
+									setTabs<?php echo $suffix; ?>( '<?php echo esc_js( $page_template ); ?>' );
 
-									if ( jQuery().tabs ) {
-										jQuery( '.wm-meta-wrap.jquery-ui-tabs' ).tabs( { active: firstTabActive } );
-									}
-								} );
-							} );
+									$( '#wpbody' )
+										.on( 'change.webman-amplifier-metabox', templateDropdownSelector, function( e ){
+											setTabs<?php echo $suffix; ?>( e );
+										} );
+
+									$( templateDropdownSelector )
+										.change();
+								}
+
+								if ( 'undefined' === typeof wp ) {
+									$( document ).ready( <?php echo $suffix; ?> );
+								} else {
+									wp.domReady( <?php echo $suffix; ?> );
+								}
+
+							} )( jQuery );
 						//--></script>
 						<?php
 					}
 
-				//Output table wrapper start
+
+				// Output table wrapper start.
+
 					if ( ! $no_table ) {
 						echo "\t" . '<table class="form-table"><tbody>' . "\r\n";
 					}
+
 		}
 	} // /wma_field_section_open
 

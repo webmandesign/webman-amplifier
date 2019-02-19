@@ -17,7 +17,7 @@
  * Author URI:         https://www.webmandesign.eu
  * Version:            1.6.0
  * Requires at least:  4.3
- * Tested up to:       5.0.0
+ * Tested up to:       5.1
  * Text Domain:        webman-amplifier
  * Domain Path:        /languages
  * License:            GNU General Public License v3

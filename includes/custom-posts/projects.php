@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.4.3
+ * @version  1.5.6
  */
 
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Custom post registration
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_projects_cp_register' ) ) {
 		function wma_projects_cp_register() {
@@ -100,22 +100,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 								'author',
 							),
 						'labels'              => array(
-							'name'                  => _x( 'Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'singular_name'         => _x( 'Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'add_new'               => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'add_new_item'          => _x( 'Add New Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'new_item'              => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'edit_item'             => _x( 'Edit Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'view_item'             => _x( 'View Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'view_items'            => _x( 'View Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'search_items'          => _x( 'Search Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'not_found'             => _x( 'No project found', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'not_found_in_trash'    => _x( 'No project found in trash', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'filter_items_list'     => _x( 'Filter projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'items_list_navigation' => _x( 'Projects list navigation', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'items_list'            => _x( 'Projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
-							'attributes'            => _x( 'Project Attributes', 'Custom post labels: Projects.', 'webman-amplifier' ),
-						)
+							'name'                     => _x( 'Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'singular_name'            => _x( 'Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'add_new'                  => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'add_new_item'             => _x( 'Add New Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'new_item'                 => _x( 'Add New', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'edit_item'                => _x( 'Edit Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'view_item'                => _x( 'View Project', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'view_items'               => _x( 'View Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'search_items'             => _x( 'Search Projects', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'not_found'                => _x( 'No project found', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'not_found_in_trash'       => _x( 'No project found in trash', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'filter_items_list'        => _x( 'Filter projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'items_list_navigation'    => _x( 'Projects list navigation', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'items_list'               => _x( 'Projects list', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'attributes'               => _x( 'Project Attributes', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'item_published'           => _x( 'Project published.', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'item_published_privately' => _x( 'Project published privately.', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'item_reverted_to_draft'   => _x( 'Project reverted to draft.', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'item_scheduled'           => _x( 'Project scheduled.', 'Custom post labels: Projects.', 'webman-amplifier' ),
+							'item_updated'             => _x( 'Project updated.', 'Custom post labels: Projects.', 'webman-amplifier' ),
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 				// Register custom post type
@@ -225,7 +231,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	 * Register taxonomies
 	 *
 	 * @since    1.0
-	 * @version  1.4.1
+	 * @version  1.5.6
 	 */
 	if ( ! function_exists( 'wma_projects_cp_taxonomies' ) ) {
 		function wma_projects_cp_taxonomies() {
@@ -263,7 +269,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'no_terms'              => _x( 'No categories', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'items_list_navigation' => _x( 'Project Categories list navigation', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
 							'items_list'            => _x( 'Project Categories list', 'Custom taxonomy labels: Projects categories.', 'webman-amplifier' ),
-						)
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 					register_taxonomy( 'project_category', 'wm_projects', $args );
@@ -296,7 +303,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 							'no_terms'                   => _x( 'No tags', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'items_list_navigation'      => _x( 'Project Tags list navigation', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
 							'items_list'                 => _x( 'Project Tags list', 'Custom taxonomy labels: Projects tags.', 'webman-amplifier' ),
-						)
+						),
+						'show_in_rest' => true, // Required for Gutenberg editor.
 					) );
 
 					register_taxonomy( 'project_tag', 'wm_projects', $args );

@@ -12,6 +12,32 @@
 	webman-amplifier.php
 
 
+## 1.5.6
+
+* **Add**: New WordPress 5.0 post type labels
+* **Update**: Improving compatibility with WordPress 5.0 (Gutenberg editor)
+* **Fix**: Metabox tabs conditional switching upon page template change
+* **Fix**: PHP error thrown by metabox functionality in admin posts list
+* **Fix**: Shortcodes pagination on website homepage
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/metabox/class-metabox.php
+	includes/metabox/fields/sections.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/testimonials.php
+	languages/webman-amplifier.pot
+
+
 ## 1.5.5
 
 * **Fix**: Compatibility with WordPress 5.0

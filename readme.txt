@@ -4,7 +4,7 @@ Donate link:       https://www.webmandesign.eu/contact/
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
-Tested up to:      5.0.0
+Tested up to:      5.1
 Stable tag:        1.6.0
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
@@ -100,6 +100,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 = 1.6.0 =
 Improving code and its organization. Improving localization.
+
+= 1.5.6 =
+Improving compatibility with WordPress 5.0, fixing shortcodes pagination and metaboxes display, fixing bugs.
 
 = 1.5.5 =
 Fixing compatibility with WordPress 5.0.
