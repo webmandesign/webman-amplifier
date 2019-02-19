@@ -99,7 +99,7 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 == Upgrade Notice ==
 
 = 1.5.6 =
-Updating custom post types, fixing shortcodes pagination, updating metabox saving, fixing bugs.
+Improving compatibility with WordPress 5.0, fixing shortcodes pagination and metaboxes display, fixing bugs.
 
 = 1.5.5 =
 Fixing compatibility with WordPress 5.0.
