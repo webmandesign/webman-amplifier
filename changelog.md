@@ -12,6 +12,18 @@
 	webman-amplifier.php
 
 
+## 1.5.7
+
+* **Fix**: Issue when custom metabox not displaying on new post edit page
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	includes/metabox/class-metabox.php
+
+
 ## 1.5.6
 
 * **Add**: New WordPress 5.0 post type labels

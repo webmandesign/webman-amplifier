@@ -129,7 +129,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					if (
 						is_admin()
 						&& isset( $GLOBALS['pagenow'] )
-						&& 'post.php' === $GLOBALS['pagenow']
+						&& in_array( $GLOBALS['pagenow'], array( 'post.php', 'post-new.php' ) )
 					) {
 						$edit_screen = true;
 					} else {

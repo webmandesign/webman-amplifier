@@ -101,6 +101,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 = 1.6.0 =
 Improving code and its organization. Improving localization.
 
+= 1.5.7 =
+Fixing issue when custom metabox not displaying on new post edit page.
+
 = 1.5.6 =
 Improving compatibility with WordPress 5.0, fixing shortcodes pagination and metaboxes display, fixing bugs.
 
