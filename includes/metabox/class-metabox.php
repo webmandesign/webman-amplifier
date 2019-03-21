@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.5.6
+ * @version  1.5.7
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -103,7 +103,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.5.6
+			 * @version  1.5.7
 			 *
 			 * @access  public
 			 *
@@ -130,7 +130,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					if (
 						is_admin()
 						&& isset( $GLOBALS['pagenow'] )
-						&& 'post.php' === $GLOBALS['pagenow']
+						&& in_array( $GLOBALS['pagenow'], array( 'post.php', 'post-new.php' ) )
 					) {
 						$edit_screen = true;
 					} else {
