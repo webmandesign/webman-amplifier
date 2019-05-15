@@ -4,7 +4,7 @@ Donate link:       https://www.webmandesign.eu/contact/
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
-Tested up to:      5.1
+Tested up to:      5.2
 Stable tag:        1.6.0
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
@@ -100,6 +100,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 = 1.6.0 =
 Improving code and its organization. Improving localization.
+
+= 1.5.8 =
+Adding more explanatory info for Beaver Builder "Posts" module parameters setup.
 
 = 1.5.7 =
 Fixing issue when custom metabox not displaying on new post edit page.

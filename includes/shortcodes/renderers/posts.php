@@ -15,7 +15,7 @@
  * @param  integer columns
  * @param  integer count
  * @param  integer desc_column_size
- * @param  string filter (example: "taxonomy_name:taxonomy_slug" - "taxonomy_slug" is optional and will act like parent category)
+ * @param  string filter (example: "taxonomy_key:term-slug" - "term-slug" is optional and will act like parent category)
  * @param  string filter_layout
  * @param  string heading_tag (heading tag option for better accessibility setup)
  * @param  string image_size
@@ -24,9 +24,9 @@
  * @param  string order
  * @param  boolean pagination
  * @param  string post_type
- * @param  string related (example: "taxonomy_name" - a taxonomy which should be considered as for related posts)
+ * @param  string related (example: "taxonomy_key" - a taxonomy which should be considered as for related posts)
  * @param  integer scroll (value ranges: 0, 1-999, 1000+)
- * @param  string taxonomy (example: "taxonomy_name:taxonomy_slug" - both are required)
+ * @param  string taxonomy (example: "taxonomy_key:term-slug" - both are required)
  */
 
 

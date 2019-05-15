@@ -24,7 +24,7 @@ $definitions['posts'] = array(
 				. ' class=""'
 				. ' columns="4"'
 				. ' count="8"'
-				. ' filter="taxonomy_name"'
+				. ' filter="taxonomy_key"'
 				. ' image_size=""'
 				. ' layout=""'
 				. ' no_margin="0/1"'
@@ -33,7 +33,7 @@ $definitions['posts'] = array(
 				. ' post_type="' . implode( '/', array_keys( wma_ksort( $helpers['post_types'] ) ) ) . '" align="left/right"'
 				. ' related="0/1"'
 				. ' scroll="0"'
-				. ' taxonomy="taxonomy_name:taxonomy_slug"'
+				. ' taxonomy="taxonomy_key:term-slug"'
 			. ']'
 				. '{{content}}'
 			. '[/PREFIX_posts]',
