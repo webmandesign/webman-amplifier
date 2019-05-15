@@ -8,7 +8,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.0
+ * @version  1.5.8
  */
 
 
@@ -27,7 +27,7 @@ $definitions['posts'] = array(
 	'preprocess' => false,
 	'generator' => array(
 		'name'  => esc_html__( 'Posts / Custom Posts', 'webman-amplifier' ),
-		'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( $helpers['post_types'] ) ) ) . '" align="left/right" columns="4" count="8" image_size="" order="new/old/name/random" taxonomy="taxonomy_name:taxonomy_slug" filter="taxonomy_name" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
+		'code'  => '[PREFIX_posts post_type="' . implode( '/', array_keys( wma_ksort( $helpers['post_types'] ) ) ) . '" align="left/right" columns="4" count="8" image_size="" order="new/old/name/random" taxonomy="taxonomy_key:term-slug" filter="taxonomy_key" scroll="0" pagination="0/1" related="0/1" no_margin="0/1" layout="" class=""]{{content}}[/PREFIX_posts]',
 		'short' => false,
 	),
 	'bb_plugin' => array(
@@ -42,7 +42,7 @@ $definitions['posts'] = array(
 			),
 			array(
 				'field'       => 'filter',
-				'type'        => esc_html__( 'Filter by', 'webman-amplifier' ),
+				'type'        => esc_html__( 'Animated filter', 'webman-amplifier' ),
 				'editor_type' => 'LINE',
 			),
 			array(
@@ -208,7 +208,17 @@ $definitions['posts'] = array(
 								'type' => 'text',
 								//description
 								'label'       => esc_html__( 'From taxonomy', 'webman-amplifier' ),
-								'description' => '<br />' . esc_html__( 'Example: "taxonomy_name" or more specific "taxonomy_name:taxonomy-slug".', 'webman-amplifier' ) . '<br />' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( ', ', $taxonomies ) . '</code>',
+								'description' => '<span style="display: block;">'
+									. esc_html__( 'Displays items from specific taxonomy term only.', 'webman-amplifier' )
+									. '<br>'
+									. sprintf(
+										esc_html__( 'Example: %s.', 'webman-amplifier' ),
+										'<code>category:my-category-slug</code>'
+									)
+									. '<br><br>'
+									. esc_html__( 'Available taxonomy keys:', 'webman-amplifier' )
+									. ' <code>' . implode( ', ', $taxonomies ) . '</code>'
+									. '</span>',
 								//preview
 								'preview' => array( 'type' => 'refresh' ),
 							), // /taxonomy
@@ -216,8 +226,21 @@ $definitions['posts'] = array(
 							'filter' => array(
 								'type' => 'text',
 								//description
-								'label'       => esc_html__( 'Filter by', 'webman-amplifier' ),
-								'description' => '<br />' . esc_html__( 'Example: "taxonomy_name" or more specific "taxonomy_name:taxonomy-slug".', 'webman-amplifier' ) . '<br />' . esc_html__( 'Available taxonomy names:', 'webman-amplifier' ) . ' <code>' . implode( ', ', $taxonomies ) . '</code>',
+								'label'       => esc_html__( 'Animated filter', 'webman-amplifier' ),
+								'description' => '<span style="display: block;">'
+									. esc_html__( 'Enables animated filter from terms of specified taxonomy.', 'webman-amplifier' )
+									. ' '
+									. esc_html__( 'Works well only when displaying all items (set the "Count" parameter to 100, for example).', 'webman-amplifier' )
+									. '<br>'
+									. sprintf(
+										esc_html__( 'Example: %1$s or %2$s.', 'webman-amplifier' ),
+										'<code>category</code>',
+										'<code>category:my-parent-category-slug</code>'
+									)
+									. '<br><br>'
+									. esc_html__( 'Available taxonomy keys:', 'webman-amplifier' )
+									. ' <code>' . implode( ', ', $taxonomies ) . '</code>'
+									. '</span>',
 								//preview
 								'preview' => array( 'type' => 'refresh' ),
 							), // /filter

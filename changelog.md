@@ -1,5 +1,19 @@
 # WebMan Amplifier Changelog
 
+## 1.5.8
+
+* **Add**: More explanatory info for Beaver Builder "Posts" module parameters setup.
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	languages/webman-amplifier.pot
+	includes/shortcodes/definitions/partial/posts.php
+
+
 ## 1.5.7
 
 * **Fix**: Issue when custom metabox not displaying on new post edit page

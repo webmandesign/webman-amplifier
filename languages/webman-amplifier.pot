@@ -3,12 +3,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WebMan Amplifier\n"
 "Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
-"POT-Creation-Date: 2019-02-19 14:52+0100\n"
+"POT-Creation-Date: 2019-05-15 18:49+0200\n"
 "PO-Revision-Date: 2015-04-21 12:38+0100\n"
 "Last-Translator: WebMan Design\n"
 "Language-Team: \n"
 "Language: en\n"
-"MIME-Version: 1.5.6\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.1\n"
@@ -61,7 +61,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/message.php:189
 #: includes/shortcodes/definitions/partial/posts.php:50
 #: includes/shortcodes/definitions/partial/posts.php:164
-#: includes/shortcodes/definitions/partial/posts.php:301
+#: includes/shortcodes/definitions/partial/posts.php:324
 #: includes/shortcodes/definitions/partial/price.php:31
 #: includes/shortcodes/definitions/partial/pricing-table.php:32
 #: includes/shortcodes/definitions/partial/progress.php:31
@@ -1886,9 +1886,9 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:403
 #: includes/shortcodes/definitions/partial/content-module.php:438
 #: includes/shortcodes/definitions/partial/posts.php:200
-#: includes/shortcodes/definitions/partial/posts.php:260
-#: includes/shortcodes/definitions/partial/posts.php:411
-#: includes/shortcodes/definitions/partial/posts.php:447
+#: includes/shortcodes/definitions/partial/posts.php:283
+#: includes/shortcodes/definitions/partial/posts.php:434
+#: includes/shortcodes/definitions/partial/posts.php:470
 #: includes/shortcodes/definitions/partial/pricing-table.php:54
 #: includes/shortcodes/definitions/partial/tabs.php:108
 #: includes/shortcodes/definitions/partial/tabs.php:304
@@ -1912,9 +1912,9 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:404
 #: includes/shortcodes/definitions/partial/content-module.php:439
 #: includes/shortcodes/definitions/partial/posts.php:201
-#: includes/shortcodes/definitions/partial/posts.php:261
-#: includes/shortcodes/definitions/partial/posts.php:412
-#: includes/shortcodes/definitions/partial/posts.php:448
+#: includes/shortcodes/definitions/partial/posts.php:284
+#: includes/shortcodes/definitions/partial/posts.php:435
+#: includes/shortcodes/definitions/partial/posts.php:471
 #: includes/shortcodes/definitions/partial/pricing-table.php:55
 #: includes/shortcodes/definitions/partial/tabs.php:109
 #: includes/shortcodes/definitions/partial/tabs.php:305
@@ -1948,7 +1948,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/accordion.php:245
 #: includes/shortcodes/definitions/partial/content-module.php:279
 #: includes/shortcodes/definitions/partial/item.php:66
-#: includes/shortcodes/definitions/partial/posts.php:280
+#: includes/shortcodes/definitions/partial/posts.php:303
 #: includes/shortcodes/definitions/partial/tabs.php:235
 #: includes/shortcodes/definitions/partial/testimonials.php:255
 msgid "Heading HTML tag"
@@ -1958,7 +1958,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/call-to-action.php:81
 #: includes/shortcodes/definitions/partial/content-module.php:280
 #: includes/shortcodes/definitions/partial/message.php:70
-#: includes/shortcodes/definitions/partial/posts.php:281
+#: includes/shortcodes/definitions/partial/posts.php:304
 #: includes/shortcodes/definitions/partial/tabs.php:236
 #: includes/shortcodes/definitions/partial/testimonials.php:256
 #, php-format
@@ -1987,7 +1987,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/icon.php:122
 #: includes/shortcodes/definitions/partial/list.php:55
 #: includes/shortcodes/definitions/partial/message.php:226
-#: includes/shortcodes/definitions/partial/posts.php:465
+#: includes/shortcodes/definitions/partial/posts.php:488
 #: includes/shortcodes/definitions/partial/price.php:90
 #: includes/shortcodes/definitions/partial/pricing-table.php:61
 #: includes/shortcodes/definitions/partial/progress.php:60
@@ -2017,7 +2017,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/icon.php:123
 #: includes/shortcodes/definitions/partial/list.php:56
 #: includes/shortcodes/definitions/partial/message.php:227
-#: includes/shortcodes/definitions/partial/posts.php:466
+#: includes/shortcodes/definitions/partial/posts.php:489
 #: includes/shortcodes/definitions/partial/price.php:91
 #: includes/shortcodes/definitions/partial/pricing-table.php:62
 #: includes/shortcodes/definitions/partial/progress.php:61
@@ -2241,7 +2241,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:95
 #: includes/shortcodes/definitions/partial/content-module.php:322
 #: includes/shortcodes/definitions/partial/posts.php:83
-#: includes/shortcodes/definitions/partial/posts.php:313
+#: includes/shortcodes/definitions/partial/posts.php:336
 #: includes/shortcodes/definitions/partial/testimonials.php:95
 #: includes/shortcodes/definitions/partial/testimonials.php:289
 msgid "Count"
@@ -2250,7 +2250,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:96
 #: includes/shortcodes/definitions/partial/content-module.php:323
 #: includes/shortcodes/definitions/partial/posts.php:84
-#: includes/shortcodes/definitions/partial/posts.php:314
+#: includes/shortcodes/definitions/partial/posts.php:337
 #: includes/shortcodes/definitions/partial/testimonials.php:96
 #: includes/shortcodes/definitions/partial/testimonials.php:290
 msgid "Number of items to display"
@@ -2259,7 +2259,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:106
 #: includes/shortcodes/definitions/partial/content-module.php:332
 #: includes/shortcodes/definitions/partial/posts.php:94
-#: includes/shortcodes/definitions/partial/posts.php:322
+#: includes/shortcodes/definitions/partial/posts.php:345
 #: includes/shortcodes/definitions/partial/testimonials.php:106
 #: includes/shortcodes/definitions/partial/testimonials.php:299
 msgid "Columns"
@@ -2268,7 +2268,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:125
 #: includes/shortcodes/definitions/partial/content-module.php:349
 #: includes/shortcodes/definitions/partial/posts.php:113
-#: includes/shortcodes/definitions/partial/posts.php:338
+#: includes/shortcodes/definitions/partial/posts.php:361
 #: includes/shortcodes/definitions/partial/testimonials.php:125
 #: includes/shortcodes/definitions/partial/testimonials.php:316
 msgid "Order"
@@ -2277,7 +2277,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:128
 #: includes/shortcodes/definitions/partial/content-module.php:353
 #: includes/shortcodes/definitions/partial/posts.php:116
-#: includes/shortcodes/definitions/partial/posts.php:342
+#: includes/shortcodes/definitions/partial/posts.php:365
 #: includes/shortcodes/definitions/partial/testimonials.php:128
 #: includes/shortcodes/definitions/partial/testimonials.php:320
 msgid "Newest first"
@@ -2286,7 +2286,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:129
 #: includes/shortcodes/definitions/partial/content-module.php:354
 #: includes/shortcodes/definitions/partial/posts.php:117
-#: includes/shortcodes/definitions/partial/posts.php:343
+#: includes/shortcodes/definitions/partial/posts.php:366
 #: includes/shortcodes/definitions/partial/testimonials.php:129
 #: includes/shortcodes/definitions/partial/testimonials.php:321
 msgid "Oldest first"
@@ -2295,7 +2295,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:130
 #: includes/shortcodes/definitions/partial/content-module.php:355
 #: includes/shortcodes/definitions/partial/posts.php:118
-#: includes/shortcodes/definitions/partial/posts.php:344
+#: includes/shortcodes/definitions/partial/posts.php:367
 #: includes/shortcodes/definitions/partial/testimonials.php:130
 #: includes/shortcodes/definitions/partial/testimonials.php:322
 msgid "By name"
@@ -2304,7 +2304,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:131
 #: includes/shortcodes/definitions/partial/content-module.php:356
 #: includes/shortcodes/definitions/partial/posts.php:119
-#: includes/shortcodes/definitions/partial/posts.php:345
+#: includes/shortcodes/definitions/partial/posts.php:368
 #: includes/shortcodes/definitions/partial/testimonials.php:131
 #: includes/shortcodes/definitions/partial/testimonials.php:323
 msgid "Randomly"
@@ -2313,7 +2313,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:132
 #: includes/shortcodes/definitions/partial/content-module.php:357
 #: includes/shortcodes/definitions/partial/posts.php:120
-#: includes/shortcodes/definitions/partial/posts.php:346
+#: includes/shortcodes/definitions/partial/posts.php:369
 #: includes/shortcodes/definitions/partial/testimonials.php:132
 #: includes/shortcodes/definitions/partial/testimonials.php:324
 msgid "Custom, ascending"
@@ -2322,7 +2322,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:133
 #: includes/shortcodes/definitions/partial/content-module.php:358
 #: includes/shortcodes/definitions/partial/posts.php:121
-#: includes/shortcodes/definitions/partial/posts.php:347
+#: includes/shortcodes/definitions/partial/posts.php:370
 #: includes/shortcodes/definitions/partial/testimonials.php:133
 #: includes/shortcodes/definitions/partial/testimonials.php:325
 msgid "Custom, descending"
@@ -2334,8 +2334,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:156
 #: includes/shortcodes/definitions/partial/content-module.php:378
-#: includes/shortcodes/definitions/partial/posts.php:237
-#: includes/shortcodes/definitions/partial/posts.php:395
+#: includes/shortcodes/definitions/partial/posts.php:260
+#: includes/shortcodes/definitions/partial/posts.php:418
 #: includes/shortcodes/definitions/partial/testimonials.php:142
 #: includes/shortcodes/definitions/partial/testimonials.php:332
 msgid "Scrolling"
@@ -2343,8 +2343,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:157
 #: includes/shortcodes/definitions/partial/content-module.php:379
-#: includes/shortcodes/definitions/partial/posts.php:238
-#: includes/shortcodes/definitions/partial/posts.php:396
+#: includes/shortcodes/definitions/partial/posts.php:261
+#: includes/shortcodes/definitions/partial/posts.php:419
 #: includes/shortcodes/definitions/partial/testimonials.php:143
 #: includes/shortcodes/definitions/partial/testimonials.php:333
 msgid ""
@@ -2360,8 +2360,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:176
 #: includes/shortcodes/definitions/partial/content-module.php:398
-#: includes/shortcodes/definitions/partial/posts.php:257
-#: includes/shortcodes/definitions/partial/posts.php:406
+#: includes/shortcodes/definitions/partial/posts.php:280
+#: includes/shortcodes/definitions/partial/posts.php:429
 #: includes/shortcodes/definitions/partial/testimonials.php:162
 #: includes/shortcodes/definitions/partial/testimonials.php:352
 msgid "Display pagination?"
@@ -2369,8 +2369,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:195
 #: includes/shortcodes/definitions/partial/posts.php:136
-#: includes/shortcodes/definitions/partial/posts.php:426
-#: includes/shortcodes/definitions/partial/posts.php:438
+#: includes/shortcodes/definitions/partial/posts.php:449
+#: includes/shortcodes/definitions/partial/posts.php:461
 #: includes/shortcodes/definitions/partial/testimonials.php:181
 msgid "Description"
 msgstr ""
@@ -2378,7 +2378,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:208
 #: includes/shortcodes/definitions/partial/content-module.php:421
 #: includes/shortcodes/definitions/partial/posts.php:149
-#: includes/shortcodes/definitions/partial/posts.php:429
+#: includes/shortcodes/definitions/partial/posts.php:452
 #: includes/shortcodes/definitions/partial/testimonials.php:194
 #: includes/shortcodes/definitions/partial/testimonials.php:375
 msgid "Description alignment"
@@ -2387,7 +2387,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:211
 #: includes/shortcodes/definitions/partial/content-module.php:425
 #: includes/shortcodes/definitions/partial/posts.php:152
-#: includes/shortcodes/definitions/partial/posts.php:433
+#: includes/shortcodes/definitions/partial/posts.php:456
 #: includes/shortcodes/definitions/partial/separator-heading.php:57
 #: includes/shortcodes/definitions/partial/testimonials.php:197
 #: includes/shortcodes/definitions/partial/testimonials.php:379
@@ -2397,7 +2397,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:212
 #: includes/shortcodes/definitions/partial/content-module.php:426
 #: includes/shortcodes/definitions/partial/posts.php:153
-#: includes/shortcodes/definitions/partial/posts.php:434
+#: includes/shortcodes/definitions/partial/posts.php:457
 #: includes/shortcodes/definitions/partial/separator-heading.php:59
 #: includes/shortcodes/definitions/partial/testimonials.php:198
 #: includes/shortcodes/definitions/partial/testimonials.php:380
@@ -2407,7 +2407,7 @@ msgstr ""
 #: includes/shortcodes/definitions/partial/content-module.php:256
 #: includes/shortcodes/definitions/partial/content-module.php:433
 #: includes/shortcodes/definitions/partial/posts.php:197
-#: includes/shortcodes/definitions/partial/posts.php:442
+#: includes/shortcodes/definitions/partial/posts.php:465
 #: includes/shortcodes/definitions/partial/testimonials.php:242
 #: includes/shortcodes/definitions/partial/testimonials.php:387
 msgid "Remove gap between items?"
@@ -2415,8 +2415,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:269
 #: includes/shortcodes/definitions/partial/content-module.php:447
-#: includes/shortcodes/definitions/partial/posts.php:270
-#: includes/shortcodes/definitions/partial/posts.php:455
+#: includes/shortcodes/definitions/partial/posts.php:293
+#: includes/shortcodes/definitions/partial/posts.php:478
 #: includes/shortcodes/definitions/partial/slideshow.php:55
 msgid "Image size"
 msgstr ""
@@ -2457,7 +2457,7 @@ msgid "Multiple display"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:365
-#: includes/shortcodes/definitions/partial/posts.php:375
+#: includes/shortcodes/definitions/partial/posts.php:398
 msgid "Filter"
 msgstr ""
 
@@ -2472,8 +2472,8 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:453
 #: includes/shortcodes/definitions/partial/content-module.php:463
-#: includes/shortcodes/definitions/partial/posts.php:452
-#: includes/shortcodes/definitions/partial/posts.php:461
+#: includes/shortcodes/definitions/partial/posts.php:475
+#: includes/shortcodes/definitions/partial/posts.php:484
 #: includes/shortcodes/definitions/partial/tabs.php:55
 #: includes/shortcodes/definitions/partial/tabs.php:286
 msgid "Layout"
@@ -2607,7 +2607,7 @@ msgstr ""
 
 #: includes/shortcodes/definitions/partial/posts.php:29
 #: includes/shortcodes/definitions/partial/posts.php:34
-#: includes/shortcodes/definitions/partial/posts.php:297
+#: includes/shortcodes/definitions/partial/posts.php:320
 msgid "Posts / Custom Posts"
 msgstr ""
 
@@ -2617,106 +2617,127 @@ msgid "From taxonomy"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/posts.php:45
-#: includes/shortcodes/definitions/partial/posts.php:219
-msgid "Filter by"
+#: includes/shortcodes/definitions/partial/posts.php:229
+msgid "Animated filter"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/posts.php:72
-#: includes/shortcodes/definitions/partial/posts.php:304
+#: includes/shortcodes/definitions/partial/posts.php:327
 msgid "Post type"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/posts.php:73
-#: includes/shortcodes/definitions/partial/posts.php:305
+#: includes/shortcodes/definitions/partial/posts.php:328
 msgid ""
 "This shortcode can display several post types. Choose the one you want to "
 "display."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:211
-#: includes/shortcodes/definitions/partial/posts.php:220
+#: includes/shortcodes/definitions/partial/posts.php:212
+msgid "Displays items from specific taxonomy term only."
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/posts.php:215
+#, php-format
+msgid "Example: %s."
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/posts.php:219
+#: includes/shortcodes/definitions/partial/posts.php:241
+msgid "Available taxonomy keys:"
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/posts.php:231
+msgid "Enables animated filter from terms of specified taxonomy."
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/posts.php:233
 msgid ""
-"Example: \"taxonomy_name\" or more specific \"taxonomy_name:taxonomy-slug\"."
+"Works well only when displaying all items (set the \"Count\" parameter to "
+"100, for example)."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:211
-#: includes/shortcodes/definitions/partial/posts.php:220
-#: includes/shortcodes/definitions/partial/posts.php:355
-#: includes/shortcodes/definitions/partial/posts.php:365
-#: includes/shortcodes/definitions/partial/posts.php:376
-msgid "Available taxonomy names:"
+#: includes/shortcodes/definitions/partial/posts.php:236
+#, php-format
+msgid "Example: %1$s or %2$s."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:228
-#: includes/shortcodes/definitions/partial/posts.php:385
+#: includes/shortcodes/definitions/partial/posts.php:251
+#: includes/shortcodes/definitions/partial/posts.php:408
 msgid "Filter layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:229
-#: includes/shortcodes/definitions/partial/posts.php:386
+#: includes/shortcodes/definitions/partial/posts.php:252
+#: includes/shortcodes/definitions/partial/posts.php:409
 #, php-format
 msgid "Use one of <a%s>Isotope</a> layouts."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:229
-#: includes/shortcodes/definitions/partial/posts.php:386
+#: includes/shortcodes/definitions/partial/posts.php:252
+#: includes/shortcodes/definitions/partial/posts.php:409
 msgid "Default is set to <code>fitRows</code>."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:246
+#: includes/shortcodes/definitions/partial/posts.php:269
 msgid "Related by"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:247
-#: includes/shortcodes/definitions/partial/posts.php:365
+#: includes/shortcodes/definitions/partial/posts.php:270
+#: includes/shortcodes/definitions/partial/posts.php:388
 msgid ""
 "Use only on single post/custom post pages. Displays items related to "
 "recently displayed item through a specific taxonomy. Set a taxonomy name "
 "only."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:354
-#: includes/shortcodes/definitions/partial/posts.php:361
-#: includes/shortcodes/definitions/partial/posts.php:371
+#: includes/shortcodes/definitions/partial/posts.php:377
+#: includes/shortcodes/definitions/partial/posts.php:384
+#: includes/shortcodes/definitions/partial/posts.php:394
 msgid "Taxonomy"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:355
+#: includes/shortcodes/definitions/partial/posts.php:378
 msgid ""
 "Displays items only from a specific taxonomy. Set a taxonomy name and "
 "taxonomy slug separated with colon."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:355
+#: includes/shortcodes/definitions/partial/posts.php:378
 msgid "For example: \"category:category-slug\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:364
+#: includes/shortcodes/definitions/partial/posts.php:378
+#: includes/shortcodes/definitions/partial/posts.php:388
+#: includes/shortcodes/definitions/partial/posts.php:399
+msgid "Available taxonomy names:"
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/posts.php:387
 msgid "Relation"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:365
+#: includes/shortcodes/definitions/partial/posts.php:388
 msgid "For example: \"category\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:376
+#: includes/shortcodes/definitions/partial/posts.php:399
 msgid ""
 "If set, the items will be filtered. Set a taxonomy name (and optional parent "
 "taxonomy slug separated with colon - filter will be created from sub-"
 "taxonomies) which will be used to filter the items."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:376
+#: includes/shortcodes/definitions/partial/posts.php:399
 msgid "For example: \"category\" or \"category:parent-category-slug\"."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:382
-#: includes/shortcodes/definitions/partial/posts.php:392
-#: includes/shortcodes/definitions/partial/posts.php:402
+#: includes/shortcodes/definitions/partial/posts.php:405
+#: includes/shortcodes/definitions/partial/posts.php:415
+#: includes/shortcodes/definitions/partial/posts.php:425
 msgid "Filter / Scroll"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:419
+#: includes/shortcodes/definitions/partial/posts.php:442
 msgid "Description text"
 msgstr ""
 
