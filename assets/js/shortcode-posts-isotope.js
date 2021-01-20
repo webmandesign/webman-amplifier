@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.19
+ * @version  1.5.9
  */
 
 
@@ -18,7 +18,7 @@
  * Functionality wrapper
  *
  * @since    1.3.15
- * @version  1.3.19
+ * @version  1.5.9
  *
  * @param  string $selector
  */
@@ -48,7 +48,7 @@ function WmampIsotope( $selector ) {
 
 					$this
 						.isotope( {
-							layoutMode        : $this.data( 'layout-mode' ),
+							layoutMode        : $this.data( 'layoutMode' ),
 							isOriginLeft      : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) ),
 							transformsEnabled : ( 'rtl' != jQuery( 'html' ).attr( 'dir' ) )
 						} );

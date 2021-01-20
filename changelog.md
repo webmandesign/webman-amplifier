@@ -1,5 +1,22 @@
 # WebMan Amplifier Changelog
 
+## 1.5.9, 20210120
+
+### Fixed
+- jQuery code for WordPress 5.6 compatibility
+- Metabox repeater field control buttons styles
+
+### File updates
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/js/metabox.js
+	assets/js/shortcode-parallax.js
+	assets/js/shortcode-posts-isotope.js
+	assets/js/shortcodes-vc-addons.js
+	assets/scss/metabox.scss
+
+
 ## 1.5.8
 
 * **Add**: More explanatory info for Beaver Builder "Posts" module parameters setup.

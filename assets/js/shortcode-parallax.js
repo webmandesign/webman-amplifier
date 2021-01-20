@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.5.9
  */
 
 
@@ -28,8 +28,8 @@ jQuery( function() {
 				.each( function() {
 
 					var $this               = jQuery( this ),
-					    wmParallaxInertia   = ( $this.data( 'parallax-inertia' ) ) ? ( $this.data( 'parallax-inertia' ) ) : ( 0.2 ),
-					    wmParallaxXPosition = ( $this.data( 'parallax-xPosition' ) ) ? ( $this.data( 'parallax-xPosition' ) ) : ( '50%' );
+					    wmParallaxInertia   = ( $this.data( 'parallaxInertia' ) ) ? ( $this.data( 'parallaxInertia' ) ) : ( 0.2 ),
+					    wmParallaxXPosition = ( $this.data( 'parallaxXPosition' ) ) ? ( $this.data( 'parallaxXPosition' ) ) : ( '50%' );
 
 					$this
 						.parallax( wmParallaxXPosition, wmParallaxInertia, true );
