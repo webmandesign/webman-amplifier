@@ -198,7 +198,7 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table { margin: 0 0 2
 
 .wm-meta-wrap .repeater-cell .checkbox-wrap input + label::before { right: 160px; margin-top: 0; }
 
-.wm-meta-wrap .button-add-cell, .wm-meta-wrap .button-remove-cell { font-size: 1.4em; }
+.wm-meta-wrap .button-add-cell, .wm-meta-wrap .button-move-cell, .wm-meta-wrap .button-remove-cell { padding: 0; width: 1.5em; font-size: 1.4em; text-align: center; line-height: 1.75; }
 
 .wm-meta-wrap .button-move-cell { cursor: move; }
 

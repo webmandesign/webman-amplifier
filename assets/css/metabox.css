@@ -1,4 +1,4 @@
-/** WebMan Metabox Generator styles @package     WebMan Amplifier @subpackage  Metabox @since    1.2.2 @version  1.4 */
+/** WebMan Metabox Generator styles @package     WebMan Amplifier @subpackage  Metabox @since    1.2.2 @version  1.5.9 */
 .wm-meta-wrap { direction: ltr; min-width: 180px; max-width: 100%; padding: 0; background: none; border: 0; }
 
 .wm-admin-wrap .wm-meta-wrap { margin-top: 20px; background: #fff; border: 1px solid #dfdfdf; box-shadow: 0 0 5px #ddd; }
@@ -199,7 +199,7 @@ body.wm-visual-composer-on .wm-meta-wrap .postarea + .form-table { margin: 0 0 2
 
 .wm-meta-wrap .repeater-cell .checkbox-wrap input + label::before { left: 160px; margin-top: 0; }
 
-.wm-meta-wrap .button-add-cell, .wm-meta-wrap .button-remove-cell { font-size: 1.4em; }
+.wm-meta-wrap .button-add-cell, .wm-meta-wrap .button-move-cell, .wm-meta-wrap .button-remove-cell { padding: 0; width: 1.5em; font-size: 1.4em; text-align: center; line-height: 1.75; }
 
 .wm-meta-wrap .button-move-cell { cursor: move; }
 

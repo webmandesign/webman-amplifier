@@ -88,8 +88,13 @@
 	}
 
 	.button-add-cell,
+	.button-move-cell,
 	.button-remove-cell {
+		padding: 0;
+		width: 1.5em;
 		font-size: 1.4em;
+		text-align: center;
+		line-height: 1.75;
 	}
 
 	.button-move-cell {

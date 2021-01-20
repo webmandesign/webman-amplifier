@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.2.3
+ * @version  1.5.9
  */
 
 
@@ -679,7 +679,7 @@ jQuery( function() {
 		// Visual Composer switch button action
 
 			$WmampVcButton
-				.live( 'click', function() {
+				.on( 'click', function() {
 					wm_vc_visible();
 				} );
 
