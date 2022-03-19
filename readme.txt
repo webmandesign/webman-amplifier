@@ -4,8 +4,8 @@ Donate link:       https://www.webmandesign.eu/contact/
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 4.3
-Tested up to:      5.6
-Stable tag:        1.5.9
+Tested up to:      5.9
+Stable tag:        1.5.10
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              accordion, beaver builder, box, button, call to action, content modules, custom post types, divider, fontello, generator, icons, logos, message, meta, metabox, page builder, portfolio, posts, projects, shortcodes, staff, tabs, testimonials, toggles, webman design, wpml
@@ -98,5 +98,5 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
-= 1.5.9 =
-Updating JavaScript, fixing styles.
+= 1.5.10 =
+Updating JavaScript.
