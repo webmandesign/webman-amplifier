@@ -12,6 +12,20 @@
 	webman-amplifier.php
 
 
+## 1.5.10, 20220319
+
+### Updated
+- Updating JavaScript
+
+### File updates
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/js/shortcodes-vc-addons.js
+	assets/js/plugins/isotope.pkgd.min.js
+	assets/js/plugins/slick.min.js
+
+
 ## 1.5.9, 20210120
 
 ### Fixed

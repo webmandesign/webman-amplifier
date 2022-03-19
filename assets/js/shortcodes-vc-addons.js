@@ -7,7 +7,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.5.9
+ * @version  1.5.10
  */
 
 
@@ -154,7 +154,7 @@
 				// Picks the values of these HTML attributes from the button element:
 
 					var newItemCode  = jQuery( e.currentTarget ).data( 'item' ),
-					    newItemTitle = jQuery( e.currentTarget ).data( 'item-title' );
+					    newItemTitle = jQuery( e.currentTarget ).data( 'itemTitle' );
 
 				e.preventDefault();
 
