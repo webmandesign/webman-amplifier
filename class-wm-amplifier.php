@@ -9,7 +9,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.5
+ * @version  1.5.11
  */
 if ( ! class_exists( 'WM_Amplifier' ) ) {
 
@@ -76,7 +76,7 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 			 * Setup the default hooks and actions
 			 *
 			 * @since    1.0
-			 * @version  1.4
+			 * @version  1.5.11
 			 *
 			 * @access  public
 			 */
@@ -85,7 +85,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 				// Helper variables
 
 					$actions = array(
-						'load_textdomain'               => 'plugins_loaded',    // Load textdomain
 						'register_metaboxes'            => 'plugins_loaded',    // Register metaboxes
 						'register_widgets'              => 'init|-10',          // Register widgets
 						'save_permalinks'               => 'init',              // Save custom permalinks
@@ -581,28 +580,6 @@ if ( ! class_exists( 'WM_Amplifier' ) ) {
 						echo apply_filters( 'wmhook_wmamp_' . 'admin_notices_output', $output, $message );
 					}
 			} // /admin_notices
-
-
-
-			/**
-			 * Localization
-			 *
-			 * Read more at @link  http://wptavern.com/how-to-prepare-and-take-advantage-of-language-packs-for-plugins-hosted-on-wordpress-org
-			 *
-			 * @since    1.0
-			 * @version  1.2.9
-			 *
-			 * @access  public
-			 *
-			 * @return  boolean
-			 */
-			public function load_textdomain() {
-
-				// Processing
-
-					load_plugin_textdomain( 'webman-amplifier', false, dirname( plugin_basename( WMAMP_PLUGIN_FILE ) ) . '/languages/' );
-
-			} // /load_textdomain
 
 
 

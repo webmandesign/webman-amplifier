@@ -1,14 +1,16 @@
 === WebMan Amplifier ===
+
 Contributors:      webmandesign
-Donate link:       https://www.webmandesign.eu/contact/
+Donate link:       https://www.webmandesign.eu/contact/#donation
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
-Requires at least: 4.3
-Tested up to:      5.9
-Stable tag:        1.5.10
-License:           GNU General Public License v3
+Requires at least: 6.0
+Tested up to:      6.7
+Requires PHP:      7.0
+Stable tag:        1.5.11
+License:           GPL-3.0-or-later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-Tags:              accordion, beaver builder, box, button, call to action, content modules, custom post types, divider, fontello, generator, icons, logos, message, meta, metabox, page builder, portfolio, posts, projects, shortcodes, staff, tabs, testimonials, toggles, webman design, wpml
+Tags:              beaver builder, custom post types, icons, metabox, shortcodes
 
 Amplifies functionality of WP themes. Provides custom post types, shortcodes, metaboxes, icons. Theme developer's best friend!
 

@@ -1,29 +1,25 @@
 <?php
 /**
- * WebMan Amplifier
+ * Plugin Name:  WebMan Amplifier
+ * Plugin URI:   https://github.com/webmandesign/webman-amplifier/
+ * Description:  Pack of additional WordPress features. Contains additional custom post types, shortcodes, page builder integration, meta box generator and icon font management.
+ * Version:      1.5.11
+ * Author:       WebMan Design, Oliver Juhas
+ * Author URI:   https://www.webmandesign.eu/
+ * License:      GPL-3.0-or-later
+ * License URI:  http://www.gnu.org/licenses/gpl-3.0.txt
+ * Text Domain:  webman-amplifier
+ * Domain Path:  /languages
  *
- * A set of additional features for WebMan themes (http://www.webmandesign.eu).
+ * Requires PHP:       7.0
+ * Requires at least:  6.0
  *
- * @package    WebMan Amplifier
- * @author     WebMan Design
  * @copyright  WebMan Design, Oliver Juhas
- * @license    GNU General Public License v3
+ * @license    GPL-3.0, https://www.gnu.org/licenses/gpl-3.0.html
  *
  * @link  https://www.webmandesign.eu
  *
- * @wordpress-plugin
- * Plugin Name:        WebMan Amplifier
- * Plugin URI:         https://github.com/webmandesign/webman-amplifier
- * Description:        Pack of additional WordPress features. Contains additional custom post types, shortcodes, page builder integration, meta box generator and icon font management.
- * Version:            1.5.10
- * Author:             WebMan Design, Oliver Juhas
- * Author URI:         https://www.webmandesign.eu
- * Text Domain:        webman-amplifier
- * Domain Path:        /languages
- * License:            GNU General Public License v3
- * License URI:        http://www.gnu.org/licenses/gpl-3.0.txt
- * Requires at least:  4.3
- * Tested up to:       5.9
+ * @package    WebMan Amplifier
  */
 
 

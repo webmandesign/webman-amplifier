@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.5.11, 20241003
+
+### Fixed
+- Removing obsolete `load_plugin_textdomain()`
+
+### File updates
+	class-wm-amplifier.php
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+
+
 ## 1.5.10, 20220319
 
 ### Updated
