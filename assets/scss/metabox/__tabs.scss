@@ -3,6 +3,7 @@
 .wm-meta-wrap {
 
 	ul.tabs {
+		box-sizing: content-box;
 		display: block;
 		position: relative;
 		padding: 10px 20px 0;

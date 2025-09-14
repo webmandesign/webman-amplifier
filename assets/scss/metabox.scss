@@ -5,13 +5,11 @@
  * @subpackage  Metabox
  *
  * @since    1.2.2
- * @version  1.5.9
+ * @version  1.5.12
  */
 
+$left: left;
+$right: right;
+$language_direction: ltr;
 
-
-
-
-// Imports
-
-	@import 'metabox/metabox';
+@import 'metabox/metabox';

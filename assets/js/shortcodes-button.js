@@ -5,7 +5,7 @@
  * @subpackage  Shortcodes
  *
  * @since    1.0
- * @version  1.2.2
+ * @version  1.5.12
  */
 
 
@@ -117,10 +117,10 @@
 			editor.addButton( 'wm_shortcodes_list', {
 
 				type  : 'menubutton',
-				text  : '[s]',
+				// text  : '[s]',
 				title : 'Shortcode',
 				id    : 'wm_shortcodes_list' + wmButtonIdSuffix,
-				icon  : false,
+				icon  : 'shortcode',
 				menu  : wmShortcodesMenuArray
 
 			} );
@@ -132,10 +132,10 @@
 				editor.addButton( 'wm_shortcodes_list_short', {
 
 					type  : 'menubutton',
-					text  : '[s]',
+					// text  : '[s]',
 					title : 'Shortcode',
 					id    : 'wm_shortcodes_list_short' + wmButtonIdSuffix,
-					icon  : false,
+					icon  : 'shortcode',
 					menu  : wmShortcodesMenuArrayShort
 
 				} );

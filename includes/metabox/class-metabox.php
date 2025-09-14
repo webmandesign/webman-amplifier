@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.5.7
+ * @version  1.5.12
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
@@ -222,7 +222,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.4
+			 * @version  1.5.12
 			 *
 			 * @access  public
 			 */
@@ -280,7 +280,11 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 							// AJAX
 
-								wp_localize_script( 'jquery', 'wmGalleryPreviewNonce', wp_create_nonce( 'wm-gallery-preview-refresh' ) );
+								// Do not use `wp_localize_script` as it produces "doing it wrong" localization error.
+								wp_add_inline_script(
+									'jquery',
+									'var wmGalleryPreviewNonce="' . wp_create_nonce( 'wm-gallery-preview-refresh' ) . '";'
+								);
 
 						}
 

@@ -17,7 +17,7 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.1.0
- * @version  1.5.5
+ * @version  1.5.12
  *
  * Contents:
  *
@@ -104,6 +104,7 @@
 
 				// Scripts: inline
 
+					// Using `wp_localize_script` here seems to be OK - it does not trigger WP localization error.
 					wp_localize_script(
 						'jquery',
 						'wmShortcodesArray',
@@ -128,6 +129,7 @@
 
 					// Scripts: inline
 
+						// Using `wp_localize_script` here seems to be OK - it does not trigger WP localization error.
 						wp_localize_script(
 							'jquery',
 							'wmShortcodesArrayShort',
@@ -211,7 +213,7 @@
 	 * First row.
 	 *
 	 * @since    1.0.0
-	 * @version  1.2.2
+	 * @version  1.5.12
 	 *
 	 * @param  array $buttons
 	 */
@@ -245,7 +247,10 @@
 					$add[] = 'wm_shortcodes_list';
 					$add[] = 'wm_shortcodes_list_short';
 					$add[] = '|';
-					$add[] = 'wp_adv';
+
+					if ( false === array_search( 'wp_adv', $add, true ) ) {
+						$add[] = 'wp_adv';
+					}
 
 					$buttons = array_merge( $add, array_slice( $buttons, $pos + 1 ) );
 				}

@@ -6,22 +6,6 @@
 
 
 
-// RTL support
-
-	$language_direction: ltr !default;
-
-	@if rtl == $language_direction {
-		$left: right;
-		$right: left;
-	} @else {
-		$left: left;
-		$right: right;
-	}
-
-
-
-
-
 // Imports
 
 	@import '_base';

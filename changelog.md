@@ -1,5 +1,27 @@
 # WebMan Amplifier Changelog
 
+## 1.5.12, 20250914
+
+### Updated
+- Shortcode button styles
+
+### Fixed
+- Preventing infinite loop in Posts shortcode
+- Metabox related localization error
+- Metabox tabs styles
+
+### File updates
+	changelog.md
+	readme.txt
+	webman-amplifier.php
+	assets/js/shortcodes-button.js
+	assets/scss/metabox.scss
+	assets/scss/shortcodes-generator.scss
+	includes/metabox/class-metabox.php
+	includes/shortcodes/renderers/posts.php
+	includes/visual-editor/visual-editor.php
+
+
 ## 1.5.11, 20241003
 
 ### Fixed

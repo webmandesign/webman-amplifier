@@ -5,28 +5,25 @@
  * @subpackage  Shortcodes
  *
  * @since    1.2.2
- * @version  1.4
+ * @version  1.5.12
  */
 
+$left: left !default;
+$right: right !default;
+$language_direction: ltr !default;
 
+// Icon.
 
+	i.mce-i-shortcode,
+	i.mce-i-shortcodes {
+		font: normal 20px / 1 dashicons;
+		vertical-align: top;
+		speak: never;
 
-
-// RTL support
-
-	$language_direction: ltr !default;
-
-	@if rtl == $language_direction {
-		$left: right;
-		$right: left;
-	} @else {
-		$left: left;
-		$right: right;
+		&::before {
+			content: "\f150";
+		}
 	}
-
-
-
-
 
 // TinyMCE "Shortcodes" dropdown button
 

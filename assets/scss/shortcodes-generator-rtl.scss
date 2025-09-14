@@ -5,16 +5,8 @@
 // @subpackage  Shortcodes
 //
 
+$left: right;
+$right: left;
+$language_direction: rtl;
 
-
-
-
-// Setup language direction
-
-	$language_direction: rtl;
-
-
-
-// Imports
-
-	@import 'shortcodes-generator';
+@import 'shortcodes-generator';

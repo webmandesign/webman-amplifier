@@ -6,7 +6,7 @@
  * Contains Schema.org markup function.
  *
  * @since    1.0
- * @version  1.5.6
+ * @version  1.5.12
  *
  * @uses  $codes_globals['post_types']
  *
@@ -192,7 +192,11 @@
 					'terms'    => explode( ',', $atts['taxonomy'][1] )
 				) );
 			}
-			if ( $atts['related'] && get_the_ID() ) {
+
+			if (
+				( $atts['related'] || is_singular() )
+				&& get_the_ID()
+			) {
 				$query_args['post__not_in'] = array( get_the_ID() );
 			}
 
