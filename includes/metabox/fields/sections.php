@@ -9,10 +9,11 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.5.6
+ * @version  1.6.0
  */
 
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * SECTIONS
@@ -25,9 +26,10 @@
 	 * @subpackage  Metabox
 	 *
 	 * @since       1.0
-	 * @version     1.5.6
+	 * @version     1.6.0
 	 */
 	if ( ! function_exists( 'wma_field_section_open' ) ) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 		function wma_field_section_open( $field, $page_template = null ) {
 
 			// Set default value for page template.
@@ -44,9 +46,9 @@
 				'no-table' => false,           //Whether to output a table wrapper
 				'title'    => 'Title',         //Field title *
 				'page'     => array(
-						'templates' => array(),    //Array of page templates
-						'operand'   => 'IS'        //Whether to display IS or IS_NOT page templates set above
-					)
+					'templates' => array(),  //Array of page templates
+					'operand'   => 'IS'      //Whether to display IS or IS_NOT page templates set above
+				),
 			) );
 
 			// Section ID setup.
@@ -54,22 +56,19 @@
 
 			// Check whether to display for particular page template.
 			$classes = $output_script = '';
-			if (
-				isset( $field['page']['templates'] )
-				&& is_array( $field['page']['templates'] )
-				&& ! empty( $field['page']['templates'] )
-			) {
+
+			if ( ! empty( $field['page']['templates'] ) ) {
 
 				// Set default operand.
-				if ( ! isset( $field['page']['operand'] ) ) {
+				if ( empty( $field['page']['operand'] ) ) {
 					$field['page']['operand'] = 'IS';
 				}
 
 				// Check if page template is in the array.
-				$template_check = in_array( $page_template, $field['page']['templates'] );
+				$template_check = in_array( $page_template, (array) $field['page']['templates'] );
 
 				// Depending on operand, set the classes.
-				if ( 'IS_NOT' !== $field['page']['operand'] ) {
+				if ( 'IS' === $field['page']['operand'] ) {
 					// Only if page template is in the array.
 					$classes .= ( $template_check ) ? ( '' ) : ( ' hide' );
 				} else {
@@ -87,87 +86,41 @@
 				$no_table = ( $field['no-table'] ) ? ( ' no-table' ) : ( '' );
 				$classes .= $no_table;
 
-				echo "\r\n" . '<!-- SECTION -->' . "\r\n" . '<div id="' . $field['id'] . '" class="tab-content' . $classes . '">' . "\r\n";
+				echo
+					PHP_EOL . '<!-- SECTION -->'
+					. PHP_EOL
+					. '<div id="' . esc_attr( $field['id'] ) . '" class="tab-content' . esc_attr( $classes ) . '">'
+					. PHP_EOL;
+
+					// Output table wrapper start.
+					if ( ! $no_table ) {
+						echo
+							"\t"
+							. '<table class="form-table">'
+							. '<tbody>'
+							. PHP_EOL;
+					}
 
 				// Page templates conditional display.
+				if ( $output_script ) {
 
-					if ( $output_script ) {
-						$js_array  = '["' . implode( '", "', $field['page']['templates'] ) . '"]';
-						$suffix    = ucfirst( str_replace( '-', '', sanitize_html_class( $field['id'] ) ) );
-						$condition = '$.inArray( conditionalValue' . $suffix . ', conditionArray' . $suffix . ' )';
-
-						// Setting condition from operand.
-						if ( 'IS_NOT' !== $field['page']['operand'] ) {
-							// Only if page template is in the array.
-							$condition = '-1 !== ' . $condition;
-						} else {
-							// Only if the page template is NOT in the array.
-							$condition = '-1 === ' . $condition;
-						}
-
-						?>
-						<script><!--
-							( function( $ ) {
-
-								function <?php echo $suffix; ?>() {
-									var
-										templateDropdownSelector = 'select[name="page_template"], .editor-page-attributes__template select';
-
-									function setTabs<?php echo $suffix; ?>( e ) {
-										var
-											conditionalValue<?php echo $suffix; ?> = ( 'string' === typeof e ) ? ( e ) : ( $( e.target ).val() || 'default' ),
-											conditionArray<?php echo $suffix; ?>   = <?php echo $js_array; ?>;
-
-										if ( <?php echo $condition; ?> ) {
-											$( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).removeClass( 'hide' );
-										} else {
-											$( '#<?php echo $field['id']; ?>, .wm-meta-wrap .tabs .<?php echo $field['id']; ?>' ).addClass( 'hide' );
-										}
-
-										var
-											firstTabActive = $( '.wm-meta-wrap .tabs li:not(.hide)' ).first().index();
-
-										if ( $().tabs ) {
-											$( '.wm-meta-wrap.jquery-ui-tabs' )
-												.tabs( {
-													active : firstTabActive
-												} );
-										}
-									}
-
-									setTabs<?php echo $suffix; ?>( '<?php echo esc_js( $page_template ); ?>' );
-
-									$( '#wpbody' )
-										.on( 'change.webman-amplifier-metabox', templateDropdownSelector, function( e ){
-											setTabs<?php echo $suffix; ?>( e );
-										} );
-
-									$( templateDropdownSelector )
-										.change();
-								}
-
-								if ( 'undefined' === typeof wp ) {
-									$( document ).ready( <?php echo $suffix; ?> );
-								} else {
-									wp.domReady( <?php echo $suffix; ?> );
-								}
-
-							} )( jQuery );
-						//--></script>
-						<?php
-					}
-
-
-				// Output table wrapper start.
-
-					if ( ! $no_table ) {
-						echo "\t" . '<table class="form-table"><tbody>' . "\r\n";
-					}
+					wp_add_inline_script(
+						'wm-metabox-scripts',
+						'( function( jQuery, wp ) { wp.domReady( wmaMetaboxTemplates( '
+						. json_encode( array(
+							'id'       => esc_attr( $field['id'] ),
+							'values'   => (array) $field['page']['templates'],
+							'operand'  => $field['page']['operand'],
+							'template' => $page_template,
+						) )
+						. ' ) ); } )( jQuery, wp );'
+					);
+				}
 
 		}
 	} // /wma_field_section_open
 
-	add_action( 'wmhook_metabox_' . 'render_' . 'section-open', 'wma_field_section_open', 10, 2 );
+	add_action( 'wmhook_metabox_render_section-open', 'wma_field_section_open', 10, 2 );
 
 
 
@@ -181,24 +134,29 @@
 	 * @version     1.0
 	 */
 	if ( ! function_exists( 'wma_field_section_close' ) ) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 		function wma_field_section_close( $field, $page_template = null ) {
-			//Field definition array
-				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'type'     => 'section-close', //Field type name *
-						'no-table' => false            //Whether to output a table wrapper
-					) );
 
-			//Output
+			// Field definition array
+			$field = wp_parse_args( (array) $field, array(
+				//DEFAULTS:
+				//* = Required setting
+				'type'     => 'section-close', //Field type name *
+				'no-table' => false            //Whether to output a table wrapper
+			) );
+
+			// Output
+
 				if ( ! $field['no-table'] ) {
-					echo "\r\n\r\n\t</tbody></table>";
+					echo PHP_EOL . PHP_EOL . "\t</tbody></table>";
 				}
-				echo "\r\n" . '</div> <!-- /tab-content /SECTION -->' . "\r\n";
+
+				echo PHP_EOL . '</div> <!-- /tab-content /SECTION -->' . PHP_EOL;
+
 		}
 	} // /wma_field_section_close
 
-	add_action( 'wmhook_metabox_' . 'render_' . 'section-close', 'wma_field_section_close', 10, 2 );
+	add_action( 'wmhook_metabox_render_section-close', 'wma_field_section_close', 10, 2 );
 
 
 
@@ -209,31 +167,40 @@
 	/**
 	 * Sub-section open
 	 *
-	 * @since       1.0
 	 * @package	    WebMan Amplifier
 	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
+	 *
+	 * @since       1.0
+	 * @version     1.6.0
 	 */
 	if ( ! function_exists( 'wma_field_sub_section_open' ) ) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 		function wma_field_sub_section_open( $field, $page_template = null ) {
-			//Field definition array
-				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'type' => 'sub-section-open',  //Field type name *
-						'id'   => 'id',                //Field ID (form field name) *
-					) );
 
-			//Sub-section ID setup
-				$field['id'] = WM_METABOX_FIELD_PREFIX . 'sub-section-' . $field['id'];
+			// Field definition array
+			$field = wp_parse_args( (array) $field, array(
+				//DEFAULTS:
+				//* = Required setting
+				'type' => 'sub-section-open',  //Field type name *
+				'id'   => 'id',                //Field ID (form field name) *
+			) );
 
-			//Output
-				echo "\r\n\t" . '</tbody>' . "\r\n\t" . '<!-- SUB-SECTION -->' . "\r\n\t" . '<tbody id="' . $field['id'] . '" data-option="' . $field['id'] . '">';
+			// Sub-section ID setup
+			$field['id'] = WM_METABOX_FIELD_PREFIX . 'sub-section-' . $field['id'];
+
+			// Output
+
+				echo
+					PHP_EOL . "\t"
+					. '</tbody>'
+					. PHP_EOL . "\t" . '<!-- SUB-SECTION -->'
+					. PHP_EOL . "\t"
+					. '<tbody id="' . esc_attr( $field['id'] ) . '" data-option="' . esc_attr( $field['id'] ) . '">';
+
 		}
 	} // /wma_field_sub_section_open
 
-	add_action( 'wmhook_metabox_' . 'render_' . 'sub-section-open', 'wma_field_sub_section_open', 10, 2 );
+	add_action( 'wmhook_metabox_render_sub-section-open', 'wma_field_sub_section_open', 10, 2 );
 
 
 
@@ -248,25 +215,29 @@
 	 * @version  1.1.6
 	 */
 	if ( ! function_exists( 'wma_field_sub_section_close' ) ) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 		function wma_field_sub_section_close( $field, $page_template = null ) {
-			//Field definition array
-				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'type'        => 'sub-section-close', //Field type name *
-						'id'          => '',                  //Field ID (form field name) *
-						'conditional' => '',                  //Conditional display setup
-					) );
 
-			//Sub-section ID setup
-				$field['id'] = WM_METABOX_FIELD_PREFIX . 'sub-section-' . $field['id'];
+			// Field definition array
+			$field = wp_parse_args( (array) $field, array(
+				//DEFAULTS:
+				//* = Required setting
+				'type'        => 'sub-section-close', //Field type name *
+				'id'          => '',                  //Field ID (form field name) *
+				'conditional' => '',                  //Conditional display setup
+			) );
 
-			//Output
-				//Conditional display
-					do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
+			// Sub-section ID setup
+			$field['id'] = WM_METABOX_FIELD_PREFIX . 'sub-section-' . $field['id'];
 
-				echo "\r\n\t" . '</tbody> <!-- /SUB-SECTION -->' . "\r\n\t" . '<tbody>';
+			// Output
+
+				// Conditional display
+				do_action( 'wmhook_metabox_conditional', $field, $field['id'] );
+
+				echo PHP_EOL . "\t" . '</tbody> <!-- /SUB-SECTION -->' . PHP_EOL . "\t" . '<tbody>';
+
 		}
 	} // /wma_field_sub_section_close
 
-	add_action( 'wmhook_metabox_' . 'render_' . 'sub-section-close', 'wma_field_sub_section_close', 10, 2 );
+	add_action( 'wmhook_metabox_render_sub-section-close', 'wma_field_sub_section_close', 10, 2 );

@@ -9,7 +9,8 @@
  * @subpackage  Metabox
  */
 
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * CSS classes
@@ -39,51 +40,56 @@
  * 		Additional color subclasses to style the box.
  */
 
-
-
 /**
- * HTML
+ * Custom HTML
+ *
+ * @package	    WebMan Amplifier
+ * @subpackage  Metabox
+ *
+ * @since    1.0
+ * @version  1.6.0
  */
+if ( ! function_exists( 'wma_field_html' ) ) {
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
+	function wma_field_html( $field, $page_template = null ) {
 
-	/**
-	 * Custom HTML
-	 *
-	 * @since       1.0
-	 * @package	    WebMan Amplifier
-	 * @subpackage  Metabox
-	 * @author      WebMan
-	 * @version     1.0
-	 */
-	if ( ! function_exists( 'wma_field_html' ) ) {
-		function wma_field_html( $field, $page_template = null ) {
-			//Field definition array
-				$field = wp_parse_args( (array) $field, array(
-						//DEFAULTS:
-						//* = Required setting
-						'id'        => '',      //Optional, used only for conditional display (inserts table row wrapper automatically)
-						'type'      => 'html',  //Field type name *
-						'content'   => '',      //Custom HTML content
-						'condition' => true,    //Displays only when condition is true
-					) );
+		// Field definition array
+		$field = wp_parse_args( (array) $field, array(
+			//DEFAULTS:
+			//* = Required setting
+			'id'        => '',      //Optional, used only for conditional display (inserts table row wrapper automatically)
+			'type'      => 'html',  //Field type name *
+			'content'   => '',      //Custom HTML content
+			'condition' => true,    //Displays only when condition is true
+		) );
 
-			//Output
-				if ( $field['condition'] ) {
-					if ( $field['id'] ) {
-						echo "\r\n\t" . '<tr class="option padding-20 option-' . sanitize_html_class( $field['id'] ) . '" data-option="' . $field['id'] . '"><td colspan="2">';
-					}
+		// Output
+		if ( $field['condition'] ) {
 
-					echo "\r\n" . $field['content'] . "\r\n";
+			if ( $field['id'] ) {
+				echo
+					PHP_EOL . "\t"
+					. '<tr
+						class="option padding-20 option-' . esc_attr( sanitize_html_class( $field['id'] ) ) . '"
+						data-option="' . esc_attr( $field['id'] ) . '"
+						>'
+					. '<td colspan="2">';
+			}
 
-					if ( $field['id'] ) {
-						//Conditional display
-							do_action( 'wmhook_metabox_' . 'conditional', $field, $field['id'] );
-							do_action( 'wmhook_metabox_' . 'conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
-							do_action( 'wmhook_metabox_' . 'conditional_' . sanitize_html_class( $field['id'] ), $field );
+			echo PHP_EOL . wp_kses_post( $field['content'] ) . PHP_EOL;
 
-						echo "\r\n\t" . '</td></tr>';
-					}
-				}
+			if ( $field['id'] ) {
+
+				// Conditional display
+				do_action( 'wmhook_metabox_conditional', $field, $field['id'] );
+				do_action( 'wmhook_metabox_conditional_' . sanitize_html_class( $field['type'] ), $field, $field['id'] );
+				do_action( 'wmhook_metabox_conditional_' . sanitize_html_class( $field['id'] ), $field );
+
+				echo PHP_EOL . "\t" . '</td></tr>';
+			}
 		}
-	} // /wma_field_html
 
-	add_action( 'wmhook_metabox_' . 'render_' . 'html', 'wma_field_html', 10, 2 );
+	}
+} // /wma_field_html
+
+add_action( 'wmhook_metabox_render_html', 'wma_field_html', 10, 2 );

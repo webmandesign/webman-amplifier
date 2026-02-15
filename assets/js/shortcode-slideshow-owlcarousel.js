@@ -7,20 +7,11 @@
  * @subpackage  Shortcodes
  *
  * @since    1.3.11
- * @version  1.3.11
+ * @version  1.6.0
  */
 
-
-
-
-
 jQuery( function() {
-
 	if ( jQuery().owlCarousel ) {
-
-
-
-
 
 		/**
 		 * RTL swap items
@@ -40,25 +31,24 @@ jQuery( function() {
 
 		} // /wmOwlRTLSwapItems
 
-
-
 		jQuery( '.wm-slideshow' )
 			.each( function( item ) {
 
-				var $thisParent          = jQuery( this ),
-				    $this                = $thisParent.find( '.wm-slideshow-container' ),
-				    slideshowSpeed       = ( $thisParent.data( 'speed' ) ) ? ( $thisParent.data( 'speed' ) + 500 ) : ( 3500 ),
-				    pagerNavCustom       = ( $this.data( 'pager' ) ) ? ( $this.data( 'pager' ) ) : ( false ),
-				    pagerNav             = ( $thisParent.data( 'nav' ) && ! pagerNavCustom ) ? ( true ) : ( false ),
-				    transitionSpeed      = 800,
-				    wmOwlTransitionStyle = ( typeof wmOwlTransitionStyle !== 'undefined' ) ? ( wmOwlTransitionStyle ) : ( false );
+				var
+					$thisParent          = jQuery( this ),
+					$this                = $thisParent.find( '.wm-slideshow-container' ),
+					slideshowSpeed       = ( $thisParent.data( 'speed' ) ) ? ( $thisParent.data( 'speed' ) ) : ( 3000 ),
+					pagerNavCustom       = ( $this.data( 'pager' ) ) ? ( $this.data( 'pager' ) ) : ( false ),
+					pagerNav             = ( $thisParent.data( 'nav' ) && ! pagerNavCustom ) ? ( true ) : ( false ),
+					transitionSpeed      = 800,
+					wmOwlTransitionStyle = ( typeof wmOwlTransitionStyle !== 'undefined' ) ? ( wmOwlTransitionStyle ) : ( false );
 
 				$this
 					.owlCarousel( {
 						autoPlay        : slideshowSpeed,
 						stopOnHover     : true,
 						navigation      : true,
-						navigationText  : [ '<', '>' ],
+						navigationText  : [ '←', '→' ],
 						pagination      : pagerNav,
 						slideSpeed      : transitionSpeed,
 						paginationSpeed : transitionSpeed,
@@ -86,11 +76,8 @@ jQuery( function() {
 													.trigger( 'owl.goTo', item );
 
 											} );
-
 									} );
-
 							}
-
 						},
 						/**
 						 * RTL script version support
@@ -102,11 +89,5 @@ jQuery( function() {
 
 			} );
 
-
-
-
-
-
 	}	// /owlCarousel
-
 } );

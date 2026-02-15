@@ -16,6 +16,7 @@
  * @version  1.3.15
  */
 
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 do_action( 'wmhook_shortcode_bb_module_frontend_css', $module, $settings );

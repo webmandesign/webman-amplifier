@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WebMan Amplifier\n"
 "Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
-"POT-Creation-Date: 2019-05-15 18:49+0200\n"
+"POT-Creation-Date: 2026-02-14 21:17+0100\n"
 "PO-Revision-Date: 2015-04-21 12:38+0100\n"
 "Last-Translator: WebMan Design\n"
 "Language-Team: \n"
@@ -11,2205 +11,1919 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-wm-amplifier.php:165
+#: class-wm-amplifier.php:148
 msgctxt "Plugin action link."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/compatibility/woosidebars/class-woosidebars.php:208
+#. translators: %s: taxonomy term title.
+#: includes/compatibility/woosidebars/class-woosidebars.php:179
 #, php-format
 msgid "All posts in \"%s\""
 msgstr ""
 
-#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:119
-#: includes/custom-posts/staff.php:585
-#: includes/shortcodes/definitions/partial/accordion.php:169
-#: includes/shortcodes/definitions/partial/item.php:23
-#: includes/shortcodes/definitions/partial/item.php:37
-#: includes/shortcodes/definitions/partial/price.php:23
-#: includes/shortcodes/definitions/partial/tabs.php:168
+#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:106
+#: includes/custom-posts/staff.php:575
 msgid "Title"
 msgstr ""
 
-#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:122
-#: includes/shortcodes/definitions/partial/accordion.php:181
-#: includes/shortcodes/definitions/partial/accordion.php:270
-#: includes/shortcodes/definitions/partial/button.php:157
-#: includes/shortcodes/definitions/partial/call-to-action.php:38
-#: includes/shortcodes/definitions/partial/call-to-action.php:93
-#: includes/shortcodes/definitions/partial/call-to-action.php:212
-#: includes/shortcodes/definitions/partial/content-module.php:54
-#: includes/shortcodes/definitions/partial/content-module.php:223
-#: includes/shortcodes/definitions/partial/content-module.php:309
-#: includes/shortcodes/definitions/partial/countdown-timer.php:31
-#: includes/shortcodes/definitions/partial/divider.php:69
-#: includes/shortcodes/definitions/partial/icon.php:46
-#: includes/shortcodes/definitions/partial/item.php:33
-#: includes/shortcodes/definitions/partial/list.php:31
-#: includes/shortcodes/definitions/partial/message.php:37
-#: includes/shortcodes/definitions/partial/message.php:82
-#: includes/shortcodes/definitions/partial/message.php:178
-#: includes/shortcodes/definitions/partial/message.php:189
-#: includes/shortcodes/definitions/partial/posts.php:50
-#: includes/shortcodes/definitions/partial/posts.php:164
-#: includes/shortcodes/definitions/partial/posts.php:324
-#: includes/shortcodes/definitions/partial/price.php:31
-#: includes/shortcodes/definitions/partial/pricing-table.php:32
-#: includes/shortcodes/definitions/partial/progress.php:31
-#: includes/shortcodes/definitions/partial/separator-heading.php:31
-#: includes/shortcodes/definitions/partial/table.php:96
-#: includes/shortcodes/definitions/partial/tabs.php:180
-#: includes/shortcodes/definitions/partial/tabs.php:260
-#: includes/shortcodes/definitions/partial/testimonials.php:54
-#: includes/shortcodes/definitions/partial/testimonials.php:209
-#: includes/shortcodes/definitions/partial/testimonials.php:276
-#: includes/shortcodes/definitions/partial/vc.php:319
-#: includes/shortcodes/definitions/partial/vc.php:322
-#: includes/shortcodes/definitions/partial/widget-area.php:31
+#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:109
 msgid "Content"
 msgstr ""
 
-#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:125
-#: includes/shortcodes/definitions/partial/accordion.php:236
-#: includes/shortcodes/definitions/partial/item.php:57
+#: includes/compatibility/wpml/modules/class-wpml-bb-children.php:112
 msgid "Tags"
 msgstr ""
 
-#: includes/custom-posts/logos.php:91 includes/custom-posts/logos.php:92
+#: includes/custom-posts/logos.php:77 includes/custom-posts/logos.php:78
 msgctxt "Custom post labels: Logos."
 msgid "Logos"
 msgstr ""
 
-#: includes/custom-posts/logos.php:93 includes/custom-posts/logos.php:94
-#: includes/custom-posts/logos.php:95
+#: includes/custom-posts/logos.php:79 includes/custom-posts/logos.php:80
+#: includes/custom-posts/logos.php:81
 msgctxt "Custom post labels: Logos."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/logos.php:96
+#: includes/custom-posts/logos.php:82
 msgctxt "Custom post labels: Logos."
 msgid "Edit"
 msgstr ""
 
-#: includes/custom-posts/logos.php:97
+#: includes/custom-posts/logos.php:83
 msgctxt "Custom post labels: Logos."
 msgid "View"
 msgstr ""
 
-#: includes/custom-posts/logos.php:98
+#: includes/custom-posts/logos.php:84
 msgctxt "Custom post labels: Logos."
 msgid "View Logos"
 msgstr ""
 
-#: includes/custom-posts/logos.php:99
+#: includes/custom-posts/logos.php:85
 msgctxt "Custom post labels: Logos."
 msgid "Search"
 msgstr ""
 
-#: includes/custom-posts/logos.php:100
+#: includes/custom-posts/logos.php:86
 msgctxt "Custom post labels: Logos."
 msgid "No item found"
 msgstr ""
 
-#: includes/custom-posts/logos.php:101
+#: includes/custom-posts/logos.php:87
 msgctxt "Custom post labels: Logos."
 msgid "No item found in trash"
 msgstr ""
 
-#: includes/custom-posts/logos.php:102
+#: includes/custom-posts/logos.php:88
 msgctxt "Custom post labels: Logos."
 msgid "Logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:103
+#: includes/custom-posts/logos.php:89
 msgctxt "Custom post labels: Logos."
 msgid "Set logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:104
+#: includes/custom-posts/logos.php:90
 msgctxt "Custom post labels: Logos."
 msgid "Remove logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:105
+#: includes/custom-posts/logos.php:91
 msgctxt "Custom post labels: Logos."
 msgid "Use as logo image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:106
+#: includes/custom-posts/logos.php:92
 msgctxt "Custom post labels: Logos."
 msgid "Filter logos list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:107
+#: includes/custom-posts/logos.php:93
 msgctxt "Custom post labels: Logos."
 msgid "Logos list navigation"
 msgstr ""
 
-#: includes/custom-posts/logos.php:108
+#: includes/custom-posts/logos.php:94
 msgctxt "Custom post labels: Logos."
 msgid "Logos list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:109
+#: includes/custom-posts/logos.php:95
 msgctxt "Custom post labels: Logos."
 msgid "Logo Attributes"
 msgstr ""
 
-#: includes/custom-posts/logos.php:110
+#: includes/custom-posts/logos.php:96
 msgctxt "Custom post labels: Logos."
 msgid "Logo published."
 msgstr ""
 
-#: includes/custom-posts/logos.php:111
+#: includes/custom-posts/logos.php:97
 msgctxt "Custom post labels: Logos."
 msgid "Logo published privately."
 msgstr ""
 
-#: includes/custom-posts/logos.php:112
+#: includes/custom-posts/logos.php:98
 msgctxt "Custom post labels: Logos."
 msgid "Logo reverted to draft."
 msgstr ""
 
-#: includes/custom-posts/logos.php:113
+#: includes/custom-posts/logos.php:99
 msgctxt "Custom post labels: Logos."
 msgid "Logo scheduled."
 msgstr ""
 
-#: includes/custom-posts/logos.php:114
+#: includes/custom-posts/logos.php:100
 msgctxt "Custom post labels: Logos."
 msgid "Logo updated."
 msgstr ""
 
-#: includes/custom-posts/logos.php:150
+#: includes/custom-posts/logos.php:132
 msgid "Logo"
 msgstr ""
 
-#: includes/custom-posts/logos.php:151
+#: includes/custom-posts/logos.php:133
 msgid "Custom link"
 msgstr ""
 
-#: includes/custom-posts/logos.php:243
+#: includes/custom-posts/logos.php:225
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:244
+#: includes/custom-posts/logos.php:226
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:245
+#: includes/custom-posts/logos.php:227
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Search Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:246
+#: includes/custom-posts/logos.php:228
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "All Categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:247 includes/custom-posts/logos.php:248
+#: includes/custom-posts/logos.php:229 includes/custom-posts/logos.php:230
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Parent Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:249
+#: includes/custom-posts/logos.php:231
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Edit Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:250
+#: includes/custom-posts/logos.php:232
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "View Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:251
+#: includes/custom-posts/logos.php:233
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Update Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:252
+#: includes/custom-posts/logos.php:234
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Add New Category"
 msgstr ""
 
-#: includes/custom-posts/logos.php:253
+#: includes/custom-posts/logos.php:235
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "New Category Title"
 msgstr ""
 
-#: includes/custom-posts/logos.php:254
+#: includes/custom-posts/logos.php:236
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "No categories found"
 msgstr ""
 
-#: includes/custom-posts/logos.php:255
+#: includes/custom-posts/logos.php:237
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "No categories"
 msgstr ""
 
-#: includes/custom-posts/logos.php:256
+#: includes/custom-posts/logos.php:238
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories list navigation"
 msgstr ""
 
-#: includes/custom-posts/logos.php:257
+#: includes/custom-posts/logos.php:239
 msgctxt "Custom taxonomy labels: Logos categories."
 msgid "Logo Categories list"
 msgstr ""
 
-#: includes/custom-posts/logos.php:288 includes/custom-posts/logos.php:358
+#: includes/custom-posts/logos.php:270 includes/custom-posts/logos.php:344
 msgid "Logo settings"
 msgstr ""
 
-#: includes/custom-posts/logos.php:294 includes/custom-posts/modules.php:348
-#: includes/custom-posts/testimonials.php:391
+#: includes/custom-posts/logos.php:276 includes/custom-posts/modules.php:361
+#: includes/custom-posts/testimonials.php:381
 msgid "Set featured image"
 msgstr ""
 
-#: includes/custom-posts/logos.php:294
+#: includes/custom-posts/logos.php:276
 msgid "Set the logo image as the featured image of the post"
 msgstr ""
 
-#: includes/custom-posts/logos.php:301 includes/custom-posts/modules.php:313
-#: includes/custom-posts/projects.php:448 includes/custom-posts/staff.php:533
-#: includes/custom-posts/testimonials.php:406
+#: includes/custom-posts/logos.php:283 includes/custom-posts/modules.php:326
+#: includes/custom-posts/projects.php:443 includes/custom-posts/staff.php:523
+#: includes/custom-posts/testimonials.php:396
 msgid "Custom link URL"
 msgstr ""
 
-#: includes/custom-posts/logos.php:302 includes/custom-posts/modules.php:314
-#: includes/custom-posts/projects.php:449 includes/custom-posts/staff.php:534
-#: includes/custom-posts/staff.php:543
-#: includes/custom-posts/testimonials.php:407
+#: includes/custom-posts/logos.php:284 includes/custom-posts/modules.php:327
+#: includes/custom-posts/projects.php:444 includes/custom-posts/staff.php:524
+#: includes/custom-posts/staff.php:533
+#: includes/custom-posts/testimonials.php:397
 msgid "No link will be displayed / applied when left blank"
 msgstr ""
 
-#: includes/custom-posts/logos.php:310 includes/custom-posts/modules.php:322
-#: includes/custom-posts/projects.php:456 includes/custom-posts/staff.php:551
-#: includes/custom-posts/testimonials.php:415
+#: includes/custom-posts/logos.php:292 includes/custom-posts/modules.php:335
+#: includes/custom-posts/projects.php:451 includes/custom-posts/staff.php:541
+#: includes/custom-posts/testimonials.php:405
 msgid "Custom link action"
 msgstr ""
 
-#: includes/custom-posts/logos.php:311 includes/custom-posts/modules.php:323
-#: includes/custom-posts/projects.php:457 includes/custom-posts/staff.php:552
-#: includes/custom-posts/testimonials.php:416
+#: includes/custom-posts/logos.php:293 includes/custom-posts/modules.php:336
+#: includes/custom-posts/projects.php:452 includes/custom-posts/staff.php:542
+#: includes/custom-posts/testimonials.php:406
 msgid "Choose how to display / apply the link set above"
 msgstr ""
 
-#: includes/custom-posts/logos.php:313 includes/custom-posts/modules.php:325
-#: includes/custom-posts/projects.php:465 includes/custom-posts/staff.php:554
-#: includes/custom-posts/testimonials.php:418
+#: includes/custom-posts/logos.php:295 includes/custom-posts/modules.php:338
+#: includes/custom-posts/projects.php:460 includes/custom-posts/staff.php:544
+#: includes/custom-posts/testimonials.php:408
 msgid "Open in new tab / window"
 msgstr ""
 
-#: includes/custom-posts/logos.php:314 includes/custom-posts/modules.php:326
-#: includes/custom-posts/projects.php:466 includes/custom-posts/staff.php:555
-#: includes/custom-posts/testimonials.php:419
-#: includes/shortcodes/definitions/partial/button.php:84
-#: includes/shortcodes/definitions/partial/button.php:182
-#: includes/shortcodes/definitions/partial/call-to-action.php:150
-#: includes/shortcodes/definitions/partial/call-to-action.php:255
-#: includes/shortcodes/definitions/partial/icon.php:93
-#: includes/shortcodes/definitions/partial/vc.php:380
+#: includes/custom-posts/logos.php:296 includes/custom-posts/modules.php:339
+#: includes/custom-posts/projects.php:461 includes/custom-posts/staff.php:545
+#: includes/custom-posts/testimonials.php:409
 msgid "Open in same window"
 msgstr ""
 
-#: includes/custom-posts/modules.php:92
+#: includes/custom-posts/modules.php:79
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules"
 msgstr ""
 
-#: includes/custom-posts/modules.php:93
+#: includes/custom-posts/modules.php:80
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:94 includes/custom-posts/modules.php:96
+#: includes/custom-posts/modules.php:81 includes/custom-posts/modules.php:83
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/modules.php:95
+#: includes/custom-posts/modules.php:82
 msgctxt "Custom post labels: Content Modules."
 msgid "Add New module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:97
+#: includes/custom-posts/modules.php:84
 msgctxt "Custom post labels: Content Modules."
 msgid "Edit Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:98
+#: includes/custom-posts/modules.php:85
 msgctxt "Custom post labels: Content Modules."
 msgid "View Module"
 msgstr ""
 
-#: includes/custom-posts/modules.php:99
+#: includes/custom-posts/modules.php:86
 msgctxt "Custom post labels: Content Modules."
 msgid "View Modules"
 msgstr ""
 
-#: includes/custom-posts/modules.php:100
+#: includes/custom-posts/modules.php:87
 msgctxt "Custom post labels: Content Modules."
 msgid "Search Modules"
 msgstr ""
 
-#: includes/custom-posts/modules.php:101
+#: includes/custom-posts/modules.php:88
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found"
 msgstr ""
 
-#: includes/custom-posts/modules.php:102
+#: includes/custom-posts/modules.php:89
 msgctxt "Custom post labels: Content Modules."
 msgid "No module found in trash"
 msgstr ""
 
-#: includes/custom-posts/modules.php:103
+#: includes/custom-posts/modules.php:90
 msgctxt "Custom post labels: Content Modules."
 msgid "Filter content modules list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:104
+#: includes/custom-posts/modules.php:91
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules list navigation"
 msgstr ""
 
-#: includes/custom-posts/modules.php:105
+#: includes/custom-posts/modules.php:92
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Modules list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:106
+#: includes/custom-posts/modules.php:93
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module Attributes"
 msgstr ""
 
-#: includes/custom-posts/modules.php:107
+#: includes/custom-posts/modules.php:94
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module published."
 msgstr ""
 
-#: includes/custom-posts/modules.php:108
+#: includes/custom-posts/modules.php:95
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module published privately."
 msgstr ""
 
-#: includes/custom-posts/modules.php:109
+#: includes/custom-posts/modules.php:96
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module reverted to draft."
 msgstr ""
 
-#: includes/custom-posts/modules.php:110
+#: includes/custom-posts/modules.php:97
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module scheduled."
 msgstr ""
 
-#: includes/custom-posts/modules.php:111
+#: includes/custom-posts/modules.php:98
 msgctxt "Custom post labels: Content Modules."
 msgid "Content Module updated."
 msgstr ""
 
-#: includes/custom-posts/modules.php:147 includes/custom-posts/projects.php:159
-#: includes/shortcodes/definitions/partial/vc.php:351
+#: includes/custom-posts/modules.php:130 includes/custom-posts/projects.php:142
 msgid "Image"
-msgstr ""
-
-#: includes/custom-posts/modules.php:250
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Module Tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:251
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Module Tag"
-msgstr ""
-
-#: includes/custom-posts/modules.php:252
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Search Tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:253
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Popular Tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:254
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "All Tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:255
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Edit Tag"
-msgstr ""
-
-#: includes/custom-posts/modules.php:256
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "View Tag"
-msgstr ""
-
-#: includes/custom-posts/modules.php:257
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Update Tag"
-msgstr ""
-
-#: includes/custom-posts/modules.php:258
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Add New Tag"
-msgstr ""
-
-#: includes/custom-posts/modules.php:259
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "New Tag Title"
-msgstr ""
-
-#: includes/custom-posts/modules.php:260
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Separate tags with commas"
-msgstr ""
-
-#: includes/custom-posts/modules.php:261
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Add or remove tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:262
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Choose from the most used tags"
-msgstr ""
-
-#: includes/custom-posts/modules.php:263
-msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "No tags found"
 msgstr ""
 
 #: includes/custom-posts/modules.php:264
 msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "No tags"
+msgid "Module Tags"
 msgstr ""
 
 #: includes/custom-posts/modules.php:265
 msgctxt "Custom taxonomy labels: Content Modules tags."
-msgid "Module Tags list navigation"
+msgid "Module Tag"
 msgstr ""
 
 #: includes/custom-posts/modules.php:266
 msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Search Tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:267
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Popular Tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:268
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "All Tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:269
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Edit Tag"
+msgstr ""
+
+#: includes/custom-posts/modules.php:270
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "View Tag"
+msgstr ""
+
+#: includes/custom-posts/modules.php:271
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Update Tag"
+msgstr ""
+
+#: includes/custom-posts/modules.php:272
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Add New Tag"
+msgstr ""
+
+#: includes/custom-posts/modules.php:273
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "New Tag Title"
+msgstr ""
+
+#: includes/custom-posts/modules.php:274
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Separate tags with commas"
+msgstr ""
+
+#: includes/custom-posts/modules.php:275
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Add or remove tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:276
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:277
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "No tags found"
+msgstr ""
+
+#: includes/custom-posts/modules.php:278
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "No tags"
+msgstr ""
+
+#: includes/custom-posts/modules.php:279
+msgctxt "Custom taxonomy labels: Content Modules tags."
+msgid "Module Tags list navigation"
+msgstr ""
+
+#: includes/custom-posts/modules.php:280
+msgctxt "Custom taxonomy labels: Content Modules tags."
 msgid "Module Tags list"
 msgstr ""
 
-#: includes/custom-posts/modules.php:306
+#: includes/custom-posts/modules.php:319
 msgctxt "Metabox section title."
 msgid "Settings"
 msgstr ""
 
-#: includes/custom-posts/modules.php:335
+#: includes/custom-posts/modules.php:348
 msgid "Use as icon box"
 msgstr ""
 
-#: includes/custom-posts/modules.php:336
+#: includes/custom-posts/modules.php:349
 msgid "Creates an icon box"
 msgstr ""
 
-#: includes/custom-posts/modules.php:348
+#: includes/custom-posts/modules.php:361
 msgid ""
 "Set the icon as featured image of the post. If the font icon is used "
 "instead, it will be prioritized."
 msgstr ""
 
-#: includes/custom-posts/modules.php:356
+#: includes/custom-posts/modules.php:370
 msgid "...or choose a font icon"
 msgstr ""
 
-#: includes/custom-posts/modules.php:357
+#: includes/custom-posts/modules.php:371
 msgid "Select from predefined font icons"
 msgstr ""
 
-#: includes/custom-posts/modules.php:369
+#: includes/custom-posts/modules.php:383
 msgid "Font icon color"
 msgstr ""
 
-#: includes/custom-posts/modules.php:370
+#: includes/custom-posts/modules.php:384
 msgid "Set the color of the icon font"
 msgstr ""
 
-#: includes/custom-posts/modules.php:387
+#: includes/custom-posts/modules.php:401
 msgid "Icon background color"
 msgstr ""
 
-#: includes/custom-posts/modules.php:388
+#: includes/custom-posts/modules.php:402
 msgid "Set the color of the icon background"
 msgstr ""
 
-#: includes/custom-posts/modules.php:445
+#: includes/custom-posts/modules.php:464
 msgid "Module settings"
 msgstr ""
 
-#: includes/custom-posts/projects.php:103
+#: includes/custom-posts/projects.php:90
 msgctxt "Custom post labels: Projects."
 msgid "Projects"
 msgstr ""
 
-#: includes/custom-posts/projects.php:104
+#: includes/custom-posts/projects.php:91
 msgctxt "Custom post labels: Projects."
 msgid "Project"
 msgstr ""
 
-#: includes/custom-posts/projects.php:105
-#: includes/custom-posts/projects.php:107
+#: includes/custom-posts/projects.php:92 includes/custom-posts/projects.php:94
 msgctxt "Custom post labels: Projects."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/projects.php:106
+#: includes/custom-posts/projects.php:93
 msgctxt "Custom post labels: Projects."
 msgid "Add New Project"
 msgstr ""
 
-#: includes/custom-posts/projects.php:108
+#: includes/custom-posts/projects.php:95
 msgctxt "Custom post labels: Projects."
 msgid "Edit Project"
 msgstr ""
 
-#: includes/custom-posts/projects.php:109
+#: includes/custom-posts/projects.php:96
 msgctxt "Custom post labels: Projects."
 msgid "View Project"
 msgstr ""
 
-#: includes/custom-posts/projects.php:110
+#: includes/custom-posts/projects.php:97
 msgctxt "Custom post labels: Projects."
 msgid "View Projects"
 msgstr ""
 
-#: includes/custom-posts/projects.php:111
+#: includes/custom-posts/projects.php:98
 msgctxt "Custom post labels: Projects."
 msgid "Search Projects"
 msgstr ""
 
-#: includes/custom-posts/projects.php:112
+#: includes/custom-posts/projects.php:99
 msgctxt "Custom post labels: Projects."
 msgid "No project found"
 msgstr ""
 
-#: includes/custom-posts/projects.php:113
+#: includes/custom-posts/projects.php:100
 msgctxt "Custom post labels: Projects."
 msgid "No project found in trash"
 msgstr ""
 
-#: includes/custom-posts/projects.php:114
+#: includes/custom-posts/projects.php:101
 msgctxt "Custom post labels: Projects."
 msgid "Filter projects list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:115
+#: includes/custom-posts/projects.php:102
 msgctxt "Custom post labels: Projects."
 msgid "Projects list navigation"
 msgstr ""
 
-#: includes/custom-posts/projects.php:116
+#: includes/custom-posts/projects.php:103
 msgctxt "Custom post labels: Projects."
 msgid "Projects list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:117
+#: includes/custom-posts/projects.php:104
 msgctxt "Custom post labels: Projects."
 msgid "Project Attributes"
 msgstr ""
 
-#: includes/custom-posts/projects.php:118
+#: includes/custom-posts/projects.php:105
 msgctxt "Custom post labels: Projects."
 msgid "Project published."
 msgstr ""
 
-#: includes/custom-posts/projects.php:119
+#: includes/custom-posts/projects.php:106
 msgctxt "Custom post labels: Projects."
 msgid "Project published privately."
 msgstr ""
 
-#: includes/custom-posts/projects.php:120
+#: includes/custom-posts/projects.php:107
 msgctxt "Custom post labels: Projects."
 msgid "Project reverted to draft."
 msgstr ""
 
-#: includes/custom-posts/projects.php:121
+#: includes/custom-posts/projects.php:108
 msgctxt "Custom post labels: Projects."
 msgid "Project scheduled."
 msgstr ""
 
-#: includes/custom-posts/projects.php:122
+#: includes/custom-posts/projects.php:109
 msgctxt "Custom post labels: Projects."
 msgid "Project updated."
 msgstr ""
 
-#: includes/custom-posts/projects.php:257
+#: includes/custom-posts/projects.php:241
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Categories"
 msgstr ""
 
-#: includes/custom-posts/projects.php:258
+#: includes/custom-posts/projects.php:242
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:259
+#: includes/custom-posts/projects.php:243
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Search Categories"
 msgstr ""
 
-#: includes/custom-posts/projects.php:260
+#: includes/custom-posts/projects.php:244
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "All Categories"
 msgstr ""
 
-#: includes/custom-posts/projects.php:261
-#: includes/custom-posts/projects.php:262
+#: includes/custom-posts/projects.php:245
+#: includes/custom-posts/projects.php:246
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Parent Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:263
+#: includes/custom-posts/projects.php:247
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Edit Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:264
+#: includes/custom-posts/projects.php:248
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "View Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:265
+#: includes/custom-posts/projects.php:249
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Update Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:266
+#: includes/custom-posts/projects.php:250
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Add New Category"
 msgstr ""
 
-#: includes/custom-posts/projects.php:267
+#: includes/custom-posts/projects.php:251
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "New Category Title"
 msgstr ""
 
-#: includes/custom-posts/projects.php:268
+#: includes/custom-posts/projects.php:252
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "No categories found"
 msgstr ""
 
-#: includes/custom-posts/projects.php:269
+#: includes/custom-posts/projects.php:253
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "No categories"
 msgstr ""
 
-#: includes/custom-posts/projects.php:270
+#: includes/custom-posts/projects.php:254
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Categories list navigation"
 msgstr ""
 
-#: includes/custom-posts/projects.php:271
+#: includes/custom-posts/projects.php:255
 msgctxt "Custom taxonomy labels: Projects categories."
 msgid "Project Categories list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:289
+#: includes/custom-posts/projects.php:273
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:290
+#: includes/custom-posts/projects.php:274
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tag"
 msgstr ""
 
-#: includes/custom-posts/projects.php:291
+#: includes/custom-posts/projects.php:275
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Search Tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:292
+#: includes/custom-posts/projects.php:276
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Popular Tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:293
+#: includes/custom-posts/projects.php:277
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "All Tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:294
+#: includes/custom-posts/projects.php:278
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Edit Tag"
 msgstr ""
 
-#: includes/custom-posts/projects.php:295
+#: includes/custom-posts/projects.php:279
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "View Tag"
 msgstr ""
 
-#: includes/custom-posts/projects.php:296
+#: includes/custom-posts/projects.php:280
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Update Tag"
 msgstr ""
 
-#: includes/custom-posts/projects.php:297
+#: includes/custom-posts/projects.php:281
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Add New Tag"
 msgstr ""
 
-#: includes/custom-posts/projects.php:298
+#: includes/custom-posts/projects.php:282
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "New Tag Title"
 msgstr ""
 
-#: includes/custom-posts/projects.php:299
+#: includes/custom-posts/projects.php:283
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Separate tags with commas"
 msgstr ""
 
-#: includes/custom-posts/projects.php:300
+#: includes/custom-posts/projects.php:284
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Add or remove tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:301
+#: includes/custom-posts/projects.php:285
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Choose from the most used tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:302
+#: includes/custom-posts/projects.php:286
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "No tags found"
 msgstr ""
 
-#: includes/custom-posts/projects.php:303
+#: includes/custom-posts/projects.php:287
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "No tags"
 msgstr ""
 
-#: includes/custom-posts/projects.php:304
+#: includes/custom-posts/projects.php:288
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tags list navigation"
 msgstr ""
 
-#: includes/custom-posts/projects.php:305
+#: includes/custom-posts/projects.php:289
 msgctxt "Custom taxonomy labels: Projects tags."
 msgid "Project Tags list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:347
+#: includes/custom-posts/projects.php:328
 msgid "Projects Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/projects.php:356
+#: includes/custom-posts/projects.php:337
 msgid "Projects archive permalink"
 msgstr ""
 
-#: includes/custom-posts/projects.php:368
+#: includes/custom-posts/projects.php:349
 msgid "Single project permalink"
 msgstr ""
 
-#: includes/custom-posts/projects.php:380
+#: includes/custom-posts/projects.php:361
 msgid "Project category base"
 msgstr ""
 
-#: includes/custom-posts/projects.php:392
+#: includes/custom-posts/projects.php:373
 msgid "Project tag base"
 msgstr ""
 
-#: includes/custom-posts/projects.php:415
+#: includes/custom-posts/projects.php:405
 msgid "You can change the Projects custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/projects.php:441
+#: includes/custom-posts/projects.php:436
 msgctxt "Metabox section title."
 msgid "Attributes"
 msgstr ""
 
-#: includes/custom-posts/projects.php:460
+#: includes/custom-posts/projects.php:455
 msgid "Project page"
 msgstr ""
 
-#: includes/custom-posts/projects.php:461
+#: includes/custom-posts/projects.php:456
 msgid "Display link on project page"
 msgstr ""
 
-#: includes/custom-posts/projects.php:463
+#: includes/custom-posts/projects.php:458
 msgid "Apply directly in projects list"
 msgstr ""
 
-#: includes/custom-posts/projects.php:464
+#: includes/custom-posts/projects.php:459
 msgid "Open in popup window (videos and images only)"
 msgstr ""
 
-#: includes/custom-posts/projects.php:511
+#: includes/custom-posts/projects.php:510
 msgid "Project settings"
 msgstr ""
 
-#: includes/custom-posts/staff.php:105
+#: includes/custom-posts/staff.php:91
 msgctxt "Custom post labels: Staff."
 msgid "Staff"
 msgstr ""
 
-#: includes/custom-posts/staff.php:106
+#: includes/custom-posts/staff.php:92
 msgctxt "Custom post labels: Staff."
 msgid "Person"
 msgstr ""
 
-#: includes/custom-posts/staff.php:107 includes/custom-posts/staff.php:109
+#: includes/custom-posts/staff.php:93 includes/custom-posts/staff.php:95
 msgctxt "Custom post labels: Staff."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/staff.php:108
+#: includes/custom-posts/staff.php:94
 msgctxt "Custom post labels: Staff."
 msgid "Add Person"
 msgstr ""
 
-#: includes/custom-posts/staff.php:110
+#: includes/custom-posts/staff.php:96
 msgctxt "Custom post labels: Staff."
 msgid "Edit Person"
 msgstr ""
 
-#: includes/custom-posts/staff.php:111
+#: includes/custom-posts/staff.php:97
 msgctxt "Custom post labels: Staff."
 msgid "View Person"
 msgstr ""
 
-#: includes/custom-posts/staff.php:112
+#: includes/custom-posts/staff.php:98
 msgctxt "Custom post labels: Staff."
 msgid "View Staff"
 msgstr ""
 
-#: includes/custom-posts/staff.php:113
+#: includes/custom-posts/staff.php:99
 msgctxt "Custom post labels: Staff."
 msgid "Search Staff"
 msgstr ""
 
-#: includes/custom-posts/staff.php:114 includes/custom-posts/staff.php:115
+#: includes/custom-posts/staff.php:100 includes/custom-posts/staff.php:101
 msgctxt "Custom post labels: Staff."
 msgid "No person found"
 msgstr ""
 
-#: includes/custom-posts/staff.php:116
+#: includes/custom-posts/staff.php:102
 msgctxt "Custom post labels: Staff."
 msgid "Person photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:117
+#: includes/custom-posts/staff.php:103
 msgctxt "Custom post labels: Staff."
 msgid "Set person photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:118
+#: includes/custom-posts/staff.php:104
 msgctxt "Custom post labels: Staff."
 msgid "Remove person photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:119
+#: includes/custom-posts/staff.php:105
 msgctxt "Custom post labels: Staff."
 msgid "Use as person photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:120
+#: includes/custom-posts/staff.php:106
 msgctxt "Custom post labels: Staff."
 msgid "Filter staff list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:121
+#: includes/custom-posts/staff.php:107
 msgctxt "Custom post labels: Staff."
 msgid "Staff list navigation"
 msgstr ""
 
-#: includes/custom-posts/staff.php:122
+#: includes/custom-posts/staff.php:108
 msgctxt "Custom post labels: Staff."
 msgid "Staff list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:123
+#: includes/custom-posts/staff.php:109
 msgctxt "Custom post labels: Staff."
 msgid "Staff Attributes"
 msgstr ""
 
-#: includes/custom-posts/staff.php:124
+#: includes/custom-posts/staff.php:110
 msgctxt "Custom post labels: Staff."
 msgid "Staff published."
 msgstr ""
 
-#: includes/custom-posts/staff.php:125
+#: includes/custom-posts/staff.php:111
 msgctxt "Custom post labels: Staff."
 msgid "Staff published privately."
 msgstr ""
 
-#: includes/custom-posts/staff.php:126
+#: includes/custom-posts/staff.php:112
 msgctxt "Custom post labels: Staff."
 msgid "Staff reverted to draft."
 msgstr ""
 
-#: includes/custom-posts/staff.php:127
+#: includes/custom-posts/staff.php:113
 msgctxt "Custom post labels: Staff."
 msgid "Staff scheduled."
 msgstr ""
 
-#: includes/custom-posts/staff.php:128
+#: includes/custom-posts/staff.php:114
 msgctxt "Custom post labels: Staff."
 msgid "Staff updated."
 msgstr ""
 
-#: includes/custom-posts/staff.php:158
+#: includes/custom-posts/staff.php:145
 msgid "Enter person name here"
 msgstr ""
 
-#: includes/custom-posts/staff.php:194
-#: includes/custom-posts/testimonials.php:156
+#: includes/custom-posts/staff.php:178
+#: includes/custom-posts/testimonials.php:139
 msgid "Photo"
 msgstr ""
 
-#: includes/custom-posts/staff.php:287
+#: includes/custom-posts/staff.php:266
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:288
+#: includes/custom-posts/staff.php:267
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:289
+#: includes/custom-posts/staff.php:268
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Search Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:290
+#: includes/custom-posts/staff.php:269
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "All Departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:291 includes/custom-posts/staff.php:292
+#: includes/custom-posts/staff.php:270 includes/custom-posts/staff.php:271
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Parent Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:293
+#: includes/custom-posts/staff.php:272
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Edit Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:294
+#: includes/custom-posts/staff.php:273
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "View Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:295
+#: includes/custom-posts/staff.php:274
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Update Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:296
+#: includes/custom-posts/staff.php:275
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Add New Department"
 msgstr ""
 
-#: includes/custom-posts/staff.php:297
+#: includes/custom-posts/staff.php:276
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "New Department Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:298
+#: includes/custom-posts/staff.php:277
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "No departments found"
 msgstr ""
 
-#: includes/custom-posts/staff.php:299
+#: includes/custom-posts/staff.php:278
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "No departments"
 msgstr ""
 
-#: includes/custom-posts/staff.php:300
+#: includes/custom-posts/staff.php:279
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Departments list navigation"
 msgstr ""
 
-#: includes/custom-posts/staff.php:301
+#: includes/custom-posts/staff.php:280
 msgctxt "Custom taxonomy labels: Staff departments."
 msgid "Departments list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:319
+#: includes/custom-posts/staff.php:298
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:320
+#: includes/custom-posts/staff.php:299
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:321
+#: includes/custom-posts/staff.php:300
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Search Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:322
+#: includes/custom-posts/staff.php:301
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Popular Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:323
+#: includes/custom-posts/staff.php:302
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "All Positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:324
+#: includes/custom-posts/staff.php:303
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Edit Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:325
+#: includes/custom-posts/staff.php:304
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "View Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:326
+#: includes/custom-posts/staff.php:305
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Update Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:327
+#: includes/custom-posts/staff.php:306
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Add New Position"
 msgstr ""
 
-#: includes/custom-posts/staff.php:328
+#: includes/custom-posts/staff.php:307
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "New Position Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:329
+#: includes/custom-posts/staff.php:308
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Separate positions with commas"
 msgstr ""
 
-#: includes/custom-posts/staff.php:330
+#: includes/custom-posts/staff.php:309
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Add or remove positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:331
+#: includes/custom-posts/staff.php:310
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Choose from the most used positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:332
+#: includes/custom-posts/staff.php:311
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "No positions found"
 msgstr ""
 
-#: includes/custom-posts/staff.php:333
+#: includes/custom-posts/staff.php:312
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "No positions"
 msgstr ""
 
-#: includes/custom-posts/staff.php:334
+#: includes/custom-posts/staff.php:313
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Positions list navigation"
 msgstr ""
 
-#: includes/custom-posts/staff.php:335
+#: includes/custom-posts/staff.php:314
 msgctxt "Custom taxonomy labels: Staff positions."
 msgid "Positions list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:353
+#: includes/custom-posts/staff.php:332
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:354
+#: includes/custom-posts/staff.php:333
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:355
+#: includes/custom-posts/staff.php:334
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Search Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:356
+#: includes/custom-posts/staff.php:335
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Popular Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:357
+#: includes/custom-posts/staff.php:336
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "All Specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:358
+#: includes/custom-posts/staff.php:337
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Edit Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:359
+#: includes/custom-posts/staff.php:338
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "View Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:360
+#: includes/custom-posts/staff.php:339
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Update Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:361
+#: includes/custom-posts/staff.php:340
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Add New Specialty"
 msgstr ""
 
-#: includes/custom-posts/staff.php:362
+#: includes/custom-posts/staff.php:341
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "New Specialty Title"
 msgstr ""
 
-#: includes/custom-posts/staff.php:363
+#: includes/custom-posts/staff.php:342
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Separate specialties with commas"
 msgstr ""
 
-#: includes/custom-posts/staff.php:364
+#: includes/custom-posts/staff.php:343
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Add or remove specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:365
+#: includes/custom-posts/staff.php:344
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Choose from the most used specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:366
+#: includes/custom-posts/staff.php:345
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "No specialties found"
 msgstr ""
 
-#: includes/custom-posts/staff.php:367
+#: includes/custom-posts/staff.php:346
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "No specialties"
 msgstr ""
 
-#: includes/custom-posts/staff.php:368
+#: includes/custom-posts/staff.php:347
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Specialties list navigation"
 msgstr ""
 
-#: includes/custom-posts/staff.php:369
+#: includes/custom-posts/staff.php:348
 msgctxt "Custom taxonomy labels: Staff specialties."
 msgid "Specialties list"
 msgstr ""
 
-#: includes/custom-posts/staff.php:411
+#: includes/custom-posts/staff.php:387
 msgid "Staff Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/staff.php:420
+#: includes/custom-posts/staff.php:396
 msgid "Staff archive permalink"
 msgstr ""
 
-#: includes/custom-posts/staff.php:432
+#: includes/custom-posts/staff.php:408
 msgid "Single person permalink"
 msgstr ""
 
-#: includes/custom-posts/staff.php:444
+#: includes/custom-posts/staff.php:420
 msgid "Staff department base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:456
+#: includes/custom-posts/staff.php:432
 msgid "Staff positions base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:468
+#: includes/custom-posts/staff.php:444
 msgid "Staff specialty base"
 msgstr ""
 
-#: includes/custom-posts/staff.php:491
+#: includes/custom-posts/staff.php:476
 msgid "You can change the Staff custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/staff.php:526
+#: includes/custom-posts/staff.php:516
 msgctxt "Metabox section title."
 msgid "Info"
 msgstr ""
 
-#: includes/custom-posts/staff.php:542
+#: includes/custom-posts/staff.php:532
 msgid "...or link to a page"
 msgstr ""
 
-#: includes/custom-posts/staff.php:569
+#: includes/custom-posts/staff.php:559
 msgctxt "Metabox section title."
 msgid "Contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:578
-#: includes/shortcodes/definitions/partial/accordion.php:208
-#: includes/shortcodes/definitions/partial/button.php:120
-#: includes/shortcodes/definitions/partial/button.php:127
-#: includes/shortcodes/definitions/partial/button.php:209
-#: includes/shortcodes/definitions/partial/icon.php:49
-#: includes/shortcodes/definitions/partial/item.php:45
-#: includes/shortcodes/definitions/partial/message.php:102
-#: includes/shortcodes/definitions/partial/message.php:109
-#: includes/shortcodes/definitions/partial/message.php:214
-#: includes/shortcodes/definitions/partial/tabs.php:207
+#: includes/custom-posts/staff.php:568
 msgid "Icon"
 msgstr ""
 
-#: includes/custom-posts/staff.php:590
+#: includes/custom-posts/staff.php:580
 msgid "HTML content"
 msgstr ""
 
-#: includes/custom-posts/staff.php:596
+#: includes/custom-posts/staff.php:586
 msgid "Staff contacts"
 msgstr ""
 
-#: includes/custom-posts/staff.php:640
+#: includes/custom-posts/staff.php:635
 msgid "Staff settings"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:101
+#: includes/custom-posts/testimonials.php:88
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonials"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:102
+#: includes/custom-posts/testimonials.php:89
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:103
-#: includes/custom-posts/testimonials.php:106
+#: includes/custom-posts/testimonials.php:90
+#: includes/custom-posts/testimonials.php:93
 msgctxt "Custom post labels: Testimonials."
 msgid "Add New"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:104
+#: includes/custom-posts/testimonials.php:91
 msgctxt "Custom post labels: Testimonials."
 msgid "Add New Testimonial"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:105
+#: includes/custom-posts/testimonials.php:92
 msgctxt "Custom post labels: Testimonials."
 msgid "Edit Testimonial"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:107
+#: includes/custom-posts/testimonials.php:94
 msgctxt "Custom post labels: Testimonials."
 msgid "View Testimonial"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:108
+#: includes/custom-posts/testimonials.php:95
 msgctxt "Custom post labels: Testimonials."
 msgid "View Testimonials"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:109
+#: includes/custom-posts/testimonials.php:96
 msgctxt "Custom post labels: Testimonials."
 msgid "Search Testimonials"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:110
+#: includes/custom-posts/testimonials.php:97
 msgctxt "Custom post labels: Testimonials."
 msgid "No testimonial found"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:111
+#: includes/custom-posts/testimonials.php:98
 msgctxt "Custom post labels: Testimonials."
 msgid "No testimonials found in trash"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:112
+#: includes/custom-posts/testimonials.php:99
 msgctxt "Custom post labels: Testimonials."
 msgid "Filter testimonials list"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:113
+#: includes/custom-posts/testimonials.php:100
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonials list navigation"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:114
+#: includes/custom-posts/testimonials.php:101
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonials list"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:115
+#: includes/custom-posts/testimonials.php:102
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial Attributes"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:116
+#: includes/custom-posts/testimonials.php:103
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial published."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:117
+#: includes/custom-posts/testimonials.php:104
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial published privately."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:118
+#: includes/custom-posts/testimonials.php:105
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial reverted to draft."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:119
+#: includes/custom-posts/testimonials.php:106
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial scheduled."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:120
+#: includes/custom-posts/testimonials.php:107
 msgctxt "Custom post labels: Testimonials."
 msgid "Testimonial updated."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:249
+#: includes/custom-posts/testimonials.php:227
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Categories"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:250
+#: includes/custom-posts/testimonials.php:228
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:251
+#: includes/custom-posts/testimonials.php:229
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Search Categories"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:252
+#: includes/custom-posts/testimonials.php:230
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "All Categories"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:253
-#: includes/custom-posts/testimonials.php:254
+#: includes/custom-posts/testimonials.php:231
+#: includes/custom-posts/testimonials.php:232
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Parent Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:255
+#: includes/custom-posts/testimonials.php:233
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Edit Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:256
+#: includes/custom-posts/testimonials.php:234
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "View Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:257
+#: includes/custom-posts/testimonials.php:235
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Update Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:258
+#: includes/custom-posts/testimonials.php:236
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Add New Category"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:259
+#: includes/custom-posts/testimonials.php:237
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "New Category Title"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:260
+#: includes/custom-posts/testimonials.php:238
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "No categories found"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:261
+#: includes/custom-posts/testimonials.php:239
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "No categories"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:262
+#: includes/custom-posts/testimonials.php:240
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Testimonials Categories list navigation"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:263
+#: includes/custom-posts/testimonials.php:241
 msgctxt "Custom taxonomy labels: Testimonials categories."
 msgid "Testimonials Categories list"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:304
+#: includes/custom-posts/testimonials.php:279
 msgid "Testimonials Custom Post Permalinks"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:313
+#: includes/custom-posts/testimonials.php:288
 msgid "Testimonials archive permalink"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:325
+#: includes/custom-posts/testimonials.php:300
 msgid "Single testimonial permalink"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:337
+#: includes/custom-posts/testimonials.php:312
 msgid "Testimonial category base"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:359
+#: includes/custom-posts/testimonials.php:344
 msgid "You can change the Testimonials custom post type permalinks here."
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:385
+#: includes/custom-posts/testimonials.php:375
 msgctxt "Metabox section title."
 msgid "Author"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:391
+#: includes/custom-posts/testimonials.php:381
 msgid "You can set the testimonial author photo or logo as post featured image"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:398
+#: includes/custom-posts/testimonials.php:388
 msgid "Testimonial author"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:399
+#: includes/custom-posts/testimonials.php:389
 msgid "Set the testimonial author name here"
 msgstr ""
 
-#: includes/custom-posts/testimonials.php:463
+#: includes/custom-posts/testimonials.php:458
 msgid "Testimonial settings"
 msgstr ""
 
-#: includes/functions.php:263
+#: includes/functions.php:269
 msgid "All posts"
 msgstr ""
 
-#: includes/functions.php:392
+#: includes/functions.php:401
 msgid "- Select item -"
 msgstr ""
 
-#: includes/functions.php:434
+#: includes/functions.php:461
 msgid "- Select a page -"
 msgstr ""
 
-#: includes/functions.php:486
+#: includes/functions.php:530
 msgid "- Select area -"
 msgstr ""
 
-#: includes/functions.php:1378
+#: includes/functions.php:1304
 msgid "Original image size (full)"
 msgstr ""
 
-#: includes/functions.php:1379
+#: includes/functions.php:1306
 msgctxt "WordPress image size actions."
 msgid "scaled"
 msgstr ""
 
-#: includes/functions.php:1379
+#: includes/functions.php:1307
 msgctxt "WordPress image size actions."
 msgid "cropped"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:263
+#: includes/icons/class-icon-font.php:318
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:271
+#: includes/icons/class-icon-font.php:326
 msgctxt "Admin page title."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:272
+#: includes/icons/class-icon-font.php:327
 msgctxt "Admin menu title."
 msgid "Icon Font"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:299
+#: includes/icons/class-icon-font.php:355
 msgid "List of the recently used icons with their CSS classes:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:304
+#: includes/icons/class-icon-font.php:361
 msgid "CSS class:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:305
+#: includes/icons/class-icon-font.php:362
 msgid "Instant HTML:"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:321
+#: includes/icons/class-icon-font.php:379
 msgid "Fontello ZIP package file"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:322
+#: includes/icons/class-icon-font.php:380
 msgid "Set the file"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:323
+#: includes/icons/class-icon-font.php:381
 msgid "Fontello ZIP package file URL"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:324
+#. translators: %s: link to Fontello.com.
+#: includes/icons/class-icon-font.php:384
 #, php-format
-msgid ""
-"Upload a new icon font ZIP package generated with <a%s>Fontello.com</a>.<br /"
-">Use the default button on right to empty the input field and set the "
-"default icon font file.<br /><strong>IMPORTANT: Please do not use custom "
-"font name when creating your Fontello.com selection. Leave the field blank "
-"or use \"fontello\" as font name. Otherwise the font icons will not be "
-"generated.</strong>"
+msgid "Upload a new icon font ZIP package generated with %s."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:357
+#: includes/icons/class-icon-font.php:386
+msgid ""
+"Use the default button on right to empty the input field and set the default "
+"icon font file."
+msgstr ""
+
+#: includes/icons/class-icon-font.php:389
+msgid ""
+"IMPORTANT: Please do not use custom font name when creating your "
+"Fontello.com selection. Leave the field blank or use \"fontello\" as font "
+"name. Otherwise the font icons will not be generated."
+msgstr ""
+
+#: includes/icons/class-icon-font.php:425
 msgid "Icon Font Setup"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:364
-#, php-format
+#: includes/icons/class-icon-font.php:436
 msgid ""
-"<strong>You are currently on a WordPress multisite installation and ZIP file "
-"upload is disabled.</strong><br/>Go to your <a%s>Network settings page</a> "
-"and add the \"zip\" file extension to the list of allowed <em>\"Upload file "
-"types\"</em>."
+"You are currently on a WordPress multisite installation and ZIP file upload "
+"is disabled."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:366
+#: includes/icons/class-icon-font.php:439
+msgid ""
+"Go to your Network settings page and add the \"zip\" file extension to the "
+"list of allowed \"Upload file types\"."
+msgstr ""
+
+#: includes/icons/class-icon-font.php:442
+msgid "Network settings →"
+msgstr ""
+
+#: includes/icons/class-icon-font.php:447
 msgid "The ZIP file was processed successfully and new icon font was set up."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:368
-msgid "<strong>Error during processing of your ZIP file.</strong>"
+#: includes/icons/class-icon-font.php:453
+msgid "Error during processing of your ZIP file."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:370
+#: includes/icons/class-icon-font.php:460
 msgid ""
-"<strong>Using this feature is reserved for administrators. You don't have "
-"the necessary permissions.</strong>"
+"Using this feature is reserved for administrators. You don't have the "
+"necessary permissions."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:372
+#: includes/icons/class-icon-font.php:465
 msgid "Default icon font file was restored."
 msgstr ""
 
-#: includes/icons/class-icon-font.php:391
+#: includes/icons/class-icon-font.php:484
 msgid "Icon Font File Setup"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:405
+#: includes/icons/class-icon-font.php:496
 msgid "Save changes"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:417
+#. translators: %s: linked file URL.
+#: includes/icons/class-icon-font.php:512
 #, php-format
 msgid "To display the icon font, please, use this CSS file: %s"
 msgstr ""
 
-#: includes/icons/class-icon-font.php:446
+#: includes/icons/class-icon-font.php:573
 msgid "Use default"
 msgstr ""
 
-#: includes/metabox/class-metabox.php:426
-#: includes/metabox/class-metabox.php:601
+#: includes/metabox/class-metabox.php:429
+#: includes/metabox/class-metabox.php:627
 msgid "Wait, I need to save my changes first!"
 msgstr ""
 
-#: includes/metabox/class-metabox.php:426
-#: includes/metabox/class-metabox.php:601
+#: includes/metabox/class-metabox.php:432
+#: includes/metabox/class-metabox.php:630
 msgid "OK, leave without saving..."
 msgstr ""
 
-#: includes/metabox/class-metabox.php:484
+#: includes/metabox/class-metabox.php:511
 msgctxt "Metabox tab title for native WordPress visual editor tab."
 msgid "Content"
 msgstr ""
 
-#: includes/metabox/class-metabox.php:582
+#: includes/metabox/class-metabox.php:604
 msgid "Use page builder to create the content."
 msgstr ""
 
-#: includes/metabox/fields/images.php:48
-msgid "Set image"
+#: includes/metabox/class-metabox.php:901
+msgctxt "Plugin name."
+msgid "Classic Editor"
 msgstr ""
 
-#: includes/metabox/fields/images.php:106
-msgid "Image URL"
+#: includes/metabox/class-metabox.php:907
+msgctxt "Plugin name."
+msgid "Classic Widgets"
 msgstr ""
 
-#: includes/metabox/fields/images.php:126
-msgid "Remove image"
-msgstr ""
-
-#: includes/metabox/fields/images.php:201
-msgid "Set images"
-msgstr ""
-
-#: includes/metabox/fields/images.php:231
-#: includes/metabox/fields/images.php:305
-msgid "Edit images"
-msgstr ""
-
-#: includes/metabox/fields/images.php:237
-msgid "Loading images"
-msgstr ""
-
-#: includes/metabox/fields/images.php:239
-msgid "Remove images"
-msgstr ""
-
-#: includes/metabox/fields/images.php:293
+#: includes/metabox/class-metabox.php:945
 msgid "You do not have permissions to do this!"
 msgstr ""
 
-#: includes/metabox/fields/radio.php:113
-#: includes/shortcodes/class-shortcodes.php:1713
+#: includes/metabox/class-metabox.php:958
+msgid "Edit images"
+msgstr ""
+
+#: includes/metabox/fields/images.php:54
+msgid "Set image"
+msgstr ""
+
+#: includes/metabox/fields/images.php:138
+msgid "Image URL"
+msgstr ""
+
+#: includes/metabox/fields/images.php:184
+msgid "Remove image"
+msgstr ""
+
+#: includes/metabox/fields/images.php:271
+msgid "Set images"
+msgstr ""
+
+#: includes/metabox/fields/images.php:347
+#: includes/metabox/fields/images.php:348
+msgid "Loading images"
+msgstr ""
+
+#: includes/metabox/fields/images.php:358
+msgid "Remove images"
+msgstr ""
+
+#: includes/metabox/fields/radio.php:123
+#: includes/shortcodes/class-shortcodes.php:1309
 msgid "Filter: start typing..."
 msgstr ""
 
-#: includes/metabox/fields/radio.php:166 includes/metabox/fields/select.php:115
-#: includes/metabox/fields/slider.php:91 includes/metabox/fields/texts.php:122
-#: includes/metabox/fields/texts.php:260
+#: includes/metabox/fields/radio.php:197 includes/metabox/fields/select.php:160
+#: includes/metabox/fields/slider.php:117 includes/metabox/fields/texts.php:156
+#: includes/metabox/fields/texts.php:343
 msgid "Use a default value"
 msgstr ""
 
-#: includes/metabox/fields/repeater.php:80
+#: includes/metabox/fields/repeater.php:104
 msgid "Move the item"
 msgstr ""
 
-#: includes/metabox/fields/repeater.php:81
+#: includes/metabox/fields/repeater.php:110
 msgid "Remove this item"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1087
+#: includes/shortcodes/class-shortcodes.php:950
 msgid "Blue"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1088
+#: includes/shortcodes/class-shortcodes.php:951
 msgid "Gray"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1089
+#: includes/shortcodes/class-shortcodes.php:952
 msgid "Green"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1090
+#: includes/shortcodes/class-shortcodes.php:953
 msgid "Orange"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1091
+#: includes/shortcodes/class-shortcodes.php:954
 msgid "Red"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1107
+#: includes/shortcodes/class-shortcodes.php:970
 msgid "Line"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1108
+#: includes/shortcodes/class-shortcodes.php:971
 msgid "Dotted"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1109
+#: includes/shortcodes/class-shortcodes.php:972
 msgid "Dashed"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1110
+#: includes/shortcodes/class-shortcodes.php:973
 msgid "Double line"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1111
+#: includes/shortcodes/class-shortcodes.php:974
 msgid "Whitespace"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1115
+#: includes/shortcodes/class-shortcodes.php:978
 msgid "Circle"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1116
+#: includes/shortcodes/class-shortcodes.php:979
 msgid "Square"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1117
+#: includes/shortcodes/class-shortcodes.php:980
 msgid "Rounded square"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1118
+#: includes/shortcodes/class-shortcodes.php:981
 msgid "Leaf left"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1119
+#: includes/shortcodes/class-shortcodes.php:982
 msgid "Leaf right"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1120
+#: includes/shortcodes/class-shortcodes.php:983
 msgid "Half circle"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1126
+#: includes/shortcodes/class-shortcodes.php:989
 msgctxt "Default HTML heading tag value."
 msgid "Default"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1141
+#: includes/shortcodes/class-shortcodes.php:1004
 msgid "Small"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1142
+#: includes/shortcodes/class-shortcodes.php:1005
 msgid "Medium"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1143
+#: includes/shortcodes/class-shortcodes.php:1006
 msgid "Large"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1144
+#: includes/shortcodes/class-shortcodes.php:1007
 msgid "Extra-large"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1187
+#: includes/shortcodes/class-shortcodes.php:1050
 msgid "Basic"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1188
+#: includes/shortcodes/class-shortcodes.php:1051
 msgid "Bordered"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1189
+#: includes/shortcodes/class-shortcodes.php:1052
 msgid "Zebra striping"
 msgstr ""
 
-#: includes/shortcodes/class-shortcodes.php:1190
+#: includes/shortcodes/class-shortcodes.php:1053
 msgid "Bordered zebra striping"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:22
-#: includes/shortcodes/definitions/partial/accordion.php:27
-#: includes/shortcodes/definitions/partial/accordion.php:264
-#: includes/shortcodes/definitions/partial/accordion.php:272
+#: includes/shortcodes/definitions/partial/accordion.php:21
+#: includes/shortcodes/definitions/partial/accordion.php:26
 msgid "Accordion"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:23
-#: includes/shortcodes/definitions/partial/accordion.php:281
+#: includes/shortcodes/definitions/partial/accordion.php:22
 msgid "Section 1"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:23
-#: includes/shortcodes/definitions/partial/accordion.php:282
+#: includes/shortcodes/definitions/partial/accordion.php:22
 msgid "Section 2"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:42
-#: includes/shortcodes/definitions/partial/accordion.php:156
-#: includes/shortcodes/definitions/partial/button.php:47
-#: includes/shortcodes/definitions/partial/call-to-action.php:57
-#: includes/shortcodes/definitions/partial/content-module.php:63
-#: includes/shortcodes/definitions/partial/divider.php:35
-#: includes/shortcodes/definitions/partial/message.php:46
-#: includes/shortcodes/definitions/partial/posts.php:59
-#: includes/shortcodes/definitions/partial/table.php:35
-#: includes/shortcodes/definitions/partial/tabs.php:42
-#: includes/shortcodes/definitions/partial/tabs.php:155
-#: includes/shortcodes/definitions/partial/testimonials.php:63
+#: includes/shortcodes/definitions/partial/accordion.php:41
+#: includes/shortcodes/definitions/partial/accordion.php:155
+#: includes/shortcodes/definitions/partial/button.php:46
 msgid "General"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:55
-#: includes/shortcodes/definitions/partial/accordion.php:296
+#: includes/shortcodes/definitions/partial/accordion.php:54
 msgid "Mode"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:58
-#: includes/shortcodes/definitions/partial/accordion.php:300
+#: includes/shortcodes/definitions/partial/accordion.php:57
 msgid "Accordion (only one section open)"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:59
-#: includes/shortcodes/definitions/partial/accordion.php:301
+#: includes/shortcodes/definitions/partial/accordion.php:58
 msgid "Toggle (multiple sections open)"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:70
-#: includes/shortcodes/definitions/partial/tabs.php:71
+#: includes/shortcodes/definitions/partial/accordion.php:69
 msgid "Sections"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:75
-#: includes/shortcodes/definitions/partial/accordion.php:149
-#: includes/shortcodes/definitions/partial/accordion.php:171
-#: includes/shortcodes/definitions/partial/accordion.php:277
-#: includes/shortcodes/definitions/partial/tabs.php:76
-#: includes/shortcodes/definitions/partial/tabs.php:148
-#: includes/shortcodes/definitions/partial/tabs.php:170
+#: includes/shortcodes/definitions/partial/accordion.php:74
+#: includes/shortcodes/definitions/partial/accordion.php:148
+#: includes/shortcodes/definitions/partial/accordion.php:170
 msgid "Section"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:91
-#: includes/shortcodes/definitions/partial/accordion.php:201
-#: includes/shortcodes/definitions/partial/content-module.php:243
-#: includes/shortcodes/definitions/partial/message.php:135
-#: includes/shortcodes/definitions/partial/posts.php:184
-#: includes/shortcodes/definitions/partial/tabs.php:92
-#: includes/shortcodes/definitions/partial/tabs.php:200
-#: includes/shortcodes/definitions/partial/testimonials.php:229
+#: includes/shortcodes/definitions/partial/accordion.php:90
+#: includes/shortcodes/definitions/partial/accordion.php:200
 msgid "Others"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:104
-#: includes/shortcodes/definitions/partial/accordion.php:307
-#: includes/shortcodes/definitions/partial/content-module.php:142
+#: includes/shortcodes/definitions/partial/accordion.php:103
 msgid "Filtering"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:105
-#: includes/shortcodes/definitions/partial/accordion.php:308
+#: includes/shortcodes/definitions/partial/accordion.php:104
 msgid "Display the sections filter from sections tags?"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:108
-#: includes/shortcodes/definitions/partial/accordion.php:312
-#: includes/shortcodes/definitions/partial/audio.php:47
-#: includes/shortcodes/definitions/partial/audio.php:59
-#: includes/shortcodes/definitions/partial/content-module.php:146
-#: includes/shortcodes/definitions/partial/content-module.php:179
-#: includes/shortcodes/definitions/partial/content-module.php:259
-#: includes/shortcodes/definitions/partial/content-module.php:370
-#: includes/shortcodes/definitions/partial/content-module.php:403
-#: includes/shortcodes/definitions/partial/content-module.php:438
-#: includes/shortcodes/definitions/partial/posts.php:200
-#: includes/shortcodes/definitions/partial/posts.php:283
-#: includes/shortcodes/definitions/partial/posts.php:434
-#: includes/shortcodes/definitions/partial/posts.php:470
-#: includes/shortcodes/definitions/partial/pricing-table.php:54
-#: includes/shortcodes/definitions/partial/tabs.php:108
-#: includes/shortcodes/definitions/partial/tabs.php:304
-#: includes/shortcodes/definitions/partial/testimonials.php:165
-#: includes/shortcodes/definitions/partial/testimonials.php:245
-#: includes/shortcodes/definitions/partial/testimonials.php:357
-#: includes/shortcodes/definitions/partial/testimonials.php:392
-#: includes/shortcodes/definitions/partial/video.php:57
-#: includes/shortcodes/definitions/partial/video.php:69
+#: includes/shortcodes/definitions/partial/accordion.php:107
 msgid "No"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:109
-#: includes/shortcodes/definitions/partial/accordion.php:313
-#: includes/shortcodes/definitions/partial/audio.php:48
-#: includes/shortcodes/definitions/partial/audio.php:60
-#: includes/shortcodes/definitions/partial/content-module.php:147
-#: includes/shortcodes/definitions/partial/content-module.php:180
-#: includes/shortcodes/definitions/partial/content-module.php:260
-#: includes/shortcodes/definitions/partial/content-module.php:371
-#: includes/shortcodes/definitions/partial/content-module.php:404
-#: includes/shortcodes/definitions/partial/content-module.php:439
-#: includes/shortcodes/definitions/partial/posts.php:201
-#: includes/shortcodes/definitions/partial/posts.php:284
-#: includes/shortcodes/definitions/partial/posts.php:435
-#: includes/shortcodes/definitions/partial/posts.php:471
-#: includes/shortcodes/definitions/partial/pricing-table.php:55
-#: includes/shortcodes/definitions/partial/tabs.php:109
-#: includes/shortcodes/definitions/partial/tabs.php:305
-#: includes/shortcodes/definitions/partial/testimonials.php:166
-#: includes/shortcodes/definitions/partial/testimonials.php:246
-#: includes/shortcodes/definitions/partial/testimonials.php:358
-#: includes/shortcodes/definitions/partial/testimonials.php:393
-#: includes/shortcodes/definitions/partial/video.php:58
-#: includes/shortcodes/definitions/partial/video.php:70
+#: includes/shortcodes/definitions/partial/accordion.php:108
 msgid "Yes"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:118
+#: includes/shortcodes/definitions/partial/accordion.php:117
 msgid "Active section number"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:123
+#: includes/shortcodes/definitions/partial/accordion.php:122
 msgid "All accordion sections closed"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:230
-#: includes/shortcodes/definitions/partial/tabs.php:229
+#: includes/shortcodes/definitions/partial/accordion.php:229
 msgid "Other parameters"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:237
-#: includes/shortcodes/definitions/partial/item.php:58
+#: includes/shortcodes/definitions/partial/accordion.php:236
 msgid "Enter comma separated tags. These will be used to filter through items."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:245
-#: includes/shortcodes/definitions/partial/content-module.php:279
-#: includes/shortcodes/definitions/partial/item.php:66
-#: includes/shortcodes/definitions/partial/posts.php:303
-#: includes/shortcodes/definitions/partial/tabs.php:235
-#: includes/shortcodes/definitions/partial/testimonials.php:255
+#: includes/shortcodes/definitions/partial/accordion.php:244
 msgid "Heading HTML tag"
 msgstr ""
 
+#. translators: %s: HTML tag.
 #: includes/shortcodes/definitions/partial/accordion.php:246
-#: includes/shortcodes/definitions/partial/call-to-action.php:81
-#: includes/shortcodes/definitions/partial/content-module.php:280
-#: includes/shortcodes/definitions/partial/message.php:70
-#: includes/shortcodes/definitions/partial/posts.php:304
-#: includes/shortcodes/definitions/partial/tabs.php:236
-#: includes/shortcodes/definitions/partial/testimonials.php:256
 #, php-format
 msgid "Default value: %s"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/accordion.php:277
-msgid "Accordion: Add new section"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/accordion.php:287
-msgid "Active section"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/accordion.php:288
-msgid "Set section order number, \"0\" for all sections closed"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/accordion.php:319
-#: includes/shortcodes/definitions/partial/audio.php:66
-#: includes/shortcodes/definitions/partial/button.php:221
-#: includes/shortcodes/definitions/partial/call-to-action.php:293
-#: includes/shortcodes/definitions/partial/content-module.php:467
-#: includes/shortcodes/definitions/partial/countdown-timer.php:50
-#: includes/shortcodes/definitions/partial/divider.php:99
-#: includes/shortcodes/definitions/partial/icon.php:122
-#: includes/shortcodes/definitions/partial/list.php:55
-#: includes/shortcodes/definitions/partial/message.php:226
-#: includes/shortcodes/definitions/partial/posts.php:488
-#: includes/shortcodes/definitions/partial/price.php:90
-#: includes/shortcodes/definitions/partial/pricing-table.php:61
-#: includes/shortcodes/definitions/partial/progress.php:60
-#: includes/shortcodes/definitions/partial/separator-heading.php:65
-#: includes/shortcodes/definitions/partial/slideshow.php:72
-#: includes/shortcodes/definitions/partial/table.php:123
-#: includes/shortcodes/definitions/partial/tabs.php:311
-#: includes/shortcodes/definitions/partial/testimonials.php:401
-#: includes/shortcodes/definitions/partial/vc.php:34
-#: includes/shortcodes/definitions/partial/vc.php:139
-#: includes/shortcodes/definitions/partial/vc.php:168
-#: includes/shortcodes/definitions/partial/vc.php:246
-#: includes/shortcodes/definitions/partial/vc.php:331
-#: includes/shortcodes/definitions/partial/vc.php:391
-#: includes/shortcodes/definitions/partial/video.php:76
-#: includes/shortcodes/definitions/partial/widget-area.php:66
-msgid "CSS class"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/accordion.php:320
-#: includes/shortcodes/definitions/partial/audio.php:67
-#: includes/shortcodes/definitions/partial/button.php:222
-#: includes/shortcodes/definitions/partial/call-to-action.php:294
-#: includes/shortcodes/definitions/partial/content-module.php:468
-#: includes/shortcodes/definitions/partial/countdown-timer.php:51
-#: includes/shortcodes/definitions/partial/divider.php:100
-#: includes/shortcodes/definitions/partial/icon.php:123
-#: includes/shortcodes/definitions/partial/list.php:56
-#: includes/shortcodes/definitions/partial/message.php:227
-#: includes/shortcodes/definitions/partial/posts.php:489
-#: includes/shortcodes/definitions/partial/price.php:91
-#: includes/shortcodes/definitions/partial/pricing-table.php:62
-#: includes/shortcodes/definitions/partial/progress.php:61
-#: includes/shortcodes/definitions/partial/separator-heading.php:66
-#: includes/shortcodes/definitions/partial/slideshow.php:73
-#: includes/shortcodes/definitions/partial/table.php:124
-#: includes/shortcodes/definitions/partial/tabs.php:312
-#: includes/shortcodes/definitions/partial/testimonials.php:402
-#: includes/shortcodes/definitions/partial/vc.php:35
-#: includes/shortcodes/definitions/partial/vc.php:140
-#: includes/shortcodes/definitions/partial/vc.php:169
-#: includes/shortcodes/definitions/partial/vc.php:247
-#: includes/shortcodes/definitions/partial/vc.php:332
-#: includes/shortcodes/definitions/partial/vc.php:392
-#: includes/shortcodes/definitions/partial/video.php:77
-#: includes/shortcodes/definitions/partial/widget-area.php:67
-msgid "Optional CSS additional classes"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/audio.php:22
-#: includes/shortcodes/definitions/partial/audio.php:27
+#: includes/shortcodes/definitions/partial/audio.php:21
 msgid "Audio"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/audio.php:30
-#: includes/shortcodes/definitions/partial/slideshow.php:31
-#: includes/shortcodes/definitions/partial/vc.php:355
-#: includes/shortcodes/definitions/partial/vc.php:450
-#: includes/shortcodes/definitions/partial/vc.php:483
-#: includes/shortcodes/definitions/partial/video.php:31
-msgid "Media"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/audio.php:33
-msgid "Audio source"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/audio.php:34
-msgid "Set the audio URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/audio.php:42
-msgid "Autoplay the audio?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/audio.php:54
-msgid "Loop the audio?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/button.php:22
-#: includes/shortcodes/definitions/partial/button.php:27
-#: includes/shortcodes/definitions/partial/button.php:153
-#: includes/shortcodes/definitions/partial/call-to-action.php:113
+#: includes/shortcodes/definitions/partial/button.php:21
+#: includes/shortcodes/definitions/partial/button.php:26
 msgid "Button"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:33
-#: includes/shortcodes/definitions/partial/button.php:60
-#: includes/shortcodes/definitions/partial/button.php:160
-#: includes/shortcodes/definitions/partial/call-to-action.php:43
-#: includes/shortcodes/definitions/partial/call-to-action.php:126
-#: includes/shortcodes/definitions/partial/call-to-action.php:233
-#: includes/shortcodes/definitions/partial/price.php:55
-#: includes/shortcodes/definitions/partial/pricing-table.php:43
-#: includes/shortcodes/definitions/partial/pricing-table.php:44
+#: includes/shortcodes/definitions/partial/button.php:32
+#: includes/shortcodes/definitions/partial/button.php:59
 msgid "Button text"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:38
-#: includes/shortcodes/definitions/partial/button.php:70
-#: includes/shortcodes/definitions/partial/call-to-action.php:48
-#: includes/shortcodes/definitions/partial/call-to-action.php:136
-#: includes/shortcodes/definitions/partial/call-to-action.php:242
+#: includes/shortcodes/definitions/partial/button.php:37
+#: includes/shortcodes/definitions/partial/button.php:69
 msgid "Button link URL"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:62
-#: includes/shortcodes/definitions/partial/button.php:163
+#: includes/shortcodes/definitions/partial/button.php:61
 msgid "Button Text"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:80
-#: includes/shortcodes/definitions/partial/button.php:177
-#: includes/shortcodes/definitions/partial/call-to-action.php:146
-#: includes/shortcodes/definitions/partial/icon.php:88
-#: includes/shortcodes/definitions/partial/vc.php:375
+#: includes/shortcodes/definitions/partial/button.php:79
 msgid "Target"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:81
-#: includes/shortcodes/definitions/partial/button.php:178
-#: includes/shortcodes/definitions/partial/call-to-action.php:147
-#: includes/shortcodes/definitions/partial/call-to-action.php:250
+#: includes/shortcodes/definitions/partial/button.php:80
 msgid "Button link target"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:85
-#: includes/shortcodes/definitions/partial/button.php:183
-#: includes/shortcodes/definitions/partial/call-to-action.php:151
-#: includes/shortcodes/definitions/partial/call-to-action.php:256
-#: includes/shortcodes/definitions/partial/icon.php:94
-#: includes/shortcodes/definitions/partial/vc.php:381
+#: includes/shortcodes/definitions/partial/button.php:84
 msgid "Open in new window / tab"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:94
-#: includes/shortcodes/definitions/partial/button.php:193
-#: includes/shortcodes/definitions/partial/message.php:148
-#: includes/shortcodes/definitions/partial/message.php:198
-#: includes/shortcodes/definitions/partial/progress.php:52
+#: includes/shortcodes/definitions/partial/button.php:93
 msgid "Color"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:104
-#: includes/shortcodes/definitions/partial/button.php:201
-#: includes/shortcodes/definitions/partial/countdown-timer.php:42
-#: includes/shortcodes/definitions/partial/icon.php:61
-#: includes/shortcodes/definitions/partial/message.php:158
-#: includes/shortcodes/definitions/partial/message.php:206
+#: includes/shortcodes/definitions/partial/button.php:103
 msgid "Size"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/button.php:168
-msgid "Button URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/button.php:169
-msgid "Set the button link URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/button.php:230
-#: includes/shortcodes/definitions/partial/separator-heading.php:74
-#: includes/shortcodes/definitions/partial/vc.php:43
-#: includes/shortcodes/definitions/partial/vc.php:177
-#: includes/shortcodes/definitions/partial/vc.php:255
-msgid "Optional HTML ID"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/call-to-action.php:22
-#: includes/shortcodes/definitions/partial/call-to-action.php:27
-#: includes/shortcodes/definitions/partial/call-to-action.php:208
+#: includes/shortcodes/definitions/partial/call-to-action.php:21
+#: includes/shortcodes/definitions/partial/call-to-action.php:26
 msgid "Call to Action"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/call-to-action.php:33
-#: includes/shortcodes/definitions/partial/call-to-action.php:70
-#: includes/shortcodes/definitions/partial/call-to-action.php:215
-#: includes/shortcodes/definitions/partial/message.php:32
-#: includes/shortcodes/definitions/partial/message.php:59
-#: includes/shortcodes/definitions/partial/message.php:181
-#: includes/shortcodes/definitions/partial/price.php:34
-#: includes/shortcodes/definitions/partial/progress.php:34
+#: includes/shortcodes/definitions/partial/call-to-action.php:32
+#: includes/shortcodes/definitions/partial/call-to-action.php:69
+#: includes/shortcodes/definitions/partial/message.php:31
+#: includes/shortcodes/definitions/partial/message.php:58
 msgid "Caption"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/call-to-action.php:80
-#: includes/shortcodes/definitions/partial/message.php:69
+#: includes/shortcodes/definitions/partial/call-to-action.php:79
+#: includes/shortcodes/definitions/partial/message.php:68
 msgid "Caption HTML tag"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/call-to-action.php:160
-#: includes/shortcodes/definitions/partial/call-to-action.php:262
 msgid "Button color"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/call-to-action.php:170
-#: includes/shortcodes/definitions/partial/call-to-action.php:271
 msgid "Button size"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/call-to-action.php:182
-#: includes/shortcodes/definitions/partial/call-to-action.php:280
 msgid "Button icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/call-to-action.php:224
-msgid "Content text"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/call-to-action.php:281
-msgid "Choose one of available icons"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/column.php:22
-#: includes/shortcodes/definitions/partial/vc.php:159
-#: includes/shortcodes/definitions/partial/vc.php:237
+#: includes/shortcodes/definitions/partial/column.php:21
 msgid "Column"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:33
 #: includes/shortcodes/definitions/partial/content-module.php:38
-#: includes/shortcodes/definitions/partial/content-module.php:305
 msgid "Content Module"
 msgstr ""
 
@@ -2224,107 +1938,64 @@ msgid "Tagged as"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:76
-#: includes/shortcodes/definitions/partial/content-module.php:312
 msgid "Single module"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:77
-#: includes/shortcodes/definitions/partial/content-module.php:313
 msgid "Leave empty to display multiple modules"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:89
-#: includes/shortcodes/definitions/partial/testimonials.php:89
 msgid "Multiple modules display"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:95
-#: includes/shortcodes/definitions/partial/content-module.php:322
-#: includes/shortcodes/definitions/partial/posts.php:83
-#: includes/shortcodes/definitions/partial/posts.php:336
-#: includes/shortcodes/definitions/partial/testimonials.php:95
-#: includes/shortcodes/definitions/partial/testimonials.php:289
+#: includes/shortcodes/definitions/partial/posts.php:82
 msgid "Count"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:96
-#: includes/shortcodes/definitions/partial/content-module.php:323
-#: includes/shortcodes/definitions/partial/posts.php:84
-#: includes/shortcodes/definitions/partial/posts.php:337
-#: includes/shortcodes/definitions/partial/testimonials.php:96
-#: includes/shortcodes/definitions/partial/testimonials.php:290
+#: includes/shortcodes/definitions/partial/posts.php:83
 msgid "Number of items to display"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:106
-#: includes/shortcodes/definitions/partial/content-module.php:332
-#: includes/shortcodes/definitions/partial/posts.php:94
-#: includes/shortcodes/definitions/partial/posts.php:345
-#: includes/shortcodes/definitions/partial/testimonials.php:106
-#: includes/shortcodes/definitions/partial/testimonials.php:299
+#: includes/shortcodes/definitions/partial/posts.php:93
 msgid "Columns"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:125
-#: includes/shortcodes/definitions/partial/content-module.php:349
-#: includes/shortcodes/definitions/partial/posts.php:113
-#: includes/shortcodes/definitions/partial/posts.php:361
-#: includes/shortcodes/definitions/partial/testimonials.php:125
-#: includes/shortcodes/definitions/partial/testimonials.php:316
+#: includes/shortcodes/definitions/partial/posts.php:112
 msgid "Order"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:128
-#: includes/shortcodes/definitions/partial/content-module.php:353
-#: includes/shortcodes/definitions/partial/posts.php:116
-#: includes/shortcodes/definitions/partial/posts.php:365
-#: includes/shortcodes/definitions/partial/testimonials.php:128
-#: includes/shortcodes/definitions/partial/testimonials.php:320
+#: includes/shortcodes/definitions/partial/posts.php:115
 msgid "Newest first"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:129
-#: includes/shortcodes/definitions/partial/content-module.php:354
-#: includes/shortcodes/definitions/partial/posts.php:117
-#: includes/shortcodes/definitions/partial/posts.php:366
-#: includes/shortcodes/definitions/partial/testimonials.php:129
-#: includes/shortcodes/definitions/partial/testimonials.php:321
+#: includes/shortcodes/definitions/partial/posts.php:116
 msgid "Oldest first"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:130
-#: includes/shortcodes/definitions/partial/content-module.php:355
-#: includes/shortcodes/definitions/partial/posts.php:118
-#: includes/shortcodes/definitions/partial/posts.php:367
-#: includes/shortcodes/definitions/partial/testimonials.php:130
-#: includes/shortcodes/definitions/partial/testimonials.php:322
+#: includes/shortcodes/definitions/partial/posts.php:117
 msgid "By name"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:131
-#: includes/shortcodes/definitions/partial/content-module.php:356
-#: includes/shortcodes/definitions/partial/posts.php:119
-#: includes/shortcodes/definitions/partial/posts.php:368
-#: includes/shortcodes/definitions/partial/testimonials.php:131
-#: includes/shortcodes/definitions/partial/testimonials.php:323
+#: includes/shortcodes/definitions/partial/posts.php:118
 msgid "Randomly"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:132
-#: includes/shortcodes/definitions/partial/content-module.php:357
-#: includes/shortcodes/definitions/partial/posts.php:120
-#: includes/shortcodes/definitions/partial/posts.php:369
-#: includes/shortcodes/definitions/partial/testimonials.php:132
-#: includes/shortcodes/definitions/partial/testimonials.php:324
+#: includes/shortcodes/definitions/partial/posts.php:119
 msgid "Custom, ascending"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:133
-#: includes/shortcodes/definitions/partial/content-module.php:358
-#: includes/shortcodes/definitions/partial/posts.php:121
-#: includes/shortcodes/definitions/partial/posts.php:370
-#: includes/shortcodes/definitions/partial/testimonials.php:133
-#: includes/shortcodes/definitions/partial/testimonials.php:325
+#: includes/shortcodes/definitions/partial/posts.php:120
 msgid "Custom, descending"
 msgstr ""
 
@@ -2333,20 +2004,12 @@ msgid "Display the modules filter from module tags?"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:156
-#: includes/shortcodes/definitions/partial/content-module.php:378
-#: includes/shortcodes/definitions/partial/posts.php:260
-#: includes/shortcodes/definitions/partial/posts.php:418
-#: includes/shortcodes/definitions/partial/testimonials.php:142
-#: includes/shortcodes/definitions/partial/testimonials.php:332
+#: includes/shortcodes/definitions/partial/posts.php:272
 msgid "Scrolling"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:157
-#: includes/shortcodes/definitions/partial/content-module.php:379
-#: includes/shortcodes/definitions/partial/posts.php:261
-#: includes/shortcodes/definitions/partial/posts.php:419
-#: includes/shortcodes/definitions/partial/testimonials.php:143
-#: includes/shortcodes/definitions/partial/testimonials.php:333
+#: includes/shortcodes/definitions/partial/posts.php:273
 msgid ""
 "Set 1-999 for manual scrolling, set 1000+ for automatic scrolling. The value "
 "for automatic scrolling represents the time of a scroll in miliseconds. "
@@ -2354,296 +2017,139 @@ msgid ""
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:166
-#: includes/shortcodes/definitions/partial/content-module.php:389
 msgid "Display specifically tagged items only"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:176
-#: includes/shortcodes/definitions/partial/content-module.php:398
-#: includes/shortcodes/definitions/partial/posts.php:280
-#: includes/shortcodes/definitions/partial/posts.php:429
-#: includes/shortcodes/definitions/partial/testimonials.php:162
-#: includes/shortcodes/definitions/partial/testimonials.php:352
+#: includes/shortcodes/definitions/partial/posts.php:292
 msgid "Display pagination?"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:195
-#: includes/shortcodes/definitions/partial/posts.php:136
-#: includes/shortcodes/definitions/partial/posts.php:449
-#: includes/shortcodes/definitions/partial/posts.php:461
-#: includes/shortcodes/definitions/partial/testimonials.php:181
+#: includes/shortcodes/definitions/partial/posts.php:135
 msgid "Description"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:208
-#: includes/shortcodes/definitions/partial/content-module.php:421
-#: includes/shortcodes/definitions/partial/posts.php:149
-#: includes/shortcodes/definitions/partial/posts.php:452
-#: includes/shortcodes/definitions/partial/testimonials.php:194
-#: includes/shortcodes/definitions/partial/testimonials.php:375
+#: includes/shortcodes/definitions/partial/posts.php:148
 msgid "Description alignment"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:211
-#: includes/shortcodes/definitions/partial/content-module.php:425
-#: includes/shortcodes/definitions/partial/posts.php:152
-#: includes/shortcodes/definitions/partial/posts.php:456
-#: includes/shortcodes/definitions/partial/separator-heading.php:57
-#: includes/shortcodes/definitions/partial/testimonials.php:197
-#: includes/shortcodes/definitions/partial/testimonials.php:379
+#: includes/shortcodes/definitions/partial/posts.php:151
 msgid "Left"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:212
-#: includes/shortcodes/definitions/partial/content-module.php:426
-#: includes/shortcodes/definitions/partial/posts.php:153
-#: includes/shortcodes/definitions/partial/posts.php:457
-#: includes/shortcodes/definitions/partial/separator-heading.php:59
-#: includes/shortcodes/definitions/partial/testimonials.php:198
-#: includes/shortcodes/definitions/partial/testimonials.php:380
+#: includes/shortcodes/definitions/partial/posts.php:152
 msgid "Right"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:256
-#: includes/shortcodes/definitions/partial/content-module.php:433
-#: includes/shortcodes/definitions/partial/posts.php:197
-#: includes/shortcodes/definitions/partial/posts.php:465
-#: includes/shortcodes/definitions/partial/testimonials.php:242
-#: includes/shortcodes/definitions/partial/testimonials.php:387
+#: includes/shortcodes/definitions/partial/posts.php:196
 msgid "Remove gap between items?"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/content-module.php:269
-#: includes/shortcodes/definitions/partial/content-module.php:447
-#: includes/shortcodes/definitions/partial/posts.php:293
-#: includes/shortcodes/definitions/partial/posts.php:478
-#: includes/shortcodes/definitions/partial/slideshow.php:55
+#: includes/shortcodes/definitions/partial/posts.php:305
 msgid "Image size"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/content-module.php:290
-#: includes/shortcodes/definitions/partial/content-module.php:456
+#: includes/shortcodes/definitions/partial/content-module.php:291
 msgid "Custom layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/content-module.php:291
-#: includes/shortcodes/definitions/partial/content-module.php:457
+#. translators: %s: example code.
+#: includes/shortcodes/definitions/partial/content-module.php:293
 #, php-format
 msgid ""
 "Set the custom layout of the output. Order the predefined items (%s) "
 "separated with comma (no spaces)."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/content-module.php:329
-#: includes/shortcodes/definitions/partial/content-module.php:346
-#: includes/shortcodes/definitions/partial/content-module.php:362
-#: includes/shortcodes/definitions/partial/content-module.php:375
-#: includes/shortcodes/definitions/partial/content-module.php:385
-#: includes/shortcodes/definitions/partial/content-module.php:395
-#: includes/shortcodes/definitions/partial/content-module.php:408
-#: includes/shortcodes/definitions/partial/content-module.php:418
-#: includes/shortcodes/definitions/partial/content-module.php:430
-#: includes/shortcodes/definitions/partial/content-module.php:443
-#: includes/shortcodes/definitions/partial/testimonials.php:296
-#: includes/shortcodes/definitions/partial/testimonials.php:313
-#: includes/shortcodes/definitions/partial/testimonials.php:329
-#: includes/shortcodes/definitions/partial/testimonials.php:339
-#: includes/shortcodes/definitions/partial/testimonials.php:349
-#: includes/shortcodes/definitions/partial/testimonials.php:362
-#: includes/shortcodes/definitions/partial/testimonials.php:372
-#: includes/shortcodes/definitions/partial/testimonials.php:384
-#: includes/shortcodes/definitions/partial/testimonials.php:397
-msgid "Multiple display"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/content-module.php:365
-#: includes/shortcodes/definitions/partial/posts.php:398
-msgid "Filter"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/content-module.php:388
-msgid "Tag"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/content-module.php:411
-#: includes/shortcodes/definitions/partial/testimonials.php:365
-msgid "Description text (HTML)"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/content-module.php:453
-#: includes/shortcodes/definitions/partial/content-module.php:463
-#: includes/shortcodes/definitions/partial/posts.php:475
-#: includes/shortcodes/definitions/partial/posts.php:484
-#: includes/shortcodes/definitions/partial/tabs.php:55
-#: includes/shortcodes/definitions/partial/tabs.php:286
-msgid "Layout"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/countdown-timer.php:22
-#: includes/shortcodes/definitions/partial/countdown-timer.php:27
+#: includes/shortcodes/definitions/partial/countdown-timer.php:21
 msgid "Countdown Timer"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/countdown-timer.php:34
-msgid "Time"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/divider.php:22
-#: includes/shortcodes/definitions/partial/divider.php:27
-#: includes/shortcodes/definitions/partial/divider.php:64
+#: includes/shortcodes/definitions/partial/divider.php:21
+#: includes/shortcodes/definitions/partial/divider.php:26
 msgid "Divider / Gap"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/divider.php:48
-#: includes/shortcodes/definitions/partial/divider.php:72
-#: includes/shortcodes/definitions/partial/price.php:77
-#: includes/shortcodes/definitions/partial/table.php:48
-#: includes/shortcodes/definitions/partial/table.php:115
+#: includes/shortcodes/definitions/partial/divider.php:47
 msgid "Appearance"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/divider.php:81
-msgid "Space before divider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/divider.php:82
-#: includes/shortcodes/definitions/partial/divider.php:91
-msgid "Insert a number (of pixels)"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/divider.php:90
-msgid "Space after divider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/divider.php:108
-#: includes/shortcodes/definitions/partial/icon.php:131
-msgid "CSS styles"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/divider.php:109
-#: includes/shortcodes/definitions/partial/icon.php:132
-msgid "Any custom CSS style inserted into style HTML attribute"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/dropcap.php:22
+#: includes/shortcodes/definitions/partial/dropcap.php:21
 msgid "Dropcap"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/icon.php:37
-#: includes/shortcodes/definitions/partial/icon.php:42
 msgid "Icon / Social Icon"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/icon.php:70
-msgid "Social icon?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:76
-#: includes/shortcodes/definitions/partial/icon.php:85
-#: includes/shortcodes/definitions/partial/icon.php:98
-#: includes/shortcodes/definitions/partial/icon.php:108
-#: includes/shortcodes/definitions/partial/icon.php:118
-msgid "Social icon"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:79
-msgid "Social icon link URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:101
-msgid "Social icon title"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:102
-msgid "Will be displayed when mouse hovers over the icon"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:111
-msgid "Social icon relation"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/icon.php:112
-msgid "The HTML \"rel\" attribute"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/item.php:22
+#: includes/shortcodes/definitions/partial/item.php:21
 msgid "Item (Accordion or Tab Section)"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/item.php:27
-msgid "Item (Accordion / Tab)"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/last-update.php:22
+#: includes/shortcodes/definitions/partial/last-update.php:21
 msgid "Last Update Time"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/list.php:22
-#: includes/shortcodes/definitions/partial/list.php:27
+#: includes/shortcodes/definitions/partial/list.php:21
 msgid "Icon List"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/list.php:23
+#: includes/shortcodes/definitions/partial/list.php:22
 msgid "List item"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/list.php:34
-msgid "List items (insert unordered list only)"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/list.php:43
-msgid "Bullet icon"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/marker.php:22
+#: includes/shortcodes/definitions/partial/marker.php:21
 msgid "Marker"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/message.php:22
-#: includes/shortcodes/definitions/partial/message.php:26
-#: includes/shortcodes/definitions/partial/message.php:174
+#: includes/shortcodes/definitions/partial/message.php:21
+#: includes/shortcodes/definitions/partial/message.php:25
 msgid "Message"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:29
-#: includes/shortcodes/definitions/partial/posts.php:34
-#: includes/shortcodes/definitions/partial/posts.php:320
+#: includes/shortcodes/definitions/partial/posts.php:28
+#: includes/shortcodes/definitions/partial/posts.php:33
 msgid "Posts / Custom Posts"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:40
-#: includes/shortcodes/definitions/partial/posts.php:210
+#: includes/shortcodes/definitions/partial/posts.php:39
+#: includes/shortcodes/definitions/partial/posts.php:209
 msgid "From taxonomy"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:45
+#: includes/shortcodes/definitions/partial/posts.php:44
 #: includes/shortcodes/definitions/partial/posts.php:229
 msgid "Animated filter"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:72
-#: includes/shortcodes/definitions/partial/posts.php:327
+#: includes/shortcodes/definitions/partial/posts.php:71
 msgid "Post type"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:73
-#: includes/shortcodes/definitions/partial/posts.php:328
+#: includes/shortcodes/definitions/partial/posts.php:72
 msgid ""
 "This shortcode can display several post types. Choose the one you want to "
 "display."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:212
+#: includes/shortcodes/definitions/partial/posts.php:211
 msgid "Displays items from specific taxonomy term only."
 msgstr ""
 
+#. translators: %s: example code.
 #: includes/shortcodes/definitions/partial/posts.php:215
 #, php-format
 msgid "Example: %s."
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/posts.php:219
-#: includes/shortcodes/definitions/partial/posts.php:241
+#: includes/shortcodes/definitions/partial/posts.php:242
 msgid "Available taxonomy keys:"
 msgstr ""
 
@@ -2657,328 +2163,140 @@ msgid ""
 "100, for example)."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:236
+#. translators: %s: example code.
+#: includes/shortcodes/definitions/partial/posts.php:237
 #, php-format
 msgid "Example: %1$s or %2$s."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:251
-#: includes/shortcodes/definitions/partial/posts.php:408
+#: includes/shortcodes/definitions/partial/posts.php:252
 msgid "Filter layout"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:252
-#: includes/shortcodes/definitions/partial/posts.php:409
+#. translators: %s: link to Isotope website.
+#: includes/shortcodes/definitions/partial/posts.php:256
 #, php-format
-msgid "Use one of <a%s>Isotope</a> layouts."
+msgid "Use one of available layouts: %s."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:252
-#: includes/shortcodes/definitions/partial/posts.php:409
-msgid "Default is set to <code>fitRows</code>."
+#. translators: %s: default value.
+#: includes/shortcodes/definitions/partial/posts.php:262
+#, php-format
+msgid "Default is set to: %s."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:269
+#: includes/shortcodes/definitions/partial/posts.php:281
 msgid "Related by"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:270
-#: includes/shortcodes/definitions/partial/posts.php:388
+#: includes/shortcodes/definitions/partial/posts.php:282
 msgid ""
 "Use only on single post/custom post pages. Displays items related to "
 "recently displayed item through a specific taxonomy. Set a taxonomy name "
 "only."
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/posts.php:377
-#: includes/shortcodes/definitions/partial/posts.php:384
-#: includes/shortcodes/definitions/partial/posts.php:394
-msgid "Taxonomy"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:378
-msgid ""
-"Displays items only from a specific taxonomy. Set a taxonomy name and "
-"taxonomy slug separated with colon."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:378
-msgid "For example: \"category:category-slug\"."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:378
-#: includes/shortcodes/definitions/partial/posts.php:388
-#: includes/shortcodes/definitions/partial/posts.php:399
-msgid "Available taxonomy names:"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:387
-msgid "Relation"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:388
-msgid "For example: \"category\"."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:399
-msgid ""
-"If set, the items will be filtered. Set a taxonomy name (and optional parent "
-"taxonomy slug separated with colon - filter will be created from sub-"
-"taxonomies) which will be used to filter the items."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:399
-msgid "For example: \"category\" or \"category:parent-category-slug\"."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:405
-#: includes/shortcodes/definitions/partial/posts.php:415
-#: includes/shortcodes/definitions/partial/posts.php:425
-msgid "Filter / Scroll"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/posts.php:442
-msgid "Description text"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/pre.php:22
+#: includes/shortcodes/definitions/partial/pre.php:21
 msgid "Preformated Text"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/price.php:22
-#: includes/shortcodes/definitions/partial/price.php:27
-#: includes/shortcodes/definitions/partial/pricing-table.php:39
+#: includes/shortcodes/definitions/partial/price.php:21
 msgid "Price"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/price.php:43
-msgid "Cost"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:51
-msgid "Features list"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:52
-msgid "Insert an unordered list of features"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:55
-#: includes/shortcodes/definitions/partial/pricing-table.php:43
-#: includes/shortcodes/definitions/partial/pricing-table.php:44
-msgid "<ul><li>Price feature</li><li>Another price feature</li></ul>"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:60
-msgid "Column color"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:69
-msgid "Column text color"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:82
-msgid "Default price column"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:83
-msgid "Featured price column"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/price.php:84
-msgid "Pricing table legend"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/pricing-table.php:22
-#: includes/shortcodes/definitions/partial/pricing-table.php:27
+#: includes/shortcodes/definitions/partial/pricing-table.php:21
 msgid "Pricing Table"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/pricing-table.php:23
-#: includes/shortcodes/definitions/partial/pricing-table.php:43
+#: includes/shortcodes/definitions/partial/pricing-table.php:22
 msgid "Price 1"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/pricing-table.php:23
-#: includes/shortcodes/definitions/partial/pricing-table.php:44
+#: includes/shortcodes/definitions/partial/pricing-table.php:22
 msgid "Price 2"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/pricing-table.php:23
+#: includes/shortcodes/definitions/partial/pricing-table.php:22
 msgid "Price 2 content goes here"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/pricing-table.php:34
-msgid "Pricing table"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/pricing-table.php:39
-msgid "Pricing table: Add new price"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/pricing-table.php:49
-msgid "Remove margins between price columns?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/progress.php:22
-#: includes/shortcodes/definitions/partial/progress.php:27
+#: includes/shortcodes/definitions/partial/progress.php:21
 msgid "Progress Bar"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/progress.php:38
-msgid "Progress bar caption"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/progress.php:43
-msgid "Progress in %"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/progress.php:44
-msgid "Insert a number between 0 and 100"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/row.php:22
-#: includes/shortcodes/definitions/partial/vc.php:24
-#: includes/shortcodes/definitions/partial/vc.php:127
+#: includes/shortcodes/definitions/partial/row.php:21
 msgid "Row"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/search-form.php:22
+#: includes/shortcodes/definitions/partial/search-form.php:21
 msgid "Search Form"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/separator-heading.php:22
-#: includes/shortcodes/definitions/partial/separator-heading.php:27
+#: includes/shortcodes/definitions/partial/separator-heading.php:21
 msgid "Separator Heading"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/separator-heading.php:34
-msgid "Heading text"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/separator-heading.php:43
-msgid "Heading size"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/separator-heading.php:52
-msgid "Text align"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/separator-heading.php:58
-msgid "Center"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:22
-#: includes/shortcodes/definitions/partial/slideshow.php:27
+#: includes/shortcodes/definitions/partial/slideshow.php:21
 msgid "Slideshow"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/slideshow.php:34
-msgid "Images"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:43
-msgid "Navigation"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:47
-msgid "Just Next/Prev button"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:48
-msgid "Thumbnails"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:49
-msgid "Pagination"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/slideshow.php:63
-msgid "Speed in miliseconds"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/table.php:22
-#: includes/shortcodes/definitions/partial/table.php:27
-#: includes/shortcodes/definitions/partial/table.php:92
+#: includes/shortcodes/definitions/partial/table.php:21
+#: includes/shortcodes/definitions/partial/table.php:26
 msgid "Table"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/table.php:58
-#: includes/shortcodes/definitions/partial/table.php:107
+#: includes/shortcodes/definitions/partial/table.php:57
 msgid "CSV data separator"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/table.php:70
-#: includes/shortcodes/definitions/partial/table.php:99
+#: includes/shortcodes/definitions/partial/table.php:69
 msgid "CSV data"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:22
-#: includes/shortcodes/definitions/partial/tabs.php:27
-#: includes/shortcodes/definitions/partial/tabs.php:254
-#: includes/shortcodes/definitions/partial/tabs.php:262
+#: includes/shortcodes/definitions/partial/tabs.php:21
+#: includes/shortcodes/definitions/partial/tabs.php:26
 msgid "Tabs"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:23
-#: includes/shortcodes/definitions/partial/tabs.php:271
+#: includes/shortcodes/definitions/partial/tabs.php:22
 msgid "Tab 1"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:23
-#: includes/shortcodes/definitions/partial/tabs.php:272
+#: includes/shortcodes/definitions/partial/tabs.php:22
 msgid "Tab 2"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:58
-#: includes/shortcodes/definitions/partial/tabs.php:291
+#: includes/shortcodes/definitions/partial/tabs.php:54
+msgid "Layout"
+msgstr ""
+
+#: includes/shortcodes/definitions/partial/tabs.php:57
 msgid "Tabs on top"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:59
-#: includes/shortcodes/definitions/partial/tabs.php:292
+#: includes/shortcodes/definitions/partial/tabs.php:58
 msgid "Tabs on left"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:60
-#: includes/shortcodes/definitions/partial/tabs.php:293
+#: includes/shortcodes/definitions/partial/tabs.php:59
 msgid "Tabs on right"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:105
-#: includes/shortcodes/definitions/partial/tabs.php:299
+#: includes/shortcodes/definitions/partial/tabs.php:104
 msgid "Enable tour mode?"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/tabs.php:118
+#: includes/shortcodes/definitions/partial/tabs.php:117
 msgid "Active tab number"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/tabs.php:267
-msgid "Tab"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/tabs.php:267
-msgid "Tabs: Add new tab"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/tabs.php:277
-msgid "Active tab"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/tabs.php:278
-msgid "Enter the order number of the tab which should be open by default"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/testimonials.php:33
 #: includes/shortcodes/definitions/partial/testimonials.php:38
-#: includes/shortcodes/definitions/partial/testimonials.php:272
 msgid "Testimonials"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/testimonials.php:44
 #: includes/shortcodes/definitions/partial/testimonials.php:76
-#: includes/shortcodes/definitions/partial/testimonials.php:279
 msgid "Single testimonial"
 msgstr ""
 
@@ -2992,539 +2310,315 @@ msgid "Single testimonial display"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/testimonials.php:77
-#: includes/shortcodes/definitions/partial/testimonials.php:280
 msgid "Leave empty to display multiple testimonials"
 msgstr ""
 
 #: includes/shortcodes/definitions/partial/testimonials.php:152
-#: includes/shortcodes/definitions/partial/testimonials.php:343
 msgid "Displays items only from a specific category"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/testimonials.php:342
-msgid "Category"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:28
-#: includes/shortcodes/definitions/partial/vc.php:131
-#: includes/shortcodes/definitions/partial/vc.php:162
-#: includes/shortcodes/definitions/partial/vc.php:240
-msgid "Structure"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:52
-#: includes/shortcodes/definitions/partial/vc.php:186
-#: includes/shortcodes/definitions/partial/vc.php:264
-msgid "Background color"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:59
-#: includes/shortcodes/definitions/partial/vc.php:69
-#: includes/shortcodes/definitions/partial/vc.php:79
-#: includes/shortcodes/definitions/partial/vc.php:93
-#: includes/shortcodes/definitions/partial/vc.php:103
-#: includes/shortcodes/definitions/partial/vc.php:113
-#: includes/shortcodes/definitions/partial/vc.php:193
-#: includes/shortcodes/definitions/partial/vc.php:203
-#: includes/shortcodes/definitions/partial/vc.php:213
-#: includes/shortcodes/definitions/partial/vc.php:223
-#: includes/shortcodes/definitions/partial/vc.php:271
-#: includes/shortcodes/definitions/partial/vc.php:281
-#: includes/shortcodes/definitions/partial/vc.php:291
-#: includes/shortcodes/definitions/partial/vc.php:301
-#: includes/shortcodes/definitions/partial/vc.php:408
-#: includes/shortcodes/definitions/partial/vc.php:418
-#: includes/shortcodes/definitions/partial/vc.php:428
-msgid "Styling"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:62
-#: includes/shortcodes/definitions/partial/vc.php:196
-#: includes/shortcodes/definitions/partial/vc.php:274
-msgid "Text color"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:72
-#: includes/shortcodes/definitions/partial/vc.php:206
-#: includes/shortcodes/definitions/partial/vc.php:284
-msgid "Background image"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:82
-msgid "Parallax scroll speed"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:83
-msgid ""
-"Set the inertia of parallax background moving. For example, value of "
-"<code>0.1</code> equals to tenth of normal scroll speed."
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:96
-#: includes/shortcodes/definitions/partial/vc.php:216
-#: includes/shortcodes/definitions/partial/vc.php:294
-msgid "Padding"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:97
-#: includes/shortcodes/definitions/partial/vc.php:107
-#: includes/shortcodes/definitions/partial/vc.php:217
-#: includes/shortcodes/definitions/partial/vc.php:295
-#: includes/shortcodes/definitions/partial/vc.php:422
-#, php-format
-msgid "Set a <a%s>CSS value</a>, such as <code>60px 0 60px 0</code>"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:106
-#: includes/shortcodes/definitions/partial/vc.php:421
-msgid "Margin"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:315
-msgid "Text Block"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:358
-msgid "Image to display"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:367
-msgid "Image link URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:401
-msgid "Image width HTML attribute"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:411
-msgid "Image height HTML attribute"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:446
-msgid "Soliloquy Slider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:453
-msgid "Choose a Soliloquy slider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:479
-msgid "Master Slider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/vc.php:486
-msgid "Choose a slider"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:22
-#: includes/shortcodes/definitions/partial/video.php:27
+#: includes/shortcodes/definitions/partial/video.php:21
 msgid "Video"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/video.php:34
-msgid "Video source"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:35
-msgid "Set the video URL"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:43
-msgid "Poster"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:44
-msgid "Optional placeholder image"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:52
-msgid "Autoplay the video?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/video.php:64
-msgid "Loop the video?"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/widget-area.php:22
-#: includes/shortcodes/definitions/partial/widget-area.php:27
+#: includes/shortcodes/definitions/partial/widget-area.php:21
 msgid "Widgets Area"
 msgstr ""
 
-#: includes/shortcodes/definitions/partial/widget-area.php:34
-msgid "Widgets area"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/widget-area.php:43
-msgid "Maximum widgets count"
-msgstr ""
-
-#: includes/shortcodes/definitions/partial/widget-area.php:44
-msgid ""
-"Area will not be displayed when the number of widgets inserted in it is "
-"greater"
-msgstr ""
-
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:98
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:84
 msgctxt "Page builder modules category name."
 msgid "Theme Modules"
 msgstr ""
 
-#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:101
+#: includes/shortcodes/page-builder/beaver-builder/beaver-builder.php:88
 msgid "Advanced Modules"
 msgstr ""
 
-#: includes/shortcodes/renderers/accordion.php:65
-#: includes/shortcodes/renderers/content_module.php:222
-#: includes/shortcodes/renderers/posts.php:264
+#: includes/shortcodes/renderers/accordion.php:89
+#: includes/shortcodes/renderers/content_module.php:271
 msgid "All"
 msgstr ""
 
-#: includes/shortcodes/renderers/accordion.php:97
-#: includes/shortcodes/renderers/button.php:73
-#: includes/shortcodes/renderers/call_to_action.php:91
-#: includes/shortcodes/renderers/content_module.php:487
-#: includes/shortcodes/renderers/message.php:78
-#: includes/shortcodes/renderers/posts.php:536
-#: includes/shortcodes/renderers/table.php:82
-#: includes/shortcodes/renderers/tabs.php:88
-#: includes/shortcodes/renderers/testimonials.php:361
+#: includes/shortcodes/renderers/accordion.php:122
+#: includes/shortcodes/renderers/button.php:89
+#: includes/shortcodes/renderers/call_to_action.php:110
+#: includes/shortcodes/renderers/content_module.php:554
 msgid "Sorry, there is nothing to display here&hellip;"
 msgstr ""
 
-#: includes/shortcodes/renderers/content_module.php:316
-#: templates/content-shortcode-posts-post.php:84
-#: templates/content-shortcode-posts.php:66
+#. translators: %s: post title.
+#: includes/shortcodes/renderers/content_module.php:372
 #, php-format
-msgid "Read more <span class=\"screen-reader-text\">about \"%s\"</span>&raquo;"
+msgid "Read more about \"%s\""
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:48
+#: includes/shortcodes/renderers/content_module.php:372
+msgid "Read more &raquo;"
+msgstr ""
+
+#: includes/shortcodes/renderers/countdown_timer.php:62
 msgid "Weeks"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:49
+#: includes/shortcodes/renderers/countdown_timer.php:63
 msgid "Days"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:50
+#: includes/shortcodes/renderers/countdown_timer.php:64
 msgid "Hours"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:51
+#: includes/shortcodes/renderers/countdown_timer.php:65
 msgid "Minutes"
 msgstr ""
 
-#: includes/shortcodes/renderers/countdown_timer.php:52
+#: includes/shortcodes/renderers/countdown_timer.php:66
 msgid "Seconds"
 msgstr ""
 
-#: includes/shortcodes/renderers/posts.php:244
+#. translators: %s: taxonomy name.
+#: includes/shortcodes/renderers/posts.php:289
 #, php-format
-msgid "All <span>%s</span>"
+msgid "All (%s)"
 msgstr ""
 
-#: includes/widgets/w-contact.php:74
+#: includes/widgets/w-contact.php:62
 msgctxt "Widget name."
 msgid "Contact"
 msgstr ""
 
-#: includes/widgets/w-contact.php:77
+#: includes/widgets/w-contact.php:65
 msgctxt "Widget description."
 msgid "Contact information"
 msgstr ""
 
-#: includes/widgets/w-contact.php:118
+#: includes/widgets/w-contact.php:106
 msgctxt "Widget description."
 msgid ""
 "Displays specially styled contact information. Anti-spam protection will be "
 "applied on the email address."
 msgstr ""
 
-#: includes/widgets/w-contact.php:122 includes/widgets/w-module.php:113
-#: includes/widgets/w-posts.php:113 includes/widgets/w-subnav.php:240
-#: includes/widgets/w-twitter.php:150
+#: includes/widgets/w-contact.php:111 includes/widgets/w-module.php:120
+#: includes/widgets/w-posts.php:117 includes/widgets/w-subnav.php:234
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:127
+#: includes/widgets/w-contact.php:124
 msgctxt "In address."
 msgid "Name:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:132 includes/widgets/w-contact.php:237
+#: includes/widgets/w-contact.php:137 includes/widgets/w-contact.php:285
 msgid "Address:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:137 includes/widgets/w-contact.php:260
+#: includes/widgets/w-contact.php:151 includes/widgets/w-contact.php:309
 msgid "Business hours:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:139
-msgid ""
-"Use comma to separate days and times<br />(such as \"Friday, 9:00 - 17:00\")"
+#: includes/widgets/w-contact.php:163
+msgid "Use comma to separate days and times (such as \"Friday, 9:00 - 17:00\")"
 msgstr ""
 
-#: includes/widgets/w-contact.php:143 includes/widgets/w-contact.php:271
+#: includes/widgets/w-contact.php:169 includes/widgets/w-contact.php:320
 msgid "Phone number:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:148 includes/widgets/w-contact.php:290
+#: includes/widgets/w-contact.php:183 includes/widgets/w-contact.php:345
 msgid "Email address:"
 msgstr ""
 
-#: includes/widgets/w-contact.php:150
+#: includes/widgets/w-contact.php:195
 msgid "Anti-spam protection applied automatically"
 msgstr ""
 
-#: includes/widgets/w-module.php:76
+#: includes/widgets/w-module.php:74
 msgctxt "Widget name."
 msgid "Content Module"
 msgstr ""
 
-#: includes/widgets/w-module.php:79
+#: includes/widgets/w-module.php:77
 msgctxt "Widget description."
 msgid "Displays specific Content Module post"
 msgstr ""
 
-#: includes/widgets/w-module.php:110
+#: includes/widgets/w-module.php:115
 msgctxt "Widget description."
 msgid ""
 "Displays content of the specific Content Module custom post. Please choose "
 "the Content Module below."
 msgstr ""
 
-#: includes/widgets/w-module.php:128
+#: includes/widgets/w-module.php:145
 msgid "Content Module to display:"
 msgstr ""
 
-#: includes/widgets/w-module.php:130
+#: includes/widgets/w-module.php:153
 msgid "- Select Content Module -"
 msgstr ""
 
-#: includes/widgets/w-module.php:142
+#. translators: %s: list of tag names.
+#: includes/widgets/w-module.php:174
 #, php-format
 msgid " (tags: %s)"
 msgstr ""
 
-#: includes/widgets/w-module.php:153
+#: includes/widgets/w-module.php:192
 msgid ""
 "There are no Content Modules to choose from. Please add a new Content Module "
 "first."
 msgstr ""
 
-#: includes/widgets/w-module.php:159 includes/widgets/w-posts.php:189
+#: includes/widgets/w-module.php:200 includes/widgets/w-posts.php:235
 msgid "Optional CSS class:"
 msgstr ""
 
-#: includes/widgets/w-posts.php:76
+#: includes/widgets/w-posts.php:71
 msgctxt "Widget name."
 msgid "Posts"
 msgstr ""
 
-#: includes/widgets/w-posts.php:79
+#: includes/widgets/w-posts.php:74
 msgctxt "Widget description."
 msgid "Lists posts or projects"
 msgstr ""
 
-#: includes/widgets/w-posts.php:110
+#: includes/widgets/w-posts.php:112
 msgctxt "Widget description."
 msgid "Displays list of Posts or Projects."
 msgstr ""
 
-#: includes/widgets/w-posts.php:118
+#: includes/widgets/w-posts.php:130
 msgid "Post type:"
 msgstr ""
 
-#: includes/widgets/w-posts.php:121
+#: includes/widgets/w-posts.php:139
 msgid "Posts"
 msgstr ""
 
-#: includes/widgets/w-posts.php:131
+#: includes/widgets/w-posts.php:151
 msgid "Posts count:"
 msgstr ""
 
-#: includes/widgets/w-posts.php:136
+#: includes/widgets/w-posts.php:167
 msgid "Ordering:"
 msgstr ""
 
-#: includes/widgets/w-posts.php:140
+#: includes/widgets/w-posts.php:177
 msgctxt "List order method."
 msgid "Newest first"
 msgstr ""
 
-#: includes/widgets/w-posts.php:141
+#: includes/widgets/w-posts.php:178
 msgctxt "List order method."
 msgid "Oldest first"
 msgstr ""
 
-#: includes/widgets/w-posts.php:142
+#: includes/widgets/w-posts.php:179
 msgctxt "List order method."
 msgid "Alphabetically"
 msgstr ""
 
-#: includes/widgets/w-posts.php:143
+#: includes/widgets/w-posts.php:180
 msgctxt "List order method."
 msgid "Randomly"
 msgstr ""
 
-#: includes/widgets/w-posts.php:153
+#: includes/widgets/w-posts.php:193
 msgid "Optional posts taxonomy:"
 msgstr ""
 
-#: includes/widgets/w-posts.php:160
+#: includes/widgets/w-posts.php:206
 msgid "Posts tags"
 msgstr ""
 
-#: includes/widgets/w-posts.php:168
+#: includes/widgets/w-posts.php:214
 msgid "- All posts/projects -"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:64
+#: includes/widgets/w-subnav.php:56
 msgctxt "Widget name."
 msgid "Submenu"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:67
+#: includes/widgets/w-subnav.php:59
 msgctxt "Widget description."
 msgid "List of subpages"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:235
+#: includes/widgets/w-subnav.php:229
 msgctxt "Widget description."
 msgid ""
 "Displays a hierarchical list of child and sibling pages for the current page."
 msgstr ""
 
-#: includes/widgets/w-subnav.php:244
+#: includes/widgets/w-subnav.php:245
 msgid "If you leave blank, the main parent page title will be displayed."
 msgstr ""
 
-#: includes/widgets/w-subnav.php:250
+#: includes/widgets/w-subnav.php:251
 msgid "Child pages depth level:"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:266
+#: includes/widgets/w-subnav.php:272
 msgid "Direct parent and its child pages only"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:272
+#: includes/widgets/w-subnav.php:278
 msgid "List order:"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:278
+#: includes/widgets/w-subnav.php:287
 msgctxt "List order method."
 msgid "By name"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:279
+#: includes/widgets/w-subnav.php:288
 msgctxt "List order method."
 msgid "By date"
 msgstr ""
 
-#: includes/widgets/w-subnav.php:280
+#: includes/widgets/w-subnav.php:289
 msgctxt "List order method."
 msgid "Menu order"
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:60
+#: includes/widgets/w-tabbed-widgets.php:64
 msgctxt "Widgets area name."
 msgid "Tabbed Widgets"
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:62
+#: includes/widgets/w-tabbed-widgets.php:66
 msgctxt "Widgets area description."
 msgid "Default widget area for Tabbed Widgets widget."
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:92
+#: includes/widgets/w-tabbed-widgets.php:98
 msgctxt "Widget name."
 msgid "Tabbed Widgets"
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:95
+#: includes/widgets/w-tabbed-widgets.php:101
 msgctxt "Widget description."
 msgid "Multiple widgets in tabs"
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:148
+#: includes/widgets/w-tabbed-widgets.php:163
 msgctxt "Widget description."
 msgid "Displays widgets from selected widget area in tabbed interface."
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:151
+#: includes/widgets/w-tabbed-widgets.php:168
 msgid "Widgets area displayed"
 msgstr ""
 
-#: includes/widgets/w-tabbed-widgets.php:210
+#: includes/widgets/w-tabbed-widgets.php:259
 msgid "Widget area conflict in Tabbed Widgets widget."
 msgstr ""
 
-#: includes/widgets/w-twitter.php:96
-msgctxt "Widget name."
-msgid "Twitter"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:99
-msgctxt "Widget description."
-msgid "Your recent tweets"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:147
-msgctxt "Widget description."
-msgid ""
-"Displays recent tweets from specific Twitter account. Also displays Twitter "
-"account details. Tweets are being cached to optimize the page loading speeds."
-msgstr ""
-
-#: includes/widgets/w-twitter.php:155
-msgid "Twitter username:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:160
-msgid "Number of tweets to display:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:166
-msgid "Display Twitter user info"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:171
-msgid "Display reply tweets"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:177
-msgid "Twitter API settings"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:178
-msgid ""
-"To set the fields below you need to <a href=\"https://dev.twitter.com/apps\" "
-"target=\"_blank\">create a Twitter Application</a>. See theme user manual "
-"for more info."
-msgstr ""
-
-#: includes/widgets/w-twitter.php:182
-msgid "Consumer key:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:187
-msgid "Consumer secret:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:192
-msgid "Access token:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:197
-msgid "Access token secret:"
-msgstr ""
-
-#: includes/widgets/w-twitter.php:443
-msgid "No tweets."
-msgstr ""
-
-#: templates/content-shortcode-posts-post.php:63
+#. translators: %s: number of comments.
+#: templates/content-shortcode-posts-post.php:81
 #, php-format
-msgctxt "%s stands for number of comments."
 msgid "Comments: %s"
 msgstr ""

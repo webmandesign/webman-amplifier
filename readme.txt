@@ -4,10 +4,10 @@ Contributors:      webmandesign
 Donate link:       https://www.webmandesign.eu/contact/#donation
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
-Requires at least: 6.0
-Tested up to:      6.8
-Requires PHP:      7.0
-Stable tag:        1.5.12
+Requires at least: 6.7
+Tested up to:      6.9
+Requires PHP:      8.0
+Stable tag:        1.6.0
 License:           GPL-3.0-or-later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              beaver builder, custom post types, icons, metabox, shortcodes
@@ -100,5 +100,5 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 == Upgrade Notice ==
 
-= 1.5.12 =
-Updating and fixing styles, preventing infinite loop in Posts shortcode on singular pages, fixing metabox related localization error.
+= 1.6.0 =
+This is a significant plugin update! Improving security, code, removing obsolete functionality, fixing bugs. In case of issues, please contact WebMan Design support.

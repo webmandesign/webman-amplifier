@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.3
+ * @version  1.6.0
  *
  * @param  string class
  * @param  string space_after
@@ -15,46 +15,68 @@
  * @param  string appearance Introduced not to conflict with Beaver Builder
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'appearance'   => '',
 			'class'        => '',
 			'space_after'  => '-',
 			'space_before' => '-',
 			'style'        => '',
 			'type'         => '',
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
-//Validation
-	//class
-		$atts['class'] = trim( 'wm-divider ' . trim( $atts['class'] ) );
-	//space_after
-		if ( '-' !== $atts['space_after'] ) {
-			$atts['style'] .= 'margin-bottom:' . intval( $atts['space_after'] ). 'px;';
+// Validation
+
+	// class
+	$atts['class'] = trim( 'wm-divider ' . trim( $atts['class'] ) );
+
+	// space_after
+	if ( '-' !== $atts['space_after'] ) {
+		$atts['style'] .= 'margin-bottom:' . intval( $atts['space_after'] ). 'px;';
+	}
+
+	// space_before
+	if ( '-' !== $atts['space_before'] ) {
+		$atts['style'] .= 'margin-top:' . intval( $atts['space_before'] ) . 'px;';
+	}
+
+	// style
+	if ( $atts['style'] ) {
+		$atts['style'] = ' style="' . esc_attr( $atts['style'] ) . '"';
+	}
+
+	// type
+
+		// Fix for Beaver Builder
+		if ( $atts['appearance'] ) {
+			$atts['type'] = $atts['appearance'];
 		}
-	//space_before
-		if ( '-' !== $atts['space_before'] ) {
-			$atts['style'] .= 'margin-top:' . intval( $atts['space_before'] ) . 'px;';
-		}
-	//style
-		if ( $atts['style'] ) {
-			$atts['style'] = ' style="' . esc_attr( $atts['style'] ) . '"';
-		}
-	//type
-		//Fix for Beaver Builder
-			if ( $atts['appearance'] ) {
-				$atts['type'] = $atts['appearance'];
-			}
+
 		$atts['type'] = trim( $atts['type'] );
+
 		if ( $atts['type'] ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
-	//class
-		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Output
+	// class
+	$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
+
+// Output
+
 	$output = '<hr class="' . esc_attr( $atts['class'] ) . '"' . $atts['style'] . ' />';
+
+// phpcs:enable

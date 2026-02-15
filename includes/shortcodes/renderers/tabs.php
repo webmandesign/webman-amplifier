@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * @param  integer active
  * @param  string class
@@ -13,69 +13,95 @@
  * @param  boolean tour
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'active' => 0,
 			'class'  => '',
 			'layout' => 'top',
 			'tour'   => false,
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
-//Helper variables
+// Helper variables
+
 	global $wm_shortcode_helper_variable;
+
 	$wm_shortcode_helper_variable = $shortcode; //Passing the parent shortcode for "wm_item" shortcodes
 
-//Validation
-	//active
-		$atts['active'] = absint( $atts['active'] );
-	//layout
+// Validation
+
+	// active
+	$atts['active'] = absint( $atts['active'] );
+
+	// layout
+
 		$atts['layout'] = trim( $atts['layout'] );
+
 		if ( ! in_array( $atts['layout'], array( 'top', 'left', 'right' ) ) ) {
 			$atts['layout'] = 'top';
 		}
-	//content
-		$content = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
-		$content = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $content, $atts );
-		//Prepare tabs output
-			$tabs        = array();
-			$tabs_output = '';
-			preg_match_all( '/(data-title)=("[^"]*")/i', $content, $tabs );
-			if (
-					is_array( $tabs )
-					&& ! empty( $tabs )
-					&& isset( $tabs[2] )
-				) {
-				$i    = 0;
-				$tabs = $tabs[2];
-				$tabs = str_replace( '"', '', $tabs );
 
-				//Tabs output
-					foreach ( $tabs as $tab ) {
-						$tab          = explode( '&&', $tab );
-						$tabs_output .= '<li class="wm-tab-items-' . esc_attr( $tab[0] ) . '"><a href="#' . esc_attr( $tab[0] ) . '" data-tab="#' . esc_attr( $tab[0] ) . '">' . html_entity_decode( $tab[1] ) . '</a></li>';
-						$i++;
-					}
-					$tabs_output = '<ul class="wm-tab-links wm-tab-count-' . esc_attr( $i ) . '">' . $tabs_output . '</ul>';
+	// content
+	$content = apply_filters( 'wmhook_shortcode__content', $content, $shortcode, $atts );
+	$content = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $content, $atts );
+
+		// Prepare tabs output
+		$tabs        = array();
+		$tabs_output = '';
+
+		preg_match_all( '/(data-title)=("[^"]*")/i', $content, $tabs );
+
+		if (
+			is_array( $tabs )
+			&& ! empty( $tabs )
+			&& isset( $tabs[2] )
+		) {
+
+			$i    = 0;
+			$tabs = $tabs[2];
+			$tabs = str_replace( '"', '', $tabs );
+
+			// Tabs output
+			foreach ( $tabs as $tab ) {
+				$tab          = explode( '||', $tab );
+				$tabs_output .= '<li class="wm-tab-items-' . esc_attr( $tab[0] ) . '"><a href="#' . esc_attr( $tab[0] ) . '" data-tab="#' . esc_attr( $tab[0] ) . '">' . html_entity_decode( $tab[1] ) . '</a></li>';
+				$i++;
 			}
+			$tabs_output = '<ul class="wm-tab-links wm-tab-count-' . esc_attr( $i ) . '">' . $tabs_output . '</ul>';
+		}
 
-		//Implement tabs output
-			$atts['content'] = $tabs_output . '<div class="wm-tabs-items">' . $content . '</div>';
-	//class
+		// Implement tabs output
+		$atts['content'] = $tabs_output . '<div class="wm-tabs-items">' . $content . '</div>';
+
+	// class
+
 		$atts['class']  = trim( esc_attr( 'wm-tabs clearfix ' . trim( $atts['class'] ) ) );
 		$atts['class'] .= ' layout-' . $atts['layout'];
+
 		if ( $atts['tour'] ) {
 			$atts['class'] .= ' tour-tabs';
 		}
+
 		$atts['class']  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Enqueue scripts
+// Enqueue scripts
+
 	$enqueue_scripts = array(
-			'wm-shortcodes-tabs'
-		);
+		'wm-shortcodes-tabs'
+	);
 
 	WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
@@ -87,3 +113,5 @@
 	} else {
 		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
 	}
+
+// phpcs:enable

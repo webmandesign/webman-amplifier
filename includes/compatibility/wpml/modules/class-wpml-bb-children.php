@@ -1,5 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+<?php
 /**
  * WPML Beaver Builder children translation class
  *
@@ -14,22 +13,18 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.0
- *
- * Contents:
- *
- *  0) Init
- * 10) Integration
+ * @version  1.6.0
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound -- prefixed with "WM"
 class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Module_With_Items {
 
 	private static $module_id = '';
 
 	private static $supported_fields = array();
-
-
-
-
 
 	/**
 	 * Get Beaver Builder children elements in array
@@ -42,28 +37,25 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 		// Processing
 
 			// Get module ID
-
-				if ( isset( $settings->type ) ) {
-					self::$module_id = str_replace(
-						WM_Shortcodes::$prefix_shortcode,
-						'',
-						$settings->type
-					);
-				}
+			if ( isset( $settings->type ) ) {
+				self::$module_id = str_replace(
+					WM_Shortcodes::$prefix_shortcode,
+					'',
+					$settings->type
+				);
+			}
 
 			// Output only the children in array
-
-				if ( isset( $settings->children ) ) {
-					$output = (array) $settings->children;
-				} else {
-					$output = array();
-				}
+			if ( isset( $settings->children ) ) {
+				$output = (array) $settings->children;
+			} else {
+				$output = array();
+			}
 
 			// Get option fields of a child to prevent PHP warnings of non existent field (see below)
-
-				if ( isset( $output[0] ) ) {
-					self::$supported_fields = array_keys( (array) $output[0] );
-				}
+			if ( isset( $output[0] ) ) {
+				self::$supported_fields = array_keys( (array) $output[0] );
+			}
 
 
 		// Output
@@ -71,8 +63,6 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 			return $output;
 
 	} // /get_items
-
-
 
 	/**
 	 * Child element option field IDs to translate
@@ -91,9 +81,6 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 			), self::$supported_fields );
 
 	} // /get_fields
-
-
-
 
 	/**
 	 * Child element option field labels
@@ -126,13 +113,9 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 
 				default:
 					return '';
-
 			}
 
 	} // /get_title
-
-
-
 
 	/**
 	 * Child element option field types
@@ -157,13 +140,8 @@ class WM_Amplifier_WPML_Beaver_Builder_Children extends WPML_Beaver_Builder_Modu
 
 				default:
 					return '';
-
 			}
 
 	} // /get_editor_type
 
-
-
-
-
-} // /WM_Amplifier_WPML_Beaver_Builder_Children
+}

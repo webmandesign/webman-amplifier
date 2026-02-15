@@ -7,7 +7,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.1.6
+ * @version  1.6.0
  *
  * @param  string class
  * @param  string poster @link http://codex.wordpress.org/Video_Shortcode
@@ -15,27 +15,41 @@
  * @param  string ... For attributes please see @link http://codex.wordpress.org/Video_Shortcode.
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'autoplay' => false,
 			'class'    => '',
 			'loop'     => false,
 			'poster'   => '',
 			'src'      => '',
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
-	//get the custom attributes in $atts['attributes']
-	//parameters: $defaults, $atts, $remove, $aside, $shortcode
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
+	// get the custom attributes in $atts['attributes']
+	// parameters: $defaults, $atts, $remove, $aside, $shortcode
 	$atts = wma_shortcode_custom_atts( $defaults, $atts, array( 'autoplay', 'loop', 'poster', 'src' ), array(), $prefix_shortcode . $shortcode );
 
-//Validation
-	//content
-		$atts['content'] = '';
-	//src
+// Validation
+
+	// content
+	$atts['content'] = '';
+
+	// src
 		$atts['src'] = trim( $atts['src'] );
+
 		if ( $atts['src'] ) {
+
 			if (
 					stripos( $atts['src'], 'mp4' )
 					|| stripos( $atts['src'], 'm4v' )
@@ -51,7 +65,7 @@
 
 				$atts['content'] = wp_oembed_get( esc_url( $atts['src'] ) );
 
-				//Helper viariables
+				// Helper viariables
 					$url_addons = '';
 
 				/**
@@ -60,6 +74,7 @@
 				 * Autoplay and looping attributes will be applied also
 				 * on these 2 video services.
 				 */
+
 					if ( false !== strpos( $atts['src'], 'youtube' ) ) {
 						$url_addons = '?rel=0';
 					} elseif ( false !== strpos( $atts['src'], 'vimeo' ) ) {
@@ -67,48 +82,58 @@
 					}
 
 					if ( $url_addons ) {
-					//If YouTube or Vimeo...
+					// If YouTube or Vimeo...
 
 						if ( $atts['autoplay'] ) {
-							$url_addons .= '&amp;autoplay=1'; //The same for YouTube and Vimeo
-							//Remove controls and info when autoplay
-								$url_addons .= '&amp;controls=0&amp;showinfo=0'; //For YouTube
-								$url_addons .= '&amp;badge=0&amp;autopause=0'; //For Vimeo
+							$url_addons .= '&amp;autoplay=1'; // The same for YouTube and Vimeo
+							// Remove controls and info when autoplay
+							$url_addons .= '&amp;controls=0&amp;showinfo=0'; // For YouTube
+							$url_addons .= '&amp;badge=0&amp;autopause=0'; // For Vimeo
 						}
+
 						if ( $atts['loop'] ) {
-							$url_addons .= '&amp;loop=1'; //The same for YouTube and Vimeo
+							$url_addons .= '&amp;loop=1'; // The same for YouTube and Vimeo
 						}
 
-						//Allow filtering URL addons
-							$url_addons = apply_filters( 'wmhook_shortcode_' . $shortcode . '_url_addons', $url_addons, $atts );
+						// Allow filtering URL addons
+						$url_addons = apply_filters( 'wmhook_shortcode_' . $shortcode . '_url_addons', $url_addons, $atts );
 
-						//Search for the src="URL"
-							preg_match( '/src=\"([^\"]*)\"/', $atts['content'], $matches );
+						// Search for the src="URL"
+						preg_match( '/src=\"([^\"]*)\"/', $atts['content'], $matches );
 
-						//Add URL attributes
-							if ( isset( $matches[1] ) ) {
-								if ( strpos( $matches[1], '?' ) ) {
-									$url_addons = str_replace( '?', '$amp;', $url_addons );
-								}
-								$atts['content'] = str_replace( $matches[1], $matches[1] . $url_addons, $atts['content'] );
+						// Add URL attributes
+						if ( isset( $matches[1] ) ) {
+
+							if ( strpos( $matches[1], '?' ) ) {
+								$url_addons = str_replace( '?', '$amp;', $url_addons );
 							}
 
+							$atts['content'] = str_replace( $matches[1], $matches[1] . $url_addons, $atts['content'] );
+						}
 					}
-
 			}
 		}
-	//content filters
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
-	//class
-		$atts['class'] = trim( 'wm-video ' . trim( $atts['class'] ) );
-		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
-	//poster
+
+	// content filters
+	$atts['content'] = apply_filters( 'wmhook_shortcode__content', $atts['content'], $shortcode, $atts );
+	$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+
+	// class
+	$atts['class'] = trim( 'wm-video ' . trim( $atts['class'] ) );
+	$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
+
+	// poster
+
 		$atts['poster'] = trim( $atts['poster'] );
+
 		if ( is_numeric( $atts['poster'] ) ) {
 			$atts['poster'] = wp_get_attachment_url( $atts['poster'] );
 		}
+
 		$atts['poster'] = esc_url( $atts['poster'] );
 
-//Output
+// Output
+
 	$output = '<div class="' . esc_attr( $atts['class'] ) . '"><div class="media-container">' . $atts['content'] . '</div></div>';
+
+// phpcs:enable

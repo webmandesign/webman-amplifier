@@ -1,5 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+<?php
 /**
  * Visual Editor addons
  *
@@ -17,17 +16,11 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.1.0
- * @version  1.5.12
- *
- * Contents:
- *
- * 10) Assets
- * 20) Visual editor addons
+ * @version  1.6.0
  */
 
-
-
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * 10) Assets
@@ -37,8 +30,9 @@
 	 * Enqueuing required assets
 	 *
 	 * @since    1.1.0
-	 * @version  1.5.0
+	 * @version  1.6.0
 	 */
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 	function wma_ve_assets() {
 
 		// Requirements check
@@ -75,7 +69,6 @@
 
 			$supported_post_types = array(
 				'beaver-builder'  => ( get_option( '_fl_builder_post_types' ) ) ? ( (array) get_option( '_fl_builder_post_types' ) ) : ( array( 'page' ) ),
-				'visual-composer' => ( get_option( 'wpb_js_content_types' ) ) ? ( (array) get_option( 'wpb_js_content_types' ) ) : ( array( 'page' ) ),
 			);
 
 			ksort( $codes_default );
@@ -117,33 +110,23 @@
 				if (
 					! empty( $codes_short )
 					&& (
-						(
-							! is_admin()
-							&& in_array( $post_type, $supported_post_types['beaver-builder'] )
-						) || (
-							wma_is_active_vc()
-							&& in_array( $post_type, $supported_post_types['visual-composer'] )
-						)
+						! is_admin()
+						&& in_array( $post_type, $supported_post_types['beaver-builder'] )
 					)
 				) {
 
-					// Scripts: inline
-
-						// Using `wp_localize_script` here seems to be OK - it does not trigger WP localization error.
-						wp_localize_script(
-							'jquery',
-							'wmShortcodesArrayShort',
-							array_values( $codes_short )
-						);
-
+					// Using `wp_localize_script` here seems to be OK - it does not trigger WP localization error.
+					wp_localize_script(
+						'jquery',
+						'wmShortcodesArrayShort',
+						array_values( $codes_short )
+					);
 				}
 
 	} // /wma_ve_assets
 
 	add_action( 'wp_enqueue_scripts',    'wma_ve_assets' );
 	add_action( 'admin_enqueue_scripts', 'wma_ve_assets' );
-
-
 
 
 
@@ -159,6 +142,7 @@
 	 *
 	 * @param  array $plugins_array
 	 */
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 	function wma_ve_custom_mce_plugin( $plugins_array = array() ) {
 
 		// Requirements check
@@ -217,6 +201,7 @@
 	 *
 	 * @param  array $buttons
 	 */
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 	function wma_ve_add_buttons_row1( $buttons ) {
 
 		// Pre
@@ -238,22 +223,22 @@
 		// Processing
 
 			// Inserting buttons before "Toolbar Toggle" (kitchensink) button
+			$pos = array_search( 'wp_adv', $buttons, true );
 
-				$pos = array_search( 'wp_adv', $buttons, true );
+			if ( false !== $pos ) {
 
-				if ( false !== $pos ) {
-					$add   = array_slice( $buttons, 0, $pos );
-					$add[] = '|';
-					$add[] = 'wm_shortcodes_list';
-					$add[] = 'wm_shortcodes_list_short';
-					$add[] = '|';
+				$add   = array_slice( $buttons, 0, $pos );
+				$add[] = '|';
+				$add[] = 'wm_shortcodes_list';
+				$add[] = 'wm_shortcodes_list_short';
+				$add[] = '|';
 
-					if ( false === array_search( 'wp_adv', $add, true ) ) {
-						$add[] = 'wp_adv';
-					}
-
-					$buttons = array_merge( $add, array_slice( $buttons, $pos + 1 ) );
+				if ( false === array_search( 'wp_adv', $add, true ) ) {
+					$add[] = 'wp_adv';
 				}
+
+				$buttons = array_merge( $add, array_slice( $buttons, $pos + 1 ) );
+			}
 
 
 		// Output

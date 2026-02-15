@@ -1,5 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+<?php
 /**
  * 3rd party plugins compatibility
  *
@@ -8,23 +7,26 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.3.22
- * @version  1.5.4
+ * @version  1.6.0
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 function wma_load_plugins_compatibility() {
 
 	// Processing
 
 		// WooSidebars
-
-			if ( class_exists( 'Woo_Sidebars' ) ) {
-				require_once WMAMP_INCLUDES_DIR . 'compatibility/woosidebars/class-woosidebars.php';
-			}
+		if ( class_exists( 'Woo_Sidebars' ) ) {
+			require_once WMAMP_INCLUDES_DIR . 'compatibility/woosidebars/class-woosidebars.php';
+		}
 
 		// WPML
-
-			if ( function_exists( 'wpml_core_loads_first' ) ) {
-				require_once WMAMP_INCLUDES_DIR . 'compatibility/wpml/class-wpml.php';
-			}
+		if ( function_exists( 'wpml_core_loads_first' ) ) {
+			require_once WMAMP_INCLUDES_DIR . 'compatibility/wpml/class-wpml.php';
+		}
 
 }
 

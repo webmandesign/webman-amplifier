@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * @param  string behaviour  Synonym for "mode" attribute.
  * @param  string bg_attachment
@@ -24,10 +24,17 @@
  * @param  string parallax
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'behaviour'     => '',
 			'bg_attachment' => '',
 			'bg_color'      => '',
@@ -38,46 +45,63 @@
 			'class'         => '',
 			'font_color'    => '',
 			'html'          => array(
-					'default' => '<div class="{class}"{attributes}>{content}</div>',
-					'section' => '{content}',
-				),
+				'default' => '<div class="{class}"{attributes}>{content}</div>',
+				'section' => '{content}',
+			),
 			'id'            => '',
 			'margin'        => '',
 			'mode'          => '',
 			'padding'       => '',
 			'parallax'      => '',
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
-//Validation
-	//content
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
-	//attributes
-		$atts['attributes'] = array( 'spacer' => '', 'style' => '' );
-	//mode
+// Validation
+
+	// content
+	$atts['content'] = apply_filters( 'wmhook_shortcode__content', $content, $shortcode, $atts );
+	$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+
+	// attributes
+	$atts['attributes'] = array( 'spacer' => '', 'style' => '' );
+
+	// mode
+
 		if ( $atts['behaviour'] && ! $atts['mode'] ) {
 			$atts['mode'] = $atts['behaviour'];
 		}
+
 		$atts['mode'] = trim( $atts['mode'] );
+
 		if ( ! $atts['mode'] || ! isset( $atts['html'][ $atts['mode'] ] ) ) {
 			$atts['mode'] = $atts['behaviour'] = 'default';
 		}
-	//bg_color
+
+	// bg_color
+
 		$atts['bg_color'] = trim( $atts['bg_color'] );
+
 		if ( $atts['bg_color'] ) {
+
 			$atts['attributes']['style'] .= ' background-color: ' . esc_attr( $atts['bg_color'] ) . ';';
 
-			if ( absint( apply_filters( 'wmhook_wmamp_' . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['bg_color'] ) ) {
+			if ( absint( apply_filters( 'wmhook_wmamp_color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['bg_color'] ) ) {
 				$atts['class'] .= ' colorset-bg-dark';
 			} else {
 				$atts['class'] .= ' colorset-bg-light';
 			}
 		}
-	//bg_image
+
+	// bg_image
+
 		$atts['bg_image'] = trim( $atts['bg_image'] );
+
 		if ( is_numeric( $atts['bg_image'] ) ) {
+
 			$image_size = apply_filters( 'wmhook_shortcode_' . $shortcode . '_image_size', 'full', $atts );
 			$image      = wp_get_attachment_image_src( absint( $atts['bg_image'] ), $image_size );
 
@@ -87,110 +111,154 @@
 		} elseif ( $atts['bg_image'] ) {
 			$atts['attributes']['style'] .= ' background-image: url(' . esc_url( $atts['bg_image'] ) . ');';
 		}
-	//parallax
+
+	// parallax
+
 		$atts['parallax'] = trim( str_replace( ' ', '', $atts['parallax'] ) );
+
 		if ( $atts['parallax'] ) {
+
 			$atts['parallax'] = explode( ',', $atts['parallax'] );
 
 			$atts['attributes']['parallax'] = 'data-parallax-inertia="' . esc_attr( floatval( $atts['parallax'][0] ) ) . '"';
+
 			if ( isset( $atts['parallax'][1] ) ) {
 				$atts['attributes']['parallax'] .= ' data-parallax-xPosition="' . esc_attr( absint( $atts['parallax'][1] ) ) . '%"';
 			}
 		}
-	//bg_attachment
+
+	// bg_attachment
+
 		$atts['bg_attachment'] = trim( $atts['bg_attachment'] );
+
 		if ( $atts['bg_image'] ) {
+
 			if ( $atts['bg_attachment'] && ! $atts['parallax'] ) {
 				$atts['bg_attachment'] = ' background-attachment: ' . esc_attr( $atts['bg_attachment'] ) . ';';
 			} else {
 				$atts['bg_attachment'] = '';
 			}
+
 			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_attachment', $atts['bg_attachment'], $atts );
 		}
-	//bg_position
+
+	// bg_position
+
 		$atts['bg_position'] = trim( $atts['bg_position'] );
+
 		if ( $atts['bg_image'] ) {
+
 			if ( $atts['bg_position'] ) {
 				$atts['bg_position'] = ' background-position: ' . esc_attr( $atts['bg_position'] ) . ';';
 			} else {
 				$atts['bg_position'] = ' background-position: 50% 50%;';
 			}
+
 			if ( $atts['parallax'] ) {
 				$atts['bg_position'] = '';
 			}
+
 			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_position', $atts['bg_position'], $atts );
 		}
-	//bg_repeat
+
+	// bg_repeat
+
 		$atts['bg_repeat'] = trim( $atts['bg_repeat'] );
+
 		if ( $atts['bg_image'] ) {
+
 			if ( $atts['bg_repeat'] && ! $atts['parallax'] ) {
 				$atts['bg_repeat'] = ' background-repeat: ' . esc_attr( $atts['bg_repeat'] ) . ';';
 			} else {
 				$atts['bg_repeat'] = '';
 			}
+
 			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_repeat', $atts['bg_repeat'], $atts );
 		}
-	//bg_size
+
+	// bg_size
+
 		$atts['bg_size'] = trim( $atts['bg_size'] );
+
 		if ( $atts['bg_image'] ) {
+
 			if ( $atts['bg_size'] && ! $atts['parallax'] ) {
 				$atts['bg_size'] = ' background-size: ' . esc_attr( $atts['bg_size'] ) . ';';
 			} else {
 				$atts['bg_size'] = '';
 			}
+
 			$atts['attributes']['style'] .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_bg_size', $atts['bg_size'], $atts );
 		}
-	//font_color
+
+	// font_color
+
 		$atts['font_color'] = trim( $atts['font_color'] );
+
 		if ( $atts['font_color'] ) {
+
 			$atts['attributes']['style'] .= ' color: ' . esc_attr( $atts['font_color'] ) . ';';
 
-			if ( absint( apply_filters( 'wmhook_wmamp_' . 'color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['font_color'] ) ) {
+			if ( absint( apply_filters( 'wmhook_wmamp_color_brightness_treshold', WMAMP_COLOR_BRIGHTNESS_TRESHOLD ) ) > wma_color_brightness( $atts['font_color'] ) ) {
 				$atts['class'] .= ' colorset-text-dark';
 			} else {
 				$atts['class'] .= ' colorset-text-light';
 			}
 		}
-	//id
-		$atts['id'] = trim( $atts['id'] );
-		if ( $atts['id'] ) {
-			$atts['attributes']['id'] = 'id="' . esc_attr( $atts['id'] ) . '"';
-		}
-	//margin
-		$atts['margin'] = trim( str_replace( ';', '', $atts['margin'] ) );
-		if ( $atts['margin'] ) {
-			$atts['attributes']['style'] .= ' margin: ' . esc_attr( $atts['margin'] ) . ';';
-		}
-	//padding
-		$atts['padding'] = trim( str_replace( ';', '', $atts['padding'] ) );
-		if ( $atts['padding'] ) {
-			$atts['attributes']['style'] .= ' padding: ' . esc_attr( $atts['padding'] ) . ';';
-		}
-	//attributes
-		$atts['attributes'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_html_attributes', $atts['attributes'], $atts );
-	//style
-		if ( isset( $atts['attributes']['style'] ) && $atts['attributes']['style'] ) {
-			$atts['attributes']['style'] = 'style="' . esc_attr( trim( $atts['attributes']['style'] ) ) . '"';
-		}
-	//class
-		$atts['class'] = trim( 'wm-row clearfix ' . $shortcode . '-shortcode ' . trim( $atts['class'] ) );
-		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
-//Enqueue scripts
+	// id
+	$atts['id'] = trim( $atts['id'] );
+	if ( $atts['id'] ) {
+		$atts['attributes']['id'] = 'id="' . esc_attr( $atts['id'] ) . '"';
+	}
+
+	// margin
+	$atts['margin'] = trim( str_replace( ';', '', $atts['margin'] ) );
+	if ( $atts['margin'] ) {
+		$atts['attributes']['style'] .= ' margin: ' . esc_attr( $atts['margin'] ) . ';';
+	}
+
+	// padding
+	$atts['padding'] = trim( str_replace( ';', '', $atts['padding'] ) );
+	if ( $atts['padding'] ) {
+		$atts['attributes']['style'] .= ' padding: ' . esc_attr( $atts['padding'] ) . ';';
+	}
+
+	// attributes
+	$atts['attributes'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_html_attributes', $atts['attributes'], $atts );
+
+	// style
+	if ( isset( $atts['attributes']['style'] ) && $atts['attributes']['style'] ) {
+		$atts['attributes']['style'] = 'style="' . esc_attr( trim( $atts['attributes']['style'] ) ) . '"';
+	}
+
+	// class
+	$atts['class'] = trim( 'wm-row clearfix ' . $shortcode . '-shortcode ' . trim( $atts['class'] ) );
+	$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
+
+// Enqueue scripts
+
 	$enqueue_scripts = array();
 	if ( $atts['parallax'] ) {
 		$enqueue_scripts = array(
-				'jquery-parallax',
-				'wm-shortcodes-parallax'
-			);
+			'jquery-parallax',
+			'wm-shortcodes-parallax'
+		);
 	}
-
 	WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
 
-//Output
-	$replacements = apply_filters( 'wmhook_shortcode_' . $shortcode . '_output_replacements', array(
+// Output
+
+	$replacements = apply_filters(
+		'wmhook_shortcode_' . $shortcode . '_output_replacements',
+		array(
 			'{attributes}' => implode( ' ', $atts['attributes'] ),
 			'{class}'      => esc_attr( $atts['class'] ),
 			'{content}'    => $atts['content'],
-		), $atts );
+		),
+		$atts
+	);
+
 	$output = strtr( $atts['html'][ $atts['mode'] ], $replacements );
+
+// phpcs:enable

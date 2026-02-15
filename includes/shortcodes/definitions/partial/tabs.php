@@ -1,5 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+<?php
 /**
  * Shortcode definitions array partial: [tabs]
  *
@@ -8,13 +7,13 @@
  * @copyright   WebMan Design, Oliver Juhas
  *
  * @since    1.5.0
- * @version  1.5.2
+ * @version  1.6.0
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
-
-
-
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- not global
 $definitions['tabs'] = array(
 	'since' => '1.0',
 	'preprocess' => false,
@@ -74,7 +73,7 @@ $definitions['tabs'] = array(
 							'children' => array(
 								'type'         => 'form',
 								'label'        => esc_html__( 'Section', 'webman-amplifier' ),
-								'form'         => 'wm_children_form_' . 'tabs',
+								'form'         => 'wm_children_form_tabs',
 								'preview_text' => 'title', //DO NOT FORGET TO SET!
 								'multiple'     => true,
 								'preview'      => array( 'type' => 'refresh' ),
@@ -233,6 +232,7 @@ $definitions['tabs'] = array(
 									'type' => 'select',
 									//description
 									'label' => esc_html__( 'Heading HTML tag', 'webman-amplifier' ),
+									/* translators: %s: HTML tag. */
 									'description' => sprintf( esc_html__( 'Default value: %s', 'webman-amplifier' ), 'H3' ),
 									//type specific
 									'options' => $helpers['heading_tags'],
@@ -248,74 +248,6 @@ $definitions['tabs'] = array(
 
 			), // /tabs
 
-		),
-	),
-	'vc_plugin' => array(
-		'name'                    => $prefix['name'] . esc_html__( 'Tabs', 'webman-amplifier' ),
-		'base'                    => $prefix['code'] . 'tabs',
-		'class'                   => 'wm-shortcode-vc-tabs wm-sections-mode',
-		'icon'                    => 'icon-wpb-ui-tab-content',
-		'show_settings_on_create' => false,
-		'is_container'            => true,
-		'category'                => esc_html__( 'Content', 'webman-amplifier' ),
-		'custom_markup'           => '
-			<h4 class="wm-sections-mode-title wpb_element_title"><i class="vc_general vc_element-icon icon-wpb-ui-tab-content"></i> ' . esc_html__( 'Tabs', 'webman-amplifier' ) . '</h4>
-			<div class="wpb_accordion_holder wpb_holder clearfix vc_container_for_children">
-				%content%
-			</div>
-			<div class="tab_controls">
-				<button data-item="' . $prefix['code'] . 'item" data-item-title="' . esc_html__( 'Tab', 'webman-amplifier' ) . '" class="add_tab" title="' . esc_html__( 'Tabs: Add new tab', 'webman-amplifier' ) . '">' . esc_html__( 'Tabs: Add new tab', 'webman-amplifier' ) . '</button>
-			</div>
-		',
-		'default_content'         => '
-			[' . $prefix['code'] . 'item title="' . esc_html__( 'Tab 1', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
-			[' . $prefix['code'] . 'item title="' . esc_html__( 'Tab 2', 'webman-amplifier' ).'"][/' . $prefix['code'] . 'item]
-		',
-		'js_view'                 => 'VcCustomAccordionView',
-		'params'                  => array(
-			10 => array(
-				'heading'     => esc_html__( 'Active tab', 'webman-amplifier' ),
-				'description' => esc_html__( 'Enter the order number of the tab which should be open by default', 'webman-amplifier' ),
-				'type'        => 'textfield',
-				'param_name'  => 'active',
-				'value'       => 1,
-				'holder'      => 'hidden',
-				'class'       => '',
-			),
-			20 => array(
-				'heading'     => esc_html__( 'Layout', 'webman-amplifier' ),
-				'description' => '',
-				'type'        => 'dropdown',
-				'param_name'  => 'layout',
-				'value'       => array(
-					esc_html__( 'Tabs on top', 'webman-amplifier' )   => 'top', // default
-					esc_html__( 'Tabs on left', 'webman-amplifier' )  => 'left',
-					esc_html__( 'Tabs on right', 'webman-amplifier' ) => 'right',
-				),
-				'holder'      => 'hidden',
-				'class'       => '',
-			),
-			30 => array(
-				'heading'     => esc_html__( 'Enable tour mode?', 'webman-amplifier' ),
-				'description' => '',
-				'type'        => 'dropdown',
-				'param_name'  => 'tour',
-				'value'       => array(
-					esc_html__( 'No', 'webman-amplifier' )  => '',
-					esc_html__( 'Yes', 'webman-amplifier' ) => 1,
-				),
-				'holder'      => 'hidden',
-				'class'       => '',
-			),
-			40 => array(
-				'heading'     => esc_html__( 'CSS class', 'webman-amplifier' ),
-				'description' => esc_html__( 'Optional CSS additional classes', 'webman-amplifier' ),
-				'type'        => 'textfield',
-				'param_name'  => 'class',
-				'value'       => '',
-				'holder'      => 'hidden',
-				'class'       => '',
-			),
 		),
 	),
 );

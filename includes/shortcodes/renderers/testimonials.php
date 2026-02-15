@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.5.6
+ * @version  1.6.0
  *
  * @param  string align
  * @param  string category (testimonials category slug)
@@ -21,10 +21,17 @@
  * @param  string testimonial (ID or slug, if this is set, a single module will be displayed only)
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'align'            => 'left',
 			'category'         => '',
 			'class'            => '',
@@ -37,11 +44,15 @@
 			'pagination'       => false,
 			'scroll'           => 0,
 			'testimonial'      => '',
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
-//Helper variables
+// Helper variables
+
 	$paged = max( get_query_var( 'page' ), get_query_var( 'paged' ) );
 	if ( ! $paged ) {
 		$paged = 1;
@@ -52,270 +63,303 @@
 	$posts_container_class = 'wm-testimonials-container wm-items-container';
 	$masonry_layout        = false;
 
-//Validation
-	//post_type
-		$atts['post_type'] = 'wm_testimonials';
-	//align
-		$atts['align'] = ( 'right' === trim( $atts['align'] ) ) ? ( trim( $atts['align'] ) ) : ( 'left' );
-	//category
-		$atts['category'] = ( trim( $atts['category'] ) ) ? ( array( 'testimonial_category', trim( $atts['category'] ) ) ) : ( '' );
-	//columns
-		$atts['columns'] = absint( $atts['columns'] );
-		if ( 1 > $atts['columns'] || 6 < $atts['columns'] ) {
-			$atts['columns'] = 4;
-		}
-	//count
-		$atts['count'] = intval( $atts['count'] );
-	//desc_column_size
-		$atts['desc_column_size'] = absint( $atts['desc_column_size'] );
-		if ( 1 > $atts['desc_column_size'] || 6 < $atts['desc_column_size'] ) {
-			$atts['desc_column_size'] = 4;
-		}
-	//no_margin
-		$atts['no_margin']      = ( trim( $atts['no_margin'] ) ) ? ( ' no-margin' ) : ( ' with-margin' );
-		$posts_container_class .= $atts['no_margin'];
-	//order
+// Validation
+
+	// post_type
+	$atts['post_type'] = 'wm_testimonials';
+
+	// align
+	$atts['align'] = ( 'right' === trim( $atts['align'] ) ) ? ( trim( $atts['align'] ) ) : ( 'left' );
+
+	// category
+	$atts['category'] = ( trim( $atts['category'] ) ) ? ( array( 'testimonial_category', trim( $atts['category'] ) ) ) : ( '' );
+
+	// columns
+	$atts['columns'] = absint( $atts['columns'] );
+	if ( 1 > $atts['columns'] || 6 < $atts['columns'] ) {
+		$atts['columns'] = 4;
+	}
+
+	// count
+	$atts['count'] = intval( $atts['count'] );
+
+	// desc_column_size
+	$atts['desc_column_size'] = absint( $atts['desc_column_size'] );
+	if ( 1 > $atts['desc_column_size'] || 6 < $atts['desc_column_size'] ) {
+		$atts['desc_column_size'] = 4;
+	}
+
+	// heading_tag
+	if ( empty( $atts['heading_tag'] ) ) {
+		$atts['heading_tag'] = 'h2';
+	}
+
+	// no_margin
+	$atts['no_margin']      = ( trim( $atts['no_margin'] ) ) ? ( ' no-margin' ) : ( ' with-margin' );
+	$posts_container_class .= $atts['no_margin'];
+
+	// order
+
 		$atts['order'] = trim( $atts['order'] );
 		$order_method = array(
-				'custom'   => array( 'menu_order', 'ASC' ),
-				'menuasc'  => array( 'menu_order', 'ASC' ),
-				'menudesc' => array( 'menu_order', 'DESC' ),
-				'new'      => array( 'date', 'DESC' ),
-				'old'      => array( 'date', 'ASC' ),
-				'name'     => array( 'title', 'ASC' ),
-				'random'   => array( 'rand', '' )
-			);
+			'custom'   => array( 'menu_order', 'ASC' ),
+			'menuasc'  => array( 'menu_order', 'ASC' ),
+			'menudesc' => array( 'menu_order', 'DESC' ),
+			'new'      => array( 'date', 'DESC' ),
+			'old'      => array( 'date', 'ASC' ),
+			'name'     => array( 'title', 'ASC' ),
+			'random'   => array( 'rand', '' )
+		);
 		$atts['order'] = ( in_array( $atts['order'], array_keys( $order_method ) ) ) ? ( $order_method[ $atts['order'] ] ) : ( $order_method['new'] );
-	//testimonial
+
+	// testimonial
+
 		$atts['testimonial'] = trim( $atts['testimonial'] );
+
 		if ( $atts['testimonial'] && is_numeric( $atts['testimonial'] ) ) {
 			$atts['testimonial'] = array( 'p', absint( $atts['testimonial'] ) );
 		} elseif ( $atts['testimonial'] ) {
 			$atts['testimonial'] = array( 'name', $atts['testimonial'] );
 		}
+
 		if ( $atts['testimonial'] ) {
 			$content            = '';
 			$atts['class']     .= ' wm-testimonials-singular';
 			$atts['pagination'] = false;
 			$atts['scroll']     = 0;
 		}
-	//scroll
+
+	// scroll
+
 		$atts['scroll'] = absint( $atts['scroll'] );
+
 		if ( $atts['scroll'] && 999 < $atts['scroll'] ) {
 			$atts['class'] .= ' scrollable-auto';
 		} elseif ( $atts['scroll'] ) {
 			$atts['class'] .= ' scrollable-manual';
 		}
-	//content
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $content, $shortcode, $atts );
-		$atts['content'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts ) );
-	//class
+
+	// content
+	$atts['content'] = apply_filters( 'wmhook_shortcode__content', $content, $shortcode, $atts );
+	$atts['content'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts ) );
+
+	// class
+
 		if ( false !== strpos( $atts['class'], 'masonry' ) ) {
-			//Use masonry when "masonry" class set
+			// Use masonry when "masonry" class set
 			$posts_container_class .= ' masonry-this';
 			$atts['class']          = str_replace( 'masonry', 'wm-posts-masonry-enabled', $atts['class'] );
 			$masonry_layout         = true;
 		}
+
 		$atts['class'] = trim( apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', 'wm-testimonials wm-posts-wrap clearfix ' . trim( $atts['class'] ), $atts ) );
 
-//Preparing content
-	//Get the posts
-		//Set query arguments
-			if ( $atts['testimonial'] ) {
-				$query_args = array(
-						'post_type'        => $atts['post_type'],
-						$atts['testimonial'][0] => $atts['testimonial'][1],
-					);
-			} else {
-				$query_args = array(
-						'paged'               => 1,
-						'post_type'           => $atts['post_type'],
-						'posts_per_page'      => $atts['count'],
-						'ignore_sticky_posts' => 1,
-						'orderby'             => $atts['order'][0],
-						'order'               => $atts['order'][1]
-					);
-				if ( $atts['category'] ) {
-					$query_args['tax_query'] = array( array(
-						'taxonomy' => $atts['category'][0],
-						'field'    => 'slug',
-						'terms'    => explode( ',', $atts['category'][1] )
-					) );
-				}
+// Preparing content
 
-				if ( $atts['pagination'] ) {
-					$query_args['paged'] = $paged;
-				} else {
-					$query_args['no_found_rows'] = true;
-				}
+	// Get the posts
+
+		// Set query arguments
+		if ( $atts['testimonial'] ) {
+
+			$query_args = array(
+				'post_type'        => $atts['post_type'],
+				$atts['testimonial'][0] => $atts['testimonial'][1],
+			);
+
+		} else {
+
+			$query_args = array(
+				'paged'               => 1,
+				'post_type'           => $atts['post_type'],
+				'posts_per_page'      => $atts['count'],
+				'ignore_sticky_posts' => 1,
+				'orderby'             => $atts['order'][0],
+				'order'               => $atts['order'][1]
+			);
+
+			if ( $atts['category'] ) {
+				$query_args['tax_query'] = array( array(
+					'taxonomy' => $atts['category'][0],
+					'field'    => 'slug',
+					'terms'    => explode( ',', $atts['category'][1] )
+				) );
 			}
 
-			//Allow filtering the query
-				$query_args = apply_filters( 'wmhook_shortcode_' . $shortcode . '_query_args', $query_args, $atts );
+			if ( $atts['pagination'] ) {
+				$query_args['paged'] = $paged;
+			} else {
+				$query_args['no_found_rows'] = true;
+			}
+		}
 
-		//Set query and loop through it
+		// Allow filtering the query
+		$query_args = apply_filters( 'wmhook_shortcode_' . $shortcode . '_query_args', $query_args, $atts );
+
+		// Set query and loop through it
 		$posts = new WP_Query( $query_args );
 
-			//Set pagination output
-				if ( $atts['pagination'] ) {
-					$atts['pagination'] = wma_pagination( array( 'echo' => false, 'query' => $posts ) );
-				}
+		// Set pagination output
+		if ( $atts['pagination'] ) {
+			$atts['pagination'] = wma_pagination( array( 'echo' => false, 'query' => $posts ) );
+		} else {
+			$atts['pagination'] = ''; // This is required for when `pagination="0"` is set as shortcode attribute.
+		}
 
 		if ( $posts->have_posts() ) {
 
-			//Scrollable posts
-				if ( $atts['scroll'] ) {
+			// Scrollable posts
+			if ( $atts['scroll'] ) {
 
-					//Set posts container class
-						$posts_container_class .= ' stack';
+				// Set posts container class
+				$posts_container_class .= ' stack';
+			}
 
-				} // /if scroll
+			// Posts grid container openings
+			if ( ! $atts['testimonial'] ) {
 
-			//Posts grid container openings
-				if ( ! $atts['testimonial'] ) {
-					$posts_container_class = apply_filters( 'wmhook_shortcode_' . $shortcode . '_posts_container_class', $posts_container_class, $atts );
-					if ( $atts['content'] ) {
-						if ( 'right' == $atts['align'] ) {
-						//open posts container div only
-							$output .= '<div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . '"><div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . $atts['columns'] . '" data-time="' . absint( $atts['scroll'] ) . '"' . wma_schema_org( 'item_list' ) . '>';
-						} else {
-						//insert posts description (shortcode content) in a column and open the posts container div
-							$output .= '<div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' wm-testimonials-description">' . $atts['content'] . '</div><div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . ' last"><div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '"' . wma_schema_org( 'item_list' ) . '>';
-						}
+				$posts_container_class = apply_filters( 'wmhook_shortcode_' . $shortcode . '_posts_container_class', $posts_container_class, $atts );
+
+				if ( $atts['content'] ) {
+
+					if ( 'right' == $atts['align'] ) {
+
+						// open posts container div only
+						$output .= '<div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . '"><div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . $atts['columns'] . '" data-time="' . absint( $atts['scroll'] ) . '">';
+
 					} else {
-						$output .= '<div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '"' . wma_schema_org( 'item_list' ) . '>';
+
+						// insert posts description (shortcode content) in a column and open the posts container div
+						$output .= '<div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' wm-testimonials-description">' . $atts['content'] . '</div><div class="wm-column width-' . esc_attr( ( $atts['desc_column_size'] - 1 ) . '-' . $atts['desc_column_size'] ) . ' last"><div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '">';
 					}
+
+				} else {
+
+					$output .= '<div class="' . esc_attr( $posts_container_class ) . '" data-columns="' . esc_attr( $atts['columns'] ) . '" data-time="' . esc_attr( absint( $atts['scroll'] ) ) . '">';
 				}
+			}
 
-			//Row
-				$row_condition  = ( ! $atts['testimonial'] && ! $atts['scroll'] && 1 != $atts['columns'] && ! $masonry_layout );
-				$output        .= ( $row_condition ) ? ( '<div class="wm-row">' ) : ( '' );
+			// Row
+			$row_condition  = ( ! $atts['testimonial'] && ! $atts['scroll'] && 1 != $atts['columns'] && ! $masonry_layout );
+			$output        .= ( $row_condition ) ? ( '<div class="wm-row">' ) : ( '' );
 
-			//Alternative item class and helper variables
-				$alt = '';
-				$row = $i = 0;
+			// Alternative item class and helper variables
+			$alt = '';
+			$row = $i = 0;
 
-		//Loop the posts
-			while ( $posts->have_posts() ) :
-				$posts->the_post();
+		// Loop the posts
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
 
-				$post_id = get_the_id();
+			$post_id = get_the_id();
 
-				//Row
-					if ( $row_condition ) {
-						$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
-						$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
-					}
+			// Row
+			if ( $row_condition ) {
+				$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
+				$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
+			}
 
-				//Setting up custom link
+			// Setting up custom link
+
+				$link = '';
+				$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
+
+				if ( $link_atts[0] ) {
+					$page_object = get_page_by_path( $link_atts[0] );
+					$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
+				} elseif ( $link_atts[1] ) {
+					$link = ' href="' . esc_url( $link_atts[1] ) . '"';
+				} else {
 					$link = '';
-					$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
-					if ( $link_atts[0] ) {
-						$page_object = get_page_by_path( $link_atts[0] );
-						$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
-					} elseif ( $link_atts[1] ) {
-						$link = ' href="' . esc_url( $link_atts[1] ) . '"';
-					} else {
-						$link = '';
-					}
-					if ( $link && $link_atts[2] ) {
-						$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
-					}
-
-				// Output the posts item
-
-					$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
-
-					if ( empty( $output_item ) ) {
-
-						$class_item  = '';
-
-						// Testimonial title (for accessibility)
-
-							$output_item .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text">' . get_the_title( $post_id ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
-
-						// Testimonial content
-
-							$output_item .= do_shortcode( '<blockquote class="wm-testimonials-element wm-html-element content"' . wma_schema_org( 'review_body' ) . '>' . wpautop( preg_replace( '/<(\/?)blockquote(.*?)>/', '', get_the_content() ) ) . '</blockquote>' );
-
-						// Testimonial author
-
-							if ( trim( wma_meta_option( 'author', $post_id ) ) ) {
-								$output_item .= '<cite class="wm-testimonials-element wm-html-element source">';
-									$output_item .= ( $link ) ? ( '<a' . $link . wma_schema_org( 'bookmark' ) . '>' ) : ( '' );
-										$output_item .= ( has_post_thumbnail( $post_id ) ) ? ( '<span class="wm-testimonials-element wm-html-element image image-container"' . wma_schema_org( 'image' ) . '>' . get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) . '</span>' ) : ( '' );
-										$output_item .= '<span class="wm-testimonials-element wm-html-element author"' . wma_schema_org( 'author' ) . '>' . do_shortcode( strip_tags( wma_meta_option( 'author', $post_id ), '<a><em><i><img><mark><small><strong>' ) ) . '</span>';
-									$output_item .= ( $link ) ? ( '</a>' ) : ( '' );
-								$output_item .= '</cite>';
-							}
-
-						$output_item .= wma_schema_org( 'itemprop="name" content="' . get_the_title( $post_id ) . '"', true );
-						$output_item .= wma_schema_org( 'itemprop="datePublished" content="' . get_the_date( 'c' ) . '"', true );
-
-						// Filter the posts item html output
-
-							$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
-
-						// Posts single item output
-
-							$class_item .= 'wm-testimonials-item wm-testimonials-item-' . $post_id;
-
-							if ( ! $atts['testimonial'] ) {
-								$class_item .= ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt;
-							}
-
-							if (
-									! $atts['testimonial']
-									&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
-									&& ! $atts['scroll']
-									&& ! $masonry_layout
-									&& ( $i % $atts['columns'] === 0 )
-								) {
-								$class_item .= ' last';
-							}
-
-							$terms = get_the_terms( $post_id, 'testimonial_category' );
-
-							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-								foreach( $terms as $term ) {
-									$class_item .= ' testimonial_category-' . $term->slug;
-								}
-							}
-
-							$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
-
-							$output_item = '<article class="' . esc_attr( $class_item ) . '"' . wma_schema_org( 'review' ) . '>' . $output_item . '</article>';
-
-					}
-
-				$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $class_item, $post_id, $atts );
-
-				$alt = ( $alt ) ? ( '' ) : ( ' alt' );
-
-			endwhile;
-
-			//Row
-				$output .= ( $row_condition ) ? ( '</div>' ) : ( '' );
-
-			//Posts grid container closings
-				if ( ! $atts['testimonial'] ) {
-					if ( $atts['content'] ) {
-						if ( 'right' == $atts['align'] ) {
-						//close posts container div and output description column
-							$output .= '</div>' . $atts['pagination'] . '</div><div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' last wm-testimonials-description">' . $atts['content'] . '</div>';
-						} else {
-						//close the posts container div
-							$output .= '</div>' . $atts['pagination'] . '</div>';
-						}
-					} else {
-						$output .= '</div>' . $atts['pagination'];
-					}
 				}
 
+				if ( $link && $link_atts[2] ) {
+					$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
+				}
+
+			// Output the posts item
+
+				$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
+
+				if ( empty( $output_item ) ) {
+
+					$class_item  = '';
+
+					// Testimonial title (for accessibility)
+					$output_item .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text">' . get_the_title( $post_id ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
+
+					// Testimonial content
+					$output_item .= do_shortcode( '<blockquote class="wm-testimonials-element wm-html-element content">' . wpautop( preg_replace( '/<(\/?)blockquote(.*?)>/', '', get_the_content() ) ) . '</blockquote>' );
+
+					// Testimonial author
+					if ( trim( wma_meta_option( 'author', $post_id ) ) ) {
+						$output_item .= '<cite class="wm-testimonials-element wm-html-element source">';
+							$output_item .= ( $link ) ? ( '<a' . $link . '>' ) : ( '' );
+								$output_item .= ( has_post_thumbnail( $post_id ) ) ? ( '<span class="wm-testimonials-element wm-html-element image image-container">' . get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) . '</span>' ) : ( '' );
+								$output_item .= '<span class="wm-testimonials-element wm-html-element author">' . do_shortcode( strip_tags( wma_meta_option( 'author', $post_id ), '<a><em><i><img><mark><small><strong>' ) ) . '</span>';
+							$output_item .= ( $link ) ? ( '</a>' ) : ( '' );
+						$output_item .= '</cite>';
+					}
+
+					// Filter the posts item html output
+					$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
+
+					// Posts single item output
+
+						$class_item .= 'wm-testimonials-item wm-testimonials-item-' . $post_id;
+
+						if ( ! $atts['testimonial'] ) {
+							$class_item .= ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt;
+						}
+
+						if (
+							! $atts['testimonial']
+							&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
+							&& ! $atts['scroll']
+							&& ! $masonry_layout
+							&& ( $i % $atts['columns'] === 0 )
+						) {
+							$class_item .= ' last';
+						}
+
+						$terms = get_the_terms( $post_id, 'testimonial_category' );
+
+						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+							foreach( $terms as $term ) {
+								$class_item .= ' testimonial_category-' . $term->slug;
+							}
+						}
+
+						$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
+
+						$output_item = '<article class="' . esc_attr( $class_item ) . '">' . $output_item . '</article>';
+				}
+
+			$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $class_item, $post_id, $atts );
+
+			$alt = ( $alt ) ? ( '' ) : ( ' alt' );
 		}
 
-		//Reset query
-			wp_reset_query();
+			// Row
+			$output .= ( $row_condition ) ? ( '</div>' ) : ( '' );
+
+			// Posts grid container closings
+			if ( ! $atts['testimonial'] ) {
+				if ( $atts['content'] ) {
+					if ( 'right' == $atts['align'] ) {
+						// close posts container div and output description column
+						$output .= '</div>' . $atts['pagination'] . '</div><div class="wm-column width-1-' . esc_attr( $atts['desc_column_size'] ) . ' last wm-testimonials-description">' . $atts['content'] . '</div>';
+					} else {
+						// close the posts container div
+						$output .= '</div>' . $atts['pagination'] . '</div>';
+					}
+				} else {
+					$output .= '</div>' . $atts['pagination'];
+				}
+			}
+		}
+
+		// Reset query
+		wp_reset_postdata();
 
 	$atts['content'] = $output;
 
@@ -326,28 +370,23 @@
 			if ( $atts['scroll'] ) {
 
 				if ( version_compare( apply_filters( 'wmhook_shortcode_supported_version', WMAMP_VERSION ), '1.3', '<' ) ) {
-
 					$enqueue_scripts = array(
-							'jquery-owlcarousel',
-							'wm-shortcodes-posts-owlcarousel'
-						);
-
+						'jquery-owlcarousel',
+						'wm-shortcodes-posts-owlcarousel'
+					);
 				} else {
-
 					$enqueue_scripts = array(
-							'slick',
-							'wm-shortcodes-posts-slick'
-						);
-
+						'slick',
+						'wm-shortcodes-posts-slick'
+					);
 				}
 
 			} elseif ( $masonry_layout ) {
 
 				$enqueue_scripts = array(
-						'jquery-masonry',
-						'wm-shortcodes-posts-masonry'
-					);
-
+					'jquery-masonry',
+					'wm-shortcodes-posts-masonry'
+				);
 			}
 
 			WM_Shortcodes::enqueue_scripts( $shortcode, $enqueue_scripts, $atts );
@@ -360,3 +399,5 @@
 	} else {
 		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
 	}
+
+// phpcs:enable

@@ -1,688 +1,817 @@
 <?php
 /**
- * Icon glyphs definitions
+ * Icon glyphs definitions.
  *
- * Font Awesome 4.7 from Fontello.com
+ * Font Awesome 4.7 from Fontello.com.
+ *
+ * This is setting local `$icons` variable in `WM_Icons::setup_icons()`.
  *
  * @package     WebMan Amplifier
  * @subpackage  Font Icons
  *
  * @since    1.0
- * @version  1.4
+ * @version  1.6.0
  */
 
-$icons['500px']                               = array( 'char' => '\f26e', 'class' => '500px' );
-$icons['address-book-o']                      = array( 'char' => '\f2ba', 'class' => 'address-book-o' );
-$icons['address-book']                        = array( 'char' => '\f2b9', 'class' => 'address-book' );
-$icons['address-card-o']                      = array( 'char' => '\f2bc', 'class' => 'address-card-o' );
-$icons['address-card']                        = array( 'char' => '\f2bb', 'class' => 'address-card' );
-$icons['adjust']                              = array( 'char' => '\e892', 'class' => 'adjust' );
-$icons['adn']                                 = array( 'char' => '\f170', 'class' => 'adn' );
-$icons['align-center']                        = array( 'char' => '\e884', 'class' => 'align-center' );
-$icons['align-justify']                       = array( 'char' => '\e886', 'class' => 'align-justify' );
-$icons['align-left']                          = array( 'char' => '\e883', 'class' => 'align-left' );
-$icons['align-right']                         = array( 'char' => '\e885', 'class' => 'align-right' );
-$icons['amazon']                              = array( 'char' => '\f270', 'class' => 'amazon' );
-$icons['ambulance']                           = array( 'char' => '\f0f9', 'class' => 'ambulance' );
-$icons['american-sign-language-interpreting'] = array( 'char' => '\f2a3', 'class' => 'american-sign-language-interpreting' );
-$icons['anchor']                              = array( 'char' => '\f13d', 'class' => 'anchor' );
-$icons['android']                             = array( 'char' => '\f17b', 'class' => 'android' );
-$icons['angellist']                           = array( 'char' => '\f209', 'class' => 'angellist' );
-$icons['angle-circled-down']                  = array( 'char' => '\f13a', 'class' => 'angle-circled-down' );
-$icons['angle-circled-left']                  = array( 'char' => '\f137', 'class' => 'angle-circled-left' );
-$icons['angle-circled-right']                 = array( 'char' => '\f138', 'class' => 'angle-circled-right' );
-$icons['angle-circled-up']                    = array( 'char' => '\f139', 'class' => 'angle-circled-up' );
-$icons['angle-double-down']                   = array( 'char' => '\f103', 'class' => 'angle-double-down' );
-$icons['angle-double-left']                   = array( 'char' => '\f100', 'class' => 'angle-double-left' );
-$icons['angle-double-right']                  = array( 'char' => '\f101', 'class' => 'angle-double-right' );
-$icons['angle-double-up']                     = array( 'char' => '\f102', 'class' => 'angle-double-up' );
-$icons['angle-down']                          = array( 'char' => '\f107', 'class' => 'angle-down' );
-$icons['angle-left']                          = array( 'char' => '\f104', 'class' => 'angle-left' );
-$icons['angle-right']                         = array( 'char' => '\f105', 'class' => 'angle-right' );
-$icons['angle-up']                            = array( 'char' => '\f106', 'class' => 'angle-up' );
-$icons['apple']                               = array( 'char' => '\f179', 'class' => 'apple' );
-$icons['arrows-cw']                           = array( 'char' => '\e867', 'class' => 'arrows-cw' );
-$icons['asl-interpreting']                    = array( 'char' => '\f2a4', 'class' => 'asl-interpreting' );
-$icons['assistive-listening-systems']         = array( 'char' => '\f2a2', 'class' => 'assistive-listening-systems' );
-$icons['asterisk']                            = array( 'char' => '\e895', 'class' => 'asterisk' );
-$icons['at']                                  = array( 'char' => '\f1fa', 'class' => 'at' );
-$icons['attach']                              = array( 'char' => '\e821', 'class' => 'attach' );
-$icons['attention-alt']                       = array( 'char' => '\f12a', 'class' => 'attention-alt' );
-$icons['attention-circled']                   = array( 'char' => '\e839', 'class' => 'attention-circled' );
-$icons['attention']                           = array( 'char' => '\e838', 'class' => 'attention' );
-$icons['audio-description']                   = array( 'char' => '\f29e', 'class' => 'audio-description' );
-$icons['award']                               = array( 'char' => '\e876', 'class' => 'award' );
-$icons['balance-scale']                       = array( 'char' => '\f24e', 'class' => 'balance-scale' );
-$icons['bandcamp']                            = array( 'char' => '\f2d5', 'class' => 'bandcamp' );
-$icons['bank']                                = array( 'char' => '\f19c', 'class' => 'bank' );
-$icons['barcode']                             = array( 'char' => '\e890', 'class' => 'barcode' );
-$icons['basket']                              = array( 'char' => '\e843', 'class' => 'basket' );
-$icons['bath']                                = array( 'char' => '\f2cd', 'class' => 'bath' );
-$icons['battery-0']                           = array( 'char' => '\f244', 'class' => 'battery-0' );
-$icons['battery-1']                           = array( 'char' => '\f243', 'class' => 'battery-1' );
-$icons['battery-2']                           = array( 'char' => '\f242', 'class' => 'battery-2' );
-$icons['battery-3']                           = array( 'char' => '\f241', 'class' => 'battery-3' );
-$icons['battery-4']                           = array( 'char' => '\f240', 'class' => 'battery-4' );
-$icons['beaker']                              = array( 'char' => '\f0c3', 'class' => 'beaker' );
-$icons['bed']                                 = array( 'char' => '\f236', 'class' => 'bed' );
-$icons['beer']                                = array( 'char' => '\f0fc', 'class' => 'beer' );
-$icons['behance-squared']                     = array( 'char' => '\f1b5', 'class' => 'behance-squared' );
-$icons['behance']                             = array( 'char' => '\f1b4', 'class' => 'behance' );
-$icons['bell-alt']                            = array( 'char' => '\f0f3', 'class' => 'bell-alt' );
-$icons['bell-off-empty']                      = array( 'char' => '\f1f7', 'class' => 'bell-off-empty' );
-$icons['bell-off']                            = array( 'char' => '\f1f6', 'class' => 'bell-off' );
-$icons['bell']                                = array( 'char' => '\e837', 'class' => 'bell' );
-$icons['bicycle']                             = array( 'char' => '\f206', 'class' => 'bicycle' );
-$icons['binoculars']                          = array( 'char' => '\f1e5', 'class' => 'binoculars' );
-$icons['birthday']                            = array( 'char' => '\f1fd', 'class' => 'birthday' );
-$icons['bitbucket-squared']                   = array( 'char' => '\f172', 'class' => 'bitbucket-squared' );
-$icons['bitbucket']                           = array( 'char' => '\f171', 'class' => 'bitbucket' );
-$icons['bitcoin']                             = array( 'char' => '\f15a', 'class' => 'bitcoin' );
-$icons['black-tie']                           = array( 'char' => '\f27e', 'class' => 'black-tie' );
-$icons['blank']                               = array( 'char' => '\f0c8', 'class' => 'blank' );
-$icons['blind']                               = array( 'char' => '\f29d', 'class' => 'blind' );
-$icons['block']                               = array( 'char' => '\e84c', 'class' => 'block' );
-$icons['bluetooth-b']                         = array( 'char' => '\f294', 'class' => 'bluetooth-b' );
-$icons['bluetooth']                           = array( 'char' => '\f293', 'class' => 'bluetooth' );
-$icons['bold']                                = array( 'char' => '\e87f', 'class' => 'bold' );
-$icons['bomb']                                = array( 'char' => '\f1e2', 'class' => 'bomb' );
-$icons['book']                                = array( 'char' => '\e891', 'class' => 'book' );
-$icons['bookmark-empty']                      = array( 'char' => '\f097', 'class' => 'bookmark-empty' );
-$icons['bookmark']                            = array( 'char' => '\e829', 'class' => 'bookmark' );
-$icons['box']                                 = array( 'char' => '\f187', 'class' => 'box' );
-$icons['braille']                             = array( 'char' => '\f2a1', 'class' => 'braille' );
-$icons['briefcase']                           = array( 'char' => '\e88b', 'class' => 'briefcase' );
-$icons['brush']                               = array( 'char' => '\f1fc', 'class' => 'brush' );
-$icons['bug']                                 = array( 'char' => '\f188', 'class' => 'bug' );
-$icons['building-filled']                     = array( 'char' => '\f1ad', 'class' => 'building-filled' );
-$icons['building']                            = array( 'char' => '\f0f7', 'class' => 'building' );
-$icons['bullseye']                            = array( 'char' => '\f140', 'class' => 'bullseye' );
-$icons['bus']                                 = array( 'char' => '\f207', 'class' => 'bus' );
-$icons['buysellads']                          = array( 'char' => '\f20d', 'class' => 'buysellads' );
-$icons['cab']                                 = array( 'char' => '\f1b9', 'class' => 'cab' );
-$icons['calc']                                = array( 'char' => '\f1ec', 'class' => 'calc' );
-$icons['calendar-check-o']                    = array( 'char' => '\f274', 'class' => 'calendar-check-o' );
-$icons['calendar-empty']                      = array( 'char' => '\f133', 'class' => 'calendar-empty' );
-$icons['calendar-minus-o']                    = array( 'char' => '\f272', 'class' => 'calendar-minus-o' );
-$icons['calendar-plus-o']                     = array( 'char' => '\f271', 'class' => 'calendar-plus-o' );
-$icons['calendar-times-o']                    = array( 'char' => '\f273', 'class' => 'calendar-times-o' );
-$icons['calendar']                            = array( 'char' => '\e844', 'class' => 'calendar' );
-$icons['camera-alt']                          = array( 'char' => '\e80f', 'class' => 'camera-alt' );
-$icons['camera']                              = array( 'char' => '\e80e', 'class' => 'camera' );
-$icons['cancel-circled2']                     = array( 'char' => '\e818', 'class' => 'cancel-circled2' );
-$icons['cancel-circled']                      = array( 'char' => '\e817', 'class' => 'cancel-circled' );
-$icons['cancel']                              = array( 'char' => '\e816', 'class' => 'cancel' );
-$icons['cart-arrow-down']                     = array( 'char' => '\f218', 'class' => 'cart-arrow-down' );
-$icons['cart-plus']                           = array( 'char' => '\f217', 'class' => 'cart-plus' );
-$icons['cc-amex']                             = array( 'char' => '\f1f3', 'class' => 'cc-amex' );
-$icons['cc-diners-club']                      = array( 'char' => '\f24c', 'class' => 'cc-diners-club' );
-$icons['cc-discover']                         = array( 'char' => '\f1f2', 'class' => 'cc-discover' );
-$icons['cc-jcb']                              = array( 'char' => '\f24b', 'class' => 'cc-jcb' );
-$icons['cc-mastercard']                       = array( 'char' => '\f1f1', 'class' => 'cc-mastercard' );
-$icons['cc-paypal']                           = array( 'char' => '\f1f4', 'class' => 'cc-paypal' );
-$icons['cc-stripe']                           = array( 'char' => '\f1f5', 'class' => 'cc-stripe' );
-$icons['cc-visa']                             = array( 'char' => '\f1f0', 'class' => 'cc-visa' );
-$icons['cc']                                  = array( 'char' => '\f20a', 'class' => 'cc' );
-$icons['ccw']                                 = array( 'char' => '\e866', 'class' => 'ccw' );
-$icons['certificate']                         = array( 'char' => '\f0a3', 'class' => 'certificate' );
-$icons['chart-area']                          = array( 'char' => '\f1fe', 'class' => 'chart-area' );
-$icons['chart-bar']                           = array( 'char' => '\e899', 'class' => 'chart-bar' );
-$icons['chart-line']                          = array( 'char' => '\f201', 'class' => 'chart-line' );
-$icons['chart-pie']                           = array( 'char' => '\f200', 'class' => 'chart-pie' );
-$icons['chat-empty']                          = array( 'char' => '\f0e6', 'class' => 'chat-empty' );
-$icons['chat']                                = array( 'char' => '\e836', 'class' => 'chat' );
-$icons['check-empty']                         = array( 'char' => '\f096', 'class' => 'check-empty' );
-$icons['check']                               = array( 'char' => '\e894', 'class' => 'check' );
-$icons['child']                               = array( 'char' => '\f1ae', 'class' => 'child' );
-$icons['chrome']                              = array( 'char' => '\f268', 'class' => 'chrome' );
-$icons['circle-empty']                        = array( 'char' => '\f10c', 'class' => 'circle-empty' );
-$icons['circle-notch']                        = array( 'char' => '\f1ce', 'class' => 'circle-notch' );
-$icons['circle-thin']                         = array( 'char' => '\f1db', 'class' => 'circle-thin' );
-$icons['circle']                              = array( 'char' => '\f111', 'class' => 'circle' );
-$icons['clock']                               = array( 'char' => '\e84b', 'class' => 'clock' );
-$icons['clone']                               = array( 'char' => '\f24d', 'class' => 'clone' );
-$icons['cloud']                               = array( 'char' => '\e879', 'class' => 'cloud' );
-$icons['code']                                = array( 'char' => '\f121', 'class' => 'code' );
-$icons['codeopen']                            = array( 'char' => '\f1cb', 'class' => 'codeopen' );
-$icons['codiepie']                            = array( 'char' => '\f284', 'class' => 'codiepie' );
-$icons['coffee']                              = array( 'char' => '\f0f4', 'class' => 'coffee' );
-$icons['cog-alt']                             = array( 'char' => '\e841', 'class' => 'cog-alt' );
-$icons['cog']                                 = array( 'char' => '\e840', 'class' => 'cog' );
-$icons['collapse-left']                       = array( 'char' => '\f191', 'class' => 'collapse-left' );
-$icons['collapse']                            = array( 'char' => '\f151', 'class' => 'collapse' );
-$icons['columns']                             = array( 'char' => '\f0db', 'class' => 'columns' );
-$icons['comment-empty']                       = array( 'char' => '\f0e5', 'class' => 'comment-empty' );
-$icons['comment']                             = array( 'char' => '\e835', 'class' => 'comment' );
-$icons['commenting-o']                        = array( 'char' => '\f27b', 'class' => 'commenting-o' );
-$icons['commenting']                          = array( 'char' => '\f27a', 'class' => 'commenting' );
-$icons['compass']                             = array( 'char' => '\f14e', 'class' => 'compass' );
-$icons['connectdevelop']                      = array( 'char' => '\f20e', 'class' => 'connectdevelop' );
-$icons['contao']                              = array( 'char' => '\f26d', 'class' => 'contao' );
-$icons['copyright']                           = array( 'char' => '\f1f9', 'class' => 'copyright' );
-$icons['creative-commons']                    = array( 'char' => '\f25e', 'class' => 'creative-commons' );
-$icons['credit-card-alt']                     = array( 'char' => '\f283', 'class' => 'credit-card-alt' );
-$icons['credit-card']                         = array( 'char' => '\e89a', 'class' => 'credit-card' );
-$icons['crop']                                = array( 'char' => '\f125', 'class' => 'crop' );
-$icons['css3']                                = array( 'char' => '\f13c', 'class' => 'css3' );
-$icons['cube']                                = array( 'char' => '\f1b2', 'class' => 'cube' );
-$icons['cubes']                               = array( 'char' => '\f1b3', 'class' => 'cubes' );
-$icons['cw']                                  = array( 'char' => '\e865', 'class' => 'cw' );
-$icons['dashcube']                            = array( 'char' => '\f210', 'class' => 'dashcube' );
-$icons['database']                            = array( 'char' => '\f1c0', 'class' => 'database' );
-$icons['delicious']                           = array( 'char' => '\f1a5', 'class' => 'delicious' );
-$icons['desktop']                             = array( 'char' => '\f108', 'class' => 'desktop' );
-$icons['deviantart']                          = array( 'char' => '\f1bd', 'class' => 'deviantart' );
-$icons['diamond']                             = array( 'char' => '\f219', 'class' => 'diamond' );
-$icons['digg']                                = array( 'char' => '\f1a6', 'class' => 'digg' );
-$icons['direction']                           = array( 'char' => '\f124', 'class' => 'direction' );
-$icons['doc-inv']                             = array( 'char' => '\f15b', 'class' => 'doc-inv' );
-$icons['doc-text-inv']                        = array( 'char' => '\f15c', 'class' => 'doc-text-inv' );
-$icons['doc-text']                            = array( 'char' => '\f0f6', 'class' => 'doc-text' );
-$icons['doc']                                 = array( 'char' => '\e83c', 'class' => 'doc' );
-$icons['docs']                                = array( 'char' => '\f0c5', 'class' => 'docs' );
-$icons['dollar']                              = array( 'char' => '\f155', 'class' => 'dollar' );
-$icons['dot-circled']                         = array( 'char' => '\f192', 'class' => 'dot-circled' );
-$icons['down-big']                            = array( 'char' => '\e85d', 'class' => 'down-big' );
-$icons['down-circled2']                       = array( 'char' => '\e853', 'class' => 'down-circled2' );
-$icons['down-circled']                        = array( 'char' => '\f0ab', 'class' => 'down-circled' );
-$icons['down-dir']                            = array( 'char' => '\e855', 'class' => 'down-dir' );
-$icons['down-hand']                           = array( 'char' => '\e864', 'class' => 'down-hand' );
-$icons['down-open']                           = array( 'char' => '\e859', 'class' => 'down-open' );
-$icons['down']                                = array( 'char' => '\f175', 'class' => 'down' );
-$icons['download-cloud']                      = array( 'char' => '\f0ed', 'class' => 'download-cloud' );
-$icons['download']                            = array( 'char' => '\e82d', 'class' => 'download' );
-$icons['dribbble']                            = array( 'char' => '\f17d', 'class' => 'dribbble' );
-$icons['dropbox']                             = array( 'char' => '\f16b', 'class' => 'dropbox' );
-$icons['drupal']                              = array( 'char' => '\f1a9', 'class' => 'drupal' );
-$icons['edge']                                = array( 'char' => '\f282', 'class' => 'edge' );
-$icons['edit']                                = array( 'char' => '\e832', 'class' => 'edit' );
-$icons['eercast']                             = array( 'char' => '\f2da', 'class' => 'eercast' );
-$icons['eject']                               = array( 'char' => '\e873', 'class' => 'eject' );
-$icons['ellipsis-vert']                       = array( 'char' => '\f142', 'class' => 'ellipsis-vert' );
-$icons['ellipsis']                            = array( 'char' => '\f141', 'class' => 'ellipsis' );
-$icons['empire']                              = array( 'char' => '\f1d1', 'class' => 'empire' );
-$icons['envelope-open-o']                     = array( 'char' => '\f2b7', 'class' => 'envelope-open-o' );
-$icons['envelope-open']                       = array( 'char' => '\f2b6', 'class' => 'envelope-open' );
-$icons['envira']                              = array( 'char' => '\f299', 'class' => 'envira' );
-$icons['eraser']                              = array( 'char' => '\f12d', 'class' => 'eraser' );
-$icons['etsy']                                = array( 'char' => '\f2d7', 'class' => 'etsy' );
-$icons['euro']                                = array( 'char' => '\f153', 'class' => 'euro' );
-$icons['exchange']                            = array( 'char' => '\f0ec', 'class' => 'exchange' );
-$icons['expand-right']                        = array( 'char' => '\f152', 'class' => 'expand-right' );
-$icons['expand']                              = array( 'char' => '\f150', 'class' => 'expand' );
-$icons['expeditedssl']                        = array( 'char' => '\f23e', 'class' => 'expeditedssl' );
-$icons['export-alt']                          = array( 'char' => '\f14d', 'class' => 'export-alt' );
-$icons['export']                              = array( 'char' => '\e830', 'class' => 'export' );
-$icons['extinguisher']                        = array( 'char' => '\f134', 'class' => 'extinguisher' );
-$icons['eye-off']                             = array( 'char' => '\e826', 'class' => 'eye-off' );
-$icons['eye']                                 = array( 'char' => '\e825', 'class' => 'eye' );
-$icons['eyedropper']                          = array( 'char' => '\f1fb', 'class' => 'eyedropper' );
-$icons['facebook-official']                   = array( 'char' => '\f230', 'class' => 'facebook-official' );
-$icons['facebook-squared']                    = array( 'char' => '\f308', 'class' => 'facebook-squared' );
-$icons['facebook']                            = array( 'char' => '\f09a', 'class' => 'facebook' );
-$icons['fast-bw']                             = array( 'char' => '\e872', 'class' => 'fast-bw' );
-$icons['fast-fw']                             = array( 'char' => '\e871', 'class' => 'fast-fw' );
-$icons['fax']                                 = array( 'char' => '\f1ac', 'class' => 'fax' );
-$icons['female']                              = array( 'char' => '\f182', 'class' => 'female' );
-$icons['fighter-jet']                         = array( 'char' => '\f0fb', 'class' => 'fighter-jet' );
-$icons['file-archive']                        = array( 'char' => '\f1c6', 'class' => 'file-archive' );
-$icons['file-audio']                          = array( 'char' => '\f1c7', 'class' => 'file-audio' );
-$icons['file-code']                           = array( 'char' => '\f1c9', 'class' => 'file-code' );
-$icons['file-excel']                          = array( 'char' => '\f1c3', 'class' => 'file-excel' );
-$icons['file-image']                          = array( 'char' => '\f1c5', 'class' => 'file-image' );
-$icons['file-pdf']                            = array( 'char' => '\f1c1', 'class' => 'file-pdf' );
-$icons['file-powerpoint']                     = array( 'char' => '\f1c4', 'class' => 'file-powerpoint' );
-$icons['file-video']                          = array( 'char' => '\f1c8', 'class' => 'file-video' );
-$icons['file-word']                           = array( 'char' => '\f1c2', 'class' => 'file-word' );
-$icons['filter']                              = array( 'char' => '\f0b0', 'class' => 'filter' );
-$icons['fire']                                = array( 'char' => '\e897', 'class' => 'fire' );
-$icons['firefox']                             = array( 'char' => '\f269', 'class' => 'firefox' );
-$icons['first-order']                         = array( 'char' => '\f2b0', 'class' => 'first-order' );
-$icons['flag-checkered']                      = array( 'char' => '\f11e', 'class' => 'flag-checkered' );
-$icons['flag-empty']                          = array( 'char' => '\f11d', 'class' => 'flag-empty' );
-$icons['flag']                                = array( 'char' => '\e82a', 'class' => 'flag' );
-$icons['flash']                               = array( 'char' => '\e87a', 'class' => 'flash' );
-$icons['flickr']                              = array( 'char' => '\f16e', 'class' => 'flickr' );
-$icons['flight']                              = array( 'char' => '\e87c', 'class' => 'flight' );
-$icons['floppy']                              = array( 'char' => '\e89b', 'class' => 'floppy' );
-$icons['folder-empty']                        = array( 'char' => '\f114', 'class' => 'folder-empty' );
-$icons['folder-open-empty']                   = array( 'char' => '\f115', 'class' => 'folder-open-empty' );
-$icons['folder-open']                         = array( 'char' => '\e83e', 'class' => 'folder-open' );
-$icons['folder']                              = array( 'char' => '\e83d', 'class' => 'folder' );
-$icons['font-awesome']                        = array( 'char' => '\f2b4', 'class' => 'font-awesome' );
-$icons['font']                                = array( 'char' => '\e87e', 'class' => 'font' );
-$icons['fonticons']                           = array( 'char' => '\f280', 'class' => 'fonticons' );
-$icons['food']                                = array( 'char' => '\f0f5', 'class' => 'food' );
-$icons['fork']                                = array( 'char' => '\f126', 'class' => 'fork' );
-$icons['fort-awesome']                        = array( 'char' => '\f286', 'class' => 'fort-awesome' );
-$icons['forumbee']                            = array( 'char' => '\f211', 'class' => 'forumbee' );
-$icons['forward']                             = array( 'char' => '\e82f', 'class' => 'forward' );
-$icons['foursquare']                          = array( 'char' => '\f180', 'class' => 'foursquare' );
-$icons['free-code-camp']                      = array( 'char' => '\f2c5', 'class' => 'free-code-camp' );
-$icons['frown']                               = array( 'char' => '\f119', 'class' => 'frown' );
-$icons['gamepad']                             = array( 'char' => '\f11b', 'class' => 'gamepad' );
-$icons['gauge']                               = array( 'char' => '\f0e4', 'class' => 'gauge' );
-$icons['genderless']                          = array( 'char' => '\f22d', 'class' => 'genderless' );
-$icons['get-pocket']                          = array( 'char' => '\f265', 'class' => 'get-pocket' );
-$icons['gg-circle']                           = array( 'char' => '\f261', 'class' => 'gg-circle' );
-$icons['gg']                                  = array( 'char' => '\f260', 'class' => 'gg' );
-$icons['gift']                                = array( 'char' => '\e896', 'class' => 'gift' );
-$icons['git-squared']                         = array( 'char' => '\f1d2', 'class' => 'git-squared' );
-$icons['git']                                 = array( 'char' => '\f1d3', 'class' => 'git' );
-$icons['github-circled']                      = array( 'char' => '\f09b', 'class' => 'github-circled' );
-$icons['github-squared']                      = array( 'char' => '\f300', 'class' => 'github-squared' );
-$icons['github']                              = array( 'char' => '\f113', 'class' => 'github' );
-$icons['gitlab']                              = array( 'char' => '\f296', 'class' => 'gitlab' );
-$icons['gittip']                              = array( 'char' => '\f184', 'class' => 'gittip' );
-$icons['glass']                               = array( 'char' => '\e800', 'class' => 'glass' );
-$icons['glide-g']                             = array( 'char' => '\f2a6', 'class' => 'glide-g' );
-$icons['glide']                               = array( 'char' => '\f2a5', 'class' => 'glide' );
-$icons['globe']                               = array( 'char' => '\e878', 'class' => 'globe' );
-$icons['google-plus-circle']                  = array( 'char' => '\f2b3', 'class' => 'google-plus-circle' );
-$icons['google']                              = array( 'char' => '\f1a0', 'class' => 'google' );
-$icons['gplus-squared']                       = array( 'char' => '\f0d4', 'class' => 'gplus-squared' );
-$icons['gplus']                               = array( 'char' => '\f0d5', 'class' => 'gplus' );
-$icons['graduation-cap']                      = array( 'char' => '\f19d', 'class' => 'graduation-cap' );
-$icons['grav']                                = array( 'char' => '\f2d6', 'class' => 'grav' );
-$icons['gwallet']                             = array( 'char' => '\f1ee', 'class' => 'gwallet' );
-$icons['h-sigh']                              = array( 'char' => '\f0fd', 'class' => 'h-sigh' );
-$icons['hacker-news']                         = array( 'char' => '\f1d4', 'class' => 'hacker-news' );
-$icons['hammer']                              = array( 'char' => '\e89f', 'class' => 'hammer' );
-$icons['hand-grab-o']                         = array( 'char' => '\f255', 'class' => 'hand-grab-o' );
-$icons['hand-lizard-o']                       = array( 'char' => '\f258', 'class' => 'hand-lizard-o' );
-$icons['hand-paper-o']                        = array( 'char' => '\f256', 'class' => 'hand-paper-o' );
-$icons['hand-peace-o']                        = array( 'char' => '\f25b', 'class' => 'hand-peace-o' );
-$icons['hand-pointer-o']                      = array( 'char' => '\f25a', 'class' => 'hand-pointer-o' );
-$icons['hand-scissors-o']                     = array( 'char' => '\f257', 'class' => 'hand-scissors-o' );
-$icons['hand-spock-o']                        = array( 'char' => '\f259', 'class' => 'hand-spock-o' );
-$icons['handshake-o']                         = array( 'char' => '\f2b5', 'class' => 'handshake-o' );
-$icons['hashtag']                             = array( 'char' => '\f292', 'class' => 'hashtag' );
-$icons['hdd']                                 = array( 'char' => '\f0a0', 'class' => 'hdd' );
-$icons['header']                              = array( 'char' => '\f1dc', 'class' => 'header' );
-$icons['headphones']                          = array( 'char' => '\e84a', 'class' => 'headphones' );
-$icons['heart-empty']                         = array( 'char' => '\e805', 'class' => 'heart-empty' );
-$icons['heart']                               = array( 'char' => '\e804', 'class' => 'heart' );
-$icons['heartbeat']                           = array( 'char' => '\f21e', 'class' => 'heartbeat' );
-$icons['help-circled']                        = array( 'char' => '\e81d', 'class' => 'help-circled' );
-$icons['help']                                = array( 'char' => '\f128', 'class' => 'help' );
-$icons['history']                             = array( 'char' => '\f1da', 'class' => 'history' );
-$icons['home']                                = array( 'char' => '\e81f', 'class' => 'home' );
-$icons['hospital']                            = array( 'char' => '\f0f8', 'class' => 'hospital' );
-$icons['hourglass-1']                         = array( 'char' => '\f251', 'class' => 'hourglass-1' );
-$icons['hourglass-2']                         = array( 'char' => '\f252', 'class' => 'hourglass-2' );
-$icons['hourglass-3']                         = array( 'char' => '\f253', 'class' => 'hourglass-3' );
-$icons['hourglass-o']                         = array( 'char' => '\f250', 'class' => 'hourglass-o' );
-$icons['hourglass']                           = array( 'char' => '\f254', 'class' => 'hourglass' );
-$icons['houzz']                               = array( 'char' => '\f27c', 'class' => 'houzz' );
-$icons['html5']                               = array( 'char' => '\f13b', 'class' => 'html5' );
-$icons['i-cursor']                            = array( 'char' => '\f246', 'class' => 'i-cursor' );
-$icons['id-badge']                            = array( 'char' => '\f2c1', 'class' => 'id-badge' );
-$icons['id-card-o']                           = array( 'char' => '\f2c3', 'class' => 'id-card-o' );
-$icons['id-card']                             = array( 'char' => '\f2c2', 'class' => 'id-card' );
-$icons['imdb']                                = array( 'char' => '\f2d8', 'class' => 'imdb' );
-$icons['inbox']                               = array( 'char' => '\e877', 'class' => 'inbox' );
-$icons['indent-left']                         = array( 'char' => '\e888', 'class' => 'indent-left' );
-$icons['indent-right']                        = array( 'char' => '\e889', 'class' => 'indent-right' );
-$icons['industry']                            = array( 'char' => '\f275', 'class' => 'industry' );
-$icons['info-circled']                        = array( 'char' => '\e81e', 'class' => 'info-circled' );
-$icons['info']                                = array( 'char' => '\f129', 'class' => 'info' );
-$icons['instagram']                           = array( 'char' => '\f16d', 'class' => 'instagram' );
-$icons['internet-explorer']                   = array( 'char' => '\f26b', 'class' => 'internet-explorer' );
-$icons['ioxhost']                             = array( 'char' => '\f208', 'class' => 'ioxhost' );
-$icons['italic']                              = array( 'char' => '\e880', 'class' => 'italic' );
-$icons['joomla']                              = array( 'char' => '\f1aa', 'class' => 'joomla' );
-$icons['jsfiddle']                            = array( 'char' => '\f1cc', 'class' => 'jsfiddle' );
-$icons['key']                                 = array( 'char' => '\e89d', 'class' => 'key' );
-$icons['keyboard']                            = array( 'char' => '\f11c', 'class' => 'keyboard' );
-$icons['language']                            = array( 'char' => '\f1ab', 'class' => 'language' );
-$icons['laptop']                              = array( 'char' => '\f109', 'class' => 'laptop' );
-$icons['lastfm-squared']                      = array( 'char' => '\f203', 'class' => 'lastfm-squared' );
-$icons['lastfm']                              = array( 'char' => '\f202', 'class' => 'lastfm' );
-$icons['leaf']                                = array( 'char' => '\e87d', 'class' => 'leaf' );
-$icons['leanpub']                             = array( 'char' => '\f212', 'class' => 'leanpub' );
-$icons['left-big']                            = array( 'char' => '\e85e', 'class' => 'left-big' );
-$icons['left-circled2']                       = array( 'char' => '\f190', 'class' => 'left-circled2' );
-$icons['left-circled']                        = array( 'char' => '\f0a8', 'class' => 'left-circled' );
-$icons['left-dir']                            = array( 'char' => '\e857', 'class' => 'left-dir' );
-$icons['left-hand']                           = array( 'char' => '\e862', 'class' => 'left-hand' );
-$icons['left-open']                           = array( 'char' => '\e85a', 'class' => 'left-open' );
-$icons['left']                                = array( 'char' => '\f177', 'class' => 'left' );
-$icons['lemon']                               = array( 'char' => '\e8a0', 'class' => 'lemon' );
-$icons['level-down']                          = array( 'char' => '\f149', 'class' => 'level-down' );
-$icons['level-up']                            = array( 'char' => '\f148', 'class' => 'level-up' );
-$icons['lifebuoy']                            = array( 'char' => '\f1cd', 'class' => 'lifebuoy' );
-$icons['lightbulb']                           = array( 'char' => '\f0eb', 'class' => 'lightbulb' );
-$icons['link-ext-alt']                        = array( 'char' => '\f14c', 'class' => 'link-ext-alt' );
-$icons['link-ext']                            = array( 'char' => '\f08e', 'class' => 'link-ext' );
-$icons['link']                                = array( 'char' => '\e820', 'class' => 'link' );
-$icons['linkedin-squared']                    = array( 'char' => '\f30c', 'class' => 'linkedin-squared' );
-$icons['linkedin']                            = array( 'char' => '\f0e1', 'class' => 'linkedin' );
-$icons['linode']                              = array( 'char' => '\f2b8', 'class' => 'linode' );
-$icons['linux']                               = array( 'char' => '\f17c', 'class' => 'linux' );
-$icons['list-alt']                            = array( 'char' => '\e88e', 'class' => 'list-alt' );
-$icons['list-bullet']                         = array( 'char' => '\f0ca', 'class' => 'list-bullet' );
-$icons['list-numbered']                       = array( 'char' => '\f0cb', 'class' => 'list-numbered' );
-$icons['list']                                = array( 'char' => '\e887', 'class' => 'list' );
-$icons['location']                            = array( 'char' => '\e83a', 'class' => 'location' );
-$icons['lock-open-alt']                       = array( 'char' => '\f13e', 'class' => 'lock-open-alt' );
-$icons['lock-open']                           = array( 'char' => '\e823', 'class' => 'lock-open' );
-$icons['lock']                                = array( 'char' => '\e822', 'class' => 'lock' );
-$icons['login']                               = array( 'char' => '\e845', 'class' => 'login' );
-$icons['logout']                              = array( 'char' => '\e846', 'class' => 'logout' );
-$icons['low-vision']                          = array( 'char' => '\f2a8', 'class' => 'low-vision' );
-$icons['magic']                               = array( 'char' => '\f0d0', 'class' => 'magic' );
-$icons['magnet']                              = array( 'char' => '\e898', 'class' => 'magnet' );
-$icons['mail-alt']                            = array( 'char' => '\f0e0', 'class' => 'mail-alt' );
-$icons['mail-squared']                        = array( 'char' => '\f199', 'class' => 'mail-squared' );
-$icons['mail']                                = array( 'char' => '\e803', 'class' => 'mail' );
-$icons['male']                                = array( 'char' => '\f183', 'class' => 'male' );
-$icons['map-o']                               = array( 'char' => '\f278', 'class' => 'map-o' );
-$icons['map-pin']                             = array( 'char' => '\f276', 'class' => 'map-pin' );
-$icons['map-signs']                           = array( 'char' => '\f277', 'class' => 'map-signs' );
-$icons['map']                                 = array( 'char' => '\f279', 'class' => 'map' );
-$icons['mars-double']                         = array( 'char' => '\f227', 'class' => 'mars-double' );
-$icons['mars-stroke-h']                       = array( 'char' => '\f22b', 'class' => 'mars-stroke-h' );
-$icons['mars-stroke-v']                       = array( 'char' => '\f22a', 'class' => 'mars-stroke-v' );
-$icons['mars-stroke']                         = array( 'char' => '\f229', 'class' => 'mars-stroke' );
-$icons['mars']                                = array( 'char' => '\f222', 'class' => 'mars' );
-$icons['maxcdn']                              = array( 'char' => '\f136', 'class' => 'maxcdn' );
-$icons['meanpath']                            = array( 'char' => '\f20c', 'class' => 'meanpath' );
-$icons['medium']                              = array( 'char' => '\f23a', 'class' => 'medium' );
-$icons['medkit']                              = array( 'char' => '\f0fa', 'class' => 'medkit' );
-$icons['meetup']                              = array( 'char' => '\f2e0', 'class' => 'meetup' );
-$icons['megaphone']                           = array( 'char' => '\e89c', 'class' => 'megaphone' );
-$icons['meh']                                 = array( 'char' => '\f11a', 'class' => 'meh' );
-$icons['menu']                                = array( 'char' => '\f0c9', 'class' => 'menu' );
-$icons['mercury']                             = array( 'char' => '\f223', 'class' => 'mercury' );
-$icons['mic']                                 = array( 'char' => '\f130', 'class' => 'mic' );
-$icons['microchip']                           = array( 'char' => '\f2db', 'class' => 'microchip' );
-$icons['minus-circled']                       = array( 'char' => '\e81c', 'class' => 'minus-circled' );
-$icons['minus-squared-alt']                   = array( 'char' => '\f147', 'class' => 'minus-squared-alt' );
-$icons['minus-squared']                       = array( 'char' => '\f146', 'class' => 'minus-squared' );
-$icons['minus']                               = array( 'char' => '\e81b', 'class' => 'minus' );
-$icons['mixcloud']                            = array( 'char' => '\f289', 'class' => 'mixcloud' );
-$icons['mobile']                              = array( 'char' => '\f10b', 'class' => 'mobile' );
-$icons['modx']                                = array( 'char' => '\f285', 'class' => 'modx' );
-$icons['money']                               = array( 'char' => '\f0d6', 'class' => 'money' );
-$icons['moon']                                = array( 'char' => '\f186', 'class' => 'moon' );
-$icons['motorcycle']                          = array( 'char' => '\f21c', 'class' => 'motorcycle' );
-$icons['mouse-pointer']                       = array( 'char' => '\f245', 'class' => 'mouse-pointer' );
-$icons['move']                                = array( 'char' => '\f047', 'class' => 'move' );
-$icons['music']                               = array( 'char' => '\e801', 'class' => 'music' );
-$icons['mute']                                = array( 'char' => '\f131', 'class' => 'mute' );
-$icons['neuter']                              = array( 'char' => '\f22c', 'class' => 'neuter' );
-$icons['newspaper']                           = array( 'char' => '\f1ea', 'class' => 'newspaper' );
-$icons['object-group']                        = array( 'char' => '\f247', 'class' => 'object-group' );
-$icons['object-ungroup']                      = array( 'char' => '\f248', 'class' => 'object-ungroup' );
-$icons['odnoklassniki-square']                = array( 'char' => '\f264', 'class' => 'odnoklassniki-square' );
-$icons['odnoklassniki']                       = array( 'char' => '\f263', 'class' => 'odnoklassniki' );
-$icons['off']                                 = array( 'char' => '\e88c', 'class' => 'off' );
-$icons['ok-circled2']                         = array( 'char' => '\e815', 'class' => 'ok-circled2' );
-$icons['ok-circled']                          = array( 'char' => '\e814', 'class' => 'ok-circled' );
-$icons['ok-squared']                          = array( 'char' => '\f14a', 'class' => 'ok-squared' );
-$icons['ok']                                  = array( 'char' => '\e813', 'class' => 'ok' );
-$icons['opencart']                            = array( 'char' => '\f23d', 'class' => 'opencart' );
-$icons['openid']                              = array( 'char' => '\f19b', 'class' => 'openid' );
-$icons['opera']                               = array( 'char' => '\f26a', 'class' => 'opera' );
-$icons['optin-monster']                       = array( 'char' => '\f23c', 'class' => 'optin-monster' );
-$icons['pagelines']                           = array( 'char' => '\f18c', 'class' => 'pagelines' );
-$icons['paper-plane-empty']                   = array( 'char' => '\f1d9', 'class' => 'paper-plane-empty' );
-$icons['paper-plane']                         = array( 'char' => '\f1d8', 'class' => 'paper-plane' );
-$icons['paragraph']                           = array( 'char' => '\f1dd', 'class' => 'paragraph' );
-$icons['paste']                               = array( 'char' => '\f0ea', 'class' => 'paste' );
-$icons['pause-circle-o']                      = array( 'char' => '\f28c', 'class' => 'pause-circle-o' );
-$icons['pause-circle']                        = array( 'char' => '\f28b', 'class' => 'pause-circle' );
-$icons['pause']                               = array( 'char' => '\e86c', 'class' => 'pause' );
-$icons['paw']                                 = array( 'char' => '\f1b0', 'class' => 'paw' );
-$icons['paypal']                              = array( 'char' => '\f1ed', 'class' => 'paypal' );
-$icons['pencil-squared']                      = array( 'char' => '\f14b', 'class' => 'pencil-squared' );
-$icons['pencil']                              = array( 'char' => '\e831', 'class' => 'pencil' );
-$icons['percent']                             = array( 'char' => '\f295', 'class' => 'percent' );
-$icons['phone-squared']                       = array( 'char' => '\f098', 'class' => 'phone-squared' );
-$icons['phone']                               = array( 'char' => '\e83f', 'class' => 'phone' );
-$icons['picture']                             = array( 'char' => '\e80d', 'class' => 'picture' );
-$icons['pied-piper-alt']                      = array( 'char' => '\f1a8', 'class' => 'pied-piper-alt' );
-$icons['pied-piper-squared']                  = array( 'char' => '\f1a7', 'class' => 'pied-piper-squared' );
-$icons['pied-piper']                          = array( 'char' => '\f2ae', 'class' => 'pied-piper' );
-$icons['pin']                                 = array( 'char' => '\e824', 'class' => 'pin' );
-$icons['pinterest-circled']                   = array( 'char' => '\f0d2', 'class' => 'pinterest-circled' );
-$icons['pinterest-squared']                   = array( 'char' => '\f0d3', 'class' => 'pinterest-squared' );
-$icons['pinterest']                           = array( 'char' => '\f231', 'class' => 'pinterest' );
-$icons['play-circled2']                       = array( 'char' => '\e86a', 'class' => 'play-circled2' );
-$icons['play-circled']                        = array( 'char' => '\f144', 'class' => 'play-circled' );
-$icons['play']                                = array( 'char' => '\e869', 'class' => 'play' );
-$icons['plug']                                = array( 'char' => '\f1e6', 'class' => 'plug' );
-$icons['plus-circled']                        = array( 'char' => '\e81a', 'class' => 'plus-circled' );
-$icons['plus-squared-alt']                    = array( 'char' => '\f196', 'class' => 'plus-squared-alt' );
-$icons['plus-squared']                        = array( 'char' => '\f0fe', 'class' => 'plus-squared' );
-$icons['plus']                                = array( 'char' => '\e819', 'class' => 'plus' );
-$icons['podcast']                             = array( 'char' => '\f2ce', 'class' => 'podcast' );
-$icons['pound']                               = array( 'char' => '\f154', 'class' => 'pound' );
-$icons['print']                               = array( 'char' => '\e833', 'class' => 'print' );
-$icons['product-hunt']                        = array( 'char' => '\f288', 'class' => 'product-hunt' );
-$icons['puzzle']                              = array( 'char' => '\f12e', 'class' => 'puzzle' );
-$icons['qq']                                  = array( 'char' => '\f1d6', 'class' => 'qq' );
-$icons['qrcode']                              = array( 'char' => '\e88f', 'class' => 'qrcode' );
-$icons['question-circle-o']                   = array( 'char' => '\f29c', 'class' => 'question-circle-o' );
-$icons['quora']                               = array( 'char' => '\f2c4', 'class' => 'quora' );
-$icons['quote-left']                          = array( 'char' => '\f10d', 'class' => 'quote-left' );
-$icons['quote-right']                         = array( 'char' => '\f10e', 'class' => 'quote-right' );
-$icons['ravelry']                             = array( 'char' => '\f2d9', 'class' => 'ravelry' );
-$icons['rebel']                               = array( 'char' => '\f1d0', 'class' => 'rebel' );
-$icons['recycle']                             = array( 'char' => '\f1b8', 'class' => 'recycle' );
-$icons['reddit-alien']                        = array( 'char' => '\f281', 'class' => 'reddit-alien' );
-$icons['reddit-squared']                      = array( 'char' => '\f1a2', 'class' => 'reddit-squared' );
-$icons['reddit']                              = array( 'char' => '\f1a1', 'class' => 'reddit' );
-$icons['registered']                          = array( 'char' => '\f25d', 'class' => 'registered' );
-$icons['renren']                              = array( 'char' => '\f18b', 'class' => 'renren' );
-$icons['reply-all']                           = array( 'char' => '\f122', 'class' => 'reply-all' );
-$icons['reply']                               = array( 'char' => '\f112', 'class' => 'reply' );
-$icons['resize-full-alt']                     = array( 'char' => '\f0b2', 'class' => 'resize-full-alt' );
-$icons['resize-full']                         = array( 'char' => '\e84d', 'class' => 'resize-full' );
-$icons['resize-horizontal']                   = array( 'char' => '\e850', 'class' => 'resize-horizontal' );
-$icons['resize-small']                        = array( 'char' => '\e84e', 'class' => 'resize-small' );
-$icons['resize-vertical']                     = array( 'char' => '\e84f', 'class' => 'resize-vertical' );
-$icons['retweet']                             = array( 'char' => '\e834', 'class' => 'retweet' );
-$icons['right-big']                           = array( 'char' => '\e85f', 'class' => 'right-big' );
-$icons['right-circled2']                      = array( 'char' => '\f18e', 'class' => 'right-circled2' );
-$icons['right-circled']                       = array( 'char' => '\f0a9', 'class' => 'right-circled' );
-$icons['right-dir']                           = array( 'char' => '\e858', 'class' => 'right-dir' );
-$icons['right-hand']                          = array( 'char' => '\e861', 'class' => 'right-hand' );
-$icons['right-open']                          = array( 'char' => '\e85b', 'class' => 'right-open' );
-$icons['right']                               = array( 'char' => '\f178', 'class' => 'right' );
-$icons['road']                                = array( 'char' => '\e88d', 'class' => 'road' );
-$icons['rocket']                              = array( 'char' => '\f135', 'class' => 'rocket' );
-$icons['rouble']                              = array( 'char' => '\f158', 'class' => 'rouble' );
-$icons['rss-squared']                         = array( 'char' => '\f143', 'class' => 'rss-squared' );
-$icons['rss']                                 = array( 'char' => '\f09e', 'class' => 'rss' );
-$icons['rupee']                               = array( 'char' => '\f156', 'class' => 'rupee' );
-$icons['safari']                              = array( 'char' => '\f267', 'class' => 'safari' );
-$icons['scissors']                            = array( 'char' => '\e88a', 'class' => 'scissors' );
-$icons['scribd']                              = array( 'char' => '\f28a', 'class' => 'scribd' );
-$icons['search']                              = array( 'char' => '\e802', 'class' => 'search' );
-$icons['sellsy']                              = array( 'char' => '\f213', 'class' => 'sellsy' );
-$icons['server']                              = array( 'char' => '\f233', 'class' => 'server' );
-$icons['share-squared']                       = array( 'char' => '\f1e1', 'class' => 'share-squared' );
-$icons['share']                               = array( 'char' => '\f1e0', 'class' => 'share' );
-$icons['shekel']                              = array( 'char' => '\f20b', 'class' => 'shekel' );
-$icons['shield']                              = array( 'char' => '\f132', 'class' => 'shield' );
-$icons['ship']                                = array( 'char' => '\f21a', 'class' => 'ship' );
-$icons['shirtsinbulk']                        = array( 'char' => '\f214', 'class' => 'shirtsinbulk' );
-$icons['shopping-bag']                        = array( 'char' => '\f290', 'class' => 'shopping-bag' );
-$icons['shopping-basket']                     = array( 'char' => '\f291', 'class' => 'shopping-basket' );
-$icons['shower']                              = array( 'char' => '\f2cc', 'class' => 'shower' );
-$icons['shuffle']                             = array( 'char' => '\e868', 'class' => 'shuffle' );
-$icons['sign-language']                       = array( 'char' => '\f2a7', 'class' => 'sign-language' );
-$icons['signal']                              = array( 'char' => '\e875', 'class' => 'signal' );
-$icons['simplybuilt']                         = array( 'char' => '\f215', 'class' => 'simplybuilt' );
-$icons['sitemap']                             = array( 'char' => '\f0e8', 'class' => 'sitemap' );
-$icons['skyatlas']                            = array( 'char' => '\f216', 'class' => 'skyatlas' );
-$icons['skype']                               = array( 'char' => '\f17e', 'class' => 'skype' );
-$icons['slack']                               = array( 'char' => '\f198', 'class' => 'slack' );
-$icons['sliders']                             = array( 'char' => '\f1de', 'class' => 'sliders' );
-$icons['slideshare']                          = array( 'char' => '\f1e7', 'class' => 'slideshare' );
-$icons['smile']                               = array( 'char' => '\f118', 'class' => 'smile' );
-$icons['snapchat-ghost']                      = array( 'char' => '\f2ac', 'class' => 'snapchat-ghost' );
-$icons['snapchat-square']                     = array( 'char' => '\f2ad', 'class' => 'snapchat-square' );
-$icons['snapchat']                            = array( 'char' => '\f2ab', 'class' => 'snapchat' );
-$icons['snowflake-o']                         = array( 'char' => '\f2dc', 'class' => 'snowflake-o' );
-$icons['soccer-ball']                         = array( 'char' => '\f1e3', 'class' => 'soccer-ball' );
-$icons['sort-alt-down']                       = array( 'char' => '\f161', 'class' => 'sort-alt-down' );
-$icons['sort-alt-up']                         = array( 'char' => '\f160', 'class' => 'sort-alt-up' );
-$icons['sort-down']                           = array( 'char' => '\f0dd', 'class' => 'sort-down' );
-$icons['sort-name-down']                      = array( 'char' => '\f15e', 'class' => 'sort-name-down' );
-$icons['sort-name-up']                        = array( 'char' => '\f15d', 'class' => 'sort-name-up' );
-$icons['sort-number-down']                    = array( 'char' => '\f163', 'class' => 'sort-number-down' );
-$icons['sort-number-up']                      = array( 'char' => '\f162', 'class' => 'sort-number-up' );
-$icons['sort-up']                             = array( 'char' => '\f0de', 'class' => 'sort-up' );
-$icons['sort']                                = array( 'char' => '\f0dc', 'class' => 'sort' );
-$icons['soundcloud']                          = array( 'char' => '\f1be', 'class' => 'soundcloud' );
-$icons['space-shuttle']                       = array( 'char' => '\f197', 'class' => 'space-shuttle' );
-$icons['spinner']                             = array( 'char' => '\f110', 'class' => 'spinner' );
-$icons['spoon']                               = array( 'char' => '\f1b1', 'class' => 'spoon' );
-$icons['spotify']                             = array( 'char' => '\f1bc', 'class' => 'spotify' );
-$icons['stackexchange']                       = array( 'char' => '\f18d', 'class' => 'stackexchange' );
-$icons['stackoverflow']                       = array( 'char' => '\f16c', 'class' => 'stackoverflow' );
-$icons['star-empty']                          = array( 'char' => '\e807', 'class' => 'star-empty' );
-$icons['star-half-alt']                       = array( 'char' => '\f123', 'class' => 'star-half-alt' );
-$icons['star-half']                           = array( 'char' => '\e808', 'class' => 'star-half' );
-$icons['star']                                = array( 'char' => '\e806', 'class' => 'star' );
-$icons['steam-squared']                       = array( 'char' => '\f1b7', 'class' => 'steam-squared' );
-$icons['steam']                               = array( 'char' => '\f1b6', 'class' => 'steam' );
-$icons['stethoscope']                         = array( 'char' => '\f0f1', 'class' => 'stethoscope' );
-$icons['sticky-note-o']                       = array( 'char' => '\f24a', 'class' => 'sticky-note-o' );
-$icons['sticky-note']                         = array( 'char' => '\f249', 'class' => 'sticky-note' );
-$icons['stop-circle-o']                       = array( 'char' => '\f28e', 'class' => 'stop-circle-o' );
-$icons['stop-circle']                         = array( 'char' => '\f28d', 'class' => 'stop-circle' );
-$icons['stop']                                = array( 'char' => '\e86b', 'class' => 'stop' );
-$icons['street-view']                         = array( 'char' => '\f21d', 'class' => 'street-view' );
-$icons['strike']                              = array( 'char' => '\f0cc', 'class' => 'strike' );
-$icons['stumbleupon-circled']                 = array( 'char' => '\f1a3', 'class' => 'stumbleupon-circled' );
-$icons['stumbleupon']                         = array( 'char' => '\f1a4', 'class' => 'stumbleupon' );
-$icons['subscript']                           = array( 'char' => '\f12c', 'class' => 'subscript' );
-$icons['subway']                              = array( 'char' => '\f239', 'class' => 'subway' );
-$icons['suitcase']                            = array( 'char' => '\f0f2', 'class' => 'suitcase' );
-$icons['sun']                                 = array( 'char' => '\f185', 'class' => 'sun' );
-$icons['superpowers']                         = array( 'char' => '\f2dd', 'class' => 'superpowers' );
-$icons['superscript']                         = array( 'char' => '\f12b', 'class' => 'superscript' );
-$icons['table']                               = array( 'char' => '\f0ce', 'class' => 'table' );
-$icons['tablet']                              = array( 'char' => '\f10a', 'class' => 'tablet' );
-$icons['tag']                                 = array( 'char' => '\e827', 'class' => 'tag' );
-$icons['tags']                                = array( 'char' => '\e828', 'class' => 'tags' );
-$icons['target']                              = array( 'char' => '\e874', 'class' => 'target' );
-$icons['tasks']                               = array( 'char' => '\f0ae', 'class' => 'tasks' );
-$icons['taxi']                                = array( 'char' => '\f1ba', 'class' => 'taxi' );
-$icons['telegram']                            = array( 'char' => '\f2c6', 'class' => 'telegram' );
-$icons['television']                          = array( 'char' => '\f26c', 'class' => 'television' );
-$icons['tencent-weibo']                       = array( 'char' => '\f1d5', 'class' => 'tencent-weibo' );
-$icons['terminal']                            = array( 'char' => '\f120', 'class' => 'terminal' );
-$icons['text-height']                         = array( 'char' => '\e881', 'class' => 'text-height' );
-$icons['text-width']                          = array( 'char' => '\e882', 'class' => 'text-width' );
-$icons['th-large']                            = array( 'char' => '\e810', 'class' => 'th-large' );
-$icons['th-list']                             = array( 'char' => '\e812', 'class' => 'th-list' );
-$icons['th']                                  = array( 'char' => '\e811', 'class' => 'th' );
-$icons['themeisle']                           = array( 'char' => '\f2b2', 'class' => 'themeisle' );
-$icons['thermometer-0']                       = array( 'char' => '\f2cb', 'class' => 'thermometer-0' );
-$icons['thermometer-2']                       = array( 'char' => '\f2c9', 'class' => 'thermometer-2' );
-$icons['thermometer-3']                       = array( 'char' => '\f2c8', 'class' => 'thermometer-3' );
-$icons['thermometer-quarter']                 = array( 'char' => '\f2ca', 'class' => 'thermometer-quarter' );
-$icons['thermometer']                         = array( 'char' => '\f2c7', 'class' => 'thermometer' );
-$icons['thumbs-down-alt']                     = array( 'char' => '\f165', 'class' => 'thumbs-down-alt' );
-$icons['thumbs-down']                         = array( 'char' => '\e82c', 'class' => 'thumbs-down' );
-$icons['thumbs-up-alt']                       = array( 'char' => '\f164', 'class' => 'thumbs-up-alt' );
-$icons['thumbs-up']                           = array( 'char' => '\e82b', 'class' => 'thumbs-up' );
-$icons['ticket']                              = array( 'char' => '\f145', 'class' => 'ticket' );
-$icons['tint']                                = array( 'char' => '\e893', 'class' => 'tint' );
-$icons['to-end-alt']                          = array( 'char' => '\e86e', 'class' => 'to-end-alt' );
-$icons['to-end']                              = array( 'char' => '\e86d', 'class' => 'to-end' );
-$icons['to-start-alt']                        = array( 'char' => '\e870', 'class' => 'to-start-alt' );
-$icons['to-start']                            = array( 'char' => '\e86f', 'class' => 'to-start' );
-$icons['toggle-off']                          = array( 'char' => '\f204', 'class' => 'toggle-off' );
-$icons['toggle-on']                           = array( 'char' => '\f205', 'class' => 'toggle-on' );
-$icons['trademark']                           = array( 'char' => '\f25c', 'class' => 'trademark' );
-$icons['train']                               = array( 'char' => '\f238', 'class' => 'train' );
-$icons['transgender-alt']                     = array( 'char' => '\f225', 'class' => 'transgender-alt' );
-$icons['transgender']                         = array( 'char' => '\f224', 'class' => 'transgender' );
-$icons['trash-empty']                         = array( 'char' => '\e83b', 'class' => 'trash-empty' );
-$icons['trash']                               = array( 'char' => '\f1f8', 'class' => 'trash' );
-$icons['tree']                                = array( 'char' => '\f1bb', 'class' => 'tree' );
-$icons['trello']                              = array( 'char' => '\f181', 'class' => 'trello' );
-$icons['tripadvisor']                         = array( 'char' => '\f262', 'class' => 'tripadvisor' );
-$icons['truck']                               = array( 'char' => '\e89e', 'class' => 'truck' );
-$icons['try']                                 = array( 'char' => '\f195', 'class' => 'try' );
-$icons['tty']                                 = array( 'char' => '\f1e4', 'class' => 'tty' );
-$icons['tumblr-squared']                      = array( 'char' => '\f174', 'class' => 'tumblr-squared' );
-$icons['tumblr']                              = array( 'char' => '\f173', 'class' => 'tumblr' );
-$icons['twitch']                              = array( 'char' => '\f1e8', 'class' => 'twitch' );
-$icons['twitter-squared']                     = array( 'char' => '\f304', 'class' => 'twitter-squared' );
-$icons['twitter']                             = array( 'char' => '\f099', 'class' => 'twitter' );
-$icons['umbrella']                            = array( 'char' => '\e87b', 'class' => 'umbrella' );
-$icons['underline']                           = array( 'char' => '\f0cd', 'class' => 'underline' );
-$icons['universal-access']                    = array( 'char' => '\f29a', 'class' => 'universal-access' );
-$icons['unlink']                              = array( 'char' => '\f127', 'class' => 'unlink' );
-$icons['up-big']                              = array( 'char' => '\e860', 'class' => 'up-big' );
-$icons['up-circled2']                         = array( 'char' => '\e854', 'class' => 'up-circled2' );
-$icons['up-circled']                          = array( 'char' => '\f0aa', 'class' => 'up-circled' );
-$icons['up-dir']                              = array( 'char' => '\e856', 'class' => 'up-dir' );
-$icons['up-hand']                             = array( 'char' => '\e863', 'class' => 'up-hand' );
-$icons['up-open']                             = array( 'char' => '\e85c', 'class' => 'up-open' );
-$icons['up']                                  = array( 'char' => '\f176', 'class' => 'up' );
-$icons['upload-cloud']                        = array( 'char' => '\f0ee', 'class' => 'upload-cloud' );
-$icons['upload']                              = array( 'char' => '\e82e', 'class' => 'upload' );
-$icons['usb']                                 = array( 'char' => '\f287', 'class' => 'usb' );
-$icons['user-circle-o']                       = array( 'char' => '\f2be', 'class' => 'user-circle-o' );
-$icons['user-circle']                         = array( 'char' => '\f2bd', 'class' => 'user-circle' );
-$icons['user-md']                             = array( 'char' => '\f0f0', 'class' => 'user-md' );
-$icons['user-o']                              = array( 'char' => '\f2c0', 'class' => 'user-o' );
-$icons['user-plus']                           = array( 'char' => '\f234', 'class' => 'user-plus' );
-$icons['user-secret']                         = array( 'char' => '\f21b', 'class' => 'user-secret' );
-$icons['user-times']                          = array( 'char' => '\f235', 'class' => 'user-times' );
-$icons['user']                                = array( 'char' => '\e809', 'class' => 'user' );
-$icons['users']                               = array( 'char' => '\e80a', 'class' => 'users' );
-$icons['venus-double']                        = array( 'char' => '\f226', 'class' => 'venus-double' );
-$icons['venus-mars']                          = array( 'char' => '\f228', 'class' => 'venus-mars' );
-$icons['venus']                               = array( 'char' => '\f221', 'class' => 'venus' );
-$icons['viacoin']                             = array( 'char' => '\f237', 'class' => 'viacoin' );
-$icons['viadeo-square']                       = array( 'char' => '\f2aa', 'class' => 'viadeo-square' );
-$icons['viadeo']                              = array( 'char' => '\f2a9', 'class' => 'viadeo' );
-$icons['video']                               = array( 'char' => '\e80b', 'class' => 'video' );
-$icons['videocam']                            = array( 'char' => '\e80c', 'class' => 'videocam' );
-$icons['vimeo-squared']                       = array( 'char' => '\f194', 'class' => 'vimeo-squared' );
-$icons['vimeo']                               = array( 'char' => '\f27d', 'class' => 'vimeo' );
-$icons['vine']                                = array( 'char' => '\f1ca', 'class' => 'vine' );
-$icons['vkontakte']                           = array( 'char' => '\f189', 'class' => 'vkontakte' );
-$icons['volume-control-phone']                = array( 'char' => '\f2a0', 'class' => 'volume-control-phone' );
-$icons['volume-down']                         = array( 'char' => '\e848', 'class' => 'volume-down' );
-$icons['volume-off']                          = array( 'char' => '\e847', 'class' => 'volume-off' );
-$icons['volume-up']                           = array( 'char' => '\e849', 'class' => 'volume-up' );
-$icons['wechat']                              = array( 'char' => '\f1d7', 'class' => 'wechat' );
-$icons['weibo']                               = array( 'char' => '\f18a', 'class' => 'weibo' );
-$icons['whatsapp']                            = array( 'char' => '\f232', 'class' => 'whatsapp' );
-$icons['wheelchair-alt']                      = array( 'char' => '\f29b', 'class' => 'wheelchair-alt' );
-$icons['wheelchair']                          = array( 'char' => '\f193', 'class' => 'wheelchair' );
-$icons['wifi']                                = array( 'char' => '\f1eb', 'class' => 'wifi' );
-$icons['wikipedia-w']                         = array( 'char' => '\f266', 'class' => 'wikipedia-w' );
-$icons['window-close-o']                      = array( 'char' => '\f2d4', 'class' => 'window-close-o' );
-$icons['window-close']                        = array( 'char' => '\f2d3', 'class' => 'window-close' );
-$icons['window-maximize']                     = array( 'char' => '\f2d0', 'class' => 'window-maximize' );
-$icons['window-minimize']                     = array( 'char' => '\f2d1', 'class' => 'window-minimize' );
-$icons['window-restore']                      = array( 'char' => '\f2d2', 'class' => 'window-restore' );
-$icons['windows']                             = array( 'char' => '\f17a', 'class' => 'windows' );
-$icons['won']                                 = array( 'char' => '\f159', 'class' => 'won' );
-$icons['wordpress']                           = array( 'char' => '\f19a', 'class' => 'wordpress' );
-$icons['wpbeginner']                          = array( 'char' => '\f297', 'class' => 'wpbeginner' );
-$icons['wpexplorer']                          = array( 'char' => '\f2de', 'class' => 'wpexplorer' );
-$icons['wpforms']                             = array( 'char' => '\f298', 'class' => 'wpforms' );
-$icons['wrench']                              = array( 'char' => '\e842', 'class' => 'wrench' );
-$icons['xing-squared']                        = array( 'char' => '\f169', 'class' => 'xing-squared' );
-$icons['xing']                                = array( 'char' => '\f168', 'class' => 'xing' );
-$icons['y-combinator']                        = array( 'char' => '\f23b', 'class' => 'y-combinator' );
-$icons['yahoo']                               = array( 'char' => '\f19e', 'class' => 'yahoo' );
-$icons['yelp']                                = array( 'char' => '\f1e9', 'class' => 'yelp' );
-$icons['yen']                                 = array( 'char' => '\f157', 'class' => 'yen' );
-$icons['yoast']                               = array( 'char' => '\f2b1', 'class' => 'yoast' );
-$icons['youtube-play']                        = array( 'char' => '\f16a', 'class' => 'youtube-play' );
-$icons['youtube-squared']                     = array( 'char' => '\f166', 'class' => 'youtube-squared' );
-$icons['youtube']                             = array( 'char' => '\f167', 'class' => 'youtube' );
-$icons['zoom-in']                             = array( 'char' => '\e851', 'class' => 'zoom-in' );
-$icons['zoom-out']                            = array( 'char' => '\e852', 'class' => 'zoom-out' );
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+return array(
+	'500px'                               => array( 'char' => '\f26e', 'class' => '500px' ),
+	'address-book-o'                      => array( 'char' => '\f2ba', 'class' => 'address-book-o' ),
+	'address-book'                        => array( 'char' => '\f2b9', 'class' => 'address-book' ),
+	'address-card-o'                      => array( 'char' => '\f2bc', 'class' => 'address-card-o' ),
+	'address-card'                        => array( 'char' => '\f2bb', 'class' => 'address-card' ),
+	'adjust'                              => array( 'char' => '\e892', 'class' => 'adjust' ),
+	'adn'                                 => array( 'char' => '\f170', 'class' => 'adn' ),
+	'align-center'                        => array( 'char' => '\e884', 'class' => 'align-center' ),
+	'align-justify'                       => array( 'char' => '\e886', 'class' => 'align-justify' ),
+	'align-left'                          => array( 'char' => '\e883', 'class' => 'align-left' ),
+	'align-right'                         => array( 'char' => '\e885', 'class' => 'align-right' ),
+	'amazon'                              => array( 'char' => '\f270', 'class' => 'amazon' ),
+	'ambulance'                           => array( 'char' => '\f0f9', 'class' => 'ambulance' ),
+	'american-sign-language-interpreting' => array( 'char' => '\f2a3', 'class' => 'american-sign-language-interpreting' ),
+	'anchor'                              => array( 'char' => '\f13d', 'class' => 'anchor' ),
+	'android'                             => array( 'char' => '\f17b', 'class' => 'android' ),
+	'angellist'                           => array( 'char' => '\f209', 'class' => 'angellist' ),
+	'angle-circled-down'                  => array( 'char' => '\f13a', 'class' => 'angle-circled-down' ),
+	'angle-circled-left'                  => array( 'char' => '\f137', 'class' => 'angle-circled-left' ),
+	'angle-circled-right'                 => array( 'char' => '\f138', 'class' => 'angle-circled-right' ),
+	'angle-circled-up'                    => array( 'char' => '\f139', 'class' => 'angle-circled-up' ),
+	'angle-double-down'                   => array( 'char' => '\f103', 'class' => 'angle-double-down' ),
+	'angle-double-left'                   => array( 'char' => '\f100', 'class' => 'angle-double-left' ),
+	'angle-double-right'                  => array( 'char' => '\f101', 'class' => 'angle-double-right' ),
+	'angle-double-up'                     => array( 'char' => '\f102', 'class' => 'angle-double-up' ),
+	'angle-down'                          => array( 'char' => '\f107', 'class' => 'angle-down' ),
+	'angle-left'                          => array( 'char' => '\f104', 'class' => 'angle-left' ),
+	'angle-right'                         => array( 'char' => '\f105', 'class' => 'angle-right' ),
+	'angle-up'                            => array( 'char' => '\f106', 'class' => 'angle-up' ),
+	'apple'                               => array( 'char' => '\f179', 'class' => 'apple' ),
+	'arrows-cw'                           => array( 'char' => '\e867', 'class' => 'arrows-cw' ),
+	'asl-interpreting'                    => array( 'char' => '\f2a4', 'class' => 'asl-interpreting' ),
+	'assistive-listening-systems'         => array( 'char' => '\f2a2', 'class' => 'assistive-listening-systems' ),
+	'asterisk'                            => array( 'char' => '\e895', 'class' => 'asterisk' ),
+	'at'                                  => array( 'char' => '\f1fa', 'class' => 'at' ),
+	'attach'                              => array( 'char' => '\e821', 'class' => 'attach' ),
+	'attention-alt'                       => array( 'char' => '\f12a', 'class' => 'attention-alt' ),
+	'attention-circled'                   => array( 'char' => '\e839', 'class' => 'attention-circled' ),
+	'attention'                           => array( 'char' => '\e838', 'class' => 'attention' ),
+	'audio-description'                   => array( 'char' => '\f29e', 'class' => 'audio-description' ),
+	'award'                               => array( 'char' => '\e876', 'class' => 'award' ),
+	'balance-scale'                       => array( 'char' => '\f24e', 'class' => 'balance-scale' ),
+	'bandcamp'                            => array( 'char' => '\f2d5', 'class' => 'bandcamp' ),
+	'bank'                                => array( 'char' => '\f19c', 'class' => 'bank' ),
+	'barcode'                             => array( 'char' => '\e890', 'class' => 'barcode' ),
+	'basket'                              => array( 'char' => '\e843', 'class' => 'basket' ),
+	'bath'                                => array( 'char' => '\f2cd', 'class' => 'bath' ),
+	'battery-0'                           => array( 'char' => '\f244', 'class' => 'battery-0' ),
+	'battery-1'                           => array( 'char' => '\f243', 'class' => 'battery-1' ),
+	'battery-2'                           => array( 'char' => '\f242', 'class' => 'battery-2' ),
+	'battery-3'                           => array( 'char' => '\f241', 'class' => 'battery-3' ),
+	'battery-4'                           => array( 'char' => '\f240', 'class' => 'battery-4' ),
+	'beaker'                              => array( 'char' => '\f0c3', 'class' => 'beaker' ),
+	'bed'                                 => array( 'char' => '\f236', 'class' => 'bed' ),
+	'beer'                                => array( 'char' => '\f0fc', 'class' => 'beer' ),
+	'behance-squared'                     => array( 'char' => '\f1b5', 'class' => 'behance-squared' ),
+	'behance'                             => array( 'char' => '\f1b4', 'class' => 'behance' ),
+	'bell-alt'                            => array( 'char' => '\f0f3', 'class' => 'bell-alt' ),
+	'bell-off-empty'                      => array( 'char' => '\f1f7', 'class' => 'bell-off-empty' ),
+	'bell-off'                            => array( 'char' => '\f1f6', 'class' => 'bell-off' ),
+	'bell'                                => array( 'char' => '\e837', 'class' => 'bell' ),
+	'bicycle'                             => array( 'char' => '\f206', 'class' => 'bicycle' ),
+	'binoculars'                          => array( 'char' => '\f1e5', 'class' => 'binoculars' ),
+	'birthday'                            => array( 'char' => '\f1fd', 'class' => 'birthday' ),
+	'bitbucket-squared'                   => array( 'char' => '\f172', 'class' => 'bitbucket-squared' ),
+	'bitbucket'                           => array( 'char' => '\f171', 'class' => 'bitbucket' ),
+	'bitcoin'                             => array( 'char' => '\f15a', 'class' => 'bitcoin' ),
+	'black-tie'                           => array( 'char' => '\f27e', 'class' => 'black-tie' ),
+	'blank'                               => array( 'char' => '\f0c8', 'class' => 'blank' ),
+	'blind'                               => array( 'char' => '\f29d', 'class' => 'blind' ),
+	'block'                               => array( 'char' => '\e84c', 'class' => 'block' ),
+	'bluetooth-b'                         => array( 'char' => '\f294', 'class' => 'bluetooth-b' ),
+	'bluetooth'                           => array( 'char' => '\f293', 'class' => 'bluetooth' ),
+	'bold'                                => array( 'char' => '\e87f', 'class' => 'bold' ),
+	'bomb'                                => array( 'char' => '\f1e2', 'class' => 'bomb' ),
+	'book'                                => array( 'char' => '\e891', 'class' => 'book' ),
+	'bookmark-empty'                      => array( 'char' => '\f097', 'class' => 'bookmark-empty' ),
+	'bookmark'                            => array( 'char' => '\e829', 'class' => 'bookmark' ),
+	'box'                                 => array( 'char' => '\f187', 'class' => 'box' ),
+	'braille'                             => array( 'char' => '\f2a1', 'class' => 'braille' ),
+	'briefcase'                           => array( 'char' => '\e88b', 'class' => 'briefcase' ),
+	'brush'                               => array( 'char' => '\f1fc', 'class' => 'brush' ),
+	'bug'                                 => array( 'char' => '\f188', 'class' => 'bug' ),
+	'building-filled'                     => array( 'char' => '\f1ad', 'class' => 'building-filled' ),
+	'building'                            => array( 'char' => '\f0f7', 'class' => 'building' ),
+	'bullseye'                            => array( 'char' => '\f140', 'class' => 'bullseye' ),
+	'bus'                                 => array( 'char' => '\f207', 'class' => 'bus' ),
+	'buysellads'                          => array( 'char' => '\f20d', 'class' => 'buysellads' ),
+	'cab'                                 => array( 'char' => '\f1b9', 'class' => 'cab' ),
+	'calc'                                => array( 'char' => '\f1ec', 'class' => 'calc' ),
+	'calendar-check-o'                    => array( 'char' => '\f274', 'class' => 'calendar-check-o' ),
+	'calendar-empty'                      => array( 'char' => '\f133', 'class' => 'calendar-empty' ),
+	'calendar-minus-o'                    => array( 'char' => '\f272', 'class' => 'calendar-minus-o' ),
+	'calendar-plus-o'                     => array( 'char' => '\f271', 'class' => 'calendar-plus-o' ),
+	'calendar-times-o'                    => array( 'char' => '\f273', 'class' => 'calendar-times-o' ),
+	'calendar'                            => array( 'char' => '\e844', 'class' => 'calendar' ),
+	'camera-alt'                          => array( 'char' => '\e80f', 'class' => 'camera-alt' ),
+	'camera'                              => array( 'char' => '\e80e', 'class' => 'camera' ),
+	'cancel-circled2'                     => array( 'char' => '\e818', 'class' => 'cancel-circled2' ),
+	'cancel-circled'                      => array( 'char' => '\e817', 'class' => 'cancel-circled' ),
+	'cancel'                              => array( 'char' => '\e816', 'class' => 'cancel' ),
+	'cart-arrow-down'                     => array( 'char' => '\f218', 'class' => 'cart-arrow-down' ),
+	'cart-plus'                           => array( 'char' => '\f217', 'class' => 'cart-plus' ),
+	'cc-amex'                             => array( 'char' => '\f1f3', 'class' => 'cc-amex' ),
+	'cc-diners-club'                      => array( 'char' => '\f24c', 'class' => 'cc-diners-club' ),
+	'cc-discover'                         => array( 'char' => '\f1f2', 'class' => 'cc-discover' ),
+	'cc-jcb'                              => array( 'char' => '\f24b', 'class' => 'cc-jcb' ),
+	'cc-mastercard'                       => array( 'char' => '\f1f1', 'class' => 'cc-mastercard' ),
+	'cc-paypal'                           => array( 'char' => '\f1f4', 'class' => 'cc-paypal' ),
+	'cc-stripe'                           => array( 'char' => '\f1f5', 'class' => 'cc-stripe' ),
+	'cc-visa'                             => array( 'char' => '\f1f0', 'class' => 'cc-visa' ),
+	'cc'                                  => array( 'char' => '\f20a', 'class' => 'cc' ),
+	'ccw'                                 => array( 'char' => '\e866', 'class' => 'ccw' ),
+	'certificate'                         => array( 'char' => '\f0a3', 'class' => 'certificate' ),
+	'chart-area'                          => array( 'char' => '\f1fe', 'class' => 'chart-area' ),
+	'chart-bar'                           => array( 'char' => '\e899', 'class' => 'chart-bar' ),
+	'chart-line'                          => array( 'char' => '\f201', 'class' => 'chart-line' ),
+	'chart-pie'                           => array( 'char' => '\f200', 'class' => 'chart-pie' ),
+	'chat-empty'                          => array( 'char' => '\f0e6', 'class' => 'chat-empty' ),
+	'chat'                                => array( 'char' => '\e836', 'class' => 'chat' ),
+	'check-empty'                         => array( 'char' => '\f096', 'class' => 'check-empty' ),
+	'check'                               => array( 'char' => '\e894', 'class' => 'check' ),
+	'child'                               => array( 'char' => '\f1ae', 'class' => 'child' ),
+	'chrome'                              => array( 'char' => '\f268', 'class' => 'chrome' ),
+	'circle-empty'                        => array( 'char' => '\f10c', 'class' => 'circle-empty' ),
+	'circle-notch'                        => array( 'char' => '\f1ce', 'class' => 'circle-notch' ),
+	'circle-thin'                         => array( 'char' => '\f1db', 'class' => 'circle-thin' ),
+	'circle'                              => array( 'char' => '\f111', 'class' => 'circle' ),
+	'clock'                               => array( 'char' => '\e84b', 'class' => 'clock' ),
+	'clone'                               => array( 'char' => '\f24d', 'class' => 'clone' ),
+	'cloud'                               => array( 'char' => '\e879', 'class' => 'cloud' ),
+	'code'                                => array( 'char' => '\f121', 'class' => 'code' ),
+	'codeopen'                            => array( 'char' => '\f1cb', 'class' => 'codeopen' ),
+	'codiepie'                            => array( 'char' => '\f284', 'class' => 'codiepie' ),
+	'coffee'                              => array( 'char' => '\f0f4', 'class' => 'coffee' ),
+	'cog-alt'                             => array( 'char' => '\e841', 'class' => 'cog-alt' ),
+	'cog'                                 => array( 'char' => '\e840', 'class' => 'cog' ),
+	'collapse-left'                       => array( 'char' => '\f191', 'class' => 'collapse-left' ),
+	'collapse'                            => array( 'char' => '\f151', 'class' => 'collapse' ),
+	'columns'                             => array( 'char' => '\f0db', 'class' => 'columns' ),
+	'comment-empty'                       => array( 'char' => '\f0e5', 'class' => 'comment-empty' ),
+	'comment'                             => array( 'char' => '\e835', 'class' => 'comment' ),
+	'commenting-o'                        => array( 'char' => '\f27b', 'class' => 'commenting-o' ),
+	'commenting'                          => array( 'char' => '\f27a', 'class' => 'commenting' ),
+	'compass'                             => array( 'char' => '\f14e', 'class' => 'compass' ),
+	'connectdevelop'                      => array( 'char' => '\f20e', 'class' => 'connectdevelop' ),
+	'contao'                              => array( 'char' => '\f26d', 'class' => 'contao' ),
+	'copyright'                           => array( 'char' => '\f1f9', 'class' => 'copyright' ),
+	'creative-commons'                    => array( 'char' => '\f25e', 'class' => 'creative-commons' ),
+	'credit-card-alt'                     => array( 'char' => '\f283', 'class' => 'credit-card-alt' ),
+	'credit-card'                         => array( 'char' => '\e89a', 'class' => 'credit-card' ),
+	'crop'                                => array( 'char' => '\f125', 'class' => 'crop' ),
+	'css3'                                => array( 'char' => '\f13c', 'class' => 'css3' ),
+	'cube'                                => array( 'char' => '\f1b2', 'class' => 'cube' ),
+	'cubes'                               => array( 'char' => '\f1b3', 'class' => 'cubes' ),
+	'cw'                                  => array( 'char' => '\e865', 'class' => 'cw' ),
+	'dashcube'                            => array( 'char' => '\f210', 'class' => 'dashcube' ),
+	'database'                            => array( 'char' => '\f1c0', 'class' => 'database' ),
+	'delicious'                           => array( 'char' => '\f1a5', 'class' => 'delicious' ),
+	'desktop'                             => array( 'char' => '\f108', 'class' => 'desktop' ),
+	'deviantart'                          => array( 'char' => '\f1bd', 'class' => 'deviantart' ),
+	'diamond'                             => array( 'char' => '\f219', 'class' => 'diamond' ),
+	'digg'                                => array( 'char' => '\f1a6', 'class' => 'digg' ),
+	'direction'                           => array( 'char' => '\f124', 'class' => 'direction' ),
+	'doc-inv'                             => array( 'char' => '\f15b', 'class' => 'doc-inv' ),
+	'doc-text-inv'                        => array( 'char' => '\f15c', 'class' => 'doc-text-inv' ),
+	'doc-text'                            => array( 'char' => '\f0f6', 'class' => 'doc-text' ),
+	'doc'                                 => array( 'char' => '\e83c', 'class' => 'doc' ),
+	'docs'                                => array( 'char' => '\f0c5', 'class' => 'docs' ),
+	'dollar'                              => array( 'char' => '\f155', 'class' => 'dollar' ),
+	'dot-circled'                         => array( 'char' => '\f192', 'class' => 'dot-circled' ),
+	'down-big'                            => array( 'char' => '\e85d', 'class' => 'down-big' ),
+	'down-circled2'                       => array( 'char' => '\e853', 'class' => 'down-circled2' ),
+	'down-circled'                        => array( 'char' => '\f0ab', 'class' => 'down-circled' ),
+	'down-dir'                            => array( 'char' => '\e855', 'class' => 'down-dir' ),
+	'down-hand'                           => array( 'char' => '\e864', 'class' => 'down-hand' ),
+	'down-open'                           => array( 'char' => '\e859', 'class' => 'down-open' ),
+	'down'                                => array( 'char' => '\f175', 'class' => 'down' ),
+	'download-cloud'                      => array( 'char' => '\f0ed', 'class' => 'download-cloud' ),
+	'download'                            => array( 'char' => '\e82d', 'class' => 'download' ),
+	'dribbble'                            => array( 'char' => '\f17d', 'class' => 'dribbble' ),
+	'dropbox'                             => array( 'char' => '\f16b', 'class' => 'dropbox' ),
+	'drupal'                              => array( 'char' => '\f1a9', 'class' => 'drupal' ),
+	'edge'                                => array( 'char' => '\f282', 'class' => 'edge' ),
+	'edit'                                => array( 'char' => '\e832', 'class' => 'edit' ),
+	'eercast'                             => array( 'char' => '\f2da', 'class' => 'eercast' ),
+	'eject'                               => array( 'char' => '\e873', 'class' => 'eject' ),
+	'ellipsis-vert'                       => array( 'char' => '\f142', 'class' => 'ellipsis-vert' ),
+	'ellipsis'                            => array( 'char' => '\f141', 'class' => 'ellipsis' ),
+	'empire'                              => array( 'char' => '\f1d1', 'class' => 'empire' ),
+	'envelope-open-o'                     => array( 'char' => '\f2b7', 'class' => 'envelope-open-o' ),
+	'envelope-open'                       => array( 'char' => '\f2b6', 'class' => 'envelope-open' ),
+	'envira'                              => array( 'char' => '\f299', 'class' => 'envira' ),
+	'eraser'                              => array( 'char' => '\f12d', 'class' => 'eraser' ),
+	'etsy'                                => array( 'char' => '\f2d7', 'class' => 'etsy' ),
+	'euro'                                => array( 'char' => '\f153', 'class' => 'euro' ),
+	'exchange'                            => array( 'char' => '\f0ec', 'class' => 'exchange' ),
+	'expand-right'                        => array( 'char' => '\f152', 'class' => 'expand-right' ),
+	'expand'                              => array( 'char' => '\f150', 'class' => 'expand' ),
+	'expeditedssl'                        => array( 'char' => '\f23e', 'class' => 'expeditedssl' ),
+	'export-alt'                          => array( 'char' => '\f14d', 'class' => 'export-alt' ),
+	'export'                              => array( 'char' => '\e830', 'class' => 'export' ),
+	'extinguisher'                        => array( 'char' => '\f134', 'class' => 'extinguisher' ),
+	'eye-off'                             => array( 'char' => '\e826', 'class' => 'eye-off' ),
+	'eye'                                 => array( 'char' => '\e825', 'class' => 'eye' ),
+	'eyedropper'                          => array( 'char' => '\f1fb', 'class' => 'eyedropper' ),
+	'facebook-official'                   => array( 'char' => '\f230', 'class' => 'facebook-official' ),
+	'facebook-squared'                    => array( 'char' => '\f308', 'class' => 'facebook-squared' ),
+	'facebook'                            => array( 'char' => '\f09a', 'class' => 'facebook' ),
+	'fast-bw'                             => array( 'char' => '\e872', 'class' => 'fast-bw' ),
+	'fast-fw'                             => array( 'char' => '\e871', 'class' => 'fast-fw' ),
+	'fax'                                 => array( 'char' => '\f1ac', 'class' => 'fax' ),
+	'female'                              => array( 'char' => '\f182', 'class' => 'female' ),
+	'fighter-jet'                         => array( 'char' => '\f0fb', 'class' => 'fighter-jet' ),
+	'file-archive'                        => array( 'char' => '\f1c6', 'class' => 'file-archive' ),
+	'file-audio'                          => array( 'char' => '\f1c7', 'class' => 'file-audio' ),
+	'file-code'                           => array( 'char' => '\f1c9', 'class' => 'file-code' ),
+	'file-excel'                          => array( 'char' => '\f1c3', 'class' => 'file-excel' ),
+	'file-image'                          => array( 'char' => '\f1c5', 'class' => 'file-image' ),
+	'file-pdf'                            => array( 'char' => '\f1c1', 'class' => 'file-pdf' ),
+	'file-powerpoint'                     => array( 'char' => '\f1c4', 'class' => 'file-powerpoint' ),
+	'file-video'                          => array( 'char' => '\f1c8', 'class' => 'file-video' ),
+	'file-word'                           => array( 'char' => '\f1c2', 'class' => 'file-word' ),
+	'filter'                              => array( 'char' => '\f0b0', 'class' => 'filter' ),
+	'fire'                                => array( 'char' => '\e897', 'class' => 'fire' ),
+	'firefox'                             => array( 'char' => '\f269', 'class' => 'firefox' ),
+	'first-order'                         => array( 'char' => '\f2b0', 'class' => 'first-order' ),
+	'flag-checkered'                      => array( 'char' => '\f11e', 'class' => 'flag-checkered' ),
+	'flag-empty'                          => array( 'char' => '\f11d', 'class' => 'flag-empty' ),
+	'flag'                                => array( 'char' => '\e82a', 'class' => 'flag' ),
+	'flash'                               => array( 'char' => '\e87a', 'class' => 'flash' ),
+	'flickr'                              => array( 'char' => '\f16e', 'class' => 'flickr' ),
+	'flight'                              => array( 'char' => '\e87c', 'class' => 'flight' ),
+	'floppy'                              => array( 'char' => '\e89b', 'class' => 'floppy' ),
+	'folder-empty'                        => array( 'char' => '\f114', 'class' => 'folder-empty' ),
+	'folder-open-empty'                   => array( 'char' => '\f115', 'class' => 'folder-open-empty' ),
+	'folder-open'                         => array( 'char' => '\e83e', 'class' => 'folder-open' ),
+	'folder'                              => array( 'char' => '\e83d', 'class' => 'folder' ),
+	'font-awesome'                        => array( 'char' => '\f2b4', 'class' => 'font-awesome' ),
+	'font'                                => array( 'char' => '\e87e', 'class' => 'font' ),
+	'fonticons'                           => array( 'char' => '\f280', 'class' => 'fonticons' ),
+	'food'                                => array( 'char' => '\f0f5', 'class' => 'food' ),
+	'fork'                                => array( 'char' => '\f126', 'class' => 'fork' ),
+	'fort-awesome'                        => array( 'char' => '\f286', 'class' => 'fort-awesome' ),
+	'forumbee'                            => array( 'char' => '\f211', 'class' => 'forumbee' ),
+	'forward'                             => array( 'char' => '\e82f', 'class' => 'forward' ),
+	'foursquare'                          => array( 'char' => '\f180', 'class' => 'foursquare' ),
+	'free-code-camp'                      => array( 'char' => '\f2c5', 'class' => 'free-code-camp' ),
+	'frown'                               => array( 'char' => '\f119', 'class' => 'frown' ),
+	'gamepad'                             => array( 'char' => '\f11b', 'class' => 'gamepad' ),
+	'gauge'                               => array( 'char' => '\f0e4', 'class' => 'gauge' ),
+	'genderless'                          => array( 'char' => '\f22d', 'class' => 'genderless' ),
+	'get-pocket'                          => array( 'char' => '\f265', 'class' => 'get-pocket' ),
+	'gg-circle'                           => array( 'char' => '\f261', 'class' => 'gg-circle' ),
+	'gg'                                  => array( 'char' => '\f260', 'class' => 'gg' ),
+	'gift'                                => array( 'char' => '\e896', 'class' => 'gift' ),
+	'git-squared'                         => array( 'char' => '\f1d2', 'class' => 'git-squared' ),
+	'git'                                 => array( 'char' => '\f1d3', 'class' => 'git' ),
+	'github-circled'                      => array( 'char' => '\f09b', 'class' => 'github-circled' ),
+	'github-squared'                      => array( 'char' => '\f300', 'class' => 'github-squared' ),
+	'github'                              => array( 'char' => '\f113', 'class' => 'github' ),
+	'gitlab'                              => array( 'char' => '\f296', 'class' => 'gitlab' ),
+	'gittip'                              => array( 'char' => '\f184', 'class' => 'gittip' ),
+	'glass'                               => array( 'char' => '\e800', 'class' => 'glass' ),
+	'glide-g'                             => array( 'char' => '\f2a6', 'class' => 'glide-g' ),
+	'glide'                               => array( 'char' => '\f2a5', 'class' => 'glide' ),
+	'globe'                               => array( 'char' => '\e878', 'class' => 'globe' ),
+	'google-plus-circle'                  => array( 'char' => '\f2b3', 'class' => 'google-plus-circle' ),
+	'google'                              => array( 'char' => '\f1a0', 'class' => 'google' ),
+	'gplus-squared'                       => array( 'char' => '\f0d4', 'class' => 'gplus-squared' ),
+	'gplus'                               => array( 'char' => '\f0d5', 'class' => 'gplus' ),
+	'graduation-cap'                      => array( 'char' => '\f19d', 'class' => 'graduation-cap' ),
+	'grav'                                => array( 'char' => '\f2d6', 'class' => 'grav' ),
+	'gwallet'                             => array( 'char' => '\f1ee', 'class' => 'gwallet' ),
+	'h-sigh'                              => array( 'char' => '\f0fd', 'class' => 'h-sigh' ),
+	'hacker-news'                         => array( 'char' => '\f1d4', 'class' => 'hacker-news' ),
+	'hammer'                              => array( 'char' => '\e89f', 'class' => 'hammer' ),
+	'hand-grab-o'                         => array( 'char' => '\f255', 'class' => 'hand-grab-o' ),
+	'hand-lizard-o'                       => array( 'char' => '\f258', 'class' => 'hand-lizard-o' ),
+	'hand-paper-o'                        => array( 'char' => '\f256', 'class' => 'hand-paper-o' ),
+	'hand-peace-o'                        => array( 'char' => '\f25b', 'class' => 'hand-peace-o' ),
+	'hand-pointer-o'                      => array( 'char' => '\f25a', 'class' => 'hand-pointer-o' ),
+	'hand-scissors-o'                     => array( 'char' => '\f257', 'class' => 'hand-scissors-o' ),
+	'hand-spock-o'                        => array( 'char' => '\f259', 'class' => 'hand-spock-o' ),
+	'handshake-o'                         => array( 'char' => '\f2b5', 'class' => 'handshake-o' ),
+	'hashtag'                             => array( 'char' => '\f292', 'class' => 'hashtag' ),
+	'hdd'                                 => array( 'char' => '\f0a0', 'class' => 'hdd' ),
+	'header'                              => array( 'char' => '\f1dc', 'class' => 'header' ),
+	'headphones'                          => array( 'char' => '\e84a', 'class' => 'headphones' ),
+	'heart-empty'                         => array( 'char' => '\e805', 'class' => 'heart-empty' ),
+	'heart'                               => array( 'char' => '\e804', 'class' => 'heart' ),
+	'heartbeat'                           => array( 'char' => '\f21e', 'class' => 'heartbeat' ),
+	'help-circled'                        => array( 'char' => '\e81d', 'class' => 'help-circled' ),
+	'help'                                => array( 'char' => '\f128', 'class' => 'help' ),
+	'history'                             => array( 'char' => '\f1da', 'class' => 'history' ),
+	'home'                                => array( 'char' => '\e81f', 'class' => 'home' ),
+	'hospital'                            => array( 'char' => '\f0f8', 'class' => 'hospital' ),
+	'hourglass-1'                         => array( 'char' => '\f251', 'class' => 'hourglass-1' ),
+	'hourglass-2'                         => array( 'char' => '\f252', 'class' => 'hourglass-2' ),
+	'hourglass-3'                         => array( 'char' => '\f253', 'class' => 'hourglass-3' ),
+	'hourglass-o'                         => array( 'char' => '\f250', 'class' => 'hourglass-o' ),
+	'hourglass'                           => array( 'char' => '\f254', 'class' => 'hourglass' ),
+	'houzz'                               => array( 'char' => '\f27c', 'class' => 'houzz' ),
+	'html5'                               => array( 'char' => '\f13b', 'class' => 'html5' ),
+	'i-cursor'                            => array( 'char' => '\f246', 'class' => 'i-cursor' ),
+	'id-badge'                            => array( 'char' => '\f2c1', 'class' => 'id-badge' ),
+	'id-card-o'                           => array( 'char' => '\f2c3', 'class' => 'id-card-o' ),
+	'id-card'                             => array( 'char' => '\f2c2', 'class' => 'id-card' ),
+	'imdb'                                => array( 'char' => '\f2d8', 'class' => 'imdb' ),
+	'inbox'                               => array( 'char' => '\e877', 'class' => 'inbox' ),
+	'indent-left'                         => array( 'char' => '\e888', 'class' => 'indent-left' ),
+	'indent-right'                        => array( 'char' => '\e889', 'class' => 'indent-right' ),
+	'industry'                            => array( 'char' => '\f275', 'class' => 'industry' ),
+	'info-circled'                        => array( 'char' => '\e81e', 'class' => 'info-circled' ),
+	'info'                                => array( 'char' => '\f129', 'class' => 'info' ),
+	'instagram'                           => array( 'char' => '\f16d', 'class' => 'instagram' ),
+	'internet-explorer'                   => array( 'char' => '\f26b', 'class' => 'internet-explorer' ),
+	'ioxhost'                             => array( 'char' => '\f208', 'class' => 'ioxhost' ),
+	'italic'                              => array( 'char' => '\e880', 'class' => 'italic' ),
+	'joomla'                              => array( 'char' => '\f1aa', 'class' => 'joomla' ),
+	'jsfiddle'                            => array( 'char' => '\f1cc', 'class' => 'jsfiddle' ),
+	'key'                                 => array( 'char' => '\e89d', 'class' => 'key' ),
+	'keyboard'                            => array( 'char' => '\f11c', 'class' => 'keyboard' ),
+	'language'                            => array( 'char' => '\f1ab', 'class' => 'language' ),
+	'laptop'                              => array( 'char' => '\f109', 'class' => 'laptop' ),
+	'lastfm-squared'                      => array( 'char' => '\f203', 'class' => 'lastfm-squared' ),
+	'lastfm'                              => array( 'char' => '\f202', 'class' => 'lastfm' ),
+	'leaf'                                => array( 'char' => '\e87d', 'class' => 'leaf' ),
+	'leanpub'                             => array( 'char' => '\f212', 'class' => 'leanpub' ),
+	'left-big'                            => array( 'char' => '\e85e', 'class' => 'left-big' ),
+	'left-circled2'                       => array( 'char' => '\f190', 'class' => 'left-circled2' ),
+	'left-circled'                        => array( 'char' => '\f0a8', 'class' => 'left-circled' ),
+	'left-dir'                            => array( 'char' => '\e857', 'class' => 'left-dir' ),
+	'left-hand'                           => array( 'char' => '\e862', 'class' => 'left-hand' ),
+	'left-open'                           => array( 'char' => '\e85a', 'class' => 'left-open' ),
+	'left'                                => array( 'char' => '\f177', 'class' => 'left' ),
+	'lemon'                               => array( 'char' => '\e8a0', 'class' => 'lemon' ),
+	'level-down'                          => array( 'char' => '\f149', 'class' => 'level-down' ),
+	'level-up'                            => array( 'char' => '\f148', 'class' => 'level-up' ),
+	'lifebuoy'                            => array( 'char' => '\f1cd', 'class' => 'lifebuoy' ),
+	'lightbulb'                           => array( 'char' => '\f0eb', 'class' => 'lightbulb' ),
+	'link-ext-alt'                        => array( 'char' => '\f14c', 'class' => 'link-ext-alt' ),
+	'link-ext'                            => array( 'char' => '\f08e', 'class' => 'link-ext' ),
+	'link'                                => array( 'char' => '\e820', 'class' => 'link' ),
+	'linkedin-squared'                    => array( 'char' => '\f30c', 'class' => 'linkedin-squared' ),
+	'linkedin'                            => array( 'char' => '\f0e1', 'class' => 'linkedin' ),
+	'linode'                              => array( 'char' => '\f2b8', 'class' => 'linode' ),
+	'linux'                               => array( 'char' => '\f17c', 'class' => 'linux' ),
+	'list-alt'                            => array( 'char' => '\e88e', 'class' => 'list-alt' ),
+	'list-bullet'                         => array( 'char' => '\f0ca', 'class' => 'list-bullet' ),
+	'list-numbered'                       => array( 'char' => '\f0cb', 'class' => 'list-numbered' ),
+	'list'                                => array( 'char' => '\e887', 'class' => 'list' ),
+	'location'                            => array( 'char' => '\e83a', 'class' => 'location' ),
+	'lock-open-alt'                       => array( 'char' => '\f13e', 'class' => 'lock-open-alt' ),
+	'lock-open'                           => array( 'char' => '\e823', 'class' => 'lock-open' ),
+	'lock'                                => array( 'char' => '\e822', 'class' => 'lock' ),
+	'login'                               => array( 'char' => '\e845', 'class' => 'login' ),
+	'logout'                              => array( 'char' => '\e846', 'class' => 'logout' ),
+	'low-vision'                          => array( 'char' => '\f2a8', 'class' => 'low-vision' ),
+	'magic'                               => array( 'char' => '\f0d0', 'class' => 'magic' ),
+	'magnet'                              => array( 'char' => '\e898', 'class' => 'magnet' ),
+	'mail-alt'                            => array( 'char' => '\f0e0', 'class' => 'mail-alt' ),
+	'mail-squared'                        => array( 'char' => '\f199', 'class' => 'mail-squared' ),
+	'mail'                                => array( 'char' => '\e803', 'class' => 'mail' ),
+	'male'                                => array( 'char' => '\f183', 'class' => 'male' ),
+	'map-o'                               => array( 'char' => '\f278', 'class' => 'map-o' ),
+	'map-pin'                             => array( 'char' => '\f276', 'class' => 'map-pin' ),
+	'map-signs'                           => array( 'char' => '\f277', 'class' => 'map-signs' ),
+	'map'                                 => array( 'char' => '\f279', 'class' => 'map' ),
+	'mars-double'                         => array( 'char' => '\f227', 'class' => 'mars-double' ),
+	'mars-stroke-h'                       => array( 'char' => '\f22b', 'class' => 'mars-stroke-h' ),
+	'mars-stroke-v'                       => array( 'char' => '\f22a', 'class' => 'mars-stroke-v' ),
+	'mars-stroke'                         => array( 'char' => '\f229', 'class' => 'mars-stroke' ),
+	'mars'                                => array( 'char' => '\f222', 'class' => 'mars' ),
+	'maxcdn'                              => array( 'char' => '\f136', 'class' => 'maxcdn' ),
+	'meanpath'                            => array( 'char' => '\f20c', 'class' => 'meanpath' ),
+	'medium'                              => array( 'char' => '\f23a', 'class' => 'medium' ),
+	'medkit'                              => array( 'char' => '\f0fa', 'class' => 'medkit' ),
+	'meetup'                              => array( 'char' => '\f2e0', 'class' => 'meetup' ),
+	'megaphone'                           => array( 'char' => '\e89c', 'class' => 'megaphone' ),
+	'meh'                                 => array( 'char' => '\f11a', 'class' => 'meh' ),
+	'menu'                                => array( 'char' => '\f0c9', 'class' => 'menu' ),
+	'mercury'                             => array( 'char' => '\f223', 'class' => 'mercury' ),
+	'mic'                                 => array( 'char' => '\f130', 'class' => 'mic' ),
+	'microchip'                           => array( 'char' => '\f2db', 'class' => 'microchip' ),
+	'minus-circled'                       => array( 'char' => '\e81c', 'class' => 'minus-circled' ),
+	'minus-squared-alt'                   => array( 'char' => '\f147', 'class' => 'minus-squared-alt' ),
+	'minus-squared'                       => array( 'char' => '\f146', 'class' => 'minus-squared' ),
+	'minus'                               => array( 'char' => '\e81b', 'class' => 'minus' ),
+	'mixcloud'                            => array( 'char' => '\f289', 'class' => 'mixcloud' ),
+	'mobile'                              => array( 'char' => '\f10b', 'class' => 'mobile' ),
+	'modx'                                => array( 'char' => '\f285', 'class' => 'modx' ),
+	'money'                               => array( 'char' => '\f0d6', 'class' => 'money' ),
+	'moon'                                => array( 'char' => '\f186', 'class' => 'moon' ),
+	'motorcycle'                          => array( 'char' => '\f21c', 'class' => 'motorcycle' ),
+	'mouse-pointer'                       => array( 'char' => '\f245', 'class' => 'mouse-pointer' ),
+	'move'                                => array( 'char' => '\f047', 'class' => 'move' ),
+	'music'                               => array( 'char' => '\e801', 'class' => 'music' ),
+	'mute'                                => array( 'char' => '\f131', 'class' => 'mute' ),
+	'neuter'                              => array( 'char' => '\f22c', 'class' => 'neuter' ),
+	'newspaper'                           => array( 'char' => '\f1ea', 'class' => 'newspaper' ),
+	'object-group'                        => array( 'char' => '\f247', 'class' => 'object-group' ),
+	'object-ungroup'                      => array( 'char' => '\f248', 'class' => 'object-ungroup' ),
+	'odnoklassniki-square'                => array( 'char' => '\f264', 'class' => 'odnoklassniki-square' ),
+	'odnoklassniki'                       => array( 'char' => '\f263', 'class' => 'odnoklassniki' ),
+	'off'                                 => array( 'char' => '\e88c', 'class' => 'off' ),
+	'ok-circled2'                         => array( 'char' => '\e815', 'class' => 'ok-circled2' ),
+	'ok-circled'                          => array( 'char' => '\e814', 'class' => 'ok-circled' ),
+	'ok-squared'                          => array( 'char' => '\f14a', 'class' => 'ok-squared' ),
+	'ok'                                  => array( 'char' => '\e813', 'class' => 'ok' ),
+	'opencart'                            => array( 'char' => '\f23d', 'class' => 'opencart' ),
+	'openid'                              => array( 'char' => '\f19b', 'class' => 'openid' ),
+	'opera'                               => array( 'char' => '\f26a', 'class' => 'opera' ),
+	'optin-monster'                       => array( 'char' => '\f23c', 'class' => 'optin-monster' ),
+	'pagelines'                           => array( 'char' => '\f18c', 'class' => 'pagelines' ),
+	'paper-plane-empty'                   => array( 'char' => '\f1d9', 'class' => 'paper-plane-empty' ),
+	'paper-plane'                         => array( 'char' => '\f1d8', 'class' => 'paper-plane' ),
+	'paragraph'                           => array( 'char' => '\f1dd', 'class' => 'paragraph' ),
+	'paste'                               => array( 'char' => '\f0ea', 'class' => 'paste' ),
+	'pause-circle-o'                      => array( 'char' => '\f28c', 'class' => 'pause-circle-o' ),
+	'pause-circle'                        => array( 'char' => '\f28b', 'class' => 'pause-circle' ),
+	'pause'                               => array( 'char' => '\e86c', 'class' => 'pause' ),
+	'paw'                                 => array( 'char' => '\f1b0', 'class' => 'paw' ),
+	'paypal'                              => array( 'char' => '\f1ed', 'class' => 'paypal' ),
+	'pencil-squared'                      => array( 'char' => '\f14b', 'class' => 'pencil-squared' ),
+	'pencil'                              => array( 'char' => '\e831', 'class' => 'pencil' ),
+	'percent'                             => array( 'char' => '\f295', 'class' => 'percent' ),
+	'phone-squared'                       => array( 'char' => '\f098', 'class' => 'phone-squared' ),
+	'phone'                               => array( 'char' => '\e83f', 'class' => 'phone' ),
+	'picture'                             => array( 'char' => '\e80d', 'class' => 'picture' ),
+	'pied-piper-alt'                      => array( 'char' => '\f1a8', 'class' => 'pied-piper-alt' ),
+	'pied-piper-squared'                  => array( 'char' => '\f1a7', 'class' => 'pied-piper-squared' ),
+	'pied-piper'                          => array( 'char' => '\f2ae', 'class' => 'pied-piper' ),
+	'pin'                                 => array( 'char' => '\e824', 'class' => 'pin' ),
+	'pinterest-circled'                   => array( 'char' => '\f0d2', 'class' => 'pinterest-circled' ),
+	'pinterest-squared'                   => array( 'char' => '\f0d3', 'class' => 'pinterest-squared' ),
+	'pinterest'                           => array( 'char' => '\f231', 'class' => 'pinterest' ),
+	'play-circled2'                       => array( 'char' => '\e86a', 'class' => 'play-circled2' ),
+	'play-circled'                        => array( 'char' => '\f144', 'class' => 'play-circled' ),
+	'play'                                => array( 'char' => '\e869', 'class' => 'play' ),
+	'plug'                                => array( 'char' => '\f1e6', 'class' => 'plug' ),
+	'plus-circled'                        => array( 'char' => '\e81a', 'class' => 'plus-circled' ),
+	'plus-squared-alt'                    => array( 'char' => '\f196', 'class' => 'plus-squared-alt' ),
+	'plus-squared'                        => array( 'char' => '\f0fe', 'class' => 'plus-squared' ),
+	'plus'                                => array( 'char' => '\e819', 'class' => 'plus' ),
+	'podcast'                             => array( 'char' => '\f2ce', 'class' => 'podcast' ),
+	'pound'                               => array( 'char' => '\f154', 'class' => 'pound' ),
+	'print'                               => array( 'char' => '\e833', 'class' => 'print' ),
+	'product-hunt'                        => array( 'char' => '\f288', 'class' => 'product-hunt' ),
+	'puzzle'                              => array( 'char' => '\f12e', 'class' => 'puzzle' ),
+	'qq'                                  => array( 'char' => '\f1d6', 'class' => 'qq' ),
+	'qrcode'                              => array( 'char' => '\e88f', 'class' => 'qrcode' ),
+	'question-circle-o'                   => array( 'char' => '\f29c', 'class' => 'question-circle-o' ),
+	'quora'                               => array( 'char' => '\f2c4', 'class' => 'quora' ),
+	'quote-left'                          => array( 'char' => '\f10d', 'class' => 'quote-left' ),
+	'quote-right'                         => array( 'char' => '\f10e', 'class' => 'quote-right' ),
+	'ravelry'                             => array( 'char' => '\f2d9', 'class' => 'ravelry' ),
+	'rebel'                               => array( 'char' => '\f1d0', 'class' => 'rebel' ),
+	'recycle'                             => array( 'char' => '\f1b8', 'class' => 'recycle' ),
+	'reddit-alien'                        => array( 'char' => '\f281', 'class' => 'reddit-alien' ),
+	'reddit-squared'                      => array( 'char' => '\f1a2', 'class' => 'reddit-squared' ),
+	'reddit'                              => array( 'char' => '\f1a1', 'class' => 'reddit' ),
+	'registered'                          => array( 'char' => '\f25d', 'class' => 'registered' ),
+	'renren'                              => array( 'char' => '\f18b', 'class' => 'renren' ),
+	'reply-all'                           => array( 'char' => '\f122', 'class' => 'reply-all' ),
+	'reply'                               => array( 'char' => '\f112', 'class' => 'reply' ),
+	'resize-full-alt'                     => array( 'char' => '\f0b2', 'class' => 'resize-full-alt' ),
+	'resize-full'                         => array( 'char' => '\e84d', 'class' => 'resize-full' ),
+	'resize-horizontal'                   => array( 'char' => '\e850', 'class' => 'resize-horizontal' ),
+	'resize-small'                        => array( 'char' => '\e84e', 'class' => 'resize-small' ),
+	'resize-vertical'                     => array( 'char' => '\e84f', 'class' => 'resize-vertical' ),
+	'retweet'                             => array( 'char' => '\e834', 'class' => 'retweet' ),
+	'right-big'                           => array( 'char' => '\e85f', 'class' => 'right-big' ),
+	'right-circled2'                      => array( 'char' => '\f18e', 'class' => 'right-circled2' ),
+	'right-circled'                       => array( 'char' => '\f0a9', 'class' => 'right-circled' ),
+	'right-dir'                           => array( 'char' => '\e858', 'class' => 'right-dir' ),
+	'right-hand'                          => array( 'char' => '\e861', 'class' => 'right-hand' ),
+	'right-open'                          => array( 'char' => '\e85b', 'class' => 'right-open' ),
+	'right'                               => array( 'char' => '\f178', 'class' => 'right' ),
+	'road'                                => array( 'char' => '\e88d', 'class' => 'road' ),
+	'rocket'                              => array( 'char' => '\f135', 'class' => 'rocket' ),
+	'rouble'                              => array( 'char' => '\f158', 'class' => 'rouble' ),
+	'rss-squared'                         => array( 'char' => '\f143', 'class' => 'rss-squared' ),
+	'rss'                                 => array( 'char' => '\f09e', 'class' => 'rss' ),
+	'rupee'                               => array( 'char' => '\f156', 'class' => 'rupee' ),
+	'safari'                              => array( 'char' => '\f267', 'class' => 'safari' ),
+	'scissors'                            => array( 'char' => '\e88a', 'class' => 'scissors' ),
+	'scribd'                              => array( 'char' => '\f28a', 'class' => 'scribd' ),
+	'search'                              => array( 'char' => '\e802', 'class' => 'search' ),
+	'sellsy'                              => array( 'char' => '\f213', 'class' => 'sellsy' ),
+	'server'                              => array( 'char' => '\f233', 'class' => 'server' ),
+	'share-squared'                       => array( 'char' => '\f1e1', 'class' => 'share-squared' ),
+	'share'                               => array( 'char' => '\f1e0', 'class' => 'share' ),
+	'shekel'                              => array( 'char' => '\f20b', 'class' => 'shekel' ),
+	'shield'                              => array( 'char' => '\f132', 'class' => 'shield' ),
+	'ship'                                => array( 'char' => '\f21a', 'class' => 'ship' ),
+	'shirtsinbulk'                        => array( 'char' => '\f214', 'class' => 'shirtsinbulk' ),
+	'shopping-bag'                        => array( 'char' => '\f290', 'class' => 'shopping-bag' ),
+	'shopping-basket'                     => array( 'char' => '\f291', 'class' => 'shopping-basket' ),
+	'shower'                              => array( 'char' => '\f2cc', 'class' => 'shower' ),
+	'shuffle'                             => array( 'char' => '\e868', 'class' => 'shuffle' ),
+	'sign-language'                       => array( 'char' => '\f2a7', 'class' => 'sign-language' ),
+	'signal'                              => array( 'char' => '\e875', 'class' => 'signal' ),
+	'simplybuilt'                         => array( 'char' => '\f215', 'class' => 'simplybuilt' ),
+	'sitemap'                             => array( 'char' => '\f0e8', 'class' => 'sitemap' ),
+	'skyatlas'                            => array( 'char' => '\f216', 'class' => 'skyatlas' ),
+	'skype'                               => array( 'char' => '\f17e', 'class' => 'skype' ),
+	'slack'                               => array( 'char' => '\f198', 'class' => 'slack' ),
+	'sliders'                             => array( 'char' => '\f1de', 'class' => 'sliders' ),
+	'slideshare'                          => array( 'char' => '\f1e7', 'class' => 'slideshare' ),
+	'smile'                               => array( 'char' => '\f118', 'class' => 'smile' ),
+	'snapchat-ghost'                      => array( 'char' => '\f2ac', 'class' => 'snapchat-ghost' ),
+	'snapchat-square'                     => array( 'char' => '\f2ad', 'class' => 'snapchat-square' ),
+	'snapchat'                            => array( 'char' => '\f2ab', 'class' => 'snapchat' ),
+	'snowflake-o'                         => array( 'char' => '\f2dc', 'class' => 'snowflake-o' ),
+	'soccer-ball'                         => array( 'char' => '\f1e3', 'class' => 'soccer-ball' ),
+	'sort-alt-down'                       => array( 'char' => '\f161', 'class' => 'sort-alt-down' ),
+	'sort-alt-up'                         => array( 'char' => '\f160', 'class' => 'sort-alt-up' ),
+	'sort-down'                           => array( 'char' => '\f0dd', 'class' => 'sort-down' ),
+	'sort-name-down'                      => array( 'char' => '\f15e', 'class' => 'sort-name-down' ),
+	'sort-name-up'                        => array( 'char' => '\f15d', 'class' => 'sort-name-up' ),
+	'sort-number-down'                    => array( 'char' => '\f163', 'class' => 'sort-number-down' ),
+	'sort-number-up'                      => array( 'char' => '\f162', 'class' => 'sort-number-up' ),
+	'sort-up'                             => array( 'char' => '\f0de', 'class' => 'sort-up' ),
+	'sort'                                => array( 'char' => '\f0dc', 'class' => 'sort' ),
+	'soundcloud'                          => array( 'char' => '\f1be', 'class' => 'soundcloud' ),
+	'space-shuttle'                       => array( 'char' => '\f197', 'class' => 'space-shuttle' ),
+	'spinner'                             => array( 'char' => '\f110', 'class' => 'spinner' ),
+	'spoon'                               => array( 'char' => '\f1b1', 'class' => 'spoon' ),
+	'spotify'                             => array( 'char' => '\f1bc', 'class' => 'spotify' ),
+	'stackexchange'                       => array( 'char' => '\f18d', 'class' => 'stackexchange' ),
+	'stackoverflow'                       => array( 'char' => '\f16c', 'class' => 'stackoverflow' ),
+	'star-empty'                          => array( 'char' => '\e807', 'class' => 'star-empty' ),
+	'star-half-alt'                       => array( 'char' => '\f123', 'class' => 'star-half-alt' ),
+	'star-half'                           => array( 'char' => '\e808', 'class' => 'star-half' ),
+	'star'                                => array( 'char' => '\e806', 'class' => 'star' ),
+	'steam-squared'                       => array( 'char' => '\f1b7', 'class' => 'steam-squared' ),
+	'steam'                               => array( 'char' => '\f1b6', 'class' => 'steam' ),
+	'stethoscope'                         => array( 'char' => '\f0f1', 'class' => 'stethoscope' ),
+	'sticky-note-o'                       => array( 'char' => '\f24a', 'class' => 'sticky-note-o' ),
+	'sticky-note'                         => array( 'char' => '\f249', 'class' => 'sticky-note' ),
+	'stop-circle-o'                       => array( 'char' => '\f28e', 'class' => 'stop-circle-o' ),
+	'stop-circle'                         => array( 'char' => '\f28d', 'class' => 'stop-circle' ),
+	'stop'                                => array( 'char' => '\e86b', 'class' => 'stop' ),
+	'street-view'                         => array( 'char' => '\f21d', 'class' => 'street-view' ),
+	'strike'                              => array( 'char' => '\f0cc', 'class' => 'strike' ),
+	'stumbleupon-circled'                 => array( 'char' => '\f1a3', 'class' => 'stumbleupon-circled' ),
+	'stumbleupon'                         => array( 'char' => '\f1a4', 'class' => 'stumbleupon' ),
+	'subscript'                           => array( 'char' => '\f12c', 'class' => 'subscript' ),
+	'subway'                              => array( 'char' => '\f239', 'class' => 'subway' ),
+	'suitcase'                            => array( 'char' => '\f0f2', 'class' => 'suitcase' ),
+	'sun'                                 => array( 'char' => '\f185', 'class' => 'sun' ),
+	'superpowers'                         => array( 'char' => '\f2dd', 'class' => 'superpowers' ),
+	'superscript'                         => array( 'char' => '\f12b', 'class' => 'superscript' ),
+	'table'                               => array( 'char' => '\f0ce', 'class' => 'table' ),
+	'tablet'                              => array( 'char' => '\f10a', 'class' => 'tablet' ),
+	'tag'                                 => array( 'char' => '\e827', 'class' => 'tag' ),
+	'tags'                                => array( 'char' => '\e828', 'class' => 'tags' ),
+	'target'                              => array( 'char' => '\e874', 'class' => 'target' ),
+	'tasks'                               => array( 'char' => '\f0ae', 'class' => 'tasks' ),
+	'taxi'                                => array( 'char' => '\f1ba', 'class' => 'taxi' ),
+	'telegram'                            => array( 'char' => '\f2c6', 'class' => 'telegram' ),
+	'television'                          => array( 'char' => '\f26c', 'class' => 'television' ),
+	'tencent-weibo'                       => array( 'char' => '\f1d5', 'class' => 'tencent-weibo' ),
+	'terminal'                            => array( 'char' => '\f120', 'class' => 'terminal' ),
+	'text-height'                         => array( 'char' => '\e881', 'class' => 'text-height' ),
+	'text-width'                          => array( 'char' => '\e882', 'class' => 'text-width' ),
+	'th-large'                            => array( 'char' => '\e810', 'class' => 'th-large' ),
+	'th-list'                             => array( 'char' => '\e812', 'class' => 'th-list' ),
+	'th'                                  => array( 'char' => '\e811', 'class' => 'th' ),
+	'themeisle'                           => array( 'char' => '\f2b2', 'class' => 'themeisle' ),
+	'thermometer-0'                       => array( 'char' => '\f2cb', 'class' => 'thermometer-0' ),
+	'thermometer-2'                       => array( 'char' => '\f2c9', 'class' => 'thermometer-2' ),
+	'thermometer-3'                       => array( 'char' => '\f2c8', 'class' => 'thermometer-3' ),
+	'thermometer-quarter'                 => array( 'char' => '\f2ca', 'class' => 'thermometer-quarter' ),
+	'thermometer'                         => array( 'char' => '\f2c7', 'class' => 'thermometer' ),
+	'thumbs-down-alt'                     => array( 'char' => '\f165', 'class' => 'thumbs-down-alt' ),
+	'thumbs-down'                         => array( 'char' => '\e82c', 'class' => 'thumbs-down' ),
+	'thumbs-up-alt'                       => array( 'char' => '\f164', 'class' => 'thumbs-up-alt' ),
+	'thumbs-up'                           => array( 'char' => '\e82b', 'class' => 'thumbs-up' ),
+	'ticket'                              => array( 'char' => '\f145', 'class' => 'ticket' ),
+	'tint'                                => array( 'char' => '\e893', 'class' => 'tint' ),
+	'to-end-alt'                          => array( 'char' => '\e86e', 'class' => 'to-end-alt' ),
+	'to-end'                              => array( 'char' => '\e86d', 'class' => 'to-end' ),
+	'to-start-alt'                        => array( 'char' => '\e870', 'class' => 'to-start-alt' ),
+	'to-start'                            => array( 'char' => '\e86f', 'class' => 'to-start' ),
+	'toggle-off'                          => array( 'char' => '\f204', 'class' => 'toggle-off' ),
+	'toggle-on'                           => array( 'char' => '\f205', 'class' => 'toggle-on' ),
+	'trademark'                           => array( 'char' => '\f25c', 'class' => 'trademark' ),
+	'train'                               => array( 'char' => '\f238', 'class' => 'train' ),
+	'transgender-alt'                     => array( 'char' => '\f225', 'class' => 'transgender-alt' ),
+	'transgender'                         => array( 'char' => '\f224', 'class' => 'transgender' ),
+	'trash-empty'                         => array( 'char' => '\e83b', 'class' => 'trash-empty' ),
+	'trash'                               => array( 'char' => '\f1f8', 'class' => 'trash' ),
+	'tree'                                => array( 'char' => '\f1bb', 'class' => 'tree' ),
+	'trello'                              => array( 'char' => '\f181', 'class' => 'trello' ),
+	'tripadvisor'                         => array( 'char' => '\f262', 'class' => 'tripadvisor' ),
+	'truck'                               => array( 'char' => '\e89e', 'class' => 'truck' ),
+	'try'                                 => array( 'char' => '\f195', 'class' => 'try' ),
+	'tty'                                 => array( 'char' => '\f1e4', 'class' => 'tty' ),
+	'tumblr-squared'                      => array( 'char' => '\f174', 'class' => 'tumblr-squared' ),
+	'tumblr'                              => array( 'char' => '\f173', 'class' => 'tumblr' ),
+	'twitch'                              => array( 'char' => '\f1e8', 'class' => 'twitch' ),
+	'twitter-squared'                     => array( 'char' => '\f304', 'class' => 'twitter-squared' ),
+	'twitter'                             => array( 'char' => '\f099', 'class' => 'twitter' ),
+	'umbrella'                            => array( 'char' => '\e87b', 'class' => 'umbrella' ),
+	'underline'                           => array( 'char' => '\f0cd', 'class' => 'underline' ),
+	'universal-access'                    => array( 'char' => '\f29a', 'class' => 'universal-access' ),
+	'unlink'                              => array( 'char' => '\f127', 'class' => 'unlink' ),
+	'up-big'                              => array( 'char' => '\e860', 'class' => 'up-big' ),
+	'up-circled2'                         => array( 'char' => '\e854', 'class' => 'up-circled2' ),
+	'up-circled'                          => array( 'char' => '\f0aa', 'class' => 'up-circled' ),
+	'up-dir'                              => array( 'char' => '\e856', 'class' => 'up-dir' ),
+	'up-hand'                             => array( 'char' => '\e863', 'class' => 'up-hand' ),
+	'up-open'                             => array( 'char' => '\e85c', 'class' => 'up-open' ),
+	'up'                                  => array( 'char' => '\f176', 'class' => 'up' ),
+	'upload-cloud'                        => array( 'char' => '\f0ee', 'class' => 'upload-cloud' ),
+	'upload'                              => array( 'char' => '\e82e', 'class' => 'upload' ),
+	'usb'                                 => array( 'char' => '\f287', 'class' => 'usb' ),
+	'user-circle-o'                       => array( 'char' => '\f2be', 'class' => 'user-circle-o' ),
+	'user-circle'                         => array( 'char' => '\f2bd', 'class' => 'user-circle' ),
+	'user-md'                             => array( 'char' => '\f0f0', 'class' => 'user-md' ),
+	'user-o'                              => array( 'char' => '\f2c0', 'class' => 'user-o' ),
+	'user-plus'                           => array( 'char' => '\f234', 'class' => 'user-plus' ),
+	'user-secret'                         => array( 'char' => '\f21b', 'class' => 'user-secret' ),
+	'user-times'                          => array( 'char' => '\f235', 'class' => 'user-times' ),
+	'user'                                => array( 'char' => '\e809', 'class' => 'user' ),
+	'users'                               => array( 'char' => '\e80a', 'class' => 'users' ),
+	'venus-double'                        => array( 'char' => '\f226', 'class' => 'venus-double' ),
+	'venus-mars'                          => array( 'char' => '\f228', 'class' => 'venus-mars' ),
+	'venus'                               => array( 'char' => '\f221', 'class' => 'venus' ),
+	'viacoin'                             => array( 'char' => '\f237', 'class' => 'viacoin' ),
+	'viadeo-square'                       => array( 'char' => '\f2aa', 'class' => 'viadeo-square' ),
+	'viadeo'                              => array( 'char' => '\f2a9', 'class' => 'viadeo' ),
+	'video'                               => array( 'char' => '\e80b', 'class' => 'video' ),
+	'videocam'                            => array( 'char' => '\e80c', 'class' => 'videocam' ),
+	'vimeo-squared'                       => array( 'char' => '\f194', 'class' => 'vimeo-squared' ),
+	'vimeo'                               => array( 'char' => '\f27d', 'class' => 'vimeo' ),
+	'vine'                                => array( 'char' => '\f1ca', 'class' => 'vine' ),
+	'vkontakte'                           => array( 'char' => '\f189', 'class' => 'vkontakte' ),
+	'volume-control-phone'                => array( 'char' => '\f2a0', 'class' => 'volume-control-phone' ),
+	'volume-down'                         => array( 'char' => '\e848', 'class' => 'volume-down' ),
+	'volume-off'                          => array( 'char' => '\e847', 'class' => 'volume-off' ),
+	'volume-up'                           => array( 'char' => '\e849', 'class' => 'volume-up' ),
+	'wechat'                              => array( 'char' => '\f1d7', 'class' => 'wechat' ),
+	'weibo'                               => array( 'char' => '\f18a', 'class' => 'weibo' ),
+	'whatsapp'                            => array( 'char' => '\f232', 'class' => 'whatsapp' ),
+	'wheelchair-alt'                      => array( 'char' => '\f29b', 'class' => 'wheelchair-alt' ),
+	'wheelchair'                          => array( 'char' => '\f193', 'class' => 'wheelchair' ),
+	'wifi'                                => array( 'char' => '\f1eb', 'class' => 'wifi' ),
+	'wikipedia-w'                         => array( 'char' => '\f266', 'class' => 'wikipedia-w' ),
+	'window-close-o'                      => array( 'char' => '\f2d4', 'class' => 'window-close-o' ),
+	'window-close'                        => array( 'char' => '\f2d3', 'class' => 'window-close' ),
+	'window-maximize'                     => array( 'char' => '\f2d0', 'class' => 'window-maximize' ),
+	'window-minimize'                     => array( 'char' => '\f2d1', 'class' => 'window-minimize' ),
+	'window-restore'                      => array( 'char' => '\f2d2', 'class' => 'window-restore' ),
+	'windows'                             => array( 'char' => '\f17a', 'class' => 'windows' ),
+	'won'                                 => array( 'char' => '\f159', 'class' => 'won' ),
+	'wordpress'                           => array( 'char' => '\f19a', 'class' => 'wordpress' ),
+	'wpbeginner'                          => array( 'char' => '\f297', 'class' => 'wpbeginner' ),
+	'wpexplorer'                          => array( 'char' => '\f2de', 'class' => 'wpexplorer' ),
+	'wpforms'                             => array( 'char' => '\f298', 'class' => 'wpforms' ),
+	'wrench'                              => array( 'char' => '\e842', 'class' => 'wrench' ),
+	'xing-squared'                        => array( 'char' => '\f169', 'class' => 'xing-squared' ),
+	'xing'                                => array( 'char' => '\f168', 'class' => 'xing' ),
+	'y-combinator'                        => array( 'char' => '\f23b', 'class' => 'y-combinator' ),
+	'yahoo'                               => array( 'char' => '\f19e', 'class' => 'yahoo' ),
+	'yelp'                                => array( 'char' => '\f1e9', 'class' => 'yelp' ),
+	'yen'                                 => array( 'char' => '\f157', 'class' => 'yen' ),
+	'yoast'                               => array( 'char' => '\f2b1', 'class' => 'yoast' ),
+	'youtube-play'                        => array( 'char' => '\f16a', 'class' => 'youtube-play' ),
+	'youtube-squared'                     => array( 'char' => '\f166', 'class' => 'youtube-squared' ),
+	'youtube'                             => array( 'char' => '\f167', 'class' => 'youtube' ),
+	'zoom-in'                             => array( 'char' => '\e851', 'class' => 'zoom-in' ),
+	'zoom-out'                            => array( 'char' => '\e852', 'class' => 'zoom-out' ),
+);
+
+/**
+ * @todo  Add these icons in later plugin version (1.6.0+).
+ * @link  https://github.com/FortAwesome/Font-Awesome/tree/7.x/svgs/brands
+
+$todo_additional_icons = [
+	'accessible-icon',
+	'airbnb',
+	'amazon-pay',
+	'app-store-ios',
+	'app-store',
+	'apple-pay',
+	'audible',
+	'aws',
+	'blogger',
+	'bluesky',
+	'codepen',
+	'creative-commons-by',
+	'creative-commons-nc-eu',
+	'creative-commons-nc-jp',
+	'creative-commons-nc',
+	'creative-commons-nd',
+	'creative-commons-pd-alt',
+	'creative-commons-pd',
+	'creative-commons-remix',
+	'creative-commons-sa',
+	'creative-commons-sampling-plus',
+	'creative-commons-sampling',
+	'creative-commons-share',
+	'creative-commons-zero',
+	'dailymotion',
+	'deezer',
+	'discord',
+	'discourse',
+	'disqus',
+	'ebay',
+	'facebook-f',
+	'facebook-messenger',
+	'figma',
+	'git-alt',
+	'goodreads-g',
+	'goodreads',
+	'google-drive',
+	'google-pay',
+	'google-play',
+	'google-scholar',
+	'google-wallet',
+	'jira',
+	'js-square',
+	'js',
+	'kickstarter-k',
+	'kickstarter',
+	'ko-fi',
+	'less',
+	'linktree',
+	'mailchimp',
+	'markdown',
+	'mastodon',
+	'meta',
+	'microsoft',
+	'monero',
+	'node-js',
+	'notion',
+	'npm',
+	'openai',
+	'pandora',
+	'patreon',
+	'periscope',
+	'php',
+	'python',
+	'react',
+	'sass',
+	'shopify',
+
+	'square-behance',
+	'square-bluesky',
+	'square-deskpro',
+	'square-dribbble',
+	'square-facebook',
+	'square-figma',
+	'square-git',
+	'square-github',
+	'square-gitlab',
+	'square-hacker-news',
+	'square-instagram',
+	'square-js',
+	'square-kickstarter',
+	'square-lastfm',
+	'square-letterboxd',
+	'square-linkedin',
+	'square-pinterest',
+	'square-reddit',
+	'square-snapchat',
+	'square-steam',
+	'square-threads',
+	'square-tumblr',
+	'square-twitter',
+	'square-upwork',
+	'square-vimeo',
+	'square-whatsapp',
+	'square-x-twitter',
+	'square-xing',
+	'square-youtube',
+
+	'strava',
+	'telegram-plane',
+	'tiktok',
+	'typescript',
+	'uber',
+	'unsplash',
+	'viber',
+	'vimeo-v',
+	'vk',
+	'vuejs',
+	'w3c',
+	'wordpress-simple',
+	'x-twitter',
+	'xbox',
+	'zoom',
+];
+
+*/

@@ -35,19 +35,11 @@
  *
  * 	// Wrap the meta form around visual editor? (This is always tabbed.)
  * 		'visual-wrapper' => false,
- *
- * 	// Function callback of form fields displayed immediately after
- * 	// visual editor on 1st tab.
- * 		'visual-wrapper-add' => 'callback_function',
  * 	) );
  */
 
-
-
-//Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * WebMan Metabox Generator Class
@@ -56,10 +48,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @author   WebMan
  *
  * @since    1.0
- * @version  1.5.12
+ * @version  1.6.0
  */
 if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
-
 	class WM_Metabox {
 
 		/**
@@ -103,25 +94,24 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Constructor
 			 *
 			 * @since    1.0
-			 * @version  1.5.7
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 *
 			 * @param  array $meta_box  Definition arguments for the metabox.
 			 */
-			public function __construct( $meta_box ) {
+			public function __construct( array $meta_box = array() ) {
 
 				// Parse arguments.
 				$this->meta_box = wp_parse_args( (array) $meta_box, array(
-					'context'            => 'normal',
-					'fields'             => '',
-					'id'                 => '',
-					'pages'              => array( 'post' ),
-					'priority'           => 'high',
-					'tabs'               => true,
-					'title'              => '',
-					'visual-wrapper'     => ( function_exists( 'has_blocks' ) ) ? ( false ) : ( apply_filters( 'wmhook_metabox_visual_wrapper_toggle', false ) ),
-					'visual-wrapper-add' => '',
+					'context'        => 'normal',
+					'fields'         => '',
+					'id'             => '',
+					'pages'          => array( 'post' ),
+					'priority'       => 'high',
+					'tabs'           => true,
+					'title'          => '',
+					'visual-wrapper' => ( function_exists( 'has_blocks' ) ) ? ( false ) : ( (bool) apply_filters( 'wmhook_metabox_visual_wrapper_toggle', false ) ),
 				) );
 
 
@@ -155,7 +145,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 					$this->prefix          = WM_METABOX_FIELD_PREFIX;
 					$this->serialized_name = WM_METABOX_SERIALIZED_NAME;
-					$this->field_files     = apply_filters( 'wmhook_metabox_' . 'field_files', array(
+					$this->field_files     = (array) apply_filters( 'wmhook_metabox_field_files', array(
 						'checkbox'    => '',
 						'conditional' => '',
 						'hidden'      => '',
@@ -210,9 +200,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					// Load assets (JS and CSS).
 
 						add_action( 'admin_enqueue_scripts', array( $this, 'assets' ), 998 );
-						//need to use admin_print_scripts due to Visual Composer plugin using it and to make sure our scripts are loaded after VC ones
-						add_action( 'admin_print_scripts-post.php',     array( $this, 'assets_late' ), 998 );
-						add_action( 'admin_print_scripts-post-new.php', array( $this, 'assets_late' ), 998 );
 
 			} // /__construct
 
@@ -222,7 +209,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Register (and include) styles and scripts
 			 *
 			 * @since    1.0
-			 * @version  1.5.12
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 */
@@ -230,8 +217,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 				// Helper variables
 
-					$icon_font_url   = WM_Amplifier::fix_ssl_urls( esc_url_raw( apply_filters( 'wmhook_metabox_' . 'iconfont_url', get_option( 'wmamp-icon-font' ) ) ) );
-					$icon_font_posts = apply_filters( 'wmhook_metabox_' . 'iconfont_admin_screen_addon', array( 'edit-wm_modules' ) );
+					$icon_font_posts = (array) apply_filters( 'wmhook_metabox_iconfont_admin_screen_addon', array( 'edit-wm_modules' ) );
 
 
 				// Processing
@@ -240,19 +226,27 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 
 						// Styles
 
-							wp_register_style( 'wm-metabox-styles', WMAMP_ASSETS_URL . 'css/metabox.css',     false, WMAMP_VERSION, 'screen' );
-
-							if ( $icon_font_url ) {
-								wp_register_style( 'wm-fonticons', $icon_font_url, false, WMAMP_VERSION, 'screen' );
-							}
+							wp_register_style(
+								'wm-metabox-styles',
+								WMAMP_ASSETS_URL . 'css/metabox.css',
+								false,
+								WMAMP_VERSION,
+								'screen'
+							);
 
 						// Scripts
 
-							wp_register_script( 'wm-metabox-scripts', WMAMP_ASSETS_URL . 'js/metabox.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider' ), WMAMP_VERSION, true );
+							wp_register_script(
+								'wm-metabox-scripts',
+								WMAMP_ASSETS_URL . 'js/metabox.js',
+								array( 'jquery', 'jquery-ui-tabs', 'jquery-ui-slider', 'wp-dom-ready' ),
+								WMAMP_VERSION,
+								true
+							);
 
 						// Allow hooking for deregistering
 
-							do_action( 'wmhook_metabox_' . 'assets_registered' );
+							do_action( 'wmhook_metabox_assets_registered' );
 
 					// Enqueue (only on admin edit pages)
 
@@ -264,10 +258,10 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 								wp_enqueue_style( 'wm-metabox-styles' );
 
 								wp_style_add_data(
-										'wm-metabox-styles',
-										'rtl',
-										'replace'
-									);
+									'wm-metabox-styles',
+									'rtl',
+									'replace'
+								);
 
 							// Scripts
 
@@ -277,6 +271,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 								wp_enqueue_script( 'jquery-ui-tabs' );
 								wp_enqueue_script( 'jquery-ui-slider' );
 								wp_enqueue_script( 'wp-color-picker' );
+								wp_enqueue_script( 'wm-metabox-scripts' );
 
 							// AJAX
 
@@ -289,36 +284,14 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 						}
 
 						// Load icon font CSS also on Content Module posts table
-
-							if ( $this->is_edit_page( $icon_font_posts ) && $icon_font_url ) {
-								wp_enqueue_style( 'wm-fonticons' );
-							}
+						if ( $this->is_edit_page( $icon_font_posts ) ) {
+							wp_enqueue_style( 'wm-fonticons' );
+						}
 
 						// Allow hooking for dequeuing
-
-							do_action( 'wmhook_metabox_' . 'assets_enqueued' );
+						do_action( 'wmhook_metabox_assets_enqueued' );
 
 			} // /assets
-
-
-
-			/**
-			 * Enqueue JavaScripts
-			 *
-			 * Need this function cause of Visual Composer plugin
-			 * compatibility as it prints scripts at the end of HTML
-			 * and we need our script to be loaded after VC ones.
-			 *
-			 * @since   1.0
-			 * @access  public
-			 */
-			public function assets_late() {
-				//Enqueue (only on admin edit pages)
-					if ( $this->is_edit_page() ) {
-						//Scripts
-							wp_enqueue_script( 'wm-metabox-scripts' );
-					}
-			} // /assets_late
 
 
 
@@ -337,22 +310,24 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * @param   string $post_type WordPress post type
 			 */
 			public function add( $post_type ) {
+
 				if ( ! $post_type ) {
 					global $post_type;
 				}
 
-				//Add the metabox only if the current post type is supported
-					if ( in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
-						add_meta_box(
-								'wmamp-metabox-' . $this->meta_box['id'],  //$id
-								$this->meta_box['title'],                  //$title
-								array( $this, 'show' ),                    //$callback
-								$post_type,                                //$post_type
-								$this->meta_box['context'],                //$context
-								$this->meta_box['priority']                //$priority
-								//$callback_args
-							);
-					}
+				// Add the metabox only if the current post type is supported
+				if ( in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
+					add_meta_box(
+						'wmamp-metabox-' . $this->meta_box['id'],  //$id
+						$this->meta_box['title'],                  //$title
+						array( $this, 'show' ),                    //$callback
+						$post_type,                                //$post_type
+						$this->meta_box['context'],                //$context
+						$this->meta_box['priority']                //$priority
+						//$callback_args
+					);
+				}
+
 			} // /add
 
 
@@ -367,74 +342,106 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Display meta box
 			 *
 			 * @since    1.0
-			 * @version  1.5.6
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 *
 			 * @param   object $post WordPress post object
 			 */
 			public function show( $post ) {
+
 				if ( ! $post ) {
 					global $post;
 				}
 
-				//Execute fields function
-					$meta_fields = (array) $this->fields;
+				// Execute fields function
+				$meta_fields = (array) $this->fields;
 
-				//Setting up helper variables
-					$page_template = '';
-					$tabbed        = ( $this->meta_box['tabs'] ) ? ( ' jquery-ui-tabs' ) : ( '' );
+				// Setting up helper variables
+				$page_template = '';
+				$tabbed        = ( $this->meta_box['tabs'] ) ? ( ' jquery-ui-tabs' ) : ( '' );
 
-				//Set a page template if editing a page
-					if ( 'page' == $post->post_type ) {
-						$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-						if ( $post->ID == get_option( 'page_for_posts' ) )
-							$page_template = 'blog-page';
+				// Set a page template if editing a page
+				if ( 'page' == $post->post_type ) {
+
+					$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+
+					if ( $post->ID == get_option( 'page_for_posts' ) ) {
+						$page_template = 'blog-page';
+					}
+				}
+
+				// Output nonce field
+				wp_nonce_field(
+					$this->prefix . $post->post_type . '-metabox-nonce',
+					$post->post_type . '-metabox-nonce'
+				);
+
+				// Action hooks
+				do_action( 'wmhook_metabox_before' );
+				do_action( 'wmhook_metabox_before_' . $this->meta_box['id'] );
+
+				// Display meta box form HTML
+				$output = PHP_EOL . PHP_EOL . '<div class="wm-meta-wrap' . $tabbed . '">' . PHP_EOL;
+
+					// Tabs
+					if ( $tabbed ) {
+
+						$output .= "\t" . '<ul class="tabs no-js">' . PHP_EOL;
+
+						$i = 0;
+						foreach ( $meta_fields as $tab ) {
+
+							if ( isset( $tab['type'] ) && 'section-open' == $tab['type'] ) {
+								$tab['id']    = WM_METABOX_FIELD_PREFIX . 'section-' . $tab['id'];
+								$tab['title'] = ( isset( $tab['title'] ) ) ? ( trim( $tab['title'] ) ) : ( 'TAB' );
+								$hidden       = ( 'page' == $post->post_type && isset( $tab['page'] ) ) ? ( self::page_template_conditional_class( $tab['page'], $page_template ) ) : ( '' );
+
+								$output .=
+									"\t\t"
+									. '<li class="item-' . esc_attr( ++$i . $hidden . ' ' . $tab['id'] ) . '">'
+									. '<a href="#' . esc_attr( $tab['id'] ) . '">'
+									. esc_html( $tab['title'] )
+									. '</a>'
+									. '</li>'
+									. PHP_EOL;
+							}
+						}
+
+						$output .= "\t" . '</ul>' . PHP_EOL . PHP_EOL;
 					}
 
-				//Output nonce field
-					wp_nonce_field( $this->prefix . $post->post_type . '-metabox-nonce', $post->post_type . '-metabox-nonce' );
+					echo wp_kses( $output, WMA_KSES::$prefix . 'post+form' );
 
-				//Action hooks
-					do_action( 'wmhook_metabox_' . 'before' );
-					do_action( 'wmhook_metabox_' . 'before_' . $this->meta_box['id'] );
-
-				//Display meta box form HTML
-					$output = "\r\n\r\n" . '<div class="wm-meta-wrap' . $tabbed . '">' . "\r\n";
-
-					//Tabs
-						if ( $tabbed ) {
-							$output .= "\t" . '<ul class="tabs no-js">' . "\r\n";
-							$i = 0;
-							foreach ( $meta_fields as $tab ) {
-								if ( isset( $tab['type'] ) && 'section-open' == $tab['type'] ) {
-									$tab['id']    = WM_METABOX_FIELD_PREFIX . 'section-' . $tab['id'];
-									$tab['title'] = ( isset( $tab['title'] ) ) ? ( trim( $tab['title'] ) ) : ( 'TAB' );
-									$hidden       = ( 'page' == $post->post_type && isset( $tab['page'] ) ) ? ( self::page_template_conditional_class( $tab['page'], $page_template ) ) : ( '' );
-									$output .= "\t\t" . '<li class="item-' . ++$i . $hidden . ' ' . $tab['id'] . '"><a href="#' . $tab['id'] . '">' . $tab['title'] . '</a></li>' . "\r\n";
-								}
-							}
-							$output .= "\t" . '</ul>' . "\r\n\r\n";
+					// Content
+					foreach ( $meta_fields as $field ) {
+						if ( isset( $field['type'] ) ) {
+							//Display form fields using action hook (echo the function return)
+							do_action( 'wmhook_metabox_render_' . $field['type'], $field, $page_template );
 						}
+					}
 
-						echo $output;
+					$output =
+						PHP_EOL . PHP_EOL
+						. "\t"
+						. '<div class="modal-box">'
+						. '<a class="button-primary" data-action="stay">'
+						. esc_html__( 'Wait, I need to save my changes first!', 'webman-amplifier' )
+						. '</a>'
+						. '<a class="button" data-action="leave">'
+						. esc_html__( 'OK, leave without saving...', 'webman-amplifier' )
+						. '</a>'
+						. '</div>'
+						. PHP_EOL;
 
-					//Content
-						foreach ( $meta_fields as $field ) {
-							if ( isset( $field['type'] ) ) {
-								//Display form fields using action hook (echo the function return)
-								do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
-							}
-						}
+					$output .= '</div> <!-- /wm-meta-wrap -->' . PHP_EOL . PHP_EOL;
 
-						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'webman-amplifier' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'webman-amplifier' ) . '</a></div>' . "\r\n";
-					$output .= '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
+					echo wp_kses( $output, WMA_KSES::$prefix . 'post+form' );
 
-					echo $output;
+				// Action hooks
+				do_action( 'wmhook_metabox_after' );
+				do_action( 'wmhook_metabox_after_' . $this->meta_box['id'] );
 
-				//Action hooks
-					do_action( 'wmhook_metabox_' . 'after' );
-					do_action( 'wmhook_metabox_' . 'after_' . $this->meta_box['id'] );
 			} // /show
 
 
@@ -443,80 +450,111 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Opening the meta box wrapping visual editor
 			 *
 			 * @since    1.0
-			 * @version  1.5.6
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 *
 			 * @param  object $post WordPress post object
 			 */
 			public function metabox_start( $post ) {
+
 				if ( ! $post ) {
 					global $post;
 				}
 
-				//Add the metabox only if the current post type is supported
-					global $post_type;
-					if ( ! in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
-						return;
+				// Add the metabox only if the current post type is supported
+				global $post_type;
+				if ( ! in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
+					return;
+				}
+
+				// Execute fields function
+				$meta_fields = (array) $this->fields;
+
+				// Setting up helper variables
+				$page_template = '';
+
+				// Set a page template if editing a page
+				if ( 'page' == $post->post_type ) {
+
+					$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+
+					if ( $post->ID == get_option( 'page_for_posts' ) ) {
+						$page_template = 'blog-page';
 					}
+				}
 
-				//Execute fields function
-					$meta_fields = (array) $this->fields;
+				// Output nonce field
+				wp_nonce_field(
+					$this->prefix . $post->post_type . '-metabox-nonce',
+					$post->post_type . '-metabox-nonce'
+				);
 
-				//Setting up helper variables
-					$page_template = '';
+				// Action hooks
+				do_action( 'wmhook_metabox_before' );
+				do_action( 'wmhook_metabox_before_' . $this->meta_box['id'] );
 
-				//Set a page template if editing a page
-					if ( 'page' == $post->post_type ) {
-						$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-						if ( $post->ID == get_option( 'page_for_posts' ) )
-							$page_template = 'blog-page';
-					}
+				// Display meta box form HTML
+				$output =
+					PHP_EOL . PHP_EOL
+					. '<div class="wm-meta-wrap meta-special jquery-ui-tabs">'
+					. PHP_EOL;
 
-				//Output nonce field
-					wp_nonce_field( $this->prefix . $post->post_type . '-metabox-nonce', $post->post_type . '-metabox-nonce' );
+					// Tabs
 
-				//Action hooks
-					do_action( 'wmhook_metabox_' . 'before' );
-					do_action( 'wmhook_metabox_' . 'before_' . $this->meta_box['id'] );
+						$output .= "\t" . '<ul class="tabs no-js">' . PHP_EOL;
 
-				//Display meta box form HTML
-					$output = "\r\n\r\n" . '<div class="wm-meta-wrap meta-special jquery-ui-tabs">' . "\r\n";
+						$output .=
+							"\t\t"
+							. '<li class="item-0 ' . esc_attr( WM_METABOX_FIELD_PREFIX ) . 'section-visual-editor">'
+							. '<a href="#' . esc_attr( WM_METABOX_FIELD_PREFIX ) . 'section-visual-editor">'
+							. esc_html_x( 'Content', 'Metabox tab title for native WordPress visual editor tab.', 'webman-amplifier' )
+							. '</a>'
+							. '</li>'
+							. PHP_EOL;
 
-					//Tabs
-						$output .= "\t" . '<ul class="tabs no-js">' . "\r\n";
-						$output .= "\t\t" . '<li class="item-0 ' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor"><a href="#' . WM_METABOX_FIELD_PREFIX . 'section-visual-editor">' . _x( 'Content', 'Metabox tab title for native WordPress visual editor tab.', 'webman-amplifier' ) . '</a></li>' . "\r\n";
 						$i = 0;
 						foreach ( $meta_fields as $tab ) {
 							if ( isset( $tab['type'] ) && 'section-open' == $tab['type'] ) {
+
 								$tab['id']    = WM_METABOX_FIELD_PREFIX . 'section-' . $tab['id'];
 								$tab['title'] = ( isset( $tab['title'] ) ) ? ( trim( $tab['title'] ) ) : ( 'TAB' );
 								$hidden       = ( 'page' == $post->post_type && isset( $tab['page'] ) ) ? ( self::page_template_conditional_class( $tab['page'], $page_template ) ) : ( '' );
-								$output .= "\t\t" . '<li class="item-' . ++$i . $hidden . ' ' . $tab['id'] . '"><a href="#' . $tab['id'] . '">' . $tab['title'] . '</a></li>' . "\r\n";
+
+								$output .=
+									"\t\t"
+									. '<li class="item-' . esc_attr( ++$i . $hidden . ' ' . $tab['id'] ) . '">'
+									. '<a href="#' . esc_attr( $tab['id'] ) . '">'
+									. esc_html( $tab['title'] )
+									. '</a>'
+									. '</li>'
+									. PHP_EOL;
 							}
 						}
-						$output .= "\t" . '</ul>' . "\r\n\r\n";
 
-						echo $output;
+						$output .= "\t" . '</ul>' . PHP_EOL . PHP_EOL;
+
+						echo wp_kses_post( $output );
 
 						$editor_tab_content = array(
 							array(
 								'type'     => 'section-open',
 								'id'       => 'visual-editor',
-								'exclude'  => apply_filters( 'wmhook_metabox_' . 'visual_editor_exclude', array() ),
+								'exclude'  => (array) apply_filters( 'wmhook_metabox_visual_editor_exclude', array() ),
 								'no-table' => true
 							)
 						);
 
-					//Content
-						foreach ( $editor_tab_content as $field ) {
-							if ( isset( $field['type'] ) ) {
-								//Display form fields using action hook (echo the function return)
-									do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
-							}
+					// Content
+					foreach ( $editor_tab_content as $field ) {
+						if ( isset( $field['type'] ) ) {
+							//Display form fields using action hook (echo the function return)
+								do_action( 'wmhook_metabox_render_' . $field['type'], $field, $page_template );
 						}
+					}
 
-				//DIV wrapper closes in another metabox_end() function
+				// DIV wrapper closes in another metabox_end() function
+
 			} // /metabox_start
 
 
@@ -525,91 +563,83 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 * Closing the meta box wrapping visual editor
 			 *
 			 * @since    1.0
-			 * @version  1.5.6
+			 * @version  1.6.0
 			 *
 			 * @access   public
 			 *
 			 * @param    object $post WordPress post object
 			 */
 			public function metabox_end( $post ) {
+
 				if ( ! $post ) {
 					global $post;
 				}
 
-				//Add the metabox only if the current post type is supported
-					global $post_type;
-					if ( ! in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
-						return;
+				// Add the metabox only if the current post type is supported
+				global $post_type;
+				if ( ! in_array( $post_type, (array) $this->meta_box['pages'] ) ) {
+					return;
+				}
+
+				// Setting up helper variables
+				$page_template = '';
+
+				// Execute fields function
+				$meta_fields = (array) $this->fields;
+
+				// Set a page template if editing a page
+				if ( 'page' == $post->post_type ) {
+
+					$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+
+					if ( $post->ID == get_option( 'page_for_posts' ) ) {
+						$page_template = 'blog-page';
 					}
+				}
 
-				//Execute additional fields function
-					if ( $this->meta_box['visual-wrapper-add'] ) {
-						$additional_table_start = array(
-								array(
-									'type'    => 'html',
-									'content' => '<table class="form-table"><tbody>'
-								)
-							);
-						$additional_table_end = array(
-								array(
-									'type'    => 'html',
-									'content' => '</tbody></table>'
-								)
-							);
-						$this->meta_box['visual-wrapper-add'] = array_merge(
-								$additional_table_start,
-								(array) call_user_func( $this->meta_box['visual-wrapper-add'] ),
-								$additional_table_end
-							);
-					} else {
-						$this->meta_box['visual-wrapper-add'] = array();
-					}
-
-				//Setting up helper variables
-					$page_template = '';
-
-				//Execute fields function
-					$meta_fields = (array) $this->fields;
-
-				//Set a page template if editing a page
-					if ( 'page' == $post->post_type ) {
-						$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-						if ( $post->ID == get_option( 'page_for_posts' ) )
-							$page_template = 'blog-page';
-					}
-
-					$meta_fields = array_merge(
-						$this->meta_box['visual-wrapper-add'],
+				$meta_fields = array_merge(
+					array(
 						array(
-							array(
-								'type'      => 'html',
-								'content'   => '<div class="box yellow if-page-builder-on">' . __( 'Use page builder to create the content.', 'webman-amplifier' ) . '</div>',
-								'condition' => wma_is_active_page_builder()
-							),
-							array(
-								'type'     => 'section-close', //closing visual editor wrapper
-								'no-table' => true
-							)
+							'type'      => 'html',
+							'content'   => '<div class="box yellow if-page-builder-on">' . esc_html__( 'Use page builder to create the content.', 'webman-amplifier' ) . '</div>',
+							'condition' => wma_is_active_page_builder()
 						),
-						$meta_fields
-					);
+						array(
+							'type'     => 'section-close', //closing visual editor wrapper
+							'no-table' => true
+						)
+					),
+					$meta_fields
+				);
 
-				//Content
-						foreach ( $meta_fields as $field ) {
-							if ( isset( $field['type'] ) ) {
-								//Display form fields using action hook (echo the function return)
-									do_action( 'wmhook_metabox_' . 'render_' . $field['type'], $field, $page_template );
-							}
+				// Content
+					foreach ( $meta_fields as $field ) {
+						if ( isset( $field['type'] ) ) {
+							//Display form fields using action hook (echo the function return)
+								do_action( 'wmhook_metabox_render_' . $field['type'], $field, $page_template );
 						}
+					}
 
-						$output = "\r\n\r\n\t" . '<div class="modal-box"><a class="button-primary" data-action="stay">' . __( 'Wait, I need to save my changes first!', 'webman-amplifier' ) . '</a><a class="button" data-action="leave">' . __( 'OK, leave without saving...', 'webman-amplifier' ) . '</a></div>' . "\r\n";
-					$output .= '</div> <!-- /wm-meta-wrap -->' . "\r\n\r\n";
+					$output =
+						PHP_EOL . PHP_EOL ."\t"
+						. '<div class="modal-box">'
+						. '<a class="button-primary" data-action="stay">'
+						. esc_html__( 'Wait, I need to save my changes first!', 'webman-amplifier' )
+						. '</a>'
+						. '<a class="button" data-action="leave">'
+						. esc_html__( 'OK, leave without saving...', 'webman-amplifier' )
+						. '</a>'
+						. '</div>'
+						. PHP_EOL;
 
-					echo $output;
+					$output .= '</div> <!-- /wm-meta-wrap -->' . PHP_EOL . PHP_EOL;
 
-				//Action hooks
-					do_action( 'wmhook_metabox_' . 'after' );
-					do_action( 'wmhook_metabox_' . 'after_' . $this->meta_box['id'] );
+					echo wp_kses( $output, WMA_KSES::$prefix . 'post+form' );
+
+				// Action hooks
+				do_action( 'wmhook_metabox_after' );
+				do_action( 'wmhook_metabox_after_' . $this->meta_box['id'] );
+
 			} // /metabox_end
 
 
@@ -623,10 +653,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Save metabox data.
 			 *
-			 * @todo  Gutenberg fix is required: https://github.com/WordPress/gutenberg/issues/7176
-			 *
 			 * @since    1.0
-			 * @version  1.5.6
+			 * @version  1.6.0
 			 *
 			 * @access  public
 			 *
@@ -642,20 +670,13 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 					$post_type_object = get_post_type_object( $post_type );
 					$meta_fields      = (array) $this->fields;
 
-					if ( $this->meta_box['visual-wrapper-add'] ) {
-						$meta_fields = array_merge(
-							(array) call_user_func( $this->meta_box['visual-wrapper-add'] ),
-							$meta_fields
-						);
-					}
-
 
 				// Requirements check
 
 					if (
-						empty( $_POST )
+						empty( $_POST ) // phpcs:ignore WordPress.Security.NonceVerification.Missing
 						|| ( ! in_array( $post_type, $this->meta_box['pages'] ) )
-						|| ( ! isset( $_POST['post_ID'] ) || $post_id !== intval( $_POST['post_ID'] ) )
+						|| ( ! isset( $_POST['post_ID'] ) || $post_id !== intval( $_POST['post_ID'] ) ) // phpcs:ignore
 						|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 						|| ( ! check_admin_referer( $this->prefix . $post_type . '-metabox-nonce', $post_type . '-metabox-nonce' ) )
 						|| ( ! current_user_can( $post_type_object->cap->edit_post, $post_id ) )
@@ -687,9 +708,9 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							$field['id'] = $this->prefix . $field['id'];
 
 							// Get new meta field value and run it through saving (validation) process filter.
-							$new = ( isset( $_POST[ $field['id'] ] ) ) ? ( $_POST[ $field['id'] ] ) : ( null );
+							$new = ( isset( $_POST[ $field['id'] ] ) ) ? ( $_POST[ $field['id'] ] ) : ( null ); // phpcs:ignore
 							if ( isset( $field['type'] ) ) {
-								$new = apply_filters( 'wmhook_metabox_saving_' . $field['type'], $new, $field, $post_id );
+								$new = (string) apply_filters( 'wmhook_metabox_saving_' . $field['type'], $new, $field, $post_id );
 							}
 
 							// Append/overwrite the meta value in `$meta_options` variable.
@@ -727,7 +748,6 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 							} else {
 								$meta_options[ $field['id'] ] = null;
 							}
-
 						}
 					}
 
@@ -756,7 +776,8 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			 *
 			 * @param   array $addon Additional $current_screen IDs to include
 			 */
-			public function is_edit_page( $addon = array() ) {
+			public function is_edit_page( array $addon = array() ): bool {
+
 				global $current_screen;
 
 				$pages = (array) $this->meta_box['pages'];
@@ -766,6 +787,7 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 				}
 
 				return in_array( $current_screen->id, $pages );
+
 			} // /is_edit_page
 
 
@@ -773,57 +795,65 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 			/**
 			 * Checks if page template is selected and outputs CSS class
 			 *
-			 * @since   1.0
-			 * @access  private
+			 * @since    1.0
+			 * @version  1.6.0
+			 * @access   private
 			 *
 			 * @param   array  $conditions    Array of conditions to check.
 			 * @param   string $page_template Current page template set.
 			 *
 			 * @return  string CSS class.
 			 */
-			private function page_template_conditional_class( $conditions = array(), $page_template = null ) {
+			private function page_template_conditional_class( array $conditions = array(), string $page_template = '' ): string {
+
 				if (
-						! $conditions
-						|| ! is_array( $conditions )
-						|| ! $page_template
-					) {
-					return;
+					! $conditions
+					|| ! is_array( $conditions )
+					|| empty( $page_template )
+				) {
+					return '';
 				}
 
-				//Helper variables
+
+				// Helper variables
+
 					$output = '';
 
-				//Preparing output
+
+				// Preparing output
+
 					if (
-							isset( $conditions['templates'] )
-							&& is_array( $conditions['templates'] )
-							&& ! empty( $conditions['templates'] )
-						) {
-						//Set default operand
-							if ( ! isset( $conditions['operand'] ) ) {
-								$conditions['operand'] = 'IS';
-							}
-						//Check if page template is in the array
-							$template_check = in_array( $page_template, $conditions['templates'] );
-						//Depending on operand, set the output
-							if ( 'IS_NOT' !== $conditions['operand'] ) {
-								//Only if page template is in the array
-								$output .= ( $template_check ) ? ( '' ) : ( ' hide' );
-							} else {
-								//Only if the page template is NOT in the array
-								$output .= ( $template_check ) ? ( ' hide' ) : ( '' );
-							}
+						isset( $conditions['templates'] )
+						&& is_array( $conditions['templates'] )
+						&& ! empty( $conditions['templates'] )
+					) {
+
+						// Set default operand
+						if ( ! isset( $conditions['operand'] ) ) {
+							$conditions['operand'] = 'IS';
+						}
+
+						// Check if page template is in the array
+						$template_check = in_array( $page_template, $conditions['templates'] );
+
+						// Depending on operand, set the output
+						if ( 'IS_NOT' !== $conditions['operand'] ) {
+							//Only if page template is in the array
+							$output .= ( $template_check ) ? ( '' ) : ( ' hide' );
+						} else {
+							//Only if the page template is NOT in the array
+							$output .= ( $template_check ) ? ( ' hide' ) : ( '' );
+						}
 					}
 
-				//Output
-					return apply_filters( 'wmhook_metabox_' . 'page_template_conditional_class' . '_output', $output );
+
+				// Output
+
+					return (string) apply_filters( 'wmhook_metabox_page_template_conditional_class_output', $output );
+
 			} // /page_template_conditional_class
 
-	} // /WM_Metabox
-
-
-
-
+	}
 
 	/**
 	 * INITIATOR FUNCTION
@@ -838,8 +868,104 @@ if ( ! class_exists( 'WM_Metabox' ) && is_admin() ) {
 		 *
 		 * @return  WM Metabox instance
 		 */
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 		function wma_add_meta_box( $metabox = array() ) {
 			new WM_Metabox( $metabox );
 		} // /wma_add_meta_box
 
-} // /class WM_Metabox check
+
+
+	/**
+	 * TGMPA: RECOMMEND PLUGINS.
+	 */
+
+		/**
+		 * Register recommendation of additional plugins.
+		 *
+		 * @link  http://tgmpluginactivation.com/
+		 * @link  https://github.com/TGMPA/TGM-Plugin-Activation/
+		 *
+		 * @since  1.6.0
+		 */
+		if ( ! function_exists( 'wma_tgmpa_register' ) ) {
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
+			function wma_tgmpa_register() {
+
+				// Processing
+
+					tgmpa( array(
+
+						'classic-editor' => array(
+							'name'     => esc_html_x( 'Classic Editor', 'Plugin name.', 'webman-amplifier' ),
+							'slug'     => 'classic-editor',
+							'required' => false,
+						),
+
+						'classic-widgets' => array(
+							'name'     => esc_html_x( 'Classic Widgets', 'Plugin name.', 'webman-amplifier' ),
+							'slug'     => 'classic-widgets',
+							'required' => false,
+						),
+					) );
+
+			}
+		} // /wma_tgmpa_register
+
+		add_action( 'tgmpa_register', 'wma_tgmpa_register', 99 );
+
+
+
+	/**
+	 * METABOX AJAX FUNCTIONS.
+	 * These have to be registered early enough, otherwise AJAX does not work.
+	 */
+
+		/**
+		 * Gallery AJAX images preview update.
+		 *
+		 * @see  includes/metabox/fields/images.php
+		 *
+		 * @since    1.0
+		 * @version  1.6.0
+		 */
+		if ( ! function_exists( 'wma_field_gallery_AJAX' ) ) {
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
+			function wma_field_gallery_AJAX() {
+
+				// Security - check nonce field
+				if (
+					! is_user_logged_in()
+					|| ! current_user_can( 'edit_posts' )
+					|| ! isset( $_POST['wmGalleryNonce'] )
+					|| ! wp_verify_nonce( $_POST['wmGalleryNonce'], 'wm-gallery-preview-refresh' ) // phpcs:ignore
+				) {
+
+					esc_html_e( 'You do not have permissions to do this!', 'webman-amplifier' );
+					die();
+				}
+
+				// Processing AJAX request (getting gallery images)
+
+					$output  = '';
+					$fieldID = ( isset( $_POST['fieldID'] ) ) ? ( $_POST['fieldID'] ) : ( '' ); // phpcs:ignore
+					$images  = ( isset( $_POST['images'] ) && is_array( $_POST['images'] ) ) ? ( $_POST['images'] ) : ( array() ); // phpcs:ignore
+					$images  = array_filter( $images );
+
+					if ( ! empty( $images ) ) {
+						foreach ( $images as $image_id ) {
+							$output .= '<a class="button-set-gallery" data-id="' . esc_attr( $fieldID ) . '" title="' . esc_attr__( 'Edit images', 'webman-amplifier' ) . '">';
+							$output .= wp_get_attachment_image( absint( $image_id ), 'thumbnail' );
+							$output .= '</a>';
+						}
+					}
+
+				// Output
+
+					echo wp_kses( $output, WMA_KSES::$prefix . 'inline' );
+					die();
+
+			}
+		} // /wma_field_gallery_AJAX
+
+		add_action( 'wp_ajax_wm-gallery-preview-refresh', 'wma_field_gallery_AJAX' );
+}

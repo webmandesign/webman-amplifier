@@ -5,7 +5,7 @@
  * This file is being included into "../class-shortcodes.php" file's shortcode_render() method.
  *
  * @since    1.0
- * @version  1.4.1
+ * @version  1.6.0
  *
  * @param  string class
  * @param  string separator
@@ -13,66 +13,94 @@
  * @param  string appearance Introduced not to conflict with Beaver Builder
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
+// Variables come from WM_Shortcodes::shortcode_render(), they are not global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-//Shortcode attributes
-	$defaults = apply_filters( 'wmhook_shortcode_' . '_defaults', array(
+// Shortcode attributes
+
+	$defaults = apply_filters(
+		'wmhook_shortcode__defaults',
+		array(
 			'appearance' => '',
 			'class'      => '',
 			'separator'  => ',',
 			'type'       => '',
-		), $shortcode );
-	$atts = apply_filters( 'wmhook_shortcode_' . '_attributes', $atts, $shortcode );
+		),
+		$shortcode
+	);
+
+	$atts = apply_filters( 'wmhook_shortcode__attributes', $atts, $shortcode );
 	$atts = shortcode_atts( $defaults, $atts, $prefix_shortcode . $shortcode );
 
-//Validation
-	//class
-		$atts['class'] = trim( 'wm-table ' . trim( $atts['class'] ) );
-	//separator
-		$atts['separator'] = ( $atts['separator'] ) ? ( trim( $atts['separator'] ) ) : ( ',' );
-	//type
-		//Fix for Beaver Builder
-			if ( $atts['appearance'] ) {
-				$atts['type'] = $atts['appearance'];
-			}
+// Validation
+
+	// class
+	$atts['class'] = trim( 'wm-table ' . trim( $atts['class'] ) );
+
+	// separator
+	$atts['separator'] = ( $atts['separator'] ) ? ( trim( $atts['separator'] ) ) : ( ',' );
+
+	// type
+
+		// Fix for Beaver Builder
+		if ( $atts['appearance'] ) {
+			$atts['type'] = $atts['appearance'];
+		}
+
 		$atts['type'] = trim( $atts['type'] );
+
 		if ( $atts['type'] ) {
 			$atts['class'] .= ' type-' . $atts['type'];
 		}
-	//content (table CSV data)
+
+	// content (table CSV data)
+
 		$content = str_replace( array( '<p>', '</p>' ), '', $content ); //remove HTML paragraphs
 		$content = str_replace( array( '<br>', '<br />' ), "\r\n", $content ); //replace HTML line breaks
 		$content = preg_split('/\r\n|\r|\n/', $content ); //split string into array by line breaks
 		$content = array_values( array_filter( $content ) ); //remove empty values and reindex keys
+
 		if ( is_array( $content ) && ! empty( $content ) ) {
+
 			foreach ( $content as $key => $row ) {
 				$row_class = 'odd';
 
-				//Remove HTML tags
-					$row = strip_tags( $row, apply_filters( 'wmhook_shortcode_' . $shortcode . '_allowed_html_tags', '<a><code><em><img><small><strong>', $atts ) );
+				// Remove HTML tags
+				$row = strip_tags( $row, apply_filters( 'wmhook_shortcode_' . $shortcode . '_allowed_html_tags', '<a><code><em><img><small><strong>', $atts ) );
 
-				//Set columns count and prepare rows
-					if ( $key ) {
-						if ( 0 === absint( $key ) % 2 ) {
-							$row_class = 'even';
-						}
-						$row = '<tr class="' . esc_attr( $row_class ) . '"><td>' . str_replace( $atts['separator'], '</td><td>', $row ) . '</td></tr>';
-					} else {
-						$atts['columns_count'] = substr_count( $row, $atts['separator'] ) + 1;
-						$row = '<thead><tr><th>' . str_replace( $atts['separator'], '</th><th>', $row ) . '</th></tr></thead><tbody>';
+				// Set columns count and prepare rows
+				if ( $key ) {
+
+					if ( 0 === absint( $key ) % 2 ) {
+						$row_class = 'even';
 					}
+
+					$row = '<tr class="' . esc_attr( $row_class ) . '"><td>' . str_replace( $atts['separator'], '</td><td>', $row ) . '</td></tr>';
+
+				} else {
+
+					$atts['columns_count'] = substr_count( $row, $atts['separator'] ) + 1;
+					$row = '<thead><tr><th>' . str_replace( $atts['separator'], '</th><th>', $row ) . '</th></tr></thead><tbody>';
+				}
 
 				$content[$key] = $row;
 			}
+
 			$atts['content'] = implode( '', $content ) . '</tbody>';
+
 		} else {
 			$atts['content'] = '';
 		}
-	//content filters
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . '_content', $atts['content'], $shortcode, $atts );
-		$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
-	//class
-		$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
+
+	// content filters
+	$atts['content'] = apply_filters( 'wmhook_shortcode__content', $atts['content'], $shortcode, $atts );
+	$atts['content'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_content', $atts['content'], $atts );
+
+	// class
+	$atts['class'] = apply_filters( 'wmhook_shortcode_' . $shortcode . '_classes', $atts['class'], $atts );
 
 // Output
 
@@ -81,3 +109,5 @@
 	} else {
 		$output = esc_html__( 'Sorry, there is nothing to display here&hellip;', 'webman-amplifier' );
 	}
+
+// phpcs:enable

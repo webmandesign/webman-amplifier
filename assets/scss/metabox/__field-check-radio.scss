@@ -119,8 +119,17 @@
 				}
 
 				&.active {
-					background: #d9edf7;
-					border-color: #b7cbd0;
+					background: #222;
+					border-color: #222;
+					color: #fff;
+
+					span {
+						color: inherit !important;
+					}
+				}
+
+				label span {
+					display: inline-block;
 				}
 
 				&:hover {
@@ -133,6 +142,7 @@
 				display: block;
 				padding: 0;
 				margin: 0;
+				cursor: pointer;
 			}
 
 		}

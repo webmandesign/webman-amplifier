@@ -1,5 +1,138 @@
 # WebMan Amplifier Changelog
 
+## 1.6.0, 20260215
+
+### Added
+- Classic Editor and Classic Widgets plugins recommendation
+
+### Updated
+- Removing Visual Composer support
+- Removing obsolete Twitter widget
+- Removing obsolete `wma_schema_org()` function
+- Removing `visual-wrapper-add` metabox support
+- Improving and fixing security
+- Improving shortcodes
+- Improving code
+- Localization
+
+### Fixed
+- Gallery metabox field AJAX
+
+### File updates
+	CHANGELOG.md
+	class-wm-amplifier.php
+	readme.txt
+	webman-amplifier-setup.php
+	webman-amplifier.php
+	assets/font/config.php
+	assets/js/metabox.js
+	assets/js/shortcode-slideshow-owlcarousel.js
+	assets/js/shortcodes--field--wm_radio.js
+	assets/scss/input-wm-radio.scss
+	assets/scss/metabox.scss
+	includes/class-filesystem.php
+	includes/class-kses.php
+	includes/functions.php
+	includes/compatibility/compatibility.php
+	includes/compatibility/woosidebars/class-woosidebars.php
+	includes/compatibility/wpml/class-wpml.php
+	includes/compatibility/wpml/modules/class-wpml-bb-children.php
+	includes/custom-posts/logos.php
+	includes/custom-posts/modules.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+	includes/icons/class-icon-font.php
+	includes/metabox/class-metabox.php
+	includes/metabox/fields/checkbox.php
+	includes/metabox/fields/conditional.php
+	includes/metabox/fields/hidden.php
+	includes/metabox/fields/html.php
+	includes/metabox/fields/images.php
+	includes/metabox/fields/radio.php
+	includes/metabox/fields/repeater.php
+	includes/metabox/fields/sections.php
+	includes/metabox/fields/select.php
+	includes/metabox/fields/slider.php
+	includes/metabox/fields/texts.php
+	includes/shortcodes/class-shortcodes.php
+	includes/shortcodes/definitions/definitions.php
+	includes/shortcodes/definitions/partial/accordion.php
+	includes/shortcodes/definitions/partial/audio.php
+	includes/shortcodes/definitions/partial/button.php
+	includes/shortcodes/definitions/partial/call-to-action.php
+	includes/shortcodes/definitions/partial/column.php
+	includes/shortcodes/definitions/partial/content-module.php
+	includes/shortcodes/definitions/partial/countdown-timer.php
+	includes/shortcodes/definitions/partial/divider.php
+	includes/shortcodes/definitions/partial/icon.php
+	includes/shortcodes/definitions/partial/item.php
+	includes/shortcodes/definitions/partial/list.php
+	includes/shortcodes/definitions/partial/message.php
+	includes/shortcodes/definitions/partial/posts.php
+	includes/shortcodes/definitions/partial/price.php
+	includes/shortcodes/definitions/partial/pricing-table.php
+	includes/shortcodes/definitions/partial/progress.php
+	includes/shortcodes/definitions/partial/row.php
+	includes/shortcodes/definitions/partial/separator-heading.php
+	includes/shortcodes/definitions/partial/slideshow.php
+	includes/shortcodes/definitions/partial/table.php
+	includes/shortcodes/definitions/partial/tabs.php
+	includes/shortcodes/definitions/partial/testimonials.php
+	includes/shortcodes/definitions/partial/video.php
+	includes/shortcodes/definitions/partial/widget-area.php
+	includes/shortcodes/page-builder/beaver-builder/beaver-builder.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_accordion.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_button.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_call_to_action.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_content_module.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_divider.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_message.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_posts.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_table.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_tabs.php
+	includes/shortcodes/page-builder/beaver-builder/modules/wm_testimonials.php
+	includes/shortcodes/renderers/accordion.php
+	includes/shortcodes/renderers/audio.php
+	includes/shortcodes/renderers/button.php
+	includes/shortcodes/renderers/call_to_action.php
+	includes/shortcodes/renderers/column.php
+	includes/shortcodes/renderers/content_module.php
+	includes/shortcodes/renderers/countdown_timer.php
+	includes/shortcodes/renderers/divider.php
+	includes/shortcodes/renderers/dropcap.php
+	includes/shortcodes/renderers/icon.php
+	includes/shortcodes/renderers/item.php
+	includes/shortcodes/renderers/last_update.php
+	includes/shortcodes/renderers/list.php
+	includes/shortcodes/renderers/marker.php
+	includes/shortcodes/renderers/message.php
+	includes/shortcodes/renderers/meta.php
+	includes/shortcodes/renderers/posts.php
+	includes/shortcodes/renderers/price.php
+	includes/shortcodes/renderers/pricing_table.php
+	includes/shortcodes/renderers/progress.php
+	includes/shortcodes/renderers/row.php
+	includes/shortcodes/renderers/separator_heading.php
+	includes/shortcodes/renderers/slideshow.php
+	includes/shortcodes/renderers/table.php
+	includes/shortcodes/renderers/tabs.php
+	includes/shortcodes/renderers/testimonials.php
+	includes/shortcodes/renderers/video.php
+	includes/shortcodes/renderers/widget_area.php
+	includes/visual-editor/visual-editor.php
+	includes/widgets/w-contact.php
+	includes/widgets/w-module.php
+	includes/widgets/w-posts.php
+	includes/widgets/w-subnav.php
+	includes/widgets/w-tabbed-widgets.php
+	templates/content-shortcode-posts-post.php
+	templates/content-shortcode-posts-wm_logos.php
+	templates/content-shortcode-posts-wm_projects.php
+	templates/content-shortcode-posts-wm_staff.php
+	templates/content-shortcode-posts.php
+
+
 ## 1.5.12, 20250914
 
 ### Updated

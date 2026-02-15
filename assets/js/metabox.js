@@ -5,7 +5,7 @@
  * @subpackage  Metabox
  *
  * @since    1.0
- * @version  1.5.9
+ * @version  1.6.0
  */
 
 
@@ -230,30 +230,30 @@ jQuery( function() {
 							jQuery( '.gallery-loading-' + galleryID )
 								.show();
 
-						// Do AJAX and get response (result)
+						// Do AJAX and get response (results).
+						if (
+							imageIDarray.length
+							&& 'undefined' != typeof ajaxurl // This is WordPress global variable.
+						) {
 
-							if ( imageIDarray.length ) {
+							jQuery.post( ajaxurl, {
+								// `action` is used in `add_action( 'wp_ajax_wm-gallery-preview-refresh', 'wma_field_gallery_AJAX' );`
+								action         : 'wm-gallery-preview-refresh',
+								fieldID        : galleryID,
+								images         : imageIDarray,
+								wmGalleryNonce : galleryNonce
+							}, function( response ) {
 
-								jQuery.post( ajaxurl, {
-									action         : 'wm-gallery-preview-refresh',
-									fieldID        : galleryID,
-									images         : imageIDarray,
-									wmGalleryNonce : galleryNonce
-								}, function( response ) {
+								// Load new images.
+								jQuery( '.gallery-' + galleryID )
+									.html( response );
 
-									// Load new images
+								// Hide loader animation.
+								jQuery( '.gallery-loading-' + galleryID )
+									.hide();
 
-										jQuery( '.gallery-' + galleryID )
-											.html( response );
-
-									// Hide loader animation
-
-										jQuery( '.gallery-loading-' + galleryID )
-											.hide();
-
-								} );
-
-							}
+							} );
+						}
 
 						galleryField.val( imageIDs );
 
@@ -647,52 +647,13 @@ jQuery( function() {
 
 
 	/**
-	 * Visual Composer plugin support
-	 */
-
-		// Function to control display CSS class upon Visual Composer visibility
-
-			function wm_vc_visible() {
-
-				if ( jQuery( '#wpb_visual_composer' ).is( ':visible' ) ) {
-
-					jQuery( 'body' )
-						.addClass( 'wm-visual-composer-on' );
-
-				} else {
-
-					jQuery( 'body' )
-						.removeClass( 'wm-visual-composer-on' );
-
-				}
-
-			} // /wm_vc_visible
-
-		// Cache Visual Composer switch button
-
-			var $WmampVcButton = jQuery( '.composer-switch a' );
-
-		// Run the function first in case there is a Visual Composer globally disabled (in its settings)
-
-			wm_vc_visible();
-
-		// Visual Composer switch button action
-
-			$WmampVcButton
-				.on( 'click', function() {
-					wm_vc_visible();
-				} );
-
-
-
-	/**
 	 * ZIP uploader
 	 */
 
 		// Upload ZIP file action
 
-			jQuery( '.wm-meta-wrap .zip-wrap label, .wm-meta-wrap .zip-wrap .fieldtype-zip, .wm-meta-wrap .button-set-zip' )
-				.on( 'click', function( e ) {
+			jQuery( '.wm-meta-wrap .zip-wrap' )
+				.on( 'click', '.button-set-zip', function( e ) {
 
 					// Check if the wp.media.editor API exists.
 
@@ -746,8 +707,130 @@ jQuery( function() {
 			jQuery( 'select[name="page_template"], .wm-meta-wrap select' )
 				.change();
 
-
-
-
-
 } );
+
+
+
+/**
+ * Conditionals.
+ * @see  includes/metabox/fields/conditional.php
+ *
+ * args = {
+ * 	'id': option_id,
+ * 	'values': [option_values],
+ * 	'operand': 'IS'/'IS_NOT',
+ * 	'field': selector,
+ * 	'type': field_type
+ * }
+ */
+function wmaMetaboxConditional( args ) {
+
+	var
+		valuesArray       = args.values,
+		conditionalOption = jQuery( '[data-option="' + args.id + '"]' ),
+		speed             = 250;
+
+	// Hide the conditional option by default.
+	conditionalOption.hide();
+
+	// 'radio' or 'checkbox' option type only:
+	if (
+		'radio' === args.type
+		|| 'checkbox' === args.type
+	) {
+
+		var
+			isInArray = jQuery.inArray( jQuery( args.field + ':checked' ).val(), valuesArray ),
+			evaluate  = ( 'IS' === args.operand ) ? ( -1 !== isInArray ) : ( -1 === isInArray );
+
+		// Default action
+		if ( evaluate ) {
+			conditionalOption.fadeIn( speed );
+			// No need to hide as the option is hidden by default. See above.
+		}
+	}
+
+	jQuery( '#wpbody' )
+		.on( 'change', args.field, function() {
+
+			var
+				$this            = jQuery( this ),
+				conditionalValue = $this.val(),
+				isInArray,
+				evaluate;
+
+			if ( 'checkbox' === args.type ) {
+				conditionalValue = $this.is( ':checked' ) ? 1 : 0;
+			}
+
+			isInArray = jQuery.inArray( conditionalValue, valuesArray );
+			evaluate  = ( 'IS' === args.operand ) ? ( -1 !== isInArray ) : ( -1 === isInArray );
+
+			if ( evaluate ) {
+				conditionalOption.fadeIn( speed );
+			} else {
+				conditionalOption.hide();
+			}
+
+		} );
+
+	// Only for 'radio' option type.
+	// -> Seems this is no longer needed as of 20260213.
+	// if ( 'radio' === args.type ) {
+	// 	jQuery( args.field ).trigger( 'change' );
+	// }
+
+} // /wmaMetaboxConditional
+
+
+
+/**
+ * Page templates.
+ * @see  includes/metabox/fields/sections.php
+ *
+ * args = {
+ * 	'id': field_id,
+ * 	'values': [templates],
+ * 	'operand': 'IS'/'IS_NOT',
+ * 	'template': $page_template
+ * }
+ */
+function wmaMetaboxTemplates( args ) {
+
+	var templateSelector = 'select[name="page_template"], .editor-page-attributes__template select';
+
+	function setTabs( e ) {
+
+		var
+			conditionalValue = ( 'string' === typeof e ) ? ( e ) : ( jQuery( e.target ).val() || 'default' ),
+			conditionArray   = args.values,
+			isInArray        = jQuery.inArray( conditionalValue, conditionArray ),
+			evaluate         = ( 'IS' === args.operand ) ? ( -1 !== isInArray ) : ( -1 === isInArray ),
+			elements         = jQuery( '#' + args.id + ', .wm-meta-wrap .tabs .' + args.id ),
+			firstTabActive;
+
+		if ( evaluate ) {
+			elements.removeClass( 'hide' );
+		} else {
+			elements.addClass( 'hide' );
+		}
+
+		if ( jQuery().tabs ) {
+			jQuery( '.wm-meta-wrap.jquery-ui-tabs' )
+				.tabs( {
+					active : jQuery( '.wm-meta-wrap .tabs li:not(.hide)' ).first().index()
+				} );
+		}
+	}
+
+	setTabs( args.template );
+
+	jQuery( '#wpbody' )
+		.on( 'change.webman-amplifier-metabox', templateSelector, function( e ){
+			setTabs( e );
+		} );
+
+	jQuery( templateSelector )
+		.change();
+
+} // /wmaMetaboxTemplates

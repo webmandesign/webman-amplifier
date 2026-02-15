@@ -1,5 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+<?php
 /**
  * Shortcode definitions array partial: [marker]
  *
@@ -11,10 +10,10 @@
  * @version  1.5.0
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
-
-
-
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- not global
 $definitions['marker'] = array(
 	'since' => '1.0',
 	'preprocess' => true,

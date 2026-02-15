@@ -15,43 +15,28 @@
  * @link  https://wordpress.org/plugins/webman-amplifier/
  *
  * @since    1.0
- * @version  1.3.3
- *
- * Contents:
- *
- *  1) Requirements check
- * 10) Plugin integration
+ * @version  1.6.0
  */
 
-
-
-
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
- * 1) Requirements check
+ * Requirements check
  */
-
-	if ( ! class_exists( 'WM_Amplifier' ) ) {
-		return;
-	}
-
-
-
-
+if ( ! class_exists( 'WM_Amplifier' ) ) {
+	return;
+}
 
 /**
  * 10) Plugin integration
  */
 
 	// Uncomment to enable the Schema.org function
-
-		// add_filter( 'wmhook_wmamp_disable_schema_org', '__return_false' );
+	// add_filter( 'wmhook_wmamp_disable_schema_org', '__return_false' );
 
 	// Uncomment to enable WebMan Advanced Metaboxes
-
-		// add_filter( 'wmhook_metabox_visual_wrapper_toggle', '__return_true' );
-
-
+	// add_filter( 'wmhook_metabox_visual_wrapper_toggle', '__return_true' );
 
 	/**
 	 * Plugin setup
@@ -61,116 +46,85 @@
 		// Processing
 
 			// Plugin features
+			add_theme_support( 'webman-amplifier', array(
 
-				add_theme_support( 'webman-amplifier', array(
+				/**
+				 * Uncomment to enable Logos custom post type ("wm_logos")
+				 *
+				 * This will also create a new taxonomy: "logo_category"
+				 */
+				// 'cp-logos',
 
-					/**
-					 * Uncomment to enable Logos custom post type ("wm_logos")
-					 *
-					 * This will also create a new taxonomy: "logo_category"
-					 */
+				/**
+				 * Uncomment to enable Content Modules (icon boxes) custom post type ("wm_modules")
+				 *
+				 * This will also create a new taxonomy: "module_tag"
+				 */
+				// 'cp-modules',
 
-					// 'cp-logos',
+				/**
+				 * Uncomment to enable Projects (portfolio) custom post type ("wm_projects")
+				 *
+				 * This will also create a new taxonomy: "project_tag" and "project_category"
+				 */
+				// 'cp-projects',
 
-					/**
-					 * Uncomment to enable Content Modules (icon boxes) custom post type ("wm_modules")
-					 *
-					 * This will also create a new taxonomy: "module_tag"
-					 */
+				/**
+				 * Uncomment to enable Staff (team) custom post type ("wm_staff")
+				 *
+				 * This will also create a new taxonomy: "staff_department" and "staff_position"
+				 */
+				// 'cp-staff',
 
-					// 'cp-modules',
-
-					/**
-					 * Uncomment to enable Projects (portfolio) custom post type ("wm_projects")
-					 *
-					 * This will also create a new taxonomy: "project_tag" and "project_category"
-					 */
-
-					// 'cp-projects',
-
-					/**
-					 * Uncomment to enable Staff (team) custom post type ("wm_staff")
-					 *
-					 * This will also create a new taxonomy: "staff_department" and "staff_position"
-					 */
-
-					// 'cp-staff',
-
-					/**
-					 * Uncomment to enable Testimonials custom post type ("wm_testimonials")
-					 *
-					 * This will also create a new taxonomy: "testimonial_category"
-					 */
-
-					// 'cp-testimonials',
+				/**
+				 * Uncomment to enable Testimonials custom post type ("wm_testimonials")
+				 *
+				 * This will also create a new taxonomy: "testimonial_category"
+				 */
+				// 'cp-testimonials',
 
 
-					/**
-					 * Uncomment to enable Contact widget
-					 */
+				/**
+				 * Uncomment to enable Contact widget
+				 */
+				// 'widget-contact',
 
-					// 'widget-contact',
+				/**
+				 * Uncomment to enable Content Module widget
+				 */
+				// 'widget-module',
 
-					/**
-					 * Uncomment to enable Content Module widget
-					 */
+				/**
+				 * Uncomment to enable Posts widget
+				 */
+				// 'widget-posts',
 
-					// 'widget-module',
+				/**
+				 * Uncomment to enable Sub-navigation widget
+				 */
+				// 'widget-subnav',
 
-					/**
-					 * Uncomment to enable Posts widget
-					 */
-
-					// 'widget-posts',
-
-					/**
-					 * Uncomment to enable Sub-navigation widget
-					 */
-
-					// 'widget-subnav',
-
-					/**
-					 * Uncomment to enable Tabbed Widgets widget
-					 */
-
-					// 'widget-tabbed-widgets',
-
-					/**
-					 * Uncomment to enable Twitter widget
-					 */
-
-					// 'widget-twitter',
+				/**
+				 * Uncomment to enable Tabbed Widgets widget
+				 */
+				// 'widget-tabbed-widgets',
 
 
-					/**
-					 * Uncomment to remove default Visual Composer elements (shortcodes)
-					 */
-
-					// 'remove-vc-shortcodes',
-
-
-					/**
-					 * Uncomment to disable the plugin's feature
-					 */
-
-					// 'disable-fonticons',
-					// 'disable-shortcodes',
-					// 'disable-visual-composer-support',
-				) );
+				/**
+				 * Uncomment to disable the plugin's feature
+				 */
+				// 'disable-fonticons',
+				// 'disable-shortcodes',
+			) );
 
 			// Deactivate plugin when theme changed
-
-				// if ( ! get_transient( 'wmamp-deactivate' ) ) {
-				// 	set_transient( 'wmamp-deactivate', true );
-				// }
+			// if ( ! get_transient( 'wmamp-deactivate' ) ) {
+			// 	set_transient( 'wmamp-deactivate', true );
+			// }
 
 	} // /wmamp_setup
 
 	add_action( 'after_setup_theme', 'wmamp_setup' );
-
-
-
-
 
 	/**
 	 * CUSTOM POSTS
@@ -194,123 +148,123 @@
 					// "Form fields test" tab
 
 						$fields[3000] = array(
-								'type'  => 'section-open',
-								'id'    => 'project-heading-section',
-								'title' => 'Form fields test',
-							);
+							'type'  => 'section-open',
+							'id'    => 'project-heading-section',
+							'title' => 'Form fields test',
+						);
 
 							$fields[3020] = array(
-									'type'        => 'checkbox',
-									'id'          => 'form-fields-checkbox',
-									'label'       => 'Checkbox test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'checkbox',
+								'id'          => 'form-fields-checkbox',
+								'label'       => 'Checkbox test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3040] = array(
-									'type'        => 'image',
-									'id'          => 'form-fields-image',
-									'label'       => 'Image test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'image',
+								'id'          => 'form-fields-image',
+								'label'       => 'Image test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3060] = array(
-									'type'        => 'gallery',
-									'id'          => 'form-fields-gallery',
-									'label'       => 'Gallery test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'gallery',
+								'id'          => 'form-fields-gallery',
+								'label'       => 'Gallery test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3080] = array(
-									'type'        => 'radio',
-									'id'          => 'form-fields-radio',
-									'label'       => 'Radio inline test',
-									'description' => 'Description text goes here',
-									'inline'      => true,
-									'options'     => array(
-											1 => '01',
-											2 => '02',
-											3 => '03',
-											4 => '04',
-										),
-								);
+								'type'        => 'radio',
+								'id'          => 'form-fields-radio',
+								'label'       => 'Radio inline test',
+								'description' => 'Description text goes here',
+								'inline'      => true,
+								'options'     => array(
+									1 => '01',
+									2 => '02',
+									3 => '03',
+									4 => '04',
+								),
+							);
 
 							$fields[3081] = array(
-									'type'        => 'radio',
-									'id'          => 'form-fields-radio2',
-									'label'       => 'Radio test',
-									'description' => 'Description text goes here',
-									'options'     => array(
-											1 => '01',
-											2 => '02',
-											3 => '03',
-											4 => '04',
-										),
-								);
+								'type'        => 'radio',
+								'id'          => 'form-fields-radio2',
+								'label'       => 'Radio test',
+								'description' => 'Description text goes here',
+								'options'     => array(
+									1 => '01',
+									2 => '02',
+									3 => '03',
+									4 => '04',
+								),
+							);
 
 							$fields[3100] = array(
-									'type'        => 'select',
-									'id'          => 'form-fields-select',
-									'label'       => 'Select test',
-									'description' => 'Description text goes here',
-									'options'     => array(
-											1 => '01',
-											2 => '02',
-											3 => '03',
-											4 => '04',
-										),
-								);
+								'type'        => 'select',
+								'id'          => 'form-fields-select',
+								'label'       => 'Select test',
+								'description' => 'Description text goes here',
+								'options'     => array(
+									1 => '01',
+									2 => '02',
+									3 => '03',
+									4 => '04',
+								),
+							);
 
 							$fields[3120] = array(
-									'type'        => 'slider',
-									'id'          => 'form-fields-slider',
-									'label'       => 'Slider test',
-									'description' => 'Description text goes here',
-									'default'     => 3,
-									'max'         => 12,
-									'min'         => -9,
-									'step'        => 3,
-									'zero'        => true,
-								);
+								'type'        => 'slider',
+								'id'          => 'form-fields-slider',
+								'label'       => 'Slider test',
+								'description' => 'Description text goes here',
+								'default'     => 3,
+								'max'         => 12,
+								'min'         => -9,
+								'step'        => 3,
+								'zero'        => true,
+							);
 
 							$fields[3140] = array(
-									'type'        => 'text',
-									'id'          => 'form-fields-text',
-									'label'       => 'Text test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'text',
+								'id'          => 'form-fields-text',
+								'label'       => 'Text test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3160] = array(
-									'type'        => 'color',
-									'id'          => 'form-fields-color',
-									'label'       => 'Color test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'color',
+								'id'          => 'form-fields-color',
+								'label'       => 'Color test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3180] = array(
-									'type'        => 'password',
-									'id'          => 'form-fields-password',
-									'label'       => 'Password test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'password',
+								'id'          => 'form-fields-password',
+								'label'       => 'Password test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3200] = array(
-									'type'        => 'textarea',
-									'id'          => 'form-fields-textarea',
-									'label'       => 'Textarea test',
-									'description' => 'Description text goes here',
-								);
+								'type'        => 'textarea',
+								'id'          => 'form-fields-textarea',
+								'label'       => 'Textarea test',
+								'description' => 'Description text goes here',
+							);
 
 							$fields[3220] = array(
-									'type'        => 'textarea',
-									'id'          => 'form-fields-textarea-editor',
-									'label'       => 'Textarea editor test',
-									'description' => 'Description text goes here',
-									'editor'      => true,
-								);
+								'type'        => 'textarea',
+								'id'          => 'form-fields-textarea-editor',
+								'label'       => 'Textarea editor test',
+								'description' => 'Description text goes here',
+								'editor'      => true,
+							);
 
 						$fields[3980] = array(
-								'type' => 'section-close',
-							);
+							'type' => 'section-close',
+						);
 
 					/**
 					 * For more form fields options please check the PHP files inside
@@ -325,10 +279,6 @@
 			} // /wmamp_additional_metafields
 
 			// add_filter( 'wmhook_wmamp_cp_metafields_wm_projects', 'wmamp_additional_metafields' );
-
-
-
-
 
 	/**
 	 * SHORTCODES
@@ -353,10 +303,6 @@
 
 		add_filter( 'wmhook_shortcode_supported_version', 'wmamp_supported_shortcode_until_version' );
 
-
-
-
-
 	/**
 	 * METABOXES
 	 */
@@ -367,64 +313,44 @@
 
 		/*
 		if ( function_exists( 'wma_add_meta_box' ) ) {
-
 			wma_add_meta_box( array(
 
-					// Where the meta box appear: normal (default), advanced, side.
+				// Where the meta box appear: normal (default), advanced, side.
+				'context' => 'normal',
 
-						'context' => 'normal',
+				// Meta fields function callback (should return array of fields).
+				// The function callback is used for to use a WordPress globals
+				// available during the metabox rendering, such as $post.
+				'fields' => 'wmamp_additional_metafields',
 
-					// Meta fields function callback (should return array of fields).
-					// The function callback is used for to use a WordPress globals
-					// available during the metabox rendering, such as $post.
+					// In this example we use the function defined previously in this file.
+					// Feel free to create your own similar function depending on post settings.
 
-						'fields' => 'wmamp_additional_metafields',
+				// Meta box id, unique per meta box.
+				'id' => 'my-metabox-id',
 
-						// In this example we use the function defined previously in this file.
-						// Feel free to create your own similar function depending on post settings.
+				// Post types.
+				'pages' => array( 'post' ),
 
-					// Meta box id, unique per meta box.
+					// Display this metabox only on Posts.
+					// You can add any post type in the array and the metabox
+					// will be displayed for all of those post types.
 
-						'id' => 'my-metabox-id',
+				// Order of meta box: high (default), low.
+				'priority' => 'high',
 
-					// Post types.
+				// Tabbed meta box interface?
+				'tabs' => true,
 
-						'pages' => array( 'post' ),
+				// Meta box title.
+				'title' => 'Custom metabox title',
 
-						// Display this metabox only on Posts.
-						// You can add any post type in the array and the metabox
-						// will be displayed for all of those post types.
-
-					// Order of meta box: high (default), low.
-
-						'priority' => 'high',
-
-					// Tabbed meta box interface?
-
-						'tabs' => true,
-
-					// Meta box title.
-
-						'title' => 'Custom metabox title',
-
-					// Wrap the meta form around visual editor (WebMan Advanced Metabox)?
-					// This is always tabbed.
-
-						'visual-wrapper' => false,
-
-					// Function callback of form fields displayed immediately after visual editor on 1st tab.
-					// Note that this is relevant to "visual-wrapper" setting only and is optional.
-
-						'visual-wrapper-add' => ''
-
-				) );
-
+				// Wrap the meta form around visual editor (WebMan Advanced Metabox)?
+				// This is always tabbed.
+				'visual-wrapper' => false,
+			) );
 		}
 		*/
-
-
-
-
 
 	/**
 	 * ICON FONT
@@ -480,7 +406,7 @@
 		 */
 		function wmamp_iconfont_config_array() {
 
-			// Helper variables
+			// Variables
 
 				$icons = array();
 
@@ -488,14 +414,14 @@
 			// Processing
 
 				$icons['icon_class'] = array(
-						'class' => 'icon_class',
-						'char'  => 'character_used'
-					);
+					'class' => 'icon_class',
+					'char'  => 'character_used'
+				);
 
 				$icons['another_icon_class'] = array(
-						'class' => 'another_icon_class',
-						'char'  => 'another_character_used'
-					);
+					'class' => 'another_icon_class',
+					'char'  => 'another_character_used'
+				);
 
 				// ...
 

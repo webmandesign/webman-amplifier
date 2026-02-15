@@ -8,8 +8,7 @@
 		display: none;
 		font-weight: 600;
 
-		body.fl-builder-enabled &,
-		body.wm-visual-composer-on & {
+		body.fl-builder-enabled & {
 			display: block;
 			margin-top: 20px;
 		}
