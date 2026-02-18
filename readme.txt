@@ -7,7 +7,7 @@ Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 6.7
 Tested up to:      6.9
 Requires PHP:      8.0
-Stable tag:        1.6.0
+Stable tag:        1.6.1
 License:           GPL-3.0-or-later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              beaver builder, custom post types, icons, metabox, shortcodes
@@ -99,6 +99,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 
 == Upgrade Notice ==
+
+= 1.6.1 =
+Allowing `iframe` tag in shortcode output (for `[embed]` shortcode).
 
 = 1.6.0 =
 This is a significant plugin update! Improving security, code, removing obsolete functionality, fixing bugs. In case of issues, please contact WebMan Design support.

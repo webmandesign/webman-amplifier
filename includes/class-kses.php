@@ -5,7 +5,8 @@
  * @package    WebMan Amplifier
  * @copyright  WebMan Design, Oliver Juhas
  *
- * @since  1.6.0
+ * @since    1.6.0
+ * @version  1.6.1
  */
 
 // Exit if accessed directly.
@@ -31,7 +32,8 @@ class WMA_KSES {
 	 * No `break`s in the `switch` below as WordPress does not use them either.
 	 * @link  https://developer.wordpress.org/reference/functions/wp_kses_allowed_html/
 	 *
-	 * @since  1.6.0
+	 * @since    1.6.0
+	 * @version  1.6.1
 	 *
 	 * @param  array  $data
 	 * @param  string $context
@@ -66,6 +68,7 @@ class WMA_KSES {
 					$output = array_merge(
 						wp_kses_allowed_html( 'post' ),
 						self::get_tags_source(),
+						self::get_tags_iframe(),
 						self::get_tags_form()
 					);
 					break;
@@ -73,7 +76,8 @@ class WMA_KSES {
 				case self::$prefix . 'post':
 					$output = array_merge(
 						wp_kses_allowed_html( 'post' ),
-						self::get_tags_source()
+						self::get_tags_source(),
+						self::get_tags_iframe()
 					);
 					break;
 			}
@@ -272,6 +276,36 @@ class WMA_KSES {
 			);
 
 	} // /get_tags_source
+
+	/**
+	 * iFrame tag.
+	 *
+	 * @since  1.6.1
+	 *
+	 * @return  array
+	 */
+	public static function get_tags_iframe(): array {
+
+		// Output
+
+			return array(
+
+				// For embed media (`[embed]` shortcode).
+				'iframe' => array(
+					'allow'           => true,
+					'allowfullscreen' => true,
+					'height'          => true,
+					'loading'         => true,
+					'name'            => true,
+					'referrerpolicy'  => true,
+					'sandbox'         => true,
+					'src'             => true,
+					'srcdoc'          => true,
+					'width'           => true,
+				),
+			);
+
+	} // /get_tags_iframe
 
 	/**
 	 * Tag attributes.

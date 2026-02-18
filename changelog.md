@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.6.1, 20260218
+
+### Updated
+- Allowing `iframe` tag in shortcode output (for `[embed]` shortcode)
+
+### File updates
+	CHANGELOG.md
+	readme.txt
+	webman-amplifier.php
+	includes/class-kses.php
+
+
 ## 1.6.0, 20260215
 
 ### Added
