@@ -1,5 +1,19 @@
 # WebMan Amplifier Changelog
 
+## 1.6.2, 20260225
+
+### Fixed
+- Preventing custom posts type related PHP error
+
+### File updates
+	CHANGELOG.md
+	readme.txt
+	webman-amplifier.php
+	includes/custom-posts/projects.php
+	includes/custom-posts/staff.php
+	includes/custom-posts/testimonials.php
+
+
 ## 1.6.1, 20260218
 
 ### Updated

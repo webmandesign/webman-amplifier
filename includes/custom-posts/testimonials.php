@@ -8,7 +8,7 @@
  * @subpackage  Custom Posts
  *
  * @since    1.0
- * @version  1.6.0
+ * @version  1.6.2
  */
 
 // Exit if accessed directly.
@@ -255,7 +255,7 @@ defined( 'ABSPATH' ) || exit;
 	 * Create permalinks settings fields in WordPress admin
 	 *
 	 * @since    1.0
-	 * @version  1.6.0
+	 * @version  1.6.2
 	 */
 	if ( ! function_exists( 'wma_testimonials_cp_permalinks' ) ) {
 		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
@@ -263,9 +263,7 @@ defined( 'ABSPATH' ) || exit;
 
 			// Requirements check
 
-				$obj = get_post_type_object( 'wm_testimonials' );
-
-				if ( ! $obj->has_archive ) {
+				if ( empty( get_post_type_object( 'wm_testimonials' )->has_archive ) ) {
 					return;
 				}
 
