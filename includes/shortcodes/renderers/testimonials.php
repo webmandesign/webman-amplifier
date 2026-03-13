@@ -246,98 +246,98 @@ defined( 'ABSPATH' ) || exit;
 			$alt = '';
 			$row = $i = 0;
 
-		// Loop the posts
-		while ( $posts->have_posts() ) {
-			$posts->the_post();
+			// Loop the posts
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
 
-			$post_id = get_the_id();
+				$post_id = get_the_id();
 
-			// Row
-			if ( $row_condition ) {
-				$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
-				$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
-			}
+				// Row
+				if ( $row_condition ) {
+					$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
+					$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
+				}
 
-			// Setting up custom link
+				// Setting up custom link
 
-				$link = '';
-				$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
-
-				if ( $link_atts[0] ) {
-					$page_object = get_page_by_path( $link_atts[0] );
-					$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
-				} elseif ( $link_atts[1] ) {
-					$link = ' href="' . esc_url( $link_atts[1] ) . '"';
-				} else {
 					$link = '';
-				}
+					$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
 
-				if ( $link && $link_atts[2] ) {
-					$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
-				}
-
-			// Output the posts item
-
-				$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
-
-				if ( empty( $output_item ) ) {
-
-					$class_item  = '';
-
-					// Testimonial title (for accessibility)
-					$output_item .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text">' . get_the_title( $post_id ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
-
-					// Testimonial content
-					$output_item .= do_shortcode( '<blockquote class="wm-testimonials-element wm-html-element content">' . wpautop( preg_replace( '/<(\/?)blockquote(.*?)>/', '', get_the_content() ) ) . '</blockquote>' );
-
-					// Testimonial author
-					if ( trim( wma_meta_option( 'author', $post_id ) ) ) {
-						$output_item .= '<cite class="wm-testimonials-element wm-html-element source">';
-							$output_item .= ( $link ) ? ( '<a' . $link . '>' ) : ( '' );
-								$output_item .= ( has_post_thumbnail( $post_id ) ) ? ( '<span class="wm-testimonials-element wm-html-element image image-container">' . get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) . '</span>' ) : ( '' );
-								$output_item .= '<span class="wm-testimonials-element wm-html-element author">' . do_shortcode( strip_tags( wma_meta_option( 'author', $post_id ), '<a><em><i><img><mark><small><strong>' ) ) . '</span>';
-							$output_item .= ( $link ) ? ( '</a>' ) : ( '' );
-						$output_item .= '</cite>';
+					if ( $link_atts[0] ) {
+						$page_object = get_page_by_path( $link_atts[0] );
+						$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
+					} elseif ( $link_atts[1] ) {
+						$link = ' href="' . esc_url( $link_atts[1] ) . '"';
+					} else {
+						$link = '';
 					}
 
-					// Filter the posts item html output
-					$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
+					if ( $link && $link_atts[2] ) {
+						$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
+					}
 
-					// Posts single item output
+				// Output the posts item
 
-						$class_item .= 'wm-testimonials-item wm-testimonials-item-' . $post_id;
+					$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output_pre', '', $post_id, $atts );
 
-						if ( ! $atts['testimonial'] ) {
-							$class_item .= ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt;
+					if ( empty( $output_item ) ) {
+
+						$class_item  = '';
+
+						// Testimonial title (for accessibility)
+						$output_item .= '<' . tag_escape( $atts['heading_tag'] ) . ' class="screen-reader-text">' . get_the_title( $post_id ) . '</' . tag_escape( $atts['heading_tag'] ) . '>';
+
+						// Testimonial content
+						$output_item .= do_shortcode( '<blockquote class="wm-testimonials-element wm-html-element content">' . wpautop( preg_replace( '/<(\/?)blockquote(.*?)>/', '', get_the_content() ) ) . '</blockquote>' );
+
+						// Testimonial author
+						if ( trim( wma_meta_option( 'author', $post_id ) ) ) {
+							$output_item .= '<cite class="wm-testimonials-element wm-html-element source">';
+								$output_item .= ( $link ) ? ( '<a' . $link . '>' ) : ( '' );
+									$output_item .= ( has_post_thumbnail( $post_id ) ) ? ( '<span class="wm-testimonials-element wm-html-element image image-container">' . get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) . '</span>' ) : ( '' );
+									$output_item .= '<span class="wm-testimonials-element wm-html-element author">' . do_shortcode( strip_tags( wma_meta_option( 'author', $post_id ), '<a><em><i><img><mark><small><strong>' ) ) . '</span>';
+								$output_item .= ( $link ) ? ( '</a>' ) : ( '' );
+							$output_item .= '</cite>';
 						}
 
-						if (
-							! $atts['testimonial']
-							&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
-							&& ! $atts['scroll']
-							&& ! $masonry_layout
-							&& ( $i % $atts['columns'] === 0 )
-						) {
-							$class_item .= ' last';
-						}
+						// Filter the posts item html output
+						$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
 
-						$terms = get_the_terms( $post_id, 'testimonial_category' );
+						// Posts single item output
 
-						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-							foreach( $terms as $term ) {
-								$class_item .= ' testimonial_category-' . $term->slug;
+							$class_item .= 'wm-testimonials-item wm-testimonials-item-' . $post_id;
+
+							if ( ! $atts['testimonial'] ) {
+								$class_item .= ' wm-column width-1-' . $atts['columns'] . $atts['no_margin'] . $alt;
 							}
-						}
 
-						$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
+							if (
+								! $atts['testimonial']
+								&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
+								&& ! $atts['scroll']
+								&& ! $masonry_layout
+								&& ( $i % $atts['columns'] === 0 )
+							) {
+								$class_item .= ' last';
+							}
 
-						$output_item = '<article class="' . esc_attr( $class_item ) . '">' . $output_item . '</article>';
-				}
+							$terms = get_the_terms( $post_id, 'testimonial_category' );
 
-			$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $class_item, $post_id, $atts );
+							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+								foreach( $terms as $term ) {
+									$class_item .= ' testimonial_category-' . $term->slug;
+								}
+							}
 
-			$alt = ( $alt ) ? ( '' ) : ( ' alt' );
-		}
+							$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
+
+							$output_item = '<article class="' . esc_attr( $class_item ) . '">' . $output_item . '</article>';
+					}
+
+				$output .= apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_output', $output_item, $class_item, $post_id, $atts );
+
+				$alt = ( $alt ) ? ( '' ) : ( ' alt' );
+			}
 
 			// Row
 			$output .= ( $row_condition ) ? ( '</div>' ) : ( '' );

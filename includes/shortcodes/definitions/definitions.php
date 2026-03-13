@@ -26,18 +26,18 @@ defined( 'ABSPATH' ) || exit;
  * 		'generator' => array(
  * 			'name'  => (string),
  * 			'code'  => (string),
- * 			'short' => (boolean), // Available in simplified, short Shortcode Generator?
+ * 			'short' => (bool), // Available in simplified, short Shortcode Generator?
  * 		),
  *
  * 		// Preprocessing needed?
- * 		'preprocess' => (boolean),
+ * 		'preprocess' => (bool),
  *
  * 		// Post type required for the shortcode
  * 		'post_type_required' => (string),
  *
  * 		// Overrides the default shortcode prefix when registering shortcode with WordPress.
  * 		// IMPORTANT: Set this only when really required!
- * 		'custom_prefix' => (mixed: boolean/string),
+ * 		'custom_prefix' => (mixed: bool/string),
  *
  * 		// Alias: overrides shortcode default rendering functionality
  *   	'renderer' => array(

@@ -1,5 +1,17 @@
 # WebMan Amplifier Changelog
 
+## 1.6.3, 20260313
+
+### Fixed
+- Displaying full posts when pagination is enabled for shortcodes
+
+### File updates
+	CHANGELOG.md
+	readme.txt
+	webman-amplifier.php
+	includes/functions.php
+
+
 ## 1.6.2, 20260225
 
 ### Fixed

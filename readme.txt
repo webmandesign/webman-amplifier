@@ -5,9 +5,9 @@ Donate link:       https://www.webmandesign.eu/contact/#donation
 Author URI:        https://www.webmandesign.eu
 Plugin URI:        https://github.com/webmandesign/webman-amplifier
 Requires at least: 6.7
-Tested up to:      6.9
+Tested up to:      7.0
 Requires PHP:      8.0
-Stable tag:        1.6.2
+Stable tag:        1.6.3
 License:           GPL-3.0-or-later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              beaver builder, custom post types, icons, metabox, shortcodes
@@ -99,6 +99,9 @@ Please see the [`changelog.md` file](https://github.com/webmandesign/webman-ampl
 
 
 == Upgrade Notice ==
+
+= 1.6.3 =
+Fixing displaying full posts when pagination is enabled for shortcodes.
 
 = 1.6.2 =
 Preventing custom posts type related PHP error.

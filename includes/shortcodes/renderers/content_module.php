@@ -336,164 +336,164 @@ defined( 'ABSPATH' ) || exit;
 			$alt = '';
 			$row = $i = 0;
 
-		// Loop the posts
-		while ( $posts->have_posts() ) {
-			$posts->the_post();
+			// Loop the posts
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
 
-			$post_id = get_the_id();
+				$post_id = get_the_id();
 
-			// Row
-			if ( $row_condition ) {
-				$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
-				$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
-			}
-
-			// Setting up layout elements HTML
-
-				$link      = '';
-				$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
-
-				if ( $link_atts[0] ) {
-					$page_object = get_page_by_path( $link_atts[0] );
-					$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
-				} elseif ( $link_atts[1] ) {
-					$link = ' href="' . esc_url( $link_atts[1] ) . '"';
-				} else {
-					$link = '';
+				// Row
+				if ( $row_condition ) {
+					$row     = ( ++$i % $atts['columns'] === 1 ) ? ( $row + 1 ) : ( $row );
+					$output .= ( $i % $atts['columns'] === 1 && 1 < $row ) ? ( '</div><div class="wm-row">' ) : ( '' );
 				}
 
-				if ( $link && $link_atts[2] ) {
-					$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
-				}
+				// Setting up layout elements HTML
 
-				$helpers = array(
-					'link' => $link,
-					'tag'  => ( isset( $atts['layout']['tag'] ) ) ? ( 'module_tag' ) : ( '' ),
-				);
-				$helpers = apply_filters( 'wmhook_shortcode_' . $shortcode . '_layout_elements_helpers', $helpers, $post_id, $atts );
+					$link      = '';
+					$link_atts = array( wma_meta_option( 'link-page', $post_id ), wma_meta_option( 'link', $post_id ), wma_meta_option( 'link-action', $post_id ) );
 
-				$layout_elements = array(
-					'content'  => do_shortcode( '<div class="wm-content-module-element wm-html-element content">' . wpautop( get_the_content() ) . '</div>' ),
-					'image'    => '',
-					/* translators: %s: post title. */
-					'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . ' aria-label="' . esc_attr( sprintf( __( 'Read more about "%s"', 'webman-amplifier' ), get_the_title() ) ) . '">' . esc_html( apply_filters( 'wmhook_shortcode_read_more_text', __( 'Read more &raquo;', 'webman-amplifier' ), $shortcode, $post_id, $atts ) ) . '</a></div>' ) : ( '' ),
-					'tag'      => '',
-					'title'    => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></div>' ) : ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></div>' ),
-				);
-
-				// image layout element
-				$image = ( has_post_thumbnail( $post_id ) ) ? ( get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) ) : ( '' );
-
-				$icon = array(
-					'box'              => wma_meta_option( 'icon-box', $post_id ),
-					'font'             => wma_meta_option( 'icon-font', $post_id ),
-					'color'            => wma_meta_option( 'icon-color', $post_id ),
-					'color-background' => wma_meta_option( 'icon-color-background', $post_id ),
-				);
-
-				$image_class     = ' featured-image';
-				$style_icon      = ( $icon['color'] ) ? ( ' style="color: ' . esc_attr( $icon['color'] ) . '"' ) : ( '' );
-				$style_container = ( $icon['color-background'] ) ? ( ' style="background-color: ' . esc_attr( $icon['color-background'] ) . '"' ) : ( '' );
-
-				if ( $icon['box'] && $icon['font'] ) {
-					$image        = '<span class="' . esc_attr( $icon['font'] ) . '" aria-hidden="true"' . $style_icon . '></span>';
-					$image       .= '<span class="screen-reader-text">' . get_the_title() . '</span>'; // Accessibility: preventing empty link.
-					$image_class  = ' font-icon';
-				}
-
-				if ( $image && $helpers['link'] ) {
-					$image = '<a' .  $helpers['link'] . '>' . $image . '</a>';
-				}
-
-				if ( $image ) {
-					$layout_elements['image'] = '<div class="wm-content-module-element wm-html-element image image-container' . esc_attr( $image_class ) . '"' . $style_container . '>' . $image . '</div>';
-				}
-
-				// tag layout element
-				if ( $helpers['tag'] ) {
-
-					$terms       = get_the_terms( $post_id, $helpers['tag'] );
-					$terms_array = array();
-
-					if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-
-						foreach( $terms as $term ) {
-							$terms_array[] = '<span class="term term-' . esc_attr( sanitize_html_class( $term->slug ) ) . '">' . $term->name . '</span>';
-						}
-
-						$layout_elements['tag'] = '<div class="wm-content-module-element wm-html-element tag">' . implode( ', ', $terms_array ) . '</div>' ;
-					}
-				}
-
-				// filter the elements html
-				$layout_elements = apply_filters( 'wmhook_shortcode_' . $shortcode . '_layout_elements', $layout_elements, $post_id, $helpers, $atts );
-
-			// Output the posts item
-
-				$output_item = $class_item = '';
-
-				foreach ( array_keys( $atts['layout'] ) as $layout_element ) {
-					if ( isset( $layout_elements[$layout_element] ) ) {
-						$output_item .= $layout_elements[$layout_element];
-					}
-				}
-
-				// filter the posts item html output
-				$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
-
-				// posts single item output
-
-					$class_item .= 'wm-content-module-item wm-content-module-item-' . $post_id;
-
-					if ( $icon['box'] ) {
-						$class_item .= ' wm-iconbox-module';
+					if ( $link_atts[0] ) {
+						$page_object = get_page_by_path( $link_atts[0] );
+						$link = ( $page_object ) ? ( ' href="' . esc_url( get_permalink( $page_object->ID ) ) . '"' ) : ( '#' );
+					} elseif ( $link_atts[1] ) {
+						$link = ' href="' . esc_url( $link_atts[1] ) . '"';
+					} else {
+						$link = '';
 					}
 
-					if ( $icon['color'] ) {
-						$class_item .= ' has-color';
+					if ( $link && $link_atts[2] ) {
+						$link .= ( in_array( $link_atts[2], array( '_self', '_blank' ) ) ) ? ( ' target="' . esc_attr( $link_atts[2] ) . '"' ) : ( ' data-target="' . esc_attr( $link_atts[2] ) . '"' );
 					}
 
-					if ( $icon['color-background'] ) {
-						$class_item .= ' has-background';
+					$helpers = array(
+						'link' => $link,
+						'tag'  => ( isset( $atts['layout']['tag'] ) ) ? ( 'module_tag' ) : ( '' ),
+					);
+					$helpers = apply_filters( 'wmhook_shortcode_' . $shortcode . '_layout_elements_helpers', $helpers, $post_id, $atts );
+
+					$layout_elements = array(
+						'content'  => do_shortcode( '<div class="wm-content-module-element wm-html-element content">' . wpautop( get_the_content() ) . '</div>' ),
+						'image'    => '',
+						/* translators: %s: post title. */
+						'morelink' => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element more-link"><a' . $helpers['link'] . ' aria-label="' . esc_attr( sprintf( __( 'Read more about "%s"', 'webman-amplifier' ), get_the_title() ) ) . '">' . esc_html( apply_filters( 'wmhook_shortcode_read_more_text', __( 'Read more &raquo;', 'webman-amplifier' ), $shortcode, $post_id, $atts ) ) . '</a></div>' ) : ( '' ),
+						'tag'      => '',
+						'title'    => ( $helpers['link'] ) ? ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '><a' . $helpers['link'] . '>' . get_the_title() . '</a></' . tag_escape( $atts['heading_tag'] ) . '></div>' ) : ( '<div class="wm-content-module-element wm-html-element title"><' . tag_escape( $atts['heading_tag'] ) . '>' . get_the_title() . '</' . tag_escape( $atts['heading_tag'] ) . '></div>' ),
+					);
+
+					// image layout element
+					$image = ( has_post_thumbnail( $post_id ) ) ? ( get_the_post_thumbnail( $post_id, $image_size, array( 'title' => esc_attr( get_the_title( get_post_thumbnail_id( $post_id ) ) ) ) ) ) : ( '' );
+
+					$icon = array(
+						'box'              => wma_meta_option( 'icon-box', $post_id ),
+						'font'             => wma_meta_option( 'icon-font', $post_id ),
+						'color'            => wma_meta_option( 'icon-color', $post_id ),
+						'color-background' => wma_meta_option( 'icon-color-background', $post_id ),
+					);
+
+					$image_class     = ' featured-image';
+					$style_icon      = ( $icon['color'] ) ? ( ' style="color: ' . esc_attr( $icon['color'] ) . '"' ) : ( '' );
+					$style_container = ( $icon['color-background'] ) ? ( ' style="background-color: ' . esc_attr( $icon['color-background'] ) . '"' ) : ( '' );
+
+					if ( $icon['box'] && $icon['font'] ) {
+						$image        = '<span class="' . esc_attr( $icon['font'] ) . '" aria-hidden="true"' . $style_icon . '></span>';
+						$image       .= '<span class="screen-reader-text">' . get_the_title() . '</span>'; // Accessibility: preventing empty link.
+						$image_class  = ' font-icon';
 					}
 
-					if ( has_post_thumbnail( $post_id ) ) {
-						$class_item .= ' has-post-thumbnail';
+					if ( $image && $helpers['link'] ) {
+						$image = '<a' .  $helpers['link'] . '>' . $image . '</a>';
 					}
 
-					if ( ! $atts['module'] ) {
-						$class_item .= ' wm-column width-1-' . esc_attr( $atts['columns'] . $atts['no_margin'] . $alt );
+					if ( $image ) {
+						$layout_elements['image'] = '<div class="wm-content-module-element wm-html-element image image-container' . esc_attr( $image_class ) . '"' . $style_container . '>' . $image . '</div>';
 					}
 
-					if (
-						! $atts['module']
-						&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
-						&& ! $atts['filter']
-						&& ! $atts['scroll']
-						&& ! $masonry_layout
-						&& ( $i % $atts['columns'] === 0 )
-					) {
-						$class_item .= ' last';
-					}
+					// tag layout element
+					if ( $helpers['tag'] ) {
 
-					if ( $atts['filter'] && $filter_settings ) {
-
-						$terms = get_the_terms( $post_id, $filter_settings );
+						$terms       = get_the_terms( $post_id, $helpers['tag'] );
+						$terms_array = array();
 
 						if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+
 							foreach( $terms as $term ) {
-								$class_item .= ' ' . $filter_settings . '-' . $term->slug;
+								$terms_array[] = '<span class="term term-' . esc_attr( sanitize_html_class( $term->slug ) ) . '">' . $term->name . '</span>';
 							}
+
+							$layout_elements['tag'] = '<div class="wm-content-module-element wm-html-element tag">' . implode( ', ', $terms_array ) . '</div>' ;
 						}
 					}
 
-					$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
-					$output_item = '<div class="' . esc_attr( $class_item ) . '">' . $output_item . '</div>';
+					// filter the elements html
+					$layout_elements = apply_filters( 'wmhook_shortcode_' . $shortcode . '_layout_elements', $layout_elements, $post_id, $helpers, $atts );
 
-			$output .= $output_item;
+				// Output the posts item
 
-			$alt = ( $alt ) ? ( '' ) : ( ' alt' );
-		}
+					$output_item = $class_item = '';
+
+					foreach ( array_keys( $atts['layout'] ) as $layout_element ) {
+						if ( isset( $layout_elements[$layout_element] ) ) {
+							$output_item .= $layout_elements[$layout_element];
+						}
+					}
+
+					// filter the posts item html output
+					$output_item = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_html', $output_item, $post_id, $atts );
+
+					// posts single item output
+
+						$class_item .= 'wm-content-module-item wm-content-module-item-' . $post_id;
+
+						if ( $icon['box'] ) {
+							$class_item .= ' wm-iconbox-module';
+						}
+
+						if ( $icon['color'] ) {
+							$class_item .= ' has-color';
+						}
+
+						if ( $icon['color-background'] ) {
+							$class_item .= ' has-background';
+						}
+
+						if ( has_post_thumbnail( $post_id ) ) {
+							$class_item .= ' has-post-thumbnail';
+						}
+
+						if ( ! $atts['module'] ) {
+							$class_item .= ' wm-column width-1-' . esc_attr( $atts['columns'] . $atts['no_margin'] . $alt );
+						}
+
+						if (
+							! $atts['module']
+							&& ( ! $atts['no_margin'] || ' with-margin' === $atts['no_margin'] )
+							&& ! $atts['filter']
+							&& ! $atts['scroll']
+							&& ! $masonry_layout
+							&& ( $i % $atts['columns'] === 0 )
+						) {
+							$class_item .= ' last';
+						}
+
+						if ( $atts['filter'] && $filter_settings ) {
+
+							$terms = get_the_terms( $post_id, $filter_settings );
+
+							if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+								foreach( $terms as $term ) {
+									$class_item .= ' ' . $filter_settings . '-' . $term->slug;
+								}
+							}
+						}
+
+						$class_item  = apply_filters( 'wmhook_shortcode_' . $shortcode . '_item_class', $class_item, $post_id, $atts );
+						$output_item = '<div class="' . esc_attr( $class_item ) . '">' . $output_item . '</div>';
+
+				$output .= $output_item;
+
+				$alt = ( $alt ) ? ( '' ) : ( ' alt' );
+			}
 
 			// Row
 			$output .= ( $row_condition ) ? ( '</div>' ) : ( '' );

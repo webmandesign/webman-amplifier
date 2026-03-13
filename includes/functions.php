@@ -5,7 +5,7 @@
  * @package  WebMan Amplifier
  *
  * @since    1.0
- * @version  1.6.0
+ * @version  1.6.3
  */
 
 // Exit if accessed directly.
@@ -823,10 +823,10 @@ if ( ! function_exists( 'wma_shortcode_custom_atts' ) ) {
 /**
  * Pagination
  *
- * Supports WP-PageNavi plugin (@link http://wordpress.org/plugins/wp-pagenavi/).
+ * Supports WP-PageNavi plugin (@link  https://wordpress.org/plugins/wp-pagenavi/).
  *
  * @since    1.0
- * @version  1.6.0
+ * @version  1.6.3
  *
  * @param  array $atts Setup attributes.
  *
@@ -836,23 +836,29 @@ if ( ! function_exists( 'wma_pagination' ) ) {
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- prefixed with "wma"
 	function wma_pagination( array $atts = array() ) {
 
-		// Set default setting attributes
+		// Variables
 
-			$atts = wp_parse_args( $atts, apply_filters( 'wmhook_wmamp_wma_pagination_atts_defaults', array(
-				'after_output'   => '</div>',
-				'before_output'  => '<div class="wm-pagination">',
-				'echo'           => true,
-				'label_next'     => '&raquo;',
-				'label_previous' => '&laquo;',
-				'query'          => null,
-			) ) );
+			$atts = wp_parse_args(
+				$atts,
+				apply_filters( 'wmhook_wmamp_wma_pagination_atts_defaults', array(
+					'after_output'   => '</div>',
+					'before_output'  => '<div class="wm-pagination">',
+					'echo'           => true,
+					'label_next'     => '&raquo;',
+					'label_previous' => '&laquo;',
+					'query'          => null,
+				) )
+			);
 
 			$atts = (array) apply_filters( 'wmhook_wmamp_wma_pagination_atts', $atts );
 
-		// WP-PageNavi plugin support (http://wordpress.org/plugins/wp-pagenavi/)
-		if ( function_exists( 'wp_pagenavi' ) ) {
+			$output = '';
 
-			// Set up WP-PageNavi attributes
+
+		// Processing
+
+			// Check for WP-PageNavi plugin support first.
+			if ( function_exists( 'wp_pagenavi' ) ) {
 
 				$atts_pagenavi = array(
 					'echo'    => false,
@@ -868,46 +874,47 @@ if ( ! function_exists( 'wma_pagination' ) ) {
 
 				$atts_pagenavi = apply_filters( 'wmhook_wmamp_wma_pagination_wppagenavi_atts', $atts_pagenavi, $atts );
 
+				$output = wp_pagenavi( $atts_pagenavi );
 
-			// Output
+			} else {
+			// If no WP-PageNavi plugin used, output our own pagination (using WordPress native paginate_links() function).
 
-				$output = (string) apply_filters( 'wmhook_wmamp_wma_pagination_output', $atts['before_output'] . wp_pagenavi( $atts_pagenavi ) . $atts['after_output'], $atts );
+				global $wp_query, $wp_rewrite;
 
-				if ( $atts['echo'] ) {
-					echo wp_kses_post( $output );
-					return;
-				} else {
-					return $output;
+				if ( $atts['query'] ) {
+					/**
+					 * Unfortunately, we need to override WordPress `$wp_query` global variable
+					 * temporarily, as it is used in `paginate_links()`.
+					 * But we are resetting it back below!
+					 */
+					$wp_query = $atts['query'];
 				}
-		}
 
-		// If no WP-PageNavi plugin used, output our own pagination (using WordPress native paginate_links() function)
+				if ( 1 < $wp_query->max_num_pages ) {
+					$output = paginate_links( array(
+						'prev_text' => $atts['label_previous'],
+						'next_text' => $atts['label_next'],
+					) );
+				}
 
-			global $wp_query, $wp_rewrite;
-
-			// Override global WordPress query if custom used
-			if ( $atts['query'] ) {
-				$wp_query = $atts['query'];
+				if ( $atts['query'] ) {
+					wp_reset_query();
+				}
 			}
 
-			// WordPress pagination settings
-			$pagination = array(
-				'prev_text' => $atts['label_previous'],
-				'next_text' => $atts['label_next'],
-			);
+			if ( ! empty( $output ) ) {
+				$output = $atts['before_output'] . $output . $atts['after_output'];
+			}
+
+			$output = (string) apply_filters( 'wmhook_wmamp_wma_pagination_output', (string) $output, $atts );
 
 
 		// Output
 
-			if ( 1 < $wp_query->max_num_pages ) {
-
-				$output = (string) apply_filters( 'wmhook_wmamp_wma_pagination_output', $atts['before_output'] . paginate_links( $pagination ) . $atts['after_output'], $atts );
-
-				if ( $atts['echo'] ) {
-					echo wp_kses_post( $output );
-				} else {
-					return $output;
-				}
+			if ( $atts['echo'] ) {
+				echo wp_kses_post( $output );
+			} else {
+				return $output;
 			}
 	}
 } // /wma_pagination
